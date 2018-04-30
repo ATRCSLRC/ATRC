@@ -1,0 +1,245 @@
+﻿<error errorId="d9b44790-82f9-485f-81fc-ba35d9361aac" application="/LM/W3SVC/2/ROOT" host="SISTEMAS-PC" type="System.NullReferenceException" message="Referencia a objeto no establecida como instancia de un objeto." source="DevExpress.Xpo.v17.2" detail="System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.&#xD;&#xA;   en DevExpress.Xpo.XPCollection`1..ctor(Session session, CriteriaOperator theCriteria, SortProperty[] sortProperties)&#xD;&#xA;   en ATRCWEB.Checador.HistoricoChecadas.grdChecadas_DataBinding(Object sender, EventArgs e) en D:\Users\ATRC\Documents\ATRC\ATRCWEB\ATRCWEB\Checador\HistoricoChecadas.aspx.cs:línea 37&#xD;&#xA;   en System.Web.UI.Control.OnDataBinding(EventArgs e)&#xD;&#xA;   en DevExpress.Web.Internal.DataHelper.PerformSelect()&#xD;&#xA;   en DevExpress.Web.Internal.GridDataHelper.PerformSelect()&#xD;&#xA;   en DevExpress.Web.ASPxDataWebControlBase.PerformSelect(String dataHelperName)&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.DataBindNoControls()&#xD;&#xA;   en DevExpress.Web.Data.WebDataProxy.DoOwnerDataBinding()&#xD;&#xA;   en DevExpress.Web.Data.WebDataProxy.EnsureRowDataIsBound(Int32 visibleIndex)&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.FBGetRowValues(String[] args)&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.GetFunctionalCallbackResultCore()&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.GetCallbackResultCore()&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.GetCallbackResultHtml()&#xD;&#xA;   en DevExpress.Web.ASPxGridBase.GetCallbackResult()&#xD;&#xA;   en DevExpress.Web.ASPxWebControl.System.Web.UI.ICallbackEventHandler.GetCallbackResult()" user="Fimbres Morales Ivan" time="2018-04-25T20:37:23.6243765Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:5869&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-419,es;q=0.9&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=3cyu1hkbncp5bvwv1ivuvnrj; .ASPXAUTH=E1D267CA8BD716B0AEE91D5065F0B98DBFE68D68563E521D0FEA2C64509CC45EA9700B67E252F33184411A0DBC0BB6AE0A46AA5EC2D6CEF3287506FE6C7F1C3E7139D4BFE017DC441EA1D2709B24F3295AE4B1E5217368FF6132AD092EC41ADFE0EB74055FC52315CA4503A80C551CDC7ADF700374F3EFE0D351AD2CD6222948&#xD;&#xA;HTTP_HOST:localhost:2828&#xD;&#xA;HTTP_REFERER:http://localhost:2828/Checador/HistoricoChecadas.aspx&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:2828&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 5869&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-419,es;q=0.9&#xD;&#xA;Cookie: ASP.NET_SessionId=3cyu1hkbncp5bvwv1ivuvnrj; .ASPXAUTH=E1D267CA8BD716B0AEE91D5065F0B98DBFE68D68563E521D0FEA2C64509CC45EA9700B67E252F33184411A0DBC0BB6AE0A46AA5EC2D6CEF3287506FE6C7F1C3E7139D4BFE017DC441EA1D2709B24F3295AE4B1E5217368FF6132AD092EC41ADFE0EB74055FC52315CA4503A80C551CDC7ADF700374F3EFE0D351AD2CD6222948&#xD;&#xA;Host: localhost:2828&#xD;&#xA;Referer: http://localhost:2828/Checador/HistoricoChecadas.aspx&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36&#xD;&#xA;Origin: http://localhost:2828&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Users\ATRC\Documents\ATRC\ATRCWEB\ATRCWEB\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="Fimbres Morales Ivan" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="Fimbres Morales Ivan" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="Fimbres Morales Ivan" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="5869" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Checador/HistoricoChecadas.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Users\ATRC\Documents\ATRC\ATRCWEB\ATRCWEB\Checador\HistoricoChecadas.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="10627" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Checador/HistoricoChecadas.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="2828" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Checador/HistoricoChecadas.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="5869" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-419,es;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=3cyu1hkbncp5bvwv1ivuvnrj; .ASPXAUTH=E1D267CA8BD716B0AEE91D5065F0B98DBFE68D68563E521D0FEA2C64509CC45EA9700B67E252F33184411A0DBC0BB6AE0A46AA5EC2D6CEF3287506FE6C7F1C3E7139D4BFE017DC441EA1D2709B24F3295AE4B1E5217368FF6132AD092EC41ADFE0EB74055FC52315CA4503A80C551CDC7ADF700374F3EFE0D351AD2CD6222948" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:2828" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:2828/Checador/HistoricoChecadas.aspx" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:2828" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__EVENTTARGET">
+      <value string="" />
+    </item>
+    <item name="__EVENTARGUMENT">
+      <value string="" />
+    </item>
+    <item name="__VIEWSTATE">
+      <value string="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" />
+    </item>
+    <item name="__VIEWSTATEGENERATOR">
+      <value string="9330F017" />
+    </item>
+    <item name="ctl00$Content$dteDel$State">
+      <value string="{&amp;quot;rawValue&amp;quot;:&amp;quot;1524663331201.84&amp;quot;,&amp;quot;validationState&amp;quot;:&amp;quot;&amp;quot;}" />
+    </item>
+    <item name="ctl00$Content$dteDel">
+      <value string="miércoles, 25 de abril de 2018" />
+    </item>
+    <item name="ctl00$Content$dteDel$C">
+      <value string="{&amp;quot;visibleDate&amp;quot;:&amp;quot;04/25/2018&amp;quot;,&amp;quot;initialVisibleDate&amp;quot;:&amp;quot;04/25/2018&amp;quot;,&amp;quot;selectedDates&amp;quot;:[&amp;quot;04/25/2018&amp;quot;]}" />
+    </item>
+    <item name="ctl00$Content$dteAl$State">
+      <value string="{&amp;quot;rawValue&amp;quot;:&amp;quot;1524663331201.84&amp;quot;,&amp;quot;validationState&amp;quot;:&amp;quot;&amp;quot;}" />
+    </item>
+    <item name="ctl00$Content$dteAl">
+      <value string="miércoles, 25 de abril de 2018" />
+    </item>
+    <item name="ctl00$Content$dteAl$C">
+      <value string="{&amp;quot;visibleDate&amp;quot;:&amp;quot;04/25/2018&amp;quot;,&amp;quot;initialVisibleDate&amp;quot;:&amp;quot;04/25/2018&amp;quot;,&amp;quot;selectedDates&amp;quot;:[&amp;quot;04/25/2018&amp;quot;]}" />
+    </item>
+    <item name="ctl00$Content$rblTipoBusqueda$RB0">
+      <value string="C" />
+    </item>
+    <item name="ctl00$Content$rblTipoBusqueda$RB1">
+      <value string="U" />
+    </item>
+    <item name="ctl00$Content$rblTipoBusqueda">
+      <value string="0" />
+    </item>
+    <item name="ctl00$Content$cmbUsuario">
+      <value string="" />
+    </item>
+    <item name="ctl00$Content$cmbUsuario$L$State">
+      <value string="{&amp;quot;CustomCallback&amp;quot;:&amp;quot;&amp;quot;}" />
+    </item>
+    <item name="ctl00$Content$cmbUsuario$L">
+      <value string="" />
+    </item>
+    <item name="Content_cmbUsuario_VI">
+      <value string="" />
+    </item>
+    <item name="ctl00$Content$grdChecadas">
+      <value string="{&amp;quot;selection&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;callbackState&amp;quot;:&amp;quot;Xsmec3CrQ7vNA1c5Kqr3EKam4d2K5fyM4Z/q9vbUSCRE3xGisJUlg7C8fsoVBc8UxwXZ860WlGad1OWoNVPCE6EWk1+h+d+rTi0ttCJNemhCEG9QvqtL3iphYspOIzYdMoIgwzoe6hEWCBe4Xkw4TM3/QxX5tpFhMoipJPsVx5CLBJwSmf/0s5KanIpxdKLvKn2pGbyzXV3Y6NESkmLXu9NwVFmP1xAUTpAW4a/QmWPjwrTl5LSvr4aaVrTdhQn4fIFiIwVyIJYDLFV5o9GR//PFiY+3XOdAFXatxZn+B37qdM9HuWbPpO8olg8Cdhd6tANx9OkQG78H1tIxoGBbV53qNDnsP2uaReBQwMgwllSAGm2zroG3d0CLdt2gDLBb0Y9B4xHwzRHMJHon/5pfuGoo/W1WHggUDd2fork8Vgeo40YN1rSOpBLDMNSXD6SxJQi501jBPxNVudI/VyKwkovQKaETauDb8tE5gvO9gV65Ll+HRZq7xtWXaaqVSdAD&amp;quot;,&amp;quot;groupLevelState&amp;quot;:{},&amp;quot;keys&amp;quot;:[],&amp;quot;focusedRow&amp;quot;:-1}" />
+    </item>
+    <item name="DXScript">
+      <value string="1_304,1_211,1_185,1_221,1_188,1_182,1_209,1_197,23_28,23_57,23_17,1_298,1_217,1_190,1_223,1_208,1_207,1_290,23_29,1_199,23_19,1_212,23_43,1_206,23_27,1_198,23_18,1_183,23_20,1_196,1_254,1_256,1_263,1_235,1_248,1_244,1_242,1_251,1_238,1_239,1_247,23_40,23_39,23_37,23_53,1_213,1_215,23_50" />
+    </item>
+    <item name="DXCss">
+      <value string="../Content/bootstrap.min.css,../Content/font-awesome.min.css,../Content/AdminLTE.min.css,../Content/skin-red-light.min.css,23_6,23_4" />
+    </item>
+    <item name="__CALLBACKID">
+      <value string="ctl00$Content$grdChecadas" />
+    </item>
+    <item name="__CALLBACKPARAM">
+      <value string="c0:KV|2;[];FR|2;-1;FB|1;0;GB|21;9|ROWVALUES2|-14|Oid;;" />
+    </item>
+    <item name="__EVENTVALIDATION">
+      <value string="8HYrrICjufJEbzmdyCIfqfpXlSBaYQrm2m5ESLb1KrEc1wHi17c6wZX6bQPzVD4ElN39cnGxaBQu9Iegx92IhHWgA7HQOai0Td2PnYx2BYPnur9YxjcmzVBzSq4apTlHqujJkhUwIqjTRylI7ozcrPxcaMYKwnkuvb2vpnhws5Ny2O9TklVgtiYYQ+1/G8DKyQ9Dxs5iDGl6b6gkeHXR9rIR2le55bPrdnAXucjWL2pHt8rxGblsyBDkh54BxQL+uoUNT3gLFet/1MvzZiCDAYWkRrfBeDdfbV4Gz/RGR8TMRlS5JJZdTF7yG3z9coTS+E8DhCQUqFXBXMGKcgdfZlreV5Jjbd2vmtyWRrxfzOtSDTduhqG4+WAJsSwJmAvbDnXK+WepzOMfrgT3rEHnutjPtitzHRDJ/QoombJ88fRX1PUDHzvXWwal6GDlDgHH2kuZDvHztbxuKCwTqY+m/HZDSsV9y+iNl1rXw6pu7fg=" />
+    </item>
+  </form>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="3cyu1hkbncp5bvwv1ivuvnrj" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="E1D267CA8BD716B0AEE91D5065F0B98DBFE68D68563E521D0FEA2C64509CC45EA9700B67E252F33184411A0DBC0BB6AE0A46AA5EC2D6CEF3287506FE6C7F1C3E7139D4BFE017DC441EA1D2709B24F3295AE4B1E5217368FF6132AD092EC41ADFE0EB74055FC52315CA4503A80C551CDC7ADF700374F3EFE0D351AD2CD6222948" />
+    </item>
+  </cookies>
+</error>
