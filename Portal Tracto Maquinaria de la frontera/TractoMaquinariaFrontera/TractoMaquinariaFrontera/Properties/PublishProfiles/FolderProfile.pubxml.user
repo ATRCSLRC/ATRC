@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Users\ATRC\Documents\ATRC\PublicacionPortal</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/de/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:26</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:24:15</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:33</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v17.2.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Images.v17.2.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Office.v17.2.Core.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Pdf.v17.2.Core.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Printing.v17.2.Core.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.RichEdit.v17.2.Core.dll">
+      <publishTime>01/23/2018 10:24:26</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxThemes.v17.2.dll">
+      <publishTime>01/23/2018 10:23:34</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Bootstrap.v17.2.dll">
+      <publishTime>01/23/2018 10:23:35</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Resources.v17.2.dll">
+      <publishTime>01/23/2018 10:24:15</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v17.2.dll">
+      <publishTime>01/23/2018 10:23:33</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>01/18/2018 22:40:47</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:08</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:26</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:24:15</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:33</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:08</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:26</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:24:15</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:33</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:45</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:07</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:08</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>01/23/2018 10:24:26</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:24:15</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>01/23/2018 10:23:33</publishTime>
+    </File>
+    <File Include="bin/TractoMaquinariaFrontera.dll">
+      <publishTime>03/21/2018 09:48:06</publishTime>
+    </File>
+    <File Include="bin/TractoMaquinariaFrontera.pdb">
+      <publishTime>03/21/2018 09:48:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>02/12/2018 16:27:07</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>02/12/2018 16:27:08</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>02/19/2018 13:01:13</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="css/lightbox/css/lightbox.css">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/lightbox/img/close.png">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/lightbox/img/loading.gif">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/lightbox/img/next.png">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/lightbox/img/prev.png">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/lightbox/js/lightbox.min.js">
+      <publishTime>05/02/2017 23:29:36</publishTime>
+    </File>
+    <File Include="css/owl.carousel.css">
+      <publishTime>11/22/2014 19:32:42</publishTime>
+    </File>
+    <File Include="css/owl.theme.css">
+      <publishTime>11/22/2014 19:32:42</publishTime>
+    </File>
+    <File Include="css/owl.transitions.css">
+      <publishTime>11/22/2014 19:32:42</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>02/20/2018 08:53:53</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>03/21/2018 09:44:27</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>11/22/2014 19:27:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>11/22/2014 19:25:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>11/22/2014 19:25:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>11/22/2014 19:25:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>11/22/2014 19:25:00</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/12/2018 16:27:06</publishTime>
+    </File>
+    <File Include="images/abs.jpg">
+      <publishTime>02/15/2018 16:46:46</publishTime>
+    </File>
+    <File Include="images/c2a.png">
+      <publishTime>02/07/2018 17:08:13</publishTime>
+    </File>
+    <File Include="images/funfact4.png">
+      <publishTime>02/07/2018 17:11:51</publishTime>
+    </File>
+    <File Include="images/hero-img9.jpg">
+      <publishTime>02/13/2018 12:33:08</publishTime>
+    </File>
+    <File Include="images/llanta.jpg">
+      <publishTime>02/15/2018 16:58:00</publishTime>
+    </File>
+    <File Include="images/subscribe2.png">
+      <publishTime>08/10/2015 11:42:28</publishTime>
+    </File>
+    <File Include="images/testimonials.png">
+      <publishTime>02/15/2018 12:23:19</publishTime>
+    </File>
+    <File Include="images/testimonials2.png">
+      <publishTime>08/10/2015 11:41:50</publishTime>
+    </File>
+    <File Include="images/testimonials_.png">
+      <publishTime>08/10/2015 11:42:08</publishTime>
+    </File>
+    <File Include="images/title-top%402x.png">
+      <publishTime>12/20/2014 14:58:00</publishTime>
+    </File>
+    <File Include="images/title-top.png">
+      <publishTime>02/17/2018 10:12:48</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>11/22/2014 19:25:00</publishTime>
+    </File>
+    <File Include="js/html5shiv.min.js">
+      <publishTime>11/22/2014 19:47:16</publishTime>
+    </File>
+    <File Include="js/jquery.ajaxchimp.min.js">
+      <publishTime>10/16/2014 12:49:28</publishTime>
+    </File>
+    <File Include="js/jquery.appear.js">
+      <publishTime>12/21/2014 01:54:00</publishTime>
+    </File>
+    <File Include="js/jquery.countTo.js">
+      <publishTime>08/15/2014 19:15:30</publishTime>
+    </File>
+    <File Include="js/jquery.easing.min.js">
+      <publishTime>12/06/2014 18:11:18</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>07/16/2014 15:38:10</publishTime>
+    </File>
+    <File Include="js/jquery.nicescroll.min.js">
+      <publishTime>11/23/2014 10:04:36</publishTime>
+    </File>
+    <File Include="js/jquery.shuffle.js">
+      <publishTime>11/22/2014 19:31:50</publishTime>
+    </File>
+    <File Include="js/jquery.shuffle.modernizr.js">
+      <publishTime>11/22/2014 19:31:50</publishTime>
+    </File>
+    <File Include="js/jquery.stellar.js">
+      <publishTime>11/23/2014 10:05:18</publishTime>
+    </File>
+    <File Include="js/jquery.stellar.min.js">
+      <publishTime>11/23/2014 10:05:18</publishTime>
+    </File>
+    <File Include="js/owl.carousel.js">
+      <publishTime>01/16/2015 16:14:08</publishTime>
+    </File>
+    <File Include="js/owl.carousel.min.js">
+      <publishTime>11/22/2014 19:32:42</publishTime>
+    </File>
+    <File Include="js/respond.min.js">
+      <publishTime>11/22/2014 19:47:50</publishTime>
+    </File>
+    <File Include="js/script.js">
+      <publishTime>02/16/2018 17:31:30</publishTime>
+    </File>
+    <File Include="photos/about.jpg">
+      <publishTime>02/14/2018 08:42:58</publishTime>
+    </File>
+    <File Include="photos/author.jpg">
+      <publishTime>08/10/2015 11:37:54</publishTime>
+    </File>
+    <File Include="photos/bm.png">
+      <publishTime>08/23/2014 14:23:44</publishTime>
+    </File>
+    <File Include="photos/Camion/Camion.jpeg">
+      <publishTime>02/13/2018 13:03:46</publishTime>
+    </File>
+    <File Include="photos/Camion/IMG_7558.JPG">
+      <publishTime>02/13/2018 15:36:10</publishTime>
+    </File>
+    <File Include="photos/Camion/IMG_7559.JPG">
+      <publishTime>02/13/2018 15:36:20</publishTime>
+    </File>
+    <File Include="photos/Camion/IMG_7560.JPG">
+      <publishTime>02/13/2018 15:36:22</publishTime>
+    </File>
+    <File Include="photos/Camion2.jpeg">
+      <publishTime>02/13/2018 13:03:48</publishTime>
+    </File>
+    <File Include="photos/Camion2P.jpg">
+      <publishTime>02/13/2018 13:43:20</publishTime>
+    </File>
+    <File Include="photos/Camion3.jpeg">
+      <publishTime>02/13/2018 13:03:43</publishTime>
+    </File>
+    <File Include="photos/Camion3P.jpg">
+      <publishTime>02/13/2018 13:45:25</publishTime>
+    </File>
+    <File Include="photos/Camion4.jpeg">
+      <publishTime>02/13/2018 13:03:52</publishTime>
+    </File>
+    <File Include="photos/Camion4P.jpg">
+      <publishTime>02/13/2018 13:44:37</publishTime>
+    </File>
+    <File Include="photos/Camion5.jpeg">
+      <publishTime>02/13/2018 13:03:56</publishTime>
+    </File>
+    <File Include="photos/Camion5P.jpg">
+      <publishTime>02/13/2018 13:47:02</publishTime>
+    </File>
+    <File Include="photos/Camion6.jpeg">
+      <publishTime>02/13/2018 13:04:01</publishTime>
+    </File>
+    <File Include="photos/Camion7.jpeg">
+      <publishTime>02/13/2018 13:03:59</publishTime>
+    </File>
+    <File Include="photos/Camion7P.jpg">
+      <publishTime>02/13/2018 13:48:09</publishTime>
+    </File>
+    <File Include="photos/Camion8.jpeg">
+      <publishTime>02/13/2018 13:04:03</publishTime>
+    </File>
+    <File Include="photos/Camion8P.jpg">
+      <publishTime>02/13/2018 13:49:06</publishTime>
+    </File>
+    <File Include="photos/Camion9.JPG">
+      <publishTime>02/13/2018 13:04:34</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-269/IMG_7557.JPG">
+      <publishTime>02/13/2018 08:20:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-269/IMG_7558.JPG">
+      <publishTime>02/13/2018 08:35:56</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-269/IMG_7559.JPG">
+      <publishTime>02/13/2018 08:35:16</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-269/IMG_7560.JPG">
+      <publishTime>02/13/2018 08:20:28</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-288/IMG_6502.JPG">
+      <publishTime>02/13/2018 08:37:38</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-288/IMG_6503.JPG">
+      <publishTime>02/13/2018 08:38:50</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-288/IMG_6504.JPG">
+      <publishTime>02/13/2018 08:39:58</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-288/IMG_6505.JPG">
+      <publishTime>02/13/2018 08:42:32</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-288/IMG_6506.JPG">
+      <publishTime>02/13/2018 08:43:28</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-290/IMG_8240.JPG">
+      <publishTime>02/19/2018 10:40:02</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-290/IMG_8241.JPG">
+      <publishTime>02/19/2018 10:39:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-290/IMG_8242.JPG">
+      <publishTime>02/19/2018 10:40:30</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-290/IMG_8243.JPG">
+      <publishTime>02/19/2018 10:40:16</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-290/IMG_8244.JPG">
+      <publishTime>02/19/2018 10:39:50</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-291/IMG_6488.JPG">
+      <publishTime>02/13/2018 11:32:46</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-291/IMG_6490.JPG">
+      <publishTime>02/13/2018 11:32:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-291/IMG_6491.JPG">
+      <publishTime>02/13/2018 11:31:14</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-291/IMG_6492.JPG">
+      <publishTime>02/13/2018 11:32:52</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-291/IMG_6493.JPG">
+      <publishTime>02/13/2018 11:32:22</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-292/IMG_6496.JPG">
+      <publishTime>02/13/2018 08:44:58</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-292/IMG_6497.JPG">
+      <publishTime>02/13/2018 08:53:26</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-292/IMG_6498.JPG">
+      <publishTime>02/13/2018 08:53:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-292/IMG_6499.JPG">
+      <publishTime>02/13/2018 09:14:00</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-292/IMG_6500.JPG">
+      <publishTime>02/13/2018 09:15:34</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-296/IMG_8230.JPG">
+      <publishTime>02/19/2018 10:53:22</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-296/IMG_8231.JPG">
+      <publishTime>02/19/2018 10:53:06</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-296/IMG_8232.JPG">
+      <publishTime>02/19/2018 10:52:46</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-296/IMG_8233.JPG">
+      <publishTime>02/19/2018 10:53:32</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-296/IMG_8234.JPG">
+      <publishTime>02/19/2018 10:51:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-297/IMG_8235.JPG">
+      <publishTime>02/19/2018 10:45:50</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-297/IMG_8236.JPG">
+      <publishTime>02/19/2018 10:45:24</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-297/IMG_8237.JPG">
+      <publishTime>02/19/2018 10:46:04</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-297/IMG_8238.JPG">
+      <publishTime>02/19/2018 10:46:18</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-297/IMG_8239.JPG">
+      <publishTime>02/19/2018 10:45:56</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-298/IMG_8250.JPG">
+      <publishTime>02/19/2018 10:33:40</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-298/IMG_8251.JPG">
+      <publishTime>02/19/2018 10:33:40</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-298/IMG_8252.JPG">
+      <publishTime>02/19/2018 10:33:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-298/IMG_8253.JPG">
+      <publishTime>02/19/2018 10:33:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-298/IMG_8254.JPG">
+      <publishTime>02/19/2018 10:33:40</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-301/IMG_8255.JPG">
+      <publishTime>02/19/2018 10:32:50</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-301/IMG_8256.JPG">
+      <publishTime>02/19/2018 10:32:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-301/IMG_8257.JPG">
+      <publishTime>02/19/2018 10:32:50</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-301/IMG_8258.JPG">
+      <publishTime>02/19/2018 10:32:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-301/IMG_8259.JPG">
+      <publishTime>02/19/2018 10:32:48</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-304/IMG_8220.JPG">
+      <publishTime>02/19/2018 11:30:40</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-304/IMG_8221.JPG">
+      <publishTime>02/19/2018 11:30:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-304/IMG_8222.JPG">
+      <publishTime>02/19/2018 11:30:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-304/IMG_8223.JPG">
+      <publishTime>02/19/2018 11:30:42</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-304/IMG_8224.JPG">
+      <publishTime>02/19/2018 11:30:40</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-306/IMG_7664.JPG">
+      <publishTime>02/19/2018 12:03:04</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-306/IMG_7665.JPG">
+      <publishTime>02/19/2018 12:03:04</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-306/IMG_7666.JPG">
+      <publishTime>02/19/2018 12:03:06</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-306/IMG_7667.JPG">
+      <publishTime>02/19/2018 12:03:04</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-306/IMG_7668.JPG">
+      <publishTime>02/19/2018 12:03:02</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7550.JPG">
+      <publishTime>02/19/2018 11:42:16</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7551.JPG">
+      <publishTime>02/19/2018 11:37:12</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7552.JPG">
+      <publishTime>02/19/2018 11:42:44</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7553.JPG">
+      <publishTime>02/19/2018 11:44:22</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7554.JPG">
+      <publishTime>02/19/2018 11:38:16</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-307/IMG_7555.JPG">
+      <publishTime>02/19/2018 11:42:16</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-308/IMG_8225.JPG">
+      <publishTime>02/19/2018 10:59:26</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-308/IMG_8226.JPG">
+      <publishTime>02/19/2018 10:59:36</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-308/IMG_8227.JPG">
+      <publishTime>02/19/2018 10:59:34</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-308/IMG_8228.JPG">
+      <publishTime>02/19/2018 11:00:14</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-308/IMG_8229.JPG">
+      <publishTime>02/19/2018 10:58:34</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-309/IMG_8215.JPG">
+      <publishTime>02/19/2018 11:19:02</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-309/IMG_8216.JPG">
+      <publishTime>02/19/2018 11:21:58</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-309/IMG_8217.JPG">
+      <publishTime>02/19/2018 11:15:52</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-309/IMG_8218.JPG">
+      <publishTime>02/19/2018 11:16:32</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-309/IMG_8219.JPG">
+      <publishTime>02/19/2018 11:19:36</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-311/IMG_8245.JPG">
+      <publishTime>02/19/2018 10:34:52</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-311/IMG_8246.JPG">
+      <publishTime>02/19/2018 10:34:58</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-311/IMG_8247.JPG">
+      <publishTime>02/19/2018 10:35:00</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-311/IMG_8248.JPG">
+      <publishTime>02/19/2018 10:34:54</publishTime>
+    </File>
+    <File Include="photos/Camiones/C-311/IMG_8249.JPG">
+      <publishTime>02/19/2018 10:34:56</publishTime>
+    </File>
+    <File Include="photos/CamionP.jpg">
+      <publishTime>02/13/2018 13:39:25</publishTime>
+    </File>
+    <File Include="photos/Carros/Camaro/20d6398d-ed00-49f1-9bb1-360924766c03.JPG">
+      <publishTime>02/19/2018 11:46:16</publishTime>
+    </File>
+    <File Include="photos/Carros/Camaro/4b00e340-8e70-4b0d-9ff8-98a46a37d053.JPG">
+      <publishTime>02/19/2018 11:46:16</publishTime>
+    </File>
+    <File Include="photos/Carros/Camaro/7283b331-615f-45c3-83ad-dd4f5382246f.JPG">
+      <publishTime>02/19/2018 11:46:16</publishTime>
+    </File>
+    <File Include="photos/Carros/Camaro/88971e6a-3a85-4947-a719-2ca850680f3b.JPG">
+      <publishTime>02/19/2018 11:46:16</publishTime>
+    </File>
+    <File Include="photos/Carros/Camaro/a895888c-ee62-4df7-87cd-2ab69fea70e6.JPG">
+      <publishTime>02/19/2018 11:46:16</publishTime>
+    </File>
+    <File Include="photos/client.jpg">
+      <publishTime>02/17/2018 10:47:24</publishTime>
+    </File>
+    <File Include="photos/client.png">
+      <publishTime>02/17/2018 10:21:29</publishTime>
+    </File>
+    <File Include="photos/client2.jpg">
+      <publishTime>02/17/2018 10:50:24</publishTime>
+    </File>
+    <File Include="photos/client2.png">
+      <publishTime>02/17/2018 10:24:31</publishTime>
+    </File>
+    <File Include="photos/client3.jpg">
+      <publishTime>08/10/2015 11:38:00</publishTime>
+    </File>
+    <File Include="photos/client3.png">
+      <publishTime>02/17/2018 10:26:22</publishTime>
+    </File>
+    <File Include="photos/client4.png">
+      <publishTime>02/17/2018 10:27:56</publishTime>
+    </File>
+    <File Include="photos/client5.png">
+      <publishTime>02/17/2018 10:29:40</publishTime>
+    </File>
+    <File Include="photos/client6.png">
+      <publishTime>02/17/2018 10:31:59</publishTime>
+    </File>
+    <File Include="photos/client7.png">
+      <publishTime>02/17/2018 10:34:51</publishTime>
+    </File>
+    <File Include="photos/client8.png">
+      <publishTime>02/17/2018 10:36:51</publishTime>
+    </File>
+    <File Include="photos/client9.png">
+      <publishTime>02/17/2018 10:40:28</publishTime>
+    </File>
+    <File Include="photos/feature.png">
+      <publishTime>12/25/2014 01:51:02</publishTime>
+    </File>
+    <File Include="photos/logo.png">
+      <publishTime>11/23/2014 11:38:10</publishTime>
+    </File>
+    <File Include="photos/logo2.png">
+      <publishTime>12/24/2014 15:18:28</publishTime>
+    </File>
+    <File Include="photos/logo3.png">
+      <publishTime>12/25/2014 00:12:28</publishTime>
+    </File>
+    <File Include="photos/logoTracto.png">
+      <publishTime>02/13/2018 10:02:07</publishTime>
+    </File>
+    <File Include="photos/Maquinaria.jpeg">
+      <publishTime>02/13/2018 13:04:06</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora 2/IMG_5204.JPG">
+      <publishTime>02/19/2018 12:01:54</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora 2/IMG_5205.JPG">
+      <publishTime>02/19/2018 12:01:52</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora 2/IMG_5206.JPG">
+      <publishTime>02/19/2018 12:01:52</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5681.JPG">
+      <publishTime>02/19/2018 12:00:38</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5682.JPG">
+      <publishTime>02/19/2018 12:00:38</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5683.JPG">
+      <publishTime>02/19/2018 12:00:38</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5684.JPG">
+      <publishTime>02/19/2018 12:00:36</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5685.JPG">
+      <publishTime>02/19/2018 12:00:40</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5686.JPG">
+      <publishTime>02/19/2018 12:00:38</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Barredora/IMG_5687.JPG">
+      <publishTime>02/19/2018 16:54:44</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Cargador frontal/IMG_6315.JPG">
+      <publishTime>02/19/2018 11:52:38</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Cargador frontal/IMG_6318.JPG">
+      <publishTime>02/19/2018 11:52:46</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Cargador frontal/IMG_6320.JPG">
+      <publishTime>02/19/2018 11:52:10</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Cargador frontal/IMG_6321.JPG">
+      <publishTime>02/19/2018 11:53:04</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Motoconformadora/IMG_6322.JPG">
+      <publishTime>02/19/2018 11:59:22</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Motoconformadora/IMG_6323.JPG">
+      <publishTime>02/19/2018 11:59:22</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Motoconformadora/IMG_6324.JPG">
+      <publishTime>02/19/2018 11:58:58</publishTime>
+    </File>
+    <File Include="photos/Maquinaria/Motoconformadora/IMG_6325.JPG">
+      <publishTime>02/19/2018 11:59:26</publishTime>
+    </File>
+    <File Include="photos/Maquinaria2.jpeg">
+      <publishTime>02/13/2018 13:04:08</publishTime>
+    </File>
+    <File Include="photos/Maquinaria2P.jpg">
+      <publishTime>02/13/2018 13:50:00</publishTime>
+    </File>
+    <File Include="photos/MaquinariaP.jpg">
+      <publishTime>02/13/2018 13:50:26</publishTime>
+    </File>
+    <File Include="photos/member1.png">
+      <publishTime>08/10/2015 11:36:42</publishTime>
+    </File>
+    <File Include="photos/member2.png">
+      <publishTime>08/10/2015 11:36:22</publishTime>
+    </File>
+    <File Include="photos/member3.png">
+      <publishTime>08/10/2015 11:36:10</publishTime>
+    </File>
+    <File Include="photos/portfolio.jpg">
+      <publishTime>08/10/2015 11:40:16</publishTime>
+    </File>
+    <File Include="photos/portfolio10.jpg">
+      <publishTime>08/10/2015 11:39:32</publishTime>
+    </File>
+    <File Include="photos/portfolio11.jpg">
+      <publishTime>08/10/2015 11:39:28</publishTime>
+    </File>
+    <File Include="photos/portfolio12.jpg">
+      <publishTime>08/10/2015 11:39:22</publishTime>
+    </File>
+    <File Include="photos/portfolio2.jpg">
+      <publishTime>08/10/2015 11:40:12</publishTime>
+    </File>
+    <File Include="photos/portfolio3.jpg">
+      <publishTime>08/10/2015 11:40:06</publishTime>
+    </File>
+    <File Include="photos/portfolio4.jpg">
+      <publishTime>08/10/2015 11:40:00</publishTime>
+    </File>
+    <File Include="photos/portfolio5.jpg">
+      <publishTime>08/10/2015 11:39:56</publishTime>
+    </File>
+    <File Include="photos/portfolio6.jpg">
+      <publishTime>08/10/2015 11:39:50</publishTime>
+    </File>
+    <File Include="photos/portfolio7.jpg">
+      <publishTime>08/10/2015 11:39:46</publishTime>
+    </File>
+    <File Include="photos/portfolio8.jpg">
+      <publishTime>08/10/2015 11:39:40</publishTime>
+    </File>
+    <File Include="photos/portfolio9.jpg">
+      <publishTime>08/10/2015 11:39:36</publishTime>
+    </File>
+    <File Include="photos/post-thumb-sm.jpg">
+      <publishTime>01/15/2015 06:24:58</publishTime>
+    </File>
+    <File Include="photos/post-thumb.jpg">
+      <publishTime>08/10/2015 11:39:16</publishTime>
+    </File>
+    <File Include="photos/Showcase-Template-Flat-Presentation-Vol-2.png">
+      <publishTime>01/04/2015 07:34:28</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>02/12/2018 16:27:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.12.2.min.js">
+      <publishTime>02/12/2018 16:27:08</publishTime>
+    </File>
+    <File Include="Site.master">
+      <publishTime>02/22/2018 10:37:21</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/21/2018 09:48:06</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
