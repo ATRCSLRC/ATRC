@@ -116,5 +116,26 @@ namespace ATRC
         {
             Utilerias.ActualizarEsquema();
         }
+
+        private void bbiMarcas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmMarcasGRD xfrm = new ALMACEN.WIN.xfrmMarcasGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiMedidas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmMedidaGRD xfrm = new ALMACEN.WIN.xfrmMedidaGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiProveedor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmProveedorGRD xfrm = new ALMACEN.WIN.xfrmProveedorGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
     }
 }

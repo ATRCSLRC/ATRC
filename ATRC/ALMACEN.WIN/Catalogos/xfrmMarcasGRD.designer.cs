@@ -1,6 +1,6 @@
-﻿namespace ATRCBASE.WIN
+﻿namespace ALMACEN.WIN
 {
-    partial class xfrmDepartamentoGRD
+    partial class xfrmMarcasGRD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmDepartamentoGRD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmMarcasGRD));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiNuevo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiModificar = new DevExpress.XtraBars.BarButtonItem();
@@ -38,8 +38,8 @@
             this.prgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSalir = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.grdDepartamentos = new DevExpress.XtraGrid.GridControl();
-            this.grvDepartamento = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdMarcas = new DevExpress.XtraGrid.GridControl();
+            this.grvMarcas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -47,8 +47,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDepartamentos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,6 @@
             // 
             this.bbiNuevo.Caption = "Nuevo";
             this.bbiNuevo.Id = 1;
-            this.bbiNuevo.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_agregar_archivo_80;
             this.bbiNuevo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiNuevo.Name = "bbiNuevo";
             this.bbiNuevo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -87,7 +86,6 @@
             // 
             this.bbiModificar.Caption = "Modificar";
             this.bbiModificar.Id = 2;
-            this.bbiModificar.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_editar_archivo_80;
             this.bbiModificar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiModificar.Name = "bbiModificar";
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -97,7 +95,6 @@
             // 
             this.bbiEliminar.Caption = "Eliminar";
             this.bbiEliminar.Id = 3;
-            this.bbiEliminar.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_eliminar_archivo_80;
             this.bbiEliminar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.bbiEliminar.Name = "bbiEliminar";
             this.bbiEliminar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -107,7 +104,6 @@
             // 
             this.bbiSalir.Caption = "Salir";
             this.bbiSalir.Id = 4;
-            this.bbiSalir.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.Salir;
             this.bbiSalir.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -139,7 +135,7 @@
             // 
             // lcMain
             // 
-            this.lcMain.Controls.Add(this.grdDepartamentos);
+            this.lcMain.Controls.Add(this.grdMarcas);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
@@ -148,29 +144,29 @@
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
-            // grdDepartamentos
+            // grdMarcas
             // 
-            this.grdDepartamentos.Location = new System.Drawing.Point(12, 12);
-            this.grdDepartamentos.MainView = this.grvDepartamento;
-            this.grdDepartamentos.MenuManager = this.ribbonControl1;
-            this.grdDepartamentos.Name = "grdDepartamentos";
-            this.grdDepartamentos.Size = new System.Drawing.Size(486, 257);
-            this.grdDepartamentos.TabIndex = 4;
-            this.grdDepartamentos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvDepartamento});
+            this.grdMarcas.Location = new System.Drawing.Point(12, 12);
+            this.grdMarcas.MainView = this.grvMarcas;
+            this.grdMarcas.MenuManager = this.ribbonControl1;
+            this.grdMarcas.Name = "grdMarcas";
+            this.grdMarcas.Size = new System.Drawing.Size(486, 257);
+            this.grdMarcas.TabIndex = 4;
+            this.grdMarcas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvMarcas});
             // 
-            // grvDepartamento
+            // grvMarcas
             // 
-            this.grvDepartamento.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grvMarcas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colDescripcion});
-            this.grvDepartamento.GridControl = this.grdDepartamentos;
-            this.grvDepartamento.Name = "grvDepartamento";
-            this.grvDepartamento.OptionsBehavior.Editable = false;
-            this.grvDepartamento.OptionsBehavior.ReadOnly = true;
-            this.grvDepartamento.OptionsView.ShowAutoFilterRow = true;
-            this.grvDepartamento.OptionsView.ShowDetailButtons = false;
-            this.grvDepartamento.OptionsView.ShowGroupPanel = false;
+            this.grvMarcas.GridControl = this.grdMarcas;
+            this.grvMarcas.Name = "grvMarcas";
+            this.grvMarcas.OptionsBehavior.Editable = false;
+            this.grvMarcas.OptionsBehavior.ReadOnly = true;
+            this.grvMarcas.OptionsView.ShowAutoFilterRow = true;
+            this.grvMarcas.OptionsView.ShowDetailButtons = false;
+            this.grvMarcas.OptionsView.ShowGroupPanel = false;
             // 
             // colID
             // 
@@ -202,14 +198,14 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.grdDepartamentos;
+            this.layoutControlItem1.Control = this.grdMarcas;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(490, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // xfrmDepartamentoGRD
+            // xfrmMarcasGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,16 +213,16 @@
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "xfrmDepartamentoGRD";
+            this.Name = "xfrmMarcasGRD";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Departamentos";
+            this.Text = "Marcas";
             this.Load += new System.EventHandler(this.xfrmDepartamentoGRD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDepartamentos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMarcas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
@@ -240,8 +236,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup prgAcciones;
         private DevExpress.XtraLayout.LayoutControl lcMain;
-        private DevExpress.XtraGrid.GridControl grdDepartamentos;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvDepartamento;
+        private DevExpress.XtraGrid.GridControl grdMarcas;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvMarcas;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.BarButtonItem bbiNuevo;
