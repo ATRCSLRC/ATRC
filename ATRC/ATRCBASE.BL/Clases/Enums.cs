@@ -25,5 +25,12 @@ namespace ATRCBASE.BL
             Web = 2
         }
 
+        public enum TipoArticulo
+        {
+            General = 0,
+            LLanta = 1,
+            Herramienta = 2
+        }
+
     }
 }

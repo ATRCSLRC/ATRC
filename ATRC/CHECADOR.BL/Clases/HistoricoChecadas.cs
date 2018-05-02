@@ -39,7 +39,6 @@ namespace CHECADOR.BL
         [Size(300)]
         public string Motivo
         {
-
             get { return mMotivo; }
             set { SetPropertyValue<string>("Motivo", ref mMotivo, value); }
         }

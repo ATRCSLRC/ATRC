@@ -15,7 +15,7 @@ namespace ATRCBASE.BL
     public class UtileriasXPO
     {
         //public static string CadenaDeConexion = DevExpress.Xpo.DB.MySqlConnectionProvider.GetConnectionString("192.168.0.140", "administrador", "", "atrcpuebas");
-        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.67\ATRCSERVER", "sa", "@TRCSistemas1", "ATRC");
+        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.67\ATRCSERVER", "sa", "@TRCSistemas1", "ATRCPruebas");
         [Description("Regresa la unidad instanciada, este metodo es para validar que no este vacia la unidad.")]
         public static UnidadDeTrabajo CargarUnidadDeTrabajo(ref UnidadDeTrabajo uow)
         {
