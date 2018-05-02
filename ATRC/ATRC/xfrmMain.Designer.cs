@@ -52,6 +52,7 @@
             this.bbiPuestos = new DevExpress.XtraBars.BarButtonItem();
             this.reporte = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem3 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.bbiActualizarEsquemas = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,9 +61,10 @@
             this.rbnpgReportesChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.rpAlmacen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiActualizarEsquemas = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +95,7 @@
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
             this.rbnpChecador,
+            this.rpAlmacen,
             this.rbnpAdministracion});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
@@ -255,6 +258,15 @@
             this.ribbonGalleryBarItem3.Id = 12;
             this.ribbonGalleryBarItem3.Name = "ribbonGalleryBarItem3";
             // 
+            // bbiActualizarEsquemas
+            // 
+            this.bbiActualizarEsquemas.Caption = "Actualizar esquemas";
+            this.bbiActualizarEsquemas.Id = 13;
+            this.bbiActualizarEsquemas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiActualizarEsquemas.ImageOptions.Image")));
+            this.bbiActualizarEsquemas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiActualizarEsquemas.ImageOptions.LargeImage")));
+            this.bbiActualizarEsquemas.Name = "bbiActualizarEsquemas";
+            this.bbiActualizarEsquemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiActualizarEsquemas_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -308,7 +320,7 @@
             // 
             this.rbnpAdministracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.pbnpgCatalogos,
-            this.ribbonPageGroup1});
+            this.rpgMantenimiento});
             this.rbnpAdministracion.Name = "rbnpAdministracion";
             this.rbnpAdministracion.Text = "Administración";
             // 
@@ -321,6 +333,14 @@
             this.pbnpgCatalogos.ShowCaptionButton = false;
             this.pbnpgCatalogos.Text = "Catálogos";
             // 
+            // rpgMantenimiento
+            // 
+            this.rpgMantenimiento.AllowTextClipping = false;
+            this.rpgMantenimiento.ItemLinks.Add(this.bbiActualizarEsquemas);
+            this.rpgMantenimiento.Name = "rpgMantenimiento";
+            this.rpgMantenimiento.ShowCaptionButton = false;
+            this.rpgMantenimiento.Text = "Mantenimiento";
+            // 
             // rsbMain
             // 
             this.rsbMain.ItemLinks.Add(this.bbiUsuario);
@@ -329,18 +349,17 @@
             this.rsbMain.Ribbon = this.rbnMain;
             this.rsbMain.Size = new System.Drawing.Size(1061, 31);
             // 
+            // rpAlmacen
+            // 
+            this.rpAlmacen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rpAlmacen.Name = "rpAlmacen";
+            this.rpAlmacen.Text = "Almacen";
+            // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiActualizarEsquemas);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // bbiActualizarEsquemas
-            // 
-            this.bbiActualizarEsquemas.Caption = "barButtonItem1";
-            this.bbiActualizarEsquemas.Id = 13;
-            this.bbiActualizarEsquemas.Name = "bbiActualizarEsquemas";
-            this.bbiActualizarEsquemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiActualizarEsquemas_ItemClick);
             // 
             // xfrmMain
             // 
@@ -395,6 +414,8 @@
         private DevExpress.XtraBars.BarButtonItem reporte;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem3;
         private DevExpress.XtraBars.BarButtonItem bbiActualizarEsquemas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgMantenimiento;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpAlmacen;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }
