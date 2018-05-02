@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ALMACEN.BL
 {
-    [Persistent("Al_Articulo")]
+    [Persistent("al_Articulo")]
     public class Articulo : ATRCBase
     {
         public Articulo(Session session) : base(session) { }
@@ -77,13 +77,13 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Enums.TipoArticulo>("Tipo", ref mTipo, value); }
         }
 
-        [Association("Al_Articulo-Factura")]
+        [Association("al_Articulo-Factura")]
         public XPCollection<Factura> Facturas
         {
             get { return GetCollection<Factura>("Facturas"); }
         }
 
-        [Association("Al_Articulo-InventarioArticulo")]
+        [Association("al_Articulo-InventarioArticulo")]
         public XPCollection<InventarioArticulo> Inventarios
         {
             get { return GetCollection<InventarioArticulo>("Inventarios"); }

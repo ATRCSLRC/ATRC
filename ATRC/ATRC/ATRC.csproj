@@ -119,6 +119,7 @@
     <Compile Include="xfrmMain.Designer.cs">
       <DependentUpon>xfrmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -150,6 +151,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ALMACEN.BL\ALMACEN.BL.csproj">
+      <Project>{4dcf1397-42cb-43a5-9a91-bd8089f6cc94}</Project>
+      <Name>ALMACEN.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALMACEN.WIN\ALMACEN.WIN.csproj">
+      <Project>{987c750f-feb2-4b67-a78c-e10528a9d097}</Project>
+      <Name>ALMACEN.WIN</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
       <Project>{a162fe83-383d-4225-a70e-ea9d27e0fb06}</Project>
       <Name>ATRCBASE.BL</Name>

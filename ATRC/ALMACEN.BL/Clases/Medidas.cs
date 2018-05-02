@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ALMACEN.BL
 {
-    [Persistent("Al_Medidas")]
+    [Persistent("al_Medidas")]
     public class Medidas : ATRCBase
     {
         public Medidas(Session session) : base(session) { }

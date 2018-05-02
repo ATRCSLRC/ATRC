@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ALMACEN.BL
 {
-    [Persistent("Al_proveedor")]
+    [Persistent("al_proveedor")]
     public class Proveedor : ATRCBase
     {
         public Proveedor(Session session) : base(session) { }

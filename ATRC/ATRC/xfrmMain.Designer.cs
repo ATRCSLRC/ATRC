@@ -61,6 +61,8 @@
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiActualizarEsquemas = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             this.SuspendLayout();
@@ -83,9 +85,10 @@
             this.bbiDepartamento,
             this.bbiPuestos,
             this.reporte,
-            this.ribbonGalleryBarItem3});
+            this.ribbonGalleryBarItem3,
+            this.bbiActualizarEsquemas});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 13;
+            this.rbnMain.MaxItemId = 14;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -304,7 +307,8 @@
             // rbnpAdministracion
             // 
             this.rbnpAdministracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.pbnpgCatalogos});
+            this.pbnpgCatalogos,
+            this.ribbonPageGroup1});
             this.rbnpAdministracion.Name = "rbnpAdministracion";
             this.rbnpAdministracion.Text = "Administración";
             // 
@@ -324,6 +328,19 @@
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
             this.rsbMain.Size = new System.Drawing.Size(1061, 31);
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiActualizarEsquemas);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // bbiActualizarEsquemas
+            // 
+            this.bbiActualizarEsquemas.Caption = "barButtonItem1";
+            this.bbiActualizarEsquemas.Id = 13;
+            this.bbiActualizarEsquemas.Name = "bbiActualizarEsquemas";
+            this.bbiActualizarEsquemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiActualizarEsquemas_ItemClick);
             // 
             // xfrmMain
             // 
@@ -377,5 +394,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup pbnpgCatalogos;
         private DevExpress.XtraBars.BarButtonItem reporte;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem3;
+        private DevExpress.XtraBars.BarButtonItem bbiActualizarEsquemas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

@@ -111,5 +111,10 @@ namespace ATRC
                     break;
             }
         }
+
+        private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Utilerias.ActualizarEsquema();
+        }
     }
 }
