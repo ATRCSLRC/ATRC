@@ -42,9 +42,9 @@
             this.grvMedidas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombreFiscal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colNombreFiscal = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -78,6 +78,7 @@
             // 
             this.bbiNuevo.Caption = "Nuevo";
             this.bbiNuevo.Id = 1;
+            this.bbiNuevo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiNuevo.ImageOptions.LargeImage")));
             this.bbiNuevo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiNuevo.Name = "bbiNuevo";
             this.bbiNuevo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -87,6 +88,7 @@
             // 
             this.bbiModificar.Caption = "Modificar";
             this.bbiModificar.Id = 2;
+            this.bbiModificar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.LargeImage")));
             this.bbiModificar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiModificar.Name = "bbiModificar";
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -96,6 +98,7 @@
             // 
             this.bbiEliminar.Caption = "Eliminar";
             this.bbiEliminar.Id = 3;
+            this.bbiEliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiEliminar.ImageOptions.LargeImage")));
             this.bbiEliminar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.bbiEliminar.Name = "bbiEliminar";
             this.bbiEliminar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -105,6 +108,7 @@
             // 
             this.bbiSalir.Caption = "Salir";
             this.bbiSalir.Id = 4;
+            this.bbiSalir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSalir.ImageOptions.LargeImage")));
             this.bbiSalir.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -189,6 +193,15 @@
             this.colNombre.VisibleIndex = 1;
             this.colNombre.Width = 200;
             // 
+            // colNombreFiscal
+            // 
+            this.colNombreFiscal.Caption = "Nombre fiscal";
+            this.colNombreFiscal.FieldName = "NombreFiscal";
+            this.colNombreFiscal.Name = "colNombreFiscal";
+            this.colNombreFiscal.Visible = true;
+            this.colNombreFiscal.VisibleIndex = 2;
+            this.colNombreFiscal.Width = 208;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -207,15 +220,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(490, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // colNombreFiscal
-            // 
-            this.colNombreFiscal.Caption = "Nombre fiscal";
-            this.colNombreFiscal.FieldName = "NombreFiscal";
-            this.colNombreFiscal.Name = "colNombreFiscal";
-            this.colNombreFiscal.Visible = true;
-            this.colNombreFiscal.VisibleIndex = 2;
-            this.colNombreFiscal.Width = 208;
             // 
             // xfrmProveedorGRD
             // 

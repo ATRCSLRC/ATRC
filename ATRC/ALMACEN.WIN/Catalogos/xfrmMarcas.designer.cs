@@ -68,6 +68,7 @@
             // 
             this.bbiGuardar.Caption = "Guardar";
             this.bbiGuardar.Id = 1;
+            this.bbiGuardar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiGuardar.ImageOptions.LargeImage")));
             this.bbiGuardar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiGuardar.Name = "bbiGuardar";
             this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -77,6 +78,7 @@
             // 
             this.bbiCancelar.Caption = "Cancelar";
             this.bbiCancelar.Id = 2;
+            this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
             this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiCancelar.Name = "bbiCancelar";
             this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;

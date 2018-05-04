@@ -25,7 +25,7 @@ namespace ALMACEN.WIN
         #region Eventos
         private void xfrmDepartamento_Load(object sender, EventArgs e)
         {
-           // memoNombre.DataBindings.Add("EditValue", Marca, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+            memoNombre.DataBindings.Add("EditValue", Marca, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -41,7 +41,7 @@ namespace ALMACEN.WIN
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Unidad.RollbackTransaction();
-            //memoNombre.DataBindings.Clear();
+            memoNombre.DataBindings.Clear();
             this.Close();
         }
         #endregion

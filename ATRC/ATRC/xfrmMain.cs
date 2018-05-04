@@ -126,14 +126,28 @@ namespace ATRC
 
         private void bbiMedidas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ALMACEN.WIN.xfrmMedidaGRD xfrm = new ALMACEN.WIN.xfrmMedidaGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.ShowDialog();
+            //ALMACEN.WIN.xfrmMedidaGRD xfrm = new ALMACEN.WIN.xfrmMedidaGRD();
+            //xfrm.ShowInTaskbar = false;
+            //xfrm.ShowDialog();
         }
 
         private void bbiProveedor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ALMACEN.WIN.xfrmProveedorGRD xfrm = new ALMACEN.WIN.xfrmProveedorGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiArticulo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmArticulo xfrm = new ALMACEN.WIN.xfrmArticulo();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiBusquedaArticulos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmBusquedaArticulos xfrm = new ALMACEN.WIN.xfrmBusquedaArticulos();
             xfrm.ShowInTaskbar = false;
             xfrm.ShowDialog();
         }

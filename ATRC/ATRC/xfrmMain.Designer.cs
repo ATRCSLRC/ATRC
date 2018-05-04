@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmMain));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup7 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup8 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup9 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             this.rbnMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bvcAyuda = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.bvbiAyuda = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
@@ -53,22 +53,24 @@
             this.reporte = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem3 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.bbiActualizarEsquemas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMarcas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMedidas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiProveedor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiArticulo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBusquedaArticulos = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpChecador = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpAlmacen = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgArticulos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgCatalogo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.rpAlmacen = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgCatalogo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiMarcas = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiMedidas = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiProveedor = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             this.SuspendLayout();
@@ -95,9 +97,11 @@
             this.bbiActualizarEsquemas,
             this.bbiMarcas,
             this.bbiMedidas,
-            this.bbiProveedor});
+            this.bbiProveedor,
+            this.bbiArticulo,
+            this.bbiBusquedaArticulos});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 17;
+            this.rbnMain.MaxItemId = 19;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -174,18 +178,18 @@
             // 
             // 
             // 
-            galleryItemGroup7.Caption = "Group3";
-            galleryItem7.Description = "Concentrado de nómina";
-            galleryItem7.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage")));
-            galleryItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            galleryItem8.Description = "Horas trabajadas semanales";
-            galleryItem8.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage1")));
-            galleryItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            galleryItemGroup7.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem7,
-            galleryItem8});
+            galleryItemGroup1.Caption = "Group3";
+            galleryItem1.Description = "Concentrado de nómina";
+            galleryItem1.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage")));
+            galleryItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            galleryItem2.Description = "Horas trabajadas semanales";
+            galleryItem2.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage1")));
+            galleryItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem1,
+            galleryItem2});
             this.rgbiChecador.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup7});
+            galleryItemGroup1});
             this.rgbiChecador.Gallery.ImageSize = new System.Drawing.Size(30, 30);
             this.rgbiChecador.Gallery.ShowItemText = true;
             this.rgbiChecador.Id = 6;
@@ -201,18 +205,18 @@
             this.rgbiUsuarios.Gallery.AllowHoverImages = true;
             this.rgbiUsuarios.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             this.rgbiUsuarios.Gallery.ColumnCount = 2;
-            galleryItemGroup8.Caption = "Usuarios";
-            galleryItem9.Description = "Usuarios registrados";
-            galleryItem9.Hint = "Usuarios registrados";
-            galleryItem9.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage2")));
-            galleryItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            toolTipTitleItem3.Text = "Usuarios registrados";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            galleryItem9.SuperTip = superToolTip3;
-            galleryItemGroup8.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem9});
+            galleryItemGroup2.Caption = "Usuarios";
+            galleryItem3.Description = "Usuarios registrados";
+            galleryItem3.Hint = "Usuarios registrados";
+            galleryItem3.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage2")));
+            galleryItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            toolTipTitleItem1.Text = "Usuarios registrados";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            galleryItem3.SuperTip = superToolTip1;
+            galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem3});
             this.rgbiUsuarios.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup8});
+            galleryItemGroup2});
             this.rgbiUsuarios.Gallery.ImageSize = new System.Drawing.Size(28, 28);
             this.rgbiUsuarios.Gallery.RowCount = 1;
             this.rgbiUsuarios.Gallery.ShowItemText = true;
@@ -259,9 +263,9 @@
             // 
             // 
             // 
-            galleryItemGroup9.Caption = "Group2";
+            galleryItemGroup3.Caption = "Group2";
             this.ribbonGalleryBarItem3.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup9});
+            galleryItemGroup3});
             this.ribbonGalleryBarItem3.Id = 12;
             this.ribbonGalleryBarItem3.Name = "ribbonGalleryBarItem3";
             // 
@@ -273,6 +277,49 @@
             this.bbiActualizarEsquemas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiActualizarEsquemas.ImageOptions.LargeImage")));
             this.bbiActualizarEsquemas.Name = "bbiActualizarEsquemas";
             this.bbiActualizarEsquemas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiActualizarEsquemas_ItemClick);
+            // 
+            // bbiMarcas
+            // 
+            this.bbiMarcas.Caption = "Marcas";
+            this.bbiMarcas.Id = 14;
+            this.bbiMarcas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiMarcas.ImageOptions.Image")));
+            this.bbiMarcas.Name = "bbiMarcas";
+            this.bbiMarcas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMarcas_ItemClick);
+            // 
+            // bbiMedidas
+            // 
+            this.bbiMedidas.Caption = "Medidas";
+            this.bbiMedidas.Id = 15;
+            this.bbiMedidas.Name = "bbiMedidas";
+            this.bbiMedidas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMedidas_ItemClick);
+            // 
+            // bbiProveedor
+            // 
+            this.bbiProveedor.Caption = "Proveedor";
+            this.bbiProveedor.Id = 16;
+            this.bbiProveedor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiProveedor.ImageOptions.Image")));
+            this.bbiProveedor.Name = "bbiProveedor";
+            this.bbiProveedor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiProveedor_ItemClick);
+            // 
+            // bbiArticulo
+            // 
+            this.bbiArticulo.Caption = "Artículo";
+            this.bbiArticulo.Id = 17;
+            this.bbiArticulo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiArticulo.ImageOptions.Image")));
+            this.bbiArticulo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiArticulo.ImageOptions.LargeImage")));
+            this.bbiArticulo.Name = "bbiArticulo";
+            this.bbiArticulo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiArticulo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiArticulo_ItemClick);
+            // 
+            // bbiBusquedaArticulos
+            // 
+            this.bbiBusquedaArticulos.Caption = "Búsqueda";
+            this.bbiBusquedaArticulos.Id = 18;
+            this.bbiBusquedaArticulos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBusquedaArticulos.ImageOptions.Image")));
+            this.bbiBusquedaArticulos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBusquedaArticulos.ImageOptions.LargeImage")));
+            this.bbiBusquedaArticulos.Name = "bbiBusquedaArticulos";
+            this.bbiBusquedaArticulos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiBusquedaArticulos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBusquedaArticulos_ItemClick);
             // 
             // rbnpUsuarios
             // 
@@ -323,6 +370,32 @@
             this.rbnpgReportesChecador.ShowCaptionButton = false;
             this.rbnpgReportesChecador.Text = "Reportes";
             // 
+            // rpAlmacen
+            // 
+            this.rpAlmacen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgArticulos,
+            this.rpgCatalogo});
+            this.rpAlmacen.Name = "rpAlmacen";
+            this.rpAlmacen.Text = "Almacen";
+            // 
+            // rpgArticulos
+            // 
+            this.rpgArticulos.AllowMinimize = false;
+            this.rpgArticulos.ItemLinks.Add(this.bbiArticulo);
+            this.rpgArticulos.ItemLinks.Add(this.bbiBusquedaArticulos);
+            this.rpgArticulos.Name = "rpgArticulos";
+            this.rpgArticulos.ShowCaptionButton = false;
+            this.rpgArticulos.Text = "Artículos";
+            // 
+            // rpgCatalogo
+            // 
+            this.rpgCatalogo.AllowMinimize = false;
+            this.rpgCatalogo.ItemLinks.Add(this.bbiMarcas);
+            this.rpgCatalogo.ItemLinks.Add(this.bbiProveedor);
+            this.rpgCatalogo.Name = "rpgCatalogo";
+            this.rpgCatalogo.ShowCaptionButton = false;
+            this.rpgCatalogo.Text = "Catálogo";
+            // 
             // rbnpAdministracion
             // 
             this.rbnpAdministracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -355,52 +428,6 @@
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
             this.rsbMain.Size = new System.Drawing.Size(1061, 31);
-            // 
-            // rpAlmacen
-            // 
-            this.rpAlmacen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.rpgCatalogo});
-            this.rpAlmacen.Name = "rpAlmacen";
-            this.rpAlmacen.Text = "Almacen";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.AllowMinimize = false;
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // rpgCatalogo
-            // 
-            this.rpgCatalogo.AllowMinimize = false;
-            this.rpgCatalogo.ItemLinks.Add(this.bbiMarcas);
-            this.rpgCatalogo.ItemLinks.Add(this.bbiMedidas);
-            this.rpgCatalogo.ItemLinks.Add(this.bbiProveedor);
-            this.rpgCatalogo.Name = "rpgCatalogo";
-            this.rpgCatalogo.ShowCaptionButton = false;
-            this.rpgCatalogo.Text = "Catálogo";
-            // 
-            // bbiMarcas
-            // 
-            this.bbiMarcas.Caption = "Marcas";
-            this.bbiMarcas.Id = 14;
-            this.bbiMarcas.Name = "bbiMarcas";
-            this.bbiMarcas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMarcas_ItemClick);
-            // 
-            // bbiMedidas
-            // 
-            this.bbiMedidas.Caption = "Medidas";
-            this.bbiMedidas.Id = 15;
-            this.bbiMedidas.Name = "bbiMedidas";
-            this.bbiMedidas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMedidas_ItemClick);
-            // 
-            // bbiProveedor
-            // 
-            this.bbiProveedor.Caption = "Proveedor";
-            this.bbiProveedor.Id = 16;
-            this.bbiProveedor.Name = "bbiProveedor";
-            this.bbiProveedor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiProveedor_ItemClick);
             // 
             // xfrmMain
             // 
@@ -457,10 +484,12 @@
         private DevExpress.XtraBars.BarButtonItem bbiActualizarEsquemas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgMantenimiento;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpAlmacen;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgArticulos;
         private DevExpress.XtraBars.BarButtonItem bbiMarcas;
         private DevExpress.XtraBars.BarButtonItem bbiMedidas;
         private DevExpress.XtraBars.BarButtonItem bbiProveedor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCatalogo;
+        private DevExpress.XtraBars.BarButtonItem bbiArticulo;
+        private DevExpress.XtraBars.BarButtonItem bbiBusquedaArticulos;
     }
 }

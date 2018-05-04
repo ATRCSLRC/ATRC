@@ -30,12 +30,11 @@ namespace ALMACEN.BL
             set { SetPropertyValue<string>("Nombre", ref mNombre, value); }
         }
 
-        private string mTipoUnidad;
-        [Size(100)]
-        public string TipoUnidad
+        private Enums.TipoMedida mTipoMedida;
+        public Enums.TipoMedida TipoMedida
         {
-            get { return mTipoUnidad; }
-            set { SetPropertyValue<string>("TipoUnidad", ref mTipoUnidad, value); }
+            get { return mTipoMedida; }
+            set { SetPropertyValue<Enums.TipoMedida>("TipoMedida", ref mTipoMedida, value); }
         }
 
         private string mNumParte;
@@ -46,12 +45,12 @@ namespace ALMACEN.BL
             set { SetPropertyValue<string>("NumParte", ref mNumParte, value); }
         }
 
-        private string mTipoArticulo;
+        private string mTipo;
         [Size(100)]
-        public string TipoArticulo
+        public string Tipo
         {
-            get { return mTipoArticulo; }
-            set { SetPropertyValue<string>("TipoArticulo", ref mTipoArticulo, value); }
+            get { return mTipo; }
+            set { SetPropertyValue<string>("Tipo", ref mTipo, value); }
         }
 
         private string mSerie;
@@ -70,17 +69,47 @@ namespace ALMACEN.BL
             set { SetPropertyValue<string>("Medida", ref mMedida, value); }
         }
 
-        private Enums.TipoArticulo mTipo;
-        public Enums.TipoArticulo Tipo
+        private Enums.TipoArticulo mTipoArticulo;
+        public Enums.TipoArticulo TipoArticulo
         {
-            get { return mTipo; }
-            set { SetPropertyValue<Enums.TipoArticulo>("Tipo", ref mTipo, value); }
+            get { return mTipoArticulo; }
+            set { SetPropertyValue<Enums.TipoArticulo>("TipoArticulo", ref mTipoArticulo, value); }
         }
 
-        [Association("al_Articulo-Factura")]
-        public XPCollection<Factura> Facturas
+        private decimal mPrecio;
+        public decimal Precio
         {
-            get { return GetCollection<Factura>("Facturas"); }
+            get { return mPrecio; }
+            set { SetPropertyValue<decimal>("Precio", ref mPrecio, value); }
+        }
+
+        private int mAlmacen;
+        public int Almacen
+        {
+            get { return mAlmacen; }
+            set { SetPropertyValue<int>("Almacen", ref mAlmacen, value); }
+        }
+
+        private string mNumFactura;
+        [Size(80)]
+        public string NumFactura
+        {
+            get { return mNumFactura; }
+            set { SetPropertyValue<string>("NumFactura", ref mNumFactura, value); }
+        }
+
+        private DateTime mFecha;
+        public DateTime Fecha
+        {
+            get { return mFecha; }
+            set { SetPropertyValue<DateTime>("Fecha", ref mFecha, value); }
+        }
+
+        private int mCantidad;
+        public int Cantidad
+        {
+            get { return mCantidad; }
+            set { SetPropertyValue<int>("Cantidad", ref mCantidad, value); }
         }
 
         [Association("al_Articulo-InventarioArticulo")]
@@ -89,18 +118,18 @@ namespace ALMACEN.BL
             get { return GetCollection<InventarioArticulo>("Inventarios"); }
         }
 
-        private Medidas mUnidaMedida;
-        public Medidas UnidadMedida
-        {
-            get { return mUnidaMedida; }
-            set { SetPropertyValue<Medidas>("UnidadMedida", ref mUnidaMedida, value); }
-        }
-
         private Marcas mMarca;
         public Marcas Marca
         {
             get { return mMarca; }
             set { SetPropertyValue<Marcas>("Marca", ref mMarca, value); }
+        }
+
+        private Proveedor mProveedor;
+        public Proveedor Proveedor
+        {
+            get { return mProveedor; }
+            set { SetPropertyValue<Proveedor>("Proveedor", ref mProveedor, value); }
         }
     }
 }

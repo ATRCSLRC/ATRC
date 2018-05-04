@@ -40,10 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
-    <Compile Include="Clases\Factura.cs" />
     <Compile Include="Clases\InventarioArticulo.cs" />
     <Compile Include="Clases\Marcas.cs" />
-    <Compile Include="Clases\Medidas.cs" />
     <Compile Include="Clases\PrestamoArticulo.cs" />
     <Compile Include="Clases\Proveedor.cs" />
     <Compile Include="Clases\SalidaArticulo.cs" />

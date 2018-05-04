@@ -41,7 +41,7 @@
             this.grdMarcas = new DevExpress.XtraGrid.GridControl();
             this.grvMarcas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -77,6 +77,7 @@
             // 
             this.bbiNuevo.Caption = "Nuevo";
             this.bbiNuevo.Id = 1;
+            this.bbiNuevo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiNuevo.ImageOptions.LargeImage")));
             this.bbiNuevo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiNuevo.Name = "bbiNuevo";
             this.bbiNuevo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -86,6 +87,7 @@
             // 
             this.bbiModificar.Caption = "Modificar";
             this.bbiModificar.Id = 2;
+            this.bbiModificar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.LargeImage")));
             this.bbiModificar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiModificar.Name = "bbiModificar";
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -95,6 +97,7 @@
             // 
             this.bbiEliminar.Caption = "Eliminar";
             this.bbiEliminar.Id = 3;
+            this.bbiEliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiEliminar.ImageOptions.LargeImage")));
             this.bbiEliminar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.bbiEliminar.Name = "bbiEliminar";
             this.bbiEliminar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -104,6 +107,7 @@
             // 
             this.bbiSalir.Caption = "Salir";
             this.bbiSalir.Id = 4;
+            this.bbiSalir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSalir.ImageOptions.LargeImage")));
             this.bbiSalir.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -140,7 +144,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(510, 281);
+            this.lcMain.Size = new System.Drawing.Size(510, 244);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -150,7 +154,7 @@
             this.grdMarcas.MainView = this.grvMarcas;
             this.grdMarcas.MenuManager = this.ribbonControl1;
             this.grdMarcas.Name = "grdMarcas";
-            this.grdMarcas.Size = new System.Drawing.Size(486, 257);
+            this.grdMarcas.Size = new System.Drawing.Size(486, 220);
             this.grdMarcas.TabIndex = 4;
             this.grdMarcas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMarcas});
@@ -159,7 +163,7 @@
             // 
             this.grvMarcas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
-            this.colDescripcion});
+            this.colNombre});
             this.grvMarcas.GridControl = this.grdMarcas;
             this.grvMarcas.Name = "grvMarcas";
             this.grvMarcas.OptionsBehavior.Editable = false;
@@ -177,14 +181,14 @@
             this.colID.VisibleIndex = 0;
             this.colID.Width = 70;
             // 
-            // colDescripcion
+            // colNombre
             // 
-            this.colDescripcion.Caption = "Descripción";
-            this.colDescripcion.FieldName = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.Visible = true;
-            this.colDescripcion.VisibleIndex = 1;
-            this.colDescripcion.Width = 374;
+            this.colNombre.Caption = "Nombre";
+            this.colNombre.FieldName = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Visible = true;
+            this.colNombre.VisibleIndex = 1;
+            this.colNombre.Width = 374;
             // 
             // layoutControlGroup1
             // 
@@ -193,7 +197,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(510, 281);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(510, 244);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -201,7 +205,7 @@
             this.layoutControlItem1.Control = this.grdMarcas;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(490, 261);
+            this.layoutControlItem1.Size = new System.Drawing.Size(490, 224);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -209,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 403);
+            this.ClientSize = new System.Drawing.Size(510, 366);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -246,6 +250,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiSalir;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSalir;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombre;
     }
 }
