@@ -20,20 +20,6 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Usuario>("Usuario", ref mUsuario, value); }
         }
 
-        private Articulo mArticulo;
-        public Articulo Articulo
-        {
-            get { return mArticulo; }
-            set { SetPropertyValue<Articulo>("Articulo", ref mArticulo, value); }
-        }
-
-        private int mCantidad;
-        public int Cantidad
-        {
-            get { return mCantidad; }
-            set { SetPropertyValue<int>("Cantidad", ref mCantidad, value); }
-        }
-
         private DateTime mFechaPrestamo;
         public DateTime FechaPrestamo
         {
@@ -53,6 +39,12 @@ namespace ALMACEN.BL
         {
             get { return mEntregado; }
             set { SetPropertyValue<bool>("Entregado", ref mEntregado, value); }
+        }
+
+        [Association("al_Prestamo-Detalle")]
+        public XPCollection<DetallePrestamo> Detalles
+        {
+            get { return GetCollection<DetallePrestamo>("Detalles"); }
         }
     }
 }
