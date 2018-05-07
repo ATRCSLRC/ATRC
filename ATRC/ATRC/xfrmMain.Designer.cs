@@ -58,6 +58,7 @@
             this.bbiProveedor = new DevExpress.XtraBars.BarButtonItem();
             this.bbiArticulo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBusquedaArticulos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSalida = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -99,9 +100,10 @@
             this.bbiMedidas,
             this.bbiProveedor,
             this.bbiArticulo,
-            this.bbiBusquedaArticulos});
+            this.bbiBusquedaArticulos,
+            this.bbiSalida});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 19;
+            this.rbnMain.MaxItemId = 20;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -321,6 +323,16 @@
             this.bbiBusquedaArticulos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiBusquedaArticulos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBusquedaArticulos_ItemClick);
             // 
+            // bbiSalida
+            // 
+            this.bbiSalida.Caption = "Salida";
+            this.bbiSalida.Id = 19;
+            this.bbiSalida.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSalida.ImageOptions.Image")));
+            this.bbiSalida.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSalida.ImageOptions.LargeImage")));
+            this.bbiSalida.Name = "bbiSalida";
+            this.bbiSalida.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiSalida.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalida_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -383,6 +395,7 @@
             this.rpgArticulos.AllowMinimize = false;
             this.rpgArticulos.ItemLinks.Add(this.bbiArticulo);
             this.rpgArticulos.ItemLinks.Add(this.bbiBusquedaArticulos);
+            this.rpgArticulos.ItemLinks.Add(this.bbiSalida);
             this.rpgArticulos.Name = "rpgArticulos";
             this.rpgArticulos.ShowCaptionButton = false;
             this.rpgArticulos.Text = "Artículos";
@@ -491,5 +504,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCatalogo;
         private DevExpress.XtraBars.BarButtonItem bbiArticulo;
         private DevExpress.XtraBars.BarButtonItem bbiBusquedaArticulos;
+        private DevExpress.XtraBars.BarButtonItem bbiSalida;
     }
 }

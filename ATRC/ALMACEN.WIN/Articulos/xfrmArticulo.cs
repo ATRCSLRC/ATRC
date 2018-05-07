@@ -75,8 +75,11 @@ namespace ALMACEN.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Articulo.Save();
-            Unidad.CommitChanges();
+            if (ValidarCampos())
+            {
+                Articulo.Save();
+                Unidad.CommitChanges();
+            }
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -113,6 +116,102 @@ namespace ALMACEN.WIN
             txtMedida.DataBindings.Add("EditValue", Articulo, "Medida", true, DataSourceUpdateMode.OnPropertyChanged);
             if (Articulo.Fecha == DateTime.MinValue)
                 dteFechaEntrega.DateTime = DateTime.Now;
+        }
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                XtraMessageBox.Show("Debe ingresar un código.");
+                txtCodigo.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                XtraMessageBox.Show("Debe ingresar el nombre del artículo.");
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (spnCantidad.Value <= 0)
+            {
+                XtraMessageBox.Show("Debe ingresar una cantidad.");
+                spnCantidad.Focus();
+                return false;
+            }
+
+            if (cboTipoMedida.SelectedIndex == 0)
+            {
+                XtraMessageBox.Show("Debe sleccionar un tipo de medida.");
+                cboTipoMedida.Focus();
+                return false;
+            }
+
+            if (spnPrecio.Value <= 0)
+            {
+                XtraMessageBox.Show("Debe ingresar un precio.");
+                spnCantidad.Focus();
+                return false;
+            }
+
+            if (lueProveedor.EditValue != null)
+            {
+                XtraMessageBox.Show("Debe selccionar un proveedor.");
+                lueProveedor.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtFactura.Text))
+            {
+                XtraMessageBox.Show("Debe ingresar una factura.");
+                txtCodigo.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtParte.Text))
+            {
+                XtraMessageBox.Show("Debe ingresar el número de parte.");
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (lueMarca.EditValue != null)
+            {
+                XtraMessageBox.Show("Debe selccionar una marca.");
+                lueProveedor.Focus();
+                return false;
+            }
+
+            Enums.TipoArticulo Articulo = (Enums.TipoArticulo)rgOpciones.EditValue;
+            switch (Articulo)
+            {
+                
+                case Enums.TipoArticulo.Baterias:
+                    if(string.IsNullOrEmpty(txtTipo.Text))
+                    {
+                        XtraMessageBox.Show("Debe ingresar el tipo.");
+                        txtTipo.Focus();
+                        return false;
+                    }
+
+                    if (string.IsNullOrEmpty(txtSerie.Text))
+                    {
+                        XtraMessageBox.Show("Debe ingresar una serie.");
+                        txtSerie.Focus();
+                        return false;
+                    }
+                    break;
+                case Enums.TipoArticulo.Llantas:
+                    if (string.IsNullOrEmpty(txtMedida.Text))
+                    {
+                        XtraMessageBox.Show("Debe ingresar una medida.");
+                        txtMedida.Focus();
+                        return false;
+                    }
+                    break;
+            }
+            return true;
         }
         #endregion
     }

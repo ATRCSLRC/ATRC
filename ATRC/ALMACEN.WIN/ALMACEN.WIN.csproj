@@ -45,6 +45,9 @@
     <EmbeddedResource Include="Articulos\xfrmBusquedaArticulos.resx">
       <DependentUpon>xfrmBusquedaArticulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmSalidaArticulo.resx">
+      <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\xfrmMarcas.resx">
       <DependentUpon>xfrmMarcas.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +74,12 @@
     </Compile>
     <Compile Include="Articulos\xfrmBusquedaArticulos.Designer.cs">
       <DependentUpon>xfrmBusquedaArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaArticulo.Designer.cs">
+      <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\xfrmMarcas.cs">
       <SubType>Form</SubType>

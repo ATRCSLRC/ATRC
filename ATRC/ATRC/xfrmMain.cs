@@ -151,5 +151,12 @@ namespace ATRC
             xfrm.ShowInTaskbar = false;
             xfrm.ShowDialog();
         }
+
+        private void bbiSalida_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmSalidaArticulo xfrm = new ALMACEN.WIN.xfrmSalidaArticulo();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
     }
 }

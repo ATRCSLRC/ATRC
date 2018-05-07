@@ -45,6 +45,17 @@ namespace ATRCBASE.BL
             Cm = 7,
             Lbs = 8
         }
+        public enum Destino
+        {
+            Unidad = 0,
+            Otro = 1
+        }
+
+        public enum Recibo
+        {
+            Usuario = 0,
+            Otro = 1
+        }
 
     }
 }
