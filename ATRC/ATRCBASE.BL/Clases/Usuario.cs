@@ -152,5 +152,11 @@ namespace ATRCBASE.BL
             }
 
         }
+
+        [Association("gen_Modulos-Usuario")]
+        public XPCollection<Modulos> Modulos
+        {
+            get { return GetCollection<Modulos>("Modulos"); }
+        }
     }
 }

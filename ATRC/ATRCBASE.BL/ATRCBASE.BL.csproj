@@ -60,6 +60,7 @@
     <Compile Include="Clases\Departamento.cs" />
     <Compile Include="Clases\Enums.cs" />
     <Compile Include="Clases\Imagen.cs" />
+    <Compile Include="Clases\Modulos.cs" />
     <Compile Include="Clases\Puesto.cs" />
     <Compile Include="Clases\UnidadDeTrabajo.cs">
       <SubType>Component</SubType>

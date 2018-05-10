@@ -3,6 +3,7 @@ using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Camera;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,8 @@ namespace ATRCBASE.WIN
             LigarControles();
             if(EsNuevo)
                 txtNumeroEmpleado.Text = Utilerias.NumEmpleado(Unidad);
+
+
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

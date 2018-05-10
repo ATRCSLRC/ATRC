@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -48,6 +47,8 @@
             this.lciConfirmarContraseña = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciComparaContraseña = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lcgPermisos = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tabDatosGenerales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainTabGeneral = new DevExpress.XtraLayout.LayoutControl();
             this.lueDepartamento = new DevExpress.XtraEditors.LookUpEdit();
@@ -80,6 +81,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.TabDatosAdicionales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainAdicionales = new DevExpress.XtraLayout.LayoutControl();
+            this.txtTel = new DevExpress.XtraEditors.TextEdit();
             this.txtTipoSangre = new DevExpress.XtraEditors.TextEdit();
             this.txtAvisar = new DevExpress.XtraEditors.TextEdit();
             this.cmbPatron = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -90,12 +92,13 @@
             this.lciPatron = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAvisar = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTipoSangre = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
-            this.txtTel = new DevExpress.XtraEditors.TextEdit();
-            this.lciTel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
+            this.lciModulo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lueModulos = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -111,6 +114,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciConfirmarContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComparaContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgPermisos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
             this.tabDatosGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).BeginInit();
             this.lcMainTabGeneral.SuspendLayout();
@@ -142,6 +147,7 @@
             this.TabDatosAdicionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).BeginInit();
             this.lcMainAdicionales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAvisar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPatron.Properties)).BeginInit();
@@ -153,12 +159,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPatron)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAvisar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoSangre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciModulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueModulos.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rbbnUsuario
@@ -238,6 +245,7 @@
             this.lcMainSeguridad.Controls.Add(this.lblComparaContraseña);
             this.lcMainSeguridad.Controls.Add(this.txtConfContraseña);
             this.lcMainSeguridad.Controls.Add(this.txtContraseña);
+            this.lcMainSeguridad.Controls.Add(this.lueModulos);
             this.lcMainSeguridad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMainSeguridad.Location = new System.Drawing.Point(0, 0);
             this.lcMainSeguridad.Name = "lcMainSeguridad";
@@ -285,7 +293,8 @@
             this.layoutControlGroup3.GroupBordersVisible = false;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem4,
-            this.lcgContraseña});
+            this.lcgContraseña,
+            this.lcgPermisos});
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(630, 328);
             this.layoutControlGroup3.TextVisible = false;
@@ -293,9 +302,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 107);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 298);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(610, 201);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(610, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcgContraseña
@@ -347,6 +356,27 @@
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(428, 17);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lcgPermisos
+            // 
+            this.lcgPermisos.CustomizationFormText = "Marque modulos con acceso";
+            this.lcgPermisos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem8,
+            this.lciModulo});
+            this.lcgPermisos.Location = new System.Drawing.Point(0, 107);
+            this.lcgPermisos.Name = "lcgPermisos";
+            this.lcgPermisos.Size = new System.Drawing.Size(610, 191);
+            this.lcgPermisos.Text = "Marque modulos con acceso";
+            // 
+            // emptySpaceItem8
+            // 
+            this.emptySpaceItem8.AllowHotTrack = false;
+            this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem5";
+            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem8.Name = "emptySpaceItem8";
+            this.emptySpaceItem8.Size = new System.Drawing.Size(586, 125);
+            this.emptySpaceItem8.Text = "emptySpaceItem5";
+            this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // tabDatosGenerales
             // 
@@ -705,6 +735,19 @@
             this.lcMainAdicionales.TabIndex = 0;
             this.lcMainAdicionales.Text = "layoutControl1";
             // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(12, 148);
+            this.txtTel.MenuManager = this.rbbnUsuario;
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d\\d\\d-\\d\\d\\d\\d";
+            this.txtTel.Properties.Mask.IgnoreMaskBlank = false;
+            this.txtTel.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.txtTel.Properties.Mask.ShowPlaceHolders = false;
+            this.txtTel.Size = new System.Drawing.Size(606, 20);
+            this.txtTel.StyleController = this.lcMainAdicionales;
+            this.txtTel.TabIndex = 8;
+            // 
             // txtTipoSangre
             // 
             this.txtTipoSangre.Location = new System.Drawing.Point(12, 188);
@@ -816,6 +859,16 @@
             this.lciTipoSangre.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTipoSangre.TextSize = new System.Drawing.Size(86, 13);
             // 
+            // lciTel
+            // 
+            this.lciTel.Control = this.txtTel;
+            this.lciTel.Location = new System.Drawing.Point(0, 120);
+            this.lciTel.Name = "lciTel";
+            this.lciTel.Size = new System.Drawing.Size(610, 40);
+            this.lciTel.Text = "Teléfono avisar:";
+            this.lciTel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciTel.TextSize = new System.Drawing.Size(86, 13);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -852,28 +905,25 @@
             // 
             this.ofdFoto.FileName = null;
             // 
-            // txtTel
+            // lciModulo
             // 
-            this.txtTel.Location = new System.Drawing.Point(12, 148);
-            this.txtTel.MenuManager = this.rbbnUsuario;
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d\\d\\d-\\d\\d\\d\\d";
-            this.txtTel.Properties.Mask.IgnoreMaskBlank = false;
-            this.txtTel.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
-            this.txtTel.Properties.Mask.ShowPlaceHolders = false;
-            this.txtTel.Size = new System.Drawing.Size(606, 20);
-            this.txtTel.StyleController = this.lcMainAdicionales;
-            this.txtTel.TabIndex = 8;
+            this.lciModulo.Control = this.lueModulos;
+            this.lciModulo.Location = new System.Drawing.Point(0, 0);
+            this.lciModulo.Name = "lciModulo";
+            this.lciModulo.Size = new System.Drawing.Size(586, 24);
+            this.lciModulo.Text = "Modulos";
+            this.lciModulo.TextSize = new System.Drawing.Size(108, 13);
             // 
-            // lciTel
+            // lueModulos
             // 
-            this.lciTel.Control = this.txtTel;
-            this.lciTel.Location = new System.Drawing.Point(0, 120);
-            this.lciTel.Name = "lciTel";
-            this.lciTel.Size = new System.Drawing.Size(610, 40);
-            this.lciTel.Text = "Teléfono avisar:";
-            this.lciTel.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciTel.TextSize = new System.Drawing.Size(86, 13);
+            this.lueModulos.Location = new System.Drawing.Point(135, 149);
+            this.lueModulos.MenuManager = this.rbbnUsuario;
+            this.lueModulos.Name = "lueModulos";
+            this.lueModulos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueModulos.Size = new System.Drawing.Size(471, 20);
+            this.lueModulos.StyleController = this.lcMainSeguridad;
+            this.lueModulos.TabIndex = 7;
             // 
             // xfrmUsuario
             // 
@@ -903,6 +953,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciConfirmarContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComparaContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgPermisos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
             this.tabDatosGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).EndInit();
             this.lcMainTabGeneral.ResumeLayout(false);
@@ -934,6 +986,7 @@
             this.TabDatosAdicionales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).EndInit();
             this.lcMainAdicionales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAvisar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPatron.Properties)).EndInit();
@@ -945,12 +998,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPatron)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAvisar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoSangre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciModulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueModulos.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,5 +1078,9 @@
         private DevExpress.XtraLayout.LayoutControlItem lciTipoSangre;
         private DevExpress.XtraEditors.TextEdit txtTel;
         private DevExpress.XtraLayout.LayoutControlItem lciTel;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgPermisos;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private DevExpress.XtraLayout.LayoutControlItem lciModulo;
+        private DevExpress.XtraEditors.LookUpEdit lueModulos;
     }
 }

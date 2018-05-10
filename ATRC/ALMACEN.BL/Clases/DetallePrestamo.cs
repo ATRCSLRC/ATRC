@@ -33,7 +33,21 @@ namespace ALMACEN.BL
             get { return mFecha; }
             set { SetPropertyValue<DateTime>("Fecha", ref mFecha, value); }
         }
-        
+
+        private bool mEntregado;
+        public bool Entregado
+        {
+            get { return mEntregado; }
+            set { SetPropertyValue<bool>("Entregado", ref mEntregado, value); }
+        }
+
+        private DateTime mFechaEntrega;
+        public DateTime FechaEntrega
+        {
+            get { return mFechaEntrega; }
+            set { SetPropertyValue<DateTime>("FechaEntrega", ref mFechaEntrega, value); }
+        }
+
         private PrestamoArticulo mPrestamo;
         [Association("al_Prestamo-Detalle")]
         public PrestamoArticulo Prestamo
