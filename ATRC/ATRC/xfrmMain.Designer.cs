@@ -59,6 +59,9 @@
             this.bbiArticulo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBusquedaArticulos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalida = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBitacoraSalida = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiInventarios = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiModificar = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,6 +71,7 @@
             this.rpAlmacen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgArticulos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgCatalogo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgInventario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -101,9 +105,12 @@
             this.bbiProveedor,
             this.bbiArticulo,
             this.bbiBusquedaArticulos,
-            this.bbiSalida});
+            this.bbiSalida,
+            this.bbiBitacoraSalida,
+            this.bbiInventarios,
+            this.bbiModificar});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 20;
+            this.rbnMain.MaxItemId = 23;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -333,6 +340,36 @@
             this.bbiSalida.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiSalida.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalida_ItemClick);
             // 
+            // bbiBitacoraSalida
+            // 
+            this.bbiBitacoraSalida.Caption = "Bitácora de salidas";
+            this.bbiBitacoraSalida.Id = 20;
+            this.bbiBitacoraSalida.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiBitacoraSalida.ImageOptions.Image")));
+            this.bbiBitacoraSalida.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiBitacoraSalida.ImageOptions.LargeImage")));
+            this.bbiBitacoraSalida.Name = "bbiBitacoraSalida";
+            this.bbiBitacoraSalida.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiBitacoraSalida.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBitacoraSalida_ItemClick);
+            // 
+            // bbiInventarios
+            // 
+            this.bbiInventarios.Caption = "Inventario";
+            this.bbiInventarios.Id = 21;
+            this.bbiInventarios.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiInventarios.ImageOptions.Image")));
+            this.bbiInventarios.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiInventarios.ImageOptions.LargeImage")));
+            this.bbiInventarios.Name = "bbiInventarios";
+            this.bbiInventarios.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiInventarios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInventarios_ItemClick);
+            // 
+            // bbiModificar
+            // 
+            this.bbiModificar.Caption = "Modificar";
+            this.bbiModificar.Id = 22;
+            this.bbiModificar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.Image")));
+            this.bbiModificar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.LargeImage")));
+            this.bbiModificar.Name = "bbiModificar";
+            this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiModificar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificar_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -386,6 +423,7 @@
             // 
             this.rpAlmacen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgArticulos,
+            this.rpgInventario,
             this.rpgCatalogo});
             this.rpAlmacen.Name = "rpAlmacen";
             this.rpAlmacen.Text = "Almacen";
@@ -394,6 +432,7 @@
             // 
             this.rpgArticulos.AllowMinimize = false;
             this.rpgArticulos.ItemLinks.Add(this.bbiArticulo);
+            this.rpgArticulos.ItemLinks.Add(this.bbiModificar);
             this.rpgArticulos.ItemLinks.Add(this.bbiBusquedaArticulos);
             this.rpgArticulos.ItemLinks.Add(this.bbiSalida);
             this.rpgArticulos.Name = "rpgArticulos";
@@ -408,6 +447,15 @@
             this.rpgCatalogo.Name = "rpgCatalogo";
             this.rpgCatalogo.ShowCaptionButton = false;
             this.rpgCatalogo.Text = "Catálogo";
+            // 
+            // rpgInventario
+            // 
+            this.rpgInventario.AllowMinimize = false;
+            this.rpgInventario.ItemLinks.Add(this.bbiBitacoraSalida);
+            this.rpgInventario.ItemLinks.Add(this.bbiInventarios);
+            this.rpgInventario.Name = "rpgInventario";
+            this.rpgInventario.ShowCaptionButton = false;
+            this.rpgInventario.Text = "Inventario";
             // 
             // rbnpAdministracion
             // 
@@ -505,5 +553,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiArticulo;
         private DevExpress.XtraBars.BarButtonItem bbiBusquedaArticulos;
         private DevExpress.XtraBars.BarButtonItem bbiSalida;
+        private DevExpress.XtraBars.BarButtonItem bbiBitacoraSalida;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInventario;
+        private DevExpress.XtraBars.BarButtonItem bbiInventarios;
+        private DevExpress.XtraBars.BarButtonItem bbiModificar;
     }
 }

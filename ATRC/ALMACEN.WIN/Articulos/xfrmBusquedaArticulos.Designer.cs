@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaArticulos));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lueCatalogo = new DevExpress.XtraEditors.LookUpEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.grdArticulos = new DevExpress.XtraGrid.GridControl();
             this.grvArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colAsignar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribtnAsignar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.col = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,15 +55,15 @@
             this.lciTipoBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCatalogos = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribtnAsignar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgBusqueda.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFiltro.Properties)).BeginInit();
@@ -71,8 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
@@ -91,6 +94,17 @@
             this.lcMain.Size = new System.Drawing.Size(800, 423);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
+            this.btnLimpiar.Location = new System.Drawing.Point(659, 119);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
+            this.btnLimpiar.StyleController = this.lcMain;
+            this.btnLimpiar.TabIndex = 9;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // lueCatalogo
             // 
@@ -129,7 +143,8 @@
             this.grdArticulos.MainView = this.grvArticulos;
             this.grdArticulos.Name = "grdArticulos";
             this.grdArticulos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.ribEditar});
+            this.ribEditar,
+            this.ribtnAsignar});
             this.grdArticulos.Size = new System.Drawing.Size(776, 254);
             this.grdArticulos.TabIndex = 7;
             this.grdArticulos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -138,6 +153,7 @@
             // grvArticulos
             // 
             this.grvArticulos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colAsignar,
             this.col,
             this.colCodigo,
             this.colNombre,
@@ -150,14 +166,30 @@
             this.grvArticulos.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.FindClick;
             this.grvArticulos.OptionsView.ShowGroupPanel = false;
             // 
+            // colAsignar
+            // 
+            this.colAsignar.Caption = "Asignar";
+            this.colAsignar.ColumnEdit = this.ribtnAsignar;
+            this.colAsignar.Name = "colAsignar";
+            this.colAsignar.Visible = true;
+            this.colAsignar.VisibleIndex = 0;
+            this.colAsignar.Width = 40;
+            // 
+            // ribtnAsignar
+            // 
+            this.ribtnAsignar.AutoHeight = false;
+            this.ribtnAsignar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Up)});
+            this.ribtnAsignar.Name = "ribtnAsignar";
+            this.ribtnAsignar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.ribtnAsignar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribtnAsignar_ButtonClick);
+            // 
             // col
             // 
             this.col.Caption = "Editar";
             this.col.ColumnEdit = this.ribEditar;
             this.col.Name = "col";
-            this.col.Visible = true;
-            this.col.VisibleIndex = 0;
-            this.col.Width = 40;
+            this.col.Width = 37;
             // 
             // ribEditar
             // 
@@ -175,8 +207,8 @@
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
-            this.colCodigo.VisibleIndex = 1;
-            this.colCodigo.Width = 119;
+            this.colCodigo.VisibleIndex = 2;
+            this.colCodigo.Width = 112;
             // 
             // colNombre
             // 
@@ -185,8 +217,8 @@
             this.colNombre.Name = "colNombre";
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
-            this.colNombre.VisibleIndex = 2;
-            this.colNombre.Width = 119;
+            this.colNombre.VisibleIndex = 3;
+            this.colNombre.Width = 112;
             // 
             // colExistencia
             // 
@@ -195,8 +227,8 @@
             this.colExistencia.Name = "colExistencia";
             this.colExistencia.OptionsColumn.ReadOnly = true;
             this.colExistencia.Visible = true;
-            this.colExistencia.VisibleIndex = 3;
-            this.colExistencia.Width = 119;
+            this.colExistencia.VisibleIndex = 4;
+            this.colExistencia.Width = 112;
             // 
             // colProveedor
             // 
@@ -205,8 +237,8 @@
             this.colProveedor.Name = "colProveedor";
             this.colProveedor.OptionsColumn.ReadOnly = true;
             this.colProveedor.Visible = true;
-            this.colProveedor.VisibleIndex = 4;
-            this.colProveedor.Width = 119;
+            this.colProveedor.VisibleIndex = 5;
+            this.colProveedor.Width = 112;
             // 
             // colFactura
             // 
@@ -215,8 +247,8 @@
             this.colFactura.Name = "colFactura";
             this.colFactura.OptionsColumn.ReadOnly = true;
             this.colFactura.Visible = true;
-            this.colFactura.VisibleIndex = 5;
-            this.colFactura.Width = 119;
+            this.colFactura.VisibleIndex = 6;
+            this.colFactura.Width = 112;
             // 
             // colFecha
             // 
@@ -225,8 +257,8 @@
             this.colFecha.Name = "colFecha";
             this.colFecha.OptionsColumn.ReadOnly = true;
             this.colFecha.Visible = true;
-            this.colFecha.VisibleIndex = 6;
-            this.colFecha.Width = 123;
+            this.colFecha.VisibleIndex = 7;
+            this.colFecha.Width = 121;
             // 
             // btnBuscar
             // 
@@ -262,6 +294,7 @@
             this.txtFiltro.StyleController = this.lcMain;
             this.txtFiltro.TabIndex = 4;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
+            this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
             // 
             // layoutControlGroup1
             // 
@@ -333,26 +366,6 @@
             this.lciCatalogos.TextSize = new System.Drawing.Size(109, 13);
             this.lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.grdArticulos;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 145);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(780, 258);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(659, 119);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
-            this.btnLimpiar.StyleController = this.lcMain;
-            this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnLimpiar;
@@ -361,6 +374,15 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(121, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.grdArticulos;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 145);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(780, 258);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // xfrmBusquedaArticulos
             // 
@@ -380,6 +402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribtnAsignar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgBusqueda.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFiltro.Properties)).EndInit();
@@ -390,8 +413,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,5 +448,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciCatalogos;
         private DevExpress.XtraEditors.SimpleButton btnLimpiar;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn colAsignar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribtnAsignar;
     }
 }

@@ -20,6 +20,13 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Articulo>("Articulo", ref mArticulo, value); }
         }
 
+        private Factura mFactura;
+        public Factura Factura
+        {
+            get { return mFactura; }
+            set { SetPropertyValue<Factura>("Factura", ref mFactura, value); }
+        }
+
         private int mCantidad;
         public int Cantidad
         {
@@ -68,6 +75,20 @@ namespace ALMACEN.BL
         {
             get { return mOtroRecibo; }
             set { SetPropertyValue<string>("OtroRecibo", ref mOtroRecibo, value); }
+        }
+
+        private DateTime mFecha;
+        public DateTime Fecha
+        {
+            get { return mFecha; }
+            set { SetPropertyValue<DateTime>("Fecha", ref mFecha, value); }
+        }
+
+        private Enums.EstadoSalida mEstado;
+        public Enums.EstadoSalida Estado
+        {
+            get { return mEstado; }
+            set { SetPropertyValue<Enums.EstadoSalida>("Estado", ref mEstado, value); }
         }
     }
 }

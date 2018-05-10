@@ -158,5 +158,26 @@ namespace ATRC
             xfrm.ShowInTaskbar = false;
             xfrm.ShowDialog();
         }
+
+        private void bbiBitacoraSalida_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmBitacoraSalidas xfrm = new ALMACEN.WIN.xfrmBitacoraSalidas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiInventarios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmInventarioGRD xfrm = new ALMACEN.WIN.xfrmInventarioGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiModificar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmModificarArticulo xfrm = new ALMACEN.WIN.xfrmModificarArticulo();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
     }
 }

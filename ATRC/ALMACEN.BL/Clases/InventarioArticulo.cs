@@ -13,6 +13,14 @@ namespace ALMACEN.BL
         public InventarioArticulo(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
 
+        private string mNombre;
+        [Size(300)]
+        public string Nombre
+        {
+            get { return mNombre; }
+            set { SetPropertyValue<string>("Nombre", ref mNombre, value); }
+        }
+
         [Association("al_Articulo-InventarioArticulo")]
         public XPCollection<Articulo> Articulos
         {

@@ -22,14 +22,31 @@ namespace ALMACEN.WIN
             InitializeComponent();
         }
         XPView Articulos;
-        UnidadDeTrabajo Unidad;
-
+        public UnidadDeTrabajo Unidad;
+        public InventarioArticulo Inventario;
         #region Eventos
         private void xfrmBusquedaArticulos_Load(object sender, EventArgs e)
         {
-            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            Articulos = new XPView(Unidad, typeof(Articulo),"Oid;Codigo;Nombre;Cantidad;Proveedor.Nombre;NumFactura;Fecha",null);
+            if(Unidad == null)
+                Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            Articulos = new XPView(Unidad, typeof(Factura));
+
+            Articulos.Properties.AddRange(new ViewProperty[] {
+            new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+            new ViewProperty("Codigo", SortDirection.None, "[Articulo.Codigo]", false, true),
+            new ViewProperty("Articulo", SortDirection.None, "[Articulo.Oid]", false, true),
+            new ViewProperty("Nombre", SortDirection.None, "[Articulo.Nombre]", false, true),
+            new ViewProperty("Cantidad", SortDirection.None, "[Cantidad]", false, true),
+            new ViewProperty("Proveedor.Nombre", SortDirection.None, "[Proveedor.Nombre]", false, true),
+            new ViewProperty("NumFactura", SortDirection.None, "[NumFactura]", false, true),
+            new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true),
+            //new ViewProperty("Cantidad", SortDirection.None, "[Facturas].Sum([Cantidad])", false, true)
+            });
             rgBusqueda.SelectedIndex = 0;
+            if (Inventario != null)
+                col.Visible = false;
+            else
+                colAsignar.Visible = false;
         }
         private void ribEditar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -46,15 +63,27 @@ namespace ALMACEN.WIN
                 }
         }
 
+        private void ribtnAsignar_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            ViewRecord ViewArticulo = (ViewRecord)grvArticulos.GetRow(grvArticulos.FocusedRowHandle);
+            if (ViewArticulo != null)
+            {
+                Factura Factura = (Factura)ViewArticulo.GetObject();
+                Inventario.Articulos.Add(Factura.Articulo);
+                Inventario.Save();
+                XtraMessageBox.Show("Se agregó el artículo '"+ Factura.Articulo.Nombre +"'");
+            }
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    Articulos.Criteria = new BinaryOperator("Codigo", txtFiltro.Text, BinaryOperatorType.Equal);
+                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text, BinaryOperatorType.Equal);
                     break;
                 case 1://Descripcion
-                    Articulos.Criteria = new BinaryOperator("Nombre", txtFiltro.Text +"%", BinaryOperatorType.Like);
+                    Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text +"%", BinaryOperatorType.Like);
                     break;
                 case 2://NumParte
                     Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text, BinaryOperatorType.Equal);
@@ -91,7 +120,7 @@ namespace ALMACEN.WIN
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
                 case 3://Marca
-                    rgBusqueda.SelectedIndex = 0;
+                    
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
                     Utilerias.CargarLookupEdit(lueCatalogo, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
@@ -100,7 +129,6 @@ namespace ALMACEN.WIN
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     break;
                 case 4://Proveedor
-                    rgBusqueda.SelectedIndex = 0;
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
                     Utilerias.CargarLookupEdit(lueCatalogo, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
@@ -133,7 +161,26 @@ namespace ALMACEN.WIN
         {
             if (e.KeyCode == Keys.Enter)
                 btnBuscar.PerformClick();
+           
+        }
+
+        private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (rgBusqueda.SelectedIndex)
+            {
+                case 0://Codigo
+                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text, BinaryOperatorType.Equal);
+                    break;
+                case 1://Descripcion
+                    Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    break;
+                case 2://NumParte
+                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text, BinaryOperatorType.Equal);
+                    break;
+            }
+            grdArticulos.DataSource = Articulos;
         }
         #endregion
+
     }
 }

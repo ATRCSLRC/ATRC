@@ -1,6 +1,7 @@
 ﻿using ALMACEN.BL;
 using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using System;
@@ -28,14 +29,11 @@ namespace ALMACEN.WIN
 
         private void xfrmArticulo_Load(object sender, EventArgs e)
         {
-            
             if (Unidad == null)
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                Articulo = new Articulo(Unidad);
             }
-            LigarControles();
-            
+            IniciarControles();
         }
 
         private void rgOpciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,45 +75,77 @@ namespace ALMACEN.WIN
         {
             if (ValidarCampos())
             {
+                Factura factura = new Factura(Unidad);
+                factura.Almacen = Convert.ToInt32(spnAlmacen.Value);
+                factura.Cantidad = Convert.ToInt32(spnCantidad.Value);
+                factura.Fecha = dteFechaEntrega.DateTime;
+                factura.Marca = (Marcas)lueMarca.EditValue;
+                factura.Medida = txtMedida.Text;
+                factura.NumFactura = txtFactura.Text;
+                factura.NumParte = txtParte.Text;
+                factura.Precio = Convert.ToInt32(spnPrecio.Value);
+                factura.Proveedor = (Proveedor)lueProveedor.EditValue;
+                factura.Serie = txtSerie.Text;
+                factura.Tipo = txtTipo.Text;
+                factura.TipoMedida = (Enums.TipoMedida)cboTipoMedida.EditValue;
+                factura.Save();
+
+                if(Articulo != null)
+                {
+                    Articulo.Facturas.Add(factura);
+                }else
+                {
+                    Articulo = new Articulo(Unidad);
+                    Articulo.Nombre = txtNombre.Text;
+                    Articulo.TipoArticulo = (Enums.TipoArticulo)rgOpciones.EditValue;
+                    Articulo.Facturas.Add(factura);
+                }
                 Articulo.Save();
                 Unidad.CommitChanges();
+                LimpiarControles();
             }
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.Close();
+            LimpiarControles();
         }
 
         #endregion
 
         #region metodos
-        private void LigarControles()
-        {
 
+        private void IniciarControles()
+        {
             cboTipoMedida.Properties.Items.AddRange(typeof(Enums.TipoMedida).GetEnumValues());
             rgOpciones.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
-
+            dteFechaEntrega.DateTime = DateTime.Now;
             Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
             Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
-
-            rgOpciones.DataBindings.Add("EditValue", Articulo, "TipoArticulo", true, DataSourceUpdateMode.OnPropertyChanged);
-            dteFechaEntrega.DataBindings.Add("EditValue", Articulo, "Fecha", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtCodigo.DataBindings.Add("EditValue", Articulo, "Codigo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNombre.DataBindings.Add("EditValue", Articulo, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            spnCantidad.DataBindings.Add("EditValue", Articulo, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
-            cboTipoMedida.DataBindings.Add("EditValue", Articulo, "TipoMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            spnPrecio.DataBindings.Add("EditValue", Articulo, "Precio", true, DataSourceUpdateMode.OnPropertyChanged);
-            lueProveedor.DataBindings.Add("EditValue", Articulo, "Proveedor!", true, DataSourceUpdateMode.OnPropertyChanged);
-            spnAlmacen.DataBindings.Add("EditValue", Articulo, "Almacen", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtTipo.DataBindings.Add("EditValue", Articulo, "Tipo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtSerie.DataBindings.Add("EditValue", Articulo, "Serie", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtFactura.DataBindings.Add("EditValue", Articulo, "NumFactura", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtParte.DataBindings.Add("EditValue", Articulo, "NumParte", true, DataSourceUpdateMode.OnPropertyChanged);
-            lueMarca.DataBindings.Add("EditValue", Articulo, "Marca!", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtMedida.DataBindings.Add("EditValue", Articulo, "Medida", true, DataSourceUpdateMode.OnPropertyChanged);
-            if (Articulo.Fecha == DateTime.MinValue)
-                dteFechaEntrega.DateTime = DateTime.Now;
+            rgOpciones.SelectedIndex = 0;
+            txtCodigo.Focus();
+        }
+        
+        private void LimpiarControles()
+        {
+            Articulo = null;
+            rgOpciones.SelectedIndex = 0;
+            dteFechaEntrega.DateTime = DateTime.Now;
+            txtCodigo.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            spnAlmacen.Value = 0;
+            spnCantidad.Value = 0;
+            spnPrecio.Value = 0;
+            cboTipoMedida.SelectedIndex = 0;
+            lueMarca.EditValue = null;
+            lueProveedor.EditValue = null;
+            txtFactura.Text = string.Empty;
+            txtMedida.Text = string.Empty;
+            txtParte.Text = string.Empty;
+            txtSerie.Text = string.Empty;
+            txtTipo.Text = string.Empty;
+            txtCodigo.Focus();
+            
         }
 
         private bool ValidarCampos()
@@ -141,13 +171,6 @@ namespace ALMACEN.WIN
                 return false;
             }
 
-            if (cboTipoMedida.SelectedIndex == 0)
-            {
-                XtraMessageBox.Show("Debe sleccionar un tipo de medida.");
-                cboTipoMedida.Focus();
-                return false;
-            }
-
             if (spnPrecio.Value <= 0)
             {
                 XtraMessageBox.Show("Debe ingresar un precio.");
@@ -155,7 +178,7 @@ namespace ALMACEN.WIN
                 return false;
             }
 
-            if (lueProveedor.EditValue != null)
+            if (lueProveedor.EditValue == null)
             {
                 XtraMessageBox.Show("Debe selccionar un proveedor.");
                 lueProveedor.Focus();
@@ -176,7 +199,7 @@ namespace ALMACEN.WIN
                 return false;
             }
 
-            if (lueMarca.EditValue != null)
+            if (lueMarca.EditValue == null)
             {
                 XtraMessageBox.Show("Debe selccionar una marca.");
                 lueProveedor.Focus();
@@ -214,5 +237,55 @@ namespace ALMACEN.WIN
             return true;
         }
         #endregion
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
+                if (Articulo != null)
+                {
+                    txtNombre.Text = Articulo.Nombre;
+                    rgOpciones.EditValue = Articulo.TipoArticulo;
+                    txtNombre.ReadOnly = true;
+                    rgOpciones.ReadOnly = true;
+                    spnCantidad.Focus();
+                }
+                else
+                {
+                    Articulo = null;
+                    txtNombre.ReadOnly = false;
+                    rgOpciones.ReadOnly = false;
+                    txtNombre.Text = string.Empty;
+                    rgOpciones.SelectedIndex = 0;
+                    txtNombre.Focus();
+                }
+            }
+        }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
+                if (Articulo != null)
+                {
+                    txtNombre.Text = Articulo.Nombre;
+                    rgOpciones.EditValue = Articulo.TipoArticulo;
+                    txtNombre.ReadOnly = true;
+                    rgOpciones.ReadOnly = true;
+                    spnCantidad.Focus();
+                }
+                else
+                {
+                    Articulo = null;
+                    txtNombre.ReadOnly = false;
+                    rgOpciones.ReadOnly = false;
+                    txtNombre.Text = string.Empty;
+                    rgOpciones.SelectedIndex = 0;
+                    txtNombre.Focus();
+                }
+            }
+        }
     }
 }

@@ -57,5 +57,11 @@ namespace ATRCBASE.BL
             Otro = 1
         }
 
+        public enum EstadoSalida
+        {
+            Entregado = 0,
+            Devuelto = 1
+        }
+
     }
 }

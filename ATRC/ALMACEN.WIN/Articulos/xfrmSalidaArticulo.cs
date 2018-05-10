@@ -58,8 +58,8 @@ namespace ALMACEN.WIN
                     if (((LookUpEdit)sender).EditValue != null)
                     {
                         spnCantidad.Focus();
-                        if (Articulo != null)
-                            lblPrecioUnitario.Text = Articulo.Precio.ToString("c");
+                        if (lueFactura.EditValue != null)
+                            lblPrecioUnitario.Text = ((Factura)((ViewRecord)lueFactura.EditValue).GetObject()).Precio.ToString("c");
                     }
                     break;
             }
@@ -67,8 +67,8 @@ namespace ALMACEN.WIN
 
         private void spnCantidad_EditValueChanged(object sender, EventArgs e)
         {
-            if (Articulo != null)
-                lblTotal.Text = (((SpinEdit)sender).Value * Articulo.Precio).ToString("c");
+            if (lueFactura.EditValue != null)
+                lblTotal.Text = (((SpinEdit)sender).Value * ((Factura)((ViewRecord)lueFactura.EditValue).GetObject()).Precio).ToString("c");
         }
 
         private void rgDestino_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,10 +111,11 @@ namespace ALMACEN.WIN
         {
             if (ValidarCampos())
             {
-                if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     SalidaArticulo Salida = new SalidaArticulo(Unidad);
                     Salida.Articulo = Articulo;
+                    Salida.Factura = ((Factura)((ViewRecord)lueFactura.EditValue).GetObject());
                     Salida.Cantidad = Convert.ToInt32(spnCantidad.Value);
                     if (rgDestino.SelectedIndex == 0)
                     {
@@ -137,8 +138,10 @@ namespace ALMACEN.WIN
                         Salida.OtroRecibo = txtOtroRecibo.Text;
                     }
 
-                    Articulo.Cantidad -= Convert.ToInt32(spnCantidad.Value);
-                    Articulo.Save();
+                    Salida.Estado = Enums.EstadoSalida.Entregado;
+                    Salida.Fecha = DateTime.Now.Date;
+                    Salida.Factura.Cantidad -= Convert.ToInt32(spnCantidad.Value);
+                    Salida.Factura.Save();
                     Salida.Save();
                     Unidad.CommitChanges();
                     ActivarCampos(false);
@@ -257,7 +260,7 @@ namespace ALMACEN.WIN
         {
             if (!Activar)
             {
-                lueArticulo.ReadOnly = true;
+                lueFactura.ReadOnly = true;
                 spnCantidad.ReadOnly = true;
                 rgDestino.ReadOnly = true;
                 rgRecibo.ReadOnly = true;
@@ -272,7 +275,7 @@ namespace ALMACEN.WIN
                 btnCancelar.Enabled = false;
                 Usuario = null;
                 Articulo = null;
-                lueArticulo.EditValue = lueUnidad.EditValue = null;
+                lueFactura.EditValue = lueUnidad.EditValue = null;
                 spnCantidad.Value = 0;
                 rgDestino.SelectedIndex = 0;
                 rgRecibo.SelectedIndex = 0;
@@ -283,7 +286,7 @@ namespace ALMACEN.WIN
             }
             else
             {
-                lueArticulo.ReadOnly = false;
+                lueFactura.ReadOnly = false;
                 spnCantidad.ReadOnly = false;
                 rgDestino.ReadOnly = false;
                 rgRecibo.ReadOnly = false;
@@ -293,7 +296,7 @@ namespace ALMACEN.WIN
                 btnUsuario.ReadOnly = false;
                 btnCodigo.ReadOnly = true;
                 btnBuscar.Enabled = false;
-                lueArticulo.Focus();
+                lueFactura.Focus();
                 btnAceptar.Enabled = true;
                 btnCancelar.Enabled = true;
 
@@ -305,12 +308,12 @@ namespace ALMACEN.WIN
             if (!string.IsNullOrEmpty(btnCodigo.Text))
             {
                 Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", btnCodigo.Text));
-                XPView xpc = new XPView(Unidad, typeof(Articulo), "Oid;Nombre;Cantidad;NumParte;NumFactura;Fecha", new BinaryOperator("Codigo", btnCodigo.Text));
+                XPView xpc = new XPView(Unidad, typeof(Factura), "Oid;Articulo.Nombre;Cantidad;NumParte;NumFactura;Fecha;Articulo.Codigo", new BinaryOperator("Articulo.Codigo", btnCodigo.Text));
                 if (xpc.Count > 0)
                 {
-                    lueArticulo.Properties.DataSource = xpc;
-                    lueArticulo.Properties.DisplayMember = "Nombre";
-                    lueArticulo.Properties.BestFit();
+                    lueFactura.Properties.DataSource = xpc;
+                    lueFactura.Properties.DisplayMember = "Articulo.Nombre";
+                    lueFactura.Properties.BestFit();
                     ActivarCampos(true);
                 }
                 else
@@ -327,10 +330,10 @@ namespace ALMACEN.WIN
         private bool ValidarCampos()
         {
 
-            if (lueArticulo.EditValue == null)
+            if (lueFactura.EditValue == null)
             {
-                XtraMessageBox.Show("Debe seleccionar un artículo.");
-                lueArticulo.Focus();
+                XtraMessageBox.Show("Debe seleccionar una factura.");
+                lueFactura.Focus();
                 return false;
             }
 
@@ -379,14 +382,14 @@ namespace ALMACEN.WIN
                 }
             }
 
-            if (Articulo.Cantidad <= 0)
+            if (((Factura)((ViewRecord)lueFactura.EditValue).GetObject()).Cantidad <= 0)
             {
                 XtraMessageBox.Show("No hay en existencia el artículo seleccionado.");
-                lueArticulo.Focus();
+                lueFactura.Focus();
                 return false;
             }
 
-            if (Articulo.Cantidad < spnCantidad.Value)
+            if (((Factura)((ViewRecord)lueFactura.EditValue).GetObject()).Cantidad < spnCantidad.Value)
             {
                 XtraMessageBox.Show("La cantidad seleccionada es mayor al número de artículos en existencia.");
                 spnCantidad.Focus();

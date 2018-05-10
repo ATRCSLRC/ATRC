@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
     <Compile Include="Clases\DetallePrestamo.cs" />
+    <Compile Include="Clases\Factura.cs" />
     <Compile Include="Clases\InventarioArticulo.cs" />
     <Compile Include="Clases\Marcas.cs" />
     <Compile Include="Clases\PrestamoArticulo.cs" />

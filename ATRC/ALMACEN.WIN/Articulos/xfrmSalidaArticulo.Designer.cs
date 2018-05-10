@@ -38,7 +38,7 @@
             this.btnUsuario = new DevExpress.XtraEditors.ButtonEdit();
             this.rgRecibo = new DevExpress.XtraEditors.RadioGroup();
             this.txtOtroDestino = new DevExpress.XtraEditors.TextEdit();
-            this.lueArticulo = new DevExpress.XtraEditors.LookUpEdit();
+            this.lueFactura = new DevExpress.XtraEditors.LookUpEdit();
             this.rgDestino = new DevExpress.XtraEditors.RadioGroup();
             this.lblPrecioUnitarioDes = new DevExpress.XtraEditors.LabelControl();
             this.lblPrecioUnitario = new DevExpress.XtraEditors.LabelControl();
@@ -51,7 +51,7 @@
             this.lciCodigo = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.lciArticulos = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciFactura = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCantidad = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPrecioUnitarioDesc = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPrecioUnitario = new DevExpress.XtraLayout.LayoutControlItem();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgRecibo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtroDestino.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueArticulo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueFactura.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgDestino.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnCantidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCodigo.Properties)).BeginInit();
@@ -84,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecioUnitarioDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecioUnitario)).BeginInit();
@@ -126,7 +126,7 @@
             this.lcMain.Controls.Add(this.btnUsuario);
             this.lcMain.Controls.Add(this.rgRecibo);
             this.lcMain.Controls.Add(this.txtOtroDestino);
-            this.lcMain.Controls.Add(this.lueArticulo);
+            this.lcMain.Controls.Add(this.lueFactura);
             this.lcMain.Controls.Add(this.rgDestino);
             this.lcMain.Controls.Add(this.lblPrecioUnitarioDes);
             this.lcMain.Controls.Add(this.lblPrecioUnitario);
@@ -146,11 +146,11 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(310, 222);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(306, 222);
             this.txtNombreUsuario.MenuManager = this.rcMain;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Properties.ReadOnly = true;
-            this.txtNombreUsuario.Size = new System.Drawing.Size(331, 20);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(335, 20);
             this.txtNombreUsuario.StyleController = this.lcMain;
             this.txtNombreUsuario.TabIndex = 20;
             // 
@@ -168,9 +168,9 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(448, 270);
+            this.btnAceptar.Location = new System.Drawing.Point(451, 270);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(95, 28);
+            this.btnAceptar.Size = new System.Drawing.Size(93, 28);
             this.btnAceptar.StyleController = this.lcMain;
             this.btnAceptar.TabIndex = 18;
             this.btnAceptar.Text = "Aceptar (F5)";
@@ -178,9 +178,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(547, 270);
+            this.btnCancelar.Location = new System.Drawing.Point(548, 270);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(94, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(93, 28);
             this.btnCancelar.StyleController = this.lcMain;
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar (F12)";
@@ -203,7 +203,7 @@
             this.btnUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnUsuario_Properties_ButtonClick);
-            this.btnUsuario.Size = new System.Drawing.Size(185, 20);
+            this.btnUsuario.Size = new System.Drawing.Size(181, 20);
             this.btnUsuario.StyleController = this.lcMain;
             this.btnUsuario.TabIndex = 15;
             this.btnUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyUp);
@@ -232,24 +232,24 @@
             this.txtOtroDestino.StyleController = this.lcMain;
             this.txtOtroDestino.TabIndex = 13;
             // 
-            // lueArticulo
+            // lueFactura
             // 
-            this.lueArticulo.Location = new System.Drawing.Point(121, 68);
-            this.lueArticulo.MenuManager = this.rcMain;
-            this.lueArticulo.Name = "lueArticulo";
-            this.lueArticulo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lueFactura.Location = new System.Drawing.Point(121, 68);
+            this.lueFactura.MenuManager = this.rcMain;
+            this.lueFactura.Name = "lueFactura";
+            this.lueFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueArticulo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lueFactura.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cantidad", "Cantidad", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Articulo.Nombre", "Nombre", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumParte", "Parte", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumFactura", "Factura", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Fecha", "Fecha", 20, DevExpress.Utils.FormatType.DateTime, "d", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lueArticulo.Properties.NullText = "[Seleccione]";
-            this.lueArticulo.Size = new System.Drawing.Size(520, 20);
-            this.lueArticulo.StyleController = this.lcMain;
-            this.lueArticulo.TabIndex = 12;
-            this.lueArticulo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lueArticulo_KeyUp);
+            this.lueFactura.Properties.NullText = "[Seleccione]";
+            this.lueFactura.Size = new System.Drawing.Size(520, 20);
+            this.lueFactura.StyleController = this.lcMain;
+            this.lueFactura.TabIndex = 12;
+            this.lueFactura.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lueArticulo_KeyUp);
             // 
             // rgDestino
             // 
@@ -372,7 +372,7 @@
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lciArticulos,
+            this.lciFactura,
             this.lciCantidad,
             this.lciPrecioUnitarioDesc,
             this.lciPrecioUnitario,
@@ -393,14 +393,14 @@
             this.layoutControlGroup2.Size = new System.Drawing.Size(645, 276);
             this.layoutControlGroup2.Text = "Detalles";
             // 
-            // lciArticulos
+            // lciFactura
             // 
-            this.lciArticulos.Control = this.lueArticulo;
-            this.lciArticulos.Location = new System.Drawing.Point(0, 0);
-            this.lciArticulos.Name = "lciArticulos";
-            this.lciArticulos.Size = new System.Drawing.Size(621, 24);
-            this.lciArticulos.Text = "Artículos:";
-            this.lciArticulos.TextSize = new System.Drawing.Size(94, 13);
+            this.lciFactura.Control = this.lueFactura;
+            this.lciFactura.Location = new System.Drawing.Point(0, 0);
+            this.lciFactura.Name = "lciFactura";
+            this.lciFactura.Size = new System.Drawing.Size(621, 24);
+            this.lciFactura.Text = "Artículos:";
+            this.lciFactura.TextSize = new System.Drawing.Size(94, 13);
             // 
             // lciCantidad
             // 
@@ -493,17 +493,17 @@
             this.emptySpaceItem2.MaxSize = new System.Drawing.Size(0, 32);
             this.emptySpaceItem2.MinSize = new System.Drawing.Size(10, 32);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(436, 32);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(427, 32);
             this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnAceptar;
-            this.layoutControlItem2.Location = new System.Drawing.Point(424, 202);
+            this.layoutControlItem2.Location = new System.Drawing.Point(427, 202);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(99, 32);
+            this.layoutControlItem2.Size = new System.Drawing.Size(97, 32);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -511,10 +511,10 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnCancelar;
-            this.layoutControlItem1.Location = new System.Drawing.Point(523, 202);
+            this.layoutControlItem1.Location = new System.Drawing.Point(524, 202);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(98, 32);
+            this.layoutControlItem1.Size = new System.Drawing.Size(97, 32);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -544,16 +544,16 @@
             this.lciEmpleado.Control = this.btnUsuario;
             this.lciEmpleado.Location = new System.Drawing.Point(0, 154);
             this.lciEmpleado.Name = "lciEmpleado";
-            this.lciEmpleado.Size = new System.Drawing.Size(189, 24);
+            this.lciEmpleado.Size = new System.Drawing.Size(185, 24);
             this.lciEmpleado.TextSize = new System.Drawing.Size(0, 0);
             this.lciEmpleado.TextVisible = false;
             // 
             // lciNombreUsuario
             // 
             this.lciNombreUsuario.Control = this.txtNombreUsuario;
-            this.lciNombreUsuario.Location = new System.Drawing.Point(189, 154);
+            this.lciNombreUsuario.Location = new System.Drawing.Point(185, 154);
             this.lciNombreUsuario.Name = "lciNombreUsuario";
-            this.lciNombreUsuario.Size = new System.Drawing.Size(432, 24);
+            this.lciNombreUsuario.Size = new System.Drawing.Size(436, 24);
             this.lciNombreUsuario.Text = "Nombre de usuario:";
             this.lciNombreUsuario.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -578,7 +578,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgRecibo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtroDestino.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueArticulo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueFactura.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgDestino.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnCantidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCodigo.Properties)).EndInit();
@@ -586,7 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecioUnitarioDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecioUnitario)).EndInit();
@@ -617,7 +617,7 @@
         private DevExpress.XtraEditors.ButtonEdit btnUsuario;
         private DevExpress.XtraEditors.RadioGroup rgRecibo;
         private DevExpress.XtraEditors.TextEdit txtOtroDestino;
-        private DevExpress.XtraEditors.LookUpEdit lueArticulo;
+        private DevExpress.XtraEditors.LookUpEdit lueFactura;
         private DevExpress.XtraEditors.RadioGroup rgDestino;
         private DevExpress.XtraEditors.LabelControl lblPrecioUnitarioDes;
         private DevExpress.XtraEditors.LabelControl lblPrecioUnitario;
@@ -631,7 +631,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciCodigo;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem lciArticulos;
+        private DevExpress.XtraLayout.LayoutControlItem lciFactura;
         private DevExpress.XtraLayout.LayoutControlItem lciCantidad;
         private DevExpress.XtraLayout.LayoutControlItem lciPrecioUnitarioDesc;
         private DevExpress.XtraLayout.LayoutControlItem lciPrecioUnitario;
