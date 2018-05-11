@@ -30,9 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmModificarArticulo));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.dlcFacturas = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txtFactura = new DevExpress.XtraEditors.TextEdit();
             this.txtParte = new DevExpress.XtraEditors.TextEdit();
@@ -51,35 +54,32 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciFactura = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciParte = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciTipo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciSerie = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciMedida = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciCantidad = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTipoMedida = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPrecio = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAlmacen = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciTipoMedida = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciCantidad = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciMarca = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciMedida = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciProveedor = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciSerie = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTipo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciParte = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciMarca = new DevExpress.XtraLayout.LayoutControlItem();
             this.dnFacturas = new DevExpress.XtraEditors.DataNavigator();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
             this.txtCodigoEditar = new DevExpress.XtraEditors.TextEdit();
             this.rgOpciones = new DevExpress.XtraEditors.RadioGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.lciOpciones = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciCodigo = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgDetalles = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciCodigo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciOpciones = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgFacturas = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBoton = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -103,30 +103,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciParte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMedida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipoMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipoMedida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMedida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciProveedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciParte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoEditar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgOpciones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciOpciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciOpciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgFacturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBoton)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +147,26 @@
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
             this.ribbonControl1.Size = new System.Drawing.Size(640, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            // 
+            // bbiGuardar
+            // 
+            this.bbiGuardar.Caption = "Guardar";
+            this.bbiGuardar.Id = 1;
+            this.bbiGuardar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiGuardar.ImageOptions.LargeImage")));
+            this.bbiGuardar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
+            this.bbiGuardar.Name = "bbiGuardar";
+            this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
+            // 
+            // bbiCancelar
+            // 
+            this.bbiCancelar.Caption = "Cancelar";
+            this.bbiCancelar.Id = 2;
+            this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
+            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.bbiCancelar.Name = "bbiCancelar";
+            this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
             // 
             // rpAcciones
             // 
@@ -181,6 +201,16 @@
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(492, 12);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(136, 22);
+            this.btnBuscar.StyleController = this.lcMain;
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // dlcFacturas
             // 
             this.dlcFacturas.Controls.Add(this.txtFactura);
@@ -211,6 +241,7 @@
             this.txtFactura.Location = new System.Drawing.Point(12, 200);
             this.txtFactura.MenuManager = this.ribbonControl1;
             this.txtFactura.Name = "txtFactura";
+            this.txtFactura.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFactura.Size = new System.Drawing.Size(544, 20);
             this.txtFactura.StyleController = this.dlcFacturas;
             this.txtFactura.TabIndex = 4;
@@ -220,6 +251,7 @@
             this.txtParte.Location = new System.Drawing.Point(12, 243);
             this.txtParte.MenuManager = this.ribbonControl1;
             this.txtParte.Name = "txtParte";
+            this.txtParte.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtParte.Size = new System.Drawing.Size(544, 20);
             this.txtParte.StyleController = this.dlcFacturas;
             this.txtParte.TabIndex = 5;
@@ -229,6 +261,7 @@
             this.txtTipo.Location = new System.Drawing.Point(367, 330);
             this.txtTipo.MenuManager = this.ribbonControl1;
             this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTipo.Size = new System.Drawing.Size(189, 20);
             this.txtTipo.StyleController = this.dlcFacturas;
             this.txtTipo.TabIndex = 6;
@@ -238,6 +271,7 @@
             this.txtSerie.Location = new System.Drawing.Point(174, 330);
             this.txtSerie.MenuManager = this.ribbonControl1;
             this.txtSerie.Name = "txtSerie";
+            this.txtSerie.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSerie.Size = new System.Drawing.Size(189, 20);
             this.txtSerie.StyleController = this.dlcFacturas;
             this.txtSerie.TabIndex = 7;
@@ -247,6 +281,7 @@
             this.txtMedida.Location = new System.Drawing.Point(12, 330);
             this.txtMedida.MenuManager = this.ribbonControl1;
             this.txtMedida.Name = "txtMedida";
+            this.txtMedida.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMedida.Size = new System.Drawing.Size(158, 20);
             this.txtMedida.StyleController = this.dlcFacturas;
             this.txtMedida.TabIndex = 8;
@@ -308,6 +343,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteFecha.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteFecha.Size = new System.Drawing.Size(544, 20);
             this.dteFecha.StyleController = this.dlcFacturas;
             this.dteFecha.TabIndex = 11;
@@ -365,6 +401,7 @@
             this.lueMarca.Name = "lueMarca";
             this.lueMarca.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueMarca.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueMarca.Properties.NullText = "";
             this.lueMarca.Size = new System.Drawing.Size(544, 20);
             this.lueMarca.StyleController = this.dlcFacturas;
@@ -377,6 +414,7 @@
             this.lueProveedor.Name = "lueProveedor";
             this.lueProveedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueProveedor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueProveedor.Properties.NullText = "";
             this.lueProveedor.Size = new System.Drawing.Size(544, 20);
             this.lueProveedor.StyleController = this.dlcFacturas;
@@ -446,56 +484,29 @@
             this.lciFactura.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciFactura.TextSize = new System.Drawing.Size(76, 13);
             // 
-            // lciParte
+            // lciCantidad
             // 
-            this.lciParte.Control = this.txtParte;
-            this.lciParte.Location = new System.Drawing.Point(0, 215);
-            this.lciParte.MinSize = new System.Drawing.Size(65, 40);
-            this.lciParte.Name = "lciParte";
-            this.lciParte.Size = new System.Drawing.Size(548, 43);
-            this.lciParte.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciParte.Text = "Parte:";
-            this.lciParte.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciParte.TextSize = new System.Drawing.Size(76, 13);
+            this.lciCantidad.Control = this.spnCantidad;
+            this.lciCantidad.Location = new System.Drawing.Point(0, 43);
+            this.lciCantidad.MinSize = new System.Drawing.Size(65, 40);
+            this.lciCantidad.Name = "lciCantidad";
+            this.lciCantidad.Size = new System.Drawing.Size(274, 43);
+            this.lciCantidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciCantidad.Text = "Cantidad:";
+            this.lciCantidad.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciCantidad.TextSize = new System.Drawing.Size(76, 13);
             // 
-            // lciTipo
+            // lciTipoMedida
             // 
-            this.lciTipo.Control = this.txtTipo;
-            this.lciTipo.Location = new System.Drawing.Point(355, 302);
-            this.lciTipo.MinSize = new System.Drawing.Size(65, 40);
-            this.lciTipo.Name = "lciTipo";
-            this.lciTipo.Size = new System.Drawing.Size(193, 43);
-            this.lciTipo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciTipo.Text = "Tipo:";
-            this.lciTipo.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciTipo.TextSize = new System.Drawing.Size(76, 13);
-            this.lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // lciSerie
-            // 
-            this.lciSerie.Control = this.txtSerie;
-            this.lciSerie.Location = new System.Drawing.Point(162, 302);
-            this.lciSerie.MinSize = new System.Drawing.Size(65, 40);
-            this.lciSerie.Name = "lciSerie";
-            this.lciSerie.Size = new System.Drawing.Size(193, 43);
-            this.lciSerie.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciSerie.Text = "Serie:";
-            this.lciSerie.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciSerie.TextSize = new System.Drawing.Size(76, 13);
-            this.lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // lciMedida
-            // 
-            this.lciMedida.Control = this.txtMedida;
-            this.lciMedida.Location = new System.Drawing.Point(0, 302);
-            this.lciMedida.MinSize = new System.Drawing.Size(65, 40);
-            this.lciMedida.Name = "lciMedida";
-            this.lciMedida.Size = new System.Drawing.Size(162, 43);
-            this.lciMedida.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciMedida.Text = "Medida:";
-            this.lciMedida.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciMedida.TextSize = new System.Drawing.Size(76, 13);
-            this.lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.lciTipoMedida.Control = this.cboTipoMedida;
+            this.lciTipoMedida.Location = new System.Drawing.Point(274, 43);
+            this.lciTipoMedida.MinSize = new System.Drawing.Size(65, 40);
+            this.lciTipoMedida.Name = "lciTipoMedida";
+            this.lciTipoMedida.Size = new System.Drawing.Size(274, 43);
+            this.lciTipoMedida.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciTipoMedida.Text = "Tipo de medida:";
+            this.lciTipoMedida.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciTipoMedida.TextSize = new System.Drawing.Size(76, 13);
             // 
             // lciPrecio
             // 
@@ -533,41 +544,18 @@
             this.lciFecha.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciFecha.TextSize = new System.Drawing.Size(76, 13);
             // 
-            // lciTipoMedida
+            // lciMedida
             // 
-            this.lciTipoMedida.Control = this.cboTipoMedida;
-            this.lciTipoMedida.Location = new System.Drawing.Point(274, 43);
-            this.lciTipoMedida.MinSize = new System.Drawing.Size(65, 40);
-            this.lciTipoMedida.Name = "lciTipoMedida";
-            this.lciTipoMedida.Size = new System.Drawing.Size(274, 43);
-            this.lciTipoMedida.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciTipoMedida.Text = "Tipo de medida:";
-            this.lciTipoMedida.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciTipoMedida.TextSize = new System.Drawing.Size(76, 13);
-            // 
-            // lciCantidad
-            // 
-            this.lciCantidad.Control = this.spnCantidad;
-            this.lciCantidad.Location = new System.Drawing.Point(0, 43);
-            this.lciCantidad.MinSize = new System.Drawing.Size(65, 40);
-            this.lciCantidad.Name = "lciCantidad";
-            this.lciCantidad.Size = new System.Drawing.Size(274, 43);
-            this.lciCantidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciCantidad.Text = "Cantidad:";
-            this.lciCantidad.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciCantidad.TextSize = new System.Drawing.Size(76, 13);
-            // 
-            // lciMarca
-            // 
-            this.lciMarca.Control = this.lueMarca;
-            this.lciMarca.Location = new System.Drawing.Point(0, 258);
-            this.lciMarca.MinSize = new System.Drawing.Size(65, 40);
-            this.lciMarca.Name = "lciMarca";
-            this.lciMarca.Size = new System.Drawing.Size(548, 44);
-            this.lciMarca.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciMarca.Text = "Marca:";
-            this.lciMarca.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciMarca.TextSize = new System.Drawing.Size(76, 13);
+            this.lciMedida.Control = this.txtMedida;
+            this.lciMedida.Location = new System.Drawing.Point(0, 302);
+            this.lciMedida.MinSize = new System.Drawing.Size(65, 40);
+            this.lciMedida.Name = "lciMedida";
+            this.lciMedida.Size = new System.Drawing.Size(162, 43);
+            this.lciMedida.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciMedida.Text = "Medida:";
+            this.lciMedida.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciMedida.TextSize = new System.Drawing.Size(76, 13);
+            this.lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // lciProveedor
             // 
@@ -580,6 +568,56 @@
             this.lciProveedor.Text = "Proveedor:";
             this.lciProveedor.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciProveedor.TextSize = new System.Drawing.Size(76, 13);
+            // 
+            // lciSerie
+            // 
+            this.lciSerie.Control = this.txtSerie;
+            this.lciSerie.Location = new System.Drawing.Point(162, 302);
+            this.lciSerie.MinSize = new System.Drawing.Size(65, 40);
+            this.lciSerie.Name = "lciSerie";
+            this.lciSerie.Size = new System.Drawing.Size(193, 43);
+            this.lciSerie.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciSerie.Text = "Serie:";
+            this.lciSerie.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciSerie.TextSize = new System.Drawing.Size(76, 13);
+            this.lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // lciTipo
+            // 
+            this.lciTipo.Control = this.txtTipo;
+            this.lciTipo.Location = new System.Drawing.Point(355, 302);
+            this.lciTipo.MinSize = new System.Drawing.Size(65, 40);
+            this.lciTipo.Name = "lciTipo";
+            this.lciTipo.Size = new System.Drawing.Size(193, 43);
+            this.lciTipo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciTipo.Text = "Tipo:";
+            this.lciTipo.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciTipo.TextSize = new System.Drawing.Size(76, 13);
+            this.lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // lciParte
+            // 
+            this.lciParte.Control = this.txtParte;
+            this.lciParte.Location = new System.Drawing.Point(0, 215);
+            this.lciParte.MinSize = new System.Drawing.Size(65, 40);
+            this.lciParte.Name = "lciParte";
+            this.lciParte.Size = new System.Drawing.Size(548, 43);
+            this.lciParte.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciParte.Text = "Parte:";
+            this.lciParte.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciParte.TextSize = new System.Drawing.Size(76, 13);
+            // 
+            // lciMarca
+            // 
+            this.lciMarca.Control = this.lueMarca;
+            this.lciMarca.Location = new System.Drawing.Point(0, 258);
+            this.lciMarca.MinSize = new System.Drawing.Size(65, 40);
+            this.lciMarca.Name = "lciMarca";
+            this.lciMarca.Size = new System.Drawing.Size(548, 44);
+            this.lciMarca.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciMarca.Text = "Marca:";
+            this.lciMarca.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciMarca.TextSize = new System.Drawing.Size(76, 13);
             // 
             // dnFacturas
             // 
@@ -601,6 +639,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(56, 12);
             this.txtCodigo.MenuManager = this.ribbonControl1;
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Size = new System.Drawing.Size(432, 20);
             this.txtCodigo.StyleController = this.lcMain;
             this.txtCodigo.TabIndex = 8;
@@ -611,6 +650,7 @@
             this.txtNombre.Location = new System.Drawing.Point(283, 100);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Size = new System.Drawing.Size(333, 20);
             this.txtNombre.StyleController = this.lcMain;
             this.txtNombre.TabIndex = 6;
@@ -620,6 +660,7 @@
             this.txtCodigoEditar.Location = new System.Drawing.Point(68, 100);
             this.txtCodigoEditar.MenuManager = this.ribbonControl1;
             this.txtCodigoEditar.Name = "txtCodigoEditar";
+            this.txtCodigoEditar.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEditar.Size = new System.Drawing.Size(167, 20);
             this.txtCodigoEditar.StyleController = this.lcMain;
             this.txtCodigoEditar.TabIndex = 5;
@@ -646,28 +687,6 @@
             this.layoutControlGroup1.Size = new System.Drawing.Size(640, 582);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // lciOpciones
-            // 
-            this.lciOpciones.Control = this.rgOpciones;
-            this.lciOpciones.Location = new System.Drawing.Point(0, 0);
-            this.lciOpciones.MinSize = new System.Drawing.Size(150, 17);
-            this.lciOpciones.Name = "lciOpciones";
-            this.lciOpciones.Size = new System.Drawing.Size(596, 32);
-            this.lciOpciones.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciOpciones.TextSize = new System.Drawing.Size(0, 0);
-            this.lciOpciones.TextVisible = false;
-            // 
-            // lciNombre
-            // 
-            this.lciNombre.Control = this.txtNombre;
-            this.lciNombre.Location = new System.Drawing.Point(215, 32);
-            this.lciNombre.MinSize = new System.Drawing.Size(150, 24);
-            this.lciNombre.Name = "lciNombre";
-            this.lciNombre.Size = new System.Drawing.Size(381, 24);
-            this.lciNombre.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciNombre.Text = "Nombre:";
-            this.lciNombre.TextSize = new System.Drawing.Size(41, 13);
-            // 
             // lciBusqueda
             // 
             this.lciBusqueda.Control = this.txtCodigo;
@@ -678,37 +697,6 @@
             this.lciBusqueda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciBusqueda.Text = "Código:";
             this.lciBusqueda.TextSize = new System.Drawing.Size(41, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.dlcFacturas;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 27);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(572, 369);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.dnFacturas;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(185, 23);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(572, 27);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // lciCodigo
-            // 
-            this.lciCodigo.Control = this.txtCodigoEditar;
-            this.lciCodigo.Location = new System.Drawing.Point(0, 32);
-            this.lciCodigo.MinSize = new System.Drawing.Size(150, 24);
-            this.lciCodigo.Name = "lciCodigo";
-            this.lciCodigo.Size = new System.Drawing.Size(215, 24);
-            this.lciCodigo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciCodigo.Text = "Código:";
-            this.lciCodigo.TextSize = new System.Drawing.Size(41, 13);
             // 
             // lcgDetalles
             // 
@@ -722,6 +710,39 @@
             this.lcgDetalles.Size = new System.Drawing.Size(620, 536);
             this.lcgDetalles.Text = "Detalles";
             // 
+            // lciNombre
+            // 
+            this.lciNombre.Control = this.txtNombre;
+            this.lciNombre.Location = new System.Drawing.Point(215, 32);
+            this.lciNombre.MinSize = new System.Drawing.Size(150, 24);
+            this.lciNombre.Name = "lciNombre";
+            this.lciNombre.Size = new System.Drawing.Size(381, 24);
+            this.lciNombre.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciNombre.Text = "Nombre:";
+            this.lciNombre.TextSize = new System.Drawing.Size(41, 13);
+            // 
+            // lciCodigo
+            // 
+            this.lciCodigo.Control = this.txtCodigoEditar;
+            this.lciCodigo.Location = new System.Drawing.Point(0, 32);
+            this.lciCodigo.MinSize = new System.Drawing.Size(150, 24);
+            this.lciCodigo.Name = "lciCodigo";
+            this.lciCodigo.Size = new System.Drawing.Size(215, 24);
+            this.lciCodigo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciCodigo.Text = "Código:";
+            this.lciCodigo.TextSize = new System.Drawing.Size(41, 13);
+            // 
+            // lciOpciones
+            // 
+            this.lciOpciones.Control = this.rgOpciones;
+            this.lciOpciones.Location = new System.Drawing.Point(0, 0);
+            this.lciOpciones.MinSize = new System.Drawing.Size(150, 17);
+            this.lciOpciones.Name = "lciOpciones";
+            this.lciOpciones.Size = new System.Drawing.Size(596, 32);
+            this.lciOpciones.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciOpciones.TextSize = new System.Drawing.Size(0, 0);
+            this.lciOpciones.TextVisible = false;
+            // 
             // lcgFacturas
             // 
             this.lcgFacturas.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -732,15 +753,25 @@
             this.lcgFacturas.Size = new System.Drawing.Size(596, 438);
             this.lcgFacturas.Text = "Facturas";
             // 
-            // btnBuscar
+            // layoutControlItem4
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(492, 12);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(136, 22);
-            this.btnBuscar.StyleController = this.lcMain;
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.layoutControlItem4.Control = this.dnFacturas;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(185, 23);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(572, 27);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.dlcFacturas;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 27);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(572, 369);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
             // 
             // lciBoton
             // 
@@ -750,26 +781,6 @@
             this.lciBoton.Size = new System.Drawing.Size(140, 26);
             this.lciBoton.TextSize = new System.Drawing.Size(0, 0);
             this.lciBoton.TextVisible = false;
-            // 
-            // bbiGuardar
-            // 
-            this.bbiGuardar.Caption = "Guardar";
-            this.bbiGuardar.Id = 1;
-            this.bbiGuardar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiGuardar.ImageOptions.LargeImage")));
-            this.bbiGuardar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
-            this.bbiGuardar.Name = "bbiGuardar";
-            this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
-            // 
-            // bbiCancelar
-            // 
-            this.bbiCancelar.Caption = "Cancelar";
-            this.bbiCancelar.Id = 2;
-            this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
-            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
-            this.bbiCancelar.Name = "bbiCancelar";
-            this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
             // 
             // xfrmModificarArticulo
             // 
@@ -806,30 +817,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciParte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMedida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipoMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAlmacen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipoMedida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMedida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciProveedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciParte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoEditar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgOpciones.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciOpciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciOpciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgFacturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBoton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

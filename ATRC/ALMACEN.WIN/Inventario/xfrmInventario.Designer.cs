@@ -196,6 +196,7 @@
             this.txtNombre.Location = new System.Drawing.Point(56, 12);
             this.txtNombre.MenuManager = this.rcMain;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Size = new System.Drawing.Size(487, 20);
             this.txtNombre.StyleController = this.layoutControl1;
             this.txtNombre.TabIndex = 4;

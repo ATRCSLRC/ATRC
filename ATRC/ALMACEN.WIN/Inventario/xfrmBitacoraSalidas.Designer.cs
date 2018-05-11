@@ -292,6 +292,7 @@
             this.dteAl.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteAl.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dteAl.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteAl.Properties.DisplayFormat.FormatString = "D";
             this.dteAl.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteAl.Properties.Mask.EditMask = "D";
@@ -311,6 +312,7 @@
             this.dteDel.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteDel.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dteDel.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteDel.Properties.DisplayFormat.FormatString = "D";
             this.dteDel.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDel.Properties.Mask.EditMask = "D";

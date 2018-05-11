@@ -149,6 +149,7 @@
             this.txtNombreUsuario.Location = new System.Drawing.Point(306, 222);
             this.txtNombreUsuario.MenuManager = this.rcMain;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreUsuario.Properties.ReadOnly = true;
             this.txtNombreUsuario.Size = new System.Drawing.Size(335, 20);
             this.txtNombreUsuario.StyleController = this.lcMain;
@@ -161,6 +162,7 @@
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueUnidad.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueUnidad.Properties.NullText = "[Seleccione]";
             this.lueUnidad.Size = new System.Drawing.Size(617, 20);
             this.lueUnidad.StyleController = this.lcMain;
@@ -191,6 +193,7 @@
             this.txtOtroRecibo.Location = new System.Drawing.Point(24, 246);
             this.txtOtroRecibo.MenuManager = this.rcMain;
             this.txtOtroRecibo.Name = "txtOtroRecibo";
+            this.txtOtroRecibo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtOtroRecibo.Size = new System.Drawing.Size(617, 20);
             this.txtOtroRecibo.StyleController = this.lcMain;
             this.txtOtroRecibo.TabIndex = 16;
@@ -202,6 +205,7 @@
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.btnUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnUsuario_Properties_ButtonClick);
             this.btnUsuario.Size = new System.Drawing.Size(181, 20);
             this.btnUsuario.StyleController = this.lcMain;
@@ -228,6 +232,7 @@
             this.txtOtroDestino.Location = new System.Drawing.Point(24, 169);
             this.txtOtroDestino.MenuManager = this.rcMain;
             this.txtOtroDestino.Name = "txtOtroDestino";
+            this.txtOtroDestino.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtOtroDestino.Size = new System.Drawing.Size(617, 20);
             this.txtOtroDestino.StyleController = this.lcMain;
             this.txtOtroDestino.TabIndex = 13;
@@ -239,6 +244,7 @@
             this.lueFactura.Name = "lueFactura";
             this.lueFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueFactura.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueFactura.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cantidad", "Cantidad", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Articulo.Nombre", "Nombre", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
@@ -333,6 +339,7 @@
             this.btnCodigo.Name = "btnCodigo";
             this.btnCodigo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnCodigo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.btnCodigo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCodigo_Properties_ButtonClick);
             this.btnCodigo.Size = new System.Drawing.Size(455, 20);
             this.btnCodigo.StyleController = this.lcMain;

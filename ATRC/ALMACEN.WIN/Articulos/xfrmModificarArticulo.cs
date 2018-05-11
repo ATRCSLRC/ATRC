@@ -221,7 +221,7 @@ namespace ALMACEN.WIN
 
         private bool ValidarCampos()
         {
-            if (string.IsNullOrEmpty(txtCodigo.Text))
+            if (string.IsNullOrEmpty(txtCodigoEditar.Text))
             {
                 XtraMessageBox.Show("Debe ingresar un código.");
                 txtCodigo.Focus();

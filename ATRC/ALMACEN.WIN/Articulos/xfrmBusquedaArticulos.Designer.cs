@@ -113,6 +113,7 @@
             this.lueCatalogo.Name = "lueCatalogo";
             this.lueCatalogo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCatalogo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueCatalogo.Properties.NullText = "";
             this.lueCatalogo.Size = new System.Drawing.Size(640, 20);
             this.lueCatalogo.StyleController = this.lcMain;
@@ -207,7 +208,7 @@
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
-            this.colCodigo.VisibleIndex = 2;
+            this.colCodigo.VisibleIndex = 1;
             this.colCodigo.Width = 112;
             // 
             // colNombre
@@ -217,7 +218,7 @@
             this.colNombre.Name = "colNombre";
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
-            this.colNombre.VisibleIndex = 3;
+            this.colNombre.VisibleIndex = 2;
             this.colNombre.Width = 112;
             // 
             // colExistencia
@@ -227,7 +228,7 @@
             this.colExistencia.Name = "colExistencia";
             this.colExistencia.OptionsColumn.ReadOnly = true;
             this.colExistencia.Visible = true;
-            this.colExistencia.VisibleIndex = 4;
+            this.colExistencia.VisibleIndex = 3;
             this.colExistencia.Width = 112;
             // 
             // colProveedor
@@ -237,7 +238,7 @@
             this.colProveedor.Name = "colProveedor";
             this.colProveedor.OptionsColumn.ReadOnly = true;
             this.colProveedor.Visible = true;
-            this.colProveedor.VisibleIndex = 5;
+            this.colProveedor.VisibleIndex = 4;
             this.colProveedor.Width = 112;
             // 
             // colFactura
@@ -247,7 +248,7 @@
             this.colFactura.Name = "colFactura";
             this.colFactura.OptionsColumn.ReadOnly = true;
             this.colFactura.Visible = true;
-            this.colFactura.VisibleIndex = 6;
+            this.colFactura.VisibleIndex = 5;
             this.colFactura.Width = 112;
             // 
             // colFecha
@@ -257,7 +258,7 @@
             this.colFecha.Name = "colFecha";
             this.colFecha.OptionsColumn.ReadOnly = true;
             this.colFecha.Visible = true;
-            this.colFecha.VisibleIndex = 7;
+            this.colFecha.VisibleIndex = 6;
             this.colFecha.Width = 121;
             // 
             // btnBuscar
@@ -290,6 +291,7 @@
             // 
             this.txtFiltro.Location = new System.Drawing.Point(136, 42);
             this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFiltro.Size = new System.Drawing.Size(640, 20);
             this.txtFiltro.StyleController = this.lcMain;
             this.txtFiltro.TabIndex = 4;

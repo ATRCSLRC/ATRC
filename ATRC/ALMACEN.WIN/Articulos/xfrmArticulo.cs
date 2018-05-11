@@ -33,7 +33,7 @@ namespace ALMACEN.WIN
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             }
-            IniciarControles();
+            BeginInvoke(new MethodInvoker(delegate { IniciarControles(); })); //IniciarControles();
         }
 
         private void rgOpciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,34 +75,39 @@ namespace ALMACEN.WIN
         {
             if (ValidarCampos())
             {
-                Factura factura = new Factura(Unidad);
-                factura.Almacen = Convert.ToInt32(spnAlmacen.Value);
-                factura.Cantidad = Convert.ToInt32(spnCantidad.Value);
-                factura.Fecha = dteFechaEntrega.DateTime;
-                factura.Marca = (Marcas)lueMarca.EditValue;
-                factura.Medida = txtMedida.Text;
-                factura.NumFactura = txtFactura.Text;
-                factura.NumParte = txtParte.Text;
-                factura.Precio = Convert.ToInt32(spnPrecio.Value);
-                factura.Proveedor = (Proveedor)lueProveedor.EditValue;
-                factura.Serie = txtSerie.Text;
-                factura.Tipo = txtTipo.Text;
-                factura.TipoMedida = (Enums.TipoMedida)cboTipoMedida.EditValue;
-                factura.Save();
+                if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    Factura factura = new Factura(Unidad);
+                    factura.Almacen = Convert.ToInt32(spnAlmacen.Value);
+                    factura.Cantidad = Convert.ToInt32(spnCantidad.Value);
+                    factura.Fecha = dteFechaEntrega.DateTime;
+                    factura.Marca = (Marcas)lueMarca.EditValue;
+                    factura.Medida = txtMedida.Text;
+                    factura.NumFactura = txtFactura.Text;
+                    factura.NumParte = txtParte.Text;
+                    factura.Precio = Convert.ToInt32(spnPrecio.Value);
+                    factura.Proveedor = (Proveedor)lueProveedor.EditValue;
+                    factura.Serie = txtSerie.Text;
+                    factura.Tipo = txtTipo.Text;
+                    factura.TipoMedida = (Enums.TipoMedida)cboTipoMedida.EditValue;
+                    factura.Save();
 
-                if(Articulo != null)
-                {
-                    Articulo.Facturas.Add(factura);
-                }else
-                {
-                    Articulo = new Articulo(Unidad);
-                    Articulo.Nombre = txtNombre.Text;
-                    Articulo.TipoArticulo = (Enums.TipoArticulo)rgOpciones.EditValue;
-                    Articulo.Facturas.Add(factura);
+                    if (Articulo != null)
+                    {
+                        Articulo.Facturas.Add(factura);
+                    }
+                    else
+                    {
+                        Articulo = new Articulo(Unidad);
+                        Articulo.Nombre = txtNombre.Text;
+                        Articulo.Codigo = txtCodigo.Text;
+                        Articulo.TipoArticulo = (Enums.TipoArticulo)rgOpciones.EditValue;
+                        Articulo.Facturas.Add(factura);
+                    }
+                    Articulo.Save();
+                    Unidad.CommitChanges();
+                    LimpiarControles();
                 }
-                Articulo.Save();
-                Unidad.CommitChanges();
-                LimpiarControles();
             }
         }
 
@@ -117,13 +122,13 @@ namespace ALMACEN.WIN
 
         private void IniciarControles()
         {
+            txtCodigo.Focus();
             cboTipoMedida.Properties.Items.AddRange(typeof(Enums.TipoMedida).GetEnumValues());
             rgOpciones.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
             dteFechaEntrega.DateTime = DateTime.Now;
             Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
             Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
             rgOpciones.SelectedIndex = 0;
-            txtCodigo.Focus();
         }
         
         private void LimpiarControles()

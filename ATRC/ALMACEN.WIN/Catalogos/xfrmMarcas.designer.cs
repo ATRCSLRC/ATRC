@@ -115,6 +115,7 @@
             this.memoNombre.Location = new System.Drawing.Point(12, 28);
             this.memoNombre.MenuManager = this.ribbonControl1;
             this.memoNombre.Name = "memoNombre";
+            this.memoNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.memoNombre.Size = new System.Drawing.Size(304, 97);
             this.memoNombre.StyleController = this.lcMain;
             this.memoNombre.TabIndex = 4;

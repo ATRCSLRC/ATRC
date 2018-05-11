@@ -120,6 +120,7 @@
             this.txtNombreFiscal.Location = new System.Drawing.Point(12, 68);
             this.txtNombreFiscal.MenuManager = this.ribbonControl1;
             this.txtNombreFiscal.Name = "txtNombreFiscal";
+            this.txtNombreFiscal.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreFiscal.Size = new System.Drawing.Size(304, 20);
             this.txtNombreFiscal.StyleController = this.lcMain;
             this.txtNombreFiscal.TabIndex = 7;
@@ -129,6 +130,7 @@
             this.txtNombre.Location = new System.Drawing.Point(12, 28);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Size = new System.Drawing.Size(304, 20);
             this.txtNombre.StyleController = this.lcMain;
             this.txtNombre.TabIndex = 6;
