@@ -70,12 +70,13 @@
             this.rbnpgReportesChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpAlmacen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgArticulos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgCatalogo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgInventario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgCatalogo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.bbiPrestamos = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             this.SuspendLayout();
@@ -108,9 +109,10 @@
             this.bbiSalida,
             this.bbiBitacoraSalida,
             this.bbiInventarios,
-            this.bbiModificar});
+            this.bbiModificar,
+            this.bbiPrestamos});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 23;
+            this.rbnMain.MaxItemId = 24;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -435,18 +437,10 @@
             this.rpgArticulos.ItemLinks.Add(this.bbiModificar);
             this.rpgArticulos.ItemLinks.Add(this.bbiBusquedaArticulos);
             this.rpgArticulos.ItemLinks.Add(this.bbiSalida);
+            this.rpgArticulos.ItemLinks.Add(this.bbiPrestamos);
             this.rpgArticulos.Name = "rpgArticulos";
             this.rpgArticulos.ShowCaptionButton = false;
             this.rpgArticulos.Text = "Artículos";
-            // 
-            // rpgCatalogo
-            // 
-            this.rpgCatalogo.AllowMinimize = false;
-            this.rpgCatalogo.ItemLinks.Add(this.bbiMarcas);
-            this.rpgCatalogo.ItemLinks.Add(this.bbiProveedor);
-            this.rpgCatalogo.Name = "rpgCatalogo";
-            this.rpgCatalogo.ShowCaptionButton = false;
-            this.rpgCatalogo.Text = "Catálogo";
             // 
             // rpgInventario
             // 
@@ -456,6 +450,15 @@
             this.rpgInventario.Name = "rpgInventario";
             this.rpgInventario.ShowCaptionButton = false;
             this.rpgInventario.Text = "Inventario";
+            // 
+            // rpgCatalogo
+            // 
+            this.rpgCatalogo.AllowMinimize = false;
+            this.rpgCatalogo.ItemLinks.Add(this.bbiMarcas);
+            this.rpgCatalogo.ItemLinks.Add(this.bbiProveedor);
+            this.rpgCatalogo.Name = "rpgCatalogo";
+            this.rpgCatalogo.ShowCaptionButton = false;
+            this.rpgCatalogo.Text = "Catálogo";
             // 
             // rbnpAdministracion
             // 
@@ -489,6 +492,16 @@
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
             this.rsbMain.Size = new System.Drawing.Size(1061, 31);
+            // 
+            // bbiPrestamos
+            // 
+            this.bbiPrestamos.Caption = "Prestamo";
+            this.bbiPrestamos.Id = 23;
+            this.bbiPrestamos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.Image")));
+            this.bbiPrestamos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.LargeImage")));
+            this.bbiPrestamos.Name = "bbiPrestamos";
+            this.bbiPrestamos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiPrestamos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrestamos_ItemClick);
             // 
             // xfrmMain
             // 
@@ -557,5 +570,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInventario;
         private DevExpress.XtraBars.BarButtonItem bbiInventarios;
         private DevExpress.XtraBars.BarButtonItem bbiModificar;
+        private DevExpress.XtraBars.BarButtonItem bbiPrestamos;
     }
 }
