@@ -62,6 +62,7 @@
             this.bbiBitacoraSalida = new DevExpress.XtraBars.BarButtonItem();
             this.bbiInventarios = new DevExpress.XtraBars.BarButtonItem();
             this.bbiModificar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPrestamos = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,7 +77,6 @@
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.bbiPrestamos = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             this.SuspendLayout();
@@ -120,7 +120,7 @@
             this.rpAlmacen,
             this.rbnpAdministracion});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
-            this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
+            this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowItemCaptionsInPageHeader = true;
             this.rbnMain.ShowToolbarCustomizeItem = false;
             this.rbnMain.Size = new System.Drawing.Size(1061, 143);
@@ -372,6 +372,16 @@
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiModificar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificar_ItemClick);
             // 
+            // bbiPrestamos
+            // 
+            this.bbiPrestamos.Caption = "Prestamo";
+            this.bbiPrestamos.Id = 23;
+            this.bbiPrestamos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.Image")));
+            this.bbiPrestamos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.LargeImage")));
+            this.bbiPrestamos.Name = "bbiPrestamos";
+            this.bbiPrestamos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiPrestamos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrestamos_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -402,7 +412,8 @@
             this.rbnpgAdministracion,
             this.rbnpgReportesChecador});
             this.rbnpChecador.Name = "rbnpChecador";
-            this.rbnpChecador.Text = "Administrador de checador";
+            this.rbnpChecador.Text = "Checador";
+            this.rbnpChecador.Visible = false;
             // 
             // rbnpgAdministracion
             // 
@@ -429,6 +440,7 @@
             this.rpgCatalogo});
             this.rpAlmacen.Name = "rpAlmacen";
             this.rpAlmacen.Text = "Almacen";
+            this.rpAlmacen.Visible = false;
             // 
             // rpgArticulos
             // 
@@ -467,6 +479,7 @@
             this.rpgMantenimiento});
             this.rbnpAdministracion.Name = "rbnpAdministracion";
             this.rbnpAdministracion.Text = "Administración";
+            this.rbnpAdministracion.Visible = false;
             // 
             // pbnpgCatalogos
             // 
@@ -492,16 +505,6 @@
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
             this.rsbMain.Size = new System.Drawing.Size(1061, 31);
-            // 
-            // bbiPrestamos
-            // 
-            this.bbiPrestamos.Caption = "Prestamo";
-            this.bbiPrestamos.Id = 23;
-            this.bbiPrestamos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.Image")));
-            this.bbiPrestamos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiPrestamos.ImageOptions.LargeImage")));
-            this.bbiPrestamos.Name = "bbiPrestamos";
-            this.bbiPrestamos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiPrestamos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrestamos_ItemClick);
             // 
             // xfrmMain
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +38,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TabSeguridad = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainSeguridad = new DevExpress.XtraLayout.LayoutControl();
+            this.checkedComboBoxEdit1 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.lblComparaContraseña = new DevExpress.XtraEditors.LabelControl();
             this.txtConfContraseña = new DevExpress.XtraEditors.TextEdit();
             this.txtContraseña = new DevExpress.XtraEditors.TextEdit();
@@ -48,7 +50,8 @@
             this.lciComparaContraseña = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lcgPermisos = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabDatosGenerales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainTabGeneral = new DevExpress.XtraLayout.LayoutControl();
             this.lueDepartamento = new DevExpress.XtraEditors.LookUpEdit();
@@ -96,15 +99,14 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
-            this.lciModulo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lueModulos = new DevExpress.XtraEditors.LookUpEdit();
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabSeguridad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainSeguridad)).BeginInit();
             this.lcMainSeguridad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfContraseña.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContraseña.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -115,7 +117,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciComparaContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgPermisos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.tabDatosGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).BeginInit();
             this.lcMainTabGeneral.SuspendLayout();
@@ -164,8 +167,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lciModulo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueModulos.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rbbnUsuario
@@ -242,10 +243,10 @@
             // 
             // lcMainSeguridad
             // 
+            this.lcMainSeguridad.Controls.Add(this.checkedComboBoxEdit1);
             this.lcMainSeguridad.Controls.Add(this.lblComparaContraseña);
             this.lcMainSeguridad.Controls.Add(this.txtConfContraseña);
             this.lcMainSeguridad.Controls.Add(this.txtContraseña);
-            this.lcMainSeguridad.Controls.Add(this.lueModulos);
             this.lcMainSeguridad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMainSeguridad.Location = new System.Drawing.Point(0, 0);
             this.lcMainSeguridad.Name = "lcMainSeguridad";
@@ -254,6 +255,23 @@
             this.lcMainSeguridad.Size = new System.Drawing.Size(630, 328);
             this.lcMainSeguridad.TabIndex = 0;
             this.lcMainSeguridad.Text = "layoutControl1";
+            // 
+            // checkedComboBoxEdit1
+            // 
+            this.checkedComboBoxEdit1.EditValue = "";
+            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(135, 149);
+            this.checkedComboBoxEdit1.MenuManager = this.rbbnUsuario;
+            this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
+            this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.checkedComboBoxEdit1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Usuarios", "Usuarios"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Checador", "Checador"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Almacen", "Almacen"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración")});
+            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(471, 20);
+            this.checkedComboBoxEdit1.StyleController = this.lcMainSeguridad;
+            this.checkedComboBoxEdit1.TabIndex = 8;
             // 
             // lblComparaContraseña
             // 
@@ -361,22 +379,29 @@
             // 
             this.lcgPermisos.CustomizationFormText = "Marque modulos con acceso";
             this.lcgPermisos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem8,
-            this.lciModulo});
+            this.emptySpaceItem7,
+            this.layoutControlItem3});
             this.lcgPermisos.Location = new System.Drawing.Point(0, 107);
             this.lcgPermisos.Name = "lcgPermisos";
             this.lcgPermisos.Size = new System.Drawing.Size(610, 191);
             this.lcgPermisos.Text = "Marque modulos con acceso";
             // 
-            // emptySpaceItem8
+            // emptySpaceItem7
             // 
-            this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(586, 125);
-            this.emptySpaceItem8.Text = "emptySpaceItem5";
-            this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.Size = new System.Drawing.Size(586, 125);
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.checkedComboBoxEdit1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(586, 24);
+            this.layoutControlItem3.Text = "Modulos:";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 13);
             // 
             // tabDatosGenerales
             // 
@@ -905,26 +930,6 @@
             // 
             this.ofdFoto.FileName = null;
             // 
-            // lciModulo
-            // 
-            this.lciModulo.Control = this.lueModulos;
-            this.lciModulo.Location = new System.Drawing.Point(0, 0);
-            this.lciModulo.Name = "lciModulo";
-            this.lciModulo.Size = new System.Drawing.Size(586, 24);
-            this.lciModulo.Text = "Modulos";
-            this.lciModulo.TextSize = new System.Drawing.Size(108, 13);
-            // 
-            // lueModulos
-            // 
-            this.lueModulos.Location = new System.Drawing.Point(135, 149);
-            this.lueModulos.MenuManager = this.rbbnUsuario;
-            this.lueModulos.Name = "lueModulos";
-            this.lueModulos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueModulos.Size = new System.Drawing.Size(471, 20);
-            this.lueModulos.StyleController = this.lcMainSeguridad;
-            this.lueModulos.TabIndex = 7;
-            // 
             // xfrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -944,6 +949,7 @@
             this.TabSeguridad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainSeguridad)).EndInit();
             this.lcMainSeguridad.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfContraseña.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContraseña.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -954,7 +960,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciComparaContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgPermisos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.tabDatosGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).EndInit();
             this.lcMainTabGeneral.ResumeLayout(false);
@@ -1003,8 +1010,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lciModulo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueModulos.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1079,8 +1084,8 @@
         private DevExpress.XtraEditors.TextEdit txtTel;
         private DevExpress.XtraLayout.LayoutControlItem lciTel;
         private DevExpress.XtraLayout.LayoutControlGroup lcgPermisos;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
-        private DevExpress.XtraLayout.LayoutControlItem lciModulo;
-        private DevExpress.XtraEditors.LookUpEdit lueModulos;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

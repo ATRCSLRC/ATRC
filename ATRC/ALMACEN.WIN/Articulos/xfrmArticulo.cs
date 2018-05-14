@@ -89,7 +89,7 @@ namespace ALMACEN.WIN
                     factura.Proveedor = (Proveedor)lueProveedor.EditValue;
                     factura.Serie = txtSerie.Text;
                     factura.Tipo = txtTipo.Text;
-                    factura.TipoMedida = (Enums.TipoMedida)cboTipoMedida.EditValue;
+                    factura.TipoMedida = (Enums.TipoMedida)Enum.Parse(typeof(Enums.TipoMedida), cboTipoMedida.EditValue.ToString(), true);
                     factura.Save();
 
                     if (Articulo != null)

@@ -34,8 +34,10 @@ namespace ATRCBASE.WIN
         {
             Utilerias.CargarLookupEdit(lueDepartamento, typeof(Departamento), Unidad, "Descripcion", "Descripcion", false);
             Utilerias.CargarLookupEdit(luePuesto, typeof(Puesto), Unidad, "Descripcion", "Descripcion", false);
+            
             LigarControles();
-            if(EsNuevo)
+            
+            if (EsNuevo)
                 txtNumeroEmpleado.Text = Utilerias.NumEmpleado(Unidad);
 
 
@@ -189,7 +191,8 @@ namespace ATRCBASE.WIN
             cmbPatron.DataBindings.Add("EditValue", Usuario, "Patron", true, DataSourceUpdateMode.OnPropertyChanged);
             txtAvisar.DataBindings.Add("EditValue", Usuario, "AvisarA", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTipoSangre.DataBindings.Add("EditValue", Usuario, "TipoSangre", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtContraseña.Text = txtConfContraseña.Text = Usuario.Constraseña;
+            checkedComboBoxEdit1.DataBindings.Add("EditValue", Usuario , "Modulos", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtContraseña.Text = txtConfContraseña.Text = Usuario.ConstraseñaDesencriptada;
         }
 
         private void Desligar()

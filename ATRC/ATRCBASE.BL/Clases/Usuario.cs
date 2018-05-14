@@ -140,6 +140,13 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<string>("IMSS", ref mIMSS, value); }
         }
 
+        private string mModulos;
+        public string Modulos
+        {
+            get { return mModulos; }
+            set { SetPropertyValue<string>("Modulos", ref mModulos, value); }
+        }
+
         [NonPersistent]
         public string ConstraseñaDesencriptada
         {
@@ -153,10 +160,6 @@ namespace ATRCBASE.BL
 
         }
 
-        [Association("gen_Modulos-Usuario")]
-        public XPCollection<Modulos> Modulos
-        {
-            get { return GetCollection<Modulos>("Modulos"); }
-        }
+        
     }
 }
