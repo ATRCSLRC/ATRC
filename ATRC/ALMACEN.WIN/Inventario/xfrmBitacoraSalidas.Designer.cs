@@ -134,6 +134,7 @@
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
             this.colEstado.OptionsColumn.AllowEdit = false;
+            this.colEstado.OptionsColumn.AllowFocus = false;
             this.colEstado.OptionsColumn.ReadOnly = true;
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 0;
@@ -145,6 +146,7 @@
             this.colCodigo.FieldName = "Articulo.Codigo";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.OptionsColumn.AllowEdit = false;
+            this.colCodigo.OptionsColumn.AllowFocus = false;
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 1;
@@ -156,6 +158,7 @@
             this.colNombre.FieldName = "Articulo.Nombre";
             this.colNombre.Name = "colNombre";
             this.colNombre.OptionsColumn.AllowEdit = false;
+            this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 2;
@@ -167,6 +170,7 @@
             this.colCantidad.FieldName = "Cantidad";
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.OptionsColumn.AllowEdit = false;
+            this.colCantidad.OptionsColumn.AllowFocus = false;
             this.colCantidad.OptionsColumn.ReadOnly = true;
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 3;
@@ -178,6 +182,7 @@
             this.colDestino.FieldName = "Destino";
             this.colDestino.Name = "colDestino";
             this.colDestino.OptionsColumn.AllowEdit = false;
+            this.colDestino.OptionsColumn.AllowFocus = false;
             this.colDestino.OptionsColumn.ReadOnly = true;
             this.colDestino.Visible = true;
             this.colDestino.VisibleIndex = 4;
@@ -186,9 +191,10 @@
             // colRecibio
             // 
             this.colRecibio.Caption = "Recibio";
-            this.colRecibio.FieldName = "UsuarioRecibo.Nombre";
+            this.colRecibio.FieldName = "Recibio";
             this.colRecibio.Name = "colRecibio";
             this.colRecibio.OptionsColumn.AllowEdit = false;
+            this.colRecibio.OptionsColumn.AllowFocus = false;
             this.colRecibio.OptionsColumn.ReadOnly = true;
             this.colRecibio.Visible = true;
             this.colRecibio.VisibleIndex = 5;
@@ -200,6 +206,7 @@
             this.colFechaSalida.FieldName = "Fecha";
             this.colFechaSalida.Name = "colFechaSalida";
             this.colFechaSalida.OptionsColumn.AllowEdit = false;
+            this.colFechaSalida.OptionsColumn.AllowFocus = false;
             this.colFechaSalida.OptionsColumn.ReadOnly = true;
             this.colFechaSalida.Visible = true;
             this.colFechaSalida.VisibleIndex = 6;

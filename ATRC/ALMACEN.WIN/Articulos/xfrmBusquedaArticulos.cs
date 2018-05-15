@@ -24,6 +24,8 @@ namespace ALMACEN.WIN
         XPView Articulos;
         public UnidadDeTrabajo Unidad;
         public InventarioArticulo Inventario;
+        public bool Asignar;
+        public string Codigo = "";
         #region Eventos
         private void xfrmBusquedaArticulos_Load(object sender, EventArgs e)
         {
@@ -33,6 +35,7 @@ namespace ALMACEN.WIN
 
             Articulos.Properties.AddRange(new ViewProperty[] {
             new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+            new ViewProperty("NumParte", SortDirection.None, "[NumParte]", false, true),
             new ViewProperty("Codigo", SortDirection.None, "[Articulo.Codigo]", false, true),
             new ViewProperty("Articulo", SortDirection.None, "[Articulo.Oid]", false, true),
             new ViewProperty("Nombre", SortDirection.None, "[Articulo.Nombre]", false, true),
@@ -43,7 +46,7 @@ namespace ALMACEN.WIN
             //new ViewProperty("Cantidad", SortDirection.None, "[Facturas].Sum([Cantidad])", false, true)
             });
             rgBusqueda.SelectedIndex = 0;
-            if (Inventario != null)
+            if (Asignar)
                 col.Visible = false;
             else
                 colAsignar.Visible = false;
@@ -69,9 +72,20 @@ namespace ALMACEN.WIN
             if (ViewArticulo != null)
             {
                 Factura Factura = (Factura)ViewArticulo.GetObject();
-                Inventario.Articulos.Add(Factura.Articulo);
-                Inventario.Save();
-                XtraMessageBox.Show("Se agregó el artículo '"+ Factura.Articulo.Nombre +"'");
+                if (Asignar & Inventario != null)
+                {
+                    Inventario.Articulos.Add(Factura.Articulo);
+                    Inventario.Save();
+                    XtraMessageBox.Show("Se agregó el artículo '" + Factura.Articulo.Nombre + "'");
+                }
+                else
+                {
+                    if (XtraMessageBox.Show("¿Desea seleccionar el artículo '" + Factura.Articulo.Nombre + "' ?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        this.Codigo = Factura.Articulo.Codigo;
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -80,13 +94,13 @@ namespace ALMACEN.WIN
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text, BinaryOperatorType.Equal);
+                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like);
                     break;
                 case 1://Descripcion
                     Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text +"%", BinaryOperatorType.Like);
                     break;
                 case 2://NumParte
-                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text, BinaryOperatorType.Equal);
+                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like);
                     break;
             }
             grdArticulos.DataSource = Articulos;
@@ -100,6 +114,7 @@ namespace ALMACEN.WIN
                     lciBusqueda.Text = "Ingresé código:";
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
+                    txtFiltro.Focus();
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -108,6 +123,7 @@ namespace ALMACEN.WIN
                     lciBusqueda.Text = "Ingresé descripción:";
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
+                    txtFiltro.Focus();
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -115,6 +131,7 @@ namespace ALMACEN.WIN
                 case 2://NumParte
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
+                    txtFiltro.Focus();
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -123,6 +140,7 @@ namespace ALMACEN.WIN
                     
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
+                    lueCatalogo.Focus();
                     Utilerias.CargarLookupEdit(lueCatalogo, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -131,6 +149,7 @@ namespace ALMACEN.WIN
                 case 4://Proveedor
                     grdArticulos.DataSource = null;
                     txtFiltro.Text = string.Empty;
+                    lueCatalogo.Focus();
                     Utilerias.CargarLookupEdit(lueCatalogo, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -169,13 +188,13 @@ namespace ALMACEN.WIN
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text, BinaryOperatorType.Equal);
+                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like);
                     break;
                 case 1://Descripcion
                     Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like);
                     break;
                 case 2://NumParte
-                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text, BinaryOperatorType.Equal);
+                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like);
                     break;
             }
             grdArticulos.DataSource = Articulos;

@@ -49,11 +49,12 @@ namespace ALMACEN.WIN
                   new ViewProperty("Articulo.Nombre", SortDirection.None, "[Articulo.Nombre]", false, true),
                   new ViewProperty("Cantidad", SortDirection.None, "[Cantidad]", false, true),
                   new ViewProperty("Destino", SortDirection.None, "[OtroDestino]", false, true),
-                  new ViewProperty("Recibio", SortDirection.None, "Concat(ToStr([UsuarioRecibo.Nombre]), '', [OtroRecibo])", false, true),
+                  new ViewProperty("Recibio", SortDirection.None,  "iif([UsuarioRecibo] is null,[OtroRecibo],[UsuarioRecibo.Nombre])", false, true),
                   new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true)
-                 });
-            Salidas.Criteria = go;
-            grdSalida.DataSource = Salidas;
+                 }); 
+            Salidas.Criteria = go; 
+
+           grdSalida.DataSource = Salidas;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -82,23 +83,30 @@ namespace ALMACEN.WIN
                 if (Salida.Estado == Enums.EstadoSalida.Entregado)
                 {
                     XtraInputBoxArgs args = new XtraInputBoxArgs();
-                    args.Caption = "Devolver artículos";
+                    args.Caption = "Devolver artículo '" + Salida.Articulo.Nombre +"'";
                     args.Prompt = "Cantidad:";
                     SpinEdit editor = new SpinEdit();
                     editor.Properties.MinValue = 1;
                     editor.Properties.MaxValue = Salida.Cantidad;
                     args.Editor = editor;
                     args.DefaultResponse = Salida.Cantidad;
-                    var result = XtraInputBox.Show(args).ToString();
-                    Salida.Factura.Cantidad += Convert.ToInt32(result);
-                    if (Convert.ToInt32(result) == Salida.Cantidad)
-                        Salida.Estado = Enums.EstadoSalida.Devuelto;
-                    else
-                        Salida.Cantidad -= Convert.ToInt32(result);
-                    
-                    Salida.Save();
-                    Unidad.CommitChanges();
-                    (grdSalida.DataSource as XPView).Reload();
+                    var result = XtraInputBox.Show(args);
+                    if (result != null)
+                    {
+                        Salida.Factura.Cantidad += Convert.ToInt32(result);
+                        if (Convert.ToInt32(result) == Salida.Cantidad)
+                            Salida.Estado = Enums.EstadoSalida.Devuelto;
+                        else
+                            Salida.Cantidad -= Convert.ToInt32(result);
+
+                        Salida.Save();
+                        Unidad.CommitChanges();
+                        (grdSalida.DataSource as XPView).Reload();
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("Ya se ha devuelto este artículo.");
                 }
             }
         }
@@ -120,17 +128,17 @@ namespace ALMACEN.WIN
 
         private void grvSalidas_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
         {
-            if (e.Column.Caption == "Devolver")
-            {
-                ViewRecord ViewSalida = (ViewRecord)grvSalidas.GetRow(e.RowHandle);
-                RepositoryItemButtonEdit emptyEditor = new RepositoryItemButtonEdit();
-                emptyEditor.ReadOnly = true;
-                emptyEditor.TextEditStyle = TextEditStyles.DisableTextEditor;
-                emptyEditor.Buttons.Clear();
+            //if (e.Column.Caption == "Devolver")
+            //{
+            //    ViewRecord ViewSalida = (ViewRecord)grvSalidas.GetRow(e.RowHandle);
+            //    RepositoryItemButtonEdit emptyEditor = new RepositoryItemButtonEdit();
+            //    emptyEditor.ReadOnly = true;
+            //    emptyEditor.TextEditStyle = TextEditStyles.DisableTextEditor;
+            //    emptyEditor.Buttons.Clear();
 
-                if (((SalidaArticulo)ViewSalida.GetObject()).Estado == Enums.EstadoSalida.Devuelto)
-                    e.RepositoryItem = emptyEditor;
-            }
+            //    if (((SalidaArticulo)ViewSalida.GetObject()).Estado == Enums.EstadoSalida.Devuelto)
+            //        e.RepositoryItem = emptyEditor;
+            //}
         }
     }
 }

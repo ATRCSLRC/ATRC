@@ -236,7 +236,14 @@ namespace ALMACEN.WIN
         private void btnCodigo_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             xfrmBusquedaArticulos xfrm = new xfrmBusquedaArticulos();
-            xfrm.Show();
+            xfrm.Asignar = true;
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+            if (!string.IsNullOrEmpty(xfrm.Codigo))
+            {
+                btnCodigo.Text = xfrm.Codigo;
+                Buscar();
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

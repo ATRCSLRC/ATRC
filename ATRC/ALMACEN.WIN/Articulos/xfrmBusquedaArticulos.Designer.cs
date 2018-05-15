@@ -57,6 +57,7 @@
             this.lciCatalogos = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colParte = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
@@ -157,6 +158,7 @@
             this.colAsignar,
             this.col,
             this.colCodigo,
+            this.colParte,
             this.colNombre,
             this.colExistencia,
             this.colProveedor,
@@ -206,6 +208,8 @@
             this.colCodigo.Caption = "Código";
             this.colCodigo.FieldName = "Codigo";
             this.colCodigo.Name = "colCodigo";
+            this.colCodigo.OptionsColumn.AllowEdit = false;
+            this.colCodigo.OptionsColumn.AllowFocus = false;
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 1;
@@ -216,9 +220,11 @@
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsColumn.AllowEdit = false;
+            this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
-            this.colNombre.VisibleIndex = 2;
+            this.colNombre.VisibleIndex = 3;
             this.colNombre.Width = 112;
             // 
             // colExistencia
@@ -226,9 +232,11 @@
             this.colExistencia.Caption = "Existencia";
             this.colExistencia.FieldName = "Cantidad";
             this.colExistencia.Name = "colExistencia";
+            this.colExistencia.OptionsColumn.AllowEdit = false;
+            this.colExistencia.OptionsColumn.AllowFocus = false;
             this.colExistencia.OptionsColumn.ReadOnly = true;
             this.colExistencia.Visible = true;
-            this.colExistencia.VisibleIndex = 3;
+            this.colExistencia.VisibleIndex = 4;
             this.colExistencia.Width = 112;
             // 
             // colProveedor
@@ -236,9 +244,11 @@
             this.colProveedor.Caption = "Proveedor";
             this.colProveedor.FieldName = "Proveedor.Nombre";
             this.colProveedor.Name = "colProveedor";
+            this.colProveedor.OptionsColumn.AllowEdit = false;
+            this.colProveedor.OptionsColumn.AllowFocus = false;
             this.colProveedor.OptionsColumn.ReadOnly = true;
             this.colProveedor.Visible = true;
-            this.colProveedor.VisibleIndex = 4;
+            this.colProveedor.VisibleIndex = 5;
             this.colProveedor.Width = 112;
             // 
             // colFactura
@@ -246,9 +256,11 @@
             this.colFactura.Caption = "Factura";
             this.colFactura.FieldName = "NumFactura";
             this.colFactura.Name = "colFactura";
+            this.colFactura.OptionsColumn.AllowEdit = false;
+            this.colFactura.OptionsColumn.AllowFocus = false;
             this.colFactura.OptionsColumn.ReadOnly = true;
             this.colFactura.Visible = true;
-            this.colFactura.VisibleIndex = 5;
+            this.colFactura.VisibleIndex = 6;
             this.colFactura.Width = 112;
             // 
             // colFecha
@@ -256,9 +268,11 @@
             this.colFecha.Caption = "Fecha entrada";
             this.colFecha.FieldName = "Fecha";
             this.colFecha.Name = "colFecha";
+            this.colFecha.OptionsColumn.AllowEdit = false;
+            this.colFecha.OptionsColumn.AllowFocus = false;
             this.colFecha.OptionsColumn.ReadOnly = true;
             this.colFecha.Visible = true;
-            this.colFecha.VisibleIndex = 6;
+            this.colFecha.VisibleIndex = 7;
             this.colFecha.Width = 121;
             // 
             // btnBuscar
@@ -386,6 +400,17 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
+            // colParte
+            // 
+            this.colParte.Caption = "Parte";
+            this.colParte.FieldName = "NumParte";
+            this.colParte.Name = "colParte";
+            this.colParte.OptionsColumn.AllowEdit = false;
+            this.colParte.OptionsColumn.AllowFocus = false;
+            this.colParte.OptionsColumn.ReadOnly = true;
+            this.colParte.Visible = true;
+            this.colParte.VisibleIndex = 2;
+            // 
             // xfrmBusquedaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +477,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colAsignar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribtnAsignar;
+        private DevExpress.XtraGrid.Columns.GridColumn colParte;
     }
 }
