@@ -37,6 +37,7 @@ namespace ALMACEN.WIN
             {
                 xfrm.Unidad = Unidad;
                 xfrm.Inventario = Inventario;
+                xfrm.Asignar = true;
                 xfrm.ShowDialog();
                 xfrm.Dispose();
             }
