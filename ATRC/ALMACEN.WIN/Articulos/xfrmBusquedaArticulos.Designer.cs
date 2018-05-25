@@ -40,6 +40,7 @@
             this.col = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribEditar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colParte = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colExistencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,7 +58,6 @@
             this.lciCatalogos = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colParte = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
@@ -104,7 +104,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
             this.btnLimpiar.StyleController = this.lcMain;
             this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.Text = "Limpiar [F12]";
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // lueCatalogo
@@ -215,6 +215,17 @@
             this.colCodigo.VisibleIndex = 1;
             this.colCodigo.Width = 112;
             // 
+            // colParte
+            // 
+            this.colParte.Caption = "Parte";
+            this.colParte.FieldName = "NumParte";
+            this.colParte.Name = "colParte";
+            this.colParte.OptionsColumn.AllowEdit = false;
+            this.colParte.OptionsColumn.AllowFocus = false;
+            this.colParte.OptionsColumn.ReadOnly = true;
+            this.colParte.Visible = true;
+            this.colParte.VisibleIndex = 2;
+            // 
             // colNombre
             // 
             this.colNombre.Caption = "Nombre";
@@ -283,7 +294,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(117, 22);
             this.btnBuscar.StyleController = this.lcMain;
             this.btnBuscar.TabIndex = 6;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar [F5]";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // rgBusqueda
@@ -400,17 +411,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // colParte
-            // 
-            this.colParte.Caption = "Parte";
-            this.colParte.FieldName = "NumParte";
-            this.colParte.Name = "colParte";
-            this.colParte.OptionsColumn.AllowEdit = false;
-            this.colParte.OptionsColumn.AllowFocus = false;
-            this.colParte.OptionsColumn.ReadOnly = true;
-            this.colParte.Visible = true;
-            this.colParte.VisibleIndex = 2;
-            // 
             // xfrmBusquedaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,9 +418,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmBusquedaArticulos";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda de articulos";
             this.Load += new System.EventHandler(this.xfrmBusquedaArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();

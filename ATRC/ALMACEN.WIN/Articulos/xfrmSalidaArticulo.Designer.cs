@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmSalidaArticulo));
             this.rcMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.txtNombreUsuario = new DevExpress.XtraEditors.TextEdit();
@@ -163,6 +164,8 @@
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueUnidad.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.NullText = "[Seleccione]";
             this.lueUnidad.Size = new System.Drawing.Size(617, 20);
             this.lueUnidad.StyleController = this.lcMain;
@@ -571,9 +574,9 @@
             this.ClientSize = new System.Drawing.Size(682, 315);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rcMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmSalidaArticulo";
             this.Ribbon = this.rcMain;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salida de artículo";
             this.Load += new System.EventHandler(this.xfrmSalidaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rcMain)).EndInit();

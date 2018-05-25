@@ -14,10 +14,10 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Users\ATRC\Documents\ATRC\PublicacionATRC\</PublishUrl>
+    <PublishUrl>\\192.168.1.67\Instalador\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -28,8 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -135,6 +134,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmMain.resx">
       <DependentUpon>xfrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="ATRC_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -175,6 +175,18 @@
       <Project>{514f888c-012b-4e16-adf8-c4d72a604dea}</Project>
       <Name>CHECADOR.WIN</Name>
     </ProjectReference>
+    <ProjectReference Include="..\REPORTES\REPORTES.csproj">
+      <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
+      <Name>REPORTES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{e46d9066-2710-40bc-be1c-e17eafc6a044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.WIN\UNIDADES.WIN.csproj">
+      <Project>{2e97f929-27eb-4cd8-8daa-21dc9d248deb}</Project>
+      <Name>UNIDADES.WIN</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ATRC LOGO PNG.png" />
@@ -196,6 +208,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-plataforma-petrolera-32.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

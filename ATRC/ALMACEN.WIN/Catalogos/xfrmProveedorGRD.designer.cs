@@ -180,6 +180,7 @@
             this.colID.Caption = "ID";
             this.colID.FieldName = "Oid";
             this.colID.Name = "colID";
+            this.colID.OptionsColumn.AllowFocus = false;
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
             this.colID.Width = 60;
@@ -189,6 +190,7 @@
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
             this.colNombre.Width = 200;
@@ -198,6 +200,7 @@
             this.colNombreFiscal.Caption = "Nombre fiscal";
             this.colNombreFiscal.FieldName = "NombreFiscal";
             this.colNombreFiscal.Name = "colNombreFiscal";
+            this.colNombreFiscal.OptionsColumn.AllowFocus = false;
             this.colNombreFiscal.Visible = true;
             this.colNombreFiscal.VisibleIndex = 2;
             this.colNombreFiscal.Width = 208;

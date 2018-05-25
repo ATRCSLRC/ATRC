@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using UNIDADES.BL;
 
 namespace ALMACEN.WIN
 {
@@ -30,6 +31,10 @@ namespace ALMACEN.WIN
         private void xfrmSalidaArticulo_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Usuarios = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", null);
+            lueUnidad.Properties.DataSource = Usuarios;
+            lueUnidad.Properties.DisplayMember = "Nombre";
+            lueUnidad.Properties.BestFit();
             ActivarCampos(false);
         }
 
@@ -120,6 +125,7 @@ namespace ALMACEN.WIN
                     if (rgDestino.SelectedIndex == 0)
                     {
                         Salida.TipoDestino = Enums.Destino.Unidad;
+                        ((XPCollection)((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject()).GetMemberValue("Salidas")).Add(Salida);
                     }
                     else
                     {
@@ -137,7 +143,9 @@ namespace ALMACEN.WIN
                         Salida.TipoRecibo = Enums.Recibo.Otro;
                         Salida.OtroRecibo = txtOtroRecibo.Text;
                     }
-
+                    //Unidad unidad = Unidad.GetObjectByKey<Unidad>(1);
+                    //((XPCollection)Salida.GetMemberValue("Unidades")).Add(unidad);
+                    //unidad.Save();
                     Salida.Estado = Enums.EstadoSalida.Entregado;
                     Salida.Fecha = DateTime.Now.Date;
                     Salida.Factura.Cantidad -= Convert.ToInt32(spnCantidad.Value);

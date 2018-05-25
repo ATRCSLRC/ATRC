@@ -37,6 +37,7 @@
             this.xtPrestamos = new DevExpress.XtraTab.XtraTabControl();
             this.xtpPrestar = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtCodigo1 = new DevExpress.XtraEditors.ButtonEdit();
             this.btnTerminar = new DevExpress.XtraEditors.SimpleButton();
             this.lblArticulo = new DevExpress.XtraEditors.LabelControl();
             this.grdPrestamos = new DevExpress.XtraGrid.GridControl();
@@ -52,6 +53,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcCodigo = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtpEntregar = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnEntregar = new DevExpress.XtraEditors.SimpleButton();
@@ -64,11 +66,9 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lciNoEmppleado = new DevExpress.XtraLayout.LayoutControl();
-            this.lblNombre = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCodigo1 = new DevExpress.XtraEditors.ButtonEdit();
-            this.lcCodigo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lblNombre = new DevExpress.XtraEditors.LabelControl();
+            this.lciNoEmppleado = new DevExpress.XtraLayout.LayoutControl();
             this.txtEmpleado = new DevExpress.XtraEditors.ButtonEdit();
             this.lciEmpleado = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rcPrestamos)).BeginInit();
@@ -79,6 +79,7 @@
             this.xtpPrestar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrestamos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).BeginInit();
@@ -89,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcCodigo)).BeginInit();
             this.xtpEntregar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -98,11 +100,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNoEmppleado)).BeginInit();
             this.lciNoEmppleado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmpleado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmpleado)).BeginInit();
             this.SuspendLayout();
@@ -199,6 +199,18 @@
             this.layoutControl2.Size = new System.Drawing.Size(555, 400);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // txtCodigo1
+            // 
+            this.txtCodigo1.Location = new System.Drawing.Point(62, 12);
+            this.txtCodigo1.Name = "txtCodigo1";
+            this.txtCodigo1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtCodigo1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCodigo_Properties_ButtonClick);
+            this.txtCodigo1.Size = new System.Drawing.Size(213, 20);
+            this.txtCodigo1.StyleController = this.layoutControl2;
+            this.txtCodigo1.TabIndex = 12;
+            this.txtCodigo1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo1_KeyPress);
             // 
             // btnTerminar
             // 
@@ -354,11 +366,20 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
+            // lcCodigo
+            // 
+            this.lcCodigo.Control = this.txtCodigo1;
+            this.lcCodigo.Location = new System.Drawing.Point(0, 0);
+            this.lcCodigo.Name = "lcCodigo";
+            this.lcCodigo.Size = new System.Drawing.Size(267, 24);
+            this.lcCodigo.Text = "Codigo";
+            this.lcCodigo.TextSize = new System.Drawing.Size(47, 13);
+            // 
             // xtpEntregar
             // 
             this.xtpEntregar.Controls.Add(this.layoutControl1);
             this.xtpEntregar.Name = "xtpEntregar";
-            this.xtpEntregar.Size = new System.Drawing.Size(555, 394);
+            this.xtpEntregar.Size = new System.Drawing.Size(555, 400);
             this.xtpEntregar.Text = "Entregar";
             // 
             // layoutControl1
@@ -370,13 +391,13 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(620, 207, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup2;
-            this.layoutControl1.Size = new System.Drawing.Size(555, 394);
+            this.layoutControl1.Size = new System.Drawing.Size(555, 400);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnEntregar
             // 
-            this.btnEntregar.Location = new System.Drawing.Point(279, 360);
+            this.btnEntregar.Location = new System.Drawing.Point(279, 366);
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(264, 22);
             this.btnEntregar.StyleController = this.layoutControl1;
@@ -389,7 +410,7 @@
             this.grdEntregas.Location = new System.Drawing.Point(12, 12);
             this.grdEntregas.MainView = this.gridView2;
             this.grdEntregas.Name = "grdEntregas";
-            this.grdEntregas.Size = new System.Drawing.Size(531, 344);
+            this.grdEntregas.Size = new System.Drawing.Size(531, 350);
             this.grdEntregas.TabIndex = 10;
             this.grdEntregas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -451,7 +472,7 @@
             this.layoutControlItem8,
             this.emptySpaceItem3});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(555, 394);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(555, 400);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem7
@@ -459,14 +480,14 @@
             this.layoutControlItem7.Control = this.grdEntregas;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(535, 348);
+            this.layoutControlItem7.Size = new System.Drawing.Size(535, 354);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnEntregar;
-            this.layoutControlItem8.Location = new System.Drawing.Point(267, 348);
+            this.layoutControlItem8.Location = new System.Drawing.Point(267, 354);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(268, 26);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
@@ -475,10 +496,29 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 348);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 354);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(267, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.lblNombre;
+            this.layoutControlItem3.Location = new System.Drawing.Point(282, 0);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(67, 17);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(283, 24);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.Location = new System.Drawing.Point(294, 12);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(279, 20);
+            this.lblNombre.StyleController = this.lciNoEmppleado;
+            this.lblNombre.TabIndex = 6;
             // 
             // lciNoEmppleado
             // 
@@ -493,46 +533,6 @@
             this.lciNoEmppleado.Size = new System.Drawing.Size(585, 476);
             this.lciNoEmppleado.TabIndex = 2;
             this.lciNoEmppleado.Text = "layoutControl1";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.Location = new System.Drawing.Point(294, 12);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(279, 20);
-            this.lblNombre.StyleController = this.lciNoEmppleado;
-            this.lblNombre.TabIndex = 6;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.lblNombre;
-            this.layoutControlItem3.Location = new System.Drawing.Point(282, 0);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(67, 17);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(283, 24);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // txtCodigo1
-            // 
-            this.txtCodigo1.Location = new System.Drawing.Point(62, 12);
-            this.txtCodigo1.Name = "txtCodigo1";
-            this.txtCodigo1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtCodigo1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCodigo_Properties_ButtonClick);
-            this.txtCodigo1.Size = new System.Drawing.Size(213, 20);
-            this.txtCodigo1.StyleController = this.layoutControl2;
-            this.txtCodigo1.TabIndex = 12;
-            this.txtCodigo1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo1_KeyPress);
-            // 
-            // lcCodigo
-            // 
-            this.lcCodigo.Control = this.txtCodigo1;
-            this.lcCodigo.Location = new System.Drawing.Point(0, 0);
-            this.lcCodigo.Name = "lcCodigo";
-            this.lcCodigo.Size = new System.Drawing.Size(267, 24);
-            this.lcCodigo.Text = "Codigo";
-            this.lcCodigo.TextSize = new System.Drawing.Size(47, 13);
             // 
             // txtEmpleado
             // 
@@ -562,6 +562,7 @@
             this.ClientSize = new System.Drawing.Size(585, 503);
             this.Controls.Add(this.lciNoEmppleado);
             this.Controls.Add(this.rcPrestamos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmPrestamoArticulos";
             this.Ribbon = this.rcPrestamos;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -575,6 +576,7 @@
             this.xtpPrestar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrestamos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad.Properties)).EndInit();
@@ -585,6 +587,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcCodigo)).EndInit();
             this.xtpEntregar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -594,11 +597,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNoEmppleado)).EndInit();
             this.lciNoEmppleado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmpleado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmpleado)).EndInit();
             this.ResumeLayout(false);

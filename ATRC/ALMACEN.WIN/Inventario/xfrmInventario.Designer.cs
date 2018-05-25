@@ -102,7 +102,7 @@
             this.bbiCancelar.Caption = "Cancelar";
             this.bbiCancelar.Id = 2;
             this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
-            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiCancelar.Name = "bbiCancelar";
             this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
@@ -310,9 +310,11 @@
             this.ClientSize = new System.Drawing.Size(555, 450);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.rcMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmInventario";
             this.Ribbon = this.rcMain;
-            this.Text = "xfrmInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inventario";
             this.Load += new System.EventHandler(this.xfrmInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -173,9 +173,11 @@
     </Compile>
     <EmbeddedResource Include="Reportes\GafeteAtras.resx">
       <DependentUpon>GafeteAtras.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\GafeteFrente.resx">
       <DependentUpon>GafeteFrente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>

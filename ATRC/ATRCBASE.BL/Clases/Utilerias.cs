@@ -139,7 +139,6 @@ namespace ATRCBASE.BL
             string DisplayMember, string columna, bool AsignarValorPredeterminado)
         {
             XPCollection xpc = new XPCollection(sesion, tipo);
-            //XPCollection xpc = new XPCollection(tipo,CriteriaOperator(,"Nombre");
             lue.Properties.DataSource = xpc;
             lue.Properties.DisplayMember = DisplayMember;
             if (lue.Properties.Columns.Count < 1)

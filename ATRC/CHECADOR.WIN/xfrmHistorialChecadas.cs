@@ -209,8 +209,7 @@ namespace CHECADOR.WIN
                 txtNombre.Text = string.Empty;
             }
         }
-        #endregion
-
+        
         private void grvHistorialChecadas_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
@@ -237,5 +236,6 @@ namespace CHECADOR.WIN
                 }
             }
         }
+        #endregion
     }
 }

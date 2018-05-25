@@ -1,0 +1,718 @@
+﻿namespace UNIDADES.WIN
+{
+    partial class xfrmBusquedaUnidades
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaUnidades));
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions4 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lueUnidad = new DevExpress.XtraEditors.LookUpEdit();
+            this.picFoto = new DevExpress.XtraEditors.PictureEdit();
+            this.vGridControl1 = new DevExpress.XtraVerticalGrid.VGridControl();
+            this.catGeneral = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.colNombre = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colMarca = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colModelo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colPasajeros = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colVIN = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colPlacas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colColor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.catInterior = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.colMotor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colCilindros = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colMillas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTransmision = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colCombustible = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colFrenos = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colSuspencion = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colPuerta = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colAireAcondicionado = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.catExterior = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.colUsuario = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colBaterias = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colAsientos = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colAbanicos = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colVentanas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colEstereo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colBocinas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colCamaras = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colExtinguidor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTrancas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colRadio = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colFiltros = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.colAceiteMotor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colAceiteTransmision = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colFiltroCombustible = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colFiltroAire = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colFiltroAgua = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciVGRD = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciImagen = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciUnidad = new DevExpress.XtraLayout.LayoutControlItem();
+            this.fypEdicion = new DevExpress.Utils.FlyoutPanel();
+            this.colTipoUnidad = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colUltimoCambioAceite = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciVGRD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.ribbonControl1.ShowToolbarCustomizeItem = false;
+            this.ribbonControl1.Size = new System.Drawing.Size(800, 27);
+            this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            // 
+            // lcMain
+            // 
+            this.lcMain.Controls.Add(this.lueUnidad);
+            this.lcMain.Controls.Add(this.picFoto);
+            this.lcMain.Controls.Add(this.vGridControl1);
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(852, 245, 650, 400);
+            this.lcMain.Root = this.layoutControlGroup1;
+            this.lcMain.Size = new System.Drawing.Size(800, 668);
+            this.lcMain.TabIndex = 1;
+            this.lcMain.Text = "layoutControl1";
+            // 
+            // lueUnidad
+            // 
+            this.lueUnidad.Location = new System.Drawing.Point(127, 42);
+            this.lueUnidad.MenuManager = this.ribbonControl1;
+            this.lueUnidad.Name = "lueUnidad";
+            this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
+            this.lueUnidad.Properties.DisplayMember = "Nombre";
+            this.lueUnidad.Properties.NullText = "[SELECCIONE]";
+            this.lueUnidad.Size = new System.Drawing.Size(649, 20);
+            this.lueUnidad.StyleController = this.lcMain;
+            this.lueUnidad.TabIndex = 6;
+            this.lueUnidad.EditValueChanged += new System.EventHandler(this.lueUnidad_EditValueChanged);
+            // 
+            // picFoto
+            // 
+            this.picFoto.EditValue = global::UNIDADES.WIN.Properties.Resources.car;
+            this.picFoto.Location = new System.Drawing.Point(450, 78);
+            this.picFoto.MenuManager = this.ribbonControl1;
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Properties.InitialImageOptions.Image = global::UNIDADES.WIN.Properties.Resources.car;
+            this.picFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picFoto.Size = new System.Drawing.Size(338, 578);
+            this.picFoto.StyleController = this.lcMain;
+            this.picFoto.TabIndex = 5;
+            // 
+            // vGridControl1
+            // 
+            this.vGridControl1.Appearance.Category.BackColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.Category.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.Category.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.vGridControl1.Appearance.Category.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.Category.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.Category.Options.UseBorderColor = true;
+            this.vGridControl1.Appearance.Category.Options.UseFont = true;
+            this.vGridControl1.Appearance.Category.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.CategoryExpandButton.BackColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.CategoryExpandButton.BorderColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.CategoryExpandButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.CategoryExpandButton.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.CategoryExpandButton.Options.UseBorderColor = true;
+            this.vGridControl1.Appearance.CategoryExpandButton.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.vGridControl1.Appearance.Empty.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.ExpandButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.vGridControl1.Appearance.ExpandButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.vGridControl1.Appearance.ExpandButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.ExpandButton.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.ExpandButton.Options.UseBorderColor = true;
+            this.vGridControl1.Appearance.ExpandButton.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.vGridControl1.Appearance.FocusedCell.Options.UseFont = true;
+            this.vGridControl1.Appearance.FocusedRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.vGridControl1.Appearance.FocusedRecord.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.vGridControl1.Appearance.FocusedRecord.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.FocusedRecord.Options.UseFont = true;
+            this.vGridControl1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.vGridControl1.Appearance.FocusedRow.BackColor2 = System.Drawing.Color.Black;
+            this.vGridControl1.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.vGridControl1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.FocusedRow.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.vGridControl1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.FocusedRow.Options.UseFont = true;
+            this.vGridControl1.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.HideSelectionRow.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.vGridControl1.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(208)))), ((int)(((byte)(200)))));
+            this.vGridControl1.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.HideSelectionRow.Options.UseFont = true;
+            this.vGridControl1.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.HorzLine.ForeColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.HorzLine.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.HorzLine.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.RecordValue.BackColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.RecordValue.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.vGridControl1.Appearance.RecordValue.ForeColor = System.Drawing.Color.Black;
+            this.vGridControl1.Appearance.RecordValue.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.RecordValue.Options.UseFont = true;
+            this.vGridControl1.Appearance.RecordValue.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.RowHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.RowHeaderPanel.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.vGridControl1.Appearance.RowHeaderPanel.ForeColor = System.Drawing.Color.White;
+            this.vGridControl1.Appearance.RowHeaderPanel.Options.UseBackColor = true;
+            this.vGridControl1.Appearance.RowHeaderPanel.Options.UseFont = true;
+            this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
+            this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
+            this.vGridControl1.Location = new System.Drawing.Point(12, 78);
+            this.vGridControl1.Name = "vGridControl1";
+            this.vGridControl1.RecordWidth = 105;
+            this.vGridControl1.RowHeaderWidth = 95;
+            this.vGridControl1.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.catGeneral,
+            this.catInterior,
+            this.catExterior,
+            this.colFiltros});
+            this.vGridControl1.Size = new System.Drawing.Size(434, 578);
+            this.vGridControl1.TabIndex = 4;
+            // 
+            // catGeneral
+            // 
+            this.catGeneral.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.colNombre,
+            this.colMarca,
+            this.colModelo,
+            this.colPasajeros,
+            this.colVIN,
+            this.colPlacas,
+            this.colColor,
+            this.colTipoUnidad,
+            this.colUltimoCambioAceite});
+            this.catGeneral.Height = 17;
+            this.catGeneral.Name = "catGeneral";
+            this.catGeneral.Properties.Caption = "General";
+            // 
+            // colNombre
+            // 
+            this.colNombre.Appearance.Options.UseTextOptions = true;
+            this.colNombre.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Properties.Caption = "Nombre";
+            this.colNombre.Properties.FieldName = "Nombre";
+            // 
+            // colMarca
+            // 
+            this.colMarca.Appearance.Options.UseTextOptions = true;
+            this.colMarca.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMarca.Name = "colMarca";
+            this.colMarca.Properties.Caption = "Marca";
+            this.colMarca.Properties.FieldName = "Marca";
+            // 
+            // colModelo
+            // 
+            this.colModelo.Appearance.Options.UseTextOptions = true;
+            this.colModelo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colModelo.Name = "colModelo";
+            this.colModelo.Properties.Caption = "Modelo";
+            this.colModelo.Properties.FieldName = "Modelo";
+            // 
+            // colPasajeros
+            // 
+            this.colPasajeros.Appearance.Options.UseTextOptions = true;
+            this.colPasajeros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPasajeros.Name = "colPasajeros";
+            this.colPasajeros.Properties.Caption = "Pasajeros";
+            this.colPasajeros.Properties.FieldName = "Pasajeros";
+            // 
+            // colVIN
+            // 
+            this.colVIN.Appearance.Options.UseTextOptions = true;
+            this.colVIN.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colVIN.Name = "colVIN";
+            this.colVIN.Properties.Caption = "VIN";
+            this.colVIN.Properties.FieldName = "VIN";
+            // 
+            // colPlacas
+            // 
+            this.colPlacas.Appearance.Options.UseTextOptions = true;
+            this.colPlacas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPlacas.Name = "colPlacas";
+            this.colPlacas.Properties.Caption = "Placas";
+            this.colPlacas.Properties.FieldName = "Placas";
+            // 
+            // colColor
+            // 
+            this.colColor.Appearance.Options.UseTextOptions = true;
+            this.colColor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colColor.Name = "colColor";
+            this.colColor.Properties.Caption = "Color";
+            this.colColor.Properties.FieldName = "Color";
+            // 
+            // catInterior
+            // 
+            this.catInterior.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.colMotor,
+            this.colCilindros,
+            this.colMillas,
+            this.colTransmision,
+            this.colCombustible,
+            this.colFrenos,
+            this.colSuspencion,
+            this.colPuerta,
+            this.colAireAcondicionado});
+            this.catInterior.Name = "catInterior";
+            this.catInterior.Properties.Caption = "Interior";
+            // 
+            // colMotor
+            // 
+            this.colMotor.Appearance.Options.UseTextOptions = true;
+            this.colMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMotor.Name = "colMotor";
+            this.colMotor.Properties.Caption = "Motor";
+            this.colMotor.Properties.FieldName = "Motor";
+            // 
+            // colCilindros
+            // 
+            this.colCilindros.Appearance.Options.UseTextOptions = true;
+            this.colCilindros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCilindros.Name = "colCilindros";
+            this.colCilindros.Properties.Caption = "Cilindros";
+            this.colCilindros.Properties.FieldName = "Cilindros";
+            // 
+            // colMillas
+            // 
+            this.colMillas.Appearance.Options.UseTextOptions = true;
+            this.colMillas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMillas.Name = "colMillas";
+            this.colMillas.Properties.Caption = "Millas";
+            this.colMillas.Properties.FieldName = "Millas";
+            // 
+            // colTransmision
+            // 
+            this.colTransmision.Appearance.Options.UseTextOptions = true;
+            this.colTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colTransmision.Name = "colTransmision";
+            this.colTransmision.Properties.Caption = "Transmisión";
+            this.colTransmision.Properties.FieldName = "Transmision";
+            // 
+            // colCombustible
+            // 
+            this.colCombustible.Appearance.Options.UseTextOptions = true;
+            this.colCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCombustible.Name = "colCombustible";
+            this.colCombustible.Properties.Caption = "Combustible";
+            this.colCombustible.Properties.FieldName = "Combustible";
+            // 
+            // colFrenos
+            // 
+            this.colFrenos.Appearance.Options.UseTextOptions = true;
+            this.colFrenos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFrenos.Name = "colFrenos";
+            this.colFrenos.Properties.Caption = "Frenos";
+            this.colFrenos.Properties.FieldName = "Frenos";
+            // 
+            // colSuspencion
+            // 
+            this.colSuspencion.Appearance.Options.UseTextOptions = true;
+            this.colSuspencion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colSuspencion.Name = "colSuspencion";
+            this.colSuspencion.Properties.Caption = "Suspención";
+            this.colSuspencion.Properties.FieldName = "Suspencion";
+            // 
+            // colPuerta
+            // 
+            this.colPuerta.Appearance.Options.UseTextOptions = true;
+            this.colPuerta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPuerta.Name = "colPuerta";
+            this.colPuerta.Properties.Caption = "Puerta";
+            this.colPuerta.Properties.FieldName = "Puerta";
+            // 
+            // colAireAcondicionado
+            // 
+            this.colAireAcondicionado.Appearance.Options.UseTextOptions = true;
+            this.colAireAcondicionado.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAireAcondicionado.Name = "colAireAcondicionado";
+            this.colAireAcondicionado.Properties.Caption = "A/C";
+            this.colAireAcondicionado.Properties.FieldName = "AireAcondicionado";
+            // 
+            // catExterior
+            // 
+            this.catExterior.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.colUsuario,
+            this.colBaterias,
+            this.colAsientos,
+            this.colAbanicos,
+            this.colVentanas,
+            this.colEstereo,
+            this.colBocinas,
+            this.colCamaras,
+            this.colExtinguidor,
+            this.colTrancas,
+            this.colRadio});
+            this.catExterior.Name = "catExterior";
+            this.catExterior.Properties.Caption = "Exterior";
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.Appearance.Options.UseTextOptions = true;
+            this.colUsuario.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.Properties.Caption = "Usuario";
+            this.colUsuario.Properties.FieldName = "Usuario.Nombre";
+            // 
+            // colBaterias
+            // 
+            this.colBaterias.Appearance.Options.UseTextOptions = true;
+            this.colBaterias.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colBaterias.Name = "colBaterias";
+            this.colBaterias.Properties.Caption = "Baterias";
+            this.colBaterias.Properties.FieldName = "Baterias";
+            // 
+            // colAsientos
+            // 
+            this.colAsientos.Appearance.Options.UseTextOptions = true;
+            this.colAsientos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAsientos.Name = "colAsientos";
+            this.colAsientos.Properties.Caption = "Asientos";
+            this.colAsientos.Properties.FieldName = "Asientos";
+            // 
+            // colAbanicos
+            // 
+            this.colAbanicos.Appearance.Options.UseTextOptions = true;
+            this.colAbanicos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAbanicos.Name = "colAbanicos";
+            this.colAbanicos.Properties.Caption = "Abanicos";
+            this.colAbanicos.Properties.FieldName = "Abanicos";
+            // 
+            // colVentanas
+            // 
+            this.colVentanas.Appearance.Options.UseTextOptions = true;
+            this.colVentanas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colVentanas.Name = "colVentanas";
+            this.colVentanas.Properties.Caption = "Ventanas laterales";
+            this.colVentanas.Properties.FieldName = "VentanasLaterales";
+            // 
+            // colEstereo
+            // 
+            this.colEstereo.Appearance.Options.UseTextOptions = true;
+            this.colEstereo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colEstereo.Name = "colEstereo";
+            this.colEstereo.Properties.Caption = "Tiene estéreo";
+            this.colEstereo.Properties.FieldName = "TieneEstereo";
+            // 
+            // colBocinas
+            // 
+            this.colBocinas.Appearance.Options.UseTextOptions = true;
+            this.colBocinas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colBocinas.Name = "colBocinas";
+            this.colBocinas.Properties.Caption = "Tiene bocinas";
+            this.colBocinas.Properties.FieldName = "TieneBocinas";
+            // 
+            // colCamaras
+            // 
+            this.colCamaras.Appearance.Options.UseTextOptions = true;
+            this.colCamaras.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCamaras.Name = "colCamaras";
+            this.colCamaras.Properties.Caption = "Tiene cámaras";
+            this.colCamaras.Properties.FieldName = "TieneCamaras";
+            // 
+            // colExtinguidor
+            // 
+            this.colExtinguidor.Appearance.Options.UseTextOptions = true;
+            this.colExtinguidor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colExtinguidor.Name = "colExtinguidor";
+            this.colExtinguidor.Properties.Caption = "Tiene extinguidor";
+            this.colExtinguidor.Properties.FieldName = "TieneExtinguidor";
+            // 
+            // colTrancas
+            // 
+            this.colTrancas.Appearance.Options.UseTextOptions = true;
+            this.colTrancas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colTrancas.Name = "colTrancas";
+            this.colTrancas.Properties.Caption = "Tiene trancas";
+            this.colTrancas.Properties.FieldName = "TieneTrancas";
+            // 
+            // colRadio
+            // 
+            this.colRadio.Appearance.Options.UseTextOptions = true;
+            this.colRadio.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colRadio.Name = "colRadio";
+            this.colRadio.Properties.Caption = "Tiene radio";
+            this.colRadio.Properties.FieldName = "TieneRadio";
+            // 
+            // colFiltros
+            // 
+            this.colFiltros.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.colAceiteMotor,
+            this.colAceiteTransmision,
+            this.colFiltroCombustible,
+            this.colFiltroAire,
+            this.colFiltroAgua});
+            this.colFiltros.Name = "colFiltros";
+            this.colFiltros.Properties.Caption = "Filtros";
+            // 
+            // colAceiteMotor
+            // 
+            this.colAceiteMotor.Appearance.Options.UseTextOptions = true;
+            this.colAceiteMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAceiteMotor.Name = "colAceiteMotor";
+            this.colAceiteMotor.Properties.Caption = "Filtro de aceite para motor";
+            this.colAceiteMotor.Properties.FieldName = "FiltroAceiteMotor";
+            // 
+            // colAceiteTransmision
+            // 
+            this.colAceiteTransmision.Appearance.Options.UseTextOptions = true;
+            this.colAceiteTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAceiteTransmision.Name = "colAceiteTransmision";
+            this.colAceiteTransmision.Properties.Caption = "Filtro de aceite para transmisión";
+            this.colAceiteTransmision.Properties.FieldName = "FiltroAceiteTransmision";
+            // 
+            // colFiltroCombustible
+            // 
+            this.colFiltroCombustible.Appearance.Options.UseTextOptions = true;
+            this.colFiltroCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroCombustible.Name = "colFiltroCombustible";
+            this.colFiltroCombustible.Properties.Caption = "Filtro de combustible";
+            this.colFiltroCombustible.Properties.FieldName = "FiltroCombustible";
+            // 
+            // colFiltroAire
+            // 
+            this.colFiltroAire.Appearance.Options.UseTextOptions = true;
+            this.colFiltroAire.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroAire.Name = "colFiltroAire";
+            this.colFiltroAire.Properties.Caption = "Filtro de aire";
+            this.colFiltroAire.Properties.FieldName = "FiltroAire";
+            // 
+            // colFiltroAgua
+            // 
+            this.colFiltroAgua.Appearance.Options.UseTextOptions = true;
+            this.colFiltroAgua.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroAgua.Name = "colFiltroAgua";
+            this.colFiltroAgua.Properties.Caption = "Filtro de agua";
+            this.colFiltroAgua.Properties.FieldName = "FiltroAgua";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciVGRD,
+            this.lciImagen,
+            this.layoutControlGroup2});
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 668);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // lciVGRD
+            // 
+            this.lciVGRD.Control = this.vGridControl1;
+            this.lciVGRD.Location = new System.Drawing.Point(0, 66);
+            this.lciVGRD.Name = "lciVGRD";
+            this.lciVGRD.Size = new System.Drawing.Size(438, 582);
+            this.lciVGRD.TextSize = new System.Drawing.Size(0, 0);
+            this.lciVGRD.TextVisible = false;
+            // 
+            // lciImagen
+            // 
+            this.lciImagen.Control = this.picFoto;
+            this.lciImagen.Location = new System.Drawing.Point(438, 66);
+            this.lciImagen.Name = "lciImagen";
+            this.lciImagen.Size = new System.Drawing.Size(342, 582);
+            this.lciImagen.TextSize = new System.Drawing.Size(0, 0);
+            this.lciImagen.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciUnidad});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(780, 66);
+            this.layoutControlGroup2.Text = "Búsqueda por unidad";
+            // 
+            // lciUnidad
+            // 
+            this.lciUnidad.Control = this.lueUnidad;
+            this.lciUnidad.Location = new System.Drawing.Point(0, 0);
+            this.lciUnidad.Name = "lciUnidad";
+            this.lciUnidad.Size = new System.Drawing.Size(756, 24);
+            this.lciUnidad.Text = "Seleccione la unidad:";
+            this.lciUnidad.TextSize = new System.Drawing.Size(100, 13);
+            // 
+            // fypEdicion
+            // 
+            this.fypEdicion.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.fypEdicion.Appearance.ForeColor = System.Drawing.Color.White;
+            this.fypEdicion.Appearance.Options.UseBackColor = true;
+            this.fypEdicion.Appearance.Options.UseForeColor = true;
+            this.fypEdicion.Location = new System.Drawing.Point(450, 644);
+            this.fypEdicion.Name = "fypEdicion";
+            this.fypEdicion.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.fypEdicion.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
+            this.fypEdicion.OptionsBeakPanel.Opacity = 0.5D;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.White;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Normal.ForeColor = System.Drawing.Color.White;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Normal.Options.UseForeColor = true;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.White;
+            this.fypEdicion.OptionsButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.fypEdicion.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.fypEdicion.OptionsButtonPanel.ButtonPanelHeight = 10;
+            this.fypEdicion.OptionsButtonPanel.ButtonPanelLocation = DevExpress.Utils.FlyoutPanelButtonPanelLocation.Top;
+            buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
+            buttonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions4.Image")));
+            this.fypEdicion.OptionsButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.Utils.PeekFormButton("Imprimir detalle de unidad", true, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.Utils.PeekFormButton("Modificar unidad", true, buttonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.fypEdicion.OptionsButtonPanel.ShowButtonPanel = true;
+            this.fypEdicion.OwnerControl = this.picFoto;
+            this.fypEdicion.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.fypEdicion.Size = new System.Drawing.Size(338, 39);
+            this.fypEdicion.TabIndex = 3;
+            this.fypEdicion.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypEdicion_ButtonClick);
+            // 
+            // colTipoUnidad
+            // 
+            this.colTipoUnidad.Name = "colTipoUnidad";
+            this.colTipoUnidad.Properties.Caption = "Tipo de unidad";
+            this.colTipoUnidad.Properties.FieldName = "TipoUnidad";
+            // 
+            // colUltimoCambioAceite
+            // 
+            this.colUltimoCambioAceite.Name = "colUltimoCambioAceite";
+            this.colUltimoCambioAceite.Properties.Caption = "Ultimo cambio de aceite";
+            this.colUltimoCambioAceite.Properties.FieldName = "UltimoCambioAceite";
+            // 
+            // xfrmBusquedaUnidades
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 695);
+            this.Controls.Add(this.fypEdicion);
+            this.Controls.Add(this.lcMain);
+            this.Controls.Add(this.ribbonControl1);
+            this.Name = "xfrmBusquedaUnidades";
+            this.Ribbon = this.ribbonControl1;
+            this.Text = "Detalles de unidad";
+            this.Load += new System.EventHandler(this.xfrmBusquedaUnidades_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciVGRD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraVerticalGrid.VGridControl vGridControl1;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow catGeneral;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colNombre;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colMarca;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colModelo;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colPasajeros;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colVIN;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colPlacas;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colColor;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow catInterior;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colMotor;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colCilindros;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colMillas;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTransmision;
+        private DevExpress.XtraLayout.LayoutControlItem lciVGRD;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colCombustible;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colFrenos;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colSuspencion;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colPuerta;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colAireAcondicionado;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow catExterior;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colUsuario;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colBaterias;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colAsientos;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colAbanicos;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colVentanas;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colEstereo;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colBocinas;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colCamaras;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colExtinguidor;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTrancas;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colRadio;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow colFiltros;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colAceiteMotor;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colAceiteTransmision;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colFiltroCombustible;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colFiltroAire;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colFiltroAgua;
+        private DevExpress.XtraEditors.PictureEdit picFoto;
+        private DevExpress.XtraLayout.LayoutControlItem lciImagen;
+        private DevExpress.XtraEditors.LookUpEdit lueUnidad;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem lciUnidad;
+        private DevExpress.Utils.FlyoutPanel fypEdicion;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTipoUnidad;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colUltimoCambioAceite;
+    }
+}

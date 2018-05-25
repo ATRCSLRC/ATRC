@@ -1,6 +1,7 @@
 ﻿using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,5 +64,67 @@ namespace ATRCBASE.BL
             Devuelto = 1
         }
 
+        public enum Combustible
+        {
+            Ninguno = 0,
+            Gasolina = 1,
+            Disel = 2,
+            Gas = 3,
+            Electricidad = 4
+        }
+
+        public enum Transmision
+        {
+            Ninguna = 0,
+            Estandar = 1,
+            Automatico = 2
+        }
+
+        public enum Frenos
+        {
+            Ninguno = 0,
+            Hidraulicos = 1,
+            Aire = 2,
+            Otro = 3
+                
+        }
+
+        public enum Suspencion
+        {
+            Ninguno = 0,
+            Muelles = 1,
+            Aire = 2, 
+            Amortiguador = 3
+        }
+
+        public enum Puerta
+        {
+            Ninguna = 0,
+            Manual = 1,
+            Hidraulica = 2,
+            Aire = 3
+        }
+
+        public enum ServiciosUnidad
+        {
+            Compostura = 0,
+            [Description("Cambio de aceite")]
+            CambioAceite = 1,
+            Lavado = 2,
+            Otro = 3
+        }
+
+        public enum TipoDestino
+        {
+            Unidad = 0,
+            Empleado = 1
+        }
+
+        public enum TipoUnidad
+        {
+            Camion = 0,
+            Automovil = 1,
+            Maquinaria = 2
+        }
     }
 }

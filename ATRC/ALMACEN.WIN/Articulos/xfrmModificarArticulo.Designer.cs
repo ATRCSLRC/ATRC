@@ -789,6 +789,7 @@
             this.ClientSize = new System.Drawing.Size(640, 704);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmModificarArticulo";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

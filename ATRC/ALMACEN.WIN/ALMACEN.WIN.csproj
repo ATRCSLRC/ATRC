@@ -173,6 +173,10 @@
       <Project>{CA92B7D6-6738-4A42-A76E-BA583C929BA1}</Project>
       <Name>ATRCBASE.WIN</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{E46D9066-2710-40BC-BE1C-E17EAFC6A044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -202,5 +206,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

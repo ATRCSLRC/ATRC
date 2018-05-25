@@ -199,7 +199,20 @@ namespace ALMACEN.WIN
         private void btnCodigo_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             xfrmBusquedaArticulos xfrm = new xfrmBusquedaArticulos();
-            xfrm.Show();
+            xfrm.Asignar = true;
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+            if (!string.IsNullOrEmpty(xfrm.Codigo))
+            {
+                txtCodigo1.Text = xfrm.Codigo;
+                Articulo Articulos = (Articulo)Unidad.FindObject(typeof(Articulo), new BinaryOperator("Codigo", txtCodigo1.Text));
+                ArticuloG = Articulos;
+                if (Articulos != null)
+                {
+                    lblArticulo.Text = Articulos.Nombre;
+                    txtCantidad.Focus();
+                }
+            }
         }
 
         private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -214,6 +227,19 @@ namespace ALMACEN.WIN
                 if (Usuario != null)
                 {
                     txtEmpleado.Text = Usuario.NumEmpleado.ToString();
+                    Usuario Usuarios = (Usuario)Unidad.FindObject(typeof(Usuario), new BinaryOperator("NumEmpleado", txtEmpleado.Text));
+                    usuarioG = Usuarios;
+                    if (Usuarios != null)
+                    {
+                        xtPrestamos.Enabled = true;
+                        txtCodigo1.Focus();
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("Prestamo.Usuario.NumEmpleado", txtEmpleado.Text));
+                        go.Operands.Add(new BinaryOperator("Entregado", false));
+                        lblNombre.Text = Usuarios.Nombre;
+                        XPCollection detallesP = new XPCollection(Unidad, typeof(DetallePrestamo), go);
+                        grdEntregas.DataSource = detallesP;
+                    }
                 }
                 else
                 {

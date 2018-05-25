@@ -130,7 +130,7 @@ namespace ATRCBASE.BL
         public Imagen Imagen
         {
             get { return mImagen; }
-            set { SetPropertyValue<Imagen>("Departamento", ref mImagen, value); }
+            set { SetPropertyValue<Imagen>("Imagen", ref mImagen, value); }
         }
 
         private string mIMSS;

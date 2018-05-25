@@ -162,7 +162,7 @@
             this.bbiGafete.Id = 6;
             this.bbiGafete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiGafete.ImageOptions.Image")));
             this.bbiGafete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiGafete.ImageOptions.LargeImage")));
-            this.bbiGafete.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9);
+            this.bbiGafete.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F10);
             this.bbiGafete.Name = "bbiGafete";
             this.bbiGafete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiGafete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGafete_ItemClick);
@@ -241,6 +241,7 @@
             this.colNumUsuario.Caption = "Número Empleado";
             this.colNumUsuario.FieldName = "NumEmpleado";
             this.colNumUsuario.Name = "colNumUsuario";
+            this.colNumUsuario.OptionsColumn.AllowFocus = false;
             this.colNumUsuario.Visible = true;
             this.colNumUsuario.VisibleIndex = 0;
             this.colNumUsuario.Width = 94;
@@ -250,6 +251,7 @@
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
             this.colNombre.Width = 500;

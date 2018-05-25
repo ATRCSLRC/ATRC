@@ -27,8 +27,8 @@ namespace ATRC
         {
 
 #if DEBUG
-            txtUsuario.Text = "1";
-            txtContraseña.Text = "atrc1234";
+            //txtUsuario.Text = "1";
+            //txtContraseña.Text = "atrc1234";
 #endif
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
         }

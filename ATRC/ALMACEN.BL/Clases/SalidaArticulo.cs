@@ -41,13 +41,7 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Enums.Destino>("TipoDestino", ref mTipoDestino, value); }
         }
 
-        //Unidad
-        //private Articulo mArticulo;
-        //public Articulo Articulo
-        //{
-        //    get { return mArticulo; }
-        //    set { SetPropertyValue<Articulo>("Articulo", ref mArticulo, value); }
-        //}
+        
 
         private string mOtroDestino;
         public string OtroDestino

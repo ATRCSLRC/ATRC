@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +46,17 @@ namespace ATRC
             XpoDefault.Session.Disconnect();
             XpoDefault.Session.AutoCreateOption = DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema;
             XpoDefault.Session.Connect();
+            Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
+            Type typeUnidad = System.Reflection.Assembly.Load("UNIDADES.BL").GetType("UNIDADES.BL.Unidad");
+            XPClassInfo Almacen = XpoDefault.Session.GetClassInfo(typeSalida);
+            XPClassInfo Unidad = XpoDefault.Session.GetClassInfo(typeUnidad);
+            XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
+            XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
+
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ATRCBASE.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("CHECADOR.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ALMACEN.BL"));
+            XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("UNIDADES.BL"));
             XpoDefault.Session.UpdateSchema(typeof(XPObject).Assembly);
         }
     }

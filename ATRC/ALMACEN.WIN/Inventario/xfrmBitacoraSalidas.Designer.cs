@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBitacoraSalidas));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdSalida = new DevExpress.XtraGrid.GridControl();
             this.grvSalidas = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -436,6 +437,7 @@
             this.ClientSize = new System.Drawing.Size(963, 519);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmBitacoraSalidas";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

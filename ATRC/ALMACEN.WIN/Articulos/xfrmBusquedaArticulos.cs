@@ -200,6 +200,21 @@ namespace ALMACEN.WIN
             grdArticulos.DataSource = Articulos;
         }
         #endregion
-
+        #region Metodos
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F5)
+            {
+                btnBuscar.PerformClick();
+                return true;
+            }
+            if (keyData == Keys.F12)
+            {
+                btnLimpiar.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        #endregion
     }
 }

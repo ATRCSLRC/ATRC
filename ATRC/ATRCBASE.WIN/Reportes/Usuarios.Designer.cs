@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -53,7 +54,7 @@
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -167,7 +168,7 @@
             this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 43.83334F);
             this.lblNombreReporte.Name = "lblNombreReporte";
             this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(560.0417F, 24.20834F);
+            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(560.0417F, 34.62501F);
             this.lblNombreReporte.StylePriority.UseFont = false;
             this.lblNombreReporte.StylePriority.UseTextAlignment = false;
             this.lblNombreReporte.Text = "Listado de empleados";

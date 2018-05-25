@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmNotificacionesGRD));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiNuevo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiModificar = new DevExpress.XtraBars.BarButtonItem();
@@ -174,6 +175,7 @@
             this.colUsuarioNotificacion.Caption = "Usuario con notificación";
             this.colUsuarioNotificacion.FieldName = "Receptor.Usuario.Nombre";
             this.colUsuarioNotificacion.Name = "colUsuarioNotificacion";
+            this.colUsuarioNotificacion.OptionsColumn.AllowFocus = false;
             this.colUsuarioNotificacion.Visible = true;
             this.colUsuarioNotificacion.VisibleIndex = 0;
             this.colUsuarioNotificacion.Width = 150;
@@ -183,6 +185,7 @@
             this.colResponsable.Caption = "Responsable";
             this.colResponsable.FieldName = "Responsable.Usuario.Nombre";
             this.colResponsable.Name = "colResponsable";
+            this.colResponsable.OptionsColumn.AllowFocus = false;
             this.colResponsable.Visible = true;
             this.colResponsable.VisibleIndex = 1;
             this.colResponsable.Width = 150;
@@ -192,6 +195,7 @@
             this.colMotivo.Caption = "Motivo";
             this.colMotivo.FieldName = "Motivo";
             this.colMotivo.Name = "colMotivo";
+            this.colMotivo.OptionsColumn.AllowFocus = false;
             this.colMotivo.Visible = true;
             this.colMotivo.VisibleIndex = 2;
             this.colMotivo.Width = 503;
@@ -222,6 +226,7 @@
             this.ClientSize = new System.Drawing.Size(785, 358);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmNotificacionesGRD";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

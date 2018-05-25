@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -99,7 +98,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -268,6 +267,7 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Usuarios", "Usuarios"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Checador", "Checador"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Almacen", "Almacen"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Unidades", "Unidades", "Unidades"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración")});
             this.checkedComboBoxEdit1.Size = new System.Drawing.Size(471, 20);
             this.checkedComboBoxEdit1.StyleController = this.lcMainSeguridad;
@@ -566,7 +566,6 @@
             // 
             // txtNumeroEmpleado
             // 
-            this.txtNumeroEmpleado.Enabled = false;
             this.txtNumeroEmpleado.Location = new System.Drawing.Point(12, 51);
             this.txtNumeroEmpleado.MenuManager = this.rbbnUsuario;
             this.txtNumeroEmpleado.Name = "txtNumeroEmpleado";
@@ -940,7 +939,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmUsuario";
             this.Ribbon = this.rbbnUsuario;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.xfrmUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).EndInit();

@@ -36,6 +36,8 @@ namespace ATRCBASE.WIN
                 bbiModificarUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 bbiEliminarUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 bbiNuevos.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                bbiGafete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                rpgGafete.Visible = false;
             }
             XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre", null);
             grdUsuarios.DataSource = Usuarios;
@@ -50,7 +52,7 @@ namespace ATRCBASE.WIN
                 xfrm.Usuario = new Usuario(Unidad);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
-                (grdUsuarios.DataSource as XPCollection<Usuario>).Reload();
+                (grdUsuarios.DataSource as XPView).Reload();
             }
         }
 

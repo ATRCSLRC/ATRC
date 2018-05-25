@@ -40,7 +40,6 @@ namespace ATRCBASE.WIN
             if (EsNuevo)
                 txtNumeroEmpleado.Text = Utilerias.NumEmpleado(Unidad);
 
-
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

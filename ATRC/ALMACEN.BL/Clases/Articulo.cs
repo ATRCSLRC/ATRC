@@ -37,8 +37,6 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Enums.TipoArticulo>("TipoArticulo", ref mTipoArticulo, value); }
         }
 
-        
-
         [Association("al_Articulo-InventarioArticulo")]
         public XPCollection<InventarioArticulo> Inventarios
         {

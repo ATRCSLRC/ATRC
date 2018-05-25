@@ -26,6 +26,7 @@ namespace ATRC
             rbnpChecador.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Checador") ? true : false;
             rbnpAdministracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Administración") ? true : false;
             rpAlmacen.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Almacen") ? true : false;
+            rbnpUnidades.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Unidades") ? true : false;
         }
 
         private void bvbiSalir_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
@@ -119,6 +120,7 @@ namespace ATRC
         private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Utilerias.ActualizarEsquema();
+            Application.Exit();
         }
 
         private void bbiMarcas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -187,6 +189,61 @@ namespace ATRC
         private void bbiPrestamos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ALMACEN.WIN.xfrmPrestamoArticulos xfrm = new ALMACEN.WIN.xfrmPrestamoArticulos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiUnidad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmUnidad xfrm = new UNIDADES.WIN.xfrmUnidad();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiServicios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmServicios xfrm = new UNIDADES.WIN.xfrmServicios();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiBusquedaUnidad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmBusquedaUnidades xfrm = new UNIDADES.WIN.xfrmBusquedaUnidades();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void bbiRadios_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmRadiosGRD xfrm = new UNIDADES.WIN.xfrmRadiosGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        private void rgbiReportesUnidades_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            switch (e.Item.Description)
+            {
+                case "Servicios":
+                    UNIDADES.WIN.Reportes.xfrmServicios xfrm = new UNIDADES.WIN.Reportes.xfrmServicios();
+                    xfrm.ShowInTaskbar = false;
+                    xfrm.ShowDialog();
+                    break;
+                case "Gastos por unidad":
+                    UNIDADES.WIN.Reportes.xfrmGastosPorUnidad xfrmConcentrado = new UNIDADES.WIN.Reportes.xfrmGastosPorUnidad();
+                    xfrmConcentrado.ShowDialog();
+                    break;
+                case "Radios":
+                    ReportPrintTool repRadios = new ReportPrintTool(new REPORTES.Unidades.Radios());
+                    repRadios.ShowPreview();
+                    break;
+            }
+        }
+
+        private void bbiCambiosAceite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmCambiosAceite xfrm = new UNIDADES.WIN.xfrmCambiosAceite();
             xfrm.ShowInTaskbar = false;
             xfrm.ShowDialog();
         }

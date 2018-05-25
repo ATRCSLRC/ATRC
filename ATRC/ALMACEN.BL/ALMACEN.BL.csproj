@@ -53,6 +53,10 @@
       <Project>{A162FE83-383D-4225-A70E-EA9D27E0FB06}</Project>
       <Name>ATRCBASE.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{e46d9066-2710-40bc-be1c-e17eafc6a044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />

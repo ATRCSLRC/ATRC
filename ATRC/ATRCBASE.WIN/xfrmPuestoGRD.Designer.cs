@@ -178,6 +178,7 @@
             this.colID.Caption = "ID";
             this.colID.FieldName = "Oid";
             this.colID.Name = "colID";
+            this.colID.OptionsColumn.AllowFocus = false;
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
             this.colID.Width = 70;
@@ -187,6 +188,7 @@
             this.colDescripcion.Caption = "Descripción";
             this.colDescripcion.FieldName = "Descripcion";
             this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.OptionsColumn.AllowFocus = false;
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 1;
             this.colDescripcion.Width = 398;

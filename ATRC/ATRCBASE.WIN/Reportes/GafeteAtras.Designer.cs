@@ -94,14 +94,13 @@
             this.lblCelAvisar.Dpi = 254F;
             this.lblCelAvisar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCelAvisar.ForeColor = System.Drawing.Color.White;
-            this.lblCelAvisar.LocationFloat = new DevExpress.Utils.PointFloat(550.1531F, 332.2874F);
+            this.lblCelAvisar.LocationFloat = new DevExpress.Utils.PointFloat(549.4733F, 345.0192F);
             this.lblCelAvisar.Name = "lblCelAvisar";
             this.lblCelAvisar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblCelAvisar.SizeF = new System.Drawing.SizeF(309.847F, 58.41998F);
+            this.lblCelAvisar.SizeF = new System.Drawing.SizeF(309.847F, 44.6326F);
             this.lblCelAvisar.StylePriority.UseFont = false;
             this.lblCelAvisar.StylePriority.UseForeColor = false;
             this.lblCelAvisar.StylePriority.UseTextAlignment = false;
-            this.lblCelAvisar.Text = "(653)-12-06457";
             this.lblCelAvisar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // lblAvisar
@@ -109,10 +108,10 @@
             this.lblAvisar.Dpi = 254F;
             this.lblAvisar.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvisar.ForeColor = System.Drawing.Color.White;
-            this.lblAvisar.LocationFloat = new DevExpress.Utils.PointFloat(512.9218F, 308.7174F);
+            this.lblAvisar.LocationFloat = new DevExpress.Utils.PointFloat(500.6073F, 308.7174F);
             this.lblAvisar.Name = "lblAvisar";
             this.lblAvisar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblAvisar.SizeF = new System.Drawing.SizeF(347.0782F, 58.42001F);
+            this.lblAvisar.SizeF = new System.Drawing.SizeF(359.3928F, 58.42001F);
             this.lblAvisar.StylePriority.UseFont = false;
             this.lblAvisar.StylePriority.UseForeColor = false;
             this.lblAvisar.StylePriority.UseTextAlignment = false;
@@ -121,7 +120,7 @@
             // lblPatron
             // 
             this.lblPatron.Dpi = 254F;
-            this.lblPatron.Font = new System.Drawing.Font("Square721 BT", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatron.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblPatron.LocationFloat = new DevExpress.Utils.PointFloat(302.8506F, 25F);
             this.lblPatron.Name = "lblPatron";

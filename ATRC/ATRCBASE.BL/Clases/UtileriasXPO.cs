@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace ATRCBASE.BL
     public class UtileriasXPO
     {
         //public static string CadenaDeConexion = DevExpress.Xpo.DB.MySqlConnectionProvider.GetConnectionString("192.168.0.140", "administrador", "", "atrcpuebas");
-        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.67\ATRCSERVER", "sa", "@TRCSistemas1", "ATRCPruebas");
+        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.65\ATRCSERVER", "sa", "@TRCSistemas1", "ATRC-");
         [Description("Regresa la unidad instanciada, este metodo es para validar que no este vacia la unidad.")]
         public static UnidadDeTrabajo CargarUnidadDeTrabajo(ref UnidadDeTrabajo uow)
         {
@@ -62,8 +63,14 @@ namespace ATRCBASE.BL
 
             DevExpress.Xpo.DB.IDataStore store = XpoDefault.GetConnectionProvider(CadenaDeConexion, AutoCreateOption.SchemaAlreadyExists);
             DevExpress.Xpo.Metadata.XPDictionary dict = new DevExpress.Xpo.Metadata.ReflectionDictionary();
-            
-            System.Reflection.Assembly dll = System.Reflection.Assembly.Load("CHECADOR.BL");
+
+            Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
+            Type typeUnidad = System.Reflection.Assembly.Load("UNIDADES.BL").GetType("UNIDADES.BL.Unidad");
+            XPClassInfo Almacen = dict.GetClassInfo(typeSalida);
+            XPClassInfo Unidad = dict.GetClassInfo(typeUnidad);
+            XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
+            XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
+
             dict.GetDataStoreSchema(AppDomain.CurrentDomain.GetAssemblies());
             IDataLayer dl = null;
             if (Utilerias.TipoAplicacion == Enums.TipoAplicacion.Web)
