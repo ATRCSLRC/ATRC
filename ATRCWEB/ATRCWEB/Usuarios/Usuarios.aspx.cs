@@ -72,7 +72,10 @@ namespace ATRCWEB.Usuarios
                         #region Modificacion
                         Usuario UsuarioModificacion = null;
                         if (HiddenUsuario.Get("Modificar") != null)
-                            UsuarioModificacion = (Usuario)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Modificar")));
+                        {
+                            ViewRecord ViewUsuario = (ViewRecord)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Modificar")));
+                            UsuarioModificacion = (Usuario)ViewUsuario.GetObject();
+                        }
                         if (UsuarioModificacion == null) return;
                         UsuarioModificacion.EsAdministrativo = chkAdmistrador.Checked;
                         UsuarioModificacion.Nombre = txtNombre.Text;
@@ -108,7 +111,11 @@ namespace ATRCWEB.Usuarios
                         #region Eliminar
                         Usuario Usuario = null;
                         if (HiddenUsuario.Get("Eliminar") != null)
-                            Usuario = (Usuario)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Eliminar")));
+                        {
+                            ViewRecord ViewUsuario = (ViewRecord)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Eliminar")));
+                            Usuario = (Usuario)ViewUsuario.GetObject();
+                        }
+                            
                         if (Usuario == null) return;
 
                         Usuario.Delete();
@@ -134,7 +141,6 @@ namespace ATRCWEB.Usuarios
             if (Unidad != null)
             {
                 XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre", null);
-                //XPCollection<Usuario> Usuarios = new XPCollection<Usuario>(Unidad);
                 grdUsuarios.DataSource = Usuarios;
             }
         }
@@ -188,7 +194,8 @@ namespace ATRCWEB.Usuarios
             Usuario UsuarioModificacion = null;
             if (HiddenUsuario.Get("Modificar") != null)
             {
-                UsuarioModificacion = (Usuario)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Modificar")));
+                ViewRecord ViewUsuario = (ViewRecord)grdUsuarios.GetRow(Convert.ToInt32(HiddenUsuario.Get("Modificar")));
+                UsuarioModificacion = (Usuario)ViewUsuario.GetObject();
                 if (UsuarioModificacion.Imagen != null)
                     if (!string.IsNullOrEmpty(UsuarioModificacion.Imagen.Archivo))
                     {
@@ -205,7 +212,8 @@ namespace ATRCWEB.Usuarios
         {
             if (!string.IsNullOrEmpty(e.Parameter))
             {
-                Usuario Usuario = (Usuario)grdUsuarios.GetRow(Convert.ToInt32(e.Parameter));
+                ViewRecord ViewUsuario = (ViewRecord)grdUsuarios.GetRow(Convert.ToInt32(e.Parameter));
+                Usuario Usuario = (Usuario)ViewUsuario.GetObject();
                 if (Usuario.Imagen != null)
                     if (!string.IsNullOrEmpty(Usuario.Imagen.Archivo))
                     {
