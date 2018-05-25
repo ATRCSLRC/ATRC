@@ -133,7 +133,8 @@ namespace ATRCWEB.Usuarios
             UnidadDeTrabajo Unidad = (UnidadDeTrabajo)Session["Unidad"];
             if (Unidad != null)
             {
-                XPCollection<Usuario> Usuarios = new XPCollection<Usuario>(Unidad);
+                XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre", null);
+                //XPCollection<Usuario> Usuarios = new XPCollection<Usuario>(Unidad);
                 grdUsuarios.DataSource = Usuarios;
             }
         }
@@ -143,7 +144,8 @@ namespace ATRCWEB.Usuarios
             if (e == null) return;
             if (e.KeyValue == null) return;
             BootstrapGridView grid = (BootstrapGridView)sender;
-            Usuario Usuario = (Usuario)grid.GetRow(e.VisibleIndex);
+            ViewRecord ViewUsuario = (ViewRecord)grid.GetRow(e.VisibleIndex);
+            Usuario Usuario = (Usuario)ViewUsuario.GetObject();
             if (Usuario == null) return;
             BootstrapGridViewDataColumn colAcciones = (BootstrapGridViewDataColumn)grid.Columns["Acciones"];
             BootstrapButton btnModificar = (BootstrapButton)grid.FindRowCellTemplateControl(e.VisibleIndex, colAcciones, "btnModificar");

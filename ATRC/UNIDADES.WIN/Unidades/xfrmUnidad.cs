@@ -24,15 +24,14 @@ namespace UNIDADES.WIN
 
         public UnidadDeTrabajo Unidad;
         public Unidad UnidadCamion;
-
+        public bool esModificacion = false;
         #region Eventos
         private void xfrmUnidad_Load(object sender, EventArgs e)
         {
-            if (Unidad == null)
+            if (!esModificacion)
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 UnidadCamion = new Unidad(Unidad);
-                dteUltimoCambioAceite.DateTime = DateTime.Now;
             }
             BeginInvoke(new MethodInvoker(delegate { IniciarControles(); }));
             LigarControles();
@@ -262,6 +261,8 @@ namespace UNIDADES.WIN
             spnPasajeros.DataBindings.Add("EditValue", UnidadCamion, "Pasajeros", true, DataSourceUpdateMode.OnPropertyChanged);
             rgTipoUnidad.DataBindings.Add("EditValue", UnidadCamion, "TipoUnidad", true, DataSourceUpdateMode.OnPropertyChanged);
             dteUltimoCambioAceite.DataBindings.Add("EditValue", UnidadCamion, "UltimoCambioAceite", true, DataSourceUpdateMode.OnPropertyChanged);
+            if(!esModificacion)
+                dteUltimoCambioAceite.DateTime = DateTime.Now;
             #endregion
 
             #region Interior

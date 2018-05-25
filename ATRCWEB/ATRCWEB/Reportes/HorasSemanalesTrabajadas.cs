@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using CHECADOR.BL;
 using DevExpress.Utils.Filtering.Internal;
 
-namespace CHECADOR.WIN.Reportes
+namespace ATRCWEB.Reportes
 {
     public partial class HorasSemanalesTrabajadas : DevExpress.XtraReports.UI.XtraReport
     {

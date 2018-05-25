@@ -66,6 +66,7 @@ namespace UNIDADES.WIN
             {
                 xfrmUnidad xfrm = new xfrmUnidad();
                 xfrm.Unidad = unidad;
+                xfrm.esModificacion = true;
                 xfrm.UnidadCamion = (Unidad)lueUnidad.EditValue;
                 xfrm.ShowDialog();
                 vGridControl1.Refresh();

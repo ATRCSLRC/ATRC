@@ -377,6 +377,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteUltimoCambioAceite.Properties.DisplayFormat.FormatString = "D";
             this.dteUltimoCambioAceite.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteUltimoCambioAceite.Properties.EditFormat.FormatString = "D";
+            this.dteUltimoCambioAceite.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteUltimoCambioAceite.Properties.Mask.EditMask = "D";
             this.dteUltimoCambioAceite.Size = new System.Drawing.Size(419, 20);
             this.dteUltimoCambioAceite.StyleController = this.lcGeneral;
