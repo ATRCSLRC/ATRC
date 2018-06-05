@@ -53,7 +53,6 @@ namespace Unidades
             using (xfrmUsuario xfrm = new xfrmUsuario())
             {
                 xfrm.esModificacion = false;
-                xfrm.Usuario = new Unidad.BL.Usuario(Unidad);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
                 (grdUsuarios.DataSource as XPView).Reload();

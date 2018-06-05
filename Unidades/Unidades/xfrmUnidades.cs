@@ -36,6 +36,7 @@ namespace Unidades
             lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciDetallesUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lblNombreUnidad.Text = string.Empty;
             cboTipoMoneda.Properties.Items.AddRange(typeof(Enums.TipoMoneda).GetEnumValues());
             cboTipoMoneda.SelectedIndex = 0;
@@ -54,7 +55,16 @@ namespace Unidades
 
         private void grvUnidades_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            
+            Unidad.BL.Unidad Unidad = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
+            if (Unidad == null)
+            {
+                lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciDetallesUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciBtnEliminarGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lblNombreUnidad.Text = string.Empty;
+            }
         }
 
         private void btnAgregarGasto_Click(object sender, EventArgs e)
@@ -153,9 +163,15 @@ namespace Unidades
         {
             GastosUnidad Gasto = grvDetallesGastos.GetFocusedRow() as GastosUnidad;
             if (Gasto != null)
+            {
                 lciBtnEliminarGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            }
             else
+            {
                 lciBtnEliminarGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
 
         }
 
@@ -167,6 +183,7 @@ namespace Unidades
                 lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciDetallesUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lblNombreUnidad.Text = Unidad.Nombre;
                 spnCantidad.Value = 0;
                 memoComentarios.EditValue = string.Empty;
@@ -177,6 +194,17 @@ namespace Unidades
                 lblModelo.Text = Unidad.Modelo;
                 lblTotalDolar.Text = Unidad.TotalDolar.ToString("c");
                 lblTotalPesos.Text = Unidad.TotalPesos.ToString("c");
+            }
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+            Unidad.BL.Unidad Unidad = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
+            if (Unidad != null)
+            {
+                xfrmTotales xfrm = new xfrmTotales();
+                xfrm.Unidad = Unidad;
+                xfrm.ShowDialog();
             }
         }
     }

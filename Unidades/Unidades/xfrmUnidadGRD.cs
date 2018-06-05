@@ -53,7 +53,6 @@ namespace Unidades
             using (xfrmUnidad xfrm = new xfrmUnidad())
             {
                 xfrm.esModificacion = false;
-                xfrm.UnidadCamion = new Unidad.BL.Unidad(Unidad);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
                 (grdUnidades.DataSource as XPView).Reload();

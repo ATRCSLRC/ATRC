@@ -97,12 +97,14 @@
             this.lciBtnNuevo = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lcMainTop = new DevExpress.XtraLayout.LayoutControl();
+            this.lblTotal = new DevExpress.XtraEditors.LabelControl();
             this.btnEliminarGasto = new DevExpress.XtraEditors.SimpleButton();
             this.lblNombreUnidad = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBtnEliminarGasto = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciCalcular = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcipnlTop = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDetalles = new DevExpress.XtraLayout.LayoutControlItem();
@@ -184,6 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBtnEliminarGasto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCalcular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcipnlTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalles)).BeginInit();
@@ -252,7 +255,7 @@
             this.btnAcciones.Name = "btnAcciones";
             this.ribbonControl1.SetPopupContextMenu(this.btnAcciones, this.popupAcciones);
             this.btnAcciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnAcciones.Size = new System.Drawing.Size(254, 40);
+            this.btnAcciones.Size = new System.Drawing.Size(245, 40);
             this.btnAcciones.TabIndex = 7;
             this.btnAcciones.Click += new System.EventHandler(this.btnAcciones_Click);
             // 
@@ -1035,6 +1038,7 @@
             this.lcMainTop.Appearance.Control.BackColor = System.Drawing.Color.Transparent;
             this.lcMainTop.Appearance.Control.Options.UseBackColor = true;
             this.lcMainTop.BackColor = System.Drawing.Color.Transparent;
+            this.lcMainTop.Controls.Add(this.lblTotal);
             this.lcMainTop.Controls.Add(this.btnAcciones);
             this.lcMainTop.Controls.Add(this.btnEliminarGasto);
             this.lcMainTop.Controls.Add(this.lblNombreUnidad);
@@ -1051,6 +1055,23 @@
             this.lcMainTop.Size = new System.Drawing.Size(813, 62);
             this.lcMainTop.TabIndex = 0;
             this.lcMainTop.Text = "layoutControl1";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AllowHtmlString = true;
+            this.lblTotal.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Appearance.Options.UseFont = true;
+            this.lblTotal.Appearance.Options.UseForeColor = true;
+            this.lblTotal.Appearance.Options.UseTextOptions = true;
+            this.lblTotal.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblTotal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTotal.Location = new System.Drawing.Point(636, 17);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(74, 40);
+            this.lblTotal.TabIndex = 8;
+            this.lblTotal.Text = "<u>Calcular total</u>";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // btnEliminarGasto
             // 
@@ -1080,9 +1101,9 @@
             this.lblNombreUnidad.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblNombreUnidad.Appearance.Options.UseFont = true;
             this.lblNombreUnidad.Appearance.Options.UseForeColor = true;
-            this.lblNombreUnidad.Location = new System.Drawing.Point(281, 17);
+            this.lblNombreUnidad.Location = new System.Drawing.Point(272, 17);
             this.lblNombreUnidad.Name = "lblNombreUnidad";
-            this.lblNombreUnidad.Size = new System.Drawing.Size(429, 40);
+            this.lblNombreUnidad.Size = new System.Drawing.Size(354, 40);
             this.lblNombreUnidad.TabIndex = 5;
             // 
             // layoutControlGroup2
@@ -1094,7 +1115,8 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.lciBtnEliminarGasto,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.lciCalcular});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup2.Size = new System.Drawing.Size(813, 62);
@@ -1104,10 +1126,10 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.lblNombreUnidad;
-            this.layoutControlItem2.Location = new System.Drawing.Point(264, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(255, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(439, 50);
+            this.layoutControlItem2.Size = new System.Drawing.Size(364, 50);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -1130,10 +1152,21 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(86, 30);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(264, 50);
+            this.layoutControlItem5.Size = new System.Drawing.Size(255, 50);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // lciCalcular
+            // 
+            this.lciCalcular.Control = this.lblTotal;
+            this.lciCalcular.Location = new System.Drawing.Point(619, 0);
+            this.lciCalcular.MinSize = new System.Drawing.Size(73, 23);
+            this.lciCalcular.Name = "lciCalcular";
+            this.lciCalcular.Size = new System.Drawing.Size(84, 50);
+            this.lciCalcular.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciCalcular.TextSize = new System.Drawing.Size(0, 0);
+            this.lciCalcular.TextVisible = false;
             // 
             // layoutControlGroup1
             // 
@@ -1389,6 +1422,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBtnEliminarGasto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCalcular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcipnlTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalles)).EndInit();
@@ -1496,5 +1530,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.LabelControl lblTotal;
+        private DevExpress.XtraLayout.LayoutControlItem lciCalcular;
     }
 }

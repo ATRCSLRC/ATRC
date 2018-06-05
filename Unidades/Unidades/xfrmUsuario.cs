@@ -42,23 +42,22 @@ namespace Unidades
                 if (esModificacion)
                     XtraMessageBox.Show("Se ha realizado la modificación correctamente.");
                 else
-                    XtraMessageBox.Show("Se ha guardado la unidad correctamente.");
+                    XtraMessageBox.Show("Se ha guardado el usuario correctamente.");
                 this.Close();
             }
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Unidad.RollbackTransaction();
+           // Unidad.RollbackTransaction();
             this.Close();
         }
 
         private void LigarControles()
         {
             txtNombre.DataBindings.Add("EditValue", Usuario, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtMarca.DataBindings.Add("EditValue", Usuario, "Marca", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtModelo.DataBindings.Add("EditValue", Usuario, "Modelo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtVIN.DataBindings.Add("EditValue", Usuario, "VIN", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtUsuario.DataBindings.Add("EditValue", Usuario, "NombreUsuario", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtContraseña.DataBindings.Add("EditValue", Usuario, "Constraseña", true, DataSourceUpdateMode.OnPropertyChanged);
         }
     }
 }

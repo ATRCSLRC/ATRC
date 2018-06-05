@@ -35,27 +35,23 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.txtVIN = new DevExpress.XtraEditors.TextEdit();
-            this.txtMarca = new DevExpress.XtraEditors.TextEdit();
-            this.txtModelo = new DevExpress.XtraEditors.TextEdit();
+            this.txtUsuario = new DevExpress.XtraEditors.TextEdit();
+            this.txtContraseña = new DevExpress.XtraEditors.TextEdit();
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciModelo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciMarca = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciVIN = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciContraseña = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciUsuario = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtVIN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMarca.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModelo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContraseña.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciModelo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciVIN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciContraseña)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -114,44 +110,35 @@
             // 
             // lcMain
             // 
-            this.lcMain.Controls.Add(this.txtVIN);
-            this.lcMain.Controls.Add(this.txtMarca);
-            this.lcMain.Controls.Add(this.txtModelo);
+            this.lcMain.Controls.Add(this.txtUsuario);
+            this.lcMain.Controls.Add(this.txtContraseña);
             this.lcMain.Controls.Add(this.txtNombre);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(499, 195);
+            this.lcMain.Size = new System.Drawing.Size(499, 151);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
-            // txtVIN
+            // txtUsuario
             // 
-            this.txtVIN.Location = new System.Drawing.Point(12, 152);
-            this.txtVIN.MenuManager = this.ribbonControl1;
-            this.txtVIN.Name = "txtVIN";
-            this.txtVIN.Size = new System.Drawing.Size(475, 20);
-            this.txtVIN.StyleController = this.lcMain;
-            this.txtVIN.TabIndex = 7;
+            this.txtUsuario.Location = new System.Drawing.Point(12, 70);
+            this.txtUsuario.MenuManager = this.ribbonControl1;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(475, 20);
+            this.txtUsuario.StyleController = this.lcMain;
+            this.txtUsuario.TabIndex = 6;
             // 
-            // txtMarca
+            // txtContraseña
             // 
-            this.txtMarca.Location = new System.Drawing.Point(12, 70);
-            this.txtMarca.MenuManager = this.ribbonControl1;
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(475, 20);
-            this.txtMarca.StyleController = this.lcMain;
-            this.txtMarca.TabIndex = 6;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(12, 111);
-            this.txtModelo.MenuManager = this.ribbonControl1;
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(475, 20);
-            this.txtModelo.StyleController = this.lcMain;
-            this.txtModelo.TabIndex = 5;
+            this.txtContraseña.Location = new System.Drawing.Point(12, 111);
+            this.txtContraseña.MenuManager = this.ribbonControl1;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Properties.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(475, 20);
+            this.txtContraseña.StyleController = this.lcMain;
+            this.txtContraseña.TabIndex = 5;
             // 
             // txtNombre
             // 
@@ -168,11 +155,10 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciNombre,
-            this.lciModelo,
-            this.lciMarca,
-            this.lciVIN});
+            this.lciContraseña,
+            this.lciUsuario});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(499, 195);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(499, 151);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciNombre
@@ -185,49 +171,37 @@
             this.lciNombre.Size = new System.Drawing.Size(479, 41);
             this.lciNombre.Text = "Nombre:";
             this.lciNombre.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciNombre.TextSize = new System.Drawing.Size(51, 14);
+            this.lciNombre.TextSize = new System.Drawing.Size(74, 14);
             // 
-            // lciModelo
+            // lciContraseña
             // 
-            this.lciModelo.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lciModelo.AppearanceItemCaption.Options.UseFont = true;
-            this.lciModelo.Control = this.txtModelo;
-            this.lciModelo.Location = new System.Drawing.Point(0, 82);
-            this.lciModelo.Name = "lciModelo";
-            this.lciModelo.Size = new System.Drawing.Size(479, 41);
-            this.lciModelo.Text = "Modelo:";
-            this.lciModelo.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciModelo.TextSize = new System.Drawing.Size(51, 14);
+            this.lciContraseña.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lciContraseña.AppearanceItemCaption.Options.UseFont = true;
+            this.lciContraseña.Control = this.txtContraseña;
+            this.lciContraseña.Location = new System.Drawing.Point(0, 82);
+            this.lciContraseña.Name = "lciContraseña";
+            this.lciContraseña.Size = new System.Drawing.Size(479, 49);
+            this.lciContraseña.Text = "Contraseña:";
+            this.lciContraseña.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciContraseña.TextSize = new System.Drawing.Size(74, 14);
             // 
-            // lciMarca
+            // lciUsuario
             // 
-            this.lciMarca.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lciMarca.AppearanceItemCaption.Options.UseFont = true;
-            this.lciMarca.Control = this.txtMarca;
-            this.lciMarca.Location = new System.Drawing.Point(0, 41);
-            this.lciMarca.Name = "lciMarca";
-            this.lciMarca.Size = new System.Drawing.Size(479, 41);
-            this.lciMarca.Text = "Marca:";
-            this.lciMarca.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciMarca.TextSize = new System.Drawing.Size(51, 14);
-            // 
-            // lciVIN
-            // 
-            this.lciVIN.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lciVIN.AppearanceItemCaption.Options.UseFont = true;
-            this.lciVIN.Control = this.txtVIN;
-            this.lciVIN.Location = new System.Drawing.Point(0, 123);
-            this.lciVIN.Name = "lciVIN";
-            this.lciVIN.Size = new System.Drawing.Size(479, 52);
-            this.lciVIN.Text = "VIN:";
-            this.lciVIN.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciVIN.TextSize = new System.Drawing.Size(51, 14);
+            this.lciUsuario.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lciUsuario.AppearanceItemCaption.Options.UseFont = true;
+            this.lciUsuario.Control = this.txtUsuario;
+            this.lciUsuario.Location = new System.Drawing.Point(0, 41);
+            this.lciUsuario.Name = "lciUsuario";
+            this.lciUsuario.Size = new System.Drawing.Size(479, 41);
+            this.lciUsuario.Text = "Usuario:";
+            this.lciUsuario.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciUsuario.TextSize = new System.Drawing.Size(74, 14);
             // 
             // xfrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 317);
+            this.ClientSize = new System.Drawing.Size(499, 273);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmUsuario";
@@ -239,15 +213,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtVIN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMarca.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModelo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsuario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContraseña.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciModelo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciVIN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciContraseña)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,14 +233,12 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraBars.BarButtonItem bbiGuardar;
         private DevExpress.XtraBars.BarButtonItem bbiCancelar;
-        private DevExpress.XtraEditors.TextEdit txtVIN;
-        private DevExpress.XtraEditors.TextEdit txtMarca;
-        private DevExpress.XtraEditors.TextEdit txtModelo;
+        private DevExpress.XtraEditors.TextEdit txtUsuario;
+        private DevExpress.XtraEditors.TextEdit txtContraseña;
         private DevExpress.XtraEditors.TextEdit txtNombre;
         private DevExpress.XtraLayout.LayoutControlItem lciNombre;
-        private DevExpress.XtraLayout.LayoutControlItem lciModelo;
-        private DevExpress.XtraLayout.LayoutControlItem lciMarca;
-        private DevExpress.XtraLayout.LayoutControlItem lciVIN;
+        private DevExpress.XtraLayout.LayoutControlItem lciContraseña;
+        private DevExpress.XtraLayout.LayoutControlItem lciUsuario;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgAcciones;
     }
 }
