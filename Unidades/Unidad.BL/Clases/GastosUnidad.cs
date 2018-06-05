@@ -32,6 +32,28 @@ namespace Unidad.BL
             set { SetPropertyValue<Enums.TipoMoneda>("TipoMoneda", ref mTipoMoneda, value); }
         }
 
+        private Enums.ConceptoGasto mConceptoDeGasto;
+        public Enums.ConceptoGasto ConceptoDeGasto
+        {
+            get { return mConceptoDeGasto; }
+            set { SetPropertyValue<Enums.ConceptoGasto>("ConceptoDeGasto", ref mConceptoDeGasto, value); }
+        }
+
+        private Enums.FormaPago mFormaDePago;
+        public Enums.FormaPago FormaDePago
+        {
+            get { return mFormaDePago; }
+            set { SetPropertyValue<Enums.FormaPago>("FormaDePago", ref mFormaDePago, value); }
+        }
+
+        private string mLugarCompra;
+        [Size(SizeAttribute.Unlimited)]
+        public string LugarCompra
+        {
+            get { return mLugarCompra; }
+            set { SetPropertyValue<string>("LugarCompra", ref mLugarCompra, value); }
+        }
+
         private string mComentarios;
         [Size(SizeAttribute.Unlimited)]
         public string Comentarios

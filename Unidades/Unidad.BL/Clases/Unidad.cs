@@ -59,29 +59,29 @@ namespace Unidad.BL
         }
 
         [NonPersistent]
+        public decimal TotalPesosConCosto
+        {
+            get
+            {
+                return this.Gastos[0].TipoMoneda == Enums.TipoMoneda.Pesos ? this.TotalPesos + this.Gastos[0].Cantidad : this.TotalPesos;
+            }
+        }
+
+        [NonPersistent]
+        public decimal TotalDolarConCosto
+        {
+            get
+            {
+                return this.Gastos[0].TipoMoneda == Enums.TipoMoneda.Dolares ? this.TotalDolar + this.Gastos[0].Cantidad : this.TotalDolar;
+            }
+        }
+
+        [NonPersistent]
         public string UnidadDescripcion
         {
             get
             {
-                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=7> <b>Total pesos:</b>" + this.TotalPesos.ToString("c") + "   <b>Total dolar:</b>" + this.TotalDolar.ToString("c") + "<br><br>";
-            }
-        }
-
-        [NonPersistent]
-        public Bitmap Editar
-        {
-            get
-            {
-                return Properties.Resources.icons8_lápiz_32__1_;
-            }
-        }
-
-        [NonPersistent]
-        public Bitmap Eliminar
-        {
-            get
-            {
-                return Properties.Resources.icons8_eliminar_32;
+                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=7> <b>Marca: </b>" + this.Marca + "   <b>Modelo: </b>" + this.Modelo + "<br><br>";
             }
         }
 

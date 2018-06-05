@@ -39,9 +39,12 @@ namespace Unidades
             lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lblNombreUnidad.Text = string.Empty;
             cboTipoMoneda.Properties.Items.AddRange(typeof(Enums.TipoMoneda).GetEnumValues());
+            cboFormaPago.Properties.Items.AddRange(typeof(Enums.FormaPago).GetEnumValues());
+            cboConcepto.Properties.Items.AddRange(typeof(Enums.ConceptoGasto).GetEnumValues());
             cboTipoMoneda.SelectedIndex = 0;
-            grvDetallesGastos.FocusedRowHandle = -1;
-            grvDetallesGastos.ClearSelection();
+            cboFormaPago.SelectedIndex = 0;
+            cboConcepto.SelectedIndex = 1;
+            dteFecha.DateTime = DateTime.Now;
         }
 
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
@@ -82,7 +85,10 @@ namespace Unidades
                 if (XtraMessageBox.Show("¿La información proporcionada es correcta?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     GastosUnidad Gasto = new GastosUnidad(Unidad.Session);
-                    Gasto.Fecha = DateTime.Now;
+                    Gasto.Fecha = dteFecha.DateTime;
+                    Gasto.FormaDePago = (Enums.FormaPago)cboFormaPago.EditValue;
+                    Gasto.ConceptoDeGasto = (Enums.ConceptoGasto)cboConcepto.EditValue;
+                    Gasto.LugarCompra = txtLugar.Text;
                     Gasto.Cantidad = spnCantidad.Value;
                     Gasto.TipoMoneda = (Enums.TipoMoneda)cboTipoMoneda.EditValue;
                     if ((Enums.TipoMoneda)cboTipoMoneda.EditValue == Enums.TipoMoneda.Pesos)
@@ -95,11 +101,15 @@ namespace Unidades
                     Unidad.Save();
                     Unidad.Gastos.Add(Gasto);
                     Unidad.Session.CommitTransaction();
-                    spnCantidad.Value = 0;
-                    memoComentarios.EditValue = string.Empty;
+
+                    dteFecha.DateTime = DateTime.Now;
                     cboTipoMoneda.SelectedIndex = 0;
-                    lblTotalDolar.Text = Unidad.TotalDolar.ToString("c");
-                    lblTotalPesos.Text = Unidad.TotalPesos.ToString("c");
+                    cboFormaPago.SelectedIndex = 0;
+                    cboConcepto.SelectedIndex = 1;
+                    spnCantidad.Value = 0;
+                    memoComentarios.Text = txtLugar.Text = string.Empty;
+                    lblTotalDolar.Text = Unidad.TotalDolarConCosto.ToString("c");
+                    lblTotalPesos.Text = Unidad.TotalPesosConCosto.ToString("c");
                     grdDetallesGastos.Refresh();
                     grdDetallesGastos.RefreshDataSource();
                 }
@@ -136,9 +146,15 @@ namespace Unidades
         private void btnEliminarGasto_Click(object sender, EventArgs e)
         {
             GastosUnidad Gasto = grvDetallesGastos.GetFocusedRow() as GastosUnidad;
-            if (Unidad != null)
+            if (Gasto != null)
             {
-                if (XtraMessageBox.Show("¿Desea elimanar el gasto seleccionado?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if(grvDetallesGastos.FocusedRowHandle == 0 & Gasto.ConceptoDeGasto == Enums.ConceptoGasto.CompraUnidad)
+                {
+                    XtraMessageBox.Show("El gasto de compra de unidad no se puede eliminar.");
+                    return;
+                }
+
+                if (XtraMessageBox.Show("¿Desea eliminar el gasto seleccionado?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     
                     if (Gasto.TipoMoneda == Enums.TipoMoneda.Pesos)
@@ -148,8 +164,8 @@ namespace Unidades
                     
                     Gasto.Unidad.Save();
                     
-                    lblTotalDolar.Text = Gasto.Unidad.TotalDolar.ToString("c");
-                    lblTotalPesos.Text = Gasto.Unidad.TotalPesos.ToString("c");
+                    lblTotalDolar.Text = Gasto.Unidad.TotalDolarConCosto.ToString("c");
+                    lblTotalPesos.Text = Gasto.Unidad.TotalPesosConCosto.ToString("c");
                     Gasto.Unidad.Gastos.Remove(Gasto);
                     Gasto.Session.CommitTransaction();
                     grdDetallesGastos.Refresh();
@@ -190,10 +206,9 @@ namespace Unidades
                 cboTipoMoneda.SelectedIndex = 0;
                 memoComentarios.Properties.NullText = "Comentarios";
                 grdDetallesGastos.DataSource = Unidad.Gastos;
-                lblMarca.Text = Unidad.Marca;
-                lblModelo.Text = Unidad.Modelo;
-                lblTotalDolar.Text = Unidad.TotalDolar.ToString("c");
-                lblTotalPesos.Text = Unidad.TotalPesos.ToString("c");
+                lblVIN.Text = Unidad.VIN;
+                lblTotalDolar.Text = Unidad.TotalDolarConCosto.ToString("c");
+                lblTotalPesos.Text = Unidad.TotalPesosConCosto.ToString("c");
             }
         }
 

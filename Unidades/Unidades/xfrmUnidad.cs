@@ -21,6 +21,7 @@ namespace Unidades
 
         public UnidadDeTrabajo Unidad;
         public Unidad.BL.Unidad UnidadCamion;
+        GastosUnidad Gasto;
         public bool esModificacion = false;
 
         private void xfrmUnidad_Load(object sender, EventArgs e)
@@ -29,7 +30,13 @@ namespace Unidades
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 UnidadCamion = new Unidad.BL.Unidad(Unidad);
+                Gasto = new GastosUnidad(Unidad);
+            }else
+            {
+                Gasto = UnidadCamion.Gastos[0];
             }
+            cboTipoMoneda.Properties.Items.AddRange(typeof(Enums.TipoMoneda).GetEnumValues());
+            cboFormaPago.Properties.Items.AddRange(typeof(Enums.FormaPago).GetEnumValues());
             LigarControles();
         }
 
@@ -37,6 +44,9 @@ namespace Unidades
         {
             if(!string.IsNullOrEmpty(txtNombre.Text))
             {
+                
+                Gasto.ConceptoDeGasto = Enums.ConceptoGasto.CompraUnidad;
+                UnidadCamion.Gastos.Add(Gasto);
                 UnidadCamion.Save();
                 Unidad.CommitChanges();
                 if (esModificacion)
@@ -59,6 +69,12 @@ namespace Unidades
             txtMarca.DataBindings.Add("EditValue", UnidadCamion, "Marca", true, DataSourceUpdateMode.OnPropertyChanged);
             txtModelo.DataBindings.Add("EditValue", UnidadCamion, "Modelo", true, DataSourceUpdateMode.OnPropertyChanged);
             txtVIN.DataBindings.Add("EditValue", UnidadCamion, "VIN", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            dteFecha.DataBindings.Add("EditValue", Gasto, "Fecha", true, DataSourceUpdateMode.OnPropertyChanged);
+            spnPrecio.DataBindings.Add("EditValue", Gasto, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboTipoMoneda.DataBindings.Add("EditValue", Gasto, "TipoMoneda", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboFormaPago.DataBindings.Add("EditValue", Gasto, "FormaDePago", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLugar.DataBindings.Add("EditValue", Gasto, "LugarCompra", true, DataSourceUpdateMode.OnPropertyChanged);
         }
     }
 }

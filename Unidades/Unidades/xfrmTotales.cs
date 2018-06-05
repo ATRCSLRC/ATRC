@@ -28,12 +28,12 @@ namespace Unidades
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             GraficaDolar.Series[0].Points.RemoveRange(0, GraficaDolar.Series[0].Points.Count);
-            GraficaDolar.Series[0].Points.Add(new SeriesPoint("Pesos convertidos", (Unidad.TotalPesos/Convert.ToDecimal(spnTipoCambio.EditValue))));
-            GraficaDolar.Series[0].Points.Add(new SeriesPoint("Dolares", Unidad.TotalDolar));
+            GraficaDolar.Series[0].Points.Add(new SeriesPoint("Pesos convertidos", (Unidad.TotalPesosConCosto/Convert.ToDecimal(spnTipoCambio.EditValue))));
+            GraficaDolar.Series[0].Points.Add(new SeriesPoint("Dolares", Unidad.TotalDolarConCosto));
 
             GraficaPesos.Series[0].Points.RemoveRange(0, GraficaPesos.Series[0].Points.Count);
-            GraficaPesos.Series[0].Points.Add(new SeriesPoint("Dolares convertidos", (Unidad.TotalDolar * Convert.ToDecimal(spnTipoCambio.EditValue))));
-            GraficaPesos.Series[0].Points.Add(new SeriesPoint("Pesos", Unidad.TotalPesos));
+            GraficaPesos.Series[0].Points.Add(new SeriesPoint("Dolares convertidos", (Unidad.TotalDolarConCosto * Convert.ToDecimal(spnTipoCambio.EditValue))));
+            GraficaPesos.Series[0].Points.Add(new SeriesPoint("Pesos", Unidad.TotalPesosConCosto));
         }
     }
 

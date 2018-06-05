@@ -54,7 +54,7 @@
             this.pnlDetallesUnidad = new DevExpress.XtraEditors.PanelControl();
             this.lcMainDetalleUnidad = new DevExpress.XtraLayout.LayoutControl();
             this.lblModelo = new DevExpress.XtraEditors.LabelControl();
-            this.lblMarca = new DevExpress.XtraEditors.LabelControl();
+            this.lblVIN = new DevExpress.XtraEditors.LabelControl();
             this.lblTotalDolar = new DevExpress.XtraEditors.LabelControl();
             this.lblTotalPesos = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -118,6 +118,17 @@
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colFormaDePago = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colConceptoGasto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLugar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dteFecha = new DevExpress.XtraEditors.DateEdit();
+            this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cboConcepto = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lciConceptoGasto = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cboFormaPago = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lciFormaPago = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtLugar = new DevExpress.XtraEditors.TextEdit();
+            this.lciLugar = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupAcciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
@@ -201,6 +212,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFecha.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboConcepto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciConceptoGasto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFormaPago.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFormaPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLugar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciLugar)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -216,7 +236,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(789, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(1012, 27);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiUsuarios
@@ -255,7 +275,7 @@
             this.btnAcciones.Name = "btnAcciones";
             this.ribbonControl1.SetPopupContextMenu(this.btnAcciones, this.popupAcciones);
             this.btnAcciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnAcciones.Size = new System.Drawing.Size(245, 40);
+            this.btnAcciones.Size = new System.Drawing.Size(244, 54);
             this.btnAcciones.TabIndex = 7;
             this.btnAcciones.Click += new System.EventHandler(this.btnAcciones_Click);
             // 
@@ -274,10 +294,10 @@
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 27);
             this.lcMain.Name = "lcMain";
-            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(858, 112, 650, 400);
+            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(858, 113, 650, 400);
             this.lcMain.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(789, 632);
+            this.lcMain.Size = new System.Drawing.Size(1012, 781);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -285,7 +305,7 @@
             // 
             this.pnlNuevaUnidad.Appearance.BackColor = System.Drawing.Color.White;
             this.pnlNuevaUnidad.Appearance.Options.UseBackColor = true;
-            this.pnlNuevaUnidad.Location = new System.Drawing.Point(-1, 51);
+            this.pnlNuevaUnidad.Location = new System.Drawing.Point(-1, 65);
             this.pnlNuevaUnidad.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.pnlNuevaUnidad.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlNuevaUnidad.Name = "pnlNuevaUnidad";
@@ -294,7 +314,7 @@
             // 
             // grdUnidades
             // 
-            this.grdUnidades.Location = new System.Drawing.Point(-1, 110);
+            this.grdUnidades.Location = new System.Drawing.Point(-1, 124);
             this.grdUnidades.MainView = this.grvUnidades;
             this.grdUnidades.MenuManager = this.ribbonControl1;
             this.grdUnidades.Name = "grdUnidades";
@@ -306,7 +326,7 @@
             this.repositoryItemTextEdit3,
             this.picEliminar,
             this.repositoryItemRichTextEdit1});
-            this.grdUnidades.Size = new System.Drawing.Size(256, 523);
+            this.grdUnidades.Size = new System.Drawing.Size(256, 658);
             this.grdUnidades.TabIndex = 7;
             this.grdUnidades.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnidades});
@@ -429,9 +449,9 @@
             // 
             this.panelControl2.Controls.Add(this.lciMainDetalle);
             this.panelControl2.Controls.Add(this.flpNuevo);
-            this.panelControl2.Location = new System.Drawing.Point(254, 52);
+            this.panelControl2.Location = new System.Drawing.Point(254, 66);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(536, 581);
+            this.panelControl2.Size = new System.Drawing.Size(759, 716);
             this.panelControl2.TabIndex = 6;
             // 
             // lciMainDetalle
@@ -442,9 +462,9 @@
             this.lciMainDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lciMainDetalle.Location = new System.Drawing.Point(2, 2);
             this.lciMainDetalle.Name = "lciMainDetalle";
-            this.lciMainDetalle.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(869, 293, 650, 400);
+            this.lciMainDetalle.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1098, 112, 650, 400);
             this.lciMainDetalle.Root = this.layoutControlGroup4;
-            this.lciMainDetalle.Size = new System.Drawing.Size(532, 577);
+            this.lciMainDetalle.Size = new System.Drawing.Size(755, 712);
             this.lciMainDetalle.TabIndex = 3;
             this.lciMainDetalle.Text = "layoutControl1";
             // 
@@ -455,15 +475,15 @@
             this.pnlDetallesUnidad.Appearance.Options.UseBackColor = true;
             this.pnlDetallesUnidad.Appearance.Options.UseBorderColor = true;
             this.pnlDetallesUnidad.Controls.Add(this.lcMainDetalleUnidad);
-            this.pnlDetallesUnidad.Location = new System.Drawing.Point(-3, -4);
+            this.pnlDetallesUnidad.Location = new System.Drawing.Point(-6, -4);
             this.pnlDetallesUnidad.Name = "pnlDetallesUnidad";
-            this.pnlDetallesUnidad.Size = new System.Drawing.Size(536, 63);
+            this.pnlDetallesUnidad.Size = new System.Drawing.Size(762, 62);
             this.pnlDetallesUnidad.TabIndex = 6;
             // 
             // lcMainDetalleUnidad
             // 
             this.lcMainDetalleUnidad.Controls.Add(this.lblModelo);
-            this.lcMainDetalleUnidad.Controls.Add(this.lblMarca);
+            this.lcMainDetalleUnidad.Controls.Add(this.lblVIN);
             this.lcMainDetalleUnidad.Controls.Add(this.lblTotalDolar);
             this.lcMainDetalleUnidad.Controls.Add(this.lblTotalPesos);
             this.lcMainDetalleUnidad.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -475,7 +495,7 @@
             this.lcMainDetalleUnidad.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(771, 249, 650, 400);
             this.lcMainDetalleUnidad.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcMainDetalleUnidad.Root = this.layoutControlGroup7;
-            this.lcMainDetalleUnidad.Size = new System.Drawing.Size(532, 59);
+            this.lcMainDetalleUnidad.Size = new System.Drawing.Size(758, 58);
             this.lcMainDetalleUnidad.TabIndex = 0;
             this.lcMainDetalleUnidad.Text = "Total pesos";
             // 
@@ -485,21 +505,21 @@
             this.lblModelo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblModelo.Appearance.Options.UseFont = true;
             this.lblModelo.Appearance.Options.UseForeColor = true;
-            this.lblModelo.Location = new System.Drawing.Point(24, 35);
+            this.lblModelo.Location = new System.Drawing.Point(19, 39);
             this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(237, 19);
+            this.lblModelo.Size = new System.Drawing.Size(355, 14);
             this.lblModelo.TabIndex = 8;
             // 
-            // lblMarca
+            // lblVIN
             // 
-            this.lblMarca.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblMarca.Appearance.Options.UseFont = true;
-            this.lblMarca.Appearance.Options.UseForeColor = true;
-            this.lblMarca.Location = new System.Drawing.Point(24, 5);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(237, 20);
-            this.lblMarca.TabIndex = 7;
+            this.lblVIN.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVIN.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblVIN.Appearance.Options.UseFont = true;
+            this.lblVIN.Appearance.Options.UseForeColor = true;
+            this.lblVIN.Location = new System.Drawing.Point(19, 5);
+            this.lblVIN.Name = "lblVIN";
+            this.lblVIN.Size = new System.Drawing.Size(355, 24);
+            this.lblVIN.TabIndex = 7;
             // 
             // lblTotalDolar
             // 
@@ -508,9 +528,9 @@
             this.lblTotalDolar.Appearance.Options.UseFont = true;
             this.lblTotalDolar.Appearance.Options.UseForeColor = true;
             this.lblTotalDolar.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lblTotalDolar.Location = new System.Drawing.Point(414, 26);
+            this.lblTotalDolar.Location = new System.Drawing.Point(586, 26);
             this.lblTotalDolar.Name = "lblTotalDolar";
-            this.lblTotalDolar.Size = new System.Drawing.Size(109, 24);
+            this.lblTotalDolar.Size = new System.Drawing.Size(163, 23);
             this.lblTotalDolar.TabIndex = 5;
             // 
             // lblTotalPesos
@@ -520,9 +540,9 @@
             this.lblTotalPesos.Appearance.Options.UseFont = true;
             this.lblTotalPesos.Appearance.Options.UseForeColor = true;
             this.lblTotalPesos.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lblTotalPesos.Location = new System.Drawing.Point(275, 26);
+            this.lblTotalPesos.Location = new System.Drawing.Point(388, 26);
             this.lblTotalPesos.Name = "lblTotalPesos";
-            this.lblTotalPesos.Size = new System.Drawing.Size(121, 24);
+            this.lblTotalPesos.Size = new System.Drawing.Size(180, 23);
             this.lblTotalPesos.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -540,7 +560,7 @@
             this.emptySpaceItem2});
             this.layoutControlGroup7.Name = "Root";
             this.layoutControlGroup7.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup7.Size = new System.Drawing.Size(532, 59);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(758, 58);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlGroup8
@@ -551,10 +571,10 @@
             this.layoutControlGroup8.AppearanceGroup.Options.UseForeColor = true;
             this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(266, 0);
+            this.layoutControlGroup8.Location = new System.Drawing.Point(379, 0);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
             this.layoutControlGroup8.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup8.Size = new System.Drawing.Size(139, 59);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(198, 58);
             this.layoutControlGroup8.Text = "Total pesos";
             // 
             // layoutControlItem8
@@ -563,7 +583,7 @@
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(131, 34);
+            this.layoutControlItem8.Size = new System.Drawing.Size(190, 33);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
@@ -576,10 +596,10 @@
             this.layoutControlGroup9.AppearanceGroup.Options.UseForeColor = true;
             this.layoutControlGroup9.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem9});
-            this.layoutControlGroup9.Location = new System.Drawing.Point(405, 0);
+            this.layoutControlGroup9.Location = new System.Drawing.Point(577, 0);
             this.layoutControlGroup9.Name = "layoutControlGroup9";
             this.layoutControlGroup9.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup9.Size = new System.Drawing.Size(127, 59);
+            this.layoutControlGroup9.Size = new System.Drawing.Size(181, 58);
             this.layoutControlGroup9.Text = "Total dolar";
             // 
             // layoutControlItem9
@@ -590,18 +610,18 @@
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(119, 34);
+            this.layoutControlItem9.Size = new System.Drawing.Size(173, 33);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem11
             // 
-            this.layoutControlItem11.Control = this.lblMarca;
-            this.layoutControlItem11.Location = new System.Drawing.Point(19, 0);
+            this.layoutControlItem11.Control = this.lblVIN;
+            this.layoutControlItem11.Location = new System.Drawing.Point(14, 0);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(247, 30);
+            this.layoutControlItem11.Size = new System.Drawing.Size(365, 34);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -609,10 +629,10 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.lblModelo;
-            this.layoutControlItem12.Location = new System.Drawing.Point(19, 30);
+            this.layoutControlItem12.Location = new System.Drawing.Point(14, 34);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(92, 24);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(247, 29);
+            this.layoutControlItem12.Size = new System.Drawing.Size(365, 24);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -622,15 +642,15 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(19, 30);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(14, 34);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 30);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 34);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(19, 29);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(14, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // grdDetallesGastos
@@ -642,7 +662,7 @@
             this.grdDetallesGastos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riMemoComentarios,
             this.repositoryItemDateEdit1});
-            this.grdDetallesGastos.Size = new System.Drawing.Size(498, 408);
+            this.grdDetallesGastos.Size = new System.Drawing.Size(721, 486);
             this.grdDetallesGastos.TabIndex = 5;
             this.grdDetallesGastos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDetallesGastos});
@@ -653,6 +673,9 @@
             this.colFecha,
             this.colCantidad,
             this.colTipoMoneda,
+            this.colFormaDePago,
+            this.colConceptoGasto,
+            this.colLugar,
             this.colComentarios});
             this.grvDetallesGastos.GridControl = this.grdDetallesGastos;
             this.grvDetallesGastos.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -676,6 +699,7 @@
             this.colFecha.Name = "colFecha";
             this.colFecha.Visible = true;
             this.colFecha.VisibleIndex = 0;
+            this.colFecha.Width = 100;
             // 
             // repositoryItemDateEdit1
             // 
@@ -695,6 +719,7 @@
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 1;
+            this.colCantidad.Width = 96;
             // 
             // colTipoMoneda
             // 
@@ -703,6 +728,7 @@
             this.colTipoMoneda.Name = "colTipoMoneda";
             this.colTipoMoneda.Visible = true;
             this.colTipoMoneda.VisibleIndex = 2;
+            this.colTipoMoneda.Width = 85;
             // 
             // colComentarios
             // 
@@ -711,7 +737,8 @@
             this.colComentarios.FieldName = "Comentarios";
             this.colComentarios.Name = "colComentarios";
             this.colComentarios.Visible = true;
-            this.colComentarios.VisibleIndex = 3;
+            this.colComentarios.VisibleIndex = 6;
+            this.colComentarios.Width = 73;
             // 
             // riMemoComentarios
             // 
@@ -728,13 +755,17 @@
             this.pnlAgregarCosto.Appearance.Options.UseBackColor = true;
             this.pnlAgregarCosto.Appearance.Options.UseBorderColor = true;
             this.pnlAgregarCosto.Controls.Add(this.lcMainNuevoGasto);
-            this.pnlAgregarCosto.Location = new System.Drawing.Point(-1, 485);
+            this.pnlAgregarCosto.Location = new System.Drawing.Point(-3, 563);
             this.pnlAgregarCosto.Name = "pnlAgregarCosto";
-            this.pnlAgregarCosto.Size = new System.Drawing.Size(535, 94);
+            this.pnlAgregarCosto.Size = new System.Drawing.Size(760, 151);
             this.pnlAgregarCosto.TabIndex = 4;
             // 
             // lcMainNuevoGasto
             // 
+            this.lcMainNuevoGasto.Controls.Add(this.txtLugar);
+            this.lcMainNuevoGasto.Controls.Add(this.cboFormaPago);
+            this.lcMainNuevoGasto.Controls.Add(this.cboConcepto);
+            this.lcMainNuevoGasto.Controls.Add(this.dteFecha);
             this.lcMainNuevoGasto.Controls.Add(this.memoComentarios);
             this.lcMainNuevoGasto.Controls.Add(this.btnAgregarGasto);
             this.lcMainNuevoGasto.Controls.Add(this.cboTipoMoneda);
@@ -745,22 +776,23 @@
             this.lcMainNuevoGasto.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.lcMainNuevoGasto.LookAndFeel.UseDefaultLookAndFeel = false;
             this.lcMainNuevoGasto.Name = "lcMainNuevoGasto";
-            this.lcMainNuevoGasto.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(307, 689, 650, 400);
+            this.lcMainNuevoGasto.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1116, 279, 650, 400);
             this.lcMainNuevoGasto.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcMainNuevoGasto.Root = this.layoutControlGroup5;
-            this.lcMainNuevoGasto.Size = new System.Drawing.Size(531, 90);
+            this.lcMainNuevoGasto.Size = new System.Drawing.Size(756, 147);
             this.lcMainNuevoGasto.TabIndex = 0;
             this.lcMainNuevoGasto.Text = "layoutControl1";
             // 
             // memoComentarios
             // 
             this.memoComentarios.EditValue = "";
-            this.memoComentarios.Location = new System.Drawing.Point(5, 55);
+            this.memoComentarios.Location = new System.Drawing.Point(5, 113);
             this.memoComentarios.MenuManager = this.ribbonControl1;
             this.memoComentarios.Name = "memoComentarios";
-            this.memoComentarios.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.memoComentarios.Properties.NullText = "Comentarios";
-            this.memoComentarios.Size = new System.Drawing.Size(432, 30);
+            this.memoComentarios.Properties.NullValuePrompt = "Comentarios";
+            this.memoComentarios.Properties.NullValuePromptShowForEmptyValue = true;
+            this.memoComentarios.Properties.ShowNullValuePromptWhenFocused = true;
+            this.memoComentarios.Size = new System.Drawing.Size(638, 29);
             this.memoComentarios.TabIndex = 8;
             // 
             // btnAgregarGasto
@@ -768,30 +800,33 @@
             this.btnAgregarGasto.AllowFocus = false;
             this.btnAgregarGasto.Appearance.BackColor = System.Drawing.Color.White;
             this.btnAgregarGasto.Appearance.Options.UseBackColor = true;
+            this.btnAgregarGasto.Appearance.Options.UseTextOptions = true;
+            this.btnAgregarGasto.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btnAgregarGasto.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btnAgregarGasto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAgregarGasto.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnAgregarGasto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarGasto.ImageOptions.Image = global::Unidades.Properties.Resources.icons8_billetes_70;
-            this.btnAgregarGasto.Location = new System.Drawing.Point(447, 5);
+            this.btnAgregarGasto.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAgregarGasto.Location = new System.Drawing.Point(653, 5);
             this.btnAgregarGasto.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btnAgregarGasto.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btnAgregarGasto.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnAgregarGasto.Name = "btnAgregarGasto";
-            this.btnAgregarGasto.Size = new System.Drawing.Size(79, 80);
+            this.btnAgregarGasto.Size = new System.Drawing.Size(98, 137);
             this.btnAgregarGasto.TabIndex = 7;
-            this.btnAgregarGasto.ToolTip = "Agregar nuevo costo";
+            this.btnAgregarGasto.ToolTip = "Agregar nuevo costo (F5)";
             this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
             // 
             // cboTipoMoneda
             // 
-            this.cboTipoMoneda.Location = new System.Drawing.Point(237, 23);
+            this.cboTipoMoneda.Location = new System.Drawing.Point(233, 53);
             this.cboTipoMoneda.MenuManager = this.ribbonControl1;
             this.cboTipoMoneda.Name = "cboTipoMoneda";
-            this.cboTipoMoneda.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.cboTipoMoneda.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTipoMoneda.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboTipoMoneda.Size = new System.Drawing.Size(200, 20);
+            this.cboTipoMoneda.Size = new System.Drawing.Size(128, 20);
             this.cboTipoMoneda.TabIndex = 5;
             // 
             // spnCantidad
@@ -801,16 +836,15 @@
             0,
             0,
             0});
-            this.spnCantidad.Location = new System.Drawing.Point(5, 23);
+            this.spnCantidad.Location = new System.Drawing.Point(5, 53);
             this.spnCantidad.MenuManager = this.ribbonControl1;
             this.spnCantidad.Name = "spnCantidad";
-            this.spnCantidad.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.spnCantidad.Properties.DisplayFormat.FormatString = "c";
             this.spnCantidad.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spnCantidad.Properties.EditFormat.FormatString = "c";
             this.spnCantidad.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spnCantidad.Properties.Mask.EditMask = "c";
-            this.spnCantidad.Size = new System.Drawing.Size(222, 20);
+            this.spnCantidad.Size = new System.Drawing.Size(218, 20);
             this.spnCantidad.TabIndex = 4;
             // 
             // layoutControlGroup5
@@ -823,42 +857,48 @@
             this.lciCantidad,
             this.lciTipoMoneda,
             this.lciComentario,
-            this.layoutControlItem10});
+            this.layoutControlItem10,
+            this.lciFecha,
+            this.lciConceptoGasto,
+            this.lciFormaPago,
+            this.lciLugar});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup5.Size = new System.Drawing.Size(531, 90);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(756, 147);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // lciCantidad
             // 
             this.lciCantidad.Control = this.spnCantidad;
-            this.lciCantidad.Location = new System.Drawing.Point(0, 0);
-            this.lciCantidad.MinSize = new System.Drawing.Size(103, 50);
+            this.lciCantidad.Location = new System.Drawing.Point(0, 30);
+            this.lciCantidad.MinSize = new System.Drawing.Size(109, 48);
             this.lciCantidad.Name = "lciCantidad";
-            this.lciCantidad.Size = new System.Drawing.Size(232, 50);
+            this.lciCantidad.Size = new System.Drawing.Size(228, 48);
             this.lciCantidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCantidad.Text = "Cantidad:";
             this.lciCantidad.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciCantidad.TextSize = new System.Drawing.Size(80, 13);
+            this.lciCantidad.TextSize = new System.Drawing.Size(95, 13);
             // 
             // lciTipoMoneda
             // 
             this.lciTipoMoneda.Control = this.cboTipoMoneda;
-            this.lciTipoMoneda.Location = new System.Drawing.Point(232, 0);
-            this.lciTipoMoneda.MinSize = new System.Drawing.Size(103, 50);
+            this.lciTipoMoneda.Location = new System.Drawing.Point(228, 30);
+            this.lciTipoMoneda.MinSize = new System.Drawing.Size(109, 48);
             this.lciTipoMoneda.Name = "lciTipoMoneda";
-            this.lciTipoMoneda.Size = new System.Drawing.Size(210, 50);
+            this.lciTipoMoneda.Size = new System.Drawing.Size(138, 48);
             this.lciTipoMoneda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipoMoneda.Text = "Tipo de moneda:";
             this.lciTipoMoneda.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciTipoMoneda.TextSize = new System.Drawing.Size(80, 13);
+            this.lciTipoMoneda.TextSize = new System.Drawing.Size(95, 13);
             // 
             // lciComentario
             // 
             this.lciComentario.Control = this.memoComentarios;
-            this.lciComentario.Location = new System.Drawing.Point(0, 50);
+            this.lciComentario.Location = new System.Drawing.Point(0, 108);
+            this.lciComentario.MinSize = new System.Drawing.Size(20, 26);
             this.lciComentario.Name = "lciComentario";
-            this.lciComentario.Size = new System.Drawing.Size(442, 40);
+            this.lciComentario.Size = new System.Drawing.Size(648, 39);
+            this.lciComentario.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciComentario.TextSize = new System.Drawing.Size(0, 0);
             this.lciComentario.TextVisible = false;
             // 
@@ -869,10 +909,10 @@
             this.layoutControlItem10.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem10.AppearanceItemCaption.Options.UseBorderColor = true;
             this.layoutControlItem10.Control = this.btnAgregarGasto;
-            this.layoutControlItem10.Location = new System.Drawing.Point(442, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(648, 0);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(86, 30);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(89, 90);
+            this.layoutControlItem10.Size = new System.Drawing.Size(108, 147);
             this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
@@ -889,19 +929,19 @@
             this.lciDetalleGastos,
             this.lciDetallesUnidad});
             this.layoutControlGroup4.Name = "Root";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(532, 577);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(755, 712);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // lciAgregarCosto
             // 
             this.lciAgregarCosto.Control = this.pnlAgregarCosto;
-            this.lciAgregarCosto.Location = new System.Drawing.Point(0, 477);
-            this.lciAgregarCosto.MaxSize = new System.Drawing.Size(0, 80);
-            this.lciAgregarCosto.MinSize = new System.Drawing.Size(1, 80);
+            this.lciAgregarCosto.Location = new System.Drawing.Point(0, 555);
+            this.lciAgregarCosto.MaxSize = new System.Drawing.Size(0, 137);
+            this.lciAgregarCosto.MinSize = new System.Drawing.Size(271, 137);
             this.lciAgregarCosto.Name = "lciAgregarCosto";
-            this.lciAgregarCosto.Size = new System.Drawing.Size(512, 80);
+            this.lciAgregarCosto.Size = new System.Drawing.Size(735, 137);
             this.lciAgregarCosto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciAgregarCosto.Spacing = new DevExpress.XtraLayout.Utils.Padding(-13, -14, -4, -14);
+            this.lciAgregarCosto.Spacing = new DevExpress.XtraLayout.Utils.Padding(-15, -14, -4, -14);
             this.lciAgregarCosto.TextSize = new System.Drawing.Size(0, 0);
             this.lciAgregarCosto.TextVisible = false;
             // 
@@ -909,8 +949,10 @@
             // 
             this.lciDetalleGastos.Control = this.grdDetallesGastos;
             this.lciDetalleGastos.Location = new System.Drawing.Point(0, 55);
+            this.lciDetalleGastos.MinSize = new System.Drawing.Size(114, 34);
             this.lciDetalleGastos.Name = "lciDetalleGastos";
-            this.lciDetalleGastos.Size = new System.Drawing.Size(512, 422);
+            this.lciDetalleGastos.Size = new System.Drawing.Size(735, 500);
+            this.lciDetalleGastos.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciDetalleGastos.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 10);
             this.lciDetalleGastos.TextSize = new System.Drawing.Size(0, 0);
             this.lciDetalleGastos.TextVisible = false;
@@ -922,9 +964,9 @@
             this.lciDetallesUnidad.MaxSize = new System.Drawing.Size(0, 55);
             this.lciDetallesUnidad.MinSize = new System.Drawing.Size(1, 55);
             this.lciDetallesUnidad.Name = "lciDetallesUnidad";
-            this.lciDetallesUnidad.Size = new System.Drawing.Size(512, 55);
+            this.lciDetallesUnidad.Size = new System.Drawing.Size(735, 55);
             this.lciDetallesUnidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciDetallesUnidad.Spacing = new DevExpress.XtraLayout.Utils.Padding(-15, -13, -16, 4);
+            this.lciDetallesUnidad.Spacing = new DevExpress.XtraLayout.Utils.Padding(-18, -13, -16, 5);
             this.lciDetallesUnidad.TextSize = new System.Drawing.Size(0, 0);
             this.lciDetallesUnidad.TextVisible = false;
             // 
@@ -1030,7 +1072,7 @@
             this.panelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(819, 68);
+            this.panelControl1.Size = new System.Drawing.Size(1042, 82);
             this.panelControl1.TabIndex = 4;
             // 
             // lcMainTop
@@ -1052,7 +1094,7 @@
             this.lcMainTop.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(859, 244, 650, 400);
             this.lcMainTop.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcMainTop.Root = this.layoutControlGroup2;
-            this.lcMainTop.Size = new System.Drawing.Size(813, 62);
+            this.lcMainTop.Size = new System.Drawing.Size(1036, 76);
             this.lcMainTop.TabIndex = 0;
             this.lcMainTop.Text = "layoutControl1";
             // 
@@ -1066,9 +1108,9 @@
             this.lblTotal.Appearance.Options.UseTextOptions = true;
             this.lblTotal.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblTotal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTotal.Location = new System.Drawing.Point(636, 17);
+            this.lblTotal.Location = new System.Drawing.Point(811, 17);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(74, 40);
+            this.lblTotal.Size = new System.Drawing.Size(98, 54);
             this.lblTotal.TabIndex = 8;
             this.lblTotal.Text = "<u>Calcular total</u>";
             this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
@@ -1084,12 +1126,12 @@
             this.btnEliminarGasto.Appearance.Options.UseForeColor = true;
             this.btnEliminarGasto.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnEliminarGasto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarGasto.Location = new System.Drawing.Point(720, 17);
+            this.btnEliminarGasto.Location = new System.Drawing.Point(919, 17);
             this.btnEliminarGasto.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btnEliminarGasto.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btnEliminarGasto.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnEliminarGasto.Name = "btnEliminarGasto";
-            this.btnEliminarGasto.Size = new System.Drawing.Size(76, 40);
+            this.btnEliminarGasto.Size = new System.Drawing.Size(100, 54);
             this.btnEliminarGasto.TabIndex = 6;
             this.btnEliminarGasto.Text = "X";
             this.btnEliminarGasto.ToolTip = "Eliminar gasto";
@@ -1101,9 +1143,9 @@
             this.lblNombreUnidad.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblNombreUnidad.Appearance.Options.UseFont = true;
             this.lblNombreUnidad.Appearance.Options.UseForeColor = true;
-            this.lblNombreUnidad.Location = new System.Drawing.Point(272, 17);
+            this.lblNombreUnidad.Location = new System.Drawing.Point(271, 17);
             this.lblNombreUnidad.Name = "lblNombreUnidad";
-            this.lblNombreUnidad.Size = new System.Drawing.Size(354, 40);
+            this.lblNombreUnidad.Size = new System.Drawing.Size(530, 54);
             this.lblNombreUnidad.TabIndex = 5;
             // 
             // layoutControlGroup2
@@ -1119,17 +1161,17 @@
             this.lciCalcular});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup2.Size = new System.Drawing.Size(813, 62);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1036, 76);
             this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 12, 0);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.lblNombreUnidad;
-            this.layoutControlItem2.Location = new System.Drawing.Point(255, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(254, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(364, 50);
+            this.layoutControlItem2.Size = new System.Drawing.Size(540, 64);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -1137,10 +1179,10 @@
             // lciBtnEliminarGasto
             // 
             this.lciBtnEliminarGasto.Control = this.btnEliminarGasto;
-            this.lciBtnEliminarGasto.Location = new System.Drawing.Point(703, 0);
+            this.lciBtnEliminarGasto.Location = new System.Drawing.Point(902, 0);
             this.lciBtnEliminarGasto.MinSize = new System.Drawing.Size(86, 32);
             this.lciBtnEliminarGasto.Name = "lciBtnEliminarGasto";
-            this.lciBtnEliminarGasto.Size = new System.Drawing.Size(86, 50);
+            this.lciBtnEliminarGasto.Size = new System.Drawing.Size(110, 64);
             this.lciBtnEliminarGasto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciBtnEliminarGasto.TextSize = new System.Drawing.Size(0, 0);
             this.lciBtnEliminarGasto.TextVisible = false;
@@ -1149,10 +1191,11 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnAcciones;
+            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(86, 30);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(34, 34);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(255, 50);
+            this.layoutControlItem5.Size = new System.Drawing.Size(254, 64);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -1160,10 +1203,10 @@
             // lciCalcular
             // 
             this.lciCalcular.Control = this.lblTotal;
-            this.lciCalcular.Location = new System.Drawing.Point(619, 0);
+            this.lciCalcular.Location = new System.Drawing.Point(794, 0);
             this.lciCalcular.MinSize = new System.Drawing.Size(73, 23);
             this.lciCalcular.Name = "lciCalcular";
-            this.lciCalcular.Size = new System.Drawing.Size(84, 50);
+            this.lciCalcular.Size = new System.Drawing.Size(108, 64);
             this.lciCalcular.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCalcular.TextSize = new System.Drawing.Size(0, 0);
             this.lciCalcular.TextVisible = false;
@@ -1178,7 +1221,7 @@
             this.layoutControlItem4,
             this.lciNuevaUnidad});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(789, 632);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1012, 781);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(-13, -13, -13, -13);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -1187,7 +1230,7 @@
             this.lcipnlTop.Control = this.panelControl1;
             this.lcipnlTop.Location = new System.Drawing.Point(0, 0);
             this.lcipnlTop.Name = "lcipnlTop";
-            this.lcipnlTop.Size = new System.Drawing.Size(795, 58);
+            this.lcipnlTop.Size = new System.Drawing.Size(1018, 72);
             this.lcipnlTop.Spacing = new DevExpress.XtraLayout.Utils.Padding(-14, -14, -14, 0);
             this.lcipnlTop.TextSize = new System.Drawing.Size(0, 0);
             this.lcipnlTop.TextVisible = false;
@@ -1195,9 +1238,9 @@
             // lciDetalles
             // 
             this.lciDetalles.Control = this.panelControl2;
-            this.lciDetalles.Location = new System.Drawing.Point(260, 58);
+            this.lciDetalles.Location = new System.Drawing.Point(260, 72);
             this.lciDetalles.Name = "lciDetalles";
-            this.lciDetalles.Size = new System.Drawing.Size(535, 580);
+            this.lciDetalles.Size = new System.Drawing.Size(758, 715);
             this.lciDetalles.Spacing = new DevExpress.XtraLayout.Utils.Padding(-5, 0, -5, 0);
             this.lciDetalles.TextSize = new System.Drawing.Size(0, 0);
             this.lciDetalles.TextVisible = false;
@@ -1205,9 +1248,12 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.grdUnidades;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 111);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 125);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(260, 0);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(260, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(260, 527);
+            this.layoutControlItem4.Size = new System.Drawing.Size(260, 662);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1216,9 +1262,9 @@
             this.lciNuevaUnidad.AppearanceItemCaption.BackColor = System.Drawing.Color.White;
             this.lciNuevaUnidad.AppearanceItemCaption.Options.UseBackColor = true;
             this.lciNuevaUnidad.Control = this.pnlNuevaUnidad;
-            this.lciNuevaUnidad.Location = new System.Drawing.Point(0, 58);
-            this.lciNuevaUnidad.MaxSize = new System.Drawing.Size(0, 53);
-            this.lciNuevaUnidad.MinSize = new System.Drawing.Size(5, 53);
+            this.lciNuevaUnidad.Location = new System.Drawing.Point(0, 72);
+            this.lciNuevaUnidad.MaxSize = new System.Drawing.Size(260, 53);
+            this.lciNuevaUnidad.MinSize = new System.Drawing.Size(260, 53);
             this.lciNuevaUnidad.Name = "lciNuevaUnidad";
             this.lciNuevaUnidad.Size = new System.Drawing.Size(260, 53);
             this.lciNuevaUnidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
@@ -1341,11 +1387,133 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
+            // colFormaDePago
+            // 
+            this.colFormaDePago.Caption = "Forma de pago";
+            this.colFormaDePago.FieldName = "FormaDePago";
+            this.colFormaDePago.Name = "colFormaDePago";
+            this.colFormaDePago.Visible = true;
+            this.colFormaDePago.VisibleIndex = 3;
+            this.colFormaDePago.Width = 80;
+            // 
+            // colConceptoGasto
+            // 
+            this.colConceptoGasto.Caption = "Concepto de gasto";
+            this.colConceptoGasto.FieldName = "ConceptoDeGasto";
+            this.colConceptoGasto.Name = "colConceptoGasto";
+            this.colConceptoGasto.Visible = true;
+            this.colConceptoGasto.VisibleIndex = 4;
+            this.colConceptoGasto.Width = 100;
+            // 
+            // colLugar
+            // 
+            this.colLugar.Caption = "Lugar";
+            this.colLugar.FieldName = "LugarCompra";
+            this.colLugar.Name = "colLugar";
+            this.colLugar.Visible = true;
+            this.colLugar.VisibleIndex = 5;
+            this.colLugar.Width = 172;
+            // 
+            // dteFecha
+            // 
+            this.dteFecha.EditValue = null;
+            this.dteFecha.Location = new System.Drawing.Point(5, 5);
+            this.dteFecha.MenuManager = this.ribbonControl1;
+            this.dteFecha.Name = "dteFecha";
+            this.dteFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteFecha.Properties.DisplayFormat.FormatString = "D";
+            this.dteFecha.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFecha.Properties.EditFormat.FormatString = "D";
+            this.dteFecha.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFecha.Properties.Mask.EditMask = "D";
+            this.dteFecha.Size = new System.Drawing.Size(638, 20);
+            this.dteFecha.TabIndex = 9;
+            // 
+            // lciFecha
+            // 
+            this.lciFecha.Control = this.dteFecha;
+            this.lciFecha.Location = new System.Drawing.Point(0, 0);
+            this.lciFecha.MinSize = new System.Drawing.Size(164, 30);
+            this.lciFecha.Name = "lciFecha";
+            this.lciFecha.Size = new System.Drawing.Size(648, 30);
+            this.lciFecha.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciFecha.TextSize = new System.Drawing.Size(0, 0);
+            this.lciFecha.TextVisible = false;
+            // 
+            // cboConcepto
+            // 
+            this.cboConcepto.Location = new System.Drawing.Point(512, 53);
+            this.cboConcepto.MenuManager = this.ribbonControl1;
+            this.cboConcepto.Name = "cboConcepto";
+            this.cboConcepto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboConcepto.Size = new System.Drawing.Size(131, 20);
+            this.cboConcepto.TabIndex = 10;
+            // 
+            // lciConceptoGasto
+            // 
+            this.lciConceptoGasto.Control = this.cboConcepto;
+            this.lciConceptoGasto.Location = new System.Drawing.Point(507, 30);
+            this.lciConceptoGasto.MinSize = new System.Drawing.Size(109, 48);
+            this.lciConceptoGasto.Name = "lciConceptoGasto";
+            this.lciConceptoGasto.Size = new System.Drawing.Size(141, 48);
+            this.lciConceptoGasto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciConceptoGasto.Text = "Concepto de gasto:";
+            this.lciConceptoGasto.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciConceptoGasto.TextSize = new System.Drawing.Size(95, 13);
+            // 
+            // cboFormaPago
+            // 
+            this.cboFormaPago.Location = new System.Drawing.Point(371, 53);
+            this.cboFormaPago.MenuManager = this.ribbonControl1;
+            this.cboFormaPago.Name = "cboFormaPago";
+            this.cboFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboFormaPago.Size = new System.Drawing.Size(131, 20);
+            this.cboFormaPago.TabIndex = 11;
+            // 
+            // lciFormaPago
+            // 
+            this.lciFormaPago.Control = this.cboFormaPago;
+            this.lciFormaPago.Location = new System.Drawing.Point(366, 30);
+            this.lciFormaPago.MinSize = new System.Drawing.Size(109, 48);
+            this.lciFormaPago.Name = "lciFormaPago";
+            this.lciFormaPago.Size = new System.Drawing.Size(141, 48);
+            this.lciFormaPago.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciFormaPago.Text = "Forma de pago:";
+            this.lciFormaPago.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciFormaPago.TextSize = new System.Drawing.Size(95, 13);
+            // 
+            // txtLugar
+            // 
+            this.txtLugar.Location = new System.Drawing.Point(5, 83);
+            this.txtLugar.MenuManager = this.ribbonControl1;
+            this.txtLugar.Name = "txtLugar";
+            this.txtLugar.Properties.NullValuePrompt = "Lugar de compra";
+            this.txtLugar.Properties.NullValuePromptShowForEmptyValue = true;
+            this.txtLugar.Properties.ShowNullValuePromptWhenFocused = true;
+            this.txtLugar.Size = new System.Drawing.Size(638, 20);
+            this.txtLugar.TabIndex = 12;
+            // 
+            // lciLugar
+            // 
+            this.lciLugar.Control = this.txtLugar;
+            this.lciLugar.Location = new System.Drawing.Point(0, 78);
+            this.lciLugar.MinSize = new System.Drawing.Size(164, 30);
+            this.lciLugar.Name = "lciLugar";
+            this.lciLugar.Size = new System.Drawing.Size(648, 30);
+            this.lciLugar.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciLugar.TextSize = new System.Drawing.Size(0, 0);
+            this.lciLugar.TextVisible = false;
+            // 
             // xfrmUnidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 659);
+            this.ClientSize = new System.Drawing.Size(1012, 808);
             this.Controls.Add(this.flpAcciones);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
@@ -1437,6 +1605,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFecha.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboConcepto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciConceptoGasto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFormaPago.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFormaPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLugar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciLugar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1525,12 +1702,23 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.LabelControl lblModelo;
-        private DevExpress.XtraEditors.LabelControl lblMarca;
+        private DevExpress.XtraEditors.LabelControl lblVIN;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.LabelControl lblTotal;
         private DevExpress.XtraLayout.LayoutControlItem lciCalcular;
+        private DevExpress.XtraGrid.Columns.GridColumn colFormaDePago;
+        private DevExpress.XtraGrid.Columns.GridColumn colConceptoGasto;
+        private DevExpress.XtraGrid.Columns.GridColumn colLugar;
+        private DevExpress.XtraEditors.TextEdit txtLugar;
+        private DevExpress.XtraEditors.ComboBoxEdit cboFormaPago;
+        private DevExpress.XtraEditors.ComboBoxEdit cboConcepto;
+        private DevExpress.XtraEditors.DateEdit dteFecha;
+        private DevExpress.XtraLayout.LayoutControlItem lciFecha;
+        private DevExpress.XtraLayout.LayoutControlItem lciConceptoGasto;
+        private DevExpress.XtraLayout.LayoutControlItem lciFormaPago;
+        private DevExpress.XtraLayout.LayoutControlItem lciLugar;
     }
 }

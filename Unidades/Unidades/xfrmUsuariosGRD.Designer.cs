@@ -81,6 +81,7 @@
             this.bbiNuevo.Caption = "Nuevo";
             this.bbiNuevo.Id = 1;
             this.bbiNuevo.ImageOptions.LargeImage = global::Unidades.Properties.Resources.icons8_agregar_archivo_80;
+            this.bbiNuevo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiNuevo.Name = "bbiNuevo";
             this.bbiNuevo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiNuevo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNuevo_ItemClick);
@@ -98,6 +99,7 @@
             this.bbiEliminar.Caption = "Eliminar";
             this.bbiEliminar.Id = 3;
             this.bbiEliminar.ImageOptions.LargeImage = global::Unidades.Properties.Resources.icons8_eliminar_archivo_80;
+            this.bbiEliminar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.bbiEliminar.Name = "bbiEliminar";
             this.bbiEliminar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiEliminar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEliminar_ItemClick);
@@ -107,6 +109,7 @@
             this.bbiSalir.Caption = "Salir";
             this.bbiSalir.Id = 4;
             this.bbiSalir.ImageOptions.LargeImage = global::Unidades.Properties.Resources.Salir1;
+            this.bbiSalir.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalir_ItemClick);
@@ -116,6 +119,7 @@
             this.bbiModificar.Caption = "Editar";
             this.bbiModificar.Id = 5;
             this.bbiModificar.ImageOptions.LargeImage = global::Unidades.Properties.Resources.icons8_editar_archivo_80;
+            this.bbiModificar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiModificar.Name = "bbiModificar";
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiModificar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificar_ItemClick);
