@@ -1,9 +1,11 @@
-﻿using DevExpress.Xpo;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using static Unidad.BL.Enums;
 
 namespace Unidad.BL
 {
@@ -44,44 +46,88 @@ namespace Unidad.BL
             set { SetPropertyValue<string>("VIN", ref mVIN, value); }
         }
 
-        private decimal mTotalPesos;
+        private TipoUnidad mTipoUnidad;
+        public TipoUnidad TipoUnidad
+        {
+            get { return mTipoUnidad; }
+            set { SetPropertyValue<TipoUnidad>("TipoUnidad", ref mTipoUnidad, value); }
+        }
+
+        private string mMotor;
+        [Size(60)]
+        public string Motor
+        {
+            get { return mMotor; }
+            set { SetPropertyValue<string>("Motor", ref mMotor, value); }
+        }
+
+        private int mCilindros;
+        public int Cilindros
+        {
+            get { return mCilindros; }
+            set { SetPropertyValue<int>("Cilindros", ref mCilindros, value); }
+        }
+
+        private Transmision mTransmision;
+        public Transmision Transmision
+        {
+            get { return mTransmision; }
+            set { SetPropertyValue<Transmision>("Transmision", ref mTransmision, value); }
+        }
+
+        private Frenos mFrenos;
+        public Frenos Frenos
+        {
+            get { return mFrenos; }
+            set { SetPropertyValue<Frenos>("Frenos", ref mFrenos, value); }
+        }
+
+        private bool mAireAcondicionado;
+        public bool AireAcondicionado
+        {
+            get { return mAireAcondicionado; }
+            set { SetPropertyValue<bool>("AireAcondicionado", ref mAireAcondicionado, value); }
+        }
+
+
+        [NonPersistent]
         public decimal TotalPesos
         {
-            get { return mTotalPesos; }
-            set { SetPropertyValue<decimal>("TotalPesos", ref mTotalPesos, value); }
+            get
+            {
+                    XPView Unidad = new XPView(this.Session, typeof(Unidad));
+                    Unidad.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("TotalPesos", SortDirection.None, "[Gastos].Sum(iif([TipoMoneda] == 0,[Cantidad], [Cantidad] * [TipoCambio] ))", false, true)
+                 });
+                    Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
+                return Convert.ToDecimal(Unidad[0]["TotalPesos"]);
+            }
         }
 
-        private decimal mTotalDolar;
+        [NonPersistent]
         public decimal TotalDolar
         {
-            get { return mTotalDolar; }
-            set { SetPropertyValue<decimal>("TotalDolar", ref mTotalDolar, value); }
-        }
-
-        [NonPersistent]
-        public decimal TotalPesosConCosto
-        {
             get
             {
-                return this.Gastos[0].TipoMoneda == Enums.TipoMoneda.Pesos ? this.TotalPesos + this.Gastos[0].Cantidad : this.TotalPesos;
+                XPView Unidad = new XPView(this.Session, typeof(Unidad));
+                Unidad.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("TotalDolar", SortDirection.None, "[Gastos].Sum(iif([TipoMoneda] == 1,[Cantidad], [Cantidad] / [TipoCambio] ))", false, true)
+                 });
+                Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
+                return Convert.ToDecimal(Unidad[0]["TotalDolar"]);
             }
         }
 
-        [NonPersistent]
-        public decimal TotalDolarConCosto
-        {
-            get
-            {
-                return this.Gastos[0].TipoMoneda == Enums.TipoMoneda.Dolares ? this.TotalDolar + this.Gastos[0].Cantidad : this.TotalDolar;
-            }
-        }
 
         [NonPersistent]
         public string UnidadDescripcion
         {
             get
             {
-                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=7> <b>Marca: </b>" + this.Marca + "   <b>Modelo: </b>" + this.Modelo + "<br><br>";
+                //return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=7> <b>Marca: </b>" + this.Marca + "   <b>Modelo: </b>" + this.Modelo + "<br><br>";
+                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=8><i>" + this.Marca + " " + this.Modelo + ", " + this.VIN + "</i><br><br>";
             }
         }
 

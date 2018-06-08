@@ -28,7 +28,7 @@ namespace Unidades
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             }
-            XPView Unidades = new XPView(Unidad, typeof(Unidad.BL.Unidad), "Oid;Nombre", null);
+            XPView Unidades = new XPView(Unidad, typeof(Unidad.BL.Unidad), "Oid;Nombre;TipoUnidad;Nombre;Marca;Modelo;VIN", null);
             grdUnidades.DataSource = Unidades;
         }
 
@@ -76,12 +76,14 @@ namespace Unidades
 
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Unidad.DropChanges();
             Unidad.RollbackTransaction();
             this.Close();
         }
 
         private void xfrmUnidadGRD_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Unidad.DropChanges();
             Unidad.RollbackTransaction();
         }
 

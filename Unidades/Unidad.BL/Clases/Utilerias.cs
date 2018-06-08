@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -332,5 +333,48 @@ namespace Unidad.BL
                 return System.Drawing.Imaging.ImageFormat.Wmf;
         }
 
+        public static string NombreUnidad(UnidadDeTrabajo Unidad, Enums.TipoUnidad TipoUnidad)
+        {
+            XPView Usuarios = new XPView(Unidad, typeof(Unidad));
+            Usuarios.Properties.AddRange(new ViewProperty[] {
+            new ViewProperty("Nombre", SortDirection.Descending, "[Nombre]", true, true)});
+            Usuarios.SelectDeleted = true;
+
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            if (Enums.TipoUnidad.Micro == TipoUnidad || Enums.TipoUnidad.Automovil == TipoUnidad)
+            {
+                go.Operands.Add(new BinaryOperator("TipoUnidad", Enums.TipoUnidad.Micro));
+                go.Operands.Add(new BinaryOperator("TipoUnidad", Enums.TipoUnidad.Automovil));
+            }
+            else
+                go.Operands.Add(new BinaryOperator("TipoUnidad", TipoUnidad));
+
+            Usuarios.Criteria = go;
+            switch(TipoUnidad)
+            {
+                case Enums.TipoUnidad.Automovil:
+                case Enums.TipoUnidad.Micro:
+                    if (Usuarios.Count <= 0)
+                        return "M-28";
+                    else
+                        return "M-" + (Convert.ToInt32(Regex.Match((Usuarios[0]["Nombre"]).ToString(), @"\d+").Value.ToString()) + 1).ToString();
+                case Enums.TipoUnidad.Camion:
+                    if (Usuarios.Count <= 0)
+                        return "C-329";
+                    else
+                        return "C-"+(Convert.ToInt32(Regex.Match((Usuarios[0]["Nombre"]).ToString(), @"\d+").Value.ToString()) + 1).ToString();
+                case Enums.TipoUnidad.Panel:
+                    if (Usuarios.Count <= 0)
+                        return "P-121";
+                    else
+                        return "P-" + (Convert.ToInt32(Regex.Match((Usuarios[0]["Nombre"]).ToString(), @"\d+").Value.ToString()) + 1).ToString();
+                case Enums.TipoUnidad.Maquinaria:
+                    if (Usuarios.Count <= 0)
+                        return "SP-21";
+                    else
+                        return "SP-" + (Convert.ToInt32(Regex.Match((Usuarios[0]["Nombre"]).ToString(), @"\d+").Value.ToString()) + 1).ToString();
+            }
+            return "";
+        }
     }
 }

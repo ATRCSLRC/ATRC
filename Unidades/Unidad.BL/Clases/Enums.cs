@@ -36,5 +36,30 @@ namespace Unidad.BL
             Tarjeta = 3,
             Otros = 4
         }
+
+        public enum Transmision
+        {
+            Ninguna = 0,
+            Estandar = 1,
+            Automatico = 2
+        }
+
+        public enum Frenos
+        {
+            Ninguno = 0,
+            Hidraulicos = 1,
+            Aire = 2,
+            Otro = 3
+
+        }
+
+        public enum TipoUnidad
+        {
+            Camion = 0,
+            Micro = 1,
+            Automovil = 2,
+            Panel = 3,
+            Maquinaria = 4
+        }
     }
 }

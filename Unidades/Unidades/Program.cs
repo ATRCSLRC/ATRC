@@ -21,18 +21,21 @@ namespace Unidades
         [STAThread]
         static void Main()
         {
+            DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Thread.CurrentThread.CurrentCulture = new CultureInfo("es-MX");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-MX");
             SkinManager.EnableFormSkins();
-            SkinManager.EnableMdiFormSkins();
+            SkinManager.EnableMdiFormSkins(); 
+
+            //UserLookAndFeel.Default.SetSkinStyle("Pumpkin");
             UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful");
             //UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-            
-            //UserLookAndFeel.Default.SetSkinStyle("Office 2013 White");
-             UserLookAndFeel.Default.SetSkinMaskColors(System.Drawing.Color.Red, System.Drawing.Color.Red);
 
+            //UserLookAndFeel.Default.SetSkinStyle("Office 2013 White");
+            UserLookAndFeel.Default.SetSkinMaskColors(System.Drawing.Color.Red, System.Drawing.Color.Red);
+            
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             try
             {

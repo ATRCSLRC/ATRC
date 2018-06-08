@@ -25,6 +25,13 @@ namespace Unidad.BL
             set { SetPropertyValue<decimal>("Cantidad", ref mCantidad, value); }
         }
 
+        private decimal mTipoCambio;
+        public decimal TipoCambio
+        {
+            get { return mTipoCambio; }
+            set { SetPropertyValue<decimal>("TipoCambio", ref mTipoCambio, value); }
+        }
+
         private Enums.TipoMoneda mTipoMoneda;
         public Enums.TipoMoneda TipoMoneda
         {
@@ -69,5 +76,19 @@ namespace Unidad.BL
             get { return mUnidad; }
             set { SetPropertyValue<Unidad>("Unidad", ref mUnidad, value); }
         }
+
+        [NonPersistent]
+        public decimal CantidadConvertida
+        {
+            get
+            {
+                if (this.TipoMoneda == Enums.TipoMoneda.Dolares)
+                    return (Cantidad * TipoCambio);//Convertir a pesos
+                else
+                    return (Cantidad / TipoCambio);//Convertir a dolar
+            }
+        }
+
+        
     }
 }

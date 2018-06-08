@@ -24,6 +24,8 @@ namespace Unidades
         GastosUnidad Gasto;
         public bool esModificacion = false;
 
+        #region Eventos
+
         private void xfrmUnidad_Load(object sender, EventArgs e)
         {
             if (!esModificacion)
@@ -31,22 +33,25 @@ namespace Unidades
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 UnidadCamion = new Unidad.BL.Unidad(Unidad);
                 Gasto = new GastosUnidad(Unidad);
-            }else
+                
+            }
+            else
             {
                 Gasto = UnidadCamion.Gastos[0];
             }
             cboTipoMoneda.Properties.Items.AddRange(typeof(Enums.TipoMoneda).GetEnumValues());
             cboFormaPago.Properties.Items.AddRange(typeof(Enums.FormaPago).GetEnumValues());
+            rgTipoUnidad.Properties.Items.AddEnum(typeof(Enums.TipoUnidad));
+            rgTransmision.Properties.Items.AddEnum(typeof(Enums.Transmision));
+            rgFrenos.Properties.Items.AddEnum(typeof(Enums.Frenos));
             LigarControles();
         }
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtNombre.Text))
+            if(ValidarCampos())
             {
-                
-                Gasto.ConceptoDeGasto = Enums.ConceptoGasto.CompraUnidad;
-                UnidadCamion.Gastos.Add(Gasto);
+                Guardar();
                 UnidadCamion.Save();
                 Unidad.CommitChanges();
                 if (esModificacion)
@@ -59,22 +64,104 @@ namespace Unidades
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Unidad.RollbackTransaction();
             this.Close();
+        }
+
+        private void rgTipoUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadioGroup rg = sender as RadioGroup;
+            if (rg != null)
+            {
+                txtNombre.Text = Utilerias.NombreUnidad(Unidad, (Enums.TipoUnidad)rg.EditValue);
+            }
+        }
+
+        #endregion
+
+        #region Metodos
+        private bool ValidarCampos()
+        {
+            if(string.IsNullOrEmpty(txtNombre.Text))
+            {
+                XtraMessageBox.Show("Debe de agregar el nombre de la unidad.");
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (spnPrecio.Value <= 0)
+            {
+                XtraMessageBox.Show("Debe de agregar el costo de la unidad.");
+                tabbedControlGroup1.SelectedTabPage = TabCosto;
+                spnPrecio.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void LigarControles()
         {
-            txtNombre.DataBindings.Add("EditValue", UnidadCamion, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtMarca.DataBindings.Add("EditValue", UnidadCamion, "Marca", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtModelo.DataBindings.Add("EditValue", UnidadCamion, "Modelo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtVIN.DataBindings.Add("EditValue", UnidadCamion, "VIN", true, DataSourceUpdateMode.OnPropertyChanged);
+            #region General
+            txtMarca.Text = UnidadCamion.Marca;
+            txtModelo.Text = UnidadCamion.Modelo;
+            txtVIN.Text = UnidadCamion.VIN;
+            txtMotor.Text = UnidadCamion.Motor;
+            spnCilindros.EditValue = UnidadCamion.Cilindros;
+            rgTransmision.EditValue = UnidadCamion.Transmision;
+            rgFrenos.EditValue = UnidadCamion.Frenos;
+            rgAireAcondicionado.EditValue = UnidadCamion.AireAcondicionado;
 
-            dteFecha.DataBindings.Add("EditValue", Gasto, "Fecha", true, DataSourceUpdateMode.OnPropertyChanged);
-            spnPrecio.DataBindings.Add("EditValue", Gasto, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
-            cboTipoMoneda.DataBindings.Add("EditValue", Gasto, "TipoMoneda", true, DataSourceUpdateMode.OnPropertyChanged);
-            cboFormaPago.DataBindings.Add("EditValue", Gasto, "FormaDePago", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtLugar.DataBindings.Add("EditValue", Gasto, "LugarCompra", true, DataSourceUpdateMode.OnPropertyChanged);
+            if (esModificacion)
+            {
+                rgTipoUnidad.EditValue = UnidadCamion.TipoUnidad;
+                txtNombre.Text = UnidadCamion.Nombre;
+            }
+            else
+                rgTipoUnidad.EditValue = UnidadCamion.TipoUnidad;
+
+            #endregion
+
+            #region Costo
+
+            spnTipoCambio.Value = Gasto.TipoCambio;
+            dteFecha.DateTime = Gasto.Fecha == DateTime.MinValue ? DateTime.Now : Gasto.Fecha;
+            spnPrecio.EditValue = Gasto.Cantidad;
+            cboTipoMoneda.EditValue = Gasto.TipoMoneda;
+            cboFormaPago.EditValue = Gasto.FormaDePago;
+            txtLugar.Text = Gasto.LugarCompra;
+
+            #endregion
         }
+
+        private void Guardar()
+        {
+            #region General
+            UnidadCamion.Nombre = txtNombre.Text;
+            UnidadCamion.TipoUnidad = (Enums.TipoUnidad)rgTipoUnidad.EditValue;
+            UnidadCamion.Marca = txtMarca.Text;
+            UnidadCamion.Modelo = txtModelo.Text;
+            UnidadCamion.VIN = txtVIN.Text;
+            UnidadCamion.Motor = txtMotor.Text;
+            UnidadCamion.Cilindros = Convert.ToInt32(spnCilindros.Value);
+            UnidadCamion.Transmision = (Enums.Transmision)rgTransmision.EditValue;
+            UnidadCamion.Frenos = (Enums.Frenos)rgFrenos.EditValue;
+            UnidadCamion.AireAcondicionado = Convert.ToBoolean(rgAireAcondicionado.EditValue);
+            #endregion
+
+            #region Costo
+            Gasto.TipoCambio = spnTipoCambio.Value;
+            Gasto.Fecha = dteFecha.DateTime;
+            Gasto.Cantidad = spnPrecio.Value;
+            Gasto.TipoMoneda = (Enums.TipoMoneda)cboTipoMoneda.EditValue;
+            Gasto.FormaDePago = (Enums.FormaPago)cboFormaPago.EditValue;
+            Gasto.LugarCompra = txtLugar.Text;
+            #endregion
+
+            Gasto.ConceptoDeGasto = Enums.ConceptoGasto.CompraUnidad;
+            UnidadCamion.Gastos.Add(Gasto);
+        }
+
+        #endregion
+        
     }
 }

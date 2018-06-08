@@ -76,12 +76,14 @@ namespace Unidades
 
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Unidad.ReloadChangedObjects();
             Unidad.RollbackTransaction();
             this.Close();
         }
 
         private void xfrmUnidadGRD_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Unidad.ReloadChangedObjects();
             Unidad.RollbackTransaction();
         }
 

@@ -45,6 +45,10 @@
             this.colUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colMarca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colModelo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVIN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTipoUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -73,7 +77,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(404, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(835, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevo
@@ -169,7 +173,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(404, 328);
+            this.lcMain.Size = new System.Drawing.Size(835, 328);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -179,7 +183,7 @@
             this.grdUnidades.MainView = this.grvUnidades;
             this.grdUnidades.MenuManager = this.ribbonControl1;
             this.grdUnidades.Name = "grdUnidades";
-            this.grdUnidades.Size = new System.Drawing.Size(380, 304);
+            this.grdUnidades.Size = new System.Drawing.Size(811, 304);
             this.grdUnidades.TabIndex = 4;
             this.grdUnidades.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnidades});
@@ -187,7 +191,11 @@
             // grvUnidades
             // 
             this.grvUnidades.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colUnidad});
+            this.colTipoUnidad,
+            this.colUnidad,
+            this.colMarca,
+            this.colModelo,
+            this.colVIN});
             this.grvUnidades.GridControl = this.grdUnidades;
             this.grvUnidades.Name = "grvUnidades";
             this.grvUnidades.OptionsBehavior.Editable = false;
@@ -216,7 +224,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(404, 328);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(835, 328);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -224,15 +232,55 @@
             this.layoutControlItem1.Control = this.grdUnidades;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(384, 308);
+            this.layoutControlItem1.Size = new System.Drawing.Size(815, 308);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // colMarca
+            // 
+            this.colMarca.Caption = "Marca";
+            this.colMarca.FieldName = "Marca";
+            this.colMarca.Name = "colMarca";
+            this.colMarca.OptionsColumn.AllowFocus = false;
+            this.colMarca.Visible = true;
+            this.colMarca.VisibleIndex = 2;
+            this.colMarca.Width = 170;
+            // 
+            // colModelo
+            // 
+            this.colModelo.Caption = "Modelo";
+            this.colModelo.FieldName = "Modelo";
+            this.colModelo.Name = "colModelo";
+            this.colModelo.OptionsColumn.AllowFocus = false;
+            this.colModelo.Visible = true;
+            this.colModelo.VisibleIndex = 3;
+            this.colModelo.Width = 170;
+            // 
+            // colVIN
+            // 
+            this.colVIN.Caption = "VIN";
+            this.colVIN.FieldName = "VIN";
+            this.colVIN.Name = "colVIN";
+            this.colVIN.OptionsColumn.AllowFocus = false;
+            this.colVIN.Visible = true;
+            this.colVIN.VisibleIndex = 4;
+            this.colVIN.Width = 174;
+            // 
+            // colTipoUnidad
+            // 
+            this.colTipoUnidad.Caption = "Tipo de unidad";
+            this.colTipoUnidad.FieldName = "TipoUnidad";
+            this.colTipoUnidad.Name = "colTipoUnidad";
+            this.colTipoUnidad.OptionsColumn.AllowFocus = false;
+            this.colTipoUnidad.Visible = true;
+            this.colTipoUnidad.VisibleIndex = 0;
+            this.colTipoUnidad.Width = 109;
             // 
             // xfrmUnidadGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 450);
+            this.ClientSize = new System.Drawing.Size(835, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmUnidadGRD";
@@ -272,5 +320,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.BarButtonItem bbiModificar;
         private DevExpress.XtraBars.BarButtonItem bbiDetalleUnidad;
+        private DevExpress.XtraGrid.Columns.GridColumn colTipoUnidad;
+        private DevExpress.XtraGrid.Columns.GridColumn colMarca;
+        private DevExpress.XtraGrid.Columns.GridColumn colModelo;
+        private DevExpress.XtraGrid.Columns.GridColumn colVIN;
     }
 }

@@ -73,7 +73,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(404, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(358, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevo
@@ -167,7 +167,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(404, 328);
+            this.lcMain.Size = new System.Drawing.Size(358, 328);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -177,7 +177,7 @@
             this.grdUsuarios.MainView = this.grvUsuarios;
             this.grdUsuarios.MenuManager = this.ribbonControl1;
             this.grdUsuarios.Name = "grdUsuarios";
-            this.grdUsuarios.Size = new System.Drawing.Size(380, 304);
+            this.grdUsuarios.Size = new System.Drawing.Size(334, 304);
             this.grdUsuarios.TabIndex = 4;
             this.grdUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUsuarios});
@@ -214,7 +214,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(404, 328);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(358, 328);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -222,7 +222,7 @@
             this.layoutControlItem1.Control = this.grdUsuarios;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(384, 308);
+            this.layoutControlItem1.Size = new System.Drawing.Size(338, 308);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -230,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 450);
+            this.ClientSize = new System.Drawing.Size(358, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmUsuariosGRD";
