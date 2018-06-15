@@ -44,6 +44,8 @@
             this.colVIN = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colPlacas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colColor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTipoUnidad = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colUltimoCambioAceite = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.catInterior = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.colMotor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colCilindros = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -78,8 +80,6 @@
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciUnidad = new DevExpress.XtraLayout.LayoutControlItem();
             this.fypEdicion = new DevExpress.Utils.FlyoutPanel();
-            this.colTipoUnidad = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.colUltimoCambioAceite = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -217,6 +217,7 @@
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(12, 78);
             this.vGridControl1.Name = "vGridControl1";
+            this.vGridControl1.OptionsBehavior.Editable = false;
             this.vGridControl1.RecordWidth = 105;
             this.vGridControl1.RowHeaderWidth = 95;
             this.vGridControl1.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
@@ -248,6 +249,8 @@
             this.colNombre.Appearance.Options.UseTextOptions = true;
             this.colNombre.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsRow.AllowFocus = false;
+            this.colNombre.Properties.AllowEdit = false;
             this.colNombre.Properties.Caption = "Nombre";
             this.colNombre.Properties.FieldName = "Nombre";
             // 
@@ -256,6 +259,8 @@
             this.colMarca.Appearance.Options.UseTextOptions = true;
             this.colMarca.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMarca.Name = "colMarca";
+            this.colMarca.OptionsRow.AllowFocus = false;
+            this.colMarca.Properties.AllowEdit = false;
             this.colMarca.Properties.Caption = "Marca";
             this.colMarca.Properties.FieldName = "Marca";
             // 
@@ -264,14 +269,18 @@
             this.colModelo.Appearance.Options.UseTextOptions = true;
             this.colModelo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colModelo.Name = "colModelo";
+            this.colModelo.OptionsRow.AllowFocus = false;
+            this.colModelo.Properties.AllowEdit = false;
             this.colModelo.Properties.Caption = "Modelo";
             this.colModelo.Properties.FieldName = "Modelo";
+            this.colModelo.Properties.ReadOnly = false;
             // 
             // colPasajeros
             // 
             this.colPasajeros.Appearance.Options.UseTextOptions = true;
             this.colPasajeros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPasajeros.Name = "colPasajeros";
+            this.colPasajeros.OptionsRow.AllowFocus = false;
             this.colPasajeros.Properties.Caption = "Pasajeros";
             this.colPasajeros.Properties.FieldName = "Pasajeros";
             // 
@@ -280,6 +289,8 @@
             this.colVIN.Appearance.Options.UseTextOptions = true;
             this.colVIN.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colVIN.Name = "colVIN";
+            this.colVIN.OptionsRow.AllowFocus = false;
+            this.colVIN.Properties.AllowEdit = false;
             this.colVIN.Properties.Caption = "VIN";
             this.colVIN.Properties.FieldName = "VIN";
             // 
@@ -288,6 +299,8 @@
             this.colPlacas.Appearance.Options.UseTextOptions = true;
             this.colPlacas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPlacas.Name = "colPlacas";
+            this.colPlacas.OptionsRow.AllowFocus = false;
+            this.colPlacas.Properties.AllowEdit = false;
             this.colPlacas.Properties.Caption = "Placas";
             this.colPlacas.Properties.FieldName = "Placas";
             // 
@@ -296,8 +309,26 @@
             this.colColor.Appearance.Options.UseTextOptions = true;
             this.colColor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colColor.Name = "colColor";
+            this.colColor.OptionsRow.AllowFocus = false;
+            this.colColor.Properties.AllowEdit = false;
             this.colColor.Properties.Caption = "Color";
             this.colColor.Properties.FieldName = "Color";
+            // 
+            // colTipoUnidad
+            // 
+            this.colTipoUnidad.Name = "colTipoUnidad";
+            this.colTipoUnidad.OptionsRow.AllowFocus = false;
+            this.colTipoUnidad.Properties.AllowEdit = false;
+            this.colTipoUnidad.Properties.Caption = "Tipo de unidad";
+            this.colTipoUnidad.Properties.FieldName = "TipoUnidad";
+            // 
+            // colUltimoCambioAceite
+            // 
+            this.colUltimoCambioAceite.Name = "colUltimoCambioAceite";
+            this.colUltimoCambioAceite.OptionsRow.AllowFocus = false;
+            this.colUltimoCambioAceite.Properties.AllowEdit = false;
+            this.colUltimoCambioAceite.Properties.Caption = "Ultimo cambio de aceite";
+            this.colUltimoCambioAceite.Properties.FieldName = "UltimoCambioAceite";
             // 
             // catInterior
             // 
@@ -319,6 +350,8 @@
             this.colMotor.Appearance.Options.UseTextOptions = true;
             this.colMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMotor.Name = "colMotor";
+            this.colMotor.OptionsRow.AllowFocus = false;
+            this.colMotor.Properties.AllowEdit = false;
             this.colMotor.Properties.Caption = "Motor";
             this.colMotor.Properties.FieldName = "Motor";
             // 
@@ -327,6 +360,8 @@
             this.colCilindros.Appearance.Options.UseTextOptions = true;
             this.colCilindros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCilindros.Name = "colCilindros";
+            this.colCilindros.OptionsRow.AllowFocus = false;
+            this.colCilindros.Properties.AllowEdit = false;
             this.colCilindros.Properties.Caption = "Cilindros";
             this.colCilindros.Properties.FieldName = "Cilindros";
             // 
@@ -335,6 +370,8 @@
             this.colMillas.Appearance.Options.UseTextOptions = true;
             this.colMillas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMillas.Name = "colMillas";
+            this.colMillas.OptionsRow.AllowFocus = false;
+            this.colMillas.Properties.AllowEdit = false;
             this.colMillas.Properties.Caption = "Millas";
             this.colMillas.Properties.FieldName = "Millas";
             // 
@@ -343,6 +380,8 @@
             this.colTransmision.Appearance.Options.UseTextOptions = true;
             this.colTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colTransmision.Name = "colTransmision";
+            this.colTransmision.OptionsRow.AllowFocus = false;
+            this.colTransmision.Properties.AllowEdit = false;
             this.colTransmision.Properties.Caption = "Transmisión";
             this.colTransmision.Properties.FieldName = "Transmision";
             // 
@@ -351,6 +390,8 @@
             this.colCombustible.Appearance.Options.UseTextOptions = true;
             this.colCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCombustible.Name = "colCombustible";
+            this.colCombustible.OptionsRow.AllowFocus = false;
+            this.colCombustible.Properties.AllowEdit = false;
             this.colCombustible.Properties.Caption = "Combustible";
             this.colCombustible.Properties.FieldName = "Combustible";
             // 
@@ -359,6 +400,8 @@
             this.colFrenos.Appearance.Options.UseTextOptions = true;
             this.colFrenos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFrenos.Name = "colFrenos";
+            this.colFrenos.OptionsRow.AllowFocus = false;
+            this.colFrenos.Properties.AllowEdit = false;
             this.colFrenos.Properties.Caption = "Frenos";
             this.colFrenos.Properties.FieldName = "Frenos";
             // 
@@ -367,6 +410,8 @@
             this.colSuspencion.Appearance.Options.UseTextOptions = true;
             this.colSuspencion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSuspencion.Name = "colSuspencion";
+            this.colSuspencion.OptionsRow.AllowFocus = false;
+            this.colSuspencion.Properties.AllowEdit = false;
             this.colSuspencion.Properties.Caption = "Suspención";
             this.colSuspencion.Properties.FieldName = "Suspencion";
             // 
@@ -375,6 +420,8 @@
             this.colPuerta.Appearance.Options.UseTextOptions = true;
             this.colPuerta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPuerta.Name = "colPuerta";
+            this.colPuerta.OptionsRow.AllowFocus = false;
+            this.colPuerta.Properties.AllowEdit = false;
             this.colPuerta.Properties.Caption = "Puerta";
             this.colPuerta.Properties.FieldName = "Puerta";
             // 
@@ -383,6 +430,8 @@
             this.colAireAcondicionado.Appearance.Options.UseTextOptions = true;
             this.colAireAcondicionado.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAireAcondicionado.Name = "colAireAcondicionado";
+            this.colAireAcondicionado.OptionsRow.AllowFocus = false;
+            this.colAireAcondicionado.Properties.AllowEdit = false;
             this.colAireAcondicionado.Properties.Caption = "A/C";
             this.colAireAcondicionado.Properties.FieldName = "AireAcondicionado";
             // 
@@ -408,6 +457,7 @@
             this.colUsuario.Appearance.Options.UseTextOptions = true;
             this.colUsuario.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colUsuario.Name = "colUsuario";
+            this.colUsuario.OptionsRow.AllowFocus = false;
             this.colUsuario.Properties.Caption = "Usuario";
             this.colUsuario.Properties.FieldName = "Usuario.Nombre";
             // 
@@ -416,6 +466,7 @@
             this.colBaterias.Appearance.Options.UseTextOptions = true;
             this.colBaterias.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colBaterias.Name = "colBaterias";
+            this.colBaterias.OptionsRow.AllowFocus = false;
             this.colBaterias.Properties.Caption = "Baterias";
             this.colBaterias.Properties.FieldName = "Baterias";
             // 
@@ -424,6 +475,7 @@
             this.colAsientos.Appearance.Options.UseTextOptions = true;
             this.colAsientos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAsientos.Name = "colAsientos";
+            this.colAsientos.OptionsRow.AllowFocus = false;
             this.colAsientos.Properties.Caption = "Asientos";
             this.colAsientos.Properties.FieldName = "Asientos";
             // 
@@ -432,6 +484,7 @@
             this.colAbanicos.Appearance.Options.UseTextOptions = true;
             this.colAbanicos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAbanicos.Name = "colAbanicos";
+            this.colAbanicos.OptionsRow.AllowFocus = false;
             this.colAbanicos.Properties.Caption = "Abanicos";
             this.colAbanicos.Properties.FieldName = "Abanicos";
             // 
@@ -440,6 +493,7 @@
             this.colVentanas.Appearance.Options.UseTextOptions = true;
             this.colVentanas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colVentanas.Name = "colVentanas";
+            this.colVentanas.OptionsRow.AllowFocus = false;
             this.colVentanas.Properties.Caption = "Ventanas laterales";
             this.colVentanas.Properties.FieldName = "VentanasLaterales";
             // 
@@ -448,6 +502,7 @@
             this.colEstereo.Appearance.Options.UseTextOptions = true;
             this.colEstereo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colEstereo.Name = "colEstereo";
+            this.colEstereo.OptionsRow.AllowFocus = false;
             this.colEstereo.Properties.Caption = "Tiene estéreo";
             this.colEstereo.Properties.FieldName = "TieneEstereo";
             // 
@@ -456,6 +511,7 @@
             this.colBocinas.Appearance.Options.UseTextOptions = true;
             this.colBocinas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colBocinas.Name = "colBocinas";
+            this.colBocinas.OptionsRow.AllowFocus = false;
             this.colBocinas.Properties.Caption = "Tiene bocinas";
             this.colBocinas.Properties.FieldName = "TieneBocinas";
             // 
@@ -464,6 +520,7 @@
             this.colCamaras.Appearance.Options.UseTextOptions = true;
             this.colCamaras.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCamaras.Name = "colCamaras";
+            this.colCamaras.OptionsRow.AllowFocus = false;
             this.colCamaras.Properties.Caption = "Tiene cámaras";
             this.colCamaras.Properties.FieldName = "TieneCamaras";
             // 
@@ -472,6 +529,7 @@
             this.colExtinguidor.Appearance.Options.UseTextOptions = true;
             this.colExtinguidor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colExtinguidor.Name = "colExtinguidor";
+            this.colExtinguidor.OptionsRow.AllowFocus = false;
             this.colExtinguidor.Properties.Caption = "Tiene extinguidor";
             this.colExtinguidor.Properties.FieldName = "TieneExtinguidor";
             // 
@@ -480,6 +538,7 @@
             this.colTrancas.Appearance.Options.UseTextOptions = true;
             this.colTrancas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colTrancas.Name = "colTrancas";
+            this.colTrancas.OptionsRow.AllowFocus = false;
             this.colTrancas.Properties.Caption = "Tiene trancas";
             this.colTrancas.Properties.FieldName = "TieneTrancas";
             // 
@@ -488,6 +547,7 @@
             this.colRadio.Appearance.Options.UseTextOptions = true;
             this.colRadio.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colRadio.Name = "colRadio";
+            this.colRadio.OptionsRow.AllowFocus = false;
             this.colRadio.Properties.Caption = "Tiene radio";
             this.colRadio.Properties.FieldName = "TieneRadio";
             // 
@@ -507,6 +567,7 @@
             this.colAceiteMotor.Appearance.Options.UseTextOptions = true;
             this.colAceiteMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAceiteMotor.Name = "colAceiteMotor";
+            this.colAceiteMotor.OptionsRow.AllowFocus = false;
             this.colAceiteMotor.Properties.Caption = "Filtro de aceite para motor";
             this.colAceiteMotor.Properties.FieldName = "FiltroAceiteMotor";
             // 
@@ -515,6 +576,7 @@
             this.colAceiteTransmision.Appearance.Options.UseTextOptions = true;
             this.colAceiteTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAceiteTransmision.Name = "colAceiteTransmision";
+            this.colAceiteTransmision.OptionsRow.AllowFocus = false;
             this.colAceiteTransmision.Properties.Caption = "Filtro de aceite para transmisión";
             this.colAceiteTransmision.Properties.FieldName = "FiltroAceiteTransmision";
             // 
@@ -523,6 +585,7 @@
             this.colFiltroCombustible.Appearance.Options.UseTextOptions = true;
             this.colFiltroCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroCombustible.Name = "colFiltroCombustible";
+            this.colFiltroCombustible.OptionsRow.AllowFocus = false;
             this.colFiltroCombustible.Properties.Caption = "Filtro de combustible";
             this.colFiltroCombustible.Properties.FieldName = "FiltroCombustible";
             // 
@@ -531,6 +594,7 @@
             this.colFiltroAire.Appearance.Options.UseTextOptions = true;
             this.colFiltroAire.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroAire.Name = "colFiltroAire";
+            this.colFiltroAire.OptionsRow.AllowFocus = false;
             this.colFiltroAire.Properties.Caption = "Filtro de aire";
             this.colFiltroAire.Properties.FieldName = "FiltroAire";
             // 
@@ -539,6 +603,7 @@
             this.colFiltroAgua.Appearance.Options.UseTextOptions = true;
             this.colFiltroAgua.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroAgua.Name = "colFiltroAgua";
+            this.colFiltroAgua.OptionsRow.AllowFocus = false;
             this.colFiltroAgua.Properties.Caption = "Filtro de agua";
             this.colFiltroAgua.Properties.FieldName = "FiltroAgua";
             // 
@@ -621,18 +686,6 @@
             this.fypEdicion.Size = new System.Drawing.Size(338, 39);
             this.fypEdicion.TabIndex = 3;
             this.fypEdicion.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypEdicion_ButtonClick);
-            // 
-            // colTipoUnidad
-            // 
-            this.colTipoUnidad.Name = "colTipoUnidad";
-            this.colTipoUnidad.Properties.Caption = "Tipo de unidad";
-            this.colTipoUnidad.Properties.FieldName = "TipoUnidad";
-            // 
-            // colUltimoCambioAceite
-            // 
-            this.colUltimoCambioAceite.Name = "colUltimoCambioAceite";
-            this.colUltimoCambioAceite.Properties.Caption = "Ultimo cambio de aceite";
-            this.colUltimoCambioAceite.Properties.FieldName = "UltimoCambioAceite";
             // 
             // xfrmBusquedaUnidades
             // 

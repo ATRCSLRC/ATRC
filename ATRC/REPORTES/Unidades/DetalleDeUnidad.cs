@@ -22,8 +22,11 @@ namespace REPORTES.Unidades
         {
             XRPictureBox xrBox = sender as XRPictureBox;
             UNIDADES.BL.Unidad Unidad = (UNIDADES.BL.Unidad)this.GetCurrentRow();
-            Image img = ByteArrayToImage(Convert.FromBase64String(Unidad.Imagen.Archivo));
-            xrBox.Image = img;
+            if (!string.IsNullOrEmpty(Unidad.Imagen.Archivo))
+            {
+                Image img = ByteArrayToImage(Convert.FromBase64String(Unidad.Imagen.Archivo));
+                xrBox.Image = img;
+            }
         }
 
         public Image ByteArrayToImage(byte[] byteArrayIn)

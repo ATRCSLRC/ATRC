@@ -347,6 +347,7 @@
             this.btnCodigo.Size = new System.Drawing.Size(455, 20);
             this.btnCodigo.StyleController = this.lcMain;
             this.btnCodigo.TabIndex = 4;
+            this.btnCodigo.ToolTip = "Para buscar artículos presioné F6";
             this.btnCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCodigo_KeyDown);
             // 
             // layoutControlGroup1

@@ -261,6 +261,19 @@ namespace ALMACEN.WIN
                 btnAceptar.PerformClick();
                 return true;
             }
+            if (keyData == Keys.F6)
+            {
+                xfrmBusquedaArticulos xfrm = new xfrmBusquedaArticulos();
+                xfrm.Asignar = true;
+                xfrm.ShowInTaskbar = false;
+                xfrm.ShowDialog();
+                if (!string.IsNullOrEmpty(xfrm.Codigo))
+                {
+                    btnCodigo.Text = xfrm.Codigo;
+                    Buscar();
+                }
+                return true;
+            }
             if (keyData == Keys.F12)
             {
                 btnCancelar.PerformClick();
