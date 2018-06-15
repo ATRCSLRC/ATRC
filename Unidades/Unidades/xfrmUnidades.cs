@@ -1,8 +1,10 @@
-﻿using DevExpress.Xpo;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Base.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
@@ -31,7 +33,19 @@ namespace Unidades
             btnAcciones.Text = Utilerias.UsuarioActual.Nombre;
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             flpNuevo.ShowPopup();
-            XPCollection Unidades = new XPCollection(Unidad, typeof(Unidad.BL.Unidad), true);
+            
+            GroupOperator go = new GroupOperator( GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Preparado));
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Translado));
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Detallado));
+
+            GroupOperator goDetalle = new GroupOperator(GroupOperatorType.And);
+            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.EsCredito", true));
+            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.Pagado", false));
+
+            go.Operands.Add(goDetalle);
+            XPCollection Unidades = new XPCollection(Unidad, typeof(Unidad.BL.Unidad), go);
+
             grdUnidades.DataSource = Unidades;
             lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -45,8 +59,37 @@ namespace Unidades
             cboFormaPago.SelectedIndex = 0;
             cboConcepto.SelectedIndex = 1;
             dteFecha.DateTime = DateTime.Now;
-        }
 
+
+            //Cargar imagenes 
+            DevExpress.Utils.ImageCollection images = new DevExpress.Utils.ImageCollection();
+            images.AddImage((Bitmap)global::Unidades.Properties.Resources.Flag_Azul);
+            images.AddImage((Bitmap)global::Unidades.Properties.Resources.Flag_Amarillo);
+            images.AddImage((Bitmap)global::Unidades.Properties.Resources.Flag_Verde);
+            images.AddImage((Bitmap)global::Unidades.Properties.Resources.Flag_Rojo);
+            //Configuracion columna de estado
+
+            RepositoryItemImageComboBox imageCombo_Estado = grdUnidades.RepositoryItems.Add("ImageComboBoxEdit") as RepositoryItemImageComboBox;
+            //imageCombo_Estado.SelectedIndexChanged += new EventHandler(imageComboBoxEdit_SelectedIndexChanged);
+            imageCombo_Estado.SmallImages = images;
+            imageCombo_Estado.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            imageCombo_Estado.Buttons[0].Appearance.BackColor = Color.White;
+            imageCombo_Estado.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            imageCombo_Estado.LookAndFeel.UseDefaultLookAndFeel = false;
+            imageCombo_Estado.LookAndFeel.SkinName = "Office 2016 Colorful";
+            imageCombo_Estado.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Translado", Enums.Estado.Translado, 0));
+            imageCombo_Estado.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Detallado", Enums.Estado.Detallado, 1));
+            imageCombo_Estado.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Preparado", Enums.Estado.Preparado, 2));
+            imageCombo_Estado.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Vendido", Enums.Estado.Vendido, 3)); 
+
+            imageCombo_Estado.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            imageCombo_Estado.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.imageCombo_Estado_EditValueChanging);
+            grvUnidades.Columns["Estado"].ColumnEdit = imageCombo_Estado;
+
+
+
+
+        }
         private void btnNuevaUnidad_Click(object sender, EventArgs e)
         {
             xfrmUnidad xfrm = new xfrmUnidad();
@@ -141,12 +184,10 @@ namespace Unidades
             if (Gasto != null)
             {
                 lciBtnEliminarGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                //lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             }
             else
             {
                 lciBtnEliminarGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                //lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
 
         }
@@ -156,16 +197,51 @@ namespace Unidades
             Unidad.BL.Unidad Unidad = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
             if (Unidad != null)
             {
+                
+                if (Unidad.Estado == Enums.Estado.Vendido)
+                {
+                    colConceptoGasto.Visible = false;
+                    colLugar.Visible = false;
+                    lciLugar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lciConceptoGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    Unidad.Gastos.Criteria = null;
+                    Unidad.Gastos.Criteria = new BinaryOperator("TipoTransaccion", Enums.TipoTransaccion.Pago);
+                    grdDetallesGastos.DataSource = Unidad.Gastos;
+                    lblDatosComprador.Text = Unidad.DetalleVenta == null ? "" : Unidad.DetalleVenta.Comprador + "<br>" +
+                        Unidad.DetalleVenta.Destino + "<br>" + Unidad.DetalleVenta.Direccion + ", " + Unidad.DetalleVenta.Tel + "<br>" +
+                        Unidad.DetalleVenta.CorreoElectronico + "<br> Se vendio el día " + DateTime.Now;
+                    lblTotalVenta.Text = Unidad.DetalleVenta.PrecioUnidad.ToString("c") + " " + Unidad.DetalleVenta.TipoMoneda.ToString();
+                    lcgTotalPesos.Text = "Total abono en pesos";
+                    lcgTotalDolar.Text = "Total abono en dolar";
+                    btnAgregarGasto.ToolTip = "Agregar nuevo abono (F5)";
+                    lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    flpDetalle.ShowPopup();
+                }
+                else
+                {
+                    colLugar.Visible = true;
+                    colConceptoGasto.Visible = true;
+                    colConceptoGasto.VisibleIndex = 5;
+                    lcgTotalPesos.Text = "Total pesos";
+                    lcgTotalDolar.Text = "Total dolar";
+                    btnAgregarGasto.ToolTip = "Agregar nuevo costo (F5)";
+                    lciLugar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciConceptoGasto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    Unidad.Gastos.Criteria = null;
+                    Unidad.Gastos.Criteria = new BinaryOperator("TipoTransaccion", Enums.TipoTransaccion.Gasto);
+                    grdDetallesGastos.DataSource = Unidad.Gastos;
+                    lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    flpDetalle.HidePopup();
+                }
                 lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciDetallesUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                //lciCalcular.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lblNombreUnidad.Text = Unidad.Nombre;
                 spnCantidad.Value = 0;
                 memoComentarios.EditValue = string.Empty;
                 cboTipoMoneda.SelectedIndex = 0;
                 memoComentarios.Properties.NullText = "Comentarios";
-                grdDetallesGastos.DataSource = Unidad.Gastos;
+                
                 lblTipoUnidad.Text = Unidad.TipoUnidad.ToString();
                 lblDetallesUnidad.Text = string.Format("Motor {0}, {1} cilindros, {2} ", Unidad.Motor, Unidad.Cilindros, Unidad.Transmision);
 
@@ -176,12 +252,42 @@ namespace Unidades
 
         private void lblTotal_Click(object sender, EventArgs e)
         {
-            Unidad.BL.Unidad Unidad = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
-            if (Unidad != null)
+            Unidad.BL.Unidad UnidadCamion = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
+            if (UnidadCamion != null)
             {
-                xfrmTotales xfrm = new xfrmTotales();
-                xfrm.Unidad = Unidad;
-                xfrm.ShowDialog();
+                if (UnidadCamion.DetalleVenta.TipoMoneda == Enums.TipoMoneda.Dolares)
+                {
+                    if (UnidadCamion.DetalleVenta.PrecioUnidad == UnidadCamion.TotalDolar)
+                    {
+                        if (XtraMessageBox.Show("¿Desea marcar como pagado la unidad?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            UnidadCamion.DetalleVenta.Pagado = true;
+                            UnidadCamion.Save();
+                            UnidadCamion.Session.CommitTransaction();
+                            XtraMessageBox.Show("La unidad fue marcada como pagada.");
+                            (grdUnidades.DataSource as XPCollection).Reload();
+                        }
+                    }
+                    else
+                        XtraMessageBox.Show("La suma de lo abonos no concuerda con el costo de la unidad.");
+                }
+                  else
+                {
+                    if (UnidadCamion.DetalleVenta.PrecioUnidad == UnidadCamion.TotalPesos)
+                    {
+                        if (XtraMessageBox.Show("¿Desea marcar como pagado la unidad?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            UnidadCamion.DetalleVenta.Pagado = true;
+                            UnidadCamion.Save();
+                            UnidadCamion.Session.CommitTransaction();
+                            XtraMessageBox.Show("La unidad fue marcada como pagada.");
+                            (grdUnidades.DataSource as XPCollection).Reload();
+                        }
+                    }
+                    else
+                        XtraMessageBox.Show("La suma de lo abonos no concuerda con el costo de la unidad.");
+                }
+                
             }
         }
 
@@ -216,15 +322,25 @@ namespace Unidades
                 if (XtraMessageBox.Show("¿La información proporcionada es correcta?", "Unidades", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     GastosUnidad Gasto = new GastosUnidad(Unidad.Session);
+                    if (Unidad.Estado != Enums.Estado.Vendido)
+                    {
+                        Gasto.ConceptoDeGasto = (Enums.ConceptoGasto)cboConcepto.EditValue;
+                        Gasto.LugarCompra = txtLugar.Text;
+                        Gasto.TipoTransaccion = Enums.TipoTransaccion.Gasto;
+                    }else
+                    {
+                        Gasto.TipoTransaccion = Enums.TipoTransaccion.Pago;
+                        lblFaltanteDolar.Text = lblFaltesPesos.Text = string.Empty;
+                        spnTipoCambioFaltante.Value = 0;
+                    }
+
                     Gasto.Fecha = dteFecha.DateTime;
                     Gasto.FormaDePago = (Enums.FormaPago)cboFormaPago.EditValue;
-                    Gasto.ConceptoDeGasto = (Enums.ConceptoGasto)cboConcepto.EditValue;
                     Gasto.TipoCambio = spnTipoCambio.Value;
-                    Gasto.LugarCompra = txtLugar.Text;
                     Gasto.Cantidad = spnCantidad.Value;
                     Gasto.TipoMoneda = (Enums.TipoMoneda)cboTipoMoneda.EditValue;
-
                     Gasto.Comentarios = memoComentarios.Text;
+
                     Gasto.Save();
                     Unidad.Save();
                     Unidad.Gastos.Add(Gasto);
@@ -246,6 +362,68 @@ namespace Unidades
             else
             {
                 XtraMessageBox.Show("Debe seleccionar una unidad.");
+            }
+        }
+
+        private void imageCombo_Estado_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            Unidad.BL.Unidad UnidadCamion = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
+            if (UnidadCamion != null)
+            {
+
+                if ((Enums.Estado)e.OldValue == Enums.Estado.Vendido)
+                {
+                    XtraMessageBox.Show("La unidad se encuentra vendida, no se puede cambiar el estado.");
+                    UnidadCamion.Estado = (Enums.Estado)e.OldValue;
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if ((Enums.Estado)e.NewValue == Enums.Estado.Vendido)
+                    {
+                        UnidadCamion.Estado = Enums.Estado.Vendido;
+                        xfrmDetalleVenta xfrm = new xfrmDetalleVenta();
+                        xfrm.UnidadCamion = UnidadCamion;
+                        xfrm.Unidad = Unidad;
+                        xfrm.ShowInTaskbar = false;
+                        xfrm.ShowDialog();
+                        if (xfrm.DialogResult == DialogResult.Cancel)
+                        {
+                            UnidadCamion.Estado = (Enums.Estado)e.OldValue;
+                            e.Cancel = true;
+                        }
+                         (grdUnidades.DataSource as XPCollection).Reload();
+                    }
+                    else
+                    {
+                        UnidadCamion.Estado = (Enums.Estado)e.NewValue;
+                        UnidadCamion.Save();
+                        UnidadCamion.Session.CommitTransaction();
+                        XtraMessageBox.Show("Se ha actualizo el estado correctamente.");
+                    }
+                }
+            }
+        }
+
+        private void spnTipoCambioFaltante_EditValueChanged(object sender, EventArgs e)
+        {
+            Unidad.BL.Unidad UnidadCamion = grvUnidades.GetFocusedRow() as Unidad.BL.Unidad;
+            if (UnidadCamion != null)
+            {
+                if (spnTipoCambioFaltante.Value > 0)
+                {
+                    if (UnidadCamion.DetalleVenta.TipoMoneda == Enums.TipoMoneda.Dolares)
+                    {
+                        lblFaltanteDolar.Text = (UnidadCamion.DetalleVenta.PrecioUnidad - UnidadCamion.TotalDolar).ToString("c") + " Dolares";
+                        lblFaltesPesos.Text = ((UnidadCamion.DetalleVenta.PrecioUnidad - UnidadCamion.TotalDolar) * spnTipoCambioFaltante.Value).ToString("c") + " Pesos";
+                    }
+                    else
+                    {
+                        lblFaltanteDolar.Text = (UnidadCamion.DetalleVenta.PrecioUnidad - UnidadCamion.TotalPesos).ToString("c") + " Pesos";
+                        lblFaltesPesos.Text = ((UnidadCamion.DetalleVenta.PrecioUnidad - UnidadCamion.TotalPesos) / spnTipoCambioFaltante.Value).ToString("c") + " Dolares";
+                    }
+                }
+
             }
         }
     }

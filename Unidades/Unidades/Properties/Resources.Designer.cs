@@ -73,6 +73,46 @@ namespace Unidades.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Flag_Amarillo {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Amarillo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag_Azul {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Azul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag_Rojo {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Rojo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Flag_Verde {
+            get {
+                object obj = ResourceManager.GetObject("Flag_Verde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap give_money__1_ {
             get {
                 object obj = ResourceManager.GetObject("give-money (1)", resourceCulture);
@@ -96,6 +136,16 @@ namespace Unidades.Properties {
         internal static System.Drawing.Bitmap give_money__2_ {
             get {
                 object obj = ResourceManager.GetObject("give-money (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Guardar1 {
+            get {
+                object obj = ResourceManager.GetObject("Guardar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +276,16 @@ namespace Unidades.Properties {
         internal static System.Drawing.Bitmap Salir1 {
             get {
                 object obj = ResourceManager.GetObject("Salir1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vendido {
+            get {
+                object obj = ResourceManager.GetObject("Vendido", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

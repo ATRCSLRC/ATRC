@@ -52,12 +52,20 @@ namespace Unidades
             if(ValidarCampos())
             {
                 Guardar();
+               
+                if (esModificacion)
+                {
+                    XtraMessageBox.Show("Se ha realizado la modificación correctamente.");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Se ha guardado la unidad correctamente.");
+                    UnidadCamion.Estado = Enums.Estado.Translado;
+                }
+
                 UnidadCamion.Save();
                 Unidad.CommitChanges();
-                if (esModificacion)
-                    XtraMessageBox.Show("Se ha realizado la modificación correctamente.");
-                else
-                    XtraMessageBox.Show("Se ha guardado la unidad correctamente.");
+
                 this.Close();
             }
         }
@@ -155,6 +163,7 @@ namespace Unidades
             Gasto.TipoMoneda = (Enums.TipoMoneda)cboTipoMoneda.EditValue;
             Gasto.FormaDePago = (Enums.FormaPago)cboFormaPago.EditValue;
             Gasto.LugarCompra = txtLugar.Text;
+            Gasto.TipoTransaccion = Enums.TipoTransaccion.Gasto;
             #endregion
 
             Gasto.ConceptoDeGasto = Enums.ConceptoGasto.CompraUnidad;

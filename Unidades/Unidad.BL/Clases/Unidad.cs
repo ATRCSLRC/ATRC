@@ -14,6 +14,7 @@ namespace Unidad.BL
     {
         public Unidad(Session session) : base(session) { }
 
+
         private string mNombre;
         [Size(150)]
         public string Nombre
@@ -89,18 +90,32 @@ namespace Unidad.BL
             set { SetPropertyValue<bool>("AireAcondicionado", ref mAireAcondicionado, value); }
         }
 
+        private Estado mEstado;
+        public Estado Estado
+        {
+            get { return mEstado; }
+            set { SetPropertyValue<Estado>("Estado", ref mEstado, value); }
+        }
+
+        private DetalleVenta mDetalleVenta;
+        public DetalleVenta DetalleVenta
+        {
+            get { return mDetalleVenta; }
+            set { SetPropertyValue<DetalleVenta>("DetalleVenta", ref mDetalleVenta, value); }
+        }
 
         [NonPersistent]
         public decimal TotalPesos
         {
             get
             {
-                    XPView Unidad = new XPView(this.Session, typeof(Unidad));
-                    Unidad.Properties.AddRange(new ViewProperty[] {
+                XPView Unidad = new XPView(this.Session, typeof(Unidad));
+                Unidad.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
-                  new ViewProperty("TotalPesos", SortDirection.None, "[Gastos].Sum(iif([TipoMoneda] == 0,[Cantidad], [Cantidad] * [TipoCambio] ))", false, true)
+                  new ViewProperty("TotalPesos", SortDirection.None, "iif([Estado] == 3, [Gastos].Sum(iif([TipoTransaccion] == 1,iif([TipoMoneda] == 0,[Cantidad], [Cantidad] * [TipoCambio] ), 0)), " +
+                  "[Gastos].Sum(iif([TipoTransaccion] == 0,iif([TipoMoneda] == 0,[Cantidad], [Cantidad] * [TipoCambio] ), 0)))", false, true)
                  });
-                    Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
+                Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
                 return Convert.ToDecimal(Unidad[0]["TotalPesos"]);
             }
         }
@@ -113,13 +128,44 @@ namespace Unidad.BL
                 XPView Unidad = new XPView(this.Session, typeof(Unidad));
                 Unidad.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
-                  new ViewProperty("TotalDolar", SortDirection.None, "[Gastos].Sum(iif([TipoMoneda] == 1,[Cantidad], [Cantidad] / [TipoCambio] ))", false, true)
+                  new ViewProperty("TotalDolar", SortDirection.None, "iif([Estado] == 3, [Gastos].Sum(iif([TipoTransaccion] == 1,iif([TipoMoneda] == 1,[Cantidad], [Cantidad] / [TipoCambio] ), 0)), " +
+                  "[Gastos].Sum(iif([TipoTransaccion] == 0,iif([TipoMoneda] == 1,[Cantidad], [Cantidad] / [TipoCambio] ), 0)))", false, true)
                  });
                 Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
                 return Convert.ToDecimal(Unidad[0]["TotalDolar"]);
             }
         }
 
+
+        [NonPersistent]
+        public decimal TotalPesosGastos
+        {
+            get
+            {
+                XPView Unidad = new XPView(this.Session, typeof(Unidad));
+                Unidad.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("TotalPesos", SortDirection.None, "[Gastos].Sum(iif([TipoTransaccion] == 0,iif([TipoMoneda] == 0,[Cantidad], [Cantidad] * [TipoCambio] ), 0))", false, true)
+                 });
+                Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
+                return Convert.ToDecimal(Unidad[0]["TotalPesos"]);
+            }
+        }
+
+        [NonPersistent]
+        public decimal TotalDolarGastos
+        {
+            get
+            {
+                XPView Unidad = new XPView(this.Session, typeof(Unidad));
+                Unidad.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("TotalDolar", SortDirection.None, "[Gastos].Sum(iif([TipoTransaccion] == 0,iif([TipoMoneda] == 1,[Cantidad], [Cantidad] / [TipoCambio] ), 0))", false, true)
+                 });
+                Unidad.Criteria = new BinaryOperator("Oid", this.Oid);
+                return Convert.ToDecimal(Unidad[0]["TotalDolar"]);
+            }
+        }
 
         [NonPersistent]
         public string UnidadDescripcion
@@ -130,6 +176,7 @@ namespace Unidad.BL
                 return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=8><i>" + this.Marca + " " + this.Modelo + ", " + this.VIN + "</i><br><br>";
             }
         }
+
 
         [Association("Unidad-Gastos")]
         public XPCollection<GastosUnidad> Gastos

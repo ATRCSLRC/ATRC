@@ -42,13 +42,14 @@
             this.colUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.memoUnidad = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.picEditar = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.colEliminar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.picEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.picEditar = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemRichTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
+            this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lciMainDetalle = new DevExpress.XtraLayout.LayoutControl();
             this.pnlDetallesUnidad = new DevExpress.XtraEditors.PanelControl();
@@ -58,9 +59,9 @@
             this.lblTotalDolar = new DevExpress.XtraEditors.LabelControl();
             this.lblTotalPesos = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lcgTotalPesos = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lcgTotalDolar = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -132,6 +133,23 @@
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.flpDetalle = new DevExpress.Utils.FlyoutPanel();
+            this.flpDetalleVenta = new DevExpress.Utils.FlyoutPanelControl();
+            this.lcDetalleVenta = new DevExpress.XtraLayout.LayoutControl();
+            this.spnTipoCambioFaltante = new DevExpress.XtraEditors.SpinEdit();
+            this.lblFaltesPesos = new DevExpress.XtraEditors.LabelControl();
+            this.lblFaltanteDolar = new DevExpress.XtraEditors.LabelControl();
+            this.lblDatosComprador = new DevExpress.XtraEditors.LabelControl();
+            this.lblTotalVenta = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup11 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupAcciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
@@ -140,12 +158,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdUnidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoUnidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lciMainDetalle)).BeginInit();
@@ -155,9 +174,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalleUnidad)).BeginInit();
             this.lcMainDetalleUnidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTotalPesos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTotalDolar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
@@ -226,6 +245,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flpDetalle)).BeginInit();
+            this.flpDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flpDetalleVenta)).BeginInit();
+            this.flpDetalleVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcDetalleVenta)).BeginInit();
+            this.lcDetalleVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambioFaltante.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -269,7 +304,7 @@
             this.btnAcciones.Appearance.Options.UseForeColor = true;
             this.btnAcciones.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnAcciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAcciones.ImageOptions.Image = global::Unidades.Properties.Resources.icons8_alinear_al_centro_24;
+            this.btnAcciones.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAcciones.ImageOptions.Image")));
             this.btnAcciones.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAcciones.ImageOptions.ImageToTextIndent = 15;
             this.btnAcciones.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
@@ -330,7 +365,8 @@
             this.repositoryItemTextEdit2,
             this.repositoryItemTextEdit3,
             this.picEliminar,
-            this.repositoryItemRichTextEdit1});
+            this.repositoryItemRichTextEdit1,
+            this.repositoryItemImageComboBox1});
             this.grdUnidades.Size = new System.Drawing.Size(256, 523);
             this.grdUnidades.TabIndex = 7;
             this.grdUnidades.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -348,8 +384,6 @@
             this.grvUnidades.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvUnidades.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvUnidades.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.False;
-            this.grvUnidades.OptionsBehavior.Editable = false;
-            this.grvUnidades.OptionsBehavior.ReadOnly = true;
             this.grvUnidades.OptionsCustomization.AllowColumnMoving = false;
             this.grvUnidades.OptionsDetail.AllowZoomDetail = false;
             this.grvUnidades.OptionsDetail.EnableMasterViewMode = false;
@@ -379,6 +413,7 @@
             this.colUnidad.ColumnEdit = this.memoUnidad;
             this.colUnidad.FieldName = "UnidadDescripcion";
             this.colUnidad.Name = "colUnidad";
+            this.colUnidad.OptionsColumn.AllowEdit = false;
             this.colUnidad.OptionsColumn.AllowFocus = false;
             this.colUnidad.OptionsColumn.ReadOnly = true;
             this.colUnidad.OptionsColumn.ShowCaption = false;
@@ -396,20 +431,12 @@
             // colEditar
             // 
             this.colEditar.Caption = "gridColumn1";
-            this.colEditar.ColumnEdit = this.picEditar;
-            this.colEditar.FieldName = "Editar";
+            this.colEditar.FieldName = "Estado";
             this.colEditar.Name = "colEditar";
             this.colEditar.ToolTip = "Editar";
+            this.colEditar.Visible = true;
+            this.colEditar.VisibleIndex = 1;
             this.colEditar.Width = 35;
-            // 
-            // picEditar
-            // 
-            this.picEditar.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.picEditar.Appearance.Image = global::Unidades.Properties.Resources.icons8_billetes_32;
-            this.picEditar.Appearance.Options.UseBackColor = true;
-            this.picEditar.Appearance.Options.UseImage = true;
-            this.picEditar.Name = "picEditar";
-            this.picEditar.NullText = " ";
             // 
             // colEliminar
             // 
@@ -425,22 +452,31 @@
             // 
             this.picEliminar.Name = "picEliminar";
             // 
+            // picEditar
+            // 
+            this.picEditar.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.picEditar.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("picEditar.Appearance.Image")));
+            this.picEditar.Appearance.Options.UseBackColor = true;
+            this.picEditar.Appearance.Options.UseImage = true;
+            this.picEditar.Name = "picEditar";
+            this.picEditar.NullText = " ";
+            // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.ContextImageOptions.Image = global::Unidades.Properties.Resources.icons8_lápiz_32__1_;
+            this.repositoryItemTextEdit1.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemTextEdit1.ContextImageOptions.Image")));
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // repositoryItemTextEdit2
             // 
             this.repositoryItemTextEdit2.AutoHeight = false;
-            this.repositoryItemTextEdit2.ContextImageOptions.Image = global::Unidades.Properties.Resources.icons8_eliminar_32;
+            this.repositoryItemTextEdit2.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemTextEdit2.ContextImageOptions.Image")));
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
             // repositoryItemTextEdit3
             // 
             this.repositoryItemTextEdit3.AutoHeight = false;
-            this.repositoryItemTextEdit3.ContextImageOptions.Image = global::Unidades.Properties.Resources.icons8_lápiz_32__1_;
+            this.repositoryItemTextEdit3.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemTextEdit3.ContextImageOptions.Image")));
             this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
             // 
             // repositoryItemRichTextEdit1
@@ -449,6 +485,13 @@
             this.repositoryItemRichTextEdit1.Name = "repositoryItemRichTextEdit1";
             this.repositoryItemRichTextEdit1.OptionsExport.Html.UseHtml5 = true;
             this.repositoryItemRichTextEdit1.ShowCaretInReadOnly = false;
+            // 
+            // repositoryItemImageComboBox1
+            // 
+            this.repositoryItemImageComboBox1.AutoHeight = false;
+            this.repositoryItemImageComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
             // 
             // panelControl2
             // 
@@ -497,7 +540,7 @@
             this.lcMainDetalleUnidad.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.lcMainDetalleUnidad.LookAndFeel.UseDefaultLookAndFeel = false;
             this.lcMainDetalleUnidad.Name = "lcMainDetalleUnidad";
-            this.lcMainDetalleUnidad.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(771, 249, 650, 400);
+            this.lcMainDetalleUnidad.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(432, 375, 650, 400);
             this.lcMainDetalleUnidad.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcMainDetalleUnidad.Root = this.layoutControlGroup7;
             this.lcMainDetalleUnidad.Size = new System.Drawing.Size(883, 58);
@@ -557,8 +600,8 @@
             this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup7.GroupBordersVisible = false;
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup8,
-            this.layoutControlGroup9,
+            this.lcgTotalPesos,
+            this.lcgTotalDolar,
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.emptySpaceItem1,
@@ -568,19 +611,19 @@
             this.layoutControlGroup7.Size = new System.Drawing.Size(883, 58);
             this.layoutControlGroup7.TextVisible = false;
             // 
-            // layoutControlGroup8
+            // lcgTotalPesos
             // 
-            this.layoutControlGroup8.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
-            this.layoutControlGroup8.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
-            this.layoutControlGroup8.AppearanceGroup.Options.UseBackColor = true;
-            this.layoutControlGroup8.AppearanceGroup.Options.UseForeColor = true;
-            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lcgTotalPesos.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
+            this.lcgTotalPesos.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
+            this.lcgTotalPesos.AppearanceGroup.Options.UseBackColor = true;
+            this.lcgTotalPesos.AppearanceGroup.Options.UseForeColor = true;
+            this.lcgTotalPesos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(441, 0);
-            this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup8.Size = new System.Drawing.Size(231, 58);
-            this.layoutControlGroup8.Text = "Total pesos";
+            this.lcgTotalPesos.Location = new System.Drawing.Point(441, 0);
+            this.lcgTotalPesos.Name = "lcgTotalPesos";
+            this.lcgTotalPesos.OptionsItemText.TextToControlDistance = 5;
+            this.lcgTotalPesos.Size = new System.Drawing.Size(231, 58);
+            this.lcgTotalPesos.Text = "Total pesos";
             // 
             // layoutControlItem8
             // 
@@ -593,19 +636,19 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // layoutControlGroup9
+            // lcgTotalDolar
             // 
-            this.layoutControlGroup9.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
-            this.layoutControlGroup9.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
-            this.layoutControlGroup9.AppearanceGroup.Options.UseBackColor = true;
-            this.layoutControlGroup9.AppearanceGroup.Options.UseForeColor = true;
-            this.layoutControlGroup9.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lcgTotalDolar.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
+            this.lcgTotalDolar.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
+            this.lcgTotalDolar.AppearanceGroup.Options.UseBackColor = true;
+            this.lcgTotalDolar.AppearanceGroup.Options.UseForeColor = true;
+            this.lcgTotalDolar.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem9});
-            this.layoutControlGroup9.Location = new System.Drawing.Point(672, 0);
-            this.layoutControlGroup9.Name = "layoutControlGroup9";
-            this.layoutControlGroup9.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup9.Size = new System.Drawing.Size(211, 58);
-            this.layoutControlGroup9.Text = "Total dolar";
+            this.lcgTotalDolar.Location = new System.Drawing.Point(672, 0);
+            this.lcgTotalDolar.Name = "lcgTotalDolar";
+            this.lcgTotalDolar.OptionsItemText.TextToControlDistance = 5;
+            this.lcgTotalDolar.Size = new System.Drawing.Size(211, 58);
+            this.lcgTotalDolar.Text = "Total dolar";
             // 
             // layoutControlItem9
             // 
@@ -705,7 +748,7 @@
             this.colFecha.Name = "colFecha";
             this.colFecha.Visible = true;
             this.colFecha.VisibleIndex = 0;
-            this.colFecha.Width = 83;
+            this.colFecha.Width = 87;
             // 
             // repositoryItemDateEdit1
             // 
@@ -725,6 +768,7 @@
             this.colTipoCambio.Name = "colTipoCambio";
             this.colTipoCambio.Visible = true;
             this.colTipoCambio.VisibleIndex = 1;
+            this.colTipoCambio.Width = 79;
             // 
             // colCantidad
             // 
@@ -735,7 +779,7 @@
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 2;
-            this.colCantidad.Width = 96;
+            this.colCantidad.Width = 101;
             // 
             // colTipoMoneda
             // 
@@ -744,7 +788,7 @@
             this.colTipoMoneda.Name = "colTipoMoneda";
             this.colTipoMoneda.Visible = true;
             this.colTipoMoneda.VisibleIndex = 3;
-            this.colTipoMoneda.Width = 85;
+            this.colTipoMoneda.Width = 90;
             // 
             // colFormaDePago
             // 
@@ -753,7 +797,7 @@
             this.colFormaDePago.Name = "colFormaDePago";
             this.colFormaDePago.Visible = true;
             this.colFormaDePago.VisibleIndex = 4;
-            this.colFormaDePago.Width = 80;
+            this.colFormaDePago.Width = 84;
             // 
             // colConceptoGasto
             // 
@@ -762,7 +806,7 @@
             this.colConceptoGasto.Name = "colConceptoGasto";
             this.colConceptoGasto.Visible = true;
             this.colConceptoGasto.VisibleIndex = 5;
-            this.colConceptoGasto.Width = 100;
+            this.colConceptoGasto.Width = 113;
             // 
             // colLugar
             // 
@@ -771,7 +815,7 @@
             this.colLugar.Name = "colLugar";
             this.colLugar.Visible = true;
             this.colLugar.VisibleIndex = 6;
-            this.colLugar.Width = 172;
+            this.colLugar.Width = 176;
             // 
             // colComentarios
             // 
@@ -781,7 +825,7 @@
             this.colComentarios.Name = "colComentarios";
             this.colComentarios.Visible = true;
             this.colComentarios.VisibleIndex = 7;
-            this.colComentarios.Width = 91;
+            this.colComentarios.Width = 98;
             // 
             // riMemoComentarios
             // 
@@ -839,6 +883,9 @@
             this.spnTipoCambio.Name = "spnTipoCambio";
             this.spnTipoCambio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spnTipoCambio.Properties.DisplayFormat.FormatString = "c";
+            this.spnTipoCambio.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spnTipoCambio.Properties.Mask.EditMask = "c";
             this.spnTipoCambio.Size = new System.Drawing.Size(127, 20);
             this.spnTipoCambio.TabIndex = 13;
             // 
@@ -914,7 +961,7 @@
             this.btnAgregarGasto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAgregarGasto.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnAgregarGasto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarGasto.ImageOptions.Image = global::Unidades.Properties.Resources.icons8_billetes_70;
+            this.btnAgregarGasto.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarGasto.ImageOptions.Image")));
             this.btnAgregarGasto.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnAgregarGasto.Location = new System.Drawing.Point(760, 5);
             this.btnAgregarGasto.LookAndFeel.SkinName = "Office 2016 Colorful";
@@ -1094,7 +1141,7 @@
             // 
             // layoutControlGroup4
             // 
-            this.layoutControlGroup4.BackgroundImageOptions.Image = global::Unidades.Properties.Resources.give_money__2_;
+            this.layoutControlGroup4.BackgroundImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlGroup4.BackgroundImageOptions.Image")));
             this.layoutControlGroup4.BackgroundImageOptions.Layout = System.Windows.Forms.ImageLayout.Center;
             this.layoutControlGroup4.BackgroundImageOptions.Visible = true;
             this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -1204,7 +1251,7 @@
             this.btnNuevaUnidad.Appearance.Options.UseForeColor = true;
             this.btnNuevaUnidad.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnNuevaUnidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevaUnidad.ImageOptions.Image = global::Unidades.Properties.Resources.icons8_más_32;
+            this.btnNuevaUnidad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevaUnidad.ImageOptions.Image")));
             this.btnNuevaUnidad.Location = new System.Drawing.Point(5, 10);
             this.btnNuevaUnidad.Name = "btnNuevaUnidad";
             this.btnNuevaUnidad.Size = new System.Drawing.Size(256, 36);
@@ -1283,11 +1330,11 @@
             this.lblTotal.Appearance.Options.UseTextOptions = true;
             this.lblTotal.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblTotal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTotal.Location = new System.Drawing.Point(900, 17);
+            this.lblTotal.Location = new System.Drawing.Point(895, 17);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(116, 40);
+            this.lblTotal.Size = new System.Drawing.Size(121, 40);
             this.lblTotal.TabIndex = 8;
-            this.lblTotal.Text = "<u>Calcular total</u>";
+            this.lblTotal.Text = "<u>Marcar como pagado</u>";
             this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // btnEliminarGasto
@@ -1320,7 +1367,7 @@
             this.lblNombreUnidad.Appearance.Options.UseForeColor = true;
             this.lblNombreUnidad.Location = new System.Drawing.Point(271, 17);
             this.lblNombreUnidad.Name = "lblNombreUnidad";
-            this.lblNombreUnidad.Size = new System.Drawing.Size(619, 40);
+            this.lblNombreUnidad.Size = new System.Drawing.Size(614, 40);
             this.lblNombreUnidad.TabIndex = 5;
             // 
             // layoutControlGroup2
@@ -1346,7 +1393,7 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(254, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(73, 23);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(629, 50);
+            this.layoutControlItem2.Size = new System.Drawing.Size(624, 50);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -1380,10 +1427,10 @@
             // lciCalcular
             // 
             this.lciCalcular.Control = this.lblTotal;
-            this.lciCalcular.Location = new System.Drawing.Point(883, 0);
+            this.lciCalcular.Location = new System.Drawing.Point(878, 0);
             this.lciCalcular.MinSize = new System.Drawing.Size(73, 23);
             this.lciCalcular.Name = "lciCalcular";
-            this.lciCalcular.Size = new System.Drawing.Size(126, 50);
+            this.lciCalcular.Size = new System.Drawing.Size(131, 50);
             this.lciCalcular.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCalcular.TextSize = new System.Drawing.Size(0, 0);
             this.lciCalcular.TextVisible = false;
@@ -1565,11 +1612,263 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
+            // flpDetalle
+            // 
+            this.flpDetalle.Controls.Add(this.flpDetalleVenta);
+            this.flpDetalle.Location = new System.Drawing.Point(272, 529);
+            this.flpDetalle.Name = "flpDetalle";
+            this.flpDetalle.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+            this.flpDetalle.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Bottom;
+            this.flpDetalle.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.flpDetalle.OwnerControl = this.grdDetallesGastos;
+            this.flpDetalle.Size = new System.Drawing.Size(808, 118);
+            this.flpDetalle.TabIndex = 5;
+            // 
+            // flpDetalleVenta
+            // 
+            this.flpDetalleVenta.Controls.Add(this.lcDetalleVenta);
+            this.flpDetalleVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpDetalleVenta.FlyoutPanel = this.flpDetalle;
+            this.flpDetalleVenta.Location = new System.Drawing.Point(0, 0);
+            this.flpDetalleVenta.Name = "flpDetalleVenta";
+            this.flpDetalleVenta.Size = new System.Drawing.Size(808, 118);
+            this.flpDetalleVenta.TabIndex = 0;
+            // 
+            // lcDetalleVenta
+            // 
+            this.lcDetalleVenta.BackColor = System.Drawing.Color.White;
+            this.lcDetalleVenta.Controls.Add(this.spnTipoCambioFaltante);
+            this.lcDetalleVenta.Controls.Add(this.lblFaltesPesos);
+            this.lcDetalleVenta.Controls.Add(this.lblFaltanteDolar);
+            this.lcDetalleVenta.Controls.Add(this.lblDatosComprador);
+            this.lcDetalleVenta.Controls.Add(this.lblTotalVenta);
+            this.lcDetalleVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcDetalleVenta.Location = new System.Drawing.Point(2, 2);
+            this.lcDetalleVenta.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.lcDetalleVenta.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.lcDetalleVenta.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.lcDetalleVenta.Name = "lcDetalleVenta";
+            this.lcDetalleVenta.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(123, 173, 650, 400);
+            this.lcDetalleVenta.OptionsView.ShareLookAndFeelWithChildren = false;
+            this.lcDetalleVenta.Root = this.layoutControlGroup8;
+            this.lcDetalleVenta.Size = new System.Drawing.Size(804, 114);
+            this.lcDetalleVenta.TabIndex = 0;
+            this.lcDetalleVenta.Text = "layoutControl1";
+            // 
+            // spnTipoCambioFaltante
+            // 
+            this.spnTipoCambioFaltante.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spnTipoCambioFaltante.Location = new System.Drawing.Point(659, 29);
+            this.spnTipoCambioFaltante.MenuManager = this.ribbonControl1;
+            this.spnTipoCambioFaltante.Name = "spnTipoCambioFaltante";
+            this.spnTipoCambioFaltante.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spnTipoCambioFaltante.Properties.DisplayFormat.FormatString = "c";
+            this.spnTipoCambioFaltante.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spnTipoCambioFaltante.Properties.Mask.EditMask = "c";
+            this.spnTipoCambioFaltante.Properties.MaxValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.spnTipoCambioFaltante.Properties.NullText = "Tipo de cambio";
+            this.spnTipoCambioFaltante.Properties.NullValuePrompt = "Tipo de cambio";
+            this.spnTipoCambioFaltante.Properties.NullValuePromptShowForEmptyValue = true;
+            this.spnTipoCambioFaltante.Properties.ShowNullValuePromptWhenFocused = true;
+            this.spnTipoCambioFaltante.Size = new System.Drawing.Size(136, 20);
+            this.spnTipoCambioFaltante.TabIndex = 10;
+            this.spnTipoCambioFaltante.EditValueChanged += new System.EventHandler(this.spnTipoCambioFaltante_EditValueChanged);
+            // 
+            // lblFaltesPesos
+            // 
+            this.lblFaltesPesos.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaltesPesos.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblFaltesPesos.Appearance.Options.UseFont = true;
+            this.lblFaltesPesos.Appearance.Options.UseForeColor = true;
+            this.lblFaltesPesos.Appearance.Options.UseTextOptions = true;
+            this.lblFaltesPesos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblFaltesPesos.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblFaltesPesos.Location = new System.Drawing.Point(566, 59);
+            this.lblFaltesPesos.Name = "lblFaltesPesos";
+            this.lblFaltesPesos.Size = new System.Drawing.Size(108, 46);
+            this.lblFaltesPesos.TabIndex = 9;
+            // 
+            // lblFaltanteDolar
+            // 
+            this.lblFaltanteDolar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaltanteDolar.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblFaltanteDolar.Appearance.Options.UseFont = true;
+            this.lblFaltanteDolar.Appearance.Options.UseForeColor = true;
+            this.lblFaltanteDolar.Appearance.Options.UseTextOptions = true;
+            this.lblFaltanteDolar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblFaltanteDolar.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblFaltanteDolar.Location = new System.Drawing.Point(684, 59);
+            this.lblFaltanteDolar.Name = "lblFaltanteDolar";
+            this.lblFaltanteDolar.Size = new System.Drawing.Size(111, 46);
+            this.lblFaltanteDolar.TabIndex = 8;
+            // 
+            // lblDatosComprador
+            // 
+            this.lblDatosComprador.AllowHtmlString = true;
+            this.lblDatosComprador.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosComprador.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblDatosComprador.Appearance.Options.UseFont = true;
+            this.lblDatosComprador.Appearance.Options.UseForeColor = true;
+            this.lblDatosComprador.Appearance.Options.UseTextOptions = true;
+            this.lblDatosComprador.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblDatosComprador.Location = new System.Drawing.Point(249, 29);
+            this.lblDatosComprador.Name = "lblDatosComprador";
+            this.lblDatosComprador.Size = new System.Drawing.Size(299, 76);
+            this.lblDatosComprador.TabIndex = 7;
+            // 
+            // lblTotalVenta
+            // 
+            this.lblTotalVenta.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVenta.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblTotalVenta.Appearance.Options.UseFont = true;
+            this.lblTotalVenta.Appearance.Options.UseForeColor = true;
+            this.lblTotalVenta.Appearance.Options.UseTextOptions = true;
+            this.lblTotalVenta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTotalVenta.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblTotalVenta.Location = new System.Drawing.Point(9, 29);
+            this.lblTotalVenta.Name = "lblTotalVenta";
+            this.lblTotalVenta.Size = new System.Drawing.Size(222, 76);
+            this.lblTotalVenta.TabIndex = 6;
+            // 
+            // layoutControlGroup8
+            // 
+            this.layoutControlGroup8.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
+            this.layoutControlGroup8.AppearanceGroup.Options.UseBackColor = true;
+            this.layoutControlGroup8.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
+            this.layoutControlGroup8.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlGroup8.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup8.GroupBordersVisible = false;
+            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup9,
+            this.layoutControlGroup10,
+            this.layoutControlGroup11});
+            this.layoutControlGroup8.Name = "Root";
+            this.layoutControlGroup8.OptionsItemText.TextToControlDistance = 5;
+            this.layoutControlGroup8.Size = new System.Drawing.Size(804, 114);
+            this.layoutControlGroup8.TextVisible = false;
+            // 
+            // layoutControlGroup9
+            // 
+            this.layoutControlGroup9.AppearanceGroup.BackColor = System.Drawing.Color.Transparent;
+            this.layoutControlGroup9.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup9.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
+            this.layoutControlGroup9.AppearanceGroup.Options.UseBackColor = true;
+            this.layoutControlGroup9.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup9.AppearanceGroup.Options.UseForeColor = true;
+            this.layoutControlGroup9.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
+            this.layoutControlGroup9.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlGroup9.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem13});
+            this.layoutControlGroup9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup9.Name = "layoutControlGroup9";
+            this.layoutControlGroup9.OptionsItemText.TextToControlDistance = 5;
+            this.layoutControlGroup9.Size = new System.Drawing.Size(240, 114);
+            this.layoutControlGroup9.Text = "Precio de venta";
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.lblTotalVenta;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem13.MinSize = new System.Drawing.Size(10, 43);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(232, 86);
+            this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
+            // 
+            // layoutControlGroup10
+            // 
+            this.layoutControlGroup10.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup10.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
+            this.layoutControlGroup10.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup10.AppearanceGroup.Options.UseForeColor = true;
+            this.layoutControlGroup10.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3});
+            this.layoutControlGroup10.Location = new System.Drawing.Point(240, 0);
+            this.layoutControlGroup10.Name = "layoutControlGroup10";
+            this.layoutControlGroup10.OptionsItemText.TextToControlDistance = 5;
+            this.layoutControlGroup10.Size = new System.Drawing.Size(317, 114);
+            this.layoutControlGroup10.Text = "Datos de comprador";
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.lblDatosComprador;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(10, 11);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(309, 86);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlGroup11
+            // 
+            this.layoutControlGroup11.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup11.AppearanceGroup.ForeColor = System.Drawing.Color.Red;
+            this.layoutControlGroup11.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup11.AppearanceGroup.Options.UseForeColor = true;
+            this.layoutControlGroup11.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem15,
+            this.layoutControlItem14,
+            this.layoutControlItem7});
+            this.layoutControlGroup11.Location = new System.Drawing.Point(557, 0);
+            this.layoutControlGroup11.Name = "layoutControlGroup11";
+            this.layoutControlGroup11.OptionsItemText.TextToControlDistance = 5;
+            this.layoutControlGroup11.Size = new System.Drawing.Size(247, 114);
+            this.layoutControlGroup11.Text = "Calcular faltante por pagar";
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem15.AppearanceItemCaption.ForeColor = System.Drawing.Color.Red;
+            this.layoutControlItem15.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem15.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem15.Control = this.spnTipoCambioFaltante;
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem15.MinSize = new System.Drawing.Size(164, 30);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(239, 30);
+            this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem15.Text = "Tipo de cambio:";
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(88, 13);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.lblFaltesPesos;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem14.MinSize = new System.Drawing.Size(73, 23);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(118, 56);
+            this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.lblFaltanteDolar;
+            this.layoutControlItem7.Location = new System.Drawing.Point(118, 30);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(73, 23);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(121, 56);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
             // xfrmUnidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 659);
+            this.Controls.Add(this.flpDetalle);
             this.Controls.Add(this.flpAcciones);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
@@ -1587,12 +1886,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdUnidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoUnidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lciMainDetalle)).EndInit();
@@ -1602,9 +1902,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalleUnidad)).EndInit();
             this.lcMainDetalleUnidad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTotalPesos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgTotalDolar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
@@ -1673,6 +1973,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flpDetalle)).EndInit();
+            this.flpDetalle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flpDetalleVenta)).EndInit();
+            this.flpDetalleVenta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcDetalleVenta)).EndInit();
+            this.lcDetalleVenta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambioFaltante.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1756,9 +2072,9 @@
         private DevExpress.XtraLayout.LayoutControlItem lciDetallesUnidad;
         private DevExpress.XtraEditors.LabelControl lblTotalDolar;
         private DevExpress.XtraEditors.LabelControl lblTotalPesos;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgTotalPesos;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgTotalDolar;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.LabelControl lblDetallesUnidad;
         private DevExpress.XtraEditors.LabelControl lblTipoUnidad;
@@ -1782,5 +2098,23 @@
         private DevExpress.XtraEditors.SpinEdit spnTipoCambio;
         private DevExpress.XtraLayout.LayoutControlItem lciTipoCambio;
         private DevExpress.XtraGrid.Columns.GridColumn colTipoCambio;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
+        private DevExpress.Utils.FlyoutPanel flpDetalle;
+        private DevExpress.Utils.FlyoutPanelControl flpDetalleVenta;
+        private DevExpress.XtraLayout.LayoutControl lcDetalleVenta;
+        private DevExpress.XtraEditors.LabelControl lblTotalVenta;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup10;
+        private DevExpress.XtraEditors.LabelControl lblDatosComprador;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.SpinEdit spnTipoCambioFaltante;
+        private DevExpress.XtraEditors.LabelControl lblFaltesPesos;
+        private DevExpress.XtraEditors.LabelControl lblFaltanteDolar;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

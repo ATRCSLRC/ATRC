@@ -61,5 +61,19 @@ namespace Unidad.BL
             Panel = 3,
             Maquinaria = 4
         }
+
+        public enum Estado
+        {
+            Translado = 0,
+            Detallado = 1,
+            Preparado = 2,
+            Vendido = 3
+        }
+
+        public enum TipoTransaccion
+        {
+            Gasto = 0,
+            Pago = 1
+        }
     }
 }

@@ -17,7 +17,6 @@ namespace Unidades
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPCollection<Unidad.BL.Unidad> Unidades = new XPCollection<Unidad.BL.Unidad>(Unidad, new BinaryOperator("Oid", ID));
             this.DataSource = Unidades;
-
         }
 
         private void DetallesUnidad_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

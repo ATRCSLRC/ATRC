@@ -53,6 +53,13 @@ namespace Unidad.BL
             set { SetPropertyValue<Enums.FormaPago>("FormaDePago", ref mFormaDePago, value); }
         }
 
+        private Enums.TipoTransaccion mTipoTransaccion;
+        public Enums.TipoTransaccion TipoTransaccion
+        {
+            get { return mTipoTransaccion; }
+            set { SetPropertyValue<Enums.TipoTransaccion>("TipoTransaccion", ref mTipoTransaccion, value); }
+        }
+
         private string mLugarCompra;
         [Size(SizeAttribute.Unlimited)]
         public string LugarCompra

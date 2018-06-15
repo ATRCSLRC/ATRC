@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ATRCBase.cs" />
+    <Compile Include="Clases\DetalleVenta.cs" />
     <Compile Include="Clases\Enums.cs" />
     <Compile Include="Clases\GastosUnidad.cs" />
     <Compile Include="Clases\Unidad.cs" />

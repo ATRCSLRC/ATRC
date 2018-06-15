@@ -26,7 +26,7 @@
     <SuiteName>Gasto de unidades</SuiteName>
     <MinimumRequiredVersion>1.0.0.2</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -96,6 +96,7 @@
     <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v17.2.Win, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -120,8 +121,20 @@
     <Compile Include="DetallesUnidad.Designer.cs">
       <DependentUpon>DetallesUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetalleVenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xfrmDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmDetalleVenta.Designer.cs">
+      <DependentUpon>xfrmDetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,8 +179,11 @@
     </Compile>
     <EmbeddedResource Include="DetallesUnidad.resx">
       <DependentUpon>DetallesUnidad.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -178,8 +194,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="xfrmDetalleVenta.resx">
+      <DependentUpon>xfrmDetalleVenta.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="xfrmLogin.resx">
       <DependentUpon>xfrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmTotales.resx">
       <DependentUpon>xfrmTotales.cs</DependentUpon>
@@ -287,6 +308,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flag Amarillo.png" />
+    <None Include="Resources\Flag Azul.png" />
+    <None Include="Resources\Flag Rojo.png" />
+    <None Include="Resources\Flag Verde.png" />
+    <None Include="Resources\Guardar1.png" />
+    <None Include="Resources\Vendido.png" />
     <Content Include="Unidades.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
