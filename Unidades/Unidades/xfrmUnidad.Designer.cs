@@ -35,6 +35,8 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.spnAño = new DevExpress.XtraEditors.SpinEdit();
+            this.spnTipoCambio = new DevExpress.XtraEditors.SpinEdit();
             this.rgTipoUnidad = new DevExpress.XtraEditors.RadioGroup();
             this.rgAireAcondicionado = new DevExpress.XtraEditors.RadioGroup();
             this.rgFrenos = new DevExpress.XtraEditors.RadioGroup();
@@ -63,17 +65,19 @@
             this.lciFrenos = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAireAcondicinado = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTipoUnidad = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciAño = new DevExpress.XtraLayout.LayoutControlItem();
             this.TabCosto = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPrecio = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciLugarCompra = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTipoMoneda = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFormaPago = new DevExpress.XtraLayout.LayoutControlItem();
-            this.spnTipoCambio = new DevExpress.XtraEditors.SpinEdit();
             this.lciTipoCambio = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnAño.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTipoUnidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgAireAcondicionado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgFrenos.Properties)).BeginInit();
@@ -103,13 +107,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFrenos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAireAcondicinado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoUnidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAño)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciLugarCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoMoneda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFormaPago)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoCambio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,6 +173,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.spnAño);
             this.lcMain.Controls.Add(this.spnTipoCambio);
             this.lcMain.Controls.Add(this.rgTipoUnidad);
             this.lcMain.Controls.Add(this.rgAireAcondicionado);
@@ -194,6 +199,44 @@
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // spnAño
+            // 
+            this.spnAño.EditValue = new decimal(new int[] {
+            2018,
+            0,
+            0,
+            0});
+            this.spnAño.Location = new System.Drawing.Point(130, 145);
+            this.spnAño.MenuManager = this.ribbonControl1;
+            this.spnAño.Name = "spnAño";
+            this.spnAño.Properties.DisplayFormat.FormatString = "d";
+            this.spnAño.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spnAño.Properties.Mask.EditMask = "d";
+            this.spnAño.Properties.MaxValue = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.spnAño.Size = new System.Drawing.Size(414, 20);
+            this.spnAño.StyleController = this.lcMain;
+            this.spnAño.TabIndex = 22;
+            // 
+            // spnTipoCambio
+            // 
+            this.spnTipoCambio.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spnTipoCambio.Location = new System.Drawing.Point(130, 70);
+            this.spnTipoCambio.MenuManager = this.ribbonControl1;
+            this.spnTipoCambio.Name = "spnTipoCambio";
+            this.spnTipoCambio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spnTipoCambio.Size = new System.Drawing.Size(414, 20);
+            this.spnTipoCambio.StyleController = this.lcMain;
+            this.spnTipoCambio.TabIndex = 21;
+            // 
             // rgTipoUnidad
             // 
             this.rgTipoUnidad.Location = new System.Drawing.Point(130, 46);
@@ -207,33 +250,33 @@
             // 
             // rgAireAcondicionado
             // 
-            this.rgAireAcondicionado.Location = new System.Drawing.Point(130, 277);
+            this.rgAireAcondicionado.Location = new System.Drawing.Point(130, 286);
             this.rgAireAcondicionado.MenuManager = this.ribbonControl1;
             this.rgAireAcondicionado.Name = "rgAireAcondicionado";
             this.rgAireAcondicionado.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgAireAcondicionado.Size = new System.Drawing.Size(414, 34);
+            this.rgAireAcondicionado.Size = new System.Drawing.Size(414, 25);
             this.rgAireAcondicionado.StyleController = this.lcMain;
             this.rgAireAcondicionado.TabIndex = 19;
             // 
             // rgFrenos
             // 
-            this.rgFrenos.Location = new System.Drawing.Point(130, 248);
+            this.rgFrenos.Location = new System.Drawing.Point(130, 264);
             this.rgFrenos.MenuManager = this.ribbonControl1;
             this.rgFrenos.Name = "rgFrenos";
             this.rgFrenos.Properties.Columns = 4;
-            this.rgFrenos.Size = new System.Drawing.Size(414, 25);
+            this.rgFrenos.Size = new System.Drawing.Size(414, 18);
             this.rgFrenos.StyleController = this.lcMain;
             this.rgFrenos.TabIndex = 18;
             // 
             // rgTransmision
             // 
-            this.rgTransmision.Location = new System.Drawing.Point(130, 217);
+            this.rgTransmision.Location = new System.Drawing.Point(130, 241);
             this.rgTransmision.MenuManager = this.ribbonControl1;
             this.rgTransmision.Name = "rgTransmision";
             this.rgTransmision.Properties.Columns = 3;
-            this.rgTransmision.Size = new System.Drawing.Size(414, 27);
+            this.rgTransmision.Size = new System.Drawing.Size(414, 19);
             this.rgTransmision.StyleController = this.lcMain;
             this.rgTransmision.TabIndex = 17;
             // 
@@ -244,7 +287,7 @@
             0,
             0,
             0});
-            this.spnCilindros.Location = new System.Drawing.Point(130, 193);
+            this.spnCilindros.Location = new System.Drawing.Point(130, 217);
             this.spnCilindros.MenuManager = this.ribbonControl1;
             this.spnCilindros.Name = "spnCilindros";
             this.spnCilindros.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -260,7 +303,7 @@
             // 
             // txtMotor
             // 
-            this.txtMotor.Location = new System.Drawing.Point(130, 169);
+            this.txtMotor.Location = new System.Drawing.Point(130, 193);
             this.txtMotor.MenuManager = this.ribbonControl1;
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.Size = new System.Drawing.Size(414, 20);
@@ -339,7 +382,7 @@
             // 
             // txtVIN
             // 
-            this.txtVIN.Location = new System.Drawing.Point(130, 145);
+            this.txtVIN.Location = new System.Drawing.Point(130, 169);
             this.txtVIN.MenuManager = this.ribbonControl1;
             this.txtVIN.Name = "txtVIN";
             this.txtVIN.Size = new System.Drawing.Size(414, 20);
@@ -406,7 +449,8 @@
             this.lciTransmision,
             this.lciFrenos,
             this.lciAireAcondicinado,
-            this.lciTipoUnidad});
+            this.lciTipoUnidad,
+            this.lciAño});
             this.TabGeneral.Location = new System.Drawing.Point(0, 0);
             this.TabGeneral.Name = "TabGeneral";
             this.TabGeneral.Size = new System.Drawing.Size(524, 269);
@@ -417,7 +461,7 @@
             this.lciVIN.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciVIN.AppearanceItemCaption.Options.UseFont = true;
             this.lciVIN.Control = this.txtVIN;
-            this.lciVIN.Location = new System.Drawing.Point(0, 99);
+            this.lciVIN.Location = new System.Drawing.Point(0, 123);
             this.lciVIN.Name = "lciVIN";
             this.lciVIN.Size = new System.Drawing.Size(524, 24);
             this.lciVIN.Text = "VIN:";
@@ -465,7 +509,7 @@
             this.lciMotor.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciMotor.AppearanceItemCaption.Options.UseFont = true;
             this.lciMotor.Control = this.txtMotor;
-            this.lciMotor.Location = new System.Drawing.Point(0, 123);
+            this.lciMotor.Location = new System.Drawing.Point(0, 147);
             this.lciMotor.Name = "lciMotor";
             this.lciMotor.Size = new System.Drawing.Size(524, 24);
             this.lciMotor.Text = "Motor:";
@@ -476,7 +520,7 @@
             this.lciCilindros.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciCilindros.AppearanceItemCaption.Options.UseFont = true;
             this.lciCilindros.Control = this.spnCilindros;
-            this.lciCilindros.Location = new System.Drawing.Point(0, 147);
+            this.lciCilindros.Location = new System.Drawing.Point(0, 171);
             this.lciCilindros.Name = "lciCilindros";
             this.lciCilindros.Size = new System.Drawing.Size(524, 24);
             this.lciCilindros.Text = "Cilindros:";
@@ -487,9 +531,9 @@
             this.lciTransmision.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciTransmision.AppearanceItemCaption.Options.UseFont = true;
             this.lciTransmision.Control = this.rgTransmision;
-            this.lciTransmision.Location = new System.Drawing.Point(0, 171);
+            this.lciTransmision.Location = new System.Drawing.Point(0, 195);
             this.lciTransmision.Name = "lciTransmision";
-            this.lciTransmision.Size = new System.Drawing.Size(524, 31);
+            this.lciTransmision.Size = new System.Drawing.Size(524, 23);
             this.lciTransmision.Text = "Transmisión:";
             this.lciTransmision.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -498,9 +542,9 @@
             this.lciFrenos.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciFrenos.AppearanceItemCaption.Options.UseFont = true;
             this.lciFrenos.Control = this.rgFrenos;
-            this.lciFrenos.Location = new System.Drawing.Point(0, 202);
+            this.lciFrenos.Location = new System.Drawing.Point(0, 218);
             this.lciFrenos.Name = "lciFrenos";
-            this.lciFrenos.Size = new System.Drawing.Size(524, 29);
+            this.lciFrenos.Size = new System.Drawing.Size(524, 22);
             this.lciFrenos.Text = "Frenos:";
             this.lciFrenos.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -509,9 +553,9 @@
             this.lciAireAcondicinado.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lciAireAcondicinado.AppearanceItemCaption.Options.UseFont = true;
             this.lciAireAcondicinado.Control = this.rgAireAcondicionado;
-            this.lciAireAcondicinado.Location = new System.Drawing.Point(0, 231);
+            this.lciAireAcondicinado.Location = new System.Drawing.Point(0, 240);
             this.lciAireAcondicinado.Name = "lciAireAcondicinado";
-            this.lciAireAcondicinado.Size = new System.Drawing.Size(524, 38);
+            this.lciAireAcondicinado.Size = new System.Drawing.Size(524, 29);
             this.lciAireAcondicinado.Text = "Aire acondicinado:";
             this.lciAireAcondicinado.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -525,6 +569,17 @@
             this.lciTipoUnidad.Size = new System.Drawing.Size(524, 27);
             this.lciTipoUnidad.Text = "Tipo de unidad:";
             this.lciTipoUnidad.TextSize = new System.Drawing.Size(103, 13);
+            // 
+            // lciAño
+            // 
+            this.lciAño.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lciAño.AppearanceItemCaption.Options.UseFont = true;
+            this.lciAño.Control = this.spnAño;
+            this.lciAño.Location = new System.Drawing.Point(0, 99);
+            this.lciAño.Name = "lciAño";
+            this.lciAño.Size = new System.Drawing.Size(524, 24);
+            this.lciAño.Text = "Año:";
+            this.lciAño.TextSize = new System.Drawing.Size(103, 13);
             // 
             // TabCosto
             // 
@@ -595,22 +650,6 @@
             this.lciFormaPago.Text = "Forma de pago:";
             this.lciFormaPago.TextSize = new System.Drawing.Size(103, 13);
             // 
-            // spnTipoCambio
-            // 
-            this.spnTipoCambio.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spnTipoCambio.Location = new System.Drawing.Point(130, 70);
-            this.spnTipoCambio.MenuManager = this.ribbonControl1;
-            this.spnTipoCambio.Name = "spnTipoCambio";
-            this.spnTipoCambio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spnTipoCambio.Size = new System.Drawing.Size(414, 20);
-            this.spnTipoCambio.StyleController = this.lcMain;
-            this.spnTipoCambio.TabIndex = 21;
-            // 
             // lciTipoCambio
             // 
             this.lciTipoCambio.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -633,11 +672,13 @@
             this.Ribbon = this.ribbonControl1;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Unidad";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.xfrmUnidad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spnAño.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTipoUnidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgAireAcondicionado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgFrenos.Properties)).EndInit();
@@ -667,13 +708,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFrenos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAireAcondicinado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoUnidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciAño)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabCosto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciLugarCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoMoneda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFormaPago)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnTipoCambio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoCambio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -724,5 +765,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciTipoUnidad;
         private DevExpress.XtraEditors.SpinEdit spnTipoCambio;
         private DevExpress.XtraLayout.LayoutControlItem lciTipoCambio;
+        private DevExpress.XtraEditors.SpinEdit spnAño;
+        private DevExpress.XtraLayout.LayoutControlItem lciAño;
     }
 }

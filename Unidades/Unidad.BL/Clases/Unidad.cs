@@ -39,6 +39,13 @@ namespace Unidad.BL
             set { SetPropertyValue<string>("Modelo", ref mModelo, value); }
         }
 
+        private int mAño;
+        public int Año
+        {
+            get { return mAño; }
+            set { SetPropertyValue<int>("Año", ref mAño, value); }
+        }
+
         private string mVIN;
         [Size(50)]
         public string VIN
@@ -172,8 +179,7 @@ namespace Unidad.BL
         {
             get
             {
-                //return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=7> <b>Marca: </b>" + this.Marca + "   <b>Modelo: </b>" + this.Modelo + "<br><br>";
-                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=8><i>" + this.Marca + " " + this.Modelo + ", " + this.VIN + "</i><br><br>";
+                return "<br><b><size=9> " + this.Nombre + " </b><br><br>" + "<size=8><i>" + this.Marca + " " + this.Modelo + (this.Año == 0 ? "" : " " + this.Año.ToString()) + ", " + this.VIN + "</i><br><br>";
             }
         }
 

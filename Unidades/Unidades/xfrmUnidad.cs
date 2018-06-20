@@ -114,6 +114,7 @@ namespace Unidades
             txtModelo.Text = UnidadCamion.Modelo;
             txtVIN.Text = UnidadCamion.VIN;
             txtMotor.Text = UnidadCamion.Motor;
+            spnAño.EditValue = UnidadCamion.Año;
             spnCilindros.EditValue = UnidadCamion.Cilindros;
             rgTransmision.EditValue = UnidadCamion.Transmision;
             rgFrenos.EditValue = UnidadCamion.Frenos;
@@ -148,6 +149,7 @@ namespace Unidades
             UnidadCamion.TipoUnidad = (Enums.TipoUnidad)rgTipoUnidad.EditValue;
             UnidadCamion.Marca = txtMarca.Text;
             UnidadCamion.Modelo = txtModelo.Text;
+            UnidadCamion.Año = Convert.ToInt32(spnAño.EditValue);
             UnidadCamion.VIN = txtVIN.Text;
             UnidadCamion.Motor = txtMotor.Text;
             UnidadCamion.Cilindros = Convert.ToInt32(spnCilindros.Value);
