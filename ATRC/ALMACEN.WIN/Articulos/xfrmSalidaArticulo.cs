@@ -336,7 +336,10 @@ namespace ALMACEN.WIN
             if (!string.IsNullOrEmpty(btnCodigo.Text))
             {
                 Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", btnCodigo.Text));
-                XPView xpc = new XPView(Unidad, typeof(Factura), "Oid;Articulo.Nombre;Cantidad;NumParte;NumFactura;Fecha;Articulo.Codigo", new BinaryOperator("Articulo.Codigo", btnCodigo.Text));
+                GroupOperator go = new GroupOperator();
+                go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
+                go.Operands.Add(new BinaryOperator("Articulo.Codigo", btnCodigo.Text));
+                XPView xpc = new XPView(Unidad, typeof(Factura), "Oid;Articulo.Nombre;Cantidad;NumParte;NumFactura;Fecha;Articulo.Codigo", go);
                 if (xpc.Count > 0)
                 {
                     lueFactura.Properties.DataSource = xpc;

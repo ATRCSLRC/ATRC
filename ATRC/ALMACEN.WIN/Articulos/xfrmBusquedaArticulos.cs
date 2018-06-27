@@ -91,16 +91,21 @@ namespace ALMACEN.WIN
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
                 case 1://Descripcion
-                    Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text +"%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
                 case 2://NumParte
-                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
             }
             grdArticulos.DataSource = Articulos;
@@ -162,10 +167,19 @@ namespace ALMACEN.WIN
         {
             if (lueCatalogo.EditValue != null)
             {
+                GroupOperator go = new GroupOperator();
+                go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
+
                 if (lueCatalogo.EditValue.GetType() == typeof(Proveedor))
-                    Articulos.Criteria = new BinaryOperator("Proveedor.Oid", ((Proveedor)lueCatalogo.EditValue).Oid, BinaryOperatorType.Equal);
+                {
+                    go.Operands.Add(new BinaryOperator("Proveedor.Oid", ((Proveedor)lueCatalogo.EditValue).Oid, BinaryOperatorType.Equal));
+                    Articulos.Criteria = go;
+                }
                 else
-                    Articulos.Criteria = new BinaryOperator("Marca.Oid", ((Marcas)lueCatalogo.EditValue).Oid, BinaryOperatorType.Equal);
+                {
+                    go.Operands.Add(new BinaryOperator("Marca.Oid", ((Marcas)lueCatalogo.EditValue).Oid, BinaryOperatorType.Equal));
+                    Articulos.Criteria = go;
+                }
                 grdArticulos.DataSource = Articulos;
             }
         }
@@ -185,16 +199,21 @@ namespace ALMACEN.WIN
 
         private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
         {
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    Articulos.Criteria = new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
                 case 1://Descripcion
-                    Articulos.Criteria = new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
                 case 2://NumParte
-                    Articulos.Criteria = new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like);
+                    go.Operands.Add(new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    Articulos.Criteria = go;
                     break;
             }
             grdArticulos.DataSource = Articulos;

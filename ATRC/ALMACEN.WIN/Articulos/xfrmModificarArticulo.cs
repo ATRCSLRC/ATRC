@@ -83,6 +83,7 @@ namespace ALMACEN.WIN
             txtMedida.DataBindings.Add("EditValue", Articulo.Facturas, "Medida", true, DataSourceUpdateMode.OnPropertyChanged);
             txtSerie.DataBindings.Add("EditValue", Articulo.Facturas, "Serie", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTipo.DataBindings.Add("EditValue", Articulo.Facturas, "Tipo", true, DataSourceUpdateMode.OnPropertyChanged);
+            Articulo.Facturas.Criteria = new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater);
             dlcFacturas.DataSource = dnFacturas.DataSource = Articulo.Facturas;
 
             txtNombre.ReadOnly = false;
