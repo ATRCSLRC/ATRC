@@ -268,6 +268,7 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Checador", "Checador"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Almacen", "Almacen"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Unidades", "Unidades", "Unidades"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Llantera", "Llantera"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración")});
             this.checkedComboBoxEdit1.Size = new System.Drawing.Size(471, 20);
             this.checkedComboBoxEdit1.StyleController = this.lcMainSeguridad;

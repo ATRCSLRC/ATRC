@@ -16,7 +16,7 @@ namespace ATRCBASE.BL
     public class UtileriasXPO
     {
         //public static string CadenaDeConexion = DevExpress.Xpo.DB.MySqlConnectionProvider.GetConnectionString("192.168.0.140", "administrador", "", "atrcpuebas");
-        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.65\ATRCSERVER", "sa", "@TRCSistemas1", "ATRCPRODUCCION");
+        public static string CadenaDeConexion = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(@"192.168.1.65\ATRCSERVER", "sa", "@TRCSistemas1", "ATRC-");
         [Description("Regresa la unidad instanciada, este metodo es para validar que no este vacia la unidad.")]
         public static UnidadDeTrabajo CargarUnidadDeTrabajo(ref UnidadDeTrabajo uow)
         {
@@ -65,12 +65,18 @@ namespace ATRCBASE.BL
             DevExpress.Xpo.Metadata.XPDictionary dict = new DevExpress.Xpo.Metadata.ReflectionDictionary();
 
             Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
+            Type typeArticulo = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.Articulo");
             Type typeUnidad = System.Reflection.Assembly.Load("UNIDADES.BL").GetType("UNIDADES.BL.Unidad");
             XPClassInfo Almacen = dict.GetClassInfo(typeSalida);
             XPClassInfo Unidad = dict.GetClassInfo(typeUnidad);
             XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
             XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
-
+            XPMemberInfo LlantaFrontalIzquierdaChofer = Unidad.CreateMember("LlantaFrontalIzquierdaChofer", typeArticulo);
+            XPMemberInfo LlantaFrontalDerechaEstribo = Unidad.CreateMember("LlantaFrontalDerechaEstribo", typeArticulo);
+            XPMemberInfo LlantaTraseraInteriorChofer = Unidad.CreateMember("LlantaTraseraInteriorChofer", typeArticulo);
+            XPMemberInfo LlantaTraseraInteriorEstribo = Unidad.CreateMember("LlantaTraseraInteriorEstribo", typeArticulo);
+            XPMemberInfo LlantaTraseraExteriorChofer = Unidad.CreateMember("LlantaTraseraExteriorChofer", typeArticulo);
+            XPMemberInfo LlantaTraseraExteriorEstribo = Unidad.CreateMember("LlantaTraseraExteriorEstribo", typeArticulo);
             dict.GetDataStoreSchema(AppDomain.CurrentDomain.GetAssemblies());
             IDataLayer dl = null;
             if (Utilerias.TipoAplicacion == Enums.TipoAplicacion.Web)

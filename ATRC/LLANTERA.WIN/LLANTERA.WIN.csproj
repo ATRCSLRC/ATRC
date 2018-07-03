@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{667198B9-FA5D-4533-9ECF-EC75FAA1C2D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LLANTERA.WIN</RootNamespace>
+    <AssemblyName>LLANTERA.WIN</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xfrmCambioLlanta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmCambioLlanta.Designer.cs">
+      <DependentUpon>xfrmCambioLlanta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmDetallesLlantasParchadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmDetallesLlantasParchadas.Designer.cs">
+      <DependentUpon>xfrmDetallesLlantasParchadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmDetallesCambioDeLlanta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmDetallesCambioDeLlanta.Designer.cs">
+      <DependentUpon>xfrmDetallesCambioDeLlanta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmLlantasParchadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmLlantasParchadas.Designer.cs">
+      <DependentUpon>xfrmLlantasParchadas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="xfrmCambioLlanta.resx">
+      <DependentUpon>xfrmCambioLlanta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmDetallesLlantasParchadas.resx">
+      <DependentUpon>xfrmDetallesLlantasParchadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmDetallesCambioDeLlanta.resx">
+      <DependentUpon>xfrmDetallesCambioDeLlanta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmLlantasParchadas.resx">
+      <DependentUpon>xfrmLlantasParchadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALMACEN.BL\ALMACEN.BL.csproj">
+      <Project>{4dcf1397-42cb-43a5-9a91-bd8089f6cc94}</Project>
+      <Name>ALMACEN.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
+      <Project>{a162fe83-383d-4225-a70e-ea9d27e0fb06}</Project>
+      <Name>ATRCBASE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.WIN\ATRCBASE.WIN.csproj">
+      <Project>{ca92b7d6-6738-4a42-a76e-ba583c929ba1}</Project>
+      <Name>ATRCBASE.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LLANTERA.BL\LLANTERA.BL.csproj">
+      <Project>{FC68347A-5277-41E9-9899-FA982E7EFED9}</Project>
+      <Name>LLANTERA.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{e46d9066-2710-40bc-be1c-e17eafc6a044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-guardar-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eliminar-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

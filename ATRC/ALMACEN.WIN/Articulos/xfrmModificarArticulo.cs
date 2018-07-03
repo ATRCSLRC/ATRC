@@ -29,6 +29,7 @@ namespace ALMACEN.WIN
             Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
             Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
             rgOpciones.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
+            cmbEstadoLlanta.Properties.Items.AddRange(typeof(Enums.EstadoLlanta).GetEnumValues());
             DesligarControles();
         }
 
@@ -82,6 +83,7 @@ namespace ALMACEN.WIN
             lueMarca.DataBindings.Add("EditValue", Articulo.Facturas, "Marca!", true, DataSourceUpdateMode.OnPropertyChanged);
             txtMedida.DataBindings.Add("EditValue", Articulo.Facturas, "Medida", true, DataSourceUpdateMode.OnPropertyChanged);
             txtSerie.DataBindings.Add("EditValue", Articulo.Facturas, "Serie", true, DataSourceUpdateMode.OnPropertyChanged);
+            cmbEstadoLlanta.DataBindings.Add("EditValue", Articulo, "EstadoLlanta", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTipo.DataBindings.Add("EditValue", Articulo.Facturas, "Tipo", true, DataSourceUpdateMode.OnPropertyChanged);
             Articulo.Facturas.Criteria = new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater);
             dlcFacturas.DataSource = dnFacturas.DataSource = Articulo.Facturas;
@@ -100,6 +102,7 @@ namespace ALMACEN.WIN
             lueMarca.ReadOnly = false;
             txtMedida.ReadOnly = false;
             txtSerie.ReadOnly = false;
+            cmbEstadoLlanta.ReadOnly = false;
             txtTipo.ReadOnly = false;
             rpAcciones.Visible = true;
             lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -124,6 +127,7 @@ namespace ALMACEN.WIN
             lueMarca.DataBindings.Clear();
             txtMedida.DataBindings.Clear();
             txtSerie.DataBindings.Clear();
+            cmbEstadoLlanta.DataBindings.Clear();
             txtTipo.DataBindings.Clear();
 
             txtNombre.Text = string.Empty;
@@ -138,6 +142,7 @@ namespace ALMACEN.WIN
             txtParte.Text = string.Empty;
             txtMedida.Text = string.Empty;
             txtSerie.Text = string.Empty;
+            cmbEstadoLlanta.Text = string.Empty;
             txtTipo.Text = string.Empty;
             lueMarca.EditValue = false;
             lueProveedor.EditValue = false;
@@ -160,6 +165,7 @@ namespace ALMACEN.WIN
             lueMarca.ReadOnly = true;
             txtMedida.ReadOnly = true;
             txtSerie.ReadOnly = true;
+            cmbEstadoLlanta.ReadOnly = true;
             txtTipo.ReadOnly = true;
             txtCodigo.Focus();
         }
@@ -174,6 +180,7 @@ namespace ALMACEN.WIN
                 Enums.TipoArticulo Articulo = (Enums.TipoArticulo)rg.EditValue;
                 txtTipo.Text = string.Empty;
                 txtSerie.Text = string.Empty;
+                cmbEstadoLlanta.Text = string.Empty;
                 txtMedida.Text = string.Empty;
                 switch (Articulo)
                 {
@@ -181,21 +188,25 @@ namespace ALMACEN.WIN
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Herramienta:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Baterias:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Llantas:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         break;
                 }
             }

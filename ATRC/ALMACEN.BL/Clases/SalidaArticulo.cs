@@ -34,14 +34,19 @@ namespace ALMACEN.BL
             set { SetPropertyValue<int>("Cantidad", ref mCantidad, value); }
         }
 
+        private bool mEsUtilizado;
+        public bool EsUtilizado
+        {
+            get { return mEsUtilizado; }
+            set { SetPropertyValue<bool>("EsUtilizado", ref mEsUtilizado, value); }
+        }
+
         private Enums.Destino mTipoDestino;
         public Enums.Destino TipoDestino
         {
             get { return mTipoDestino; }
             set { SetPropertyValue<Enums.Destino>("TipoDestino", ref mTipoDestino, value); }
         }
-
-        
 
         private string mOtroDestino;
         public string OtroDestino

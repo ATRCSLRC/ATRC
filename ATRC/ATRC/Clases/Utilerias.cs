@@ -47,16 +47,24 @@ namespace ATRC
             XpoDefault.Session.AutoCreateOption = DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema;
             XpoDefault.Session.Connect();
             Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
+            Type typeArticulo = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.Articulo");
             Type typeUnidad = System.Reflection.Assembly.Load("UNIDADES.BL").GetType("UNIDADES.BL.Unidad");
             XPClassInfo Almacen = XpoDefault.Session.GetClassInfo(typeSalida);
             XPClassInfo Unidad = XpoDefault.Session.GetClassInfo(typeUnidad);
             XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
             XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
+            XPMemberInfo LlantaFrontalIzquierdaChofer = Unidad.CreateMember("LlantaFrontalIzquierdaChofer", typeArticulo);
+            XPMemberInfo LlantaFrontalDerechaEstribo = Unidad.CreateMember("LlantaFrontalDerechaEstribo", typeArticulo);
+            XPMemberInfo LlantaTraseraInteriorChofer = Unidad.CreateMember("LlantaTraseraInteriorChofer", typeArticulo);
+            XPMemberInfo LlantaTraseraInteriorEstribo = Unidad.CreateMember("LlantaTraseraInteriorEstribo", typeArticulo);
+            XPMemberInfo LlantaTraseraExteriorChofer = Unidad.CreateMember("LlantaTraseraExteriorChofer", typeArticulo);
+            XPMemberInfo LlantaTraseraExteriorEstribo = Unidad.CreateMember("LlantaTraseraExteriorEstribo", typeArticulo);
 
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ATRCBASE.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("CHECADOR.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ALMACEN.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("UNIDADES.BL"));
+            XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("LLANTERA.BL"));
             XpoDefault.Session.UpdateSchema(typeof(XPObject).Assembly);
         }
     }

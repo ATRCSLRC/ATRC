@@ -37,6 +37,13 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Enums.TipoArticulo>("TipoArticulo", ref mTipoArticulo, value); }
         }
 
+        private Enums.EstadoLlanta mEstadoLlanta;
+        public Enums.EstadoLlanta EstadoLlanta
+        {
+            get { return mEstadoLlanta; }
+            set { SetPropertyValue<Enums.EstadoLlanta>("EstadoLlanta", ref mEstadoLlanta, value); }
+        }
+
         [Association("al_Articulo-InventarioArticulo")]
         public XPCollection<InventarioArticulo> Inventarios
         {

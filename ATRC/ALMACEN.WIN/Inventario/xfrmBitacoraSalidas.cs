@@ -48,7 +48,7 @@ namespace ALMACEN.WIN
                   new ViewProperty("Articulo.Codigo", SortDirection.None, "[Articulo.Codigo]", false, true),
                   new ViewProperty("Articulo.Nombre", SortDirection.None, "[Articulo.Nombre]", false, true),
                   new ViewProperty("Cantidad", SortDirection.None, "[Cantidad]", false, true),
-                  new ViewProperty("Destino", SortDirection.None, "[OtroDestino]", false, true),
+                  new ViewProperty("Destino", SortDirection.None, "iif([Unidad] is null,[OtroDestino],[Unidad.Nombre])", false, true),
                   new ViewProperty("Recibio", SortDirection.None,  "iif([UsuarioRecibo] is null,[OtroRecibo],[UsuarioRecibo.Nombre])", false, true),
                   new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true)
                  }); 

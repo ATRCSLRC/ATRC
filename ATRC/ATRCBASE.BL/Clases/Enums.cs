@@ -124,7 +124,15 @@ namespace ATRCBASE.BL
         {
             Camion = 0,
             Automovil = 1,
-            Maquinaria = 2
+            Maquinaria = 2,
+            Panel = 3
+        }
+
+        public enum EstadoLlanta
+        {
+            Nueva = 0,
+            Extra = 1,
+            Merma = 2
         }
     }
 }

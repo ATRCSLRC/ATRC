@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmLogin));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -146,7 +145,10 @@
             this.txtContraseña.MenuManager = this.barManager1;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Properties.NullText = "Contraseña";
+            this.txtContraseña.Properties.NullValuePrompt = "Contraseña";
+            this.txtContraseña.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtContraseña.Properties.PasswordChar = '*';
+            this.txtContraseña.Properties.ShowNullValuePromptWhenFocused = true;
             this.txtContraseña.Size = new System.Drawing.Size(265, 20);
             this.txtContraseña.StyleController = this.lcMain;
             this.txtContraseña.TabIndex = 6;
@@ -157,7 +159,9 @@
             this.txtUsuario.Location = new System.Drawing.Point(12, 241);
             this.txtUsuario.MenuManager = this.barManager1;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Properties.NullText = "Número de usuario";
+            this.txtUsuario.Properties.NullValuePrompt = "Número de usuario";
+            this.txtUsuario.Properties.NullValuePromptShowForEmptyValue = true;
+            this.txtUsuario.Properties.ShowNullValuePromptWhenFocused = true;
             this.txtUsuario.Size = new System.Drawing.Size(265, 20);
             this.txtUsuario.StyleController = this.lcMain;
             this.txtUsuario.TabIndex = 5;
@@ -252,7 +256,6 @@
             this.Controls.Add(this.barDockControlTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.xfrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();

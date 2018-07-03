@@ -35,6 +35,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbUsoLlanta = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dteFechaEntrega = new DevExpress.XtraEditors.DateEdit();
             this.lueProveedor = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMarca = new DevExpress.XtraEditors.LookUpEdit();
@@ -66,9 +67,11 @@
             this.lciTipo = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciMarca = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciSerie = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciEstadoLlanta = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbUsoLlanta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaEntrega.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaEntrega.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProveedor.Properties)).BeginInit();
@@ -101,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).BeginInit();
             this.SuspendLayout();
             // 
             // rcMain
@@ -162,6 +166,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.cmbUsoLlanta);
             this.lcMain.Controls.Add(this.dteFechaEntrega);
             this.lcMain.Controls.Add(this.lueProveedor);
             this.lcMain.Controls.Add(this.lueMarca);
@@ -185,6 +190,18 @@
             this.lcMain.Size = new System.Drawing.Size(692, 289);
             this.lcMain.TabIndex = 2;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // cmbUsoLlanta
+            // 
+            this.cmbUsoLlanta.Location = new System.Drawing.Point(432, 257);
+            this.cmbUsoLlanta.MenuManager = this.rcMain;
+            this.cmbUsoLlanta.Name = "cmbUsoLlanta";
+            this.cmbUsoLlanta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbUsoLlanta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbUsoLlanta.Size = new System.Drawing.Size(124, 20);
+            this.cmbUsoLlanta.StyleController = this.lcMain;
+            this.cmbUsoLlanta.TabIndex = 25;
             // 
             // dteFechaEntrega
             // 
@@ -311,11 +328,11 @@
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(432, 257);
+            this.txtTipo.Location = new System.Drawing.Point(560, 257);
             this.txtTipo.MenuManager = this.rcMain;
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTipo.Size = new System.Drawing.Size(248, 20);
+            this.txtTipo.Size = new System.Drawing.Size(120, 20);
             this.txtTipo.StyleController = this.lcMain;
             this.txtTipo.TabIndex = 13;
             // 
@@ -409,7 +426,8 @@
             this.lciMedida,
             this.lciTipo,
             this.lciMarca,
-            this.lciSerie});
+            this.lciSerie,
+            this.lciEstadoLlanta});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(692, 289);
             this.layoutControlGroup1.TextVisible = false;
@@ -560,10 +578,10 @@
             // lciTipo
             // 
             this.lciTipo.Control = this.txtTipo;
-            this.lciTipo.Location = new System.Drawing.Point(420, 229);
+            this.lciTipo.Location = new System.Drawing.Point(548, 229);
             this.lciTipo.MinSize = new System.Drawing.Size(100, 40);
             this.lciTipo.Name = "lciTipo";
-            this.lciTipo.Size = new System.Drawing.Size(252, 40);
+            this.lciTipo.Size = new System.Drawing.Size(124, 40);
             this.lciTipo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipo.Text = "Tipo:";
             this.lciTipo.TextLocation = DevExpress.Utils.Locations.Top;
@@ -593,6 +611,16 @@
             this.lciSerie.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciSerie.TextSize = new System.Drawing.Size(96, 13);
             // 
+            // lciEstadoLlanta
+            // 
+            this.lciEstadoLlanta.Control = this.cmbUsoLlanta;
+            this.lciEstadoLlanta.Location = new System.Drawing.Point(420, 229);
+            this.lciEstadoLlanta.Name = "lciEstadoLlanta";
+            this.lciEstadoLlanta.Size = new System.Drawing.Size(128, 40);
+            this.lciEstadoLlanta.Text = "Uso de llanta:";
+            this.lciEstadoLlanta.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciEstadoLlanta.TextSize = new System.Drawing.Size(96, 13);
+            // 
             // xfrmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,12 +631,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmArticulo";
             this.Ribbon = this.rcMain;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artículo";
             this.Load += new System.EventHandler(this.xfrmArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbUsoLlanta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaEntrega.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaEntrega.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProveedor.Properties)).EndInit();
@@ -641,6 +669,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -685,5 +714,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciProveedor;
         private DevExpress.XtraEditors.DateEdit dteFechaEntrega;
         private DevExpress.XtraLayout.LayoutControlItem lciFecha;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbUsoLlanta;
+        private DevExpress.XtraLayout.LayoutControlItem lciEstadoLlanta;
     }
 }

@@ -44,6 +44,7 @@ namespace ALMACEN.WIN
                 Enums.TipoArticulo Articulo = (Enums.TipoArticulo)rg.EditValue;
                 txtTipo.Text = string.Empty;
                 txtSerie.Text = string.Empty;
+                cmbUsoLlanta.Text = string.Empty;
                 txtMedida.Text = string.Empty;
                 switch (Articulo)
                 {
@@ -51,21 +52,25 @@ namespace ALMACEN.WIN
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Herramienta:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Baterias:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         break;
                     case Enums.TipoArticulo.Llantas:
                         lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciMedida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciSerie.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciEstadoLlanta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         break;
                 }
             }
@@ -102,6 +107,7 @@ namespace ALMACEN.WIN
                         Articulo.Nombre = txtNombre.Text;
                         Articulo.Codigo = txtCodigo.Text;
                         Articulo.TipoArticulo = (Enums.TipoArticulo)rgOpciones.EditValue;
+                        Articulo.EstadoLlanta = (Enums.EstadoLlanta)Enum.Parse(typeof(Enums.EstadoLlanta), cmbUsoLlanta.EditValue.ToString(), true);
                         Articulo.Facturas.Add(factura);
                     }
                     Articulo.Save();
@@ -124,6 +130,7 @@ namespace ALMACEN.WIN
         {
             txtCodigo.Focus();
             cboTipoMedida.Properties.Items.AddRange(typeof(Enums.TipoMedida).GetEnumValues());
+            cmbUsoLlanta.Properties.Items.AddRange(typeof(Enums.EstadoLlanta).GetEnumValues());
             rgOpciones.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
             dteFechaEntrega.DateTime = DateTime.Now;
             Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
@@ -138,10 +145,11 @@ namespace ALMACEN.WIN
             dteFechaEntrega.DateTime = DateTime.Now;
             txtCodigo.Text = string.Empty;
             txtNombre.Text = string.Empty;
-            spnAlmacen.Value = 0;
+            spnAlmacen.Value = 1;
             spnCantidad.Value = 0;
             spnPrecio.Value = 0;
             cboTipoMedida.SelectedIndex = 0;
+            cmbUsoLlanta.SelectedIndex = 0;
             lueMarca.EditValue = null;
             lueProveedor.EditValue = null;
             txtFactura.Text = string.Empty;
@@ -262,7 +270,6 @@ namespace ALMACEN.WIN
                     txtNombre.ReadOnly = false;
                     rgOpciones.ReadOnly = false;
                     txtNombre.Text = string.Empty;
-                    rgOpciones.SelectedIndex = 0;
                     txtNombre.Focus();
                 }
             }
