@@ -25,11 +25,8 @@ namespace UNIDADES.WIN
         private void xfrmBusquedaUnidades_Load(object sender, EventArgs e)
         {
             unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            //Utilerias.CargarLookupEdit(lueUnidad, typeof(Unidad), unidad, "Nombre", "Nombre", false);
-
             XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", null);
             lueUnidad.Properties.DataSource = Unidades;
-
         }
 
         private void lueUnidad_EditValueChanged(object sender, EventArgs e)

@@ -273,5 +273,41 @@ namespace UNIDADES.BL
             get { return mUltimoCambioAceite; }
             set { SetPropertyValue<DateTime>("Usuario", ref mUltimoCambioAceite, value); }
         }
+
+        [NonPersistent]
+        public object LlantaFrontalIzquierda
+        {
+            get { return this.GetMemberValue("LlantaFrontalIzquierdaChofer"); }
+        }
+
+        [NonPersistent]
+        public object LlantaFrontalDerecha
+        {
+            get { return this.GetMemberValue("LlantaFrontalDerechaEstribo"); }
+        }
+
+        [NonPersistent]
+        public object LlantaTraseraIntChofer
+        {
+            get { return this.GetMemberValue("LlantaTraseraInteriorChofer"); }
+        }
+
+        [NonPersistent]
+        public object LlantaTraseraIntEstribo
+        {
+            get { return this.GetMemberValue("LlantaTraseraInteriorEstribo"); }
+        }
+
+        [NonPersistent]
+        public object LlantaTraseraExtChofer
+        {
+            get { return this.GetMemberValue("LlantaTraseraExteriorChofer"); }
+        }
+
+        [NonPersistent]
+        public object LlantaTraseraExtEstribo
+        {
+            get { return this.GetMemberValue("LlantaTraseraExteriorEstribo"); }
+        }
     }
 }

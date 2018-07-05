@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaUnidades));
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions4 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lueUnidad = new DevExpress.XtraEditors.LookUpEdit();
@@ -68,6 +68,13 @@
             this.colExtinguidor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colTrancas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colRadio = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.category = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.colIzquierdaFrontal = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colDerechaFrontal = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTraseraInteriorChofer = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTraseraInteriorEstribo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTraseraExteriorChofer = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colTraseraExteriorEstribo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colFiltros = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.colAceiteMotor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colAceiteTransmision = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -213,7 +220,6 @@
             this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
             this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(12, 78);
             this.vGridControl1.Name = "vGridControl1";
@@ -224,6 +230,7 @@
             this.catGeneral,
             this.catInterior,
             this.catExterior,
+            this.category,
             this.colFiltros});
             this.vGridControl1.Size = new System.Drawing.Size(434, 578);
             this.vGridControl1.TabIndex = 4;
@@ -551,6 +558,55 @@
             this.colRadio.Properties.Caption = "Tiene radio";
             this.colRadio.Properties.FieldName = "TieneRadio";
             // 
+            // category
+            // 
+            this.category.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.colIzquierdaFrontal,
+            this.colDerechaFrontal,
+            this.colTraseraInteriorChofer,
+            this.colTraseraInteriorEstribo,
+            this.colTraseraExteriorChofer,
+            this.colTraseraExteriorEstribo});
+            this.category.Name = "category";
+            this.category.Properties.Caption = "category";
+            // 
+            // colIzquierdaFrontal
+            // 
+            this.colIzquierdaFrontal.Name = "colIzquierdaFrontal";
+            this.colIzquierdaFrontal.Properties.Caption = "Llanta frontal chofer";
+            this.colIzquierdaFrontal.Properties.FieldName = "LlantaFrontalIzquierda.DetalleLlanta";
+            // 
+            // colDerechaFrontal
+            // 
+            this.colDerechaFrontal.Name = "colDerechaFrontal";
+            this.colDerechaFrontal.Properties.Caption = "Llanta frontal estribo";
+            this.colDerechaFrontal.Properties.FieldName = "LlantaFrontalDerecha.DetalleLlanta";
+            // 
+            // colTraseraInteriorChofer
+            // 
+            this.colTraseraInteriorChofer.Name = "colTraseraInteriorChofer";
+            this.colTraseraInteriorChofer.Properties.Caption = "Llanta trasera interior chofer";
+            this.colTraseraInteriorChofer.Properties.FieldName = "LlantaTraseraIntChofer.DetalleLlanta";
+            // 
+            // colTraseraInteriorEstribo
+            // 
+            this.colTraseraInteriorEstribo.Name = "colTraseraInteriorEstribo";
+            this.colTraseraInteriorEstribo.OptionsRow.AllowFocus = false;
+            this.colTraseraInteriorEstribo.Properties.Caption = "Llanta trasera interior estribo";
+            this.colTraseraInteriorEstribo.Properties.FieldName = "LlantaTraseraIntEstribo.DetalleLlanta";
+            // 
+            // colTraseraExteriorChofer
+            // 
+            this.colTraseraExteriorChofer.Name = "colTraseraExteriorChofer";
+            this.colTraseraExteriorChofer.Properties.Caption = "Llanta trasera exterior chofer";
+            this.colTraseraExteriorChofer.Properties.FieldName = "LlantaTraseraExtChofer.DetalleLlanta";
+            // 
+            // colTraseraExteriorEstribo
+            // 
+            this.colTraseraExteriorEstribo.Name = "colTraseraExteriorEstribo";
+            this.colTraseraExteriorEstribo.Properties.Caption = "Llanta trasera exterior estribo";
+            this.colTraseraExteriorEstribo.Properties.FieldName = "LlantaTraseraExtEstribo.DetalleLlanta";
+            // 
             // colFiltros
             // 
             this.colFiltros.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
@@ -675,11 +731,11 @@
             this.fypEdicion.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.TopRight;
             this.fypEdicion.OptionsButtonPanel.ButtonPanelHeight = 10;
             this.fypEdicion.OptionsButtonPanel.ButtonPanelLocation = DevExpress.Utils.FlyoutPanelButtonPanelLocation.Top;
-            buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
-            buttonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions4.Image")));
+            buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
+            buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
             this.fypEdicion.OptionsButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.Utils.PeekFormButton("Imprimir detalle de unidad", true, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.Utils.PeekFormButton("Modificar unidad", true, buttonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.Utils.PeekFormButton("Imprimir detalle de unidad", true, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.Utils.PeekFormButton("Modificar unidad", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.fypEdicion.OptionsButtonPanel.ShowButtonPanel = true;
             this.fypEdicion.OwnerControl = this.picFoto;
             this.fypEdicion.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -767,5 +823,12 @@
         private DevExpress.Utils.FlyoutPanel fypEdicion;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTipoUnidad;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colUltimoCambioAceite;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow category;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colIzquierdaFrontal;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colDerechaFrontal;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraInteriorChofer;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraInteriorEstribo;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraExteriorChofer;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraExteriorEstribo;
     }
 }

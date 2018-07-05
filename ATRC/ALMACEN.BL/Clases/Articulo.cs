@@ -56,5 +56,11 @@ namespace ALMACEN.BL
             get { return GetCollection<Factura>("Facturas"); }
         }
 
+        [NonPersistent]
+        public string DetalleLlanta
+        {
+            get { return this.Facturas[0].Marca.Nombre + " " + this.Facturas[0].Serie + " R-" + this.Facturas[0].Medida; }
+        }
+
     }
 }
