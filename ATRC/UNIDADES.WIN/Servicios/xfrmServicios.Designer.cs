@@ -35,6 +35,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.txtMillas = new DevExpress.XtraEditors.TextEdit();
             this.memoDetalles = new DevExpress.XtraEditors.MemoEdit();
             this.rgTipoServicio = new DevExpress.XtraEditors.RadioGroup();
             this.lueUnidad = new DevExpress.XtraEditors.LookUpEdit();
@@ -44,11 +45,11 @@
             this.lciUnidad = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciServicio = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDetalles = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtMillas = new DevExpress.XtraEditors.TextEdit();
             this.lciMillas = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMillas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoDetalles.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTipoServicio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).BeginInit();
@@ -59,7 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciServicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMillas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMillas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,7 @@
             this.bbiGuardar.Caption = "Guardar";
             this.bbiGuardar.Id = 1;
             this.bbiGuardar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiGuardar.ImageOptions.LargeImage")));
+            this.bbiGuardar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiGuardar.Name = "bbiGuardar";
             this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
@@ -95,6 +96,7 @@
             this.bbiCancelar.Caption = "Cancelar";
             this.bbiCancelar.Id = 2;
             this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
+            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiCancelar.Name = "bbiCancelar";
             this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
@@ -128,6 +130,15 @@
             this.lcMain.Size = new System.Drawing.Size(347, 280);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // txtMillas
+            // 
+            this.txtMillas.Location = new System.Drawing.Point(93, 111);
+            this.txtMillas.MenuManager = this.ribbonControl1;
+            this.txtMillas.Name = "txtMillas";
+            this.txtMillas.Size = new System.Drawing.Size(242, 20);
+            this.txtMillas.StyleController = this.lcMain;
+            this.txtMillas.TabIndex = 8;
             // 
             // memoDetalles
             // 
@@ -230,15 +241,6 @@
             this.lciDetalles.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciDetalles.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // txtMillas
-            // 
-            this.txtMillas.Location = new System.Drawing.Point(93, 111);
-            this.txtMillas.MenuManager = this.ribbonControl1;
-            this.txtMillas.Name = "txtMillas";
-            this.txtMillas.Size = new System.Drawing.Size(242, 20);
-            this.txtMillas.StyleController = this.lcMain;
-            this.txtMillas.TabIndex = 8;
-            // 
             // lciMillas
             // 
             this.lciMillas.Control = this.txtMillas;
@@ -263,6 +265,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtMillas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoDetalles.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTipoServicio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).EndInit();
@@ -273,7 +276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciServicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMillas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMillas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

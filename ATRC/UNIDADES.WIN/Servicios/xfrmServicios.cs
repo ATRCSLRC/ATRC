@@ -83,7 +83,9 @@ namespace UNIDADES.WIN
                     }
                     Servicio.Save();
                     Unidad.CommitChanges();
-                    this.Close();
+                    LimpiarControles();
+                    LigarControles();
+                    dteFecha.DateTime = DateTime.Now;
                 }
             }
         }
@@ -102,6 +104,21 @@ namespace UNIDADES.WIN
                 lciMillas.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
             txtMillas.Text = string.Empty;
+        }
+
+        private void LimpiarControles()
+        {
+            dteFecha.DataBindings.Clear();
+            rgTipoServicio.DataBindings.Clear();
+            memoDetalles.DataBindings.Clear();
+            txtMillas.DataBindings.Clear();
+            lueUnidad.EditValue = null;
+
+            rgTipoServicio.SelectedIndex = 0;
+            memoDetalles.Text = string.Empty;
+            txtMillas.Text = string.Empty;
+            lueUnidad.Focus();
+            Servicio = new Servicios(Unidad);
         }
     }
 }
