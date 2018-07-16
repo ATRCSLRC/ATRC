@@ -28,6 +28,7 @@ namespace ATRC
             rpAlmacen.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Almacen") ? true : false;
             rbnpUnidades.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Unidades") ? true : false;
             rbnpLlantera.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Llantera") ? true : false;
+            rbnpTaller.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Taller") ? true : false;
         }
 
         private void bvbiSalir_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
@@ -314,6 +315,22 @@ namespace ATRC
         private void bbiReparacionLlanta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LLANTERA.WIN.xfrmLlantasParchadas xfrm = new LLANTERA.WIN.xfrmLlantasParchadas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiBitacoraActividades_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TALLER.WIN.xfrmSeleccionEmpleados xfrm = new TALLER.WIN.xfrmSeleccionEmpleados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiCapturaActividades_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TALLER.WIN.xfrmCapturaActividades xfrm = new TALLER.WIN.xfrmCapturaActividades();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

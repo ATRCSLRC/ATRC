@@ -81,6 +81,8 @@
             this.bbiReparacionLlanta = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rgbiLlantas = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.bbiBitacoraActividades = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCapturaActividades = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -98,6 +100,8 @@
             this.rbnpLlantera = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgLlantas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgInventarioLlantas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnpTaller = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -146,9 +150,11 @@
             this.bbiCambioLlanta,
             this.bbiReparacionLlanta,
             this.barButtonItem3,
-            this.rgbiLlantas});
+            this.rgbiLlantas,
+            this.bbiBitacoraActividades,
+            this.bbiCapturaActividades});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 35;
+            this.rbnMain.MaxItemId = 37;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnpUsuarios,
@@ -156,6 +162,7 @@
             this.rpAlmacen,
             this.rbnpUnidades,
             this.rbnpLlantera,
+            this.rbnpTaller,
             this.rbnpAdministracion});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -557,6 +564,23 @@
             this.rgbiLlantas.Name = "rgbiLlantas";
             this.rgbiLlantas.GalleryItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.rgbiLlantas_GalleryItemClick);
             // 
+            // bbiBitacoraActividades
+            // 
+            this.bbiBitacoraActividades.Caption = "Bitácora de actividades";
+            this.bbiBitacoraActividades.Id = 35;
+            this.bbiBitacoraActividades.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_para_hacer_32;
+            this.bbiBitacoraActividades.Name = "bbiBitacoraActividades";
+            this.bbiBitacoraActividades.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiBitacoraActividades.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBitacoraActividades_ItemClick);
+            // 
+            // bbiCapturaActividades
+            // 
+            this.bbiCapturaActividades.Caption = "Actividades";
+            this.bbiCapturaActividades.Id = 36;
+            this.bbiCapturaActividades.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_formulario_32;
+            this.bbiCapturaActividades.Name = "bbiCapturaActividades";
+            this.bbiCapturaActividades.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCapturaActividades_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -710,6 +734,23 @@
             this.rpgInventarioLlantas.ShowCaptionButton = false;
             this.rpgInventarioLlantas.Text = "Inventarios";
             // 
+            // rbnpTaller
+            // 
+            this.rbnpTaller.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnpTaller.Name = "rbnpTaller";
+            this.rbnpTaller.Text = "Taller";
+            this.rbnpTaller.Visible = false;
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiBitacoraActividades);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiCapturaActividades);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Actividades";
+            // 
             // rbnpAdministracion
             // 
             this.rbnpAdministracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -830,5 +871,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiReparacionLlanta;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiLlantas;
+        private DevExpress.XtraBars.BarButtonItem bbiBitacoraActividades;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnpTaller;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem bbiCapturaActividades;
     }
 }

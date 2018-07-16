@@ -83,6 +83,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_formulario_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-formulario-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_llave_de_cruz_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-llave-de-cruz-32", resourceCulture);
@@ -96,6 +106,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_neumático_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-neumático-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_para_hacer_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-para-hacer-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

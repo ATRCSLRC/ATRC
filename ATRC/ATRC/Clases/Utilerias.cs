@@ -65,6 +65,7 @@ namespace ATRC
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ALMACEN.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("UNIDADES.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("LLANTERA.BL"));
+            XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("TALLER.BL"));
             XpoDefault.Session.UpdateSchema(typeof(XPObject).Assembly);
         }
     }
