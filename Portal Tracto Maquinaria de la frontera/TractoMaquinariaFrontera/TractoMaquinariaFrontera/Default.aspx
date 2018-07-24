@@ -219,42 +219,61 @@
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-269/IMG_7557.JPG" data-lightbox="C-269" ><img src="photos/Camiones/C-269/IMG_7557.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2004 Nacional</span><br/>Internacional</h2>
                                 <p>Motor: Navistar<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 60 pasajeros<br />Unidad: C-269</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-269/IMG_7558.JPG" data-lightbox="C-269" title="Motor: Navistar, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 60 pasajeros, unidad: C-269"></a>
+                            <a href="photos/Camiones/C-269/IMG_7559.JPG" data-lightbox="C-269" title="Motor: Navistar, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 60 pasajeros, unidad: C-269"></a>
+                            <a href="photos/Camiones/C-269/IMG_7560.JPG" data-lightbox="C-269" title="Motor: Navistar, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 60 pasajeros, unidad: C-269"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-288/IMG_6502.JPG" data-lightbox="C-288" ><img src="photos/Camiones/C-288/IMG_6502.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar<br/>Transmición: Automático<br/>Frenos: Hidráulico<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-288</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-288/IMG_6503.JPG" data-lightbox="C-288" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulico, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-288"></a>
+                            <a href="photos/Camiones/C-288/IMG_6504.JPG" data-lightbox="C-288" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulico, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-288"></a>
+                            <a href="photos/Camiones/C-288/IMG_6505.JPG" data-lightbox="C-288" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulico, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-288"></a>
+                            <a href="photos/Camiones/C-288/IMG_6506.JPG" data-lightbox="C-288" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulico, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-288"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-290/IMG_8240.JPG" data-lightbox="C-290" ><img src="photos/Camiones/C-290/IMG_8240.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-290</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-290/IMG_8241.JPG" data-lightbox="C-290" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-290"></a>
+                            <a href="photos/Camiones/C-290/IMG_8242.JPG" data-lightbox="C-290" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-290"></a>
+                            <a href="photos/Camiones/C-290/IMG_8243.JPG" data-lightbox="C-290" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-290"></a>
+                            <a href="photos/Camiones/C-290/IMG_8244.JPG" data-lightbox="C-290" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-290"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-291/IMG_6488.JPG" data-lightbox="C-291" ><img src="photos/Camiones/C-291/IMG_6488.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-291</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-291/IMG_6490.JPG" data-lightbox="C-291" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-291"></a>
+                            <a href="photos/Camiones/C-291/IMG_6491.JPG" data-lightbox="C-291" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-291"></a>
+                            <a href="photos/Camiones/C-291/IMG_6492.JPG" data-lightbox="C-291" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-291"></a>
+                            <a href="photos/Camiones/C-291/IMG_6493.JPG" data-lightbox="C-291" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-291"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-292/IMG_6496.JPG" data-lightbox="C-292" ><img src="photos/Camiones/C-292/IMG_6496.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-292</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-292/IMG_6497.JPG" data-lightbox="C-292" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-292"></a>
+                            <a href="photos/Camiones/C-292/IMG_6498.JPG" data-lightbox="C-292" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-292"></a>
+                            <a href="photos/Camiones/C-292/IMG_6499.JPG" data-lightbox="C-292" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-292"></a>
+                            <a href="photos/Camiones/C-292/IMG_6500.JPG" data-lightbox="C-292" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-292"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-296/IMG_8230.JPG" data-lightbox="C-296" ><img src="photos/Camiones/C-296/IMG_8230.JPG" alt="" class="img-responsive" />
@@ -263,6 +282,10 @@
                                 <h2><span>2004 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 44 pasajeros<br />Unidad: C-296</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-296/IMG_8231.JPG" data-lightbox="C-296" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-296"></a>
+                            <a href="photos/Camiones/C-296/IMG_8232.JPG" data-lightbox="C-296" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-296"></a>
+                            <a href="photos/Camiones/C-296/IMG_8233.JPG" data-lightbox="C-296" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-296"></a>
+                            <a href="photos/Camiones/C-296/IMG_8234.JPG" data-lightbox="C-296" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-296"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-297/IMG_8235.JPG" data-lightbox="C-297" ><img src="photos/Camiones/C-297/IMG_8235.JPG" alt="" class="img-responsive" />
@@ -271,30 +294,46 @@
                                 <h2><span>2004 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 44 pasajeros<br />Unidad: C-297</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-297/IMG_8236.JPG" data-lightbox="C-297" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-297"></a>
+                            <a href="photos/Camiones/C-297/IMG_8237.JPG" data-lightbox="C-297" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-297"></a>
+                            <a href="photos/Camiones/C-297/IMG_8238.JPG" data-lightbox="C-297" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-297"></a>
+                            <a href="photos/Camiones/C-297/IMG_8239.JPG" data-lightbox="C-297" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 44 pasajeros, unidad: C-297"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-298/IMG_8250.JPG" data-lightbox="C-298" ><img src="photos/Camiones/C-298/IMG_8250.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-298</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-298/IMG_8251.JPG" data-lightbox="C-298" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-298"></a>
+                            <a href="photos/Camiones/C-298/IMG_8252.JPG" data-lightbox="C-298" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-298"></a>
+                            <a href="photos/Camiones/C-298/IMG_8253.JPG" data-lightbox="C-298" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-298"></a>
+                            <a href="photos/Camiones/C-298/IMG_8254.JPG" data-lightbox="C-298" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-298"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-301/IMG_8259.JPG" data-lightbox="C-301" ><img src="photos/Camiones/C-301/IMG_8259.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-301</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-301/IMG_8255.JPG" data-lightbox="C-301" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-301"></a>
+                            <a href="photos/Camiones/C-301/IMG_8256.JPG" data-lightbox="C-301" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-301"></a>
+                            <a href="photos/Camiones/C-301/IMG_8257.JPG" data-lightbox="C-301" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-301"></a>
+                            <a href="photos/Camiones/C-301/IMG_8258.JPG" data-lightbox="C-301" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-301"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-304/IMG_8220.JPG" data-lightbox="C-304" ><img src="photos/Camiones/C-304/IMG_8220.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-304</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-304/IMG_8221.JPG" data-lightbox="C-304" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-304"></a>
+                            <a href="photos/Camiones/C-304/IMG_8222.JPG" data-lightbox="C-304" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-304"></a>
+                            <a href="photos/Camiones/C-304/IMG_8223.JPG" data-lightbox="C-304" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-304"></a>
+                            <a href="photos/Camiones/C-304/IMG_8224.JPG" data-lightbox="C-304" title="Motor: Mercedez benz, transmición: Automático, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-304"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-306/IMG_7664.JPG" data-lightbox="C-306" ><img src="photos/Camiones/C-306/IMG_7664.JPG" alt="" class="img-responsive" />
@@ -303,6 +342,10 @@
                                 <h2><span>2006 Nacional</span><br/>Internacional</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-306</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-306/IMG_7665.JPG" data-lightbox="C-306" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-306"></a>
+                            <a href="photos/Camiones/C-306/IMG_7666.JPG" data-lightbox="C-306" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-306"></a>
+                            <a href="photos/Camiones/C-306/IMG_7667.JPG" data-lightbox="C-306" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-306"></a>
+                            <a href="photos/Camiones/C-306/IMG_7668.JPG" data-lightbox="C-306" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-306"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-307/IMG_7550.JPG" data-lightbox="C-307" ><img src="photos/Camiones/C-307/IMG_7550.JPG" alt="" class="img-responsive" />
@@ -311,107 +354,152 @@
                                 <h2><span>2006 Nacional</span><br/>Internacional</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-307</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-307/IMG_7551.JPG" data-lightbox="C-307" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-307"></a>
+                            <a href="photos/Camiones/C-307/IMG_7552.JPG" data-lightbox="C-307" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-307"></a>
+                            <a href="photos/Camiones/C-307/IMG_7553.JPG" data-lightbox="C-307" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-307"></a>
+                            <a href="photos/Camiones/C-307/IMG_7554.JPG" data-lightbox="C-307" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-307"></a>
+                            <a href="photos/Camiones/C-307/IMG_7555.JPG" data-lightbox="C-307" title="Motor: Mercedez benz, transmición: Automatico, frenos: Aire, suspeción: Aire, A/C: N/A, capacidad: 48 pasajeros, unidad: C-307"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-308/IMG_8225.JPG" data-lightbox="C-308" ><img src="photos/Camiones/C-308/IMG_8225.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-308</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-308/IMG_8226.JPG" data-lightbox="C-308" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-308"></a>
+                            <a href="photos/Camiones/C-308/IMG_8227.JPG" data-lightbox="C-308" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-308"></a>
+                            <a href="photos/Camiones/C-308/IMG_8228.JPG" data-lightbox="C-308" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-308"></a>
+                            <a href="photos/Camiones/C-308/IMG_8229.JPG" data-lightbox="C-308" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-308"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-309/IMG_8215.JPG" data-lightbox="C-309" ><img src="photos/Camiones/C-309/IMG_8215.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-309</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-309/IMG_8216.JPG" data-lightbox="C-309" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-309"></a>
+                            <a href="photos/Camiones/C-309/IMG_8217.JPG" data-lightbox="C-309" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-309"></a>
+                            <a href="photos/Camiones/C-309/IMG_8218.JPG" data-lightbox="C-309" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-309"></a>
+                            <a href="photos/Camiones/C-309/IMG_8219.JPG" data-lightbox="C-309" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-309"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-310/IMG_9074.JPG" data-lightbox="C-310" ><img src="photos/Camiones/C-310/IMG_9074.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar C7<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-310</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-310/IMG_9075.JPG" data-lightbox="C-310" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-310"></a>
+                            <a href="photos/Camiones/C-310/IMG_9076.JPG" data-lightbox="C-310" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-310"></a>
+                            <a href="photos/Camiones/C-310/IMG_9077.JPG" data-lightbox="C-310" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-310"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-311/IMG_8245.JPG" data-lightbox="C-311" ><img src="photos/Camiones/C-311/IMG_8245.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2004 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Mercedez benz<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-311/IMG_8246.JPG" data-lightbox="C-311" title="Motor: Mercedez benz, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-311"></a>
+                            <a href="photos/Camiones/C-311/IMG_8247.JPG" data-lightbox="C-311" title="Motor: Mercedez benz, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-311"></a>
+                            <a href="photos/Camiones/C-311/IMG_8248.JPG" data-lightbox="C-311" title="Motor: Mercedez benz, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-311"></a>
+                            <a href="photos/Camiones/C-311/IMG_8249.JPG" data-lightbox="C-311" title="Motor: Mercedez benz, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-311"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-313/IMG_9080.JPG" data-lightbox="C-313" ><img src="photos/Camiones/C-313/IMG_9080.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar C7<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-313</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-313/IMG_9079.JPG" data-lightbox="C-313" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-313"></a>
+                            <a href="photos/Camiones/C-313/IMG_9081.JPG" data-lightbox="C-313" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-313"></a>
+                            <a href="photos/Camiones/C-313/IMG_9082.JPG" data-lightbox="C-313" title="Motor: Caterpillar, transmición: Automático, frenos: Hidráulicos, suspeción: Muelles, A/C: N/A, capacidad: 48 pasajeros, unidad: C-313"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-316/IMG_8507.JPG" data-lightbox="C-316" ><img src="photos/Camiones/C-316/IMG_8507.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2007 Nacional</span><br/>Blue bird</h2>
                                 <p>Motor: Caterpillar C7<br/>Transmición: Automático<br/>Frenos: Aire<br/>Suspeción: Muelles<br/>A/C: Si<br/>Capacidad: 44 pasajeros<br />Unidad: C-316</p>
                             </figcaption></a>
+                            <a href="photos/Camiones/C-316/IMG_8508.JPG" data-lightbox="C-316" title="Motor: Caterpillar, transmición: Automático, frenos: Aire, suspeción: Muelles, A/C: N/A, capacidad: 44 pasajeros, unidad: C-316"></a>
+                            <a href="photos/Camiones/C-316/IMG_8509.JPG" data-lightbox="C-316" title="Motor: Caterpillar, transmición: Automático, frenos: Aire, suspeción: Muelles, A/C: N/A, capacidad: 44 pasajeros, unidad: C-316"></a>
+                            <a href="photos/Camiones/C-316/IMG_8510.JPG" data-lightbox="C-316" title="Motor: Caterpillar, transmición: Automático, frenos: Aire, suspeción: Muelles, A/C: N/A, capacidad: 44 pasajeros, unidad: C-316"></a>
+                            <a href="photos/Camiones/C-316/IMG_8511.JPG" data-lightbox="C-316" title="Motor: Caterpillar, transmición: Automático, frenos: Aire, suspeción: Muelles, A/C: N/A, capacidad: 44 pasajeros, unidad: C-316"></a>
                         </figure>
-                        <figure class="portfolio-item featured" data-groups='["camiones"]'>
+                        <%--<figure class="portfolio-item featured" data-groups='["camiones"]'>
                              <a href="photos/Camiones/C-310/IMG_9074.JPG" data-lightbox="C-310" ><img src="photos/Camiones/C-310/IMG_9074.JPG" alt="" class="img-responsive" />
                             <figcaption>
                                 <div class="PrecioActual-text"><span>&nbsp;</span></div>
                                 <h2><span>2005 Nacional</span><br/>Freightliner</h2>
                                 <p>Motor: Caterpillar C7<br/>Transmición: Automático<br/>Frenos: Hidráulicos<br/>Suspeción: Muelles<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-310</p>
                             </figcaption></a>
-                        </figure>
+                        </figure>--%>
                         <figure class="portfolio-item featured" data-groups='["carros"]'>
                              <a href="photos/Carros/Camaro/4b00e340-8e70-4b0d-9ff8-98a46a37d053.JPG" data-lightbox="Camaro" ><img src="photos/Carros/Camaro/4b00e340-8e70-4b0d-9ff8-98a46a37d053.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2006 Nacional</span><br/>Camaro</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>
+                            <a href="photos/Carros/Camaro/20d6398d-ed00-49f1-9bb1-360924766c03.JPG" data-lightbox="Camaro"></a>
+                            <a href="photos/Carros/Camaro/7283b331-615f-45c3-83ad-dd4f5382246f.JPG" data-lightbox="Camaro"></a>
+                            <a href="photos/Carros/Camaro/88971e6a-3a85-4947-a719-2ca850680f3b.JPG" data-lightbox="Camaro"></a>
+                            <a href="photos/Carros/Camaro/a895888c-ee62-4df7-87cd-2ab69fea70e6.JPG" data-lightbox="Camaro"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["maquinaria"]'>
                              <a href="photos/Maquinaria/Barredora/IMG_5687.JPG" data-lightbox="Barredora" ><img src="photos/Maquinaria/Barredora/IMG_5687.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2006 Nacional</span><br/>Barredora</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5686.JPG" data-lightbox="Barredora"></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5685.JPG" data-lightbox="Barredora"></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5684.JPG" data-lightbox="Barredora"></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5683.JPG" data-lightbox="Barredora"></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5682.JPG" data-lightbox="Barredora"></a>
+                            <a href="photos/Maquinaria/Barredora/IMG_5681.JPG" data-lightbox="Barredora"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["maquinaria"]'>
                              <a href="photos/Maquinaria/Barredora 2/IMG_5204.JPG" data-lightbox="Barredora2" ><img src="photos/Maquinaria/Barredora 2/IMG_5204.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2006 Nacional</span><br/>ELGIN</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>
+                            <a href="photos/Maquinaria/Barredora 2/IMG_5205.JPG" data-lightbox="BarrBarredora2edora"></a>
+                            <a href="photos/Maquinaria/Barredora 2/IMG_5206.JPG" data-lightbox="Barredora2"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["maquinaria"]'>
                              <a href="photos/Maquinaria/Cargador frontal/IMG_6318.JPG" data-lightbox="cargador" ><img src="photos/Maquinaria/Cargador frontal/IMG_6318.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2006 Nacional</span><br/>Cargador frontal</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>
+                            <a href="photos/Maquinaria/Cargador frontal/IMG_6315.JPG" data-lightbox="cargador"></a>
+                            <a href="photos/Maquinaria/Cargador frontal/IMG_6320.JPG" data-lightbox="cargador"></a>
+                            <a href="photos/Maquinaria/Cargador frontal/IMG_6321.JPG" data-lightbox="cargador"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["maquinaria"]'>
                              <a href="photos/Maquinaria/Motoconformadora/IMG_6323.JPG" data-lightbox="cargador" ><img src="photos/Maquinaria/Motoconformadora/IMG_6323.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span>2006 Nacional</span><br/>Galion</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>
+                            <a href="photos/Maquinaria/Motoconformadora/IMG_6322.JPG" data-lightbox="cargador"></a>
+                            <a href="photos/Maquinaria/Motoconformadora/IMG_6324.JPG" data-lightbox="cargador"></a>
+                            <a href="photos/Maquinaria/Motoconformadora/IMG_6325.JPG" data-lightbox="cargador"></a>
                         </figure>
                         <figure class="portfolio-item featured" data-groups='["maquinaria"]'>
                              <a href="photos/Maquinaria/GRUA/IMG_9087.JPG" data-lightbox="grua" ><img src="photos/Maquinaria/GRUA/IMG_9087.JPG" alt="" class="img-responsive" />
                             <figcaption>
-                                <div class="PrecioActual-text"><span>&nbsp;</span></div>
+                                <div class="PrecioActual-text"><span>Disponible</span></div>
                                 <h2><span></span><br/>Grua</h2>
                                 <%--<p>Motor: Mercedez benz<br/>Transmición: Automatico<br/>Frenos: Aire<br/>Suspeción: Aire<br/>A/C: N/A<br/>Capacidad: 48 pasajeros<br />Unidad: C-311</p>--%>
                             </figcaption></a>

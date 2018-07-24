@@ -13,7 +13,7 @@ namespace ATRCBASE.WIN.Reportes
         {
             InitializeComponent();
 
-            XPCollection Usuarios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(ATRCBASE.BL.Usuario));
+            XPView Usuarios = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(ATRCBASE.BL.Usuario), "Nombre;NumEmpleado;RFC;Puesto.Descripcion;Departamento.Descripcion;IMSS", null);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             this.DataSource = Usuarios;
         }

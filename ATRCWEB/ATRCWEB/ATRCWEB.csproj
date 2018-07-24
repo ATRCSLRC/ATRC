@@ -46,10 +46,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ATRCBASE.BL">
+    <Reference Include="ALMACEN.BL">
+      <HintPath>..\..\Librerias\ALMACEN.BL.dll</HintPath>
+    </Reference>
+    <Reference Include="ATRCBASE.BL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Librerias\ATRCBASE.BL.dll</HintPath>
     </Reference>
-    <Reference Include="CHECADOR.BL">
+    <Reference Include="CHECADOR.BL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Librerias\CHECADOR.BL.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -71,6 +76,9 @@
     <Reference Include="Elmah">
       <HintPath>..\..\Librerias\Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="LLANTERA.BL">
+      <HintPath>..\..\Librerias\LLANTERA.BL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -90,6 +98,12 @@
     <Reference Include="DevExpress.Web.Bootstrap.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Web.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="TALLER.BL">
+      <HintPath>..\..\Librerias\TALLER.BL.dll</HintPath>
+    </Reference>
+    <Reference Include="UNIDADES.BL">
+      <HintPath>..\..\Librerias\UNIDADES.BL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\Departamentos.aspx" />
@@ -116,9 +130,6 @@
     <Content Include="js\Winwheel.js" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
-    <Content Include="obj\Debug\ATRCWEB.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\ATRCWEB.dll" />
-    <Content Include="obj\Debug\ATRCWEB.pdb" />
     <Content Include="Reportes\FiltroReporte.aspx" />
     <Content Include="Reportes\Reporte.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -133,7 +144,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="obj\Debug\ATRCWEB.csproj.CopyComplete" />
     <Content Include="obj\Debug\ATRCWEB.csproj.CoreCompileInputs.cache" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\fontawesome-webfont.ttf" />

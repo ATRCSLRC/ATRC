@@ -20,7 +20,8 @@ namespace CHECADOR.WIN.Reportes
             go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaChecada", Inicial, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaChecada", Final, BinaryOperatorType.LessOrEqual));
-            XPCollection Usuarios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador));
+            XPView Usuarios = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.NumEmpleado", null);
+            //XPCollection Usuarios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador));
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             if (Usuarios.Count > 0)
                 this.DataSource = Usuarios;
@@ -28,10 +29,12 @@ namespace CHECADOR.WIN.Reportes
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            UsuarioChecador Usuario = (UsuarioChecador)this.GetCurrentRow();
+            ViewRecord viewUsuario = (ViewRecord)this.GetCurrentRow();
+            //UsuarioChecador Usuario = (UsuarioChecador)this.GetCurrentRow();
             decimal TotalLunes = 0, TotalMartes = 0, TotalMiercoles = 0, TotalJueves = 0, TotalViernes = 0, TotalSabado = 0, TotalDomingo = 0;
-            if (Usuario != null)
+            if (viewUsuario != null)
             {
+                UsuarioChecador Usuario = (UsuarioChecador)viewUsuario.GetObject();
                 Usuario.HistoricoChecadas.Filter = go;
                 foreach (HistoricoChecadas Historico in Usuario.HistoricoChecadas)
                 {
