@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmCapturaActividades));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
@@ -70,6 +70,7 @@
             this.lciNumeroEmpleado = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciNombreEmpleado = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -209,6 +210,7 @@
             // 
             this.grvActividades.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn5,
+            this.gridColumn6,
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
@@ -242,9 +244,9 @@
             this.repositoryItemBorrarActividad.Appearance.Options.UseBorderColor = true;
             this.repositoryItemBorrarActividad.AutoHeight = false;
             this.repositoryItemBorrarActividad.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions3.Image = global::TALLER.WIN.Properties.Resources.icons8_eliminar_16;
+            editorButtonImageOptions1.Image = global::TALLER.WIN.Properties.Resources.icons8_eliminar_16;
             this.repositoryItemBorrarActividad.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemBorrarActividad.LookAndFeel.SkinName = "Office 2016 Black";
             this.repositoryItemBorrarActividad.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.repositoryItemBorrarActividad.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -258,7 +260,7 @@
             this.gridColumn1.FieldName = "Actividad";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.VisibleIndex = 2;
             this.gridColumn1.Width = 313;
             // 
             // gridColumn2
@@ -269,7 +271,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 3;
             this.gridColumn2.Width = 63;
             // 
             // repositoryItemTimeEdit1
@@ -288,7 +290,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.VisibleIndex = 4;
             this.gridColumn3.Width = 62;
             // 
             // repositoryItemTimeEdit2
@@ -305,7 +307,7 @@
             this.gridColumn4.FieldName = "Total";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 5;
             // 
             // btnCancelarActividad
             // 
@@ -515,6 +517,14 @@
             this.lciFecha.Text = "Fecha:";
             this.lciFecha.TextSize = new System.Drawing.Size(90, 13);
             // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Fecha";
+            this.gridColumn6.FieldName = "Fecha";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            // 
             // xfrmCapturaActividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,5 +608,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemBorrarActividad;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

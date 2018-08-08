@@ -136,11 +136,23 @@
     <Compile Include="xfrmDepartamentoGRD.Designer.cs">
       <DependentUpon>xfrmDepartamentoGRD.cs</DependentUpon>
     </Compile>
+    <Compile Include="xfrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmEmpresa.Designer.cs">
+      <DependentUpon>xfrmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmPuesto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="xfrmPuesto.Designer.cs">
       <DependentUpon>xfrmPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmEmpresaGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmEmpresaGRD.Designer.cs">
+      <DependentUpon>xfrmEmpresaGRD.cs</DependentUpon>
     </Compile>
     <Compile Include="xfrmPuestoGRD.cs">
       <SubType>Form</SubType>
@@ -190,8 +202,14 @@
     <EmbeddedResource Include="xfrmDepartamentoGRD.resx">
       <DependentUpon>xfrmDepartamentoGRD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="xfrmEmpresa.resx">
+      <DependentUpon>xfrmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xfrmPuesto.resx">
       <DependentUpon>xfrmPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmEmpresaGRD.resx">
+      <DependentUpon>xfrmEmpresaGRD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmPuestoGRD.resx">
       <DependentUpon>xfrmPuestoGRD.cs</DependentUpon>

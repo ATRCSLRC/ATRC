@@ -28,7 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationRevision>27</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -185,6 +185,14 @@
     <ProjectReference Include="..\REPORTES\REPORTES.csproj">
       <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
       <Name>REPORTES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.BL\RUTAS.BL.csproj">
+      <Project>{7cd908da-9d9d-4c01-90d2-67b7f78119dd}</Project>
+      <Name>RUTAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.WIN\RUTAS.WIN.csproj">
+      <Project>{8ccaeb98-d277-4166-b28e-0d5a0a59c23a}</Project>
+      <Name>RUTAS.WIN</Name>
     </ProjectReference>
     <ProjectReference Include="..\TALLER.BL\TALLER.BL.csproj">
       <Project>{3e049336-d487-4b03-86a2-56d4ded5c441}</Project>

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TALLER.WIN", "TALLER.WIN\TA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RUTAS.WIN", "RUTAS.WIN\RUTAS.WIN.csproj", "{8CCAEB98-D277-4166-B28E-0D5A0A59C23A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RUTAS.BL", "RUTAS.BL\RUTAS.BL.csproj", "{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{8CCAEB98-D277-4166-B28E-0D5A0A59C23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CCAEB98-D277-4166-B28E-0D5A0A59C23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CCAEB98-D277-4166-B28E-0D5A0A59C23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

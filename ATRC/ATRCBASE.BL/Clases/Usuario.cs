@@ -146,7 +146,7 @@ namespace ATRCBASE.BL
             get { return mModulos; }
             set { SetPropertyValue<string>("Modulos", ref mModulos, value); }
         }
-
+        
         [NonPersistent]
         public string ConstraseñaDesencriptada
         {

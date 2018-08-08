@@ -4,15 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A162FE83-383D-4225-A70E-EA9D27E0FB06}</ProjectGuid>
+    <ProjectGuid>{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ATRCBASE.BL</RootNamespace>
-    <AssemblyName>ATRCBASE.BL</AssemblyName>
+    <RootNamespace>RUTAS.BL</RootNamespace>
+    <AssemblyName>RUTAS.BL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,15 +34,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Persistent.Base.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,19 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\ATRCBase.cs" />
-    <Compile Include="Clases\Departamento.cs" />
-    <Compile Include="Clases\Empresas.cs" />
-    <Compile Include="Clases\Enums.cs" />
-    <Compile Include="Clases\Imagen.cs" />
-    <Compile Include="Clases\Puesto.cs" />
-    <Compile Include="Clases\UnidadDeTrabajo.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Clases\Usuario.cs" />
-    <Compile Include="Clases\Utilerias.cs" />
-    <Compile Include="Clases\UtileriasXPO.cs" />
+    <Compile Include="Coordenadas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rutas.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,7 +58,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,7 +70,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
+      <Project>{a162fe83-383d-4225-a70e-ea9d27e0fb06}</Project>
+      <Name>ATRCBASE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.WIN\ATRCBASE.WIN.csproj">
+      <Project>{ca92b7d6-6738-4a42-a76e-ba583c929ba1}</Project>
+      <Name>ATRCBASE.WIN</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

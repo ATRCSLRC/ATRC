@@ -1,6 +1,7 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
@@ -46,6 +47,9 @@ namespace TALLER.WIN
                     dteFecha.ReadOnly = true;
                     btnEmpleado.ReadOnly = true;
                     ActivarControles();
+                    XPCollection<Actividades> actividades = new XPCollection<Actividades>(Unidad, new BinaryOperator("Fecha", dteFecha.DateTime.Date));
+                    Actividades.AddRange(actividades);
+                    grdActividades.RefreshDataSource();
                 }
                 else
                 {
@@ -107,7 +111,7 @@ namespace TALLER.WIN
             if (!string.IsNullOrEmpty(txtActividad.Text))
             {
                 Actividades Actividad = new Actividades(Unidad);
-                Actividad.Fecha = DateTime.Now.Date;
+                Actividad.Fecha = dteFecha.DateTime.Date;
                 Actividad.Usuario = Usuario;
                 Actividad.Actividad = txtActividad.Text;
                 Actividad.HoraInicial = timeHoraInicio.Time.TimeOfDay;
@@ -254,6 +258,12 @@ namespace TALLER.WIN
                         btnEmpleado.ReadOnly = true;
                         ActivarControles();
                         txtActividad.Focus();
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("Fecha", dteFecha.DateTime.Date));
+                        go.Operands.Add(new BinaryOperator("Usuario.Oid", Usuario.Oid));
+                        XPCollection<Actividades> actividades = new XPCollection<Actividades>(Unidad,go);
+                        Actividades.AddRange(actividades);
+                        grdActividades.RefreshDataSource();
                     }
                     else
                     {
