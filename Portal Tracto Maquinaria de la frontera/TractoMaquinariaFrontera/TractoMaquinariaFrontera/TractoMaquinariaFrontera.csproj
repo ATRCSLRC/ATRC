@@ -42,6 +42,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -118,11 +120,6 @@
     <Content Include="photos\Camiones\C-269\IMG_7558.JPG" />
     <Content Include="photos\Camiones\C-269\IMG_7559.JPG" />
     <Content Include="photos\Camiones\C-269\IMG_7560.JPG" />
-    <Content Include="photos\Camiones\C-288\IMG_6502.JPG" />
-    <Content Include="photos\Camiones\C-288\IMG_6503.JPG" />
-    <Content Include="photos\Camiones\C-288\IMG_6504.JPG" />
-    <Content Include="photos\Camiones\C-288\IMG_6505.JPG" />
-    <Content Include="photos\Camiones\C-288\IMG_6506.JPG" />
     <Content Include="photos\Camiones\C-290\IMG_8240.JPG" />
     <Content Include="photos\Camiones\C-290\IMG_8241.JPG" />
     <Content Include="photos\Camiones\C-290\IMG_8242.JPG" />
@@ -184,15 +181,15 @@
     <Content Include="photos\Camiones\C-309\IMG_8217.JPG" />
     <Content Include="photos\Camiones\C-309\IMG_8218.JPG" />
     <Content Include="photos\Camiones\C-309\IMG_8219.JPG" />
-    <Content Include="photos\Camiones\C-310\IMG_9074.JPG" />
-    <Content Include="photos\Camiones\C-310\IMG_9075.JPG" />
-    <Content Include="photos\Camiones\C-310\IMG_9076.JPG" />
-    <Content Include="photos\Camiones\C-310\IMG_9077.JPG" />
     <Content Include="photos\Camiones\C-311\IMG_8245.JPG" />
     <Content Include="photos\Camiones\C-311\IMG_8246.JPG" />
     <Content Include="photos\Camiones\C-311\IMG_8247.JPG" />
     <Content Include="photos\Camiones\C-311\IMG_8248.JPG" />
     <Content Include="photos\Camiones\C-311\IMG_8249.JPG" />
+    <Content Include="photos\Camiones\C-312\IMG_0347.JPG" />
+    <Content Include="photos\Camiones\C-312\IMG_0348.JPG" />
+    <Content Include="photos\Camiones\C-312\IMG_0349.JPG" />
+    <Content Include="photos\Camiones\C-312\IMG_0350.JPG" />
     <Content Include="photos\Camiones\C-313\IMG_9079.JPG" />
     <Content Include="photos\Camiones\C-313\IMG_9080.JPG" />
     <Content Include="photos\Camiones\C-313\IMG_9081.JPG" />
@@ -202,6 +199,22 @@
     <Content Include="photos\Camiones\C-316\IMG_8509.JPG" />
     <Content Include="photos\Camiones\C-316\IMG_8510.JPG" />
     <Content Include="photos\Camiones\C-316\IMG_8511.JPG" />
+    <Content Include="photos\Camiones\C-321\IMG_0335.JPG" />
+    <Content Include="photos\Camiones\C-321\IMG_0336.JPG" />
+    <Content Include="photos\Camiones\C-321\IMG_0337.JPG" />
+    <Content Include="photos\Camiones\C-321\IMG_0338.JPG" />
+    <Content Include="photos\Camiones\C-322\IMG_0343.JPG" />
+    <Content Include="photos\Camiones\C-322\IMG_0344.JPG" />
+    <Content Include="photos\Camiones\C-322\IMG_0345.JPG" />
+    <Content Include="photos\Camiones\C-322\IMG_0346.JPG" />
+    <Content Include="photos\Camiones\C-324\IMG_0339.JPG" />
+    <Content Include="photos\Camiones\C-324\IMG_0340.JPG" />
+    <Content Include="photos\Camiones\C-324\IMG_0341.JPG" />
+    <Content Include="photos\Camiones\C-324\IMG_0342.JPG" />
+    <Content Include="photos\Camiones\C-325\IMG_0331.JPG" />
+    <Content Include="photos\Camiones\C-325\IMG_0332.JPG" />
+    <Content Include="photos\Camiones\C-325\IMG_0333.JPG" />
+    <Content Include="photos\Camiones\C-325\IMG_0334.JPG" />
     <Content Include="photos\Carros\Camaro\20d6398d-ed00-49f1-9bb1-360924766c03.JPG" />
     <Content Include="photos\Carros\Camaro\4b00e340-8e70-4b0d-9ff8-98a46a37d053.JPG" />
     <Content Include="photos\Carros\Camaro\7283b331-615f-45c3-83ad-dd4f5382246f.JPG" />
@@ -235,6 +248,12 @@
     <Content Include="photos\Maquinaria\Cargador frontal\IMG_6320.JPG" />
     <Content Include="photos\Maquinaria\Cargador frontal\IMG_6321.JPG" />
     <Content Include="photos\Maquinaria\GRUA\IMG_9087.JPG" />
+    <Content Include="photos\Maquinaria\MONTACARGA2\IMG_9261.JPG" />
+    <Content Include="photos\Maquinaria\MONTACARGA2\IMG_9262.JPG" />
+    <Content Include="photos\Maquinaria\MONTACARGA2\IMG_9263.JPG" />
+    <Content Include="photos\Maquinaria\MOTACARGA1\IMG_9258.JPG" />
+    <Content Include="photos\Maquinaria\MOTACARGA1\IMG_9259.JPG" />
+    <Content Include="photos\Maquinaria\MOTACARGA1\IMG_9260.JPG" />
     <Content Include="photos\Maquinaria\Motoconformadora\IMG_6322.JPG" />
     <Content Include="photos\Maquinaria\Motoconformadora\IMG_6323.JPG" />
     <Content Include="photos\Maquinaria\Motoconformadora\IMG_6324.JPG" />

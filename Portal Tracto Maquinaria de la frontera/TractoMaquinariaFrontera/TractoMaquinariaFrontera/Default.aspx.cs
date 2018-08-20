@@ -19,7 +19,7 @@ namespace TractoMaquinariaFrontera {
             string contenido = CrearMensaje(parametro[0], parametro[1], parametro[2], parametro[3]);
             bool resultado = EnviarCorreo("tractomaquinariasdelafrontera@gmail.com", "Portal Tractomaquinarias del norte" , contenido);
             if (!resultado)
-                e.Result = "Error";
+                e.Result =  "Error";
         }
 
         private string CrearMensaje(string Nombre, string Correo,string Asunto, string mensaje)
@@ -47,8 +47,8 @@ namespace TractoMaquinariaFrontera {
                 #region Variables para configuracion
                 string correoAutenticacionConfig = "tractomaquinariasdelafrontera@gmail.com";
                 string correoAutenticacionPassConfig = "@TRCSistemas1";
-                string correoHostConfig = "smtp.gmail.com";
-                string correoHostPortConfig = "587";
+                string correoHostConfig = "relay-hosting.secureserver.net";
+                string correoHostPortConfig = "25";
                 #endregion
                 
                 #region Modificacion de formato del mensaje
@@ -72,7 +72,7 @@ namespace TractoMaquinariaFrontera {
                 System.Net.NetworkCredential mailAuthentication = new System.Net.NetworkCredential(correoAutenticacionConfig, correoAutenticacionPassConfig);
                 mailSmtp.UseDefaultCredentials = false;
                 mailSmtp.Credentials = mailAuthentication;
-                mailSmtp.EnableSsl = true;
+                //mailSmtp.EnableSsl = true;
                 mailSmtp.Port = Convert.ToInt32(correoHostPortConfig);
                 mailSmtp.Send(msg);
                 return true;
