@@ -28,6 +28,8 @@ namespace ATRCWEB
                 //var camara = Cameras.DeclareDevice().Named("").WithDevicePath("").Memorize();
                 //camara.Default.SavePicture(new PictureSize(640, 480), "Test2.jpg", 20);
             }
+            Session["OidAdministrador"] = 1;
+           // ATRCBASE.BL.Utilerias.sessionID = Session.SessionID;
         }
 
         protected void Callback_Callback(object source, DevExpress.Web.CallbackEventArgs e)
@@ -72,6 +74,7 @@ namespace ATRCWEB
                         else
                         {
                             e.Result = "Favor de pasar con " + Usuario.Notificaciones[0].Responsable.Usuario.Nombre;
+                            Session["imgfoto"] = null;
                         }
                     }
                     else
@@ -85,6 +88,7 @@ namespace ATRCWEB
                     Session["imgfoto"] = null;
                 }
             }
+            
         }
 
         protected void CallbackPanel_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
@@ -155,7 +159,7 @@ namespace ATRCWEB
             Checada.HoraChecadaSalida = Dia.AddTicks(-(Dia.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay;
             Checada.TipoIdentificacionSalida = Identificacion;
             Checada.Save();
-            Checada.Session.CommitTransaction();
+            ((UnidadDeTrabajo)Checada.Session).CommitChanges();
             Session["imgfoto"] = ObtenerFoto(Checada.Usuario.Usuario.Imagen == null ? "" : Checada.Usuario.Usuario.Imagen.Archivo);
             List<HistoricoChecadas> Entradas = (List<HistoricoChecadas>)Session["Salidas"];
             Entradas.Add(Checada);
@@ -164,5 +168,10 @@ namespace ATRCWEB
         }
         #endregion
 
+        protected void CallbackLimpiar_Callback(object source, DevExpress.Web.CallbackEventArgs e)
+        {
+            Session["Entradas"] = new List<HistoricoChecadas>();
+            Session["Salidas"]= new List<HistoricoChecadas>();
+        }
     }
 }

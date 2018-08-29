@@ -38,7 +38,7 @@
     img.avatar {
         max-width: 201px;
         max-height: 180px;
-        width: 40%;
+        width: 35%;
         border-radius: 50%;
         cursor: none;
     }
@@ -91,12 +91,12 @@
 
     #fecha {
         text-align: center;
-        font-size: 3.0em;
+        font-size: 2.7em;
     }
 
     #hora {
         text-align: center;
-        font-size: 4.0em;
+        font-size: 3.5em;
     }
     /* Add Zoom Animation */
     .animate-zoom {
@@ -210,7 +210,7 @@
                 <div class="col-sm-2">
                 </div>
                 <div class="col-sm-8 Contenedor">
-                    <br />
+                    <%--<br />--%>
                     <div class="imgcontainer animate-zoom " id="IMG_Container" ondblclick="popupDetalle.Show();">
                         <dx:BootstrapCallbackPanel ID="CallbackPanel" ClientInstanceName="CallbackPanel" EnableCallbackAnimation="true" OnCallback="CallbackPanel_Callback" runat="server" Width="100%">
                             <ContentCollection>
@@ -221,20 +221,20 @@
                             </ContentCollection>
                         </dx:BootstrapCallbackPanel>
                     </div>
-                    <br />
-                    <div style="cursor: none; z-index: 0;">
+                    <%--<br />--%>
+                    <div style="cursor: none; z-index: 10;">
 
                         <dx:BootstrapButtonEdit ID="bteNumEmpleado" ClientInstanceName="bteNumEmpleado" CssClasses-Control="Centered" CssClasses-NullText="Centered" NullTextDisplayMode="UnfocusedAndFocused" CssClasses-Caption="Centered" CssClasses-Button="btn btn-success" NullText="Escanée el gafete" runat="server">
                             <Buttons>
                                 <dx:BootstrapEditButton IconCssClass="glyphicon glyphicon-th" />
                             </Buttons>
-                            <ClientSideEvents ButtonClick="function(s,e){ popupTeclado.Show();}" TextChanged="function(s,e){ Callback.PerformCallback(bteNumEmpleado.GetText() +'|gafete'); bteNumEmpleado.SetText(''); }"
+                            <ClientSideEvents ButtonClick="function(s,e){ popupTeclado.Show();}" TextChanged="function(s,e){ Callback.PerformCallback(bteNumEmpleado.GetText() +'|gafete'); bteNumEmpleado.SetVisible(false); bteNumEmpleado.SetText(''); }"
                                 LostFocus="function(s,e){ bteNumEmpleado.SetFocus();}" />
                         </dx:BootstrapButtonEdit>
 
                         <dx:ASPxCallback ID="Callback" ClientInstanceName="Callback" OnCallback="Callback_Callback" runat="server">
                             <ClientSideEvents CallbackComplete="function(s,e){CallbackPanel.PerformCallback(); document.getElementById('mensaje').innerHTML = e.result; lstEntradas.PerformCallback(); lstSalida.PerformCallback();
-                                setTimeout(function(){ document.getElementById('mensaje').innerHTML = ''; CallbackPanel.PerformCallback('logo'); bteNumEmpleado.SetFocus(); },3000);   }" />
+                                setTimeout(function(){ document.getElementById('mensaje').innerHTML = ''; CallbackPanel.PerformCallback('logo'); bteNumEmpleado.SetVisible(true); bteNumEmpleado.SetFocus(); },3000);   }" />
                         </dx:ASPxCallback>
 
                     </div>
@@ -304,7 +304,7 @@
                         <dx:BootstrapButton ID="btnAceptar" ClientInstanceName="btnAceptar" Text="Aceptar" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
                             <SettingsBootstrap RenderOption="Success" />
                             <Badge IconCssClass="glyphicon glyphicon-ok" />
-                            <ClientSideEvents Click="function(s,e){ Callback.PerformCallback(bteManual.GetText() +'|manual'); bteManual.SetText(''); Numero = ''; popupTeclado.Hide(); }" />
+                            <ClientSideEvents Click="function(s,e){ Callback.PerformCallback(bteManual.GetText() +'|manual'); bteManual.SetText(''); Numero = ''; bteNumEmpleado.SetVisible(false); popupTeclado.Hide(); }" />
                         </dx:BootstrapButton>
 
                         <dx:BootstrapButton ID="btnCancelar" ClientInstanceName="btnCancelar" Text="Cancelar" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
@@ -356,11 +356,14 @@
                         </dx:ContentControl>
                     </ContentCollection>
                     <FooterTemplate>
-                        <dx:BootstrapButton ID="btnLimpiar" ClientInstanceName="btnLimpiar" Text="Limpiar" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
+                        <dx:BootstrapButton ID="btnLimpiar" ClientInstanceName="btnLimpiar" Text="Limpiar"  AutoPostBack="false" UseSubmitBehavior="false" runat="server">
                             <SettingsBootstrap RenderOption="Warning" />
                             <Badge IconCssClass="glyphicon glyphicon-trash" />
-                            <ClientSideEvents Click="function(s,e){  popupDetalle.Hide(); }" />
+                            <ClientSideEvents Click="function(s,e){ CallbackLimpiar.PerformCallback();  popupDetalle.Hide(); }" />
                         </dx:BootstrapButton>
+                        <dx:ASPxCallback ID="CallbackLimpiar" ClientInstanceName="CallbackLimpiar" OnCallback="CallbackLimpiar_Callback" runat="server">
+                            <ClientSideEvents CallbackComplete="function(s,e){ lstEntradas.PerformCallback(); lstSalida.PerformCallback(); popupDetalle.Hide(); }"/>
+                        </dx:ASPxCallback>
 
                         <dx:BootstrapButton ID="btnSalir" ClientInstanceName="btnSalir" Text="Salir" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
                             <SettingsBootstrap RenderOption="Danger" />
