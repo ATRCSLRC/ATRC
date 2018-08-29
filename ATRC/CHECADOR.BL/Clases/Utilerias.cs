@@ -164,7 +164,7 @@ namespace CHECADOR.BL
             {
                 Horas = +1;
             }
-            return Convert.ToDecimal(Horas + "." + (min < 10 ? Convert.ToInt32("0") + min : min));
+            return min < 10 ? Convert.ToDecimal(Convert.ToDouble(".0" + min) + Horas) : Convert.ToDecimal(Horas + "." + min);
         }
 
         public static decimal HorasTrabajadas(UnidadDeTrabajo Unidad, UsuarioChecador usuario, DateTime FechaInicial, DateTime FechaFinal)

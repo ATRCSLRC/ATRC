@@ -24,9 +24,9 @@ namespace RUTAS.WIN
             InitializeComponent();
         }
 
-        VectorItemsLayer layer = new VectorItemsLayer();
-        MapItemStorage storage = new MapItemStorage();
-        GeoCoordinateWatcher gcw = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+        //VectorItemsLayer layer = new VectorItemsLayer();
+        //MapItemStorage storage = new MapItemStorage();
+        //GeoCoordinateWatcher gcw = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
         Rutas RutaActual;
         List<RouteWaypoint> waypoints;
         UnidadDeTrabajo Unidad;
@@ -34,8 +34,9 @@ namespace RUTAS.WIN
         int Routing = 0;
         private void xfrmRutasPorEmpresa_Load(object sender, EventArgs e)
         {
-            gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GeoPositionChanged);
-            gcw.Start();
+            //gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GeoPositionChanged);
+            //gcw.Start();
+            GeoPositionChanged();
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Empresas = new XPView(Unidad, typeof(Empresas), "Oid;Nombre", null);
             lueEmpresa.Properties.DataSource = Empresas;
@@ -73,18 +74,25 @@ namespace RUTAS.WIN
             Routing++;
         }
 
-        private void GeoPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        //private void GeoPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        //{
+        //    MapItem[] ItemsMapa = null;
+        //    GeoPoint gp = new GeoPoint();
+        //    gp.Latitude = e.Position.Location.Latitude;
+        //    gp.Longitude = e.Position.Location.Longitude;
+        //    ItemsMapa = IniciarMapa(e.Position.Location.Latitude, e.Position.Location.Longitude);
+        //    storage.Items.AddRange(ItemsMapa);
+        //    layer.Data = storage;
+        //    MapControlUbicacion.SetCenterPoint(gp, true);
+        //    MapControlUbicacion.Zoom(15);
+        //    gcw.Stop();
+
+        //}
+
+        private void GeoPositionChanged()
         {
-            MapItem[] ItemsMapa = null;
-            GeoPoint gp = new GeoPoint();
-            gp.Latitude = e.Position.Location.Latitude;
-            gp.Longitude = e.Position.Location.Longitude;
-            ItemsMapa = IniciarMapa(e.Position.Location.Latitude, e.Position.Location.Longitude);
-            storage.Items.AddRange(ItemsMapa);
-            layer.Data = storage;
-            MapControlUbicacion.SetCenterPoint(gp, true);
-            MapControlUbicacion.Zoom(15);
-            gcw.Stop();
+            MapControlUbicacion.SetCenterPoint(MapControlUbicacion.CenterPoint, true);
+            MapControlUbicacion.Zoom(14);
 
         }
 
@@ -127,8 +135,8 @@ namespace RUTAS.WIN
             PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
             link.Component = MapControlUbicacion;
             System.Drawing.Printing.Margins Margen = new System.Drawing.Printing.Margins();
-            Margen.Left = 3;
-            Margen.Right = 3;
+            Margen.Left = Margen.Right = 2;
+            Margen.Top = Margen.Bottom = 2;
             link.Margins = Margen;
             link.Landscape = true;
             link.PaperKind = System.Drawing.Printing.PaperKind.Legal;

@@ -18,8 +18,9 @@ namespace CHECADOR.WIN.Reportes
             
             lblDetalle.Text = "Del: " + Inicial.ToLongDateString() + " Al: " + Final.ToLongDateString();
             go = new GroupOperator(GroupOperatorType.And);
-            go.Operands.Add(new BinaryOperator("FechaChecada", Inicial, BinaryOperatorType.GreaterOrEqual));
-            go.Operands.Add(new BinaryOperator("FechaChecada", Final, BinaryOperatorType.LessOrEqual));
+            go.Operands.Add(new BinaryOperator("FechaChecada", Inicial.Date, BinaryOperatorType.GreaterOrEqual));
+            go.Operands.Add(new BinaryOperator("FechaChecada", Final.Date, BinaryOperatorType.LessOrEqual));
+            
             XPView Usuarios = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.NumEmpleado", null);
             //XPCollection Usuarios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador));
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
@@ -34,32 +35,50 @@ namespace CHECADOR.WIN.Reportes
             decimal TotalLunes = 0, TotalMartes = 0, TotalMiercoles = 0, TotalJueves = 0, TotalViernes = 0, TotalSabado = 0, TotalDomingo = 0;
             if (viewUsuario != null)
             {
-                UsuarioChecador Usuario = (UsuarioChecador)viewUsuario.GetObject();
-                Usuario.HistoricoChecadas.Filter = go;
-                foreach (HistoricoChecadas Historico in Usuario.HistoricoChecadas)
+               // go.Operands.Add(new BinaryOperator("Usuario.Oid", Convert.ToInt32(viewUsuario["Oid"])));
+                XPView Checadas = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.HistoricoChecadas), "Oid;FechaChecada;Usuario.Oid;HoraChecadaSalida;HoraChecadaEntrada", go);
+                Checadas.Filter = new BinaryOperator("Usuario.Oid", Convert.ToInt32(viewUsuario["Oid"]));
+                //Checadas.Properties.AddRange(new ViewProperty[] {
+                //  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                //  new ViewProperty("FechaChecada", SortDirection.None, "[FechaChecada]", false, true),
+                //  new ViewProperty("Usuario.Nombre", SortDirection.None, "[Usuario.Nombre]", false, true),
+                //  new ViewProperty("Usuario.NumEmpleado", SortDirection.None, "[Usuario.NumEmpleado]", false, true),
+                //  //new ViewProperty("HoraChecadaCalculadaSalidaView", SortDirection.None, CHECADOR.BL.Utilerias.CalcularHora(Convert.ToDateTime("[HoraChecadaSalida]").TimeOfDay), false, true),
+                //  //new ViewProperty("HoraChecadaCalculadaEntradaView", SortDirection.None,  CHECADOR.BL.Utilerias.CalcularHora(Convert.ToDateTime("[HoraChecadaEntrada]").TimeOfDay), false, true),
+                // });
+                // UsuarioChecador Usuario = (UsuarioChecador)viewUsuario.GetObject();
+                //Usuario.HistoricoChecadas.Filter = go;
+                foreach (ViewRecord Historico in Checadas)
                 {
-                    switch (Historico.FechaChecada.DayOfWeek)
+                    switch (Convert.ToDateTime(Historico["FechaChecada"]).DayOfWeek)
                     {
                         case DayOfWeek.Monday:
-                            TotalLunes += Historico.TotalHoras;
+                            if(Historico["HoraChecadaSalida"] != null)
+                                TotalLunes += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Tuesday:
-                            TotalMartes += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalMartes += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Wednesday:
-                            TotalMiercoles += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalMiercoles += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Thursday:
-                            TotalJueves += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalJueves += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Friday:
-                            TotalViernes += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalViernes += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Saturday:
-                            TotalSabado += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalSabado += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                         case DayOfWeek.Sunday:
-                            TotalDomingo += Historico.TotalHoras;
+                            if (Historico["HoraChecadaSalida"] != null)
+                                TotalDomingo += TotalHoras((TimeSpan)Historico["HoraChecadaEntrada"], (TimeSpan)Historico["HoraChecadaSalida"]);
                             break;
                     }
                 }
@@ -75,6 +94,12 @@ namespace CHECADOR.WIN.Reportes
 
         }
 
+        private decimal TotalHoras(TimeSpan Entrada, TimeSpan Salida)
+        {
+            decimal EntradaHora = CHECADOR.BL.Utilerias.CalcularHora(Entrada);
+            decimal SalidaHora = CHECADOR.BL.Utilerias.CalcularHora(Salida);
+            return SalidaHora > 0 & EntradaHora > 0 ? (SalidaHora - EntradaHora) : 0;
+        }
         private void objectDataSource1_BeforeFill(object sender, DevExpress.DataAccess.ObjectBinding.BeforeFillEventArgs args)
         {
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -83,6 +84,8 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.TabDatosAdicionales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainAdicionales = new DevExpress.XtraLayout.LayoutControl();
+            this.bbiMapa = new DevExpress.XtraEditors.SimpleButton();
+            this.txtDomicilio = new DevExpress.XtraEditors.TextEdit();
             this.txtTel = new DevExpress.XtraEditors.TextEdit();
             this.txtTipoSangre = new DevExpress.XtraEditors.TextEdit();
             this.txtAvisar = new DevExpress.XtraEditors.TextEdit();
@@ -95,10 +98,12 @@
             this.lciAvisar = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTipoSangre = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciDomicilio = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcibtnMapa = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -149,6 +154,7 @@
             this.TabDatosAdicionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).BeginInit();
             this.lcMainAdicionales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAvisar.Properties)).BeginInit();
@@ -162,6 +168,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciAvisar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoSangre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDomicilio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcibtnMapa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
@@ -749,6 +757,8 @@
             // 
             // lcMainAdicionales
             // 
+            this.lcMainAdicionales.Controls.Add(this.bbiMapa);
+            this.lcMainAdicionales.Controls.Add(this.txtDomicilio);
             this.lcMainAdicionales.Controls.Add(this.txtTel);
             this.lcMainAdicionales.Controls.Add(this.txtTipoSangre);
             this.lcMainAdicionales.Controls.Add(this.txtAvisar);
@@ -757,10 +767,32 @@
             this.lcMainAdicionales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMainAdicionales.Location = new System.Drawing.Point(0, 0);
             this.lcMainAdicionales.Name = "lcMainAdicionales";
+            this.lcMainAdicionales.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(695, 207, 650, 400);
             this.lcMainAdicionales.Root = this.layoutControlGroup4;
             this.lcMainAdicionales.Size = new System.Drawing.Size(630, 328);
             this.lcMainAdicionales.TabIndex = 0;
             this.lcMainAdicionales.Text = "layoutControl1";
+            // 
+            // bbiMapa
+            // 
+            this.bbiMapa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiMapa.ImageOptions.Image")));
+            this.bbiMapa.Location = new System.Drawing.Point(578, 212);
+            this.bbiMapa.Name = "bbiMapa";
+            this.bbiMapa.Size = new System.Drawing.Size(40, 38);
+            this.bbiMapa.StyleController = this.lcMainAdicionales;
+            this.bbiMapa.TabIndex = 11;
+            this.bbiMapa.Click += new System.EventHandler(this.bbiMapa_Click);
+            // 
+            // txtDomicilio
+            // 
+            this.txtDomicilio.Enabled = false;
+            this.txtDomicilio.Location = new System.Drawing.Point(12, 228);
+            this.txtDomicilio.MenuManager = this.rbbnUsuario;
+            this.txtDomicilio.Name = "txtDomicilio";
+            this.txtDomicilio.Properties.ReadOnly = true;
+            this.txtDomicilio.Size = new System.Drawing.Size(562, 20);
+            this.txtDomicilio.StyleController = this.lcMainAdicionales;
+            this.txtDomicilio.TabIndex = 9;
             // 
             // txtTel
             // 
@@ -833,8 +865,10 @@
             this.lciPatron,
             this.lciAvisar,
             this.lciTipoSangre,
-            this.lciTel});
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.lciTel,
+            this.lciDomicilio,
+            this.lcibtnMapa});
+            this.layoutControlGroup4.Name = "Root";
             this.layoutControlGroup4.Size = new System.Drawing.Size(630, 328);
             this.layoutControlGroup4.TextVisible = false;
             // 
@@ -851,9 +885,9 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 200);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 242);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(610, 108);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(610, 66);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPatron
@@ -895,6 +929,25 @@
             this.lciTel.Text = "Teléfono avisar:";
             this.lciTel.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTel.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // lciDomicilio
+            // 
+            this.lciDomicilio.Control = this.txtDomicilio;
+            this.lciDomicilio.Location = new System.Drawing.Point(0, 200);
+            this.lciDomicilio.Name = "lciDomicilio";
+            this.lciDomicilio.Size = new System.Drawing.Size(566, 42);
+            this.lciDomicilio.Text = "Domicilio:";
+            this.lciDomicilio.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciDomicilio.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // lcibtnMapa
+            // 
+            this.lcibtnMapa.Control = this.bbiMapa;
+            this.lcibtnMapa.Location = new System.Drawing.Point(566, 200);
+            this.lcibtnMapa.Name = "lcibtnMapa";
+            this.lcibtnMapa.Size = new System.Drawing.Size(44, 42);
+            this.lcibtnMapa.TextSize = new System.Drawing.Size(0, 0);
+            this.lcibtnMapa.TextVisible = false;
             // 
             // layoutControlGroup1
             // 
@@ -994,6 +1047,7 @@
             this.TabDatosAdicionales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).EndInit();
             this.lcMainAdicionales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoSangre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAvisar.Properties)).EndInit();
@@ -1007,6 +1061,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciAvisar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoSangre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDomicilio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcibtnMapa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
@@ -1088,5 +1144,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.SimpleButton bbiMapa;
+        private DevExpress.XtraEditors.TextEdit txtDomicilio;
+        private DevExpress.XtraLayout.LayoutControlItem lciDomicilio;
+        private DevExpress.XtraLayout.LayoutControlItem lcibtnMapa;
     }
 }

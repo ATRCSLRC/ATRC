@@ -55,6 +55,10 @@ namespace ATRC
                     ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new ATRCBASE.WIN.Reportes.Usuarios());
                     repUsuarioRegistrado.ShowPreview();
                     break;
+                case "Direcciones de usuarios":
+                    ATRCBASE.WIN.xfrmUbicacionesEmpleados xfrmUbicaciones = new ATRCBASE.WIN.xfrmUbicacionesEmpleados();
+                    xfrmUbicaciones.Show();
+                    break;
             }
         }
 
@@ -356,6 +360,15 @@ namespace ATRC
         private void bbiMapaEmpresa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             RUTAS.WIN.xfrmRutasPorEmpresa xfrm = new RUTAS.WIN.xfrmRutasPorEmpresa();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiChecadorRutas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmHistorialChecadas xfrm = new CHECADOR.WIN.xfrmHistorialChecadas();
+            xfrm.esConsulta = true;
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

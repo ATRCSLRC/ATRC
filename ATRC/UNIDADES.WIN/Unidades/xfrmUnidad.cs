@@ -53,6 +53,7 @@ namespace UNIDADES.WIN
                     }
                     UnidadCamion.Save();
                     Unidad.CommitChanges();
+                    XtraMessageBox.Show("Se agrego la unidad correctamente.");
                     this.Close();
                 }
             }

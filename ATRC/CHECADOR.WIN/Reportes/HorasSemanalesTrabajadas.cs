@@ -9,15 +9,17 @@ using ATRCBASE.BL;
 using System.Collections.Generic;
 using CHECADOR.BL;
 using DevExpress.Utils.Filtering.Internal;
+using System.Data;
 
 namespace CHECADOR.WIN.Reportes
 {
     public partial class HorasSemanalesTrabajadas : DevExpress.XtraReports.UI.XtraReport
     {
-        GroupOperator go;
+        //GroupOperator go;
         DateTime FechaInicial;
         DateTime FechaFinal;
         UnidadDeTrabajo Unidad;
+        DataTable TablaChecadas;
         public HorasSemanalesTrabajadas(int NumEmpleado, DateTime Inicial, DateTime Final)
         {
             InitializeComponent();
@@ -25,16 +27,56 @@ namespace CHECADOR.WIN.Reportes
             Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             this.FechaInicial = Inicial;
             this.FechaFinal = Final;
-            go = new GroupOperator(GroupOperatorType.And);
-            go.Operands.Add(new BinaryOperator("FechaChecada", Inicial, BinaryOperatorType.GreaterOrEqual));
-            go.Operands.Add(new BinaryOperator("FechaChecada", Final, BinaryOperatorType.LessOrEqual));
+            
             lblDetalle.Text = "Del: " + Inicial.ToLongDateString() + " Al: " + Final.ToLongDateString();
             GroupOperator goFiltro = new GroupOperator();
             goFiltro.Operands.Add(new NotOperator(new NullOperator("Usuario")));
             if(NumEmpleado > 0) goFiltro.Operands.Add(new BinaryOperator("Usuario.NumEmpleado", NumEmpleado));
-            XPCollection Usuarios = new XPCollection(Unidad, typeof(CHECADOR.BL.UsuarioChecador), goFiltro);
+            //XPCollection Usuarios = new XPCollection(Unidad, typeof(CHECADOR.BL.UsuarioChecador), goFiltro);
+            XPView Usuarios = new XPView(Unidad, typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.Patron;Usuario.NumEmpleado", goFiltro);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             this.DataSource =Usuarios;
+            GroupOperator go = new GroupOperator(GroupOperatorType.And);
+            go.Operands.Add(new BinaryOperator("FechaChecada", FechaInicial.Date, BinaryOperatorType.GreaterOrEqual));
+            go.Operands.Add(new BinaryOperator("FechaChecada", FechaFinal.Date, BinaryOperatorType.LessOrEqual));
+            
+            XPView Checadas = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.HistoricoChecadas), "Oid;FechaChecada;Usuario;HoraChecadaSalida;HoraChecadaEntrada", go);
+            Checadas.Sorting.Add(new SortingCollection(new SortProperty("FechaChecada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            TablaChecadas = CreateDataTableFromXPView(Checadas);
+            DetailReport.DataSource = TablaChecadas;
+        }
+
+        private DataTable CreateDataTableFromXPView(XPView view)
+        {
+            DataTable result = new DataTable();
+            result.Columns.Add("Oid", typeof(int));
+            result.Columns.Add("FechaChecada", typeof(DateTime));
+            result.Columns.Add("Usuario", typeof(int));
+            result.Columns.Add("HoraChecadaSalida", typeof(TimeSpan));
+            result.Columns.Add("HoraChecadaEntrada", typeof(TimeSpan));
+            result.Columns.Add("TotalHoras", typeof(decimal));
+
+            //foreach (ViewProperty property in view.Properties)
+            //    result.Columns.Add(property.Name, view.ObjectClassInfo.GetMember(property.Name).MemberType);
+            foreach (ViewRecord record in view)
+                result.Rows.Add(GetRecordValues(record));
+            return result;
+        }
+
+        private object[] GetRecordValues(ViewRecord record)
+        {
+            ArrayList result = new ArrayList();
+            foreach (ViewProperty property in record.View.Properties)
+                result.Add(record[property.Property]);
+            result.Add(result[3] == null ? 0: TotalHoras((TimeSpan)result[4], (TimeSpan)result[3]));
+            return result.ToArray();
+        }
+
+        private decimal TotalHoras(TimeSpan Entrada, TimeSpan Salida)
+        {
+            decimal EntradaHora = CHECADOR.BL.Utilerias.CalcularHora(Entrada);
+            decimal SalidaHora = CHECADOR.BL.Utilerias.CalcularHora(Salida);
+            return SalidaHora > 0 & EntradaHora > 0 ? (SalidaHora - EntradaHora) : 0;
         }
 
         private void DetailReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -42,23 +84,52 @@ namespace CHECADOR.WIN.Reportes
 
             DateTime mFechaInicial = FechaInicial;
             DateTime mFechaFinal = FechaFinal;
-            CHECADOR.BL.UsuarioChecador Usuario = (UsuarioChecador)this.GetCurrentRow();
-            Usuario.HistoricoChecadas.Criteria = go;
-            while(mFechaFinal >= mFechaInicial)
+            ViewRecord ViewUsuario = (ViewRecord)this.GetCurrentRow();
+            //TablaChecadas.DefaultView.RowFilter = "Usuario = " + Convert.ToInt32(ViewUsuario["Oid"]) + " and FechaChecada = " + mFechaInicial.Date + "";
+
+
+            //GroupOperator goFinal = new GroupOperator(GroupOperatorType.And);
+            //goFinal.Operands.Add(new BinaryOperator("Usuario.Oid", Convert.ToInt32(ViewUsuario["Oid"])));
+            //Checadas.Filter = goFinal;
+
+            //CHECADOR.BL.UsuarioChecador Usuario = (UsuarioChecador)this.GetCurrentRow();
+            //Usuario.HistoricoChecadas.Criteria = go;
+            // XPView Checadas = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.HistoricoChecadas), "Oid;FechaChecada;Usuario.Oid;HoraChecadaSalida;HoraChecadaEntrada", go);
+            //Checadas.Filter = new BinaryOperator("Usuario.Oid", Convert.ToInt32(ViewUsuario["Oid"]));
+            while (mFechaFinal >= mFechaInicial)
             {
-                Usuario.HistoricoChecadas.Filter = new BinaryOperator("FechaChecada", mFechaInicial);
-                if(Usuario.HistoricoChecadas.Count <= 0)
+
+                TablaChecadas.DefaultView.RowFilter = "Usuario = " + Convert.ToInt32(ViewUsuario["Oid"]) + " AND " + String.Format(System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat,
+                     "FechaChecada = #{0}#", mFechaInicial.Date); //new DateTime(mFechaInicial.Date.Year, mFechaInicial.Date.Month, mFechaInicial.Date.Day, 0, 0, 0));
+                if (TablaChecadas.DefaultView.Count <= 0)
                 {
-                    HistoricoChecadas historial = new HistoricoChecadas(Unidad);
-                    historial.Usuario = Usuario;
-                    historial.FechaChecada = mFechaInicial;
-                    historial.HoraChecadaEntrada = new TimeSpan(0, 0, 0);
-                    historial.HoraChecadaSalida = new TimeSpan(0, 0, 0);
-                    Usuario.HistoricoChecadas.Add(historial);
+                    DataRow data = TablaChecadas.NewRow();
+                    data[1] = mFechaInicial.Date;
+                    data[2] = Convert.ToInt32(ViewUsuario["Oid"]);
+                    data[3] = new TimeSpan(0, 0, 0);
+                    data[4] = new TimeSpan(0, 0, 0);
+                    data[5] = 0;
+                    TablaChecadas.Rows.Add(data);
+                    //List<HistoricoChecadas> historicos = new List<HistoricoChecadas>();
+                    //HistoricoChecadas historial = new HistoricoChecadas(Unidad);
+                    ////historial.Usuario = ViewUsuario.GetObject() as UsuarioChecador;
+                    //historial.FechaChecada = mFechaInicial;
+                    //historial.HoraChecadaEntrada = new TimeSpan(0, 0, 0);
+                    //historial.HoraChecadaSalida = new TimeSpan(0, 0, 0);
+                    //historicos.Add(historial);
+                    //DetailReport.DataSource = null;
+                    //DetailReport.DataSource = historicos;
+                    //historial.Save();
+                    //((XPView)Checadas).Reload();
                 }
-                Usuario.HistoricoChecadas.Filter = null;
+
+
                 mFechaInicial = mFechaInicial.AddDays(1);
             }
+
+            TablaChecadas.DefaultView.RowFilter = "Usuario = " + Convert.ToInt32(ViewUsuario["Oid"]) + "";
+            //DetailReport.DataSource = Checadas;
+            // DetailReport.DataSource = Checadas;
         }
     }
 }

@@ -42,6 +42,7 @@ namespace CHECADOR.WIN
             if (EsConcentrado)
             {
                 ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new CHECADOR.WIN.Reportes.ConcentradoNomina(dteDel.DateTime, dteAl.DateTime));
+                //repHorasTrabajadas.PrintDialog();
                 repHorasTrabajadas.ShowPreview();
             }
             else

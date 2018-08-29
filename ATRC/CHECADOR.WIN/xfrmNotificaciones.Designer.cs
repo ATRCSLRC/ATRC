@@ -127,6 +127,7 @@
             // 
             // memoMotivo
             // 
+            this.memoMotivo.EnterMoveNextControl = true;
             this.memoMotivo.Location = new System.Drawing.Point(94, 60);
             this.memoMotivo.MenuManager = this.ribbonControl1;
             this.memoMotivo.Name = "memoMotivo";
@@ -136,11 +137,15 @@
             // 
             // lueResponsable
             // 
+            this.lueResponsable.EnterMoveNextControl = true;
             this.lueResponsable.Location = new System.Drawing.Point(94, 36);
             this.lueResponsable.MenuManager = this.ribbonControl1;
             this.lueResponsable.Name = "lueResponsable";
             this.lueResponsable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueResponsable.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
+            this.lueResponsable.Properties.DisplayMember = "Nombre";
             this.lueResponsable.Properties.NullText = "[Seleccione]";
             this.lueResponsable.Size = new System.Drawing.Size(416, 20);
             this.lueResponsable.StyleController = this.lcMain;
@@ -169,6 +174,7 @@
             this.btnNumUsuario.Size = new System.Drawing.Size(96, 20);
             this.btnNumUsuario.StyleController = this.lcMain;
             this.btnNumUsuario.TabIndex = 4;
+            this.btnNumUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnNumUsuario_KeyDown);
             this.btnNumUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnNumUsuario_KeyUp);
             this.btnNumUsuario.Leave += new System.EventHandler(this.btnNumUsuario_Leave);
             // 
@@ -231,9 +237,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmNotificaciones";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notificaciones";
             this.Load += new System.EventHandler(this.xfrmNotificaciones_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xfrmNotificaciones_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);

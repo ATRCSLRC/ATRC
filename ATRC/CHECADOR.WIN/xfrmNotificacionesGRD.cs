@@ -26,8 +26,8 @@ namespace CHECADOR.WIN
         private void xfrmNotificacionesGRD_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPCollection<Notificaciones> Usuarios = new XPCollection<Notificaciones>(Unidad);
-            grdNotificaciones.DataSource = Usuarios;
+            XPView Notificaciones = new XPView(Unidad,typeof(Notificaciones), "Oid;Receptor.Usuario.Nombre;Responsable.Usuario.Nombre;Motivo", null);
+            grdNotificaciones.DataSource = Notificaciones;
         }
 
         private void bbiNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -38,35 +38,30 @@ namespace CHECADOR.WIN
                 xfrm.Notificacion = new Notificaciones(Unidad);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
-                (grdNotificaciones.DataSource as XPCollection<Notificaciones>).Reload();
+                (grdNotificaciones.DataSource as XPView).Reload();
             }
         }
 
         private void bbiModificar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Notificaciones Notificacion = grvNotificaciones.GetFocusedRow() as Notificaciones;
-            if (Notificacion != null)
-                using (xfrmNotificaciones xfrm = new xfrmNotificaciones())
-                {
-                    xfrm.Unidad = Unidad;
-                    xfrm.Notificacion = Notificacion;
-                    xfrm.ShowInTaskbar = false;
-                    xfrm.ShowDialog();
-                    xfrm.Dispose();
-                    (grdNotificaciones.DataSource as XPCollection<Notificaciones>).Reload();
-                }
+           
         }
 
         private void bbiDesactivar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Notificaciones Notificacion = grvNotificaciones.GetFocusedRow() as Notificaciones;
-            if (Notificacion != null)
+            ViewRecord ViewRecord = grvNotificaciones.GetFocusedRow() as ViewRecord;
+            if (ViewRecord != null)
+            {
+                Notificaciones Notificacion = (Notificaciones)ViewRecord.GetObject();
                 if (XtraMessageBox.Show("¿Está seguro de querer desactivar la notificación al usuario '" + Notificacion.Receptor.Usuario.NumEmpleado + " - " + Notificacion.Receptor.Usuario.Nombre + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
+                    Notificacion.Receptor.Notificaciones.Remove(Notificacion);
                     Notificacion.Delete();
                     Unidad.CommitChanges();
-                    ((XPCollection<Notificaciones>)grdNotificaciones.DataSource).Reload();
+                    XtraMessageBox.Show("La notificación se ha desactivado correctamente. ");
+                    ((XPView)grdNotificaciones.DataSource).Reload();
                 }
+            }
         }
 
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

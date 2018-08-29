@@ -118,6 +118,7 @@
             // 
             // MapControlUbicacion
             // 
+            this.MapControlUbicacion.CenterPoint = new DevExpress.XtraMap.GeoPoint(32.44745D, -114.765135D);
             this.MapControlUbicacion.Layers.Add(this.imageLayer1);
             colorListLegend1.Header = "Rutas";
             this.MapControlUbicacion.Legends.Add(colorListLegend1);
@@ -127,6 +128,7 @@
             this.MapControlUbicacion.NavigationPanelOptions.ShowCoordinates = false;
             this.MapControlUbicacion.NavigationPanelOptions.ShowKilometersScale = false;
             this.MapControlUbicacion.NavigationPanelOptions.ShowMilesScale = false;
+            this.MapControlUbicacion.PrintOptions.SizeMode = DevExpress.XtraMap.MapPrintSizeMode.Stretch;
             this.MapControlUbicacion.Size = new System.Drawing.Size(1218, 546);
             this.MapControlUbicacion.TabIndex = 4;
             this.imageLayer1.DataProvider = this.bingMapDataProvider1;

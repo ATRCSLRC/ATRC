@@ -155,6 +155,20 @@ namespace ATRCBASE.WIN
             else
                 lciComparaContraseña.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
         }
+
+        private void bbiMapa_Click(object sender, EventArgs e)
+        {
+            xfrmMapa xfrm = new xfrmMapa();
+            xfrm.Longitud = Usuario.Longitud;
+            xfrm.Latitud = Usuario.Latitud;
+            xfrm.ShowDialog();
+            if (xfrm.Guardar)
+            {
+                Usuario.Longitud = xfrm.Longitud;
+                Usuario.Latitud = xfrm.Latitud;
+                txtDomicilio.Text = Usuario.Latitud.ToString() + ", "+ Usuario.Longitud.ToString();
+            }
+        }
         #endregion
 
         #region Metodos
@@ -192,6 +206,7 @@ namespace ATRCBASE.WIN
             txtTipoSangre.DataBindings.Add("EditValue", Usuario, "TipoSangre", true, DataSourceUpdateMode.OnPropertyChanged);
             checkedComboBoxEdit1.DataBindings.Add("EditValue", Usuario , "Modulos", true, DataSourceUpdateMode.OnPropertyChanged);
             txtContraseña.Text = txtConfContraseña.Text = Usuario.ConstraseñaDesencriptada;
+            txtDomicilio.Text = Usuario.Latitud.ToString() + ", "+ Usuario.Longitud.ToString();
         }
 
         private void Desligar()
@@ -231,6 +246,5 @@ namespace ATRCBASE.WIN
         }
 
         #endregion
- 
     }
 }

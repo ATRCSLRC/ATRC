@@ -58,7 +58,7 @@ namespace ATRCBASE.BL
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    if(value.Length < 10)
+                    if(value.Length < 20)
                         value = Utilerias.EncriptarString(value);
 
                 SetPropertyValue<string>("Constraseña", ref mContraseña, value);
@@ -146,7 +146,21 @@ namespace ATRCBASE.BL
             get { return mModulos; }
             set { SetPropertyValue<string>("Modulos", ref mModulos, value); }
         }
-        
+
+        double mLatitud;
+        public double Latitud
+        {
+            get { return mLatitud; }
+            set { SetPropertyValue<double>("Latitud", ref mLatitud, value); }
+        }
+
+        double mLongitud;
+        public double Longitud
+        {
+            get { return mLongitud; }
+            set { SetPropertyValue<double>("Longitud", ref mLongitud, value); }
+        }
+
         [NonPersistent]
         public string ConstraseñaDesencriptada
         {

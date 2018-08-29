@@ -90,6 +90,7 @@
             this.bbiModificar.ImageOptions.LargeImage = global::CHECADOR.WIN.Properties.Resources.icons8_editar_archivo_80;
             this.bbiModificar.Name = "bbiModificar";
             this.bbiModificar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiModificar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiModificar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificar_ItemClick);
             // 
             // bbiDesactivar
@@ -166,7 +167,7 @@
             this.grvNotificaciones.Name = "grvNotificaciones";
             this.grvNotificaciones.OptionsBehavior.Editable = false;
             this.grvNotificaciones.OptionsBehavior.ReadOnly = true;
-            this.grvNotificaciones.OptionsView.ShowAutoFilterRow = true;
+            this.grvNotificaciones.OptionsFind.AlwaysVisible = true;
             this.grvNotificaciones.OptionsView.ShowDetailButtons = false;
             this.grvNotificaciones.OptionsView.ShowGroupPanel = false;
             // 
@@ -229,7 +230,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmNotificacionesGRD";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notificaciones";
             this.Load += new System.EventHandler(this.xfrmNotificacionesGRD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

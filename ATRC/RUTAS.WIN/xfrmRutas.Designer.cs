@@ -260,6 +260,7 @@
             // 
             // MapControlUbicacion
             // 
+            this.MapControlUbicacion.CenterPoint = new DevExpress.XtraMap.GeoPoint(32.44745D, -114.765135D);
             this.MapControlUbicacion.Layers.Add(this.imageLayer1);
             this.MapControlUbicacion.Layers.Add(this.informationLayer1);
             this.MapControlUbicacion.Layers.Add(this.informationLayer2);
@@ -270,6 +271,7 @@
             this.MapControlUbicacion.NavigationPanelOptions.ShowCoordinates = false;
             this.MapControlUbicacion.NavigationPanelOptions.ShowKilometersScale = false;
             this.MapControlUbicacion.NavigationPanelOptions.ShowMilesScale = false;
+            this.MapControlUbicacion.PrintOptions.SizeMode = DevExpress.XtraMap.MapPrintSizeMode.Stretch;
             this.MapControlUbicacion.Size = new System.Drawing.Size(967, 612);
             this.MapControlUbicacion.TabIndex = 4;
             this.MapControlUbicacion.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MapControlUbicacion_MouseUp);

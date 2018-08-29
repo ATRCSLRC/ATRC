@@ -40,6 +40,7 @@ namespace ATRCBASE.WIN
                 rpgGafete.Visible = false;
             }
             XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre", null);
+            Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdUsuarios.DataSource = Usuarios;
         }
 

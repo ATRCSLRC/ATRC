@@ -140,6 +140,7 @@
             // 
             // memoMotivo
             // 
+            this.memoMotivo.EnterMoveNextControl = true;
             this.memoMotivo.Location = new System.Drawing.Point(121, 114);
             this.memoMotivo.MenuManager = this.ribbonControl1;
             this.memoMotivo.Name = "memoMotivo";
@@ -150,6 +151,7 @@
             // tmeHoraEntrada
             // 
             this.tmeHoraEntrada.EditValue = null;
+            this.tmeHoraEntrada.EnterMoveNextControl = true;
             this.tmeHoraEntrada.Location = new System.Drawing.Point(121, 90);
             this.tmeHoraEntrada.MenuManager = this.ribbonControl1;
             this.tmeHoraEntrada.Name = "tmeHoraEntrada";
@@ -159,10 +161,12 @@
             this.tmeHoraEntrada.Size = new System.Drawing.Size(174, 20);
             this.tmeHoraEntrada.StyleController = this.lcMain;
             this.tmeHoraEntrada.TabIndex = 8;
+            this.tmeHoraEntrada.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tmeHoraSalida_KeyUp);
             // 
             // tmeHoraSalida
             // 
             this.tmeHoraSalida.EditValue = null;
+            this.tmeHoraSalida.EnterMoveNextControl = true;
             this.tmeHoraSalida.Location = new System.Drawing.Point(396, 90);
             this.tmeHoraSalida.MenuManager = this.ribbonControl1;
             this.tmeHoraSalida.Name = "tmeHoraSalida";
@@ -172,6 +176,7 @@
             this.tmeHoraSalida.Size = new System.Drawing.Size(160, 20);
             this.tmeHoraSalida.StyleController = this.lcMain;
             this.tmeHoraSalida.TabIndex = 7;
+            this.tmeHoraSalida.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tmeHoraSalida_KeyUp);
             // 
             // txtNombreUsuario
             // 
@@ -209,14 +214,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFecha.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteFecha.Properties.DisplayFormat.FormatString = "D";
             this.dteFecha.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFecha.Properties.EditFormat.FormatString = "D";
             this.dteFecha.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFecha.Properties.Mask.EditMask = "D";
             this.dteFecha.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dteFecha.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.dteFecha.Size = new System.Drawing.Size(435, 20);
             this.dteFecha.StyleController = this.lcMain;
             this.dteFecha.TabIndex = 4;
@@ -309,9 +312,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmChecador";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checador";
             this.Load += new System.EventHandler(this.xfrmChecador_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xfrmChecador_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);

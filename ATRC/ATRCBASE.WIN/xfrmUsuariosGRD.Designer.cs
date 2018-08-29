@@ -231,14 +231,14 @@
             this.grvUsuarios.Name = "grvUsuarios";
             this.grvUsuarios.OptionsBehavior.Editable = false;
             this.grvUsuarios.OptionsBehavior.ReadOnly = true;
+            this.grvUsuarios.OptionsFind.AlwaysVisible = true;
             this.grvUsuarios.OptionsView.AllowHtmlDrawGroups = false;
-            this.grvUsuarios.OptionsView.ShowAutoFilterRow = true;
             this.grvUsuarios.OptionsView.ShowDetailButtons = false;
             this.grvUsuarios.OptionsView.ShowGroupPanel = false;
             // 
             // colNumUsuario
             // 
-            this.colNumUsuario.Caption = "Número Empleado";
+            this.colNumUsuario.Caption = "Número empleado";
             this.colNumUsuario.FieldName = "NumEmpleado";
             this.colNumUsuario.Name = "colNumUsuario";
             this.colNumUsuario.OptionsColumn.AllowFocus = false;
@@ -285,7 +285,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmUsuariosGRD";
             this.Ribbon = this.rbnUsuarios;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.xfrmUsuariosGRD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rbnUsuarios)).EndInit();

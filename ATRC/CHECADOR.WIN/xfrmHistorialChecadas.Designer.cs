@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmHistorialChecadas));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiModificarChecada = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEliminar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSalir = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
@@ -61,6 +62,7 @@
             this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciNumUsuario = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcibtnBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
+            this.DetalleChecada = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ftpDetalleChecada = new DevExpress.Utils.FlyoutPanel();
             this.lcMainDetalle = new DevExpress.XtraLayout.LayoutControl();
             this.lblDetalleLaborado = new DevExpress.XtraEditors.LabelControl();
@@ -109,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ftpDetalleChecada)).BeginInit();
             this.ftpDetalleChecada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalle)).BeginInit();
@@ -133,28 +136,30 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.bbiGuardar,
+            this.bbiModificarChecada,
             this.bbiEliminar,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.rpAcciones});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
             this.ribbonControl1.Size = new System.Drawing.Size(1024, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
-            // bbiGuardar
+            // bbiModificarChecada
             // 
-            this.bbiGuardar.Caption = "Guardar";
-            this.bbiGuardar.Id = 1;
-            this.bbiGuardar.ImageOptions.LargeImage = global::CHECADOR.WIN.Properties.Resources.Guardar;
-            this.bbiGuardar.Name = "bbiGuardar";
-            this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
+            this.bbiModificarChecada.Caption = "Modificar checada";
+            this.bbiModificarChecada.Id = 1;
+            this.bbiModificarChecada.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiModificarChecada.ImageOptions.Image")));
+            this.bbiModificarChecada.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificarChecada.ImageOptions.LargeImage")));
+            this.bbiModificarChecada.Name = "bbiModificarChecada";
+            this.bbiModificarChecada.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiModificarChecada.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
             // 
             // bbiEliminar
             // 
@@ -174,19 +179,25 @@
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalir_ItemClick);
             // 
-            // ribbonPage1
+            // barButtonItem1
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // rpAcciones
+            // 
+            this.rpAcciones.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgAcciones,
             this.rpgSalir});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.rpAcciones.Name = "rpAcciones";
+            this.rpAcciones.Text = "ribbonPage1";
             // 
             // rpgAcciones
             // 
             this.rpgAcciones.AllowMinimize = false;
             this.rpgAcciones.AllowTextClipping = false;
-            this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
+            this.rpgAcciones.ItemLinks.Add(this.bbiModificarChecada);
             this.rpgAcciones.ItemLinks.Add(this.bbiEliminar);
             this.rpgAcciones.Name = "rpgAcciones";
             this.rpgAcciones.ShowCaptionButton = false;
@@ -210,7 +221,7 @@
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
-            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(725, 437, 650, 387);
+            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(443, 275, 650, 387);
             this.lcMain.Root = this.layoutControlGroup1;
             this.lcMain.Size = new System.Drawing.Size(1024, 712);
             this.lcMain.TabIndex = 1;
@@ -250,7 +261,7 @@
             this.grdHistorialChecadas.Name = "grdHistorialChecadas";
             this.grdHistorialChecadas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1});
-            this.grdHistorialChecadas.Size = new System.Drawing.Size(1000, 543);
+            this.grdHistorialChecadas.Size = new System.Drawing.Size(1000, 420);
             this.grdHistorialChecadas.TabIndex = 8;
             this.grdHistorialChecadas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvHistorialChecadas});
@@ -264,15 +275,11 @@
             this.colTipoChecada,
             this.colMotivo});
             this.grvHistorialChecadas.GridControl = this.grdHistorialChecadas;
-            this.grvHistorialChecadas.GroupCount = 1;
             this.grvHistorialChecadas.Name = "grvHistorialChecadas";
             this.grvHistorialChecadas.OptionsView.ShowDetailButtons = false;
             this.grvHistorialChecadas.OptionsView.ShowGroupPanel = false;
-            this.grvHistorialChecadas.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colNumEmpleado, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.grvHistorialChecadas.EndGrouping += new System.EventHandler(this.grvHistorialChecadas_EndGrouping);
             this.grvHistorialChecadas.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvHistorialChecadas_FocusedRowChanged);
-            this.grvHistorialChecadas.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.grvHistorialChecadas_CustomUnboundColumnData);
             this.grvHistorialChecadas.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.grvHistorialChecadas_CustomColumnDisplayText);
             // 
             // colFecha
@@ -280,6 +287,7 @@
             this.colFecha.Caption = "Fecha de checada";
             this.colFecha.FieldName = "FechaChecada";
             this.colFecha.Name = "colFecha";
+            this.colFecha.OptionsColumn.AllowFocus = false;
             this.colFecha.Visible = true;
             this.colFecha.VisibleIndex = 0;
             // 
@@ -288,6 +296,7 @@
             this.colNumEmpleado.Caption = "Usuario";
             this.colNumEmpleado.FieldName = "Usuario.Usuario.NumEmpleado";
             this.colNumEmpleado.Name = "colNumEmpleado";
+            this.colNumEmpleado.OptionsColumn.AllowFocus = false;
             this.colNumEmpleado.Visible = true;
             this.colNumEmpleado.VisibleIndex = 1;
             // 
@@ -295,11 +304,12 @@
             // 
             this.colHoraChecada.Caption = "Hora de checada entrada";
             this.colHoraChecada.ColumnEdit = this.repositoryItemTimeEdit1;
-            this.colHoraChecada.FieldName = "HoraChecadaEntradaT";
+            this.colHoraChecada.FieldName = "HoraChecadaEntrada";
             this.colHoraChecada.Name = "colHoraChecada";
+            this.colHoraChecada.OptionsColumn.AllowFocus = false;
             this.colHoraChecada.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.colHoraChecada.Visible = true;
-            this.colHoraChecada.VisibleIndex = 1;
+            this.colHoraChecada.VisibleIndex = 2;
             // 
             // repositoryItemTimeEdit1
             // 
@@ -313,19 +323,21 @@
             // 
             this.colTipoChecada.Caption = "Hora de checada salida";
             this.colTipoChecada.ColumnEdit = this.repositoryItemTimeEdit1;
-            this.colTipoChecada.FieldName = "HoraChecadaSalidaT";
+            this.colTipoChecada.FieldName = "HoraChecadaSalida";
             this.colTipoChecada.Name = "colTipoChecada";
+            this.colTipoChecada.OptionsColumn.AllowFocus = false;
             this.colTipoChecada.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.colTipoChecada.Visible = true;
-            this.colTipoChecada.VisibleIndex = 2;
+            this.colTipoChecada.VisibleIndex = 3;
             // 
             // colMotivo
             // 
             this.colMotivo.Caption = "Motivo";
             this.colMotivo.FieldName = "Motivo";
             this.colMotivo.Name = "colMotivo";
+            this.colMotivo.OptionsColumn.AllowFocus = false;
             this.colMotivo.Visible = true;
-            this.colMotivo.VisibleIndex = 3;
+            this.colMotivo.VisibleIndex = 4;
             // 
             // btnBusqueda
             // 
@@ -361,13 +373,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFechaFinal.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFechaFinal.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteFechaFinal.Properties.DisplayFormat.FormatString = "D";
             this.dteFechaFinal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFechaFinal.Properties.EditFormat.FormatString = "D";
             this.dteFechaFinal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFechaFinal.Properties.Mask.EditMask = "D";
-            this.dteFechaFinal.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.dteFechaFinal.Size = new System.Drawing.Size(385, 20);
             this.dteFechaFinal.StyleController = this.lcMain;
             this.dteFechaFinal.TabIndex = 5;
@@ -382,13 +392,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFechaInicial.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFechaInicial.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteFechaInicial.Properties.DisplayFormat.FormatString = "D";
             this.dteFechaInicial.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFechaInicial.Properties.EditFormat.FormatString = "D";
             this.dteFechaInicial.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFechaInicial.Properties.Mask.EditMask = "D";
-            this.dteFechaInicial.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.dteFechaInicial.Size = new System.Drawing.Size(403, 20);
             this.dteFechaInicial.StyleController = this.lcMain;
             this.dteFechaInicial.TabIndex = 4;
@@ -399,7 +407,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem5,
-            this.lcgBusqueda});
+            this.lcgBusqueda,
+            this.DetalleChecada});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1024, 712);
             this.layoutControlGroup1.TextVisible = false;
@@ -409,7 +418,7 @@
             this.layoutControlItem5.Control = this.grdHistorialChecadas;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 145);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1004, 547);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1004, 424);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -495,6 +504,18 @@
             this.lcibtnBusqueda.TextSize = new System.Drawing.Size(0, 0);
             this.lcibtnBusqueda.TextVisible = false;
             // 
+            // DetalleChecada
+            // 
+            this.DetalleChecada.AllowHotTrack = false;
+            this.DetalleChecada.Location = new System.Drawing.Point(0, 569);
+            this.DetalleChecada.MaxSize = new System.Drawing.Size(1004, 0);
+            this.DetalleChecada.MinSize = new System.Drawing.Size(1004, 10);
+            this.DetalleChecada.Name = "DetalleChecada";
+            this.DetalleChecada.Size = new System.Drawing.Size(1004, 123);
+            this.DetalleChecada.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.DetalleChecada.TextSize = new System.Drawing.Size(0, 0);
+            this.DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
             // ftpDetalleChecada
             // 
             this.ftpDetalleChecada.Appearance.BackColor = System.Drawing.Color.Red;
@@ -511,7 +532,7 @@
             this.ftpDetalleChecada.OptionsButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.Utils.PeekFormButton(),
             new DevExpress.Utils.PeekFormButton()});
-            this.ftpDetalleChecada.OwnerControl = this.grdHistorialChecadas;
+            this.ftpDetalleChecada.OwnerControl = this;
             this.ftpDetalleChecada.Size = new System.Drawing.Size(917, 133);
             this.ftpDetalleChecada.TabIndex = 12;
             // 
@@ -829,7 +850,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmHistorialChecadas";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historial checador";
             this.Load += new System.EventHandler(this.xfrmHistorialChecadas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
@@ -855,6 +875,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ftpDetalleChecada)).EndInit();
             this.ftpDetalleChecada.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalle)).EndInit();
@@ -880,7 +901,7 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpAcciones;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgAcciones;
         private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraEditors.ButtonEdit btnUsuario;
@@ -905,7 +926,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHoraChecada;
         private DevExpress.XtraGrid.Columns.GridColumn colTipoChecada;
         private DevExpress.XtraGrid.Columns.GridColumn colMotivo;
-        private DevExpress.XtraBars.BarButtonItem bbiGuardar;
+        private DevExpress.XtraBars.BarButtonItem bbiModificarChecada;
         private DevExpress.XtraGrid.Columns.GridColumn colFecha;
         private DevExpress.XtraBars.BarButtonItem bbiEliminar;
         private DevExpress.XtraBars.BarButtonItem bbiSalir;
@@ -936,5 +957,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciTotalLaboradasChecada;
         private DevExpress.XtraLayout.LayoutControlItem lciDetalleTotalLaboradasChecada;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
+        private DevExpress.XtraLayout.EmptySpaceItem DetalleChecada;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

@@ -2,6 +2,7 @@
 using ATRCBASE.WIN;
 using CHECADOR.BL;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -28,18 +29,20 @@ namespace CHECADOR.WIN
         #region Eventos
         private void xfrmNotificaciones_Load(object sender, EventArgs e)
         {
-            ATRCBASE.BL.Utilerias.CargarLookupEdit(lueResponsable, typeof(Usuario), new BinaryOperator("EsAdministrativo", true) ,Unidad, "Nombre", "Nombre", false);
+            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;Nombre;NumEmpleado", new BinaryOperator("EsAdministrativo", true));
+            lueResponsable.Properties.DataSource = Usuarios;
         }
         
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ValidarCampos())
             {
-                Notificacion.Responsable = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, ((Usuario)lueResponsable.EditValue).NumEmpleado);
+                Notificacion.Responsable = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(((ViewRecord)lueResponsable.EditValue)["NumEmpleado"]));
                 Notificacion.Receptor = Usuario;
                 Notificacion.Motivo = memoMotivo.Text;
                 Notificacion.Save();
                 Unidad.CommitChanges();
+                XtraMessageBox.Show("La notificación se guardo correctamente.");
                 this.Close();
             }
         }
@@ -52,27 +55,7 @@ namespace CHECADOR.WIN
 
         private void btnNumUsuario_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                if (!string.IsNullOrEmpty(btnNumUsuario.Text))
-                {
-                    Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnNumUsuario.Text));
-                    if (Usuario != null)
-                    {
-                        if (Usuario.Usuario != null)
-                            txtNombre.Text = Usuario.Usuario.Nombre;
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                        txtNombre.Text = string.Empty;
-                    }
-                }
-                else
-                {
-                    txtNombre.Text = string.Empty;
-                }
-            }
+            
         }
 
         private void btnNumUsuario_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -107,24 +90,24 @@ namespace CHECADOR.WIN
 
         private void btnNumUsuario_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(btnNumUsuario.Text))
-            {
-                Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnNumUsuario.Text));
-                if (Usuario != null)
-                {
-                    if (Usuario.Usuario != null)
-                        txtNombre.Text = Usuario.Usuario.Nombre;
-                }
-                else
-                {
-                    XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                    txtNombre.Text = string.Empty;
-                }
-            }
-            else
-            {
-                txtNombre.Text = string.Empty;
-            }
+            //if (!string.IsNullOrEmpty(btnNumUsuario.Text))
+            //{
+            //    Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnNumUsuario.Text));
+            //    if (Usuario != null)
+            //    {
+            //        if (Usuario.Usuario != null)
+            //            txtNombre.Text = Usuario.Usuario.Nombre;
+            //    }
+            //    else
+            //    {
+            //        XtraMessageBox.Show("El usuario no se encuentra registrado.");
+            //        txtNombre.Text = string.Empty;
+            //    }
+            //}
+            //else
+            //{
+            //    txtNombre.Text = string.Empty;
+            //}
         }
         #endregion
 
@@ -144,5 +127,42 @@ namespace CHECADOR.WIN
             return true;
         }
         #endregion
+
+        private void btnNumUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!string.IsNullOrEmpty(btnNumUsuario.Text))
+                {
+                    Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnNumUsuario.Text));
+                    if (Usuario != null)
+                    {
+                        if (Usuario.Usuario != null)
+                        {
+                            txtNombre.Text = Usuario.Usuario.Nombre;
+                            lueResponsable.Focus();
+                        }
+                            
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("El usuario no se encuentra registrado.");
+                        txtNombre.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    txtNombre.Text = string.Empty;
+                }
+            }
+        }
+
+        private void xfrmNotificaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData == Keys.Enter))
+            {
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
     }
 }

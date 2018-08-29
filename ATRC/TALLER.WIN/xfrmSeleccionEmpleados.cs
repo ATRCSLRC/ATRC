@@ -41,9 +41,11 @@ namespace TALLER.WIN
             XPView Usuarios = new XPView(Unidad, typeof(Usuario));
             Usuarios.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("NumEmpleado", SortDirection.None, "[NumEmpleado]", false, true),
                   new ViewProperty("Nombre", SortDirection.None, "Concat(ToStr([NumEmpleado]), ' - ', [Nombre])", false, true)
                  });
             Usuarios.Criteria = go;
+            Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdEmpleados.DataSource = Usuarios;
         }
 
