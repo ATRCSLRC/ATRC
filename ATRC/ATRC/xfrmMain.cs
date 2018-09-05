@@ -24,12 +24,13 @@ namespace ATRC
             bbiUsuario.Caption = "Usuario : " + ATRCBASE.BL.Utilerias.UsuarioActual.Nombre;
             rbnpUsuarios.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Usuarios") ? true : false;
             rbnpChecador.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Checador") ? true : false;
-            rbnpAdministracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Administración") ? true : false;
+            rbnpConfiguracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Configuración") ? true : false;
             rpAlmacen.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Almacen") ? true : false;
             rbnpUnidades.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Unidades") ? true : false;
             rbnpLlantera.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Llantera") ? true : false;
             rbnpTaller.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Taller") ? true : false;
             rbnpRutas.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Rutas") ? true : false;
+            rbnpAdministracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Administración") ? true : false;
         }
 
         private void bvbiSalir_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
@@ -231,6 +232,14 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
+
+        private void bbiCodigos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmCodigoArticulos xfrm = new ALMACEN.WIN.xfrmCodigoArticulos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
         #endregion
 
         #region Unidades
@@ -366,6 +375,15 @@ namespace ATRC
         }
 
         private void bbiChecadorRutas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmHistorialChecadas xfrm = new CHECADOR.WIN.xfrmHistorialChecadas();
+            xfrm.esConsulta = true;
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiChecadorAdmin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CHECADOR.WIN.xfrmHistorialChecadas xfrm = new CHECADOR.WIN.xfrmHistorialChecadas();
             xfrm.esConsulta = true;

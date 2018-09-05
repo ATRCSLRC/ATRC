@@ -113,6 +113,7 @@
             this.bbiSalir.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalir_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -241,7 +242,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmRadiosGRD";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Radios";
             this.Load += new System.EventHandler(this.xfrmRadiosGRD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

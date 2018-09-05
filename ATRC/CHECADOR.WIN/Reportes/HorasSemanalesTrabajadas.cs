@@ -76,7 +76,7 @@ namespace CHECADOR.WIN.Reportes
         {
             decimal EntradaHora = CHECADOR.BL.Utilerias.CalcularHora(Entrada);
             decimal SalidaHora = CHECADOR.BL.Utilerias.CalcularHora(Salida);
-            return SalidaHora > 0 & EntradaHora > 0 ? (SalidaHora - EntradaHora) : 0;
+            return SalidaHora < EntradaHora ? (SalidaHora - EntradaHora) + 24 : (SalidaHora - EntradaHora);
         }
 
         private void DetailReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -85,17 +85,6 @@ namespace CHECADOR.WIN.Reportes
             DateTime mFechaInicial = FechaInicial;
             DateTime mFechaFinal = FechaFinal;
             ViewRecord ViewUsuario = (ViewRecord)this.GetCurrentRow();
-            //TablaChecadas.DefaultView.RowFilter = "Usuario = " + Convert.ToInt32(ViewUsuario["Oid"]) + " and FechaChecada = " + mFechaInicial.Date + "";
-
-
-            //GroupOperator goFinal = new GroupOperator(GroupOperatorType.And);
-            //goFinal.Operands.Add(new BinaryOperator("Usuario.Oid", Convert.ToInt32(ViewUsuario["Oid"])));
-            //Checadas.Filter = goFinal;
-
-            //CHECADOR.BL.UsuarioChecador Usuario = (UsuarioChecador)this.GetCurrentRow();
-            //Usuario.HistoricoChecadas.Criteria = go;
-            // XPView Checadas = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.HistoricoChecadas), "Oid;FechaChecada;Usuario.Oid;HoraChecadaSalida;HoraChecadaEntrada", go);
-            //Checadas.Filter = new BinaryOperator("Usuario.Oid", Convert.ToInt32(ViewUsuario["Oid"]));
             while (mFechaFinal >= mFechaInicial)
             {
 
@@ -110,17 +99,6 @@ namespace CHECADOR.WIN.Reportes
                     data[4] = new TimeSpan(0, 0, 0);
                     data[5] = 0;
                     TablaChecadas.Rows.Add(data);
-                    //List<HistoricoChecadas> historicos = new List<HistoricoChecadas>();
-                    //HistoricoChecadas historial = new HistoricoChecadas(Unidad);
-                    ////historial.Usuario = ViewUsuario.GetObject() as UsuarioChecador;
-                    //historial.FechaChecada = mFechaInicial;
-                    //historial.HoraChecadaEntrada = new TimeSpan(0, 0, 0);
-                    //historial.HoraChecadaSalida = new TimeSpan(0, 0, 0);
-                    //historicos.Add(historial);
-                    //DetailReport.DataSource = null;
-                    //DetailReport.DataSource = historicos;
-                    //historial.Save();
-                    //((XPView)Checadas).Reload();
                 }
 
 
@@ -128,8 +106,6 @@ namespace CHECADOR.WIN.Reportes
             }
 
             TablaChecadas.DefaultView.RowFilter = "Usuario = " + Convert.ToInt32(ViewUsuario["Oid"]) + "";
-            //DetailReport.DataSource = Checadas;
-            // DetailReport.DataSource = Checadas;
         }
     }
 }

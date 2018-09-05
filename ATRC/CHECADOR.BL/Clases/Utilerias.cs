@@ -26,7 +26,11 @@ namespace CHECADOR.BL
                 {
                     UnidadDeTrabajo unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                     UsuarioChecador NuevoUsuario = new UsuarioChecador(unidad);
-                    NuevoUsuario.Usuario = unidad.FindObject<Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                    if (esNumUsuario)
+                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                    else
+                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
+                    //NuevoUsuario.Usuario = unidad.FindObject<Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
                     unidad.CommitChanges();
                     return Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario.Oid", Usuario.Oid, BinaryOperatorType.Equal));
 

@@ -54,6 +54,9 @@
     <EmbeddedResource Include="Articulos\xfrmSalidaArticulo.resx">
       <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmCodigoArticulos.resx">
+      <DependentUpon>xfrmCodigoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\xfrmMarcas.resx">
       <DependentUpon>xfrmMarcas.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,7 +78,6 @@
     <EmbeddedResource Include="Inventario\xfrmInventarioGRD.resx">
       <DependentUpon>xfrmInventarioGRD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reportes\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +112,12 @@
     </Compile>
     <Compile Include="Articulos\xfrmSalidaArticulo.Designer.cs">
       <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmCodigoArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmCodigoArticulos.Designer.cs">
+      <DependentUpon>xfrmCodigoArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\xfrmMarcas.cs">
       <SubType>Form</SubType>
@@ -206,6 +214,8 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

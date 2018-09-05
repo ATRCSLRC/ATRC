@@ -33,12 +33,12 @@
             this.grdUnidades = new DevExpress.XtraGrid.GridControl();
             this.grvUnidades = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTipoUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCombustible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUltimoCambioAceite = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProximoCambioACeite = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colTipoUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -97,7 +97,7 @@
             this.grvUnidades.Name = "grvUnidades";
             this.grvUnidades.OptionsBehavior.Editable = false;
             this.grvUnidades.OptionsBehavior.ReadOnly = true;
-            this.grvUnidades.OptionsView.ShowAutoFilterRow = true;
+            this.grvUnidades.OptionsFind.AlwaysVisible = true;
             this.grvUnidades.OptionsView.ShowDetailButtons = false;
             this.grvUnidades.OptionsView.ShowGroupPanel = false;
             this.grvUnidades.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.grvUnidades_RowStyle);
@@ -110,6 +110,14 @@
             this.colUnidad.OptionsColumn.AllowFocus = false;
             this.colUnidad.Visible = true;
             this.colUnidad.VisibleIndex = 0;
+            // 
+            // colTipoUnidad
+            // 
+            this.colTipoUnidad.Caption = "Tipo de unidad";
+            this.colTipoUnidad.FieldName = "TipoUnidad";
+            this.colTipoUnidad.Name = "colTipoUnidad";
+            this.colTipoUnidad.Visible = true;
+            this.colTipoUnidad.VisibleIndex = 1;
             // 
             // colCombustible
             // 
@@ -155,14 +163,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(780, 403);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // colTipoUnidad
-            // 
-            this.colTipoUnidad.Caption = "Tipo de unidad";
-            this.colTipoUnidad.FieldName = "TipoUnidad";
-            this.colTipoUnidad.Name = "colTipoUnidad";
-            this.colTipoUnidad.Visible = true;
-            this.colTipoUnidad.VisibleIndex = 1;
             // 
             // xfrmCambiosAceite
             // 

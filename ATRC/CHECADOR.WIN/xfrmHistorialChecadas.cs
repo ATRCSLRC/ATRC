@@ -108,27 +108,43 @@ namespace CHECADOR.WIN
             GroupOperator go = new GroupOperator( GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaChecada", dteFechaInicial.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaChecada", dteFechaFinal.DateTime.Date, BinaryOperatorType.LessOrEqual));
-            colNumEmpleado.GroupIndex = -1;
+            //colNumEmpleado.GroupIndex = -1;
             if (rdgFiltros.SelectedIndex == 1)
             {
                 go.Operands.Add(new BinaryOperator("Usuario", CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnUsuario.Text))));
-                colNumEmpleado.GroupIndex = 1;
+                emptySpaceItem1.TextVisible = true;
+                emptySpaceItem1.AppearanceItemCaption.BackColor = Color.Red;
+            }
+            else
+            {
+                emptySpaceItem1.AppearanceItemCaption.BackColor = DefaultBackColor;
+                emptySpaceItem1.TextVisible = false;
             }
             //XPCollection<HistoricoChecadas> Checadas = new XPCollection<HistoricoChecadas>(Unidad, go);
             XPView Checadas = new XPView(Unidad, typeof(HistoricoChecadas), "Oid;FechaChecada;HoraChecadaEntrada;HoraChecadaSalida;Usuario.Usuario.NumEmpleado;Motivo;Usuario.Usuario.Imagen;Usuario.Usuario.Nombre", go);
+            Checadas.Sorting.Add(new SortingCollection(new SortProperty("HoraChecadaEntrada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdHistorialChecadas.DataSource = Checadas;
-            DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            ftpDetalleChecada.HidePopup();
+
+            if (rdgFiltros.SelectedIndex == 1)
+            {
+                Int32 NumEmpleado = Convert.ToInt32(Checadas[0]["Usuario.Usuario.NumEmpleado"]);
+                XPView Usuario = new XPView(UnidadConsulta, typeof(Usuario), "Oid;NumEmpleado;Nombre", new BinaryOperator("NumEmpleado", NumEmpleado));
+                if (Usuario != null)
+                    emptySpaceItem1.Text = "Total de horas trabajadas: " + HorasTrabajadas(UnidadConsulta, NumEmpleado, dteFechaInicial.DateTime, dteFechaFinal.DateTime);
+            }
         }
 
         private void grvHistorialChecadas_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.IsForGroupRow)
-            {
+            //if (e.IsForGroupRow)
+            //{
 
-                XPView Usuario = new XPView(UnidadConsulta, typeof(Usuario), "Oid;NumEmpleado;Nombre", new BinaryOperator("NumEmpleado", Convert.ToInt32(e.DisplayText)));
-                if (Usuario != null)
-                    e.DisplayText = e.DisplayText + " - " + Usuario[0]["Nombre"] + "     Horas trabajadas: " + HorasTrabajadas(UnidadConsulta, Convert.ToInt32(e.DisplayText), dteFechaInicial.DateTime, dteFechaFinal.DateTime);
-            }
+            //    XPView Usuario = new XPView(UnidadConsulta, typeof(Usuario), "Oid;NumEmpleado;Nombre", new BinaryOperator("NumEmpleado", Convert.ToInt32(e.DisplayText)));
+            //    if (Usuario != null)
+            //        e.DisplayText = e.DisplayText + " - " + Usuario[0]["Nombre"] + "     Horas trabajadas: " + HorasTrabajadas(UnidadConsulta, Convert.ToInt32(e.DisplayText), dteFechaInicial.DateTime, dteFechaFinal.DateTime);
+            //}
         }
 
         public static decimal HorasTrabajadas(UnidadDeTrabajo Unidad, int usuario, DateTime FechaInicial, DateTime FechaFinal)
@@ -141,9 +157,10 @@ namespace CHECADOR.WIN
             decimal Horas = 0;
             foreach (ViewRecord ViewHistorico in Checadas)
             {
-                decimal HoraSalida = ViewHistorico["HoraChecadaSalida"] == null ? 0 : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)ViewHistorico["HoraChecadaSalida"]);
                 decimal HoraEntrada = ViewHistorico["HoraChecadaEntrada"] == null ? 0 : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)ViewHistorico["HoraChecadaEntrada"]);
-                if (HoraSalida > 0 & HoraEntrada > 0)
+                decimal HoraSalida = ViewHistorico["HoraChecadaSalida"] == null ? HoraEntrada : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)ViewHistorico["HoraChecadaSalida"]);
+                
+                //if (HoraSalida > 0 & HoraEntrada > 0)
                     if ((HoraSalida > HoraEntrada))
                         Horas += (HoraSalida - HoraEntrada);
                     else
@@ -154,7 +171,7 @@ namespace CHECADOR.WIN
 
         private void grvHistorialChecadas_EndGrouping(object sender, EventArgs e)
         {
-            grvHistorialChecadas.ExpandGroupRow(-1);
+            //grvHistorialChecadas.ExpandGroupRow(-1);
         }
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -173,34 +190,7 @@ namespace CHECADOR.WIN
 
         private void grvHistorialChecadas_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            ViewRecord ViewHistorico = grvHistorialChecadas.GetFocusedRow() as ViewRecord;
-            //HistoricoChecadas Historico = grvHistorialChecadas.GetFocusedRow() as HistoricoChecadas;
-            if (ViewHistorico != null)
-            {
-                Imagen Imagen = UnidadConsulta.GetObjectByKey<Imagen>(Convert.ToInt32(ViewHistorico["Usuario.Usuario.Imagen"]));
-                if (Imagen != null)
-                {
-                    if (!string.IsNullOrEmpty(Imagen.Archivo))
-                    {
-                        byte[] image = Convert.FromBase64String(Imagen.Archivo);
-                        MemoryStream stream = new MemoryStream(image);
-                        Image returnImage = Image.FromStream(stream);
-                        peFotoUsuario.EditValue = stream.ToArray();
-                    }
-                    else
-                        peFotoUsuario.Image = CHECADOR.WIN.Properties.Resources.usuario_desconocido;
-                }
-                else
-                    peFotoUsuario.Image = CHECADOR.WIN.Properties.Resources.usuario_desconocido;
-
-                lblDetalleFecha.Text = ((DateTime)ViewHistorico["FechaChecada"]).ToLongDateString();
-                lblDetalleUsuario.Text = ViewHistorico["Usuario.Usuario.NumEmpleado"].ToString() + " - " + ViewHistorico["Usuario.Usuario.Nombre"].ToString();
-                lblDetalleEntrada.Text = ViewHistorico["HoraChecadaEntrada"].ToString();
-                lblDetalleSalida.Text = ViewHistorico["HoraChecadaSalida"] == null ? "0" : ViewHistorico["HoraChecadaSalida"].ToString();
-                lblDetalleLaborado.Text = TotalHoras(ViewHistorico).ToString();
-                ftpDetalleChecada.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
-                ftpDetalleChecada.ShowPopup();
-            }
+            
         }
 
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -267,10 +257,41 @@ namespace CHECADOR.WIN
         private decimal TotalHoras(ViewRecord view)
         {
             decimal EntradaHora = view["HoraChecadaEntrada"] == null ? 0 : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)view["HoraChecadaEntrada"]);
-            decimal SalidaHora = view["HoraChecadaSalida"] == null ? 0 : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)view["HoraChecadaSalida"]);
-            return SalidaHora > 0 & EntradaHora > 0 ? (SalidaHora - EntradaHora) : 0;
+            decimal SalidaHora = view["HoraChecadaSalida"] == null ? EntradaHora : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)view["HoraChecadaSalida"]);
+            return /*SalidaHora > 0 & EntradaHora > 0 ?*/ SalidaHora < EntradaHora ? (SalidaHora - EntradaHora) + 24 :(SalidaHora - EntradaHora) /*: 0*/;
         }
 
-        
+        private void grvHistorialChecadas_RowClick(object sender, RowClickEventArgs e)
+        {
+            DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            ViewRecord ViewHistorico = grvHistorialChecadas.GetFocusedRow() as ViewRecord;
+            //HistoricoChecadas Historico = grvHistorialChecadas.GetFocusedRow() as HistoricoChecadas;
+            if (ViewHistorico != null)
+            {
+                Imagen Imagen = UnidadConsulta.GetObjectByKey<Imagen>(Convert.ToInt32(ViewHistorico["Usuario.Usuario.Imagen"]));
+                if (Imagen != null)
+                {
+                    if (!string.IsNullOrEmpty(Imagen.Archivo))
+                    {
+                        byte[] image = Convert.FromBase64String(Imagen.Archivo);
+                        MemoryStream stream = new MemoryStream(image);
+                        Image returnImage = Image.FromStream(stream);
+                        peFotoUsuario.EditValue = stream.ToArray();
+                    }
+                    else
+                        peFotoUsuario.Image = CHECADOR.WIN.Properties.Resources.usuario_desconocido;
+                }
+                else
+                    peFotoUsuario.Image = CHECADOR.WIN.Properties.Resources.usuario_desconocido;
+
+                lblDetalleFecha.Text = ((DateTime)ViewHistorico["FechaChecada"]).ToLongDateString();
+                lblDetalleUsuario.Text = ViewHistorico["Usuario.Usuario.NumEmpleado"].ToString() + " - " + ViewHistorico["Usuario.Usuario.Nombre"].ToString();
+                lblDetalleEntrada.Text = ViewHistorico["HoraChecadaEntrada"].ToString();
+                lblDetalleSalida.Text = ViewHistorico["HoraChecadaSalida"] == null ? "0" : ViewHistorico["HoraChecadaSalida"].ToString();
+                lblDetalleLaborado.Text = TotalHoras(ViewHistorico).ToString();
+                ftpDetalleChecada.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+                ftpDetalleChecada.ShowPopup();
+            }
+        }
     }
 }

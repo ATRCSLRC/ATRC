@@ -134,5 +134,16 @@ namespace ATRCBASE.BL
             Extra = 1,
             Merma = 2
         }
+
+        public enum TipoRuta
+        {
+            Normal = 0,
+            Entrada = 1,
+            Salida = 2,
+            Apoyo = 3,
+            Especial = 4,
+            Extra = 5
+
+        }
     }
 }

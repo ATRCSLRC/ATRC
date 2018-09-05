@@ -29,7 +29,7 @@ namespace UNIDADES.WIN
             Unidades.AddProperty("Combustible", "Combustible", true);
             Unidades.AddProperty("UltimoCambioAceite", "UltimoCambioAceite", true);
             Unidades.AddProperty("TipoUnidad", "TipoUnidad", true);
-            Unidades.AddProperty("ProximoCambioAceite", "iif([TipoUnidad] == 1, AddMonths([UltimoCambioAceite],3), AddMonths([UltimoCambioAceite],6)) ", false, true, SortDirection.Ascending);
+            Unidades.AddProperty("ProximoCambioAceite", "iif([TipoUnidad] == 1 or [TipoUnidad] == 3, AddMonths([UltimoCambioAceite],3), AddMonths([UltimoCambioAceite],6)) ", false, true, SortDirection.Ascending);
             grdUnidades.DataSource = Unidades;
         }
 

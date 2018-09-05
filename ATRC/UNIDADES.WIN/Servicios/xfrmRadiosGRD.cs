@@ -76,6 +76,9 @@ namespace UNIDADES.WIN
                 }
         }
 
-        
+        private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
