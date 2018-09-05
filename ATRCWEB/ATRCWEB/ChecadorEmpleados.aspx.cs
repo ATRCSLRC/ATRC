@@ -20,6 +20,7 @@ namespace ATRCWEB
         #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Cache.SetNoStore();
             bteNumEmpleado.Focus();
             if (!Page.IsCallback & !Page.IsPostBack)
             {
@@ -136,7 +137,6 @@ namespace ATRCWEB
         private string CrearChecada(UnidadDeTrabajo Unidad, UsuarioChecador Usuario, TipoIdentificacion Identificacion)
         {
 
-
             DateTime Dia = DateTime.Now;
             HistoricoChecadas Checada = new HistoricoChecadas(Unidad);
             Checada.FechaChecada = Dia.Date;
@@ -147,9 +147,17 @@ namespace ATRCWEB
             Checada.Save();
             Unidad.CommitChanges();
             Session["imgfoto"] = ObtenerFoto(Usuario.Usuario.Imagen == null ? "" : Usuario.Usuario.Imagen.Archivo);
-            List<HistoricoChecadas> Entradas = (List<HistoricoChecadas>)Session["Entradas"];
-            Entradas.Add(Checada);
-            Session["Entradas"] = Entradas;
+            try
+            {
+                List<HistoricoChecadas> Entradas = (List<HistoricoChecadas>)Session["Entradas"];
+                if (Entradas == null)
+                    Entradas = new List<HistoricoChecadas>();
+                Entradas.Add(Checada);
+                Session["Entradas"] = Entradas;
+            }catch(Exception ex)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
             return "Entrada registrada " + Usuario.Usuario.Nombre;
         }
 
@@ -161,9 +169,17 @@ namespace ATRCWEB
             Checada.Save();
             ((UnidadDeTrabajo)Checada.Session).CommitChanges();
             Session["imgfoto"] = ObtenerFoto(Checada.Usuario.Usuario.Imagen == null ? "" : Checada.Usuario.Usuario.Imagen.Archivo);
-            List<HistoricoChecadas> Entradas = (List<HistoricoChecadas>)Session["Salidas"];
-            Entradas.Add(Checada);
-            Session["Salidas"] = Entradas;
+            try
+            {
+                List<HistoricoChecadas> Salidas = (List<HistoricoChecadas>)Session["Salidas"];
+                if(Salidas == null)
+                    Salidas = new List<HistoricoChecadas>();
+                Salidas.Add(Checada);
+                Session["Salidas"] = Salidas;
+            }catch(Exception ex)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
             return "Salida registrada " + Checada.Usuario.Usuario.Nombre;
         }
         #endregion
@@ -171,7 +187,7 @@ namespace ATRCWEB
         protected void CallbackLimpiar_Callback(object source, DevExpress.Web.CallbackEventArgs e)
         {
             Session["Entradas"] = new List<HistoricoChecadas>();
-            Session["Salidas"]= new List<HistoricoChecadas>();
+            Session["Salidas"] = new List<HistoricoChecadas>();
         }
     }
 }
