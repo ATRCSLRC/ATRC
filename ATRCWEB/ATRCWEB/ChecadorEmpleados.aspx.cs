@@ -41,11 +41,11 @@ namespace ATRCWEB
                 UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 TipoIdentificacion Tipo = TipoIdentificacion.Gafete;
                 UsuarioChecador Usuario = null;
-                if (!string.IsNullOrEmpty(valor[0]))
+                if (!string.IsNullOrEmpty(valor[0]) & Int32.TryParse(valor[0], out int c))
                 {
                     if (valor[1] == "gafete")
                     {
-                        Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(valor[0]), false);
+                        Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad,  Convert.ToInt32(valor[0]), false);
                     }
                     else
                     {
@@ -87,6 +87,7 @@ namespace ATRCWEB
                 else
                 {
                     Session["imgfoto"] = null;
+                    e.Result = "Usuario no registrado";
                 }
             }
             
@@ -146,7 +147,8 @@ namespace ATRCWEB
             Checada.Usuario = Usuario;
             Checada.Save();
             Unidad.CommitChanges();
-            Session["imgfoto"] = ObtenerFoto(Usuario.Usuario.Imagen == null ? "" : Usuario.Usuario.Imagen.Archivo);
+            
+            Session["imgfoto"] = Usuario.Usuario.Imagen == null ? null : Convert.FromBase64String(Usuario.Usuario.Imagen == null ? "" : string.IsNullOrEmpty(Usuario.Usuario.Imagen.Archivo) ? "" : Usuario.Usuario.Imagen.Archivo);// ObtenerFoto(Usuario.Usuario.Imagen == null ? "" : Usuario.Usuario.Imagen.Archivo);
             try
             {
                 List<HistoricoChecadas> Entradas = (List<HistoricoChecadas>)Session["Entradas"];
@@ -168,7 +170,8 @@ namespace ATRCWEB
             Checada.TipoIdentificacionSalida = Identificacion;
             Checada.Save();
             ((UnidadDeTrabajo)Checada.Session).CommitChanges();
-            Session["imgfoto"] = ObtenerFoto(Checada.Usuario.Usuario.Imagen == null ? "" : Checada.Usuario.Usuario.Imagen.Archivo);
+            Session["imgfoto"] = Checada.Usuario.Usuario.Imagen == null ? null : ObtenerFoto(Checada.Usuario.Usuario.Imagen == null ? "" : string.IsNullOrEmpty(Checada.Usuario.Usuario.Imagen.Archivo) ? "" : Checada.Usuario.Usuario.Imagen.Archivo);
+            
             try
             {
                 List<HistoricoChecadas> Salidas = (List<HistoricoChecadas>)Session["Salidas"];
@@ -189,5 +192,23 @@ namespace ATRCWEB
             Session["Entradas"] = new List<HistoricoChecadas>();
             Session["Salidas"] = new List<HistoricoChecadas>();
         }
+
+        //protected void ASPxBinaryImage1_CustomCallback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        //{
+        //    //if (string.IsNullOrEmpty(e.Parameter))
+        //    //{
+
+        //    //    ASPxBinaryImage1.Value = (byte[])Session["imgfoto"];
+        //    //}
+        //    //else
+        //    //{
+        //    //    ASPxBinaryImage1.Value = null;
+        //    //}
+        //}
+
+        //protected void ASPxBinaryImage1_DataBinding(object sender, EventArgs e)
+        //{
+        //    ASPxBinaryImage1.Value = (byte[])Session["imgfoto"];
+        //}
     }
 }

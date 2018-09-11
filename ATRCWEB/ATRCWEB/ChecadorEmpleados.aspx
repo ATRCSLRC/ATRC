@@ -98,6 +98,11 @@
         text-align: center;
         font-size: 3.5em;
     }
+
+    #mensaje {
+        text-align: center;
+        font-size: 0.7em;
+    }
     /* Add Zoom Animation */
     .animate-zoom {
         -webkit-animation: animatezoom 0.6s;
@@ -214,10 +219,12 @@
                 </div>
                 <div class="col-sm-8 Contenedor">
                     <%--<br />--%>
+                    <%--<dx:ASPxBinaryImage ID="ASPxBinaryImage1" ClientInstanceName="ASPxBinaryImage1" LoadingImageUrl="~/img/logo.jpg" OnDataBinding="ASPxBinaryImage1_DataBinding"  CssClasses-Control="avatar btn btn-warning" OnCustomCallback="ASPxBinaryImage1_CustomCallback" EmptyImage-Url="~/img/logo.jpg" runat="server"></dx:ASPxBinaryImage>--%>
                     <div class="imgcontainer animate-zoom " id="IMG_Container" ondblclick="popupDetalle.Show();">
                         <dx:BootstrapCallbackPanel ID="CallbackPanel" ClientInstanceName="CallbackPanel" EnableViewState="false" EnableCallbackAnimation="true" OnCallback="CallbackPanel_Callback" runat="server" Width="100%">
                             <ContentCollection>
                                 <dx:ContentControl>
+
                                     <dx:BootstrapBinaryImage ID="bbimg" ClientInstanceName="bbimg" EnableViewState="false" CssClasses-Control="avatar btn btn-warning" EmptyImageUrl="~/img/logo.jpg" runat="server">
                                     </dx:BootstrapBinaryImage>
                                 </dx:ContentControl>
@@ -239,7 +246,6 @@
                             <ClientSideEvents CallbackComplete="function(s,e){CallbackPanel.PerformCallback(); document.getElementById('mensaje').innerHTML = e.result; lstEntradas.PerformCallback(); lstSalida.PerformCallback();
                                 setTimeout(function(){ document.getElementById('mensaje').innerHTML = ''; CallbackPanel.PerformCallback('logo'); bteNumEmpleado.SetVisible(true); bteNumEmpleado.SetFocus(); },2500);   }" />
                         </dx:ASPxCallback>
-
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -329,7 +335,7 @@
                                     <dx:BootstrapTabPage Text="Entradas" TabCssClass="list-group-item-success">
                                         <ContentCollection>
                                             <dx:ContentControl runat="server">
-                                                <dx:BootstrapListBox ID="lstEntradas" EnableViewState="false" ClientInstanceName="lstEntradas" runat="server" OnCallback="lstEntradas_Callback" CssClasses-Control="height: 300px" SelectedIndex="-1" ReadOnly="true" CssClasses-Item="list-group-item-success">
+                                                <dx:BootstrapListBox ID="lstEntradas" EnableViewState="false" ClientInstanceName="lstEntradas" runat="server" OnCallback="lstEntradas_Callback" SelectedIndex="-1" ReadOnly="true" CssClasses-Item="list-group-item-success">
                                                     <ItemTemplate>
                                                         <div class="list-group-item list-group-item-success">
                                                             <h5 class="list-group-item-heading" style="font-weight: 600"><%# Eval("Usuario!.Usuario!.NumEmpleado") %> - <%# Eval("Usuario!.Usuario!.Nombre") %></h5>
@@ -343,11 +349,11 @@
                                     <dx:BootstrapTabPage Text="Salidas" TabCssClass="list-group-item-danger">
                                         <ContentCollection>
                                             <dx:ContentControl runat="server">
-                                                <dx:BootstrapListBox ID="lstSalida" EnableViewState="false" ClientInstanceName="lstSalida" runat="server" OnCallback="lstSalida_Callback" SelectedIndex="-1" CssClasses-Control="height: 300px" ReadOnly="true" CssClasses-Item="list-group-item-danger">
+                                                <dx:BootstrapListBox ID="lstSalida" EnableViewState="false" ClientInstanceName="lstSalida" runat="server" OnCallback="lstSalida_Callback" SelectedIndex="-1"  ReadOnly="true" CssClasses-Item="list-group-item-danger">
                                                     <ItemTemplate>
                                                         <div class="list-group-item list-group-item-danger">
                                                             <h5 class="list-group-item-heading" style="font-weight: 600"><%# Eval("Usuario!.Usuario!.NumEmpleado") %> - <%# Eval("Usuario!.Usuario!.Nombre") %></h5>
-                                                            <p class="list-group-item-text">Entrada: <%# ((DateTime)Eval("FechaChecada")).ToShortDateString() %> <%# Eval("HoraChecadaSalida") %></p>
+                                                            <p class="list-group-item-text">Salida: <%# ((DateTime)Eval("FechaChecada")).ToShortDateString() %> <%# Eval("HoraChecadaSalida") %></p>
                                                         </div>
                                                     </ItemTemplate>
                                                 </dx:BootstrapListBox>
