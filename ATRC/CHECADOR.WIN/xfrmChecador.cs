@@ -41,6 +41,7 @@ namespace CHECADOR.WIN
                 txtNombreUsuario.Text = Checada.Usuario.Usuario.Nombre;
                 tmeHoraEntrada.EditValue = Checada.HoraChecadaEntrada;
                 tmeHoraSalida.EditValue = Checada.HoraChecadaSalida;
+                memoMotivo.Text = Checada.Motivo;
                 Usuario = Checada.Usuario;
             }
         }
@@ -54,6 +55,7 @@ namespace CHECADOR.WIN
                     Checada.FechaChecada = dteFecha.DateTime;
                     Checada.HoraChecadaEntrada = tmeHoraEntrada.Time.TimeOfDay;
                     Checada.HoraChecadaSalida = tmeHoraSalida.EditValue == null ? null : (TimeSpan?)tmeHoraSalida.Time.TimeOfDay;
+                    Checada.Motivo = memoMotivo.Text;
                     Unidad.CommitChanges();
                     XtraMessageBox.Show("Se guardo la información correctamente.");
                     this.Close();

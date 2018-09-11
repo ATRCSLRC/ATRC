@@ -58,6 +58,7 @@ namespace ATRC
         #region Metodos
         private void Ingresar()
         {
+            
             Cursor.Current = Cursors.WaitCursor;
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("NumEmpleado", txtUsuario.Text));
@@ -67,6 +68,8 @@ namespace ATRC
             if (Usuario != null)
             {
                 ATRCBASE.BL.Utilerias.UsuarioActual = Usuario;
+                if(Usuario.NumEmpleado == 726)
+                    DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
                 this.DialogResult = DialogResult.OK;
                 
                 this.Dispose();

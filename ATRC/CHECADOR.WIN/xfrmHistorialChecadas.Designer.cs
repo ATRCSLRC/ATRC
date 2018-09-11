@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmHistorialChecadas));
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.Checador = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiModificarChecada = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEliminar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
@@ -63,33 +63,33 @@
             this.lciHoraSalida = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDetalleHoraSalida = new DevExpress.XtraLayout.LayoutControlItem();
             this.dteFechaInicial = new DevExpress.XtraEditors.DateEdit();
-            this.dteFechaFinal = new DevExpress.XtraEditors.DateEdit();
-            this.rdgFiltros = new DevExpress.XtraEditors.RadioGroup();
-            this.btnBusqueda = new DevExpress.XtraEditors.SimpleButton();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.btnUsuario = new DevExpress.XtraEditors.ButtonEdit();
+            this.txtNombre = new DevExpress.XtraEditors.TextEdit();
             this.grdHistorialChecadas = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.grvHistorialChecadas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNumEmpleado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHoraChecada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.colTipoChecada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMotivo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtNombre = new DevExpress.XtraEditors.TextEdit();
-            this.btnUsuario = new DevExpress.XtraEditors.ButtonEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnBusqueda = new DevExpress.XtraEditors.SimpleButton();
+            this.rdgFiltros = new DevExpress.XtraEditors.RadioGroup();
+            this.dteFechaFinal = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.DetalleChecada = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lcgBusqueda = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.lcibtnBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciNumUsuario = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciTipoFiltro = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciFechaFinal = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciFechaInicial = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lcgBusqueda = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciFechaInicial = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciFechaFinal = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTipoFiltro = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciNumUsuario = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcibtnBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            this.DetalleChecada = new DevExpress.XtraLayout.EmptySpaceItem();
+            ((System.ComponentModel.ISupportInitialize)(this.Checador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ftpDetalleChecada)).BeginInit();
             this.ftpDetalleChecada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalle)).BeginInit();
@@ -109,49 +109,55 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleHoraSalida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaInicial.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaInicial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdgFiltros.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdHistorialChecadas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvHistorialChecadas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipoFiltro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciFechaFinal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciFechaInicial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdHistorialChecadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvHistorialChecadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgFiltros.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFechaInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFechaFinal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipoFiltro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonControl1
+            // Checador
             // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
+            this.Checador.AccessibleDescription = "";
+            this.Checador.AccessibleName = "Checador";
+            this.Checador.AllowMdiChildButtons = false;
+            this.Checador.ApplicationCaption = "Checador";
+            this.Checador.ExpandCollapseItem.Id = 0;
+            this.Checador.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.Checador.ExpandCollapseItem,
             this.bbiModificarChecada,
             this.bbiEliminar,
             this.bbiSalir,
             this.barButtonItem1});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.Checador.Location = new System.Drawing.Point(0, 0);
+            this.Checador.MaxItemId = 5;
+            this.Checador.Name = "Checador";
+            this.Checador.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpAcciones});
-            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1024, 122);
-            this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            this.Checador.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.Checador.ShowCategoryInCaption = false;
+            this.Checador.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
+            this.Checador.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.Checador.ShowToolbarCustomizeItem = false;
+            this.Checador.Size = new System.Drawing.Size(1024, 122);
+            this.Checador.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiModificarChecada
             // 
@@ -383,7 +389,7 @@
             this.peFotoUsuario.Cursor = System.Windows.Forms.Cursors.Default;
             this.peFotoUsuario.EditValue = global::CHECADOR.WIN.Properties.Resources.usuario_desconocido;
             this.peFotoUsuario.Location = new System.Drawing.Point(12, 12);
-            this.peFotoUsuario.MenuManager = this.ribbonControl1;
+            this.peFotoUsuario.MenuManager = this.Checador;
             this.peFotoUsuario.Name = "peFotoUsuario";
             this.peFotoUsuario.Properties.Appearance.BackColor = System.Drawing.Color.Red;
             this.peFotoUsuario.Properties.Appearance.Options.UseBackColor = true;
@@ -538,7 +544,7 @@
             // 
             this.dteFechaInicial.EditValue = null;
             this.dteFechaInicial.Location = new System.Drawing.Point(116, 42);
-            this.dteFechaInicial.MenuManager = this.ribbonControl1;
+            this.dteFechaInicial.MenuManager = this.Checador;
             this.dteFechaInicial.Name = "dteFechaInicial";
             this.dteFechaInicial.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -553,74 +559,63 @@
             this.dteFechaInicial.StyleController = this.lcMain;
             this.dteFechaInicial.TabIndex = 4;
             // 
-            // dteFechaFinal
+            // lcMain
             // 
-            this.dteFechaFinal.EditValue = null;
-            this.dteFechaFinal.Location = new System.Drawing.Point(615, 42);
-            this.dteFechaFinal.MenuManager = this.ribbonControl1;
-            this.dteFechaFinal.Name = "dteFechaFinal";
-            this.dteFechaFinal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFechaFinal.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFechaFinal.Properties.DisplayFormat.FormatString = "D";
-            this.dteFechaFinal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteFechaFinal.Properties.EditFormat.FormatString = "D";
-            this.dteFechaFinal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteFechaFinal.Properties.Mask.EditMask = "D";
-            this.dteFechaFinal.Size = new System.Drawing.Size(385, 20);
-            this.dteFechaFinal.StyleController = this.lcMain;
-            this.dteFechaFinal.TabIndex = 5;
+            this.lcMain.Controls.Add(this.btnUsuario);
+            this.lcMain.Controls.Add(this.txtNombre);
+            this.lcMain.Controls.Add(this.grdHistorialChecadas);
+            this.lcMain.Controls.Add(this.btnBusqueda);
+            this.lcMain.Controls.Add(this.rdgFiltros);
+            this.lcMain.Controls.Add(this.dteFechaFinal);
+            this.lcMain.Controls.Add(this.dteFechaInicial);
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(616, 283, 650, 387);
+            this.lcMain.Root = this.layoutControlGroup1;
+            this.lcMain.Size = new System.Drawing.Size(1024, 712);
+            this.lcMain.TabIndex = 1;
+            this.lcMain.Text = "layoutControl1";
             // 
-            // rdgFiltros
+            // btnUsuario
             // 
-            this.rdgFiltros.Location = new System.Drawing.Point(116, 66);
-            this.rdgFiltros.MenuManager = this.ribbonControl1;
-            this.rdgFiltros.Name = "rdgFiltros";
-            this.rdgFiltros.Properties.Columns = 2;
-            this.rdgFiltros.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Todos los usuarios"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Usuario específico")});
-            this.rdgFiltros.Size = new System.Drawing.Size(884, 25);
-            this.rdgFiltros.StyleController = this.lcMain;
-            this.rdgFiltros.TabIndex = 6;
-            this.rdgFiltros.SelectedIndexChanged += new System.EventHandler(this.rdgFiltros_SelectedIndexChanged);
+            this.btnUsuario.Location = new System.Drawing.Point(116, 95);
+            this.btnUsuario.MenuManager = this.Checador;
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnUsuario.Properties.Mask.EditMask = "\\d{1,10}";
+            this.btnUsuario.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.btnUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
+            this.btnUsuario.Size = new System.Drawing.Size(239, 20);
+            this.btnUsuario.StyleController = this.lcMain;
+            this.btnUsuario.TabIndex = 10;
+            this.btnUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyDown);
+            this.btnUsuario.Leave += new System.EventHandler(this.btnUsuario_Leave);
             // 
-            // btnBusqueda
+            // txtNombre
             // 
-            this.btnBusqueda.Location = new System.Drawing.Point(733, 119);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(267, 22);
-            this.btnBusqueda.StyleController = this.lcMain;
-            this.btnBusqueda.TabIndex = 7;
-            this.btnBusqueda.Text = "Buscar";
-            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
+            this.txtNombre.Location = new System.Drawing.Point(451, 95);
+            this.txtNombre.MenuManager = this.Checador;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Properties.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(549, 20);
+            this.txtNombre.StyleController = this.lcMain;
+            this.txtNombre.TabIndex = 9;
             // 
             // grdHistorialChecadas
             // 
             this.grdHistorialChecadas.Location = new System.Drawing.Point(12, 157);
             this.grdHistorialChecadas.MainView = this.grvHistorialChecadas;
-            this.grdHistorialChecadas.MenuManager = this.ribbonControl1;
+            this.grdHistorialChecadas.MenuManager = this.Checador;
             this.grdHistorialChecadas.Name = "grdHistorialChecadas";
             this.grdHistorialChecadas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1});
             this.grdHistorialChecadas.Size = new System.Drawing.Size(1000, 401);
             this.grdHistorialChecadas.TabIndex = 8;
             this.grdHistorialChecadas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvHistorialChecadas});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.grdHistorialChecadas;
-            this.gridView1.Name = "gridView1";
-            // 
-            // repositoryItemTimeEdit1
-            // 
-            this.repositoryItemTimeEdit1.AutoHeight = false;
-            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm";
-            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+            this.grvHistorialChecadas,
+            this.gridView1});
             // 
             // grvHistorialChecadas
             // 
@@ -659,6 +654,14 @@
             this.colHoraChecada.Visible = true;
             this.colHoraChecada.VisibleIndex = 1;
             // 
+            // repositoryItemTimeEdit1
+            // 
+            this.repositoryItemTimeEdit1.AutoHeight = false;
+            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm";
+            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+            // 
             // colTipoChecada
             // 
             this.colTipoChecada.Caption = "Hora de checada salida";
@@ -688,31 +691,53 @@
             this.colMotivo.Visible = true;
             this.colMotivo.VisibleIndex = 4;
             // 
-            // txtNombre
+            // gridView1
             // 
-            this.txtNombre.Location = new System.Drawing.Point(451, 95);
-            this.txtNombre.MenuManager = this.ribbonControl1;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Properties.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(549, 20);
-            this.txtNombre.StyleController = this.lcMain;
-            this.txtNombre.TabIndex = 9;
+            this.gridView1.GridControl = this.grdHistorialChecadas;
+            this.gridView1.Name = "gridView1";
             // 
-            // btnUsuario
+            // btnBusqueda
             // 
-            this.btnUsuario.Location = new System.Drawing.Point(116, 95);
-            this.btnUsuario.MenuManager = this.ribbonControl1;
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnUsuario.Properties.Mask.EditMask = "\\d{1,10}";
-            this.btnUsuario.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.btnUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
-            this.btnUsuario.Size = new System.Drawing.Size(239, 20);
-            this.btnUsuario.StyleController = this.lcMain;
-            this.btnUsuario.TabIndex = 10;
-            this.btnUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyDown);
-            this.btnUsuario.Leave += new System.EventHandler(this.btnUsuario_Leave);
+            this.btnBusqueda.Location = new System.Drawing.Point(733, 119);
+            this.btnBusqueda.Name = "btnBusqueda";
+            this.btnBusqueda.Size = new System.Drawing.Size(267, 22);
+            this.btnBusqueda.StyleController = this.lcMain;
+            this.btnBusqueda.TabIndex = 7;
+            this.btnBusqueda.Text = "Buscar";
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
+            // 
+            // rdgFiltros
+            // 
+            this.rdgFiltros.Location = new System.Drawing.Point(116, 66);
+            this.rdgFiltros.MenuManager = this.Checador;
+            this.rdgFiltros.Name = "rdgFiltros";
+            this.rdgFiltros.Properties.Columns = 2;
+            this.rdgFiltros.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Todos los usuarios"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Usuario específico")});
+            this.rdgFiltros.Size = new System.Drawing.Size(884, 25);
+            this.rdgFiltros.StyleController = this.lcMain;
+            this.rdgFiltros.TabIndex = 6;
+            this.rdgFiltros.SelectedIndexChanged += new System.EventHandler(this.rdgFiltros_SelectedIndexChanged);
+            // 
+            // dteFechaFinal
+            // 
+            this.dteFechaFinal.EditValue = null;
+            this.dteFechaFinal.Location = new System.Drawing.Point(615, 42);
+            this.dteFechaFinal.MenuManager = this.Checador;
+            this.dteFechaFinal.Name = "dteFechaFinal";
+            this.dteFechaFinal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteFechaFinal.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteFechaFinal.Properties.DisplayFormat.FormatString = "D";
+            this.dteFechaFinal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFechaFinal.Properties.EditFormat.FormatString = "D";
+            this.dteFechaFinal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFechaFinal.Properties.Mask.EditMask = "D";
+            this.dteFechaFinal.Size = new System.Drawing.Size(385, 20);
+            this.dteFechaFinal.StyleController = this.lcMain;
+            this.dteFechaFinal.TabIndex = 5;
             // 
             // layoutControlGroup1
             // 
@@ -726,17 +751,14 @@
             this.layoutControlGroup1.Size = new System.Drawing.Size(1024, 712);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // DetalleChecada
+            // layoutControlItem5
             // 
-            this.DetalleChecada.AllowHotTrack = false;
-            this.DetalleChecada.Location = new System.Drawing.Point(0, 550);
-            this.DetalleChecada.MaxSize = new System.Drawing.Size(1004, 0);
-            this.DetalleChecada.MinSize = new System.Drawing.Size(1004, 10);
-            this.DetalleChecada.Name = "DetalleChecada";
-            this.DetalleChecada.Size = new System.Drawing.Size(1004, 142);
-            this.DetalleChecada.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.DetalleChecada.TextSize = new System.Drawing.Size(0, 0);
-            this.DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.layoutControlItem5.Control = this.grdHistorialChecadas;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 145);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(1004, 405);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // lcgBusqueda
             // 
@@ -753,53 +775,17 @@
             this.lcgBusqueda.Size = new System.Drawing.Size(1004, 145);
             this.lcgBusqueda.Text = "Búsqueda";
             // 
-            // lcibtnBusqueda
+            // lciFechaInicial
             // 
-            this.lcibtnBusqueda.Control = this.btnBusqueda;
-            this.lcibtnBusqueda.Location = new System.Drawing.Point(709, 77);
-            this.lcibtnBusqueda.MaxSize = new System.Drawing.Size(0, 26);
-            this.lcibtnBusqueda.MinSize = new System.Drawing.Size(45, 26);
-            this.lcibtnBusqueda.Name = "lcibtnBusqueda";
-            this.lcibtnBusqueda.Size = new System.Drawing.Size(271, 26);
-            this.lcibtnBusqueda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lcibtnBusqueda.TextSize = new System.Drawing.Size(0, 0);
-            this.lcibtnBusqueda.TextVisible = false;
-            // 
-            // lciNumUsuario
-            // 
-            this.lciNumUsuario.Control = this.btnUsuario;
-            this.lciNumUsuario.Location = new System.Drawing.Point(0, 53);
-            this.lciNumUsuario.MinSize = new System.Drawing.Size(146, 24);
-            this.lciNumUsuario.Name = "lciNumUsuario";
-            this.lciNumUsuario.Size = new System.Drawing.Size(335, 24);
-            this.lciNumUsuario.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciNumUsuario.Text = "Número usuario:";
-            this.lciNumUsuario.TextSize = new System.Drawing.Size(89, 13);
-            this.lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // lciNombre
-            // 
-            this.lciNombre.Control = this.txtNombre;
-            this.lciNombre.Location = new System.Drawing.Point(335, 53);
-            this.lciNombre.MinSize = new System.Drawing.Size(146, 24);
-            this.lciNombre.Name = "lciNombre";
-            this.lciNombre.Size = new System.Drawing.Size(645, 24);
-            this.lciNombre.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciNombre.Text = "Nombre:";
-            this.lciNombre.TextSize = new System.Drawing.Size(89, 13);
-            this.lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // lciTipoFiltro
-            // 
-            this.lciTipoFiltro.Control = this.rdgFiltros;
-            this.lciTipoFiltro.Location = new System.Drawing.Point(0, 24);
-            this.lciTipoFiltro.MaxSize = new System.Drawing.Size(0, 29);
-            this.lciTipoFiltro.MinSize = new System.Drawing.Size(146, 29);
-            this.lciTipoFiltro.Name = "lciTipoFiltro";
-            this.lciTipoFiltro.Size = new System.Drawing.Size(980, 29);
-            this.lciTipoFiltro.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciTipoFiltro.Text = "Tipo de búsqueda:";
-            this.lciTipoFiltro.TextSize = new System.Drawing.Size(89, 13);
+            this.lciFechaInicial.Control = this.dteFechaInicial;
+            this.lciFechaInicial.Location = new System.Drawing.Point(0, 0);
+            this.lciFechaInicial.MaxSize = new System.Drawing.Size(0, 24);
+            this.lciFechaInicial.MinSize = new System.Drawing.Size(146, 24);
+            this.lciFechaInicial.Name = "lciFechaInicial";
+            this.lciFechaInicial.Size = new System.Drawing.Size(499, 24);
+            this.lciFechaInicial.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciFechaInicial.Text = "Fecha del:";
+            this.lciFechaInicial.TextSize = new System.Drawing.Size(89, 13);
             // 
             // lciFechaFinal
             // 
@@ -813,44 +799,53 @@
             this.lciFechaFinal.Text = "Al:";
             this.lciFechaFinal.TextSize = new System.Drawing.Size(89, 13);
             // 
-            // lciFechaInicial
+            // lciTipoFiltro
             // 
-            this.lciFechaInicial.Control = this.dteFechaInicial;
-            this.lciFechaInicial.Location = new System.Drawing.Point(0, 0);
-            this.lciFechaInicial.MaxSize = new System.Drawing.Size(0, 24);
-            this.lciFechaInicial.MinSize = new System.Drawing.Size(146, 24);
-            this.lciFechaInicial.Name = "lciFechaInicial";
-            this.lciFechaInicial.Size = new System.Drawing.Size(499, 24);
-            this.lciFechaInicial.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciFechaInicial.Text = "Fecha del:";
-            this.lciFechaInicial.TextSize = new System.Drawing.Size(89, 13);
+            this.lciTipoFiltro.Control = this.rdgFiltros;
+            this.lciTipoFiltro.Location = new System.Drawing.Point(0, 24);
+            this.lciTipoFiltro.MaxSize = new System.Drawing.Size(0, 29);
+            this.lciTipoFiltro.MinSize = new System.Drawing.Size(146, 29);
+            this.lciTipoFiltro.Name = "lciTipoFiltro";
+            this.lciTipoFiltro.Size = new System.Drawing.Size(980, 29);
+            this.lciTipoFiltro.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciTipoFiltro.Text = "Tipo de búsqueda:";
+            this.lciTipoFiltro.TextSize = new System.Drawing.Size(89, 13);
             // 
-            // layoutControlItem5
+            // lciNombre
             // 
-            this.layoutControlItem5.Control = this.grdHistorialChecadas;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 145);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1004, 405);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.lciNombre.Control = this.txtNombre;
+            this.lciNombre.Location = new System.Drawing.Point(335, 53);
+            this.lciNombre.MinSize = new System.Drawing.Size(146, 24);
+            this.lciNombre.Name = "lciNombre";
+            this.lciNombre.Size = new System.Drawing.Size(645, 24);
+            this.lciNombre.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciNombre.Text = "Nombre:";
+            this.lciNombre.TextSize = new System.Drawing.Size(89, 13);
+            this.lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // lcMain
+            // lciNumUsuario
             // 
-            this.lcMain.Controls.Add(this.btnUsuario);
-            this.lcMain.Controls.Add(this.txtNombre);
-            this.lcMain.Controls.Add(this.grdHistorialChecadas);
-            this.lcMain.Controls.Add(this.btnBusqueda);
-            this.lcMain.Controls.Add(this.rdgFiltros);
-            this.lcMain.Controls.Add(this.dteFechaFinal);
-            this.lcMain.Controls.Add(this.dteFechaInicial);
-            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
-            this.lcMain.Name = "lcMain";
-            this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(616, 283, 650, 387);
-            this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(1024, 712);
-            this.lcMain.TabIndex = 1;
-            this.lcMain.Text = "layoutControl1";
+            this.lciNumUsuario.Control = this.btnUsuario;
+            this.lciNumUsuario.Location = new System.Drawing.Point(0, 53);
+            this.lciNumUsuario.MinSize = new System.Drawing.Size(146, 24);
+            this.lciNumUsuario.Name = "lciNumUsuario";
+            this.lciNumUsuario.Size = new System.Drawing.Size(335, 24);
+            this.lciNumUsuario.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciNumUsuario.Text = "Número usuario:";
+            this.lciNumUsuario.TextSize = new System.Drawing.Size(89, 13);
+            this.lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // lcibtnBusqueda
+            // 
+            this.lcibtnBusqueda.Control = this.btnBusqueda;
+            this.lcibtnBusqueda.Location = new System.Drawing.Point(709, 77);
+            this.lcibtnBusqueda.MaxSize = new System.Drawing.Size(0, 26);
+            this.lcibtnBusqueda.MinSize = new System.Drawing.Size(45, 26);
+            this.lcibtnBusqueda.Name = "lcibtnBusqueda";
+            this.lcibtnBusqueda.Size = new System.Drawing.Size(271, 26);
+            this.lcibtnBusqueda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lcibtnBusqueda.TextSize = new System.Drawing.Size(0, 0);
+            this.lcibtnBusqueda.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -869,20 +864,33 @@
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(89, 0);
             this.emptySpaceItem1.TextVisible = true;
             // 
+            // DetalleChecada
+            // 
+            this.DetalleChecada.AllowHotTrack = false;
+            this.DetalleChecada.Location = new System.Drawing.Point(0, 550);
+            this.DetalleChecada.MaxSize = new System.Drawing.Size(1004, 0);
+            this.DetalleChecada.MinSize = new System.Drawing.Size(1004, 10);
+            this.DetalleChecada.Name = "DetalleChecada";
+            this.DetalleChecada.Size = new System.Drawing.Size(1004, 142);
+            this.DetalleChecada.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.DetalleChecada.TextSize = new System.Drawing.Size(0, 0);
+            this.DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
             // xfrmHistorialChecadas
             // 
+            this.AccessibleName = "Checador";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 834);
             this.Controls.Add(this.ftpDetalleChecada);
             this.Controls.Add(this.lcMain);
-            this.Controls.Add(this.ribbonControl1);
+            this.Controls.Add(this.Checador);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmHistorialChecadas";
-            this.Ribbon = this.ribbonControl1;
-            this.Text = "Historial checador";
+            this.Ribbon = this.Checador;
+            this.Text = "Checador";
             this.Load += new System.EventHandler(this.xfrmHistorialChecadas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Checador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ftpDetalleChecada)).EndInit();
             this.ftpDetalleChecada.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainDetalle)).EndInit();
@@ -902,28 +910,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleHoraSalida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaInicial.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaInicial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdgFiltros.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdHistorialChecadas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvHistorialChecadas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTipoFiltro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciFechaFinal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciFechaInicial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnUsuario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdHistorialChecadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvHistorialChecadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgFiltros.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteFechaFinal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFechaInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFechaFinal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipoFiltro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNumUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcibtnBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleChecada)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -931,7 +939,7 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl Checador;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpAcciones;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgAcciones;
         private DevExpress.XtraBars.BarButtonItem bbiModificarChecada;

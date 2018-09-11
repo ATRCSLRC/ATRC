@@ -391,5 +391,28 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
+
+        private void bbiRegistrosRutas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmEmpleadosLaborando xfrm = new CHECADOR.WIN.xfrmEmpleadosLaborando();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiRegistrosAdmin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmEmpleadosLaborando xfrm = new CHECADOR.WIN.xfrmEmpleadosLaborando();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bvbiContraseña_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmCambioContraseña xfrm = new ATRCBASE.WIN.xfrmCambioContraseña();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
     }
 }

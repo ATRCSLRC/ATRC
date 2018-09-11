@@ -54,21 +54,21 @@ namespace CHECADOR.WIN
             xfrm.ShowDialog();
             if (xfrm.IDUsuario > 0)
             {
-                UsuarioChecador Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(UnidadConsulta, xfrm.IDUsuario);
-                if (Usuario != null)
-                {
-                    if (Usuario.Usuario != null)
-                    {
-                        txtNombre.Text = Usuario.Usuario.Nombre;
-                        btnUsuario.Text = Usuario.Usuario.NumEmpleado.ToString();
+                //UsuarioChecador Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(UnidadConsulta, xfrm.IDUsuario);
+                //if (Usuario != null)
+                //{
+                    //if (Usuario.Usuario != null)
+                    //{
+                    //    txtNombre.Text = Usuario.Usuario.Nombre;
+                        btnUsuario.Text = xfrm.IDUsuario.ToString();
                         btnBusqueda.Focus();
-                    }
-                }
-                else
-                {
-                    XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                    txtNombre.Text = btnUsuario.Text = string.Empty;
-                }
+                    //}
+                //}
+                //else
+                //{
+                //    XtraMessageBox.Show("El usuario no se encuentra registrado.");
+                //    txtNombre.Text = btnUsuario.Text = string.Empty;
+                //}
             }else
             {
                 txtNombre.Text = btnUsuario.Text = string.Empty;
@@ -81,23 +81,24 @@ namespace CHECADOR.WIN
             {
                 if (!string.IsNullOrEmpty(btnUsuario.Text))
                 {
-                    UsuarioChecador Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(UnidadConsulta, Convert.ToInt32(btnUsuario.Text));
-                    if (Usuario != null)
-                    {
-                        if (Usuario.Usuario != null)
-                        {
-                            txtNombre.Text = Usuario.Usuario.Nombre;
+                    //Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(UnidadConsulta, Convert.ToInt32(btnUsuario.Text));
+                    //if (Usuario != null)
+                    //{
+                    //    if (Usuario.Usuario != null)
+                    //    {
+                    //        txtNombre.Text = Usuario.Usuario.Nombre;
                             btnBusqueda.Focus();
-                        }
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                        txtNombre.Text = string.Empty;
-                    }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    XtraMessageBox.Show("El usuario no se encuentra registrado.");
+                    //    txtNombre.Text = string.Empty;
+                    //}
                 }
                 else
                 {
+                    XtraMessageBox.Show("Debe de agregar el número de empleado.");
                     txtNombre.Text = string.Empty;
                 }
             }
@@ -111,7 +112,13 @@ namespace CHECADOR.WIN
             //colNumEmpleado.GroupIndex = -1;
             if (rdgFiltros.SelectedIndex == 1)
             {
-                go.Operands.Add(new BinaryOperator("Usuario", CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, Convert.ToInt32(btnUsuario.Text))));
+                if (string.IsNullOrEmpty(btnUsuario.Text))
+                {
+                    XtraMessageBox.Show("Debe de agregar el número de empleado.");
+                    btnUsuario.Focus();
+                    return;
+                }
+                go.Operands.Add(new BinaryOperator("Usuario.Usuario.NumEmpleado", /*CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad,*/ Convert.ToInt32(btnUsuario.Text)/*)*/));
                 emptySpaceItem1.TextVisible = true;
                 emptySpaceItem1.AppearanceItemCaption.BackColor = Color.Red;
             }
@@ -129,10 +136,16 @@ namespace CHECADOR.WIN
 
             if (rdgFiltros.SelectedIndex == 1)
             {
-                Int32 NumEmpleado = Convert.ToInt32(Checadas[0]["Usuario.Usuario.NumEmpleado"]);
-                XPView Usuario = new XPView(UnidadConsulta, typeof(Usuario), "Oid;NumEmpleado;Nombre", new BinaryOperator("NumEmpleado", NumEmpleado));
-                if (Usuario != null)
-                    emptySpaceItem1.Text = "Total de horas trabajadas: " + HorasTrabajadas(UnidadConsulta, NumEmpleado, dteFechaInicial.DateTime, dteFechaFinal.DateTime);
+                if (Checadas.Count > 0)
+                {
+                    Int32 NumEmpleado = Convert.ToInt32(Checadas[0]["Usuario.Usuario.NumEmpleado"]);
+                    //XPView Usuario = new XPView(UnidadConsulta, typeof(Usuario), "Oid;NumEmpleado;Nombre", new BinaryOperator("NumEmpleado", NumEmpleado));
+                    //if (Usuario != null)
+                    //{
+                        emptySpaceItem1.Text = "Total de horas trabajadas: " + HorasTrabajadas(UnidadConsulta, NumEmpleado, dteFechaInicial.DateTime, dteFechaFinal.DateTime);
+                        //txtNombre.Text = 
+                    //}
+                }
             }
         }
 
@@ -220,36 +233,19 @@ namespace CHECADOR.WIN
             {
                 btnUsuario.Text = string.Empty;
                 txtNombre.Text = string.Empty;
-                lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                //lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
             else
             {
-                lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                //lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             }
         }
         
         private void btnUsuario_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(btnUsuario.Text))
-            {
-                UsuarioChecador Usuario = CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(UnidadConsulta, Convert.ToInt32(btnUsuario.Text));
-                if (Usuario != null)
-                {
-                    if (Usuario.Usuario != null)
-                        txtNombre.Text = Usuario.Usuario.Nombre;
-                }
-                else
-                {
-                    XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                    txtNombre.Text = string.Empty;
-                }
-            }
-            else
-            {
-                txtNombre.Text = string.Empty;
-            }
+            
         }
         
         #endregion

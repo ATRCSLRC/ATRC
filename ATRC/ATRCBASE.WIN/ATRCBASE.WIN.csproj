@@ -126,6 +126,12 @@
     <Compile Include="xfrmBase.Designer.cs">
       <DependentUpon>xfrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="xfrmCambioContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmCambioContraseña.Designer.cs">
+      <DependentUpon>xfrmCambioContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmBase.resx">
       <DependentUpon>xfrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmCambioContraseña.resx">
+      <DependentUpon>xfrmCambioContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmDepartamento.resx">
       <DependentUpon>xfrmDepartamento.cs</DependentUpon>
