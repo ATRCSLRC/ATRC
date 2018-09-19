@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -103,7 +102,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -279,7 +278,8 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Llantera", "Llantera"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Taller", "Taller"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Rutas", "Rutas"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración")});
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Configuración", "Configuración")});
             this.checkedComboBoxEdit1.Size = new System.Drawing.Size(471, 20);
             this.checkedComboBoxEdit1.StyleController = this.lcMainSeguridad;
             this.checkedComboBoxEdit1.TabIndex = 8;

@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Map;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraMap;
@@ -29,6 +30,7 @@ namespace RUTAS.WIN
         public UnidadDeTrabajo Unidad;
         public Rutas Ruta;
         public bool EsNuevo;
+        MapItemStorage storageMapa = new MapItemStorage();
         public xfrmRutas()
         {
             InitializeComponent();
@@ -116,11 +118,40 @@ namespace RUTAS.WIN
             waypoints.Add(new RouteWaypoint("", new GeoPoint(coordenada.Latitud, coordenada.Longitud)));
             Ruta.Coordenadas.Add(coordenada);
             grdCoordenada.RefreshDataSource();
-            if (Ruta.Coordenadas.Count > 1)
+            switch(Ruta.Coordenadas.Count())
             {
-                routeProvider.CalculateRoute(waypoints);
-                informationLayer2.Visible = false;
+                case 0:
+                    storageMapa.Items.Clear();
+                    informationLayer1.Visible = false;
+                    break;
+                case 1:
+                    storageMapa.Items.Clear();
+                    informationLayer1.Visible = false;
+                    if (vectorItemsLayer1.Data == null)
+                        vectorItemsLayer1.Data = storageMapa;
+                    else
+                        storageMapa = vectorItemsLayer1.Data as MapItemStorage;
+                    storageMapa.Items.Add(new MapPushpin() { Location = new GeoPoint(coordenada.Latitud, coordenada.Longitud) });
+                    break;
+                default:
+                    informationLayer1.Visible = true;
+                    storageMapa.Items.Clear();
+                    routeProvider.CalculateRoute(waypoints);
+                    informationLayer1.Visible = true;
+                    break;
             }
+            //if (Ruta.Coordenadas.Count > 1)
+            //{
+            //    routeProvider.CalculateRoute(waypoints);
+            //    informationLayer1.Visible = true;
+            //}
+            //else
+            //{
+                
+                
+            //    //storage.Items.Add(new MapPushpin() { Location = new GeoPoint(gpClick.GetY(), gpClick.GetX()), Image = ((Bitmap)global::RUTAS.WIN.Properties.Resources.icons8_administrador_del_hombre_32) });
+            //    informationLayer1.Visible = false;
+            //}
         }
 
         private void flyEdicion_ButtonClick(object sender, DevExpress.Utils.FlyoutPanelButtonClickEventArgs e)
@@ -131,14 +162,32 @@ namespace RUTAS.WIN
                     if (grvCoordenada.FocusedRowHandle < 0) { return; }
                     Coordenadas CoordenadaBorrar = grvCoordenada.GetRow(grvCoordenada.FocusedRowHandle) as Coordenadas;
                     Ruta.Coordenadas.Remove(CoordenadaBorrar);
-                    if(Ruta.Coordenadas.Count > 0)
+                    switch (Ruta.Coordenadas.Count())
                     {
-                        int cont = 0;
-                        foreach (Coordenadas coordenada in Ruta.Coordenadas)
-                        {
-                            cont++;
-                            coordenada.Indice = cont;
-                        }
+                        case 0:
+                            storageMapa.Items.Clear();
+                            informationLayer1.Visible = false;
+                            break;
+                        case 1:
+                            storageMapa.Items.Clear();
+                            informationLayer1.Visible = false;
+                            if (vectorItemsLayer1.Data == null)
+                                vectorItemsLayer1.Data = storageMapa;
+                            else
+                                storageMapa = vectorItemsLayer1.Data as MapItemStorage;
+                            storageMapa.Items.Add(new MapPushpin() { Location = new GeoPoint(Ruta.Coordenadas[0].Latitud, Ruta.Coordenadas[0].Longitud) });
+                            break;
+                        default:
+                            int cont = 0;
+                            foreach (Coordenadas coordenada in Ruta.Coordenadas)
+                            {
+                                cont++;
+                                coordenada.Indice = cont;
+                            }
+                            informationLayer1.Visible = true;
+                            storageMapa.Items.Clear();
+                            routeProvider.CalculateRoute(waypoints);
+                            break;
                     }
                     break;
                 case "Mover arriba":
@@ -260,5 +309,22 @@ namespace RUTAS.WIN
         }
 
         #endregion
+
+        private void cmsOpciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //VectorItemsLayer vlayer = (VectorItemsLayer)this.MapControlUbicacion.Layers[0];
+            MapItemStorage storage = new MapItemStorage();
+            if (vectorItemsLayer2.Data == null)
+                vectorItemsLayer2.Data = storage;
+            else
+                storage = vectorItemsLayer2.Data as MapItemStorage;
+            storage.Items.Add(new MapPushpin() { Location = new GeoPoint(gpClick.GetY(), gpClick.GetX()), Image = ((Bitmap)global::RUTAS.WIN.Properties.Resources.icons8_administrador_del_hombre_32) });
+            
+        }
     }
 }

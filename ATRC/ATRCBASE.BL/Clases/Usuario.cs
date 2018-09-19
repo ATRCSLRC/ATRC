@@ -35,7 +35,7 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<int>("IDCard", ref mIDCard, value); }
         }
 
-        private bool mActivo;
+        private bool mActivo = true;
         public bool Activo
         {
             get { return mActivo; }

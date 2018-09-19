@@ -226,5 +226,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-arriba-en-círculo-2-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrador-del-hombre-16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

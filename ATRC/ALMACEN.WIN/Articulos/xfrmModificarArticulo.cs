@@ -25,16 +25,16 @@ namespace ALMACEN.WIN
         Articulo Articulo;
         private void xfrmModificarArticulo_Load(object sender, EventArgs e)
         {
-            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
-            Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
             rgOpciones.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
             cmbEstadoLlanta.Properties.Items.AddRange(typeof(Enums.EstadoLlanta).GetEnumValues());
-            DesligarControles();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
+            Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
+            DesligarControles();
             Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
             if (Articulo != null)
             {
@@ -50,6 +50,10 @@ namespace ALMACEN.WIN
         {
             if (e.KeyCode == Keys.Enter)
             {
+                Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                Utilerias.CargarLookupEdit(lueProveedor, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
+                Utilerias.CargarLookupEdit(lueMarca, typeof(Marcas), Unidad, "Nombre", "Nombre", false);
+                DesligarControles();
                 Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
                 if (Articulo != null)
                 {

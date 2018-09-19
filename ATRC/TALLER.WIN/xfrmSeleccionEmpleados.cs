@@ -37,6 +37,7 @@ namespace TALLER.WIN
             GroupOperator go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("Departamento", 1, BinaryOperatorType.NotEqual));//Administracion
             go.Operands.Add(new BinaryOperator("Departamento", 5, BinaryOperatorType.NotEqual));//Seguridad
+            go.Operands.Add(new BinaryOperator("Activo", true, BinaryOperatorType.Equal));
 
             XPView Usuarios = new XPView(Unidad, typeof(Usuario));
             Usuarios.Properties.AddRange(new ViewProperty[] {

@@ -31,7 +31,8 @@ namespace CHECADOR.WIN.Reportes
             lblDetalle.Text = "Del: " + Inicial.ToLongDateString() + " Al: " + Final.ToLongDateString();
             GroupOperator goFiltro = new GroupOperator();
             goFiltro.Operands.Add(new NotOperator(new NullOperator("Usuario")));
-            if(NumEmpleado > 0) goFiltro.Operands.Add(new BinaryOperator("Usuario.NumEmpleado", NumEmpleado));
+            goFiltro.Operands.Add(new BinaryOperator("Usuario.Activo", true, BinaryOperatorType.Equal));
+            if (NumEmpleado > 0) goFiltro.Operands.Add(new BinaryOperator("Usuario.NumEmpleado", NumEmpleado));
             //XPCollection Usuarios = new XPCollection(Unidad, typeof(CHECADOR.BL.UsuarioChecador), goFiltro);
             XPView Usuarios = new XPView(Unidad, typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.Patron;Usuario.NumEmpleado", goFiltro);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));

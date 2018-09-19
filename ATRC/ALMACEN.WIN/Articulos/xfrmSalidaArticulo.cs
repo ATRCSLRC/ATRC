@@ -163,7 +163,10 @@ namespace ALMACEN.WIN
             {
                 if (!string.IsNullOrEmpty(btnUsuario.Text))
                 {
-                    Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(btnUsuario.Text)));
+                    GroupOperator goUsuario = new GroupOperator(GroupOperatorType.And);
+                    goUsuario.Operands.Add(new BinaryOperator("NumEmpleado", Convert.ToInt32(btnUsuario.Text)));
+                    goUsuario.Operands.Add(new BinaryOperator("Activo", true, BinaryOperatorType.Equal));
+                    Usuario = Unidad.FindObject<Usuario>(goUsuario);
                     if (Usuario != null)
                     {
                             txtNombreUsuario.Text = Usuario.Nombre;
@@ -212,7 +215,10 @@ namespace ALMACEN.WIN
         {
             if (!string.IsNullOrEmpty(btnUsuario.Text))
             {
-                Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(btnUsuario.Text)));
+                GroupOperator goUsuario = new GroupOperator(GroupOperatorType.And);
+                goUsuario.Operands.Add(new BinaryOperator("NumEmpleado", Convert.ToInt32(btnUsuario.Text)));
+                goUsuario.Operands.Add(new BinaryOperator("Activo", true, BinaryOperatorType.Equal));
+                Usuario = Unidad.FindObject<Usuario>(goUsuario);
                 if (Usuario != null)
                 {
                    txtNombreUsuario.Text = Usuario.Nombre;

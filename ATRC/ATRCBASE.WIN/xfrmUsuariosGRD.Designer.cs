@@ -40,6 +40,7 @@
             this.bbiSalirUsuario = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAsignar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGafete = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDesactivarEmpleado = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgGafete = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -49,6 +50,7 @@
             this.grvUsuarios = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNumUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colActivo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnUsuarios)).BeginInit();
@@ -94,16 +96,17 @@
             this.bbiEliminarUsuario,
             this.bbiSalirUsuario,
             this.bbiAsignar,
-            this.bbiGafete});
+            this.bbiGafete,
+            this.bbiDesactivarEmpleado});
             this.rbnUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.rbnUsuarios.MaxItemId = 7;
+            this.rbnUsuarios.MaxItemId = 8;
             this.rbnUsuarios.Name = "rbnUsuarios";
             this.rbnUsuarios.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.rbnUsuarios.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnUsuarios.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbnUsuarios.ShowToolbarCustomizeItem = false;
-            this.rbnUsuarios.Size = new System.Drawing.Size(808, 122);
+            this.rbnUsuarios.Size = new System.Drawing.Size(554, 122);
             this.rbnUsuarios.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevos
@@ -167,6 +170,15 @@
             this.bbiGafete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiGafete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGafete_ItemClick);
             // 
+            // bbiDesactivarEmpleado
+            // 
+            this.bbiDesactivarEmpleado.Caption = "Activar/Desactivar empleado";
+            this.bbiDesactivarEmpleado.Id = 7;
+            this.bbiDesactivarEmpleado.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_usuario_32;
+            this.bbiDesactivarEmpleado.Name = "bbiDesactivarEmpleado";
+            this.bbiDesactivarEmpleado.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiDesactivarEmpleado.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDesactivarEmpleado_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -189,6 +201,7 @@
             // rpgGafete
             // 
             this.rpgGafete.AllowTextClipping = false;
+            this.rpgGafete.ItemLinks.Add(this.bbiDesactivarEmpleado);
             this.rpgGafete.ItemLinks.Add(this.bbiGafete);
             this.rpgGafete.Name = "rpgGafete";
             this.rpgGafete.ShowCaptionButton = false;
@@ -207,7 +220,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(808, 350);
+            this.lcMain.Size = new System.Drawing.Size(554, 350);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -217,7 +230,7 @@
             this.grdUsuarios.MainView = this.grvUsuarios;
             this.grdUsuarios.MenuManager = this.rbnUsuarios;
             this.grdUsuarios.Name = "grdUsuarios";
-            this.grdUsuarios.Size = new System.Drawing.Size(784, 326);
+            this.grdUsuarios.Size = new System.Drawing.Size(530, 326);
             this.grdUsuarios.TabIndex = 4;
             this.grdUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUsuarios});
@@ -226,7 +239,8 @@
             // 
             this.grvUsuarios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNumUsuario,
-            this.colNombre});
+            this.colNombre,
+            this.colActivo});
             this.grvUsuarios.GridControl = this.grdUsuarios;
             this.grvUsuarios.Name = "grvUsuarios";
             this.grvUsuarios.OptionsBehavior.Editable = false;
@@ -244,7 +258,7 @@
             this.colNumUsuario.OptionsColumn.AllowFocus = false;
             this.colNumUsuario.Visible = true;
             this.colNumUsuario.VisibleIndex = 0;
-            this.colNumUsuario.Width = 94;
+            this.colNumUsuario.Width = 119;
             // 
             // colNombre
             // 
@@ -254,7 +268,18 @@
             this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
-            this.colNombre.Width = 500;
+            this.colNombre.Width = 339;
+            // 
+            // colActivo
+            // 
+            this.colActivo.Caption = "Activo";
+            this.colActivo.FieldName = "Activo";
+            this.colActivo.Name = "colActivo";
+            this.colActivo.OptionsColumn.AllowEdit = false;
+            this.colActivo.OptionsColumn.AllowFocus = false;
+            this.colActivo.Visible = true;
+            this.colActivo.VisibleIndex = 2;
+            this.colActivo.Width = 54;
             // 
             // layoutControlGroup1
             // 
@@ -263,7 +288,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(808, 350);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(554, 350);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -271,7 +296,7 @@
             this.layoutControlItem1.Control = this.grdUsuarios;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(788, 330);
+            this.layoutControlItem1.Size = new System.Drawing.Size(534, 330);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -279,7 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 472);
+            this.ClientSize = new System.Drawing.Size(554, 472);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbnUsuarios);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -323,5 +348,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiAsignar;
         private DevExpress.XtraBars.BarButtonItem bbiGafete;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGafete;
+        private DevExpress.XtraBars.BarButtonItem bbiDesactivarEmpleado;
+        private DevExpress.XtraGrid.Columns.GridColumn colActivo;
     }
 }

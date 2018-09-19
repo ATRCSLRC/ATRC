@@ -58,6 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="xfrmPlantillaRutasExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmPlantillaRutasExtras.Designer.cs">
+      <DependentUpon>xfrmPlantillaRutasExtras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmPlantillasRutasExtrasGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmPlantillasRutasExtrasGRD.Designer.cs">
+      <DependentUpon>xfrmPlantillasRutasExtrasGRD.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmRutas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,12 @@
       <DependentUpon>xfrmRutas.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xfrmRutasExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmRutasExtras.Designer.cs">
+      <DependentUpon>xfrmRutasExtras.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmRutasGRD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +95,12 @@
     <Compile Include="xfrmRutasPorEmpresa.Designer.cs">
       <DependentUpon>xfrmRutasPorEmpresa.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="xfrmPlantillaRutasExtras.resx">
+      <DependentUpon>xfrmPlantillaRutasExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmPlantillasRutasExtrasGRD.resx">
+      <DependentUpon>xfrmPlantillasRutasExtrasGRD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xfrmRutas.resx">
       <DependentUpon>xfrmRutas.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,7 +112,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="xfrmRutasExtras.resx">
+      <DependentUpon>xfrmRutasExtras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xfrmRutasGRD.resx">
       <DependentUpon>xfrmRutasGRD.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +146,21 @@
       <Project>{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}</Project>
       <Name>RUTAS.BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarRuta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarRuta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModificarRuta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrador-del-hombre-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrador-del-hombre-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

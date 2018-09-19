@@ -107,7 +107,7 @@ namespace ALMACEN.WIN
                         Articulo.Nombre = txtNombre.Text;
                         Articulo.Codigo = txtCodigo.Text;
                         Articulo.TipoArticulo = (Enums.TipoArticulo)rgOpciones.EditValue;
-                        Articulo.EstadoLlanta = (Enums.EstadoLlanta)Enum.Parse(typeof(Enums.EstadoLlanta), cmbUsoLlanta.EditValue.ToString(), true);
+                        Articulo.EstadoLlanta = string.IsNullOrEmpty(cmbUsoLlanta.EditValue.ToString()) ? Enums.EstadoLlanta.Nueva : (Enums.EstadoLlanta)Enum.Parse(typeof(Enums.EstadoLlanta), cmbUsoLlanta.EditValue.ToString(), true);
                         Articulo.Facturas.Add(factura);
                     }
                     Articulo.Save();

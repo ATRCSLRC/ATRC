@@ -343,5 +343,8 @@
   <ItemGroup>
     <None Include="Resources\AsignarUsuario.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-usuario-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

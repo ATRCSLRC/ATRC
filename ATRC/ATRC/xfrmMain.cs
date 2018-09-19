@@ -414,5 +414,13 @@ namespace ATRC
             xfrm.ShowInTaskbar = false;
             xfrm.ShowDialog();
         }
+
+        private void bbiPlantillasRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmPlantillasRutasExtrasGRD xfrm = new RUTAS.WIN.xfrmPlantillasRutasExtrasGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
     }
 }

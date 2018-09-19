@@ -39,7 +39,7 @@ namespace ATRCBASE.WIN
                 bbiGafete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 rpgGafete.Visible = false;
             }
-            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre", null);
+            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo", null);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdUsuarios.DataSource = Usuarios;
         }
@@ -114,6 +114,21 @@ namespace ATRCBASE.WIN
                 repGafeteFrente.ShowPreviewDialog();
                 ReportPrintTool repGafeteAtras = new ReportPrintTool(new ATRCBASE.WIN.Reportes.GafeteAtras(Usuario));
                 repGafeteAtras.ShowPreviewDialog();
+            }
+        }
+
+        private void bbiDesactivarEmpleado_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord ViewUsuario = grvUsuarios.GetFocusedRow() as ViewRecord;
+            if (ViewUsuario != null)
+            {
+                Usuario Usuario = (Usuario)ViewUsuario.GetObject();
+                if (XtraMessageBox.Show("¿Está seguro de querer " + (!Usuario.Activo ? "activar" : "desactivar") + " el usuario '" + Usuario.Nombre + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    Usuario.Activo = !Usuario.Activo;
+                    Unidad.CommitChanges();
+                    ((XPView)grdUsuarios.DataSource).Reload();
+                }
             }
         }
     }

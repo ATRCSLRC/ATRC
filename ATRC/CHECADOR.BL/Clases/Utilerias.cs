@@ -21,24 +21,29 @@ namespace CHECADOR.BL
                 Usuario = Unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
             if (Usuario != null)
             {
-                UsuarioChecador UsuarioChecador = Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario", Usuario, BinaryOperatorType.Equal));
-                if (UsuarioChecador == null)
+                if (Usuario.Activo)
                 {
-                    UnidadDeTrabajo unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                    UsuarioChecador NuevoUsuario = new UsuarioChecador(unidad);
-                    if (esNumUsuario)
-                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
-                    else
-                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
-                    //NuevoUsuario.Usuario = unidad.FindObject<Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
-                    unidad.CommitChanges();
-                    return Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario.Oid", Usuario.Oid, BinaryOperatorType.Equal));
+                    UsuarioChecador UsuarioChecador = Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario", Usuario, BinaryOperatorType.Equal));
+                    if (UsuarioChecador == null)
+                    {
+                        UnidadDeTrabajo unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                        UsuarioChecador NuevoUsuario = new UsuarioChecador(unidad);
+                        if (esNumUsuario)
+                            NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                        else
+                            NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
+                        //NuevoUsuario.Usuario = unidad.FindObject<Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                        unidad.CommitChanges();
+                        return Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario.Oid", Usuario.Oid, BinaryOperatorType.Equal));
 
+                    }
+                    else
+                    {
+                        return UsuarioChecador;
+                    }
                 }
                 else
-                {
-                    return UsuarioChecador;
-                }
+                    return null;
             }
             else
                 return null;
@@ -67,7 +72,41 @@ namespace CHECADOR.BL
             else
                 return null;
         }
-        
+
+        public static int ObtenerUsuarioChecadorNum(UnidadDeTrabajo Unidad, int NumUsuario, bool esNumUsuario = true)
+        {
+            ATRCBASE.BL.Usuario Usuario = null;
+            if (esNumUsuario)
+                Usuario = Unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+            else
+                Usuario = Unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
+            if (Usuario != null)
+            {
+                XPView UsuarioChecador = new XPView(Unidad, typeof(CHECADOR.BL.UsuarioChecador), "Oid", new BinaryOperator("Usuario", Usuario, BinaryOperatorType.Equal));
+                //UsuarioChecador UsuarioChecador = Unidad.FindObject<UsuarioChecador>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("Usuario", Usuario, BinaryOperatorType.Equal));
+                if (UsuarioChecador.Count <= 0)
+                {
+                    UnidadDeTrabajo unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                    UsuarioChecador NuevoUsuario = new UsuarioChecador(unidad);
+                    if (esNumUsuario)
+                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                    else
+                        NuevoUsuario.Usuario = unidad.FindObject<ATRCBASE.BL.Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("IDCard", NumUsuario, BinaryOperatorType.Equal));
+                    //NuevoUsuario.Usuario = unidad.FindObject<Usuario>(PersistentCriteriaEvaluationBehavior.InTransaction, new BinaryOperator("NumEmpleado", NumUsuario, BinaryOperatorType.Equal));
+                    unidad.CommitChanges();
+                    XPView UsuarioChecador2 = new XPView(Unidad, typeof(CHECADOR.BL.UsuarioChecador), "Oid", new BinaryOperator("Usuario", Usuario, BinaryOperatorType.Equal));
+                    return Convert.ToInt32(UsuarioChecador2[0]["Oid"]);
+
+                }
+                else
+                {
+                    return Convert.ToInt32(UsuarioChecador[0]["Oid"]);
+                }
+            }
+            else
+                return 0;
+        }
+
         public static decimal CalcularHora(TimeSpan Hora)
         {
             int Horas = Hora.Hours;
@@ -166,7 +205,7 @@ namespace CHECADOR.BL
 
             if (min == 100)
             {
-                Horas = +1;
+                Horas++;
             }
             return min < 10 ? Convert.ToDecimal(Convert.ToDouble(".0" + min) + Horas) : Convert.ToDecimal(Horas + "." + min);
         }

@@ -20,8 +20,11 @@ namespace CHECADOR.WIN.Reportes
             go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaChecada", Inicial.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaChecada", Final.Date, BinaryOperatorType.LessOrEqual));
-            
-            XPView Usuarios = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.NumEmpleado", new NotOperator(new NullOperator("Usuario")));
+
+            GroupOperator goUsuario = new GroupOperator(GroupOperatorType.And);
+            goUsuario.Operands.Add(new NotOperator(new NullOperator("Usuario")));
+            goUsuario.Operands.Add(new BinaryOperator("Usuario.Activo", true, BinaryOperatorType.Equal));
+            XPView Usuarios = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.NumEmpleado", goUsuario);
             //XPCollection Usuarios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.UsuarioChecador));
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             if (Usuarios.Count > 0)

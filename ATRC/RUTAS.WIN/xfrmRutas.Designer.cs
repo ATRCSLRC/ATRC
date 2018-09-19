@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmRutas));
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            this.bingGeocodeDataProvider1 = new DevExpress.XtraMap.BingGeocodeDataProvider();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lueEmpresa = new DevExpress.XtraEditors.LookUpEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -48,12 +50,14 @@
             this.colIndice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MapControlUbicacion = new DevExpress.XtraMap.MapControl();
+            this.cmsOpciones = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.agregarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageLayer1 = new DevExpress.XtraMap.ImageLayer();
             this.bingMapDataProvider1 = new DevExpress.XtraMap.BingMapDataProvider();
             this.informationLayer1 = new DevExpress.XtraMap.InformationLayer();
             this.routeProvider = new DevExpress.XtraMap.BingRouteDataProvider();
             this.informationLayer2 = new DevExpress.XtraMap.InformationLayer();
-            this.bingGeocodeDataProvider1 = new DevExpress.XtraMap.BingGeocodeDataProvider();
+            this.vectorItemsLayer1 = new DevExpress.XtraMap.VectorItemsLayer();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -62,6 +66,7 @@
             this.lciEmpresa = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciRuta = new DevExpress.XtraLayout.LayoutControlItem();
             this.flyEdicion = new DevExpress.Utils.FlyoutPanel();
+            this.vectorItemsLayer2 = new DevExpress.XtraMap.VectorItemsLayer();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).BeginInit();
@@ -71,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdCoordenada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCoordenada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapControlUbicacion)).BeginInit();
+            this.cmsOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -80,6 +86,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciRuta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyEdicion)).BeginInit();
             this.SuspendLayout();
+            this.bingGeocodeDataProvider1.BingKey = "AsFpcLqFTZI0OBfJx-oDBp-hxtsuknATg9gZ7o3yt3DUnq3M7CSSFCD_FRLP-qJx";
+            this.bingGeocodeDataProvider1.MaxVisibleResultCount = 3;
+            this.bingGeocodeDataProvider1.ProcessMouseEvents = true;
+            this.bingGeocodeDataProvider1.LocationInformationReceived += new DevExpress.XtraMap.LocationInformationReceivedEventHandler(this.bingGeocodeDataProvider1_LocationInformationReceived);
             // 
             // lcMain
             // 
@@ -261,9 +271,12 @@
             // MapControlUbicacion
             // 
             this.MapControlUbicacion.CenterPoint = new DevExpress.XtraMap.GeoPoint(32.44745D, -114.765135D);
+            this.MapControlUbicacion.ContextMenuStrip = this.cmsOpciones;
             this.MapControlUbicacion.Layers.Add(this.imageLayer1);
             this.MapControlUbicacion.Layers.Add(this.informationLayer1);
             this.MapControlUbicacion.Layers.Add(this.informationLayer2);
+            this.MapControlUbicacion.Layers.Add(this.vectorItemsLayer1);
+            this.MapControlUbicacion.Layers.Add(this.vectorItemsLayer2);
             this.MapControlUbicacion.Location = new System.Drawing.Point(337, 78);
             this.MapControlUbicacion.Name = "MapControlUbicacion";
             this.MapControlUbicacion.NavigationPanelOptions.BackgroundStyle.Fill = System.Drawing.Color.Transparent;
@@ -275,6 +288,20 @@
             this.MapControlUbicacion.Size = new System.Drawing.Size(967, 612);
             this.MapControlUbicacion.TabIndex = 4;
             this.MapControlUbicacion.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MapControlUbicacion_MouseUp);
+            // 
+            // cmsOpciones
+            // 
+            this.cmsOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarEmpleadoToolStripMenuItem});
+            this.cmsOpciones.Name = "cmsOpciones";
+            this.cmsOpciones.Size = new System.Drawing.Size(173, 26);
+            // 
+            // agregarEmpleadoToolStripMenuItem
+            // 
+            this.agregarEmpleadoToolStripMenuItem.Name = "agregarEmpleadoToolStripMenuItem";
+            this.agregarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.agregarEmpleadoToolStripMenuItem.Text = "Agregar Empleado";
+            this.agregarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.agregarEmpleadoToolStripMenuItem_Click);
             this.imageLayer1.DataProvider = this.bingMapDataProvider1;
             this.bingMapDataProvider1.BingKey = "AsFpcLqFTZI0OBfJx-oDBp-hxtsuknATg9gZ7o3yt3DUnq3M7CSSFCD_FRLP-qJx";
             this.bingMapDataProvider1.Kind = DevExpress.XtraMap.BingMapKind.Road;
@@ -284,10 +311,7 @@
             this.routeProvider.BingKey = "AsFpcLqFTZI0OBfJx-oDBp-hxtsuknATg9gZ7o3yt3DUnq3M7CSSFCD_FRLP-qJx";
             this.routeProvider.LayerItemsGenerating += new DevExpress.XtraMap.LayerItemsGeneratingEventHandler(this.bingRouteDataProvider1_LayerItemsGenerating);
             this.informationLayer2.DataProvider = this.bingGeocodeDataProvider1;
-            this.bingGeocodeDataProvider1.BingKey = "AsFpcLqFTZI0OBfJx-oDBp-hxtsuknATg9gZ7o3yt3DUnq3M7CSSFCD_FRLP-qJx";
-            this.bingGeocodeDataProvider1.MaxVisibleResultCount = 3;
-            this.bingGeocodeDataProvider1.ProcessMouseEvents = true;
-            this.bingGeocodeDataProvider1.LocationInformationReceived += new DevExpress.XtraMap.LocationInformationReceivedEventHandler(this.bingGeocodeDataProvider1_LocationInformationReceived);
+            this.informationLayer2.Visible = false;
             // 
             // layoutControlGroup1
             // 
@@ -411,6 +435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdCoordenada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCoordenada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapControlUbicacion)).EndInit();
+            this.cmsOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -439,7 +464,6 @@
         private DevExpress.XtraMap.BingRouteDataProvider routeProvider;
         private DevExpress.XtraGrid.Columns.GridColumn colIndice;
         private DevExpress.XtraMap.InformationLayer informationLayer2;
-        private DevExpress.XtraMap.BingGeocodeDataProvider bingGeocodeDataProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colCalle;
         private DevExpress.Utils.FlyoutPanel flyEdicion;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
@@ -456,6 +480,11 @@
         private DevExpress.XtraLayout.LayoutControlItem lciRuta;
         private DevExpress.XtraBars.BarButtonItem bbiImprimir;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgImprimir;
+        private System.Windows.Forms.ContextMenuStrip cmsOpciones;
+        private System.Windows.Forms.ToolStripMenuItem agregarEmpleadoToolStripMenuItem;
+        private DevExpress.XtraMap.VectorItemsLayer vectorItemsLayer1;
+        private DevExpress.XtraMap.BingGeocodeDataProvider bingGeocodeDataProvider1;
+        private DevExpress.XtraMap.VectorItemsLayer vectorItemsLayer2;
     }
 }
 

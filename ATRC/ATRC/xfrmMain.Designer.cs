@@ -95,6 +95,8 @@
             this.bbiChecadorAdmin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRegistrosRutas = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRegistrosAdmin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPlantillasRutasExternas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRutasExternas = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -117,6 +119,7 @@
             this.rbnpRutas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgRutasExtras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpConfiguracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -177,9 +180,11 @@
             this.bbiCodigos,
             this.bbiChecadorAdmin,
             this.bbiRegistrosRutas,
-            this.bbiRegistrosAdmin});
+            this.bbiRegistrosAdmin,
+            this.bbiPlantillasRutasExternas,
+            this.bbiRutasExternas});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 45;
+            this.rbnMain.MaxItemId = 47;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -700,6 +705,20 @@
             this.bbiRegistrosAdmin.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiRegistrosAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistrosAdmin_ItemClick);
             // 
+            // bbiPlantillasRutasExternas
+            // 
+            this.bbiPlantillasRutasExternas.Caption = "Plantilla de rutas externas";
+            this.bbiPlantillasRutasExternas.Id = 45;
+            this.bbiPlantillasRutasExternas.Name = "bbiPlantillasRutasExternas";
+            this.bbiPlantillasRutasExternas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPlantillasRutasExternas_ItemClick);
+            // 
+            // bbiRutasExternas
+            // 
+            this.bbiRutasExternas.Caption = "Rutas Externas";
+            this.bbiRutasExternas.Id = 46;
+            this.bbiRutasExternas.Name = "bbiRutasExternas";
+            this.bbiRutasExternas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -875,7 +894,8 @@
             // 
             this.rbnpRutas.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgRutas,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.rpgRutasExtras});
             this.rbnpRutas.Name = "rbnpRutas";
             this.rbnpRutas.Text = "Rutas";
             this.rbnpRutas.Visible = false;
@@ -897,6 +917,16 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Checador";
+            // 
+            // rpgRutasExtras
+            // 
+            this.rpgRutasExtras.AllowTextClipping = false;
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiRutasExternas);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiPlantillasRutasExternas);
+            this.rpgRutasExtras.Name = "rpgRutasExtras";
+            this.rpgRutasExtras.ShowCaptionButton = false;
+            this.rpgRutasExtras.Text = "Rutas extras";
+            this.rpgRutasExtras.Visible = false;
             // 
             // rbnpConfiguracion
             // 
@@ -1053,5 +1083,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgChecador;
         private DevExpress.XtraBars.BarButtonItem bbiRegistrosRutas;
         private DevExpress.XtraBars.BarButtonItem bbiRegistrosAdmin;
+        private DevExpress.XtraBars.BarButtonItem bbiPlantillasRutasExternas;
+        private DevExpress.XtraBars.BarButtonItem bbiRutasExternas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgRutasExtras;
     }
 }
