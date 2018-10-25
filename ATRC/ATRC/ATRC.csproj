@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.0.123\Instalador\</PublishUrl>
+    <PublishUrl>\\192.168.0.123\ATRC Programas\ATRC\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -28,7 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>44</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -118,6 +118,7 @@
     <Compile Include="xfrmMain.Designer.cs">
       <DependentUpon>xfrmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -238,6 +239,8 @@
     <None Include="Resources\icons8-rueda-pinchada-32.png" />
     <None Include="Resources\icons8-para-hacer-32.png" />
     <None Include="Resources\icons8-formulario-32.png" />
+    <None Include="Resources\icons8-ruta-34.png" />
+    <None Include="Resources\icons8-mapa-waypoint-34.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

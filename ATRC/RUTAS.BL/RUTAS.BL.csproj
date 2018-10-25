@@ -47,12 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\Destinos.cs" />
+    <Compile Include="Catalogos\NombresRutas.cs" />
+    <Compile Include="Catalogos\Servicio.cs" />
     <Compile Include="Coordenadas.cs" />
     <Compile Include="PlantillaRutaExtra.cs" />
     <Compile Include="PlantillaRutas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rutas.cs" />
-    <Compile Include="RutasExtras.cs" />
+    <Compile Include="RutasFijas.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

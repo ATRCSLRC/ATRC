@@ -143,8 +143,16 @@ namespace ATRCBASE.BL
             Salida = 2,
             Apoyo = 3,
             Especial = 4,
-            Extra = 5
+            Extra = 5,
+            ExtraSalida = 6,
+            ExtraEntrada = 7
 
+        }
+        public enum Turno
+        {
+            Primero = 0,
+            Segundo = 1,
+            Tercero = 2
         }
     }
 }

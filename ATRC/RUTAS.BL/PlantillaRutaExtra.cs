@@ -35,24 +35,20 @@ namespace RUTAS.BL
             set { SetPropertyValue<PlantillaRutas>("PlantillaRutas", ref mPlantillaRutas, value); }
         }
 
-        [Custom("EditMaskType", "DateTime")]
-        [Custom("EditMask", @"hh:mm tt")]
-        [Custom("DisplayFormat", "{0:hh\\:mm tt}")]
-        private Nullable<TimeSpan> mHoraEntrada;
-        public Nullable<TimeSpan> HoraEntrada
+        
+        private Nullable<DateTime> mHoraEntrada;
+        public Nullable<DateTime> HoraEntrada
         {
             get { return mHoraEntrada; }
-            set { SetPropertyValue<Nullable<TimeSpan>>("HoraEntrada", ref mHoraEntrada, value); }
+            set { SetPropertyValue<Nullable<DateTime>>("HoraEntrada", ref mHoraEntrada, value); }
         }
 
-        [Custom("EditMaskType", "DateTime")]
-        [Custom("EditMask", @"hh:mm tt")]
-        [Custom("DisplayFormat", "{0:hh\\:mm tt}")]
-        private Nullable<TimeSpan> mHoraSalida;
-        public Nullable<TimeSpan> HoraSalida
+        
+        private Nullable<DateTime> mHoraSalida;
+        public Nullable<DateTime> HoraSalida
         {
             get { return mHoraSalida; }
-            set { SetPropertyValue<Nullable<TimeSpan>>("HoraSalida", ref mHoraSalida, value); }
+            set { SetPropertyValue<Nullable<DateTime>>("HoraSalida", ref mHoraSalida, value); }
         }
 
         private Usuario mChoferEntrada;
@@ -98,37 +94,37 @@ namespace RUTAS.BL
             set { SetPropertyValue<string>("Comentarios", ref mComentarios, value); }
         }
 
-        [NonPersistent]
-        public string ChoferEntradaDetalle
-        {
-            get
-            {
-                if (ChoferEntrada != null)
-                {
-                    return ChoferEntrada.NumEmpleado + " - " + ChoferEntrada.Nombre;
-                }
-                return string.Empty;
-            }
-        }
+        //[NonPersistent]
+        //public string ChoferEntradaDetalle
+        //{
+        //    get
+        //    {
+        //        if (ChoferEntrada != null)
+        //        {
+        //            return ChoferEntrada.NumEmpleado + " - " + ChoferEntrada.Nombre;
+        //        }
+        //        return string.Empty;
+        //    }
+        //}
 
-        [NonPersistent]
-        public string ChoferSalidaDetalle
-        {
-            get
-            {
-                if(RutaCompleta)
-                {
-                    if(TipoRuta != TipoRuta.Salida & TipoRuta != TipoRuta.Entrada)
-                        return ChoferEntradaDetalle;
-                }
+        //[NonPersistent]
+        //public string ChoferSalidaDetalle
+        //{
+        //    get
+        //    {
+        //        if(RutaCompleta)
+        //        {
+        //            if(TipoRuta != TipoRuta.Salida & TipoRuta != TipoRuta.Entrada)
+        //                return ChoferEntradaDetalle;
+        //        }
 
-                if (ChoferSalida != null)
-                {
-                    return ChoferSalida.NumEmpleado + " - " + ChoferSalida.Nombre;
-                }
+        //        if (ChoferSalida != null)
+        //        {
+        //            return ChoferSalida.NumEmpleado + " - " + ChoferSalida.Nombre;
+        //        }
 
-                return string.Empty;
-            }
-        }
+        //        return string.Empty;
+        //    }
+        //}
     }
 }

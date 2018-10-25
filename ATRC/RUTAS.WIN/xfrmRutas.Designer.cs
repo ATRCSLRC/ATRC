@@ -58,6 +58,7 @@
             this.routeProvider = new DevExpress.XtraMap.BingRouteDataProvider();
             this.informationLayer2 = new DevExpress.XtraMap.InformationLayer();
             this.vectorItemsLayer1 = new DevExpress.XtraMap.VectorItemsLayer();
+            this.vectorItemsLayer2 = new DevExpress.XtraMap.VectorItemsLayer();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -66,7 +67,6 @@
             this.lciEmpresa = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciRuta = new DevExpress.XtraLayout.LayoutControlItem();
             this.flyEdicion = new DevExpress.Utils.FlyoutPanel();
-            this.vectorItemsLayer2 = new DevExpress.XtraMap.VectorItemsLayer();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).BeginInit();

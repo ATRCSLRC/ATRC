@@ -61,6 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rutas\ReporteRutasExtras.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasExtras.Designer.cs">
+      <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Taller\BitacoraEmpleadosTaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +97,7 @@
     <Compile Include="Unidades\Servicios.Designer.cs">
       <DependentUpon>Servicios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +107,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rutas\ReporteRutasExtras.resx">
+      <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Taller\BitacoraEmpleadosTaller.resx">
       <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +147,10 @@
     <ProjectReference Include="..\CHECADOR.BL\CHECADOR.BL.csproj">
       <Project>{7c282930-b616-4c4d-a28b-73abeb1c9d8f}</Project>
       <Name>CHECADOR.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.BL\RUTAS.BL.csproj">
+      <Project>{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}</Project>
+      <Name>RUTAS.BL</Name>
     </ProjectReference>
     <ProjectReference Include="..\TALLER.BL\TALLER.BL.csproj">
       <Project>{3e049336-d487-4b03-86a2-56d4ded5c441}</Project>

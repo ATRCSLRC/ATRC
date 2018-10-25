@@ -707,17 +707,20 @@
             // 
             // bbiPlantillasRutasExternas
             // 
-            this.bbiPlantillasRutasExternas.Caption = "Plantilla de rutas externas";
+            this.bbiPlantillasRutasExternas.Caption = "Rutas fijas";
             this.bbiPlantillasRutasExternas.Id = 45;
+            this.bbiPlantillasRutasExternas.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_mapa_waypoint_34;
             this.bbiPlantillasRutasExternas.Name = "bbiPlantillasRutasExternas";
             this.bbiPlantillasRutasExternas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPlantillasRutasExternas_ItemClick);
             // 
             // bbiRutasExternas
             // 
-            this.bbiRutasExternas.Caption = "Rutas Externas";
+            this.bbiRutasExternas.Caption = "Rutas";
             this.bbiRutasExternas.Id = 46;
+            this.bbiRutasExternas.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_ruta_34;
             this.bbiRutasExternas.Name = "bbiRutasExternas";
             this.bbiRutasExternas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiRutasExternas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRutasExternas_ItemClick);
             // 
             // rbnpUsuarios
             // 

@@ -13,6 +13,7 @@ using System.Device.Location;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace RUTAS.WIN
@@ -112,6 +113,7 @@ namespace RUTAS.WIN
             ((ColorListLegend)MapControlUbicacion.Legends[0]).CustomItems.Clear();
             foreach (Rutas ruta in Rutas)
             {
+                ruta.Coordenadas.Sorting.Add(new SortProperty("Indice", DevExpress.Xpo.DB.SortingDirection.Ascending));
                 RutaActual = ruta;
                 waypoints = new List<RouteWaypoint>();
                 InformationLayer info = new InformationLayer();
@@ -127,6 +129,7 @@ namespace RUTAS.WIN
                 color.Text = ruta.Nombre;
                 ((ColorListLegend)MapControlUbicacion.Legends[0]).CustomItems.Add(color);
                 routing.CalculateRoute(waypoints);
+                Thread.Sleep(800);
             }
         }
 

@@ -103,6 +103,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mapa_waypoint_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mapa-waypoint-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_neumático_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-neumático-32", resourceCulture);
@@ -146,6 +156,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_rueda_pinchada_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-rueda-pinchada-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ruta_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ruta-34", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

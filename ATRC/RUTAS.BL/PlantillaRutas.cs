@@ -32,7 +32,9 @@ namespace RUTAS.BL
         {
             get
             {
-                return GetCollection<PlantillaRutaExtra>("PlantillasRutasExtras");
+                XPCollection<PlantillaRutaExtra> PlantillasRutasExtras = GetCollection<PlantillaRutaExtra>("PlantillasRutasExtras");
+                PlantillasRutasExtras.DisplayableProperties = "Oid;TipoRuta;TipoUnidad;HoraEntrada;HoraSalida;ChoferEntrada;ChoferSalida;RutaCompleta;PagarChoferEntrada;PagarChoferSalida;Comentarios";
+                return PlantillasRutasExtras;
             }
         }
     }

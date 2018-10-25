@@ -27,6 +27,7 @@ namespace RUTAS.WIN
 
         private void xfrmPlantillaRutasExtras_Load(object sender, EventArgs e)
         {
+            Loading.ShowWaitForm();
             XPView Maquiladoras = new XPView(Unidad, typeof(Empresas), "Oid;Nombre", null);
             lueMaquiladora.Properties.DataSource = Maquiladoras;
             if (!EsNuevo)
@@ -34,7 +35,7 @@ namespace RUTAS.WIN
                 LigarControles();
             }
             flpAcciones.ShowPopup();
-
+            Loading.CloseWaitForm();
         }
         private void LigarControles()
         {
@@ -46,12 +47,17 @@ namespace RUTAS.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Plantilla != null)
+            if (ValidarCampos())
             {
-                Plantilla.Nombre = txtNombre.Text;
-                Plantilla.Empresa = Unidad.GetObjectByKey<Empresas>(lueMaquiladora.EditValue);
-                Plantilla.Save();
-                Unidad.CommitChanges();
+                if (Plantilla != null)
+                {
+                    Plantilla.Nombre = txtNombre.Text;
+                    Plantilla.Empresa = Unidad.GetObjectByKey<Empresas>(lueMaquiladora.EditValue);
+                    Plantilla.Save();
+                    Unidad.CommitChanges();
+                    XtraMessageBox.Show("Se han guardado los cambios correctamente.");
+                    this.Close();
+                }
             }
         }
 
@@ -98,6 +104,25 @@ namespace RUTAS.WIN
                     }
                     break;
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            if(string.IsNullOrEmpty(txtNombre.Text))
+            {
+                XtraMessageBox.Show("Debe agregar un nombre a la plantilla.");
+                txtNombre.Focus();
+                return false;
+            }
+
+            if(lueMaquiladora.EditValue == null)
+            {
+                XtraMessageBox.Show("Debe selecionar una maquiladora.");
+                lueMaquiladora.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }

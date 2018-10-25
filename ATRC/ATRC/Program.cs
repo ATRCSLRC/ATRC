@@ -32,8 +32,11 @@ namespace ATRC
             SkinManager.EnableFormSkins();
             SkinManager.EnableMdiFormSkins();
             ATRCBASE.BL.Utilerias.TipoAplicacion = Enums.TipoAplicacion.Windows;
-            UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful");
-            //UserLookAndFeel.Default.SetSkinStyle("Office 2013 White");
+            UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful"); 
+             //UserLookAndFeel.Default.SetSkinStyle("Pumpkin");
+            //UserLookAndFeel.Default.SetSkinStyle("Xmas 2008 Blue");
+            
+            //UserLookAndFeel.Default.SetSkinStyle("Office 2013 White");Pumpkin
             UserLookAndFeel.Default.SetSkinMaskColors(System.Drawing.Color.Red, System.Drawing.Color.Red);
 
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);

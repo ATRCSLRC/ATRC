@@ -66,7 +66,7 @@
             // lblApellido
             // 
             this.lblApellido.Dpi = 254F;
-            this.lblApellido.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.ForeColor = System.Drawing.Color.Firebrick;
             this.lblApellido.LocationFloat = new DevExpress.Utils.PointFloat(101.13F, 384F);
             this.lblApellido.Name = "lblApellido";
@@ -95,12 +95,14 @@
             // lblNombre
             // 
             this.lblNombre.Dpi = 254F;
-            this.lblNombre.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lblNombre.LocationFloat = new DevExpress.Utils.PointFloat(6F, 337F);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblNombre.SizeF = new System.Drawing.SizeF(484F, 58.42001F);
             this.lblNombre.StylePriority.UseFont = false;
+            this.lblNombre.StylePriority.UseForeColor = false;
             this.lblNombre.StylePriority.UseTextAlignment = false;
             this.lblNombre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 

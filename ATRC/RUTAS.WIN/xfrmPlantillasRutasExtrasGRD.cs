@@ -21,11 +21,22 @@ namespace RUTAS.WIN
             InitializeComponent();
         }
         public UnidadDeTrabajo Unidad;
+        public int PlantillaRutas;
+        public bool AsignarPlantilla;
         private void xfrmPlantillasRutasExtrasGRD_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Rutas = new XPView(Unidad, typeof(PlantillaRutas), "Oid;Nombre;Empresa.Nombre", null);
             grdPlantillas.DataSource = Rutas;
+            if(AsignarPlantilla)
+            {
+                bbiAgregar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                bbiModificar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                bbiEliminar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }else
+            {
+                bbiAsignar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
         }
 
         private void bbiAgregar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -69,6 +80,25 @@ namespace RUTAS.WIN
                     ((XPView)grdPlantillas.DataSource).Reload();
                 }
             }
+        }
+
+        private void bbiAsignar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord ViewPlantilla = grvPlantillas.GetFocusedRow() as ViewRecord;
+            if (ViewPlantilla != null)
+            {
+                //PlantillaRutas Plantilla = (PlantillaRutas)ViewPlantilla.GetObject();
+                if (XtraMessageBox.Show("¿Está seguro de querer asignar la plantilla " + ViewPlantilla["Empresa.Nombre"] + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    PlantillaRutas = Convert.ToInt32(ViewPlantilla["Oid"]);
+                    this.Close();
+                }
+            }
+        }
+
+        private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }

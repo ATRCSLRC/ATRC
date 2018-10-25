@@ -93,6 +93,26 @@ namespace RUTAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_archivo_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-archivo-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_prioridad_media_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-prioridad-media-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ModificarRuta {
             get {
                 object obj = ResourceManager.GetObject("ModificarRuta", resourceCulture);

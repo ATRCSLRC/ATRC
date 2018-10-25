@@ -1,10 +1,12 @@
 ﻿
+using DevExpress.Xpo;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +94,23 @@ namespace ATRC
 
         private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            //DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
+            //Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            //foreach (ViewRecord Usuario in Usuarios)
+            //{
+            //    if (Usuario["Imagen.Archivo"] != null)
+            //    {
+            //        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+            //        if (image != null)
+            //        {
+            //            System.IO.MemoryStream stream = new System.IO.MemoryStream(image);
+            //            Image returnImage = Image.FromStream(stream);
+            //            string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + "." + ATRCBASE.BL.Utilerias.GetExtension(returnImage).ToString();
+            //            File.WriteAllBytes(f, image);
+            //        }
+            //    }
+            //}
             Utilerias.ActualizarEsquema();
             Application.Exit();
         }
@@ -418,6 +437,14 @@ namespace ATRC
         private void bbiPlantillasRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             RUTAS.WIN.xfrmPlantillasRutasExtrasGRD xfrm = new RUTAS.WIN.xfrmPlantillasRutasExtrasGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmGenerarRutasExtras xfrm = new RUTAS.WIN.xfrmGenerarRutasExtras();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

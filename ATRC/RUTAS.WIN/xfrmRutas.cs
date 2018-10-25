@@ -97,6 +97,7 @@ namespace RUTAS.WIN
                 if (pushpin != null)
                 {
                     pushpin.Text = numMarker++.ToString();
+                    pushpin.Transparency = 200;
                 }
                 MapPolyline polyline = item as MapPolyline;
                 if (polyline != null)
@@ -239,7 +240,6 @@ namespace RUTAS.WIN
             link.Landscape = true;
             link.PaperKind = System.Drawing.Printing.PaperKind.Legal;
             link.ShowPreview();
-            //MapControlUbicacion.ShowRibbonPrintPreview();
         }
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

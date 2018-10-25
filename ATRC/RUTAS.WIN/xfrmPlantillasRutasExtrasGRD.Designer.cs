@@ -34,16 +34,17 @@
             this.bbiModificar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEliminar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAsignar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdPlantillas = new DevExpress.XtraGrid.GridControl();
             this.grvPlantillas = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -61,9 +62,10 @@
             this.bbiAgregar,
             this.bbiModificar,
             this.bbiEliminar,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.bbiAsignar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -75,7 +77,7 @@
             // 
             // bbiAgregar
             // 
-            this.bbiAgregar.Caption = "Agregar plantilla";
+            this.bbiAgregar.Caption = "Agregar rutas";
             this.bbiAgregar.Id = 1;
             this.bbiAgregar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiAgregar.ImageOptions.LargeImage")));
             this.bbiAgregar.Name = "bbiAgregar";
@@ -84,7 +86,7 @@
             // 
             // bbiModificar
             // 
-            this.bbiModificar.Caption = "Modificar plantilla";
+            this.bbiModificar.Caption = "Modificar rutas";
             this.bbiModificar.Id = 2;
             this.bbiModificar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.LargeImage")));
             this.bbiModificar.Name = "bbiModificar";
@@ -93,7 +95,7 @@
             // 
             // bbiEliminar
             // 
-            this.bbiEliminar.Caption = "Eliminar plantilla";
+            this.bbiEliminar.Caption = "Eliminar rutas";
             this.bbiEliminar.Id = 3;
             this.bbiEliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiEliminar.ImageOptions.LargeImage")));
             this.bbiEliminar.Name = "bbiEliminar";
@@ -107,6 +109,16 @@
             this.bbiSalir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSalir.ImageOptions.LargeImage")));
             this.bbiSalir.Name = "bbiSalir";
             this.bbiSalir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSalir_ItemClick);
+            // 
+            // bbiAsignar
+            // 
+            this.bbiAsignar.Caption = "Asignar";
+            this.bbiAsignar.Id = 5;
+            this.bbiAsignar.ImageOptions.LargeImage = global::RUTAS.WIN.Properties.Resources.icons8_archivo_34;
+            this.bbiAsignar.Name = "bbiAsignar";
+            this.bbiAsignar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiAsignar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAsignar_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -119,6 +131,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiAsignar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiAgregar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiModificar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiEliminar);
@@ -163,25 +176,6 @@
             this.grvPlantillas.Name = "grvPlantillas";
             this.grvPlantillas.OptionsView.ShowGroupPanel = false;
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(399, 328);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdPlantillas;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(379, 308);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // colNombre
             // 
             this.colNombre.Caption = "Nombre";
@@ -202,6 +196,25 @@
             this.colEmpresa.Visible = true;
             this.colEmpresa.VisibleIndex = 1;
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(399, 328);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdPlantillas;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(379, 308);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // xfrmPlantillasRutasExtrasGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +224,7 @@
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmPlantillasRutasExtrasGRD";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "Plantillas de rutas extras";
+            this.Text = "Rutas fijas";
             this.Load += new System.EventHandler(this.xfrmPlantillasRutasExtrasGRD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
@@ -242,5 +255,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colEmpresa;
+        private DevExpress.XtraBars.BarButtonItem bbiAsignar;
     }
 }
