@@ -7,134 +7,168 @@
     <title>Sorteo ATRC</title>
     <link rel="stylesheet" href="../Content/bootstrap.min.css">
     <link rel="stylesheet" href="../Content/font-awesome.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../js/bootstrap.min.js"></script>
     <style type="text/css">
         #confetti {
-            position: relative;
+            /*position: relative;
             top: 0;
             left: 0;
-            z-index: 1;
+            z-index: 1;*/
+            position: absolute;
         }
 
         #settings {
             display: inline-block;
             overflow: hidden;
-            position: absolute;
             background: rgba(255,255,255,1);
             padding: 20px;
             margin: 0 auto;
-            top: 10%;
+            top: 5%;
             left: 0;
             right: 0;
             width: 80%;
             max-width: 600px;
             z-index: 9;
         }
+
         img.avatar {
-        max-width: 201px;
-        max-height: 180px;
-        width: 40%;
-        border-radius: 50%;
-        cursor: none;
-    }
+            max-width: 201px;
+            max-height: 180px;
+            width: 40%;
+            border-radius: 50%;
+            cursor: none;
+        }
+
         .imgcontainer {
-        text-align: center;
-        margin: 6px 0 6px 0;
-        position: relative;
-        cursor: none;
-    }
+            text-align: center;
+            margin: 6px 0 6px 0;
+            position: relative;
+            cursor: none;
+        }
+        .header {
+    font-size:x-large;
+    font-weight: bold;
+}
     </style>
 </head>
 
 <body>
 
     <canvas id="confetti"></canvas>
-    <div class="container">
-        <form runat="server">
-            
-            <div id="settings" style=" height: 782px; background-image: url(../img/wheel_back.png); background-repeat: no-repeat; background-position: center; padding-left: 23px; padding-top: 94px;" align="center">
-                <div class="box-tools pull-right">
-                <dx:BootstrapButton ID="btnAgregarEmpleados" ClientInstanceName="btnAgregarEmpleados" runat="server" AutoPostBack="false" Text="Agregar Empleados">
+    <%--<div class="container">--%>
+     <div>&nbsp&nbsp&nbsp&nbsp</div>
+    <div>&nbsp&nbsp&nbsp&nbsp</div>
+    <form runat="server" align="center">
+        <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Sorteos ATRC</div>
+            <div class="panel-body">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 10%">
+                            <label class="control-label">Premio:&nbsp</label><span id="Span1" runat="server"></span>
+                        </td>
+                        <td>
+                            <dx:BootstrapTextBox ID="txtPremio" ClientInstanceName="txtPremio" NullText="Premio (Emplaedo del mes, etc.)" runat="server"></dx:BootstrapTextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="control-label">Número de intentos:&nbsp</label><span id="Span2" runat="server"></span>
+                        </td>
+                        <td>
+                            <dx:BootstrapSpinEdit ID="spinIntentos" ClientInstanceName="spinIntentos" MinValue="0" MaxValue="99" MaxLength="2" Number="1" runat="server"></dx:BootstrapSpinEdit>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+            </div>
+        <div id="settings" style="height: 594px; background-image: url(../img/wheel_back.png); background-repeat: no-repeat; background-position: center; padding-left: 24px; padding-top: 0px;" >
+
+            <div class="box-tools pull-right">
+                <dx:BootstrapButton ID="btnAgregarEmpleados" ClientInstanceName="btnAgregarEmpleados" EnableViewState="false" UseSubmitBehavior="false" runat="server" AutoPostBack="false" Text="Agregar Empleados">
                     <SettingsBootstrap RenderOption="Warning" />
                     <Badge IconCssClass="fa fa-plus" />
                     <ClientSideEvents Click="function(s,e){ grdEmpleados.Refresh(); PopupEmpleados.Show(); }" />
                 </dx:BootstrapButton>
-                    </div>
-            <br />
-            <br />
-                <br />
-            <br />
-                <canvas id="canvas" width="434" height="434">
-                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
-                </canvas>
-                <br />
-                    <br />
-                <dx:BootstrapButton ID="BootstrapButton2" runat="server" AutoPostBack="false" Text="Iniciar">
-                    <SettingsBootstrap RenderOption="Success" />
-                    <Badge IconCssClass="fa fa-play" />
-                    <ClientSideEvents Click="function(s,e){ startSpin(); }" />
-                </dx:BootstrapButton>
             </div>
-            <dx:BootstrapPopupControl ID="PopupEmpleados" ClientInstanceName="PopupEmpleados" ShowHeader="true" HeaderText="Seleccionar empleados" ShowFooter="true" CloseAction="None" ShowCloseButton="false" runat="server">
-                <SettingsAdaptivity Mode="Always" VerticalAlign="WindowCenter" FixedHeader="true" FixedFooter="true" />
-                <ContentCollection>
-                    <dx:ContentControl>
-                        <dx:BootstrapGridView ID="grdEmpleados" ClientInstanceName="grdEmpleados" OnDataBinding="grdEmpleados_DataBinding" runat="server" KeyFieldName="NumEmpleado">
-                            <SettingsPager PageSize="15"></SettingsPager>
-                            <Settings ShowFilterRow="true" />
-                            <Columns>
-                                <dx:BootstrapGridViewCommandColumn ShowSelectCheckbox="True" SelectAllCheckboxMode="AllPages" />
-                                <dx:BootstrapGridViewDataColumn FieldName="NumEmpleado" />
-                                <dx:BootstrapGridViewDataColumn FieldName="Nombre" />
-                            </Columns>
-                        </dx:BootstrapGridView>
-                    </dx:ContentControl>
-                </ContentCollection>
-                <FooterTemplate>
-                    <dx:BootstrapButton ID="btnAgregar" ClientInstanceName="btnAgregar" Text="Agregar" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
-                        <SettingsBootstrap RenderOption="Warning" />
-                        <Badge IconCssClass="fa fa-trash" />
-                        <ClientSideEvents Click="function(s,e){ grdEmpleados.GetSelectedFieldValues('NumEmpleado', OnGetSelectedFieldValues); PopupEmpleados.Hide(); }" />
-                    </dx:BootstrapButton>
+            <br />
+            <br />
+            <br />
+            <br />
+            <canvas id="canvas" width="434" height="434">
+                <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+            </canvas>
+            <br />
+            <br />
+            <dx:BootstrapButton ID="BootstrapButton2" runat="server" EnableViewState="false" UseSubmitBehavior="false" AutoPostBack="false" Text="Iniciar">
+                <SettingsBootstrap RenderOption="Success" />
+                <Badge IconCssClass="fa fa-play" />
+                <ClientSideEvents Click="function(s,e){ startSpin(); }" />
+            </dx:BootstrapButton>
+        </div>
+        <dx:BootstrapPopupControl ID="PopupEmpleados" ClientInstanceName="PopupEmpleados" ShowHeader="true" HeaderText="Seleccionar empleados" ShowFooter="true" CloseAction="None" ShowCloseButton="false" runat="server">
+            <SettingsAdaptivity Mode="Always" VerticalAlign="WindowCenter" FixedHeader="true" FixedFooter="true" />
+            <ContentCollection>
+                <dx:ContentControl>
+                    <dx:BootstrapGridView ID="grdEmpleados" ClientInstanceName="grdEmpleados" OnDataBinding="grdEmpleados_DataBinding" runat="server" KeyFieldName="NumEmpleado">
+                        <SettingsPager PageSize="15"></SettingsPager>
+                        <Settings ShowFilterRow="true" />
+                        <Columns>
+                            <dx:BootstrapGridViewCommandColumn ShowSelectCheckbox="True" SelectAllCheckboxMode="AllPages" />
+                            <dx:BootstrapGridViewDataColumn FieldName="NumEmpleado" />
+                            <dx:BootstrapGridViewDataColumn FieldName="Nombre" />
+                        </Columns>
+                    </dx:BootstrapGridView>
+                </dx:ContentControl>
+            </ContentCollection>
+            <FooterTemplate>
+                <dx:BootstrapButton ID="btnAgregar" ClientInstanceName="btnAgregar" Text="Agregar" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
+                    <SettingsBootstrap RenderOption="Warning" />
+                    <Badge IconCssClass="fa fa-trash" />
+                    <ClientSideEvents Click="function(s,e){ grdEmpleados.GetSelectedFieldValues('NumEmpleado', OnGetSelectedFieldValues); PopupEmpleados.Hide(); grdEmpleados.UnselectRows(); }" />
+                </dx:BootstrapButton>
 
-                    <dx:BootstrapButton ID="btnSalir" ClientInstanceName="btnSalir" Text="Salir" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
-                        <SettingsBootstrap RenderOption="Danger" />
-                        <Badge IconCssClass="fa fa-remove" />
-                        <ClientSideEvents Click="function(s,e){ PopupEmpleados.Hide(); }" />
-                    </dx:BootstrapButton>
-                </FooterTemplate>
-            </dx:BootstrapPopupControl>
-            <dx:BootstrapPopupControl ID="PopupGanador" ClientInstanceName="PopupGanador" ShowHeader="true" ShowFooter="true" CloseAction="None" ShowCloseButton="false" runat="server">
-                <SettingsAdaptivity Mode="Always" VerticalAlign="WindowCenter" FixedHeader="true" FixedFooter="true" />
-                <HeaderTemplate>
-                    <h4></span>Ganador</h4>
-                </HeaderTemplate>
-                <ContentCollection>
-                    <dx:ContentControl>
-                        <dx:BootstrapCallbackPanel ID="CallbackPanel" ClientInstanceName="CallbackPanel" EnableCallbackAnimation="true" OnCallback="CallbackPanel_Callback" runat="server" Width="100%">
-                            <ContentCollection>
-                                <dx:ContentControl>
-                                    <div class="imgcontainer">
+                <dx:BootstrapButton ID="btnSalir" ClientInstanceName="btnSalir" Text="Salir" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
+                    <SettingsBootstrap RenderOption="Danger" />
+                    <Badge IconCssClass="fa fa-remove" />
+                    <ClientSideEvents Click="function(s,e){  PopupEmpleados.Hide(); grdEmpleados.UnselectRows(); }" />
+                </dx:BootstrapButton>
+            </FooterTemplate>
+        </dx:BootstrapPopupControl>
+        <dx:BootstrapPopupControl ID="PopupGanador" ClientInstanceName="PopupGanador" ShowHeader="true" ShowFooter="true" HeaderText="Ganador" CloseAction="None" ShowCloseButton="false" runat="server">
+            <SettingsAdaptivity Mode="Always" VerticalAlign="WindowCenter" FixedHeader="true" FixedFooter="true" />
+            <CssClasses Header="header" />
+            <ContentCollection>
+                <dx:ContentControl>
+                    <dx:BootstrapCallbackPanel ID="CallbackPanel" ClientInstanceName="CallbackPanel" EnableCallbackAnimation="true" OnCallback="CallbackPanel_Callback" runat="server" Width="100%">
+                        <ContentCollection>
+                            <dx:ContentControl>
+                                <div class="imgcontainer">
                                     <dx:BootstrapBinaryImage ID="imgFoto" align="center" CssClasses-Control="avatar" runat="server"></dx:BootstrapBinaryImage>
                                     <dx:ASPxLabel ID="lblGanador" ClientInstanceName="lblGanador" Font-Bold="true" Font-Size="Larger" align="center" Width="100%" runat="server" Text=""></dx:ASPxLabel>
-                                        </div>
-                                </dx:ContentControl>
-                            </ContentCollection>
-                        </dx:BootstrapCallbackPanel>
-                    </dx:ContentControl>
-                </ContentCollection>
-                <FooterTemplate>
-                    <dx:BootstrapButton ID="btnSalir" ClientInstanceName="btnSalir" Text="Salir" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
-                        <SettingsBootstrap RenderOption="Danger" />
-                        <Badge IconCssClass="fa fa-remove" />
-                        <ClientSideEvents Click="function(s,e){ confetti.clear(); PopupGanador.Hide(); }" />
-                    </dx:BootstrapButton>
-                </FooterTemplate>
-            </dx:BootstrapPopupControl>
-            <dx:ASPxCallback ID="CallbackEmpleados" ClientInstanceName="CallbackEmpleados"  runat="server">
-                <ClientSideEvents CallbackComplete="function(){ PopupGanador.Show(); }" />
-            </dx:ASPxCallback>
-        </form>
-    </div>
+                                </div>
+                            </dx:ContentControl>
+                        </ContentCollection>
+                    </dx:BootstrapCallbackPanel>
+                </dx:ContentControl>
+            </ContentCollection>
+            <FooterTemplate>
+                <dx:BootstrapButton ID="btnSalir" ClientInstanceName="btnSalir" Text="Salir" AutoPostBack="false" UseSubmitBehavior="false" runat="server">
+                    <SettingsBootstrap RenderOption="Danger" />
+                    <Badge IconCssClass="fa fa-remove" />
+                    <ClientSideEvents Click="function(s,e){ confetti.clear(); PopupGanador.Hide(); }" />
+                </dx:BootstrapButton>
+            </FooterTemplate>
+        </dx:BootstrapPopupControl>
+        <dx:ASPxCallback ID="CallbackEmpleados" ClientInstanceName="CallbackEmpleados" runat="server">
+            <ClientSideEvents CallbackComplete="function(){ PopupGanador.Show(); }" />
+        </dx:ASPxCallback>
+    </form>
+    <%--</div>--%>
 </body>
 
 </html>
@@ -143,6 +177,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <script>
     var confettiSettings = { target: 'confetti' };
+    var ida = 1;
     var confetti = new window.ConfettiGenerator(confettiSettings);
     var theWheel = new Winwheel({
         'numSegments': 1,
@@ -175,10 +210,25 @@
     }
 
     function alertPrize() {
-        var winningSegment = theWheel.getIndicatedSegment();
-        PopupGanador.Show();
-        CallbackPanel.PerformCallback(winningSegment.text);
-        confetti.render();
+        setTimeout(function(){  
+        var ganador = theWheel.getIndicatedSegment();
+        if (ida == spinIntentos.GetValue()) {
+            PopupGanador.SetHeaderText('Ganador de ' + txtPremio.GetText());
+            PopupGanador.Show();
+            CallbackPanel.PerformCallback(ganador.text);
+            confetti.render();
+            theWheel.deleteSegment(theWheel.getIndicatedSegmentNumber());
+            theWheel.draw();
+            ida = 1;
+        } else {
+            ida++;
+            PopupGanador.SetHeaderText('Perdedor');
+            theWheel.deleteSegment(theWheel.getIndicatedSegmentNumber());
+            theWheel.draw();
+            CallbackPanel.PerformCallback(ganador.text);
+            PopupGanador.Show();
+        }
+            },1500);
     }
 
     function OnGetSelectedFieldValues(selectedValues) {

@@ -35,6 +35,7 @@ namespace ATRCWEB
                   new ViewProperty("NumEmpleado", SortDirection.None, "[NumEmpleado]", false, true),
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                  });
+            Empleados.Criteria = new BinaryOperator("Activo", true);
             grdEmpleados.DataSource = Empleados;
         }
 
@@ -63,7 +64,7 @@ namespace ATRCWEB
                 Usuario Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(e.Parameter)));
                 if (Usuario != null)
                 {
-                    lblGanador.Text = Usuario.Nombre;
+                    lblGanador.Text = Usuario.NumEmpleado.ToString() + " - " + Usuario.Nombre;
                     bbi.Value = ObtenerFoto(Usuario.Imagen == null ? null : Usuario.Imagen.Archivo);
                 }
             }

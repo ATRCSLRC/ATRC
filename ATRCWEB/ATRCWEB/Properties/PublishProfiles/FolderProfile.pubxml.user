@@ -16,19 +16,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:48:50</publishTime>
     </File>
     <File Include="bin/ALMACEN.BL.dll">
-      <publishTime>09/05/2018 12:03:46</publishTime>
+      <publishTime>10/06/2018 08:35:07</publishTime>
     </File>
     <File Include="bin/ATRCBASE.BL.dll">
-      <publishTime>09/05/2018 12:03:42</publishTime>
+      <publishTime>10/06/2018 08:35:01</publishTime>
     </File>
     <File Include="bin/ATRCWEB.dll">
-      <publishTime>09/07/2018 15:39:33</publishTime>
+      <publishTime>10/24/2018 15:03:32</publishTime>
     </File>
     <File Include="bin/ATRCWEB.pdb">
-      <publishTime>09/07/2018 15:39:33</publishTime>
+      <publishTime>10/24/2018 15:03:32</publishTime>
     </File>
     <File Include="bin/CHECADOR.BL.dll">
-      <publishTime>09/05/2018 12:03:46</publishTime>
+      <publishTime>10/06/2018 08:35:05</publishTime>
     </File>
     <File Include="bin/de/DevExpress.Data.v17.2.resources.dll">
       <publishTime>04/26/2018 13:41:20</publishTime>
@@ -253,7 +253,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/26/2018 13:44:10</publishTime>
     </File>
     <File Include="bin/LLANTERA.BL.dll">
-      <publishTime>09/05/2018 12:03:51</publishTime>
+      <publishTime>10/06/2018 08:35:07</publishTime>
     </File>
     <File Include="bin/ru/DevExpress.Data.v17.2.resources.dll">
       <publishTime>04/26/2018 13:41:55</publishTime>
@@ -307,10 +307,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/26/2018 13:44:10</publishTime>
     </File>
     <File Include="bin/TALLER.BL.dll">
-      <publishTime>09/05/2018 12:03:47</publishTime>
+      <publishTime>10/06/2018 08:35:05</publishTime>
     </File>
     <File Include="bin/UNIDADES.BL.dll">
-      <publishTime>09/05/2018 12:03:45</publishTime>
+      <publishTime>10/06/2018 08:35:05</publishTime>
     </File>
     <File Include="Checador/Checador.aspx">
       <publishTime>05/15/2018 11:48:50</publishTime>
@@ -322,7 +322,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:48:50</publishTime>
     </File>
     <File Include="ChecadorEmpleados.aspx">
-      <publishTime>09/07/2018 15:32:14</publishTime>
+      <publishTime>10/23/2018 14:22:42</publishTime>
     </File>
     <File Include="Content/AdminLTE.min.css">
       <publishTime>05/15/2018 11:48:50</publishTime>
@@ -550,7 +550,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:49:50</publishTime>
     </File>
     <File Include="Sorteo.aspx">
-      <publishTime>05/15/2018 11:49:50</publishTime>
+      <publishTime>10/23/2018 08:21:48</publishTime>
     </File>
     <File Include="Usuarios/Usuarios.aspx">
       <publishTime>05/15/2018 11:49:50</publishTime>
@@ -730,7 +730,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/12/2017 03:53:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/06/2018 12:02:42</publishTime>
+      <publishTime>10/23/2018 11:34:12</publishTime>
     </File>
   </ItemGroup>
 </Project>
