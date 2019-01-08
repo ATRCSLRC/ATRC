@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{1B19158F-E398-40A6-8E3B-350508E125F1}") = "Diesel.Shared", "Diesel.Shared\Diesel.Shared.dxjsproj", "{3C464419-D321-4ABA-88BD-9CF1CC3DA08B}"
+EndProject
+Project("{1B19158F-E398-40A6-8E3B-350508E125F1}") = "Diesel.Mobile", "Diesel.Mobile\Diesel.Mobile.dxjsproj", "{EA47BB0C-A723-4CA8-8AD3-5E09178F9825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C464419-D321-4ABA-88BD-9CF1CC3DA08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C464419-D321-4ABA-88BD-9CF1CC3DA08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C464419-D321-4ABA-88BD-9CF1CC3DA08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C464419-D321-4ABA-88BD-9CF1CC3DA08B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA47BB0C-A723-4CA8-8AD3-5E09178F9825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA47BB0C-A723-4CA8-8AD3-5E09178F9825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA47BB0C-A723-4CA8-8AD3-5E09178F9825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA47BB0C-A723-4CA8-8AD3-5E09178F9825}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65D041A0-E254-4B94-9B4C-9A913CEFA579}
+	EndGlobalSection
+EndGlobal

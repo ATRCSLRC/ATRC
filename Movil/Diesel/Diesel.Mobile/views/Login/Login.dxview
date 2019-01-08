@@ -1,0 +1,9 @@
+<div data-options="dxView : { name: 'Login', title: 'Login' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <div data-bind="dxGallery: { showIndicator:false,height: '130', dataSource: galleryData, stretchImages: true,width:'100%', }" style="width:100%;height:40%">
+        </div>
+        <div data-bind="dxTextBox: {placeholder: 'Número de empleado', mode: 'text'}"></div>
+        <div data-bind="dxTextBox: {placeholder: 'Contraseña', mode: 'password'}"></div>
+        <div data-bind="dxButton: { text: 'Iniciar', type:'success', onClick: iniciarsesion }"></div>
+    </div>
+</div>
