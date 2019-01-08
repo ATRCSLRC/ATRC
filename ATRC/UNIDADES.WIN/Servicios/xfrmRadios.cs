@@ -24,7 +24,7 @@ namespace UNIDADES.WIN
 
         public UnidadDeTrabajo Unidad;
         public Radios Radio;
-
+        public bool EsNuevo = false;
         #region Eventos
         private void xfrmRadios_Load(object sender, EventArgs e)
         {
@@ -89,6 +89,17 @@ namespace UNIDADES.WIN
         #endregion
 
         #region Metodos
+        public static string NumRadio(UnidadDeTrabajo Unidad)
+        {
+
+            XPView Usuarios = new XPView(Unidad, typeof(Radios));
+
+            Usuarios.Properties.AddRange(new ViewProperty[] {
+            new ViewProperty("Radio", SortDirection.Descending, "[Radio]", true, true)});
+            Usuarios.SelectDeleted = true;
+            return (Convert.ToInt32(Usuarios[0]["Radio"]) + 1).ToString();
+        }
+
         private void IniciarControles()
         {
             rgDestino.Properties.Items.AddEnum(typeof(Enums.TipoDestino));
@@ -105,22 +116,37 @@ namespace UNIDADES.WIN
             lueUsuario.Properties.DataSource = xpUsuarios;
             lueUsuario.Properties.DisplayMember = "Nombre";
             lueUsuario.Properties.BestFit();
-            if (Radio.Destino == Enums.TipoDestino.Unidad)
-                lueUnidad.EditValue = lueUnidad.Properties.GetKeyValueByDisplayText(Radio.Unidad.Nombre);
-            else
-                lueUsuario.EditValue = lueUsuario.Properties.GetKeyValueByDisplayText(Radio.Usuario.NumEmpleado.ToString() + " - " + Radio.Usuario.Nombre); //Radio.Usuario;
+            if (!EsNuevo)
+            {
+                if (Radio.Destino == Enums.TipoDestino.Unidad)
+                    lueUnidad.EditValue = lueUnidad.Properties.GetKeyValueByDisplayText(Radio.Unidad.Nombre);
+                else
+                    lueUsuario.EditValue = lueUsuario.Properties.GetKeyValueByDisplayText(Radio.Usuario.NumEmpleado.ToString() + " - " + Radio.Usuario.Nombre); //Radio.Usuario;
+            }
         }
 
         private void LigarControles()
         {
+            txtRadio.DataBindings.Add("EditValue", Radio, "Radio", true, DataSourceUpdateMode.OnPropertyChanged);
             txtMarca.DataBindings.Add("EditValue", Radio, "Marca", true, DataSourceUpdateMode.OnPropertyChanged);
             txtModelo.DataBindings.Add("EditValue", Radio, "Modelo", true, DataSourceUpdateMode.OnPropertyChanged);
             txtSerie.DataBindings.Add("EditValue", Radio, "Serie", true, DataSourceUpdateMode.OnPropertyChanged);
             rgDestino.DataBindings.Add("EditValue", Radio, "Destino", true, DataSourceUpdateMode.OnPropertyChanged);
+            if (EsNuevo)
+                txtRadio.Text = NumRadio(Unidad);
+
         }
 
         private bool ValidarCampos()
         {
+            int n;
+            if (string.IsNullOrEmpty(txtRadio.Text) & int.TryParse(txtRadio.Text, out n))
+            {
+                XtraMessageBox.Show("Debe agregar el numero del radio.");
+                txtMarca.Focus();
+                return false;
+            }
+
             if (string.IsNullOrEmpty(txtMarca.Text))
             {
                 XtraMessageBox.Show("Debe agregar la marca.");
@@ -140,6 +166,25 @@ namespace UNIDADES.WIN
                 XtraMessageBox.Show("Debe agregar la serie.");
                 txtMarca.Focus();
                 return false;
+            }
+
+            if ((Enums.TipoDestino)rgDestino.EditValue == Enums.TipoDestino.Unidad)
+            {
+                if (lueUnidad.EditValue == null)
+                {
+                    XtraMessageBox.Show("Debe seleccionar una unidad.");
+                    lueUnidad.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                if (lueUsuario.EditValue == null)
+                {
+                    XtraMessageBox.Show("Debe seleccionar un usuario.");
+                    lueUsuario.Focus();
+                    return false;
+                }
             }
             return true;
         }

@@ -34,7 +34,6 @@ namespace CHECADOR.WIN
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             UnidadConsulta = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             dteFechaInicial.DateTime = dteFechaFinal.DateTime = DateTime.Now;
-
             if (esConsulta)
             {
                 rpAcciones.Visible = false;

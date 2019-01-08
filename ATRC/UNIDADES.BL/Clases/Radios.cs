@@ -14,6 +14,13 @@ namespace UNIDADES.BL
         public Radios(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
 
+        private int mRadio;
+        public int Radio
+        {
+            get { return mRadio; }
+            set { SetPropertyValue<int>("Radio", ref mRadio, value); }
+        }
+
         private string mMarca;
         [Size(100)]
         public string Marca

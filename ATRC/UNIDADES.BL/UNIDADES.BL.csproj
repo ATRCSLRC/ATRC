@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Extintores.cs" />
+    <Compile Include="Clases\HistorialExtintores.cs" />
     <Compile Include="Clases\Radios.cs" />
     <Compile Include="Clases\Servicios.cs" />
     <Compile Include="Clases\Unidad.cs" />

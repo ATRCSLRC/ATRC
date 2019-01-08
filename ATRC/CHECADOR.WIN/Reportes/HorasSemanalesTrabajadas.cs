@@ -36,13 +36,13 @@ namespace CHECADOR.WIN.Reportes
             //XPCollection Usuarios = new XPCollection(Unidad, typeof(CHECADOR.BL.UsuarioChecador), goFiltro);
             XPView Usuarios = new XPView(Unidad, typeof(CHECADOR.BL.UsuarioChecador), "Oid;Usuario.Nombre;Usuario.Patron;Usuario.NumEmpleado", goFiltro);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("Usuario.NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            this.DataSource =Usuarios;
+            this.DataSource = Usuarios;
             GroupOperator go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaChecada", FechaInicial.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaChecada", FechaFinal.Date, BinaryOperatorType.LessOrEqual));
             
             XPView Checadas = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(CHECADOR.BL.HistoricoChecadas), "Oid;FechaChecada;Usuario;HoraChecadaSalida;HoraChecadaEntrada", go);
-            Checadas.Sorting.Add(new SortingCollection(new SortProperty("FechaChecada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            Checadas.Sorting.Add(new SortingCollection(new SortProperty("HoraChecadaEntrada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             TablaChecadas = CreateDataTableFromXPView(Checadas);
             DetailReport.DataSource = TablaChecadas;
         }
@@ -85,6 +85,7 @@ namespace CHECADOR.WIN.Reportes
 
             DateTime mFechaInicial = FechaInicial;
             DateTime mFechaFinal = FechaFinal;
+            TablaChecadas.DefaultView.Sort = "FechaChecada asc";
             ViewRecord ViewUsuario = (ViewRecord)this.GetCurrentRow();
             while (mFechaFinal >= mFechaInicial)
             {

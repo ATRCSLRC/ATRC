@@ -55,6 +55,7 @@ namespace ATRCBASE.WIN
                     Usuario.Constraseña = txtContraseña.Text;
                 Usuario.Save();
                 Unidad.CommitChanges();
+
                 this.Close();
             }
         }

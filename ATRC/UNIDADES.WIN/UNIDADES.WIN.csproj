@@ -66,6 +66,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extintores\xfrmExtintores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extintores\xfrmExtintores.Designer.cs">
+      <DependentUpon>xfrmExtintores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extintores\xfrmExtintoresGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extintores\xfrmExtintoresGRD.Designer.cs">
+      <DependentUpon>xfrmExtintoresGRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extintores\xfrmInventarioExtintores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extintores\xfrmInventarioExtintores.Designer.cs">
+      <DependentUpon>xfrmInventarioExtintores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\xfrmGastosPorUnidad.cs">
       <SubType>Form</SubType>
@@ -115,6 +133,15 @@
     <Compile Include="Unidades\xfrmUnidad.Designer.cs">
       <DependentUpon>xfrmUnidad.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Extintores\xfrmExtintores.resx">
+      <DependentUpon>xfrmExtintores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extintores\xfrmExtintoresGRD.resx">
+      <DependentUpon>xfrmExtintoresGRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extintores\xfrmInventarioExtintores.resx">
+      <DependentUpon>xfrmInventarioExtintores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -181,6 +208,20 @@
   <ItemGroup>
     <None Include="Resources\car.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bullet_ball_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_ball_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_ball_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_ball_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-para-hacer-32 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

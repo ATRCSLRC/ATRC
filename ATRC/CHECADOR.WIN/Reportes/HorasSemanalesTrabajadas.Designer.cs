@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HorasSemanalesTrabajadas));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -65,7 +64,7 @@
             this.FechaDel = new DevExpress.XtraReports.Parameters.Parameter();
             this.FechaAl = new DevExpress.XtraReports.Parameters.Parameter();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -129,10 +128,10 @@
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.Red;
-            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(122.2917F, 123.7083F);
+            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(122.2917F, 134.1249F);
             this.lblColor.Name = "lblColor";
             this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblColor.SizeF = new System.Drawing.SizeF(657.7083F, 16.20833F);
+            this.lblColor.SizeF = new System.Drawing.SizeF(657.7083F, 5.791672F);
             this.lblColor.StylePriority.UseBackColor = false;
             // 
             // lblTitulo
@@ -257,7 +256,7 @@
             this.xrTableCell5.ProcessDuplicatesMode = DevExpress.XtraReports.UI.ProcessDuplicatesMode.Merge;
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "Fecha";
-            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleJustify;
             this.xrTableCell5.TextFormatString = "{0:dddd, d\' de \'MMMM\' de \'yyyy}";
             this.xrTableCell5.Weight = 1.4302883496181118D;
             this.xrTableCell5.WordWrap = false;

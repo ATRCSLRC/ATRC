@@ -179,7 +179,7 @@
             this.colUsuarioNotificacion.OptionsColumn.AllowFocus = false;
             this.colUsuarioNotificacion.Visible = true;
             this.colUsuarioNotificacion.VisibleIndex = 0;
-            this.colUsuarioNotificacion.Width = 150;
+            this.colUsuarioNotificacion.Width = 180;
             // 
             // colResponsable
             // 
@@ -189,7 +189,7 @@
             this.colResponsable.OptionsColumn.AllowFocus = false;
             this.colResponsable.Visible = true;
             this.colResponsable.VisibleIndex = 1;
-            this.colResponsable.Width = 150;
+            this.colResponsable.Width = 180;
             // 
             // colMotivo
             // 
@@ -199,7 +199,7 @@
             this.colMotivo.OptionsColumn.AllowFocus = false;
             this.colMotivo.Visible = true;
             this.colMotivo.VisibleIndex = 2;
-            this.colMotivo.Width = 503;
+            this.colMotivo.Width = 383;
             // 
             // layoutControlGroup1
             // 

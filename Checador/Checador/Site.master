@@ -1,0 +1,38 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Checador.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="Css/tema.css" type="text/css" />
+    <title>ATRC</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="Header">
+            <div class="row">
+                <div id="fecha">
+                </div>
+            </div>
+            <div class="row">
+                <div id="hora"> 
+                </div>
+        </div>
+            </div>
+        <div class="Body">
+            <form runat="server">
+                <asp:ContentPlaceHolder ID="Content" runat="server">
+                </asp:ContentPlaceHolder>
+            </form>
+        </div>
+        <div class="Footer">
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="Scripts/HoraFecha.js"></script>
+<script src="Scripts/Funciones.js"></script>

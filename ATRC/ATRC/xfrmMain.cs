@@ -313,6 +313,7 @@ namespace ATRC
                     ReportPrintTool repRadios = new ReportPrintTool(new REPORTES.Unidades.Radios());
                     repRadios.ShowPreview();
                     break;
+
             }
         }
 
@@ -448,6 +449,110 @@ namespace ATRC
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
+        }
+
+        private void bbiReporteNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.xfrmNuevoReporte xfrm = new GUARDIAS.WIN.xfrmNuevoReporte();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiReportesAcciones_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.xfrmReportesGRD xfrm = new GUARDIAS.WIN.xfrmReportesGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiListaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmPedidoDiesel xfrm = new COMBUSTIBLE.WIN.xfrmPedidoDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmExtintoresGRD xfrm = new UNIDADES.WIN.xfrmExtintoresGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmInventarioExtintores xfrm = new UNIDADES.WIN.xfrmInventarioExtintores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiTanques_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD xfrm = new COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCapturaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmCapturaDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiRecargaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmRecargaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmRecargaDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiMedidorTanque_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmMedidores xfrm = new COMBUSTIBLE.WIN.xfrmMedidores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiReporte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        }
+
+        private void bbiGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCapturaGasolina xfrm = new COMBUSTIBLE.WIN.xfrmCapturaGasolina();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void rgbiCombustibles_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmFiltrosCombustible xfrm = new COMBUSTIBLE.WIN.xfrmFiltrosCombustible();
+            switch (e.Item.Description)
+            {
+                case "Consumo de diesel":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.Consumo;
+                    break;
+                case "Recargas de combustible":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.PedidoDiesel;
+                    break;
+                case "Unidades con diesel":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.UnidadDiesel;
+                    break;
+            }
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show(); 
         }
     }
 }

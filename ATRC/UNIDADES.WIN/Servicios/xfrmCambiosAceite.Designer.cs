@@ -116,6 +116,7 @@
             this.colTipoUnidad.Caption = "Tipo de unidad";
             this.colTipoUnidad.FieldName = "TipoUnidad";
             this.colTipoUnidad.Name = "colTipoUnidad";
+            this.colTipoUnidad.OptionsColumn.AllowFocus = false;
             this.colTipoUnidad.Visible = true;
             this.colTipoUnidad.VisibleIndex = 1;
             // 
@@ -124,6 +125,7 @@
             this.colCombustible.Caption = "Combustible";
             this.colCombustible.FieldName = "Combustible";
             this.colCombustible.Name = "colCombustible";
+            this.colCombustible.OptionsColumn.AllowFocus = false;
             this.colCombustible.Visible = true;
             this.colCombustible.VisibleIndex = 2;
             // 

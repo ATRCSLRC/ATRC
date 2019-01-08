@@ -96,7 +96,7 @@
             // 
             this.lblNombre.Dpi = 254F;
             this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lblNombre.ForeColor = System.Drawing.Color.Firebrick;
             this.lblNombre.LocationFloat = new DevExpress.Utils.PointFloat(6F, 337F);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);

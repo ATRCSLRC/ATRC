@@ -35,6 +35,8 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.txtRadio = new DevExpress.XtraEditors.TextEdit();
+            this.lueUsuario = new DevExpress.XtraEditors.LookUpEdit();
             this.lueUnidad = new DevExpress.XtraEditors.LookUpEdit();
             this.rgDestino = new DevExpress.XtraEditors.RadioGroup();
             this.txtSerie = new DevExpress.XtraEditors.TextEdit();
@@ -47,11 +49,13 @@
             this.lciSerie = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTipoDestino = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciUnidad = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lueUsuario = new DevExpress.XtraEditors.LookUpEdit();
             this.lciUsuario = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciNumRadio = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRadio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgDestino.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).BeginInit();
@@ -64,8 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNumRadio)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -123,6 +127,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.txtRadio);
             this.lcMain.Controls.Add(this.lueUsuario);
             this.lcMain.Controls.Add(this.lueUnidad);
             this.lcMain.Controls.Add(this.rgDestino);
@@ -134,13 +139,35 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(502, 34, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(450, 191);
+            this.lcMain.Size = new System.Drawing.Size(450, 200);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // txtRadio
+            // 
+            this.txtRadio.Location = new System.Drawing.Point(92, 12);
+            this.txtRadio.MenuManager = this.ribbonControl1;
+            this.txtRadio.Name = "txtRadio";
+            this.txtRadio.Size = new System.Drawing.Size(346, 20);
+            this.txtRadio.StyleController = this.lcMain;
+            this.txtRadio.TabIndex = 11;
+            // 
+            // lueUsuario
+            // 
+            this.lueUsuario.Location = new System.Drawing.Point(92, 158);
+            this.lueUsuario.MenuManager = this.ribbonControl1;
+            this.lueUsuario.Name = "lueUsuario";
+            this.lueUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueUsuario.Properties.NullText = "[SELECCIONE]";
+            this.lueUsuario.Size = new System.Drawing.Size(346, 20);
+            this.lueUsuario.StyleController = this.lcMain;
+            this.lueUsuario.TabIndex = 10;
+            // 
             // lueUnidad
             // 
-            this.lueUnidad.Location = new System.Drawing.Point(92, 101);
+            this.lueUnidad.Location = new System.Drawing.Point(92, 134);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -155,18 +182,18 @@
             // 
             // rgDestino
             // 
-            this.rgDestino.Location = new System.Drawing.Point(92, 84);
+            this.rgDestino.Location = new System.Drawing.Point(92, 108);
             this.rgDestino.MenuManager = this.ribbonControl1;
             this.rgDestino.Name = "rgDestino";
             this.rgDestino.Properties.Columns = 2;
-            this.rgDestino.Size = new System.Drawing.Size(346, 13);
+            this.rgDestino.Size = new System.Drawing.Size(346, 22);
             this.rgDestino.StyleController = this.lcMain;
             this.rgDestino.TabIndex = 7;
             this.rgDestino.SelectedIndexChanged += new System.EventHandler(this.rgDestino_SelectedIndexChanged);
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(92, 60);
+            this.txtSerie.Location = new System.Drawing.Point(92, 84);
             this.txtSerie.MenuManager = this.ribbonControl1;
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -176,7 +203,7 @@
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(92, 36);
+            this.txtModelo.Location = new System.Drawing.Point(92, 60);
             this.txtModelo.MenuManager = this.ribbonControl1;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -186,7 +213,7 @@
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(92, 12);
+            this.txtMarca.Location = new System.Drawing.Point(92, 36);
             this.txtMarca.MenuManager = this.ribbonControl1;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -205,15 +232,16 @@
             this.lciSerie,
             this.lciTipoDestino,
             this.lciUnidad,
-            this.lciUsuario});
+            this.lciUsuario,
+            this.lciNumRadio});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(450, 191);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(450, 200);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciMarca
             // 
             this.lciMarca.Control = this.txtMarca;
-            this.lciMarca.Location = new System.Drawing.Point(0, 0);
+            this.lciMarca.Location = new System.Drawing.Point(0, 24);
             this.lciMarca.Name = "lciMarca";
             this.lciMarca.Size = new System.Drawing.Size(430, 24);
             this.lciMarca.Text = "Marca:";
@@ -222,15 +250,15 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 137);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 170);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 34);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciModelo
             // 
             this.lciModelo.Control = this.txtModelo;
-            this.lciModelo.Location = new System.Drawing.Point(0, 24);
+            this.lciModelo.Location = new System.Drawing.Point(0, 48);
             this.lciModelo.Name = "lciModelo";
             this.lciModelo.Size = new System.Drawing.Size(430, 24);
             this.lciModelo.Text = "Modelo:";
@@ -239,7 +267,7 @@
             // lciSerie
             // 
             this.lciSerie.Control = this.txtSerie;
-            this.lciSerie.Location = new System.Drawing.Point(0, 48);
+            this.lciSerie.Location = new System.Drawing.Point(0, 72);
             this.lciSerie.Name = "lciSerie";
             this.lciSerie.Size = new System.Drawing.Size(430, 24);
             this.lciSerie.Text = "Serie:";
@@ -248,48 +276,47 @@
             // lciTipoDestino
             // 
             this.lciTipoDestino.Control = this.rgDestino;
-            this.lciTipoDestino.Location = new System.Drawing.Point(0, 72);
+            this.lciTipoDestino.Location = new System.Drawing.Point(0, 96);
+            this.lciTipoDestino.MaxSize = new System.Drawing.Size(0, 26);
+            this.lciTipoDestino.MinSize = new System.Drawing.Size(134, 26);
             this.lciTipoDestino.Name = "lciTipoDestino";
-            this.lciTipoDestino.Size = new System.Drawing.Size(430, 17);
+            this.lciTipoDestino.Size = new System.Drawing.Size(430, 26);
+            this.lciTipoDestino.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipoDestino.Text = "Tipo de destino:";
             this.lciTipoDestino.TextSize = new System.Drawing.Size(77, 13);
             // 
             // lciUnidad
             // 
             this.lciUnidad.Control = this.lueUnidad;
-            this.lciUnidad.Location = new System.Drawing.Point(0, 89);
+            this.lciUnidad.Location = new System.Drawing.Point(0, 122);
             this.lciUnidad.Name = "lciUnidad";
             this.lciUnidad.Size = new System.Drawing.Size(430, 24);
             this.lciUnidad.Text = "Unidad:";
             this.lciUnidad.TextSize = new System.Drawing.Size(77, 13);
             // 
-            // lueUsuario
-            // 
-            this.lueUsuario.Location = new System.Drawing.Point(92, 125);
-            this.lueUsuario.MenuManager = this.ribbonControl1;
-            this.lueUsuario.Name = "lueUsuario";
-            this.lueUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lueUsuario.Properties.NullText = "[SELECCIONE]";
-            this.lueUsuario.Size = new System.Drawing.Size(346, 20);
-            this.lueUsuario.StyleController = this.lcMain;
-            this.lueUsuario.TabIndex = 10;
-            // 
             // lciUsuario
             // 
             this.lciUsuario.Control = this.lueUsuario;
-            this.lciUsuario.Location = new System.Drawing.Point(0, 113);
+            this.lciUsuario.Location = new System.Drawing.Point(0, 146);
             this.lciUsuario.Name = "lciUsuario";
             this.lciUsuario.Size = new System.Drawing.Size(430, 24);
             this.lciUsuario.Text = "Usuario:";
             this.lciUsuario.TextSize = new System.Drawing.Size(77, 13);
             // 
+            // lciNumRadio
+            // 
+            this.lciNumRadio.Control = this.txtRadio;
+            this.lciNumRadio.Location = new System.Drawing.Point(0, 0);
+            this.lciNumRadio.Name = "lciNumRadio";
+            this.lciNumRadio.Size = new System.Drawing.Size(430, 24);
+            this.lciNumRadio.Text = "Radio:";
+            this.lciNumRadio.TextSize = new System.Drawing.Size(77, 13);
+            // 
             // xfrmRadios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 313);
+            this.ClientSize = new System.Drawing.Size(450, 322);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -300,6 +327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtRadio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgDestino.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).EndInit();
@@ -312,8 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciSerie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTipoDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNumRadio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +370,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiCancelar;
         private DevExpress.XtraEditors.LookUpEdit lueUsuario;
         private DevExpress.XtraLayout.LayoutControlItem lciUsuario;
+        private DevExpress.XtraEditors.TextEdit txtRadio;
+        private DevExpress.XtraLayout.LayoutControlItem lciNumRadio;
     }
 }

@@ -47,6 +47,10 @@
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.rbnMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bvcAyuda = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.bvbiContraseña = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
@@ -97,6 +101,20 @@
             this.bbiRegistrosAdmin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPlantillasRutasExternas = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRutasExternas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReporteNuevo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReportesAcciones = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiListaDiesel = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiExtintores = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiInventarioExtintores = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDiesel = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTanques = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRecargaDiesel2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDieselActual = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMedidorTanque2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMedidorTanques = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRecargaDiesel = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiGasolina = new DevExpress.XtraBars.BarButtonItem();
+            this.rgbiCombustibles = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -110,6 +128,7 @@
             this.rbnpUnidades = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgUnidades = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgServicios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgReportesUnidad = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpLlantera = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgLlantas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -120,11 +139,19 @@
             this.rpgRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRutasExtras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnpGuardias = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpConfiguracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rpgChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnpCombustible = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
@@ -182,9 +209,23 @@
             this.bbiRegistrosRutas,
             this.bbiRegistrosAdmin,
             this.bbiPlantillasRutasExternas,
-            this.bbiRutasExternas});
+            this.bbiRutasExternas,
+            this.bbiReporteNuevo,
+            this.bbiReportesAcciones,
+            this.bbiListaDiesel,
+            this.bbiExtintores,
+            this.bbiInventarioExtintores,
+            this.bbiDiesel,
+            this.bbiTanques,
+            this.bbiRecargaDiesel2,
+            this.bbiDieselActual,
+            this.bbiMedidorTanque2,
+            this.bbiMedidorTanques,
+            this.bbiRecargaDiesel,
+            this.bbiGasolina,
+            this.rgbiCombustibles});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 47;
+            this.rbnMain.MaxItemId = 62;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -195,8 +236,10 @@
             this.rbnpLlantera,
             this.rbnpTaller,
             this.rbnpRutas,
+            this.rbnpAdministracion,
+            this.rbnpGuardias,
             this.rbnpConfiguracion,
-            this.rbnpAdministracion});
+            this.rbnpCombustible});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
@@ -722,6 +765,153 @@
             this.bbiRutasExternas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiRutasExternas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRutasExternas_ItemClick);
             // 
+            // bbiReporteNuevo
+            // 
+            this.bbiReporteNuevo.Caption = "Nuevo reporte";
+            this.bbiReporteNuevo.Id = 47;
+            this.bbiReporteNuevo.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_hombre_menú_de_usuario_32;
+            this.bbiReporteNuevo.Name = "bbiReporteNuevo";
+            this.bbiReporteNuevo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiReporteNuevo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReporteNuevo_ItemClick);
+            // 
+            // bbiReportesAcciones
+            // 
+            this.bbiReportesAcciones.Caption = "Reportes";
+            this.bbiReportesAcciones.Id = 48;
+            this.bbiReportesAcciones.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_manual_de_usuario_32;
+            this.bbiReportesAcciones.Name = "bbiReportesAcciones";
+            this.bbiReportesAcciones.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiReportesAcciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReportesAcciones_ItemClick);
+            // 
+            // bbiListaDiesel
+            // 
+            this.bbiListaDiesel.Caption = "Lista de diesel";
+            this.bbiListaDiesel.Id = 49;
+            this.bbiListaDiesel.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_gasolinera_32;
+            this.bbiListaDiesel.Name = "bbiListaDiesel";
+            this.bbiListaDiesel.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiListaDiesel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiListaDiesel_ItemClick);
+            // 
+            // bbiExtintores
+            // 
+            this.bbiExtintores.Caption = "Extintores";
+            this.bbiExtintores.Id = 50;
+            this.bbiExtintores.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_extintor_de_incendios_32;
+            this.bbiExtintores.Name = "bbiExtintores";
+            this.bbiExtintores.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiExtintores.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExtintores_ItemClick);
+            // 
+            // bbiInventarioExtintores
+            // 
+            this.bbiInventarioExtintores.Caption = "Inventario de extintores";
+            this.bbiInventarioExtintores.Id = 51;
+            this.bbiInventarioExtintores.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiInventarioExtintores.ImageOptions.LargeImage")));
+            this.bbiInventarioExtintores.Name = "bbiInventarioExtintores";
+            this.bbiInventarioExtintores.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiInventarioExtintores.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInventarioExtintores_ItemClick);
+            // 
+            // bbiDiesel
+            // 
+            this.bbiDiesel.Caption = "Diesel";
+            this.bbiDiesel.Id = 52;
+            this.bbiDiesel.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_plataforma_petrolera_32__1_;
+            this.bbiDiesel.Name = "bbiDiesel";
+            this.bbiDiesel.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiDiesel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDiesel_ItemClick);
+            // 
+            // bbiTanques
+            // 
+            this.bbiTanques.Caption = "Tanques de combustible";
+            this.bbiTanques.Id = 53;
+            this.bbiTanques.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_industria_de_petróleo_16;
+            this.bbiTanques.Name = "bbiTanques";
+            this.bbiTanques.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTanques_ItemClick);
+            // 
+            // bbiRecargaDiesel2
+            // 
+            this.bbiRecargaDiesel2.Caption = "Recarga de diesel";
+            this.bbiRecargaDiesel2.Id = 54;
+            this.bbiRecargaDiesel2.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_dispensador_de_gasolina_32;
+            this.bbiRecargaDiesel2.Name = "bbiRecargaDiesel2";
+            this.bbiRecargaDiesel2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiRecargaDiesel2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRecargaDiesel_ItemClick);
+            // 
+            // bbiDieselActual
+            // 
+            this.bbiDieselActual.Caption = "Diesel actual";
+            this.bbiDieselActual.Id = 55;
+            this.bbiDieselActual.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_el_tanque_de_almacenaje_de_petróleo_32;
+            this.bbiDieselActual.Name = "bbiDieselActual";
+            this.bbiDieselActual.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // bbiMedidorTanque2
+            // 
+            this.bbiMedidorTanque2.Caption = "Medidor de tanques";
+            this.bbiMedidorTanque2.Id = 56;
+            this.bbiMedidorTanque2.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
+            this.bbiMedidorTanque2.Name = "bbiMedidorTanque2";
+            this.bbiMedidorTanque2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiMedidorTanque2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMedidorTanque_ItemClick);
+            // 
+            // bbiMedidorTanques
+            // 
+            this.bbiMedidorTanques.Caption = "Medidor de tanques";
+            this.bbiMedidorTanques.Id = 58;
+            this.bbiMedidorTanques.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
+            this.bbiMedidorTanques.Name = "bbiMedidorTanques";
+            this.bbiMedidorTanques.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiMedidorTanques.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMedidorTanque_ItemClick);
+            // 
+            // bbiRecargaDiesel
+            // 
+            this.bbiRecargaDiesel.Caption = "Recargas de combustible";
+            this.bbiRecargaDiesel.Id = 59;
+            this.bbiRecargaDiesel.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_dispensador_de_gasolina_32;
+            this.bbiRecargaDiesel.Name = "bbiRecargaDiesel";
+            this.bbiRecargaDiesel.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiRecargaDiesel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRecargaDiesel_ItemClick);
+            // 
+            // bbiGasolina
+            // 
+            this.bbiGasolina.Caption = "Gasolina";
+            this.bbiGasolina.Id = 60;
+            this.bbiGasolina.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_gasolinera_32;
+            this.bbiGasolina.Name = "bbiGasolina";
+            this.bbiGasolina.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiGasolina.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGasolina_ItemClick);
+            // 
+            // rgbiCombustibles
+            // 
+            this.rgbiCombustibles.Caption = "Combustibles";
+            // 
+            // 
+            // 
+            this.rgbiCombustibles.Gallery.AllowHoverImages = true;
+            this.rgbiCombustibles.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
+            galleryItemGroup6.Caption = "Combustibles";
+            galleryItem10.Description = "Consumo de diesel";
+            galleryItem10.ImageOptions.HoverImage = global::ATRC.Properties.Resources.icons8_medidor_de_co2_32;
+            galleryItem10.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_medidor_de_co2_32;
+            galleryItem11.Description = "Recargas de combustible";
+            galleryItem11.Hint = "Unidades a recargar diesel";
+            galleryItem11.ImageOptions.HoverImage = global::ATRC.Properties.Resources.icons8_el_tanque_de_almacenaje_de_petróleo_32__2_;
+            galleryItem11.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_el_tanque_de_almacenaje_de_petróleo_32__2_;
+            galleryItem12.Description = "Unidades con diesel";
+            galleryItem12.Hint = "Unidades con diesel";
+            galleryItem12.ImageOptions.HoverImage = global::ATRC.Properties.Resources.icons8_transporte_terrestre_32__1_;
+            galleryItem12.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_transporte_terrestre_32__1_;
+            galleryItemGroup6.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem10,
+            galleryItem11,
+            galleryItem12});
+            this.rgbiCombustibles.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup6});
+            this.rgbiCombustibles.Gallery.ImageSize = new System.Drawing.Size(28, 28);
+            this.rgbiCombustibles.Gallery.ShowItemText = true;
+            this.rgbiCombustibles.Id = 61;
+            this.rgbiCombustibles.Name = "rgbiCombustibles";
+            this.rgbiCombustibles.GalleryItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.rgbiCombustibles_GalleryItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -818,6 +1008,7 @@
             this.rbnpUnidades.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgUnidades,
             this.rpgServicios,
+            this.ribbonPageGroup5,
             this.rpgReportesUnidad});
             this.rbnpUnidades.Name = "rbnpUnidades";
             this.rbnpUnidades.Text = "Unidades";
@@ -841,6 +1032,16 @@
             this.rpgServicios.Name = "rpgServicios";
             this.rpgServicios.ShowCaptionButton = false;
             this.rpgServicios.Text = "Servicios";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.AllowMinimize = false;
+            this.ribbonPageGroup5.AllowTextClipping = false;
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbiExtintores);
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbiInventarioExtintores);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.ShowCaptionButton = false;
+            this.ribbonPageGroup5.Text = "Extintores";
             // 
             // rpgReportesUnidad
             // 
@@ -931,33 +1132,6 @@
             this.rpgRutasExtras.Text = "Rutas extras";
             this.rpgRutasExtras.Visible = false;
             // 
-            // rbnpConfiguracion
-            // 
-            this.rbnpConfiguracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.pbnpgCatalogos,
-            this.rpgMantenimiento});
-            this.rbnpConfiguracion.Name = "rbnpConfiguracion";
-            this.rbnpConfiguracion.Text = "Configuración";
-            this.rbnpConfiguracion.Visible = false;
-            // 
-            // pbnpgCatalogos
-            // 
-            this.pbnpgCatalogos.AllowTextClipping = false;
-            this.pbnpgCatalogos.ItemLinks.Add(this.bbiDepartamento);
-            this.pbnpgCatalogos.ItemLinks.Add(this.bbiPuestos);
-            this.pbnpgCatalogos.ItemLinks.Add(this.bbiEmpresa);
-            this.pbnpgCatalogos.Name = "pbnpgCatalogos";
-            this.pbnpgCatalogos.ShowCaptionButton = false;
-            this.pbnpgCatalogos.Text = "Catálogos";
-            // 
-            // rpgMantenimiento
-            // 
-            this.rpgMantenimiento.AllowTextClipping = false;
-            this.rpgMantenimiento.ItemLinks.Add(this.bbiActualizarEsquemas);
-            this.rpgMantenimiento.Name = "rpgMantenimiento";
-            this.rpgMantenimiento.ShowCaptionButton = false;
-            this.rpgMantenimiento.Text = "Mantenimiento";
-            // 
             // rbnpAdministracion
             // 
             this.rbnpAdministracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -973,6 +1147,107 @@
             this.rpgChecador.Name = "rpgChecador";
             this.rpgChecador.ShowCaptionButton = false;
             this.rpgChecador.Text = "Checador";
+            // 
+            // rbnpGuardias
+            // 
+            this.rbnpGuardias.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
+            this.rbnpGuardias.Name = "rbnpGuardias";
+            this.rbnpGuardias.Text = "Guardias";
+            this.rbnpGuardias.Visible = false;
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.AllowMinimize = false;
+            this.ribbonPageGroup3.AllowTextClipping = false;
+            this.ribbonPageGroup3.ItemLinks.Add(this.bbiReporteNuevo);
+            this.ribbonPageGroup3.ItemLinks.Add(this.bbiReportesAcciones);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
+            this.ribbonPageGroup3.Text = "Reportes";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.AllowMinimize = false;
+            this.ribbonPageGroup4.AllowTextClipping = false;
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbiListaDiesel);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
+            this.ribbonPageGroup4.Text = "Diesel";
+            // 
+            // rbnpConfiguracion
+            // 
+            this.rbnpConfiguracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.pbnpgCatalogos,
+            this.rpgMantenimiento});
+            this.rbnpConfiguracion.Name = "rbnpConfiguracion";
+            this.rbnpConfiguracion.Text = "Configuración";
+            this.rbnpConfiguracion.Visible = false;
+            // 
+            // pbnpgCatalogos
+            // 
+            this.pbnpgCatalogos.AllowTextClipping = false;
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiDepartamento);
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiPuestos);
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiEmpresa);
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiTanques);
+            this.pbnpgCatalogos.Name = "pbnpgCatalogos";
+            this.pbnpgCatalogos.ShowCaptionButton = false;
+            this.pbnpgCatalogos.Text = "Catálogos";
+            // 
+            // rpgMantenimiento
+            // 
+            this.rpgMantenimiento.AllowTextClipping = false;
+            this.rpgMantenimiento.ItemLinks.Add(this.bbiActualizarEsquemas);
+            this.rpgMantenimiento.Name = "rpgMantenimiento";
+            this.rpgMantenimiento.ShowCaptionButton = false;
+            this.rpgMantenimiento.Text = "Mantenimiento";
+            // 
+            // rbnpCombustible
+            // 
+            this.rbnpCombustible.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup9});
+            this.rbnpCombustible.Name = "rbnpCombustible";
+            this.rbnpCombustible.Text = "Combustible";
+            this.rbnpCombustible.Visible = false;
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.AllowMinimize = false;
+            this.ribbonPageGroup6.AllowTextClipping = false;
+            this.ribbonPageGroup6.ItemLinks.Add(this.bbiDiesel);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.ShowCaptionButton = false;
+            this.ribbonPageGroup6.Text = "Diesel";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.AllowTextClipping = false;
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiGasolina);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.ShowCaptionButton = false;
+            this.ribbonPageGroup7.Text = "Gasolina";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiMedidorTanques);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiRecargaDiesel);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Combustible";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.AllowTextClipping = false;
+            this.ribbonPageGroup9.ItemLinks.Add(this.rgbiCombustibles);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
+            this.ribbonPageGroup9.Text = "Reportes";
             // 
             // rsbMain
             // 
@@ -1089,5 +1364,28 @@
         private DevExpress.XtraBars.BarButtonItem bbiPlantillasRutasExternas;
         private DevExpress.XtraBars.BarButtonItem bbiRutasExternas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgRutasExtras;
+        private DevExpress.XtraBars.BarButtonItem bbiReporteNuevo;
+        private DevExpress.XtraBars.BarButtonItem bbiReportesAcciones;
+        private DevExpress.XtraBars.BarButtonItem bbiListaDiesel;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnpGuardias;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem bbiExtintores;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem bbiInventarioExtintores;
+        private DevExpress.XtraBars.BarButtonItem bbiDiesel;
+        private DevExpress.XtraBars.BarButtonItem bbiTanques;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnpCombustible;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem bbiRecargaDiesel2;
+        private DevExpress.XtraBars.BarButtonItem bbiDieselActual;
+        private DevExpress.XtraBars.BarButtonItem bbiMedidorTanque2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem bbiMedidorTanques;
+        private DevExpress.XtraBars.BarButtonItem bbiRecargaDiesel;
+        private DevExpress.XtraBars.BarButtonItem bbiGasolina;
+        private DevExpress.XtraBars.RibbonGalleryBarItem rgbiCombustibles;
     }
 }

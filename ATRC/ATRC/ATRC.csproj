@@ -28,7 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>57</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -118,7 +118,6 @@
     <Compile Include="xfrmMain.Designer.cs">
       <DependentUpon>xfrmMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -174,6 +173,22 @@
     <ProjectReference Include="..\CHECADOR.WIN\CHECADOR.WIN.csproj">
       <Project>{514f888c-012b-4e16-adf8-c4d72a604dea}</Project>
       <Name>CHECADOR.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COMBUSTIBLE.BL\COMBUSTIBLE.BL.csproj">
+      <Project>{5809cf78-5a3d-4b08-a98f-3af110a38506}</Project>
+      <Name>COMBUSTIBLE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COMBUSTIBLE.WIN\COMBUSTIBLE.WIN.csproj">
+      <Project>{41e56312-544a-4139-81bb-66ba030c5dfd}</Project>
+      <Name>COMBUSTIBLE.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUARDIAS.BL\GUARDIAS.BL.csproj">
+      <Project>{ef8d6426-c120-463f-b57c-27acf8e4a663}</Project>
+      <Name>GUARDIAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUARDIAS.WIN\GUARDIAS.WIN.csproj">
+      <Project>{e43f5dfd-3039-4923-b4fa-4c8fe2c0f03c}</Project>
+      <Name>GUARDIAS.WIN</Name>
     </ProjectReference>
     <ProjectReference Include="..\LLANTERA.BL\LLANTERA.BL.csproj">
       <Project>{fc68347a-5277-41e9-9899-fa982e7efed9}</Project>
@@ -241,6 +256,20 @@
     <None Include="Resources\icons8-formulario-32.png" />
     <None Include="Resources\icons8-ruta-34.png" />
     <None Include="Resources\icons8-mapa-waypoint-34.png" />
+    <None Include="Resources\icons8-manual-de-usuario-32.png" />
+    <None Include="Resources\icons8-hombre-menú-de-usuario-32.png" />
+    <None Include="Resources\icons8-gasolinera-32.png" />
+    <None Include="Resources\icons8-para-hacer-32 %282%29.png" />
+    <None Include="Resources\icons8-extintor-de-incendios-32.png" />
+    <None Include="Resources\icons8-industria-de-petróleo-16.png" />
+    <None Include="Resources\icons8-plataforma-petrolera-32 %281%29.png" />
+    <None Include="Resources\icons8-dispensador-de-gasolina-32.png" />
+    <None Include="Resources\icons8-el-tanque-de-almacenaje-de-petróleo-32.png" />
+    <None Include="Resources\icons8-indicador-de-barómetro-32.png" />
+    <None Include="Resources\icons8-medidor-de-co2-32.png" />
+    <None Include="Resources\icons8-transporte-terrestre-32 %281%29.png" />
+    <None Include="Resources\icons8-transporte-terrestre-32 %282%29.png" />
+    <None Include="Resources\icons8-el-tanque-de-almacenaje-de-petróleo-32 %282%29.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -137,6 +137,7 @@
             this.bbiEliminarUsuario.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Delete);
             this.bbiEliminarUsuario.Name = "bbiEliminarUsuario";
             this.bbiEliminarUsuario.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiEliminarUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiEliminarUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEliminarUsuario_ItemClick);
             // 
             // bbiSalirUsuario

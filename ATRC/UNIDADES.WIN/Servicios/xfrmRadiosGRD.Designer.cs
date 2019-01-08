@@ -46,6 +46,7 @@
             this.colDestino = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colRadio = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -164,6 +165,7 @@
             // grvRadios
             // 
             this.grvRadios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colRadio,
             this.colMarca,
             this.colModelo,
             this.colSerie,
@@ -184,7 +186,7 @@
             this.colMarca.Name = "colMarca";
             this.colMarca.OptionsColumn.AllowFocus = false;
             this.colMarca.Visible = true;
-            this.colMarca.VisibleIndex = 0;
+            this.colMarca.VisibleIndex = 1;
             // 
             // colModelo
             // 
@@ -193,7 +195,7 @@
             this.colModelo.Name = "colModelo";
             this.colModelo.OptionsColumn.AllowFocus = false;
             this.colModelo.Visible = true;
-            this.colModelo.VisibleIndex = 1;
+            this.colModelo.VisibleIndex = 2;
             // 
             // colSerie
             // 
@@ -202,7 +204,7 @@
             this.colSerie.Name = "colSerie";
             this.colSerie.OptionsColumn.AllowFocus = false;
             this.colSerie.Visible = true;
-            this.colSerie.VisibleIndex = 2;
+            this.colSerie.VisibleIndex = 3;
             // 
             // colDestino
             // 
@@ -211,7 +213,7 @@
             this.colDestino.Name = "colDestino";
             this.colDestino.OptionsColumn.AllowFocus = false;
             this.colDestino.Visible = true;
-            this.colDestino.VisibleIndex = 3;
+            this.colDestino.VisibleIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -231,6 +233,16 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(704, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // colRadio
+            // 
+            this.colRadio.Caption = "# Radio";
+            this.colRadio.FieldName = "Radio";
+            this.colRadio.Name = "colRadio";
+            this.colRadio.OptionsColumn.AllowEdit = false;
+            this.colRadio.OptionsColumn.AllowFocus = false;
+            this.colRadio.Visible = true;
+            this.colRadio.VisibleIndex = 0;
             // 
             // xfrmRadiosGRD
             // 
@@ -275,5 +287,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colModelo;
         private DevExpress.XtraGrid.Columns.GridColumn colSerie;
         private DevExpress.XtraGrid.Columns.GridColumn colDestino;
+        private DevExpress.XtraGrid.Columns.GridColumn colRadio;
     }
 }

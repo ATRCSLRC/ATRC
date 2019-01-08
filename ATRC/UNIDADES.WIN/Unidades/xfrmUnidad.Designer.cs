@@ -397,7 +397,7 @@
             this.spnPasajeros.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spnPasajeros.Properties.MaxValue = new decimal(new int[] {
-            50,
+            80,
             0,
             0,
             0});

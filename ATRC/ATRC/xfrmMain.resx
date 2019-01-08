@@ -2258,6 +2258,19 @@
         go35SOLV4IF5ZizSkuBzwnCZ64VwHW8lieRPWWK6xQBRdLsAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="bbiInventarioExtintores.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAb5JREFUWEftlc1OwkAQx9fPqxf1YuID6BG6xERDaKtBSqEgvfgOcvQ1IJ68eNDE
+        A8iHxvgGJgbkYHwMj7RVQJM6A0MlgRAwrWjkl0zazm72/+9Od8qm/CuiJW1PvVE36dEb5Ly+xGw2Q48O
+        kWIiHC3H3yBelFtljdLuEs6lVuAtn5WSdtpr4ktcs2H8ZJBBlq00D7PVpj1uZKqNS1qCKeX4DohbKNQ1
+        MZI44oYBRLmOyV0TkZJ2N5I4kq21tmHB/LiRqTTStIQDmWi0hUcR9wKlrB6juFrWnkB8ltI/i1JIRiYm
+        PggoxbQPDOkDtdd1OIr6uJF5bAVoib/eB1wygHyrD7hRgl6mfWCi1IO+Zbp1MHa3VunWW0zRv2+I3KqL
+        PEUpZolCwpQEAyJKKe8wJOHClLgN13c0YYlcA0NNzJki7zsxDm79jm1dnwOhXNuEKHygkba4JFzZPt8C
+        TesHjpRrfQBNWBK/7wjjmwsPQ8URNw2AeNzZ9vZO8GZdChzQsLdYoUDMEQ/xkikLBceE7E/SNO+Aup91
+        tp0XbX1j0Q4G57H+HRPCOU3zDqw/fHhHKE4phiYgl8YxSk35LTD2Cf6k5parnSPRAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAALsBAAC7AQAAAAAAAAAA

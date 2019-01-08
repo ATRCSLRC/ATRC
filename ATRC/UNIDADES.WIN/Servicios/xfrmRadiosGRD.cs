@@ -28,6 +28,7 @@ namespace UNIDADES.WIN
             XPView Radios = new XPView(Unidad, typeof(Radios));
             Radios.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("Radio", SortDirection.None, "[Radio]", false, true),
                   new ViewProperty("Marca", SortDirection.None, "[Marca]", false, true),
                   new ViewProperty("Modelo", SortDirection.None, "[Modelo]", false, true),
                   new ViewProperty("Serie", SortDirection.None, "[Serie]", false, true),
@@ -38,8 +39,10 @@ namespace UNIDADES.WIN
         {
             using (xfrmRadios xfrm = new xfrmRadios())
             {
-                xfrm.Unidad = Unidad;
-                xfrm.Radio = new Radios(Unidad);
+                UnidadDeTrabajo NuevaUnidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                xfrm.Unidad = NuevaUnidad;
+                xfrm.Radio = new Radios(NuevaUnidad);
+                xfrm.EsNuevo = true;
                 xfrm.ShowDialog();
                 xfrm.Dispose();
                 (grdRadios.DataSource as XPView).Reload();

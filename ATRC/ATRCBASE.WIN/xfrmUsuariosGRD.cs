@@ -48,9 +48,10 @@ namespace ATRCBASE.WIN
         {
             using (xfrmUsuario xfrm = new xfrmUsuario())
             {
-                xfrm.Unidad = Unidad;
+                UnidadDeTrabajo UnidadNuevo = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                xfrm.Unidad = UnidadNuevo;
                 xfrm.EsNuevo = true;
-                xfrm.Usuario = new Usuario(Unidad);
+                xfrm.Usuario = new Usuario(UnidadNuevo);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
                 (grdUsuarios.DataSource as XPView).Reload();
@@ -63,8 +64,9 @@ namespace ATRCBASE.WIN
             if (ViewUsuario != null)
                 using (xfrmUsuario xfrm = new xfrmUsuario())
                 {
-                    xfrm.Unidad = Unidad;
-                    xfrm.Usuario = (Usuario)ViewUsuario.GetObject();
+                    UnidadDeTrabajo UnidadModificar = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                    xfrm.Unidad = UnidadModificar;
+                    xfrm.Usuario = UnidadModificar.GetObjectByKey<Usuario>(ViewUsuario["Oid"]);
                     xfrm.ShowInTaskbar = false;
                     xfrm.ShowDialog();
                     xfrm.Dispose();

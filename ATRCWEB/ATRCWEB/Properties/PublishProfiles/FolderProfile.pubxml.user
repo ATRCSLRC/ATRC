@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/06/2018 08:35:01</publishTime>
     </File>
     <File Include="bin/ATRCWEB.dll">
-      <publishTime>10/24/2018 15:03:32</publishTime>
+      <publishTime>12/19/2018 13:14:08</publishTime>
     </File>
     <File Include="bin/ATRCWEB.pdb">
-      <publishTime>10/24/2018 15:03:32</publishTime>
+      <publishTime>12/19/2018 13:14:08</publishTime>
     </File>
     <File Include="bin/CHECADOR.BL.dll">
       <publishTime>10/06/2018 08:35:05</publishTime>
@@ -316,7 +316,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:48:50</publishTime>
     </File>
     <File Include="Checador/HistoricoChecadas.aspx">
-      <publishTime>05/15/2018 11:48:50</publishTime>
+      <publishTime>12/19/2018 12:29:06</publishTime>
     </File>
     <File Include="Checador/Notificaciones.aspx">
       <publishTime>05/15/2018 11:48:50</publishTime>
@@ -331,7 +331,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/26/2017 20:58:38</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>05/15/2018 11:48:50</publishTime>
+      <publishTime>12/19/2018 12:42:41</publishTime>
     </File>
     <File Include="Content/Confetti.js">
       <publishTime>04/16/2018 15:35:42</publishTime>
@@ -550,7 +550,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:49:50</publishTime>
     </File>
     <File Include="Sorteo.aspx">
-      <publishTime>10/23/2018 08:21:48</publishTime>
+      <publishTime>12/19/2018 13:00:35</publishTime>
     </File>
     <File Include="Usuarios/Usuarios.aspx">
       <publishTime>05/15/2018 11:49:50</publishTime>

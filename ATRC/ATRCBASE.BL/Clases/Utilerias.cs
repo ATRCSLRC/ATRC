@@ -371,5 +371,6 @@ namespace ATRCBASE.BL
             return (Convert.ToInt32(Usuarios[0]["NumEmpleado"]) + 1).ToString();
         }
 
+
     }
 }

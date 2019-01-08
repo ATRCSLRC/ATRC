@@ -49,6 +49,15 @@ namespace ATRCWEB {
         protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit spinIntentos;
         
         /// <summary>
+        /// Control rblSorteo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapRadioButtonList rblSorteo;
+        
+        /// <summary>
         /// Control btnAgregarEmpleados.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,42 @@ namespace ATRCWEB {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapButton btnAgregarEmpleados;
+        
+        /// <summary>
+        /// Control spnInicial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit spnInicial;
+        
+        /// <summary>
+        /// Control Span3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
+        
+        /// <summary>
+        /// Control spnFinal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapSpinEdit spnFinal;
+        
+        /// <summary>
+        /// Control btnAgregarBoletos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapButton btnAgregarBoletos;
         
         /// <summary>
         /// Control BootstrapButton2.

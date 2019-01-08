@@ -26,7 +26,14 @@ namespace CHECADOR.WIN
         private void xfrmNotificacionesGRD_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Notificaciones = new XPView(Unidad,typeof(Notificaciones), "Oid;Receptor.Usuario.Nombre;Responsable.Usuario.Nombre;Motivo", null);
+            XPView Notificaciones = new XPView(Unidad,typeof(Notificaciones));
+
+            Notificaciones.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("Receptor.Usuario.Nombre", SortDirection.None, "Concat(ToStr([Receptor.Usuario.NumEmpleado]), ' - ', [Receptor.Usuario.Nombre])", false, true),
+                  new ViewProperty("Responsable.Usuario.Nombre", SortDirection.None, "[Responsable.Usuario.Nombre]", false, true),
+                  new ViewProperty("Motivo", SortDirection.None, "Motivo", false, true)
+                 });
             grdNotificaciones.DataSource = Notificaciones;
         }
 
@@ -34,8 +41,9 @@ namespace CHECADOR.WIN
         {
             using (xfrmNotificaciones xfrm = new xfrmNotificaciones())
             {
-                xfrm.Unidad = Unidad;
-                xfrm.Notificacion = new Notificaciones(Unidad);
+                UnidadDeTrabajo UnidadNuevo = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                xfrm.Unidad = UnidadNuevo;
+                xfrm.Notificacion = new Notificaciones(UnidadNuevo);
                 xfrm.ShowDialog();
                 xfrm.Dispose();
                 (grdNotificaciones.DataSource as XPView).Reload();

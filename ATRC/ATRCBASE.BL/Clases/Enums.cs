@@ -68,7 +68,7 @@ namespace ATRCBASE.BL
         {
             Ninguno = 0,
             Gasolina = 1,
-            Disel = 2,
+            Diesel = 2,
             Gas = 3,
             Electricidad = 4
         }
@@ -153,6 +153,28 @@ namespace ATRCBASE.BL
             Primero = 0,
             Segundo = 1,
             Tercero = 2
+        }
+
+        public enum EstadoExtintor
+        {
+            Bueno = 0,
+            Vencido = 1,
+            Usado = 2,
+            Mantenimiento = 3
+        }
+
+        public enum UbicacionExtintor
+        {
+            Unidad = 0,
+            Oficina = 1,
+            Almacen = 2
+        }
+
+        public enum ReporteCombustible
+        {
+            Consumo = 0,
+            PedidoDiesel = 1,
+            UnidadDiesel = 2
         }
     }
 }

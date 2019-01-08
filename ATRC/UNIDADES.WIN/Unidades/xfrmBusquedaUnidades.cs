@@ -1,6 +1,7 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
 using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -50,23 +51,40 @@ namespace UNIDADES.WIN
 
         private void fypEdicion_ButtonClick(object sender, DevExpress.Utils.FlyoutPanelButtonClickEventArgs e)
         {
-            if(e.Button.Caption == "Modificar unidad")
+
+            switch (e.Button.Caption)
             {
-                xfrmUnidad xfrm = new xfrmUnidad();
-                xfrm.Unidad = unidad;
-                xfrm.esModificacion = true;
-                xfrm.UnidadCamion = (Unidad)((ViewRecord)lueUnidad.EditValue).GetObject();
-                xfrm.ShowDialog();
-                vGridControl1.Refresh();
-                vGridControl1.RefreshDataSource();
-                CargarImagen((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject());
-                
+                case "Modificar":
+                    xfrmUnidad xfrm = new xfrmUnidad();
+                    xfrm.Unidad = unidad;
+                    xfrm.esModificacion = true;
+                    xfrm.UnidadCamion = (Unidad)((ViewRecord)lueUnidad.EditValue).GetObject();
+                    xfrm.ShowDialog();
+                    vGridControl1.Refresh();
+                    vGridControl1.RefreshDataSource();
+                    CargarImagen((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject());
+                    break;
+                case "Eliminar":
+                    Unidad Unidad = (Unidad)((ViewRecord)lueUnidad.EditValue).GetObject();
+                    if (Unidad != null)
+                    {
+                        if (XtraMessageBox.Show("¿Está seguro de querer eliminar la unidad '" + Unidad.Nombre + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            Unidad.Delete();
+                            Unidad.Session.CommitTransaction();
+                            (lueUnidad.Properties.DataSource as XPView).Reload();
+                            vGridControl1.DataSource = null;
+                            picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+                            fypEdicion.HidePopup();
+                        }
+                    }
+                    break;
+                case "Detalle de unidad":
+                    ReportPrintTool repDetalleUnidad = new ReportPrintTool(new REPORTES.Unidades.DetalleDeUnidad(Convert.ToInt32(((ViewRecord)lueUnidad.EditValue)["Oid"])));
+                    repDetalleUnidad.ShowPreview();
+                    break;
             }
-            else
-            {
-                ReportPrintTool repDetalleUnidad = new ReportPrintTool(new REPORTES.Unidades.DetalleDeUnidad(Convert.ToInt32(((ViewRecord)lueUnidad.EditValue)["Oid"])));
-                repDetalleUnidad.ShowPreview();
-            }
+
         }
 
         private void CargarImagen(Unidad UnidadCamion)
