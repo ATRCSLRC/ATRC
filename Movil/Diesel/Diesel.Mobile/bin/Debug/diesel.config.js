@@ -1,18 +1,28 @@
 // NOTE object below must be a valid JSON
 window.Diesel = $.extend(true, window.Diesel, {
   "config": {
-    //"layoutSet": "slideout",
     "animationSet": "default",
+    "layoutSet": "simple",
     "navigation": [
       {
-        "title": "About",
-        "onExecute": "#About",
-        "icon": "info"
+        "title": "Diesel",
+        "onExecute": "#Main",
+            "icon": "Diesel"
       },
       {
-        "title": "Login",
-        "onExecute": "#Login",
-        "icon": "login"
+        "title": "Tanques",
+        "onExecute": "#Tanques",
+        "icon": "tanques"
+      },
+      {
+        "title": "Recarga de diesel",
+        "onExecute": "#RecargaDiesel",
+        "icon": "recargadiesel"
+      },
+      {
+        "title": "Pedido de diesel",
+        "onExecute": "#UnidadDiesel",
+        "icon": "unidaddiesel"
       }
     ]
   }

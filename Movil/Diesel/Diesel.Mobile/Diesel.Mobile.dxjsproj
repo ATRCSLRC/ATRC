@@ -8,6 +8,18 @@
     <RootNamespace>Diesel</RootNamespace>
     <ApplicationPage>index.html</ApplicationPage>
     <Name>Diesel.Mobile</Name>
+    <KeyApkPath>certificates\android_certificate.p12</KeyApkPath>
+    <VersionCode>1</VersionCode>
+    <TemplateFileApk />
+    <UseCustomTemplateNameApk>False</UseCustomTemplateNameApk>
+    <ApkDexFilePackageName>com.devextreme.Diesel</ApkDexFilePackageName>
+    <KeyDebuggable>False</KeyDebuggable>
+    <KeyApkAlias>tmpl</KeyApkAlias>
+    <IpaPrivateKeyFile>certificates\ios_private_key.txt</IpaPrivateKeyFile>
+    <ScreenOrientation>Default</ScreenOrientation>
+    <ApplicationTitle>Diesel</ApplicationTitle>
+    <VersionPackage>1.0.0.0</VersionPackage>
+    <ShowSplashScreen>False</ShowSplashScreen>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +39,39 @@
     <Content Include="index.html" />
     <Content Include="index.css" />
     <Content Include="cordova.js" />
+    <Content Include="js\Funciones.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="material.orange-light.custom.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Cerrar Sesion\LogOut.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Cerrar Sesion\LogOut.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\RecargaDiesel\RecargaDiesel.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\RecargaDiesel\RecargaDiesel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Tanques\Tanques.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Tanques\Tanques.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\UnidadesDiesel\UnidadDiesel.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\UnidadesDiesel\UnidadDiesel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <None Include="certificates\android_certificate.p12" />
+    <None Include="certificates\ios_certificate_request.txt" />
+    <None Include="certificates\ios_private_key.txt" />
     <None Include="config.xml" />
     <Content Include="index.js">
       <SubType>Content</SubType>
@@ -58,9 +103,20 @@
     <Content Include="views\Login\Login.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\Main\Main.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Main\Main.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\readme.txt" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_36_36.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_48_48.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_72_72.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_96_96.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="certificates\" />
     <Folder Include="css\" />
     <Folder Include="js\" />
     <Folder Include="layouts\" />
@@ -72,8 +128,14 @@
     <Folder Include="layouts\SlideOut\" />
     <Folder Include="layouts\Split\" />
     <Folder Include="img" />
+    <Folder Include="Resources\" />
     <Folder Include="views\" />
     <Folder Include="views\Login" />
+    <Folder Include="views\Main" />
+    <Folder Include="views\Cerrar Sesion" />
+    <Folder Include="views\UnidadesDiesel" />
+    <Folder Include="views\RecargaDiesel" />
+    <Folder Include="views\Tanques" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diesel.Shared\Diesel.Shared.dxjsproj">

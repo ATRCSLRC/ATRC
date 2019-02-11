@@ -1,0 +1,1087 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ATRCPRODUCCIONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Com_DetallesCandados">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Empleado" Type="int" />
+          <Property Name="Unidad" Type="int" />
+          <Property Name="Problema" Type="nvarchar(max)" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="Com_Diesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Empleado" Type="int" />
+          <Property Name="Unidad" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Millas" Type="bigint" />
+          <Property Name="MillasRecorridas" Type="bigint" />
+          <Property Name="CandadoActual" Type="bigint" />
+          <Property Name="CandadoAnterior" Type="bigint" />
+          <Property Name="Litros" Type="int" />
+          <Property Name="Llenado" Type="bit" />
+          <Property Name="UltimaRecarga" Type="int" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="Com_DieselActual">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Capacidad" Type="int" />
+          <Property Name="Cantidad" Type="bigint" />
+          <Property Name="TipoCombustible" Type="int" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="Com_Gasolina">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Empleado" Type="int" />
+          <Property Name="Unidad" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Millas" Type="bigint" />
+          <Property Name="MillasRecorridas" Type="bigint" />
+          <Property Name="CandadoActual" Type="bigint" />
+          <Property Name="CandadoAnterior" Type="bigint" />
+          <Property Name="Litros" Type="int" />
+          <Property Name="Llenado" Type="bit" />
+          <Property Name="UltimaRecarga" Type="int" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="Com_MedidorDiesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Inicial" Type="bigint" />
+          <Property Name="Final" Type="bigint" />
+          <Property Name="Tanque" Type="int" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="Com_RecargaDiesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Tanque" Type="int" />
+          <Property Name="PrecioLitro" Type="float" />
+          <Property Name="Cantidad" Type="bigint" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="gen_Puesto">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+        </EntityType>
+        <EntityType Name="gen_Usuario">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+          <Property Name="NumEmpleado" Type="int" />
+          <Property Name="IDCard" Type="int" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="EsAdministrativo" Type="bit" />
+          <Property Name="Constraseña" Type="nvarchar" MaxLength="500" />
+          <Property Name="RFC" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="Patron" Type="nvarchar" MaxLength="100" />
+          <Property Name="AvisarA" Type="nvarchar" MaxLength="100" />
+          <Property Name="TelAvisarA" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoSangre" Type="nvarchar" MaxLength="10" />
+          <Property Name="Puesto" Type="int" />
+          <Property Name="Departamento" Type="int" />
+          <Property Name="Imagen" Type="int" />
+          <Property Name="IMSS" Type="nvarchar" MaxLength="100" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+          <Property Name="Modulos" Type="nvarchar" MaxLength="100" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+        </EntityType>
+        <EntityType Name="Uni_Unidad">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="FechaBaja" Type="datetime" />
+          <Property Name="UsuarioAlta" Type="int" />
+          <Property Name="UsuarioBaja" Type="int" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="TipoUnidad" Type="int" />
+          <Property Name="Millas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Combustible" Type="int" />
+          <Property Name="Motor" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cilindros" Type="int" />
+          <Property Name="Transmision" Type="int" />
+          <Property Name="Frenos" Type="int" />
+          <Property Name="AireAcondicionado" Type="bit" />
+          <Property Name="Suspencion" Type="int" />
+          <Property Name="TieneRadio" Type="bit" />
+          <Property Name="Color" Type="nvarchar" MaxLength="60" />
+          <Property Name="Marca" Type="nvarchar" MaxLength="80" />
+          <Property Name="Placas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Modelo" Type="nvarchar" MaxLength="60" />
+          <Property Name="VIN" Type="nvarchar" MaxLength="60" />
+          <Property Name="Baterias" Type="nvarchar" MaxLength="80" />
+          <Property Name="Asientos" Type="int" />
+          <Property Name="Pasajeros" Type="int" />
+          <Property Name="Abanicos" Type="int" />
+          <Property Name="VentanasLaterales" Type="int" />
+          <Property Name="TieneEstereo" Type="bit" />
+          <Property Name="TieneBocinas" Type="bit" />
+          <Property Name="TieneCamaras" Type="bit" />
+          <Property Name="Puerta" Type="int" />
+          <Property Name="TieneExtinguidor" Type="bit" />
+          <Property Name="TieneTrancas" Type="bit" />
+          <Property Name="FiltroAceiteMotor" Type="nvarchar" MaxLength="50" />
+          <Property Name="FiltroCombustible" Type="nvarchar" MaxLength="50" />
+          <Property Name="FiltroAceiteTransmision" Type="nvarchar" MaxLength="50" />
+          <Property Name="FiltroAire" Type="nvarchar" MaxLength="50" />
+          <Property Name="FiltroAgua" Type="nvarchar" MaxLength="50" />
+          <Property Name="Imagen" Type="int" />
+          <Property Name="Usuario" Type="int" />
+          <Property Name="UltimoCambioAceite" Type="datetime" />
+          <Property Name="OptimisticLockField" Type="int" />
+          <Property Name="GCRecord" Type="int" />
+          <Property Name="LlantaFrontalIzquierdaChofer" Type="int" />
+          <Property Name="LlantaFrontalDerechaEstribo" Type="int" />
+          <Property Name="LlantaTraseraInteriorChofer" Type="int" />
+          <Property Name="LlantaTraseraInteriorEstribo" Type="int" />
+          <Property Name="LlantaTraseraExteriorChofer" Type="int" />
+          <Property Name="LlantaTraseraExteriorEstribo" Type="int" />
+        </EntityType>
+        <Association Name="FK_Com_DetallesCandados_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_DetallesCandados" Type="Self.Com_DetallesCandados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_DetallesCandados">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_DetallesCandados_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_DetallesCandados" Type="Self.Com_DetallesCandados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_DetallesCandados">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_UltimaRecarga">
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_RecargaDiesel">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="UltimaRecarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_UltimaRecarga">
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_RecargaDiesel">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="UltimaRecarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_MedidorDiesel_Tanque">
+          <End Role="Com_DieselActual" Type="Self.Com_DieselActual" Multiplicity="0..1" />
+          <End Role="Com_MedidorDiesel" Type="Self.Com_MedidorDiesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_DieselActual">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_MedidorDiesel">
+              <PropertyRef Name="Tanque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_RecargaDiesel_Tanque">
+          <End Role="Com_DieselActual" Type="Self.Com_DieselActual" Multiplicity="0..1" />
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_DieselActual">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_RecargaDiesel">
+              <PropertyRef Name="Tanque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gen_Usuario_Puesto">
+          <End Role="gen_Puesto" Type="Self.gen_Puesto" Multiplicity="0..1" />
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Puesto">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="gen_Usuario">
+              <PropertyRef Name="Puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uni_Unidad_Usuario">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Uni_Unidad">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ATRCPRODUCCIONModelStoreContainer">
+          <EntitySet Name="Com_DetallesCandados" EntityType="Self.Com_DetallesCandados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Com_Diesel" EntityType="Self.Com_Diesel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Com_DieselActual" EntityType="Self.Com_DieselActual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Com_Gasolina" EntityType="Self.Com_Gasolina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Com_MedidorDiesel" EntityType="Self.Com_MedidorDiesel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Com_RecargaDiesel" EntityType="Self.Com_RecargaDiesel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gen_Puesto" EntityType="Self.gen_Puesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gen_Usuario" EntityType="Self.gen_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uni_Unidad" EntityType="Self.Uni_Unidad" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Com_DetallesCandados_Empleado" Association="Self.FK_Com_DetallesCandados_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_DetallesCandados" EntitySet="Com_DetallesCandados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_DetallesCandados_Unidad" Association="Self.FK_Com_DetallesCandados_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_DetallesCandados" EntitySet="Com_DetallesCandados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_Empleado" Association="Self.FK_Com_Diesel_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_UltimaRecarga" Association="Self.FK_Com_Diesel_UltimaRecarga">
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_Unidad" Association="Self.FK_Com_Diesel_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_Empleado" Association="Self.FK_Com_Gasolina_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_UltimaRecarga" Association="Self.FK_Com_Gasolina_UltimaRecarga">
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_Unidad" Association="Self.FK_Com_Gasolina_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_MedidorDiesel_Tanque" Association="Self.FK_Com_MedidorDiesel_Tanque">
+            <End Role="Com_DieselActual" EntitySet="Com_DieselActual" />
+            <End Role="Com_MedidorDiesel" EntitySet="Com_MedidorDiesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_RecargaDiesel_Tanque" Association="Self.FK_Com_RecargaDiesel_Tanque">
+            <End Role="Com_DieselActual" EntitySet="Com_DieselActual" />
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gen_Usuario_Puesto" Association="Self.FK_gen_Usuario_Puesto">
+            <End Role="gen_Puesto" EntitySet="gen_Puesto" />
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uni_Unidad_Usuario" Association="Self.FK_Uni_Unidad_Usuario">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ATRCPRODUCCIONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Com_DetallesCandados">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Empleado" Type="Int32" />
+          <Property Name="Unidad" Type="Int32" />
+          <Property Name="Problema" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="gen_Usuario" Relationship="Self.FK_Com_DetallesCandados_Empleado" FromRole="Com_DetallesCandados" ToRole="gen_Usuario" />
+          <NavigationProperty Name="Uni_Unidad" Relationship="Self.FK_Com_DetallesCandados_Unidad" FromRole="Com_DetallesCandados" ToRole="Uni_Unidad" />
+        </EntityType>
+        <EntityType Name="Com_Diesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Empleado" Type="Int32" />
+          <Property Name="Unidad" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Millas" Type="Int64" />
+          <Property Name="MillasRecorridas" Type="Int64" />
+          <Property Name="CandadoActual" Type="Int64" />
+          <Property Name="CandadoAnterior" Type="Int64" />
+          <Property Name="Litros" Type="Int32" />
+          <Property Name="Llenado" Type="Boolean" />
+          <Property Name="UltimaRecarga" Type="Int32" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="gen_Usuario" Relationship="Self.FK_Com_Diesel_Empleado" FromRole="Com_Diesel" ToRole="gen_Usuario" />
+          <NavigationProperty Name="Com_RecargaDiesel" Relationship="Self.FK_Com_Diesel_UltimaRecarga" FromRole="Com_Diesel" ToRole="Com_RecargaDiesel" />
+          <NavigationProperty Name="Uni_Unidad" Relationship="Self.FK_Com_Diesel_Unidad" FromRole="Com_Diesel" ToRole="Uni_Unidad" />
+        </EntityType>
+        <EntityType Name="Com_DieselActual">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Capacidad" Type="Int32" />
+          <Property Name="Cantidad" Type="Int64" />
+          <Property Name="TipoCombustible" Type="Int32" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="Com_MedidorDiesel" Relationship="Self.FK_Com_MedidorDiesel_Tanque" FromRole="Com_DieselActual" ToRole="Com_MedidorDiesel" />
+          <NavigationProperty Name="Com_RecargaDiesel" Relationship="Self.FK_Com_RecargaDiesel_Tanque" FromRole="Com_DieselActual" ToRole="Com_RecargaDiesel" />
+        </EntityType>
+        <EntityType Name="Com_Gasolina">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Empleado" Type="Int32" />
+          <Property Name="Unidad" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Millas" Type="Int64" />
+          <Property Name="MillasRecorridas" Type="Int64" />
+          <Property Name="CandadoActual" Type="Int64" />
+          <Property Name="CandadoAnterior" Type="Int64" />
+          <Property Name="Litros" Type="Int32" />
+          <Property Name="Llenado" Type="Boolean" />
+          <Property Name="UltimaRecarga" Type="Int32" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="gen_Usuario" Relationship="Self.FK_Com_Gasolina_Empleado" FromRole="Com_Gasolina" ToRole="gen_Usuario" />
+          <NavigationProperty Name="Com_RecargaDiesel" Relationship="Self.FK_Com_Gasolina_UltimaRecarga" FromRole="Com_Gasolina" ToRole="Com_RecargaDiesel" />
+          <NavigationProperty Name="Uni_Unidad" Relationship="Self.FK_Com_Gasolina_Unidad" FromRole="Com_Gasolina" ToRole="Uni_Unidad" />
+        </EntityType>
+        <EntityType Name="Com_MedidorDiesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Inicial" Type="Int64" />
+          <Property Name="Final" Type="Int64" />
+          <Property Name="Tanque" Type="Int32" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="Com_DieselActual" Relationship="Self.FK_Com_MedidorDiesel_Tanque" FromRole="Com_MedidorDiesel" ToRole="Com_DieselActual" />
+        </EntityType>
+        <EntityType Name="Com_RecargaDiesel">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Tanque" Type="Int32" />
+          <Property Name="PrecioLitro" Type="Double" />
+          <Property Name="Cantidad" Type="Int64" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="Com_Diesel" Relationship="Self.FK_Com_Diesel_UltimaRecarga" FromRole="Com_RecargaDiesel" ToRole="Com_Diesel" />
+          <NavigationProperty Name="Com_DieselActual" Relationship="Self.FK_Com_RecargaDiesel_Tanque" FromRole="Com_RecargaDiesel" ToRole="Com_DieselActual" />
+          <NavigationProperty Name="Com_Gasolina" Relationship="Self.FK_Com_Gasolina_UltimaRecarga" FromRole="Com_RecargaDiesel" ToRole="Com_Gasolina" />
+        </EntityType>
+        <EntityType Name="gen_Puesto">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <NavigationProperty Name="gen_Usuario" Relationship="Self.FK_gen_Usuario_Puesto" FromRole="gen_Puesto" ToRole="gen_Usuario" />
+        </EntityType>
+        <EntityType Name="gen_Usuario">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NumEmpleado" Type="Int32" />
+          <Property Name="IDCard" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="EsAdministrativo" Type="Boolean" />
+          <Property Name="Constraseña" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RFC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="Patron" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AvisarA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TelAvisarA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoSangre" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Puesto" Type="Int32" />
+          <Property Name="Departamento" Type="Int32" />
+          <Property Name="Imagen" Type="Int32" />
+          <Property Name="IMSS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <Property Name="Modulos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <NavigationProperty Name="Com_DetallesCandados" Relationship="Self.FK_Com_DetallesCandados_Empleado" FromRole="gen_Usuario" ToRole="Com_DetallesCandados" />
+          <NavigationProperty Name="Com_Diesel" Relationship="Self.FK_Com_Diesel_Empleado" FromRole="gen_Usuario" ToRole="Com_Diesel" />
+          <NavigationProperty Name="Com_Gasolina" Relationship="Self.FK_Com_Gasolina_Empleado" FromRole="gen_Usuario" ToRole="Com_Gasolina" />
+          <NavigationProperty Name="gen_Puesto" Relationship="Self.FK_gen_Usuario_Puesto" FromRole="gen_Usuario" ToRole="gen_Puesto" />
+          <NavigationProperty Name="Uni_Unidad" Relationship="Self.FK_Uni_Unidad_Usuario" FromRole="gen_Usuario" ToRole="Uni_Unidad" />
+        </EntityType>
+        <EntityType Name="Uni_Unidad">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="FechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAlta" Type="Int32" />
+          <Property Name="UsuarioBaja" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TipoUnidad" Type="Int32" />
+          <Property Name="Millas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Combustible" Type="Int32" />
+          <Property Name="Motor" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cilindros" Type="Int32" />
+          <Property Name="Transmision" Type="Int32" />
+          <Property Name="Frenos" Type="Int32" />
+          <Property Name="AireAcondicionado" Type="Boolean" />
+          <Property Name="Suspencion" Type="Int32" />
+          <Property Name="TieneRadio" Type="Boolean" />
+          <Property Name="Color" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Marca" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Placas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Modelo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="VIN" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Baterias" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Asientos" Type="Int32" />
+          <Property Name="Pasajeros" Type="Int32" />
+          <Property Name="Abanicos" Type="Int32" />
+          <Property Name="VentanasLaterales" Type="Int32" />
+          <Property Name="TieneEstereo" Type="Boolean" />
+          <Property Name="TieneBocinas" Type="Boolean" />
+          <Property Name="TieneCamaras" Type="Boolean" />
+          <Property Name="Puerta" Type="Int32" />
+          <Property Name="TieneExtinguidor" Type="Boolean" />
+          <Property Name="TieneTrancas" Type="Boolean" />
+          <Property Name="FiltroAceiteMotor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiltroCombustible" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiltroAceiteTransmision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiltroAire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiltroAgua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Imagen" Type="Int32" />
+          <Property Name="Usuario" Type="Int32" />
+          <Property Name="UltimoCambioAceite" Type="DateTime" Precision="3" />
+          <Property Name="OptimisticLockField" Type="Int32" />
+          <Property Name="GCRecord" Type="Int32" />
+          <Property Name="LlantaFrontalIzquierdaChofer" Type="Int32" />
+          <Property Name="LlantaFrontalDerechaEstribo" Type="Int32" />
+          <Property Name="LlantaTraseraInteriorChofer" Type="Int32" />
+          <Property Name="LlantaTraseraInteriorEstribo" Type="Int32" />
+          <Property Name="LlantaTraseraExteriorChofer" Type="Int32" />
+          <Property Name="LlantaTraseraExteriorEstribo" Type="Int32" />
+          <NavigationProperty Name="Com_DetallesCandados" Relationship="Self.FK_Com_DetallesCandados_Unidad" FromRole="Uni_Unidad" ToRole="Com_DetallesCandados" />
+          <NavigationProperty Name="Com_Diesel" Relationship="Self.FK_Com_Diesel_Unidad" FromRole="Uni_Unidad" ToRole="Com_Diesel" />
+          <NavigationProperty Name="Com_Gasolina" Relationship="Self.FK_Com_Gasolina_Unidad" FromRole="Uni_Unidad" ToRole="Com_Gasolina" />
+          <NavigationProperty Name="gen_Usuario" Relationship="Self.FK_Uni_Unidad_Usuario" FromRole="Uni_Unidad" ToRole="gen_Usuario" />
+        </EntityType>
+        <Association Name="FK_Com_DetallesCandados_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_DetallesCandados" Type="Self.Com_DetallesCandados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_DetallesCandados">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_DetallesCandados_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_DetallesCandados" Type="Self.Com_DetallesCandados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_DetallesCandados">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_UltimaRecarga">
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_RecargaDiesel">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="UltimaRecarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Diesel_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_Diesel" Type="Self.Com_Diesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Diesel">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_MedidorDiesel_Tanque">
+          <End Role="Com_DieselActual" Type="Self.Com_DieselActual" Multiplicity="0..1" />
+          <End Role="Com_MedidorDiesel" Type="Self.Com_MedidorDiesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_DieselActual">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_MedidorDiesel">
+              <PropertyRef Name="Tanque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_RecargaDiesel_Tanque">
+          <End Role="Com_DieselActual" Type="Self.Com_DieselActual" Multiplicity="0..1" />
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_DieselActual">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_RecargaDiesel">
+              <PropertyRef Name="Tanque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_Empleado">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_UltimaRecarga">
+          <End Role="Com_RecargaDiesel" Type="Self.Com_RecargaDiesel" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Com_RecargaDiesel">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="UltimaRecarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Com_Gasolina_Unidad">
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="0..1" />
+          <End Role="Com_Gasolina" Type="Self.Com_Gasolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uni_Unidad">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Com_Gasolina">
+              <PropertyRef Name="Unidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gen_Usuario_Puesto">
+          <End Role="gen_Puesto" Type="Self.gen_Puesto" Multiplicity="0..1" />
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Puesto">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="gen_Usuario">
+              <PropertyRef Name="Puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uni_Unidad_Usuario">
+          <End Role="gen_Usuario" Type="Self.gen_Usuario" Multiplicity="0..1" />
+          <End Role="Uni_Unidad" Type="Self.Uni_Unidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_Usuario">
+              <PropertyRef Name="OID" />
+            </Principal>
+            <Dependent Role="Uni_Unidad">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ATRCPRODUCCIONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Com_DetallesCandados" EntityType="Self.Com_DetallesCandados" />
+          <EntitySet Name="Com_Diesel" EntityType="Self.Com_Diesel" />
+          <EntitySet Name="Com_DieselActual" EntityType="Self.Com_DieselActual" />
+          <EntitySet Name="Com_Gasolina" EntityType="Self.Com_Gasolina" />
+          <EntitySet Name="Com_MedidorDiesel" EntityType="Self.Com_MedidorDiesel" />
+          <EntitySet Name="Com_RecargaDiesel" EntityType="Self.Com_RecargaDiesel" />
+          <EntitySet Name="gen_Puesto" EntityType="Self.gen_Puesto" />
+          <EntitySet Name="gen_Usuario" EntityType="Self.gen_Usuario" />
+          <EntitySet Name="Uni_Unidad" EntityType="Self.Uni_Unidad" />
+          <AssociationSet Name="FK_Com_DetallesCandados_Empleado" Association="Self.FK_Com_DetallesCandados_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_DetallesCandados" EntitySet="Com_DetallesCandados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_DetallesCandados_Unidad" Association="Self.FK_Com_DetallesCandados_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_DetallesCandados" EntitySet="Com_DetallesCandados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_Empleado" Association="Self.FK_Com_Diesel_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_UltimaRecarga" Association="Self.FK_Com_Diesel_UltimaRecarga">
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Diesel_Unidad" Association="Self.FK_Com_Diesel_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_Diesel" EntitySet="Com_Diesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_MedidorDiesel_Tanque" Association="Self.FK_Com_MedidorDiesel_Tanque">
+            <End Role="Com_DieselActual" EntitySet="Com_DieselActual" />
+            <End Role="Com_MedidorDiesel" EntitySet="Com_MedidorDiesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_RecargaDiesel_Tanque" Association="Self.FK_Com_RecargaDiesel_Tanque">
+            <End Role="Com_DieselActual" EntitySet="Com_DieselActual" />
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_Empleado" Association="Self.FK_Com_Gasolina_Empleado">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_UltimaRecarga" Association="Self.FK_Com_Gasolina_UltimaRecarga">
+            <End Role="Com_RecargaDiesel" EntitySet="Com_RecargaDiesel" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Com_Gasolina_Unidad" Association="Self.FK_Com_Gasolina_Unidad">
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+            <End Role="Com_Gasolina" EntitySet="Com_Gasolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gen_Usuario_Puesto" Association="Self.FK_gen_Usuario_Puesto">
+            <End Role="gen_Puesto" EntitySet="gen_Puesto" />
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uni_Unidad_Usuario" Association="Self.FK_Uni_Unidad_Usuario">
+            <End Role="gen_Usuario" EntitySet="gen_Usuario" />
+            <End Role="Uni_Unidad" EntitySet="Uni_Unidad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ATRCPRODUCCIONModelStoreContainer" CdmEntityContainer="ATRCPRODUCCIONEntities">
+          <EntitySetMapping Name="Com_DetallesCandados">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_DetallesCandados">
+              <MappingFragment StoreEntitySet="Com_DetallesCandados">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Problema" ColumnName="Problema" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Com_Diesel">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_Diesel">
+              <MappingFragment StoreEntitySet="Com_Diesel">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Millas" ColumnName="Millas" />
+                <ScalarProperty Name="MillasRecorridas" ColumnName="MillasRecorridas" />
+                <ScalarProperty Name="CandadoActual" ColumnName="CandadoActual" />
+                <ScalarProperty Name="CandadoAnterior" ColumnName="CandadoAnterior" />
+                <ScalarProperty Name="Litros" ColumnName="Litros" />
+                <ScalarProperty Name="Llenado" ColumnName="Llenado" />
+                <ScalarProperty Name="UltimaRecarga" ColumnName="UltimaRecarga" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Com_DieselActual">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_DieselActual">
+              <MappingFragment StoreEntitySet="Com_DieselActual">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="TipoCombustible" ColumnName="TipoCombustible" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Com_Gasolina">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_Gasolina">
+              <MappingFragment StoreEntitySet="Com_Gasolina">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Millas" ColumnName="Millas" />
+                <ScalarProperty Name="MillasRecorridas" ColumnName="MillasRecorridas" />
+                <ScalarProperty Name="CandadoActual" ColumnName="CandadoActual" />
+                <ScalarProperty Name="CandadoAnterior" ColumnName="CandadoAnterior" />
+                <ScalarProperty Name="Litros" ColumnName="Litros" />
+                <ScalarProperty Name="Llenado" ColumnName="Llenado" />
+                <ScalarProperty Name="UltimaRecarga" ColumnName="UltimaRecarga" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Com_MedidorDiesel">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_MedidorDiesel">
+              <MappingFragment StoreEntitySet="Com_MedidorDiesel">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Inicial" ColumnName="Inicial" />
+                <ScalarProperty Name="Final" ColumnName="Final" />
+                <ScalarProperty Name="Tanque" ColumnName="Tanque" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Com_RecargaDiesel">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Com_RecargaDiesel">
+              <MappingFragment StoreEntitySet="Com_RecargaDiesel">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Tanque" ColumnName="Tanque" />
+                <ScalarProperty Name="PrecioLitro" ColumnName="PrecioLitro" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gen_Puesto">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.gen_Puesto">
+              <MappingFragment StoreEntitySet="gen_Puesto">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gen_Usuario">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.gen_Usuario">
+              <MappingFragment StoreEntitySet="gen_Usuario">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="EsAdministrativo" ColumnName="EsAdministrativo" />
+                <ScalarProperty Name="Constraseña" ColumnName="Constraseña" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Patron" ColumnName="Patron" />
+                <ScalarProperty Name="AvisarA" ColumnName="AvisarA" />
+                <ScalarProperty Name="TelAvisarA" ColumnName="TelAvisarA" />
+                <ScalarProperty Name="TipoSangre" ColumnName="TipoSangre" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="IMSS" ColumnName="IMSS" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+                <ScalarProperty Name="Modulos" ColumnName="Modulos" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uni_Unidad">
+            <EntityTypeMapping TypeName="ATRCPRODUCCIONModel.Uni_Unidad">
+              <MappingFragment StoreEntitySet="Uni_Unidad">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="UsuarioBaja" ColumnName="UsuarioBaja" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="TipoUnidad" ColumnName="TipoUnidad" />
+                <ScalarProperty Name="Millas" ColumnName="Millas" />
+                <ScalarProperty Name="Combustible" ColumnName="Combustible" />
+                <ScalarProperty Name="Motor" ColumnName="Motor" />
+                <ScalarProperty Name="Cilindros" ColumnName="Cilindros" />
+                <ScalarProperty Name="Transmision" ColumnName="Transmision" />
+                <ScalarProperty Name="Frenos" ColumnName="Frenos" />
+                <ScalarProperty Name="AireAcondicionado" ColumnName="AireAcondicionado" />
+                <ScalarProperty Name="Suspencion" ColumnName="Suspencion" />
+                <ScalarProperty Name="TieneRadio" ColumnName="TieneRadio" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Placas" ColumnName="Placas" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="Baterias" ColumnName="Baterias" />
+                <ScalarProperty Name="Asientos" ColumnName="Asientos" />
+                <ScalarProperty Name="Pasajeros" ColumnName="Pasajeros" />
+                <ScalarProperty Name="Abanicos" ColumnName="Abanicos" />
+                <ScalarProperty Name="VentanasLaterales" ColumnName="VentanasLaterales" />
+                <ScalarProperty Name="TieneEstereo" ColumnName="TieneEstereo" />
+                <ScalarProperty Name="TieneBocinas" ColumnName="TieneBocinas" />
+                <ScalarProperty Name="TieneCamaras" ColumnName="TieneCamaras" />
+                <ScalarProperty Name="Puerta" ColumnName="Puerta" />
+                <ScalarProperty Name="TieneExtinguidor" ColumnName="TieneExtinguidor" />
+                <ScalarProperty Name="TieneTrancas" ColumnName="TieneTrancas" />
+                <ScalarProperty Name="FiltroAceiteMotor" ColumnName="FiltroAceiteMotor" />
+                <ScalarProperty Name="FiltroCombustible" ColumnName="FiltroCombustible" />
+                <ScalarProperty Name="FiltroAceiteTransmision" ColumnName="FiltroAceiteTransmision" />
+                <ScalarProperty Name="FiltroAire" ColumnName="FiltroAire" />
+                <ScalarProperty Name="FiltroAgua" ColumnName="FiltroAgua" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="UltimoCambioAceite" ColumnName="UltimoCambioAceite" />
+                <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+                <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+                <ScalarProperty Name="LlantaFrontalIzquierdaChofer" ColumnName="LlantaFrontalIzquierdaChofer" />
+                <ScalarProperty Name="LlantaFrontalDerechaEstribo" ColumnName="LlantaFrontalDerechaEstribo" />
+                <ScalarProperty Name="LlantaTraseraInteriorChofer" ColumnName="LlantaTraseraInteriorChofer" />
+                <ScalarProperty Name="LlantaTraseraInteriorEstribo" ColumnName="LlantaTraseraInteriorEstribo" />
+                <ScalarProperty Name="LlantaTraseraExteriorChofer" ColumnName="LlantaTraseraExteriorChofer" />
+                <ScalarProperty Name="LlantaTraseraExteriorEstribo" ColumnName="LlantaTraseraExteriorEstribo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

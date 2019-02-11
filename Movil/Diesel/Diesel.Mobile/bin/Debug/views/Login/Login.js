@@ -3,37 +3,38 @@
 
     var viewModel = {
 //  Put the binding properties here
+        Password: ko.observable(),
+        Empleado: ko.observable(),
+        loader: ko.observable(),
         galleryData: [
             "img/ATRC-LOGO.png"
         ],
-        iniciarsesion: function () {
+        iniciarsesion: function (e) {
+            var result = e.validationGroup.validate();
+            if (result.isValid) {
 
-            var soapRequest;
-            soapRequest = '<?xml version="1.0" encoding="utf-8"?>\
-                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">\
-                  <soap:Body>\
-                         <Checa xmlns="http://tempuri.org/">\
-                         <Parameter>"1034|manual"</Parameter>\
-                         </Checa>\
-                  </soap:Body>\
-                </soap:Envelope>';
-            DevExpress.ui.dialog.alert(soapRequest);
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:62590/Consultas.asmx",
-                //async: true,
-                contentType: "text/xml",
-                dataType: "xml",
-                data: soapRequest,
-                success: function (data) {
-                    //var x = response.d.split("|");
-                    DevExpress.ui.dialog.alert('entro');
-
-                },
-                error: function (jqXhr, textStatus, errorThrown) {
-                    DevExpress.ui.dialog.alert(textStatus, errorThrown);
-                }
-            });
+                viewModel.loader(true);
+                $.ajax({
+                    type: "POST",
+                    url: ObtenerUrl() + "/InicioDeSesion",//"http://192.168.0.123:7777/WS/WS-Diesel.asmx",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: '{Usuario:' + viewModel.Empleado() + ', Contrasena:"' + viewModel.Password().toString() + '"}',
+                    success: function (data) {
+                        if (data.d == 1) {
+                            Diesel.app.navigate({ view: "Main" }, { target: "back" });
+                            viewModel.loader(false);
+                        } else {
+                            viewModel.loader(false);
+                            DevExpress.ui.notify('Datos incorrectos', 'error', 4000);
+                        }
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        viewModel.loader(false);
+                        DevExpress.ui.dialog.alert(errorThrown, 'Error');
+                    }
+                });
+            }
         }
     };
 

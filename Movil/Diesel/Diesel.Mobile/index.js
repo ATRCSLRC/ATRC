@@ -51,8 +51,8 @@ $(function() {
         }
     }
 
-    var layoutSet = DevExpress.framework.html.layoutSets[Diesel.config.layoutSet],
-        navigation = Diesel.config.navigation;
+    //var layoutSet = DevExpress.framework.html.layoutSets[Diesel.config.layoutSet],
+    var navigation = Diesel.config.navigation;
 
     function findController(name, controllers) {
         
@@ -63,9 +63,9 @@ $(function() {
         return result.length ? result[0].controller : null;
     }
 
-    //var layoutSet = [];
-    //layoutSet.push.apply(layoutSet, DevExpress.framework.html.layoutSets["slideout"]);
-    //layoutSet.push.apply(layoutSet, DevExpress.framework.html.layoutSets["empty"]);
+    var layoutSet = [];
+    layoutSet.push.apply(layoutSet, DevExpress.framework.html.layoutSets["slideout"]);
+    layoutSet.push.apply(layoutSet, DevExpress.framework.html.layoutSets["empty"]);
 
     Diesel.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Diesel,
@@ -74,6 +74,7 @@ $(function() {
         navigation: navigation,
         commandMapping: Diesel.config.commandMapping,
         navigateToRootViewMode: "keepHistory",
+        mode: '',
         useViewTitleAsBackText: true
     });
 

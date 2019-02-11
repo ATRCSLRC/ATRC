@@ -1,0 +1,26 @@
+<div data-options="dxView : { name: 'Tanques', title: 'Tanques' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <div style="width:95%; text-align:center; margin:auto">
+            <br />
+            <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                <div id="sbTanques" data-bind="dxSelectBox: { dataSource: TanquesDiesel,valueExpr: 'ID', displayExpr: 'Descripcion', value: SeleccionTanque, onSelectionChanged: CapacidadTanque}, dxValidator: {validationRules: [{type: 'required', message: 'Tanque requerido'}]}"></div>
+
+                <div id="cgGrafica" style="height:300px" data-bind="dxCircularGauge: {
+                 scale: {
+                 startValue: 0,
+                 tickInterval: 500,
+                 },
+                 tooltip: { enabled: true }}"></div>
+                <div id="txtInicial" data-bind="dxTextBox: {placeholder: 'Iniciales',  value: Inicial }, dxValidator: {validationRules: [{type: 'required', message: 'Números iniciales requeridos'}]}"></div>
+                <br />
+                <div id="txtFinal" data-bind="dxNumberBox: {placeholder: 'Finales', value: Final}"></div>
+                <br />
+                <div style="display: inline;margin: auto;width: 133px;">
+                    <div data-bind="dxButton: { text: 'Guardar', onClick: OnGuardar }"></div>
+                    <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnCancelar}"></div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+</div>

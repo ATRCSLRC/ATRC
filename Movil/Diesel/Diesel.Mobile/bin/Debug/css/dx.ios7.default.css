@@ -7486,7 +7486,7 @@
   font-weight: bold;
 }
 .dx-datagrid-headers .dx-datagrid-table .dx-row.dx-header-row > td {
-  background-color: #E5E5E5;
+    background-color: transparent;
 }
 .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
   border-bottom: 1px solid #C8C8C8;

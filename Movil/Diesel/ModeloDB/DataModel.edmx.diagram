@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9725553137d64a27ad7b46d05d40e716" Name="Diagram1">
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_DetallesCandados" Width="1.5" PointX="7.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_Diesel" Width="1.5" PointX="10.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_DieselActual" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_Gasolina" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_MedidorDiesel" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Com_RecargaDiesel" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.gen_Puesto" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.gen_Usuario" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATRCPRODUCCIONModel.Uni_Unidad" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_DetallesCandados_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_DetallesCandados_Unidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Diesel_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Diesel_UltimaRecarga" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Diesel_Unidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_MedidorDiesel_Tanque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_RecargaDiesel_Tanque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Gasolina_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Gasolina_UltimaRecarga" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Com_Gasolina_Unidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_gen_Usuario_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="ATRCPRODUCCIONModel.FK_Uni_Unidad_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
