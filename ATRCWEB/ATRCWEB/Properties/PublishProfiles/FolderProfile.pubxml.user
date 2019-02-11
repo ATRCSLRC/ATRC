@@ -16,19 +16,22 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:48:50</publishTime>
     </File>
     <File Include="bin/ALMACEN.BL.dll">
-      <publishTime>10/06/2018 08:35:07</publishTime>
+      <publishTime>01/08/2019 16:01:07</publishTime>
     </File>
     <File Include="bin/ATRCBASE.BL.dll">
-      <publishTime>10/06/2018 08:35:01</publishTime>
+      <publishTime>02/01/2019 11:32:55</publishTime>
     </File>
     <File Include="bin/ATRCWEB.dll">
-      <publishTime>12/19/2018 13:14:08</publishTime>
+      <publishTime>02/06/2019 15:36:58</publishTime>
     </File>
     <File Include="bin/ATRCWEB.pdb">
-      <publishTime>12/19/2018 13:14:08</publishTime>
+      <publishTime>02/06/2019 15:36:58</publishTime>
     </File>
     <File Include="bin/CHECADOR.BL.dll">
-      <publishTime>10/06/2018 08:35:05</publishTime>
+      <publishTime>01/08/2019 16:00:50</publishTime>
+    </File>
+    <File Include="bin/COMBUSTIBLE.BL.dll">
+      <publishTime>01/08/2019 16:01:07</publishTime>
     </File>
     <File Include="bin/de/DevExpress.Data.v17.2.resources.dll">
       <publishTime>04/26/2018 13:41:20</publishTime>
@@ -201,6 +204,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/es/DevExpress.XtraReports.v17.2.Web.resources.dll">
       <publishTime>04/26/2018 13:44:10</publishTime>
     </File>
+    <File Include="bin/GUARDIAS.BL.dll">
+      <publishTime>01/08/2019 16:01:05</publishTime>
+    </File>
     <File Include="bin/ja/DevExpress.Data.v17.2.resources.dll">
       <publishTime>04/26/2018 13:41:55</publishTime>
     </File>
@@ -253,7 +259,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/26/2018 13:44:10</publishTime>
     </File>
     <File Include="bin/LLANTERA.BL.dll">
-      <publishTime>10/06/2018 08:35:07</publishTime>
+      <publishTime>01/08/2019 16:01:08</publishTime>
+    </File>
+    <File Include="bin/REPORTES.dll">
+      <publishTime>01/08/2019 16:01:46</publishTime>
     </File>
     <File Include="bin/ru/DevExpress.Data.v17.2.resources.dll">
       <publishTime>04/26/2018 13:41:55</publishTime>
@@ -306,11 +315,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/ru/DevExpress.XtraReports.v17.2.Web.resources.dll">
       <publishTime>04/26/2018 13:44:10</publishTime>
     </File>
+    <File Include="bin/RUTAS.BL.dll">
+      <publishTime>01/08/2019 16:00:58</publishTime>
+    </File>
     <File Include="bin/TALLER.BL.dll">
-      <publishTime>10/06/2018 08:35:05</publishTime>
+      <publishTime>01/08/2019 16:00:50</publishTime>
     </File>
     <File Include="bin/UNIDADES.BL.dll">
-      <publishTime>10/06/2018 08:35:05</publishTime>
+      <publishTime>01/08/2019 16:00:50</publishTime>
     </File>
     <File Include="Checador/Checador.aspx">
       <publishTime>05/15/2018 11:48:50</publishTime>
@@ -730,7 +742,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/12/2017 03:53:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/23/2018 11:34:12</publishTime>
+      <publishTime>01/15/2019 12:51:16</publishTime>
+    </File>
+    <File Include="WS/WS-Diesel.asmx">
+      <publishTime>01/09/2019 08:39:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using System.Web;
 namespace ATRCWEB {
     public class Global_asax : System.Web.HttpApplication {
         void Application_Start(object sender, EventArgs e) {
+            
             DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
             ATRCBASE.BL.Utilerias.TipoAplicacion = ATRCBASE.BL.Enums.TipoAplicacion.Web;
         }

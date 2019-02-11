@@ -57,6 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Librerias\CHECADOR.BL.dll</HintPath>
     </Reference>
+    <Reference Include="COMBUSTIBLE.BL">
+      <HintPath>..\..\Librerias\COMBUSTIBLE.BL.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -76,10 +79,19 @@
     <Reference Include="Elmah">
       <HintPath>..\..\Librerias\Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="GUARDIAS.BL">
+      <HintPath>..\..\Librerias\GUARDIAS.BL.dll</HintPath>
+    </Reference>
     <Reference Include="LLANTERA.BL">
       <HintPath>..\..\Librerias\LLANTERA.BL.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="REPORTES">
+      <HintPath>..\..\Librerias\REPORTES.dll</HintPath>
+    </Reference>
+    <Reference Include="RUTAS.BL">
+      <HintPath>..\..\Librerias\RUTAS.BL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -134,6 +146,7 @@
     <Content Include="Reportes\Reporte.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.12.2.min.js" />
+    <Content Include="WS\WS-Diesel.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.master" />
@@ -293,6 +306,10 @@
     </Compile>
     <Compile Include="Usuarios\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WS\WS-Diesel.asmx.cs">
+      <DependentUpon>WS-Diesel.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
