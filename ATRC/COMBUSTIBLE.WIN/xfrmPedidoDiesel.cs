@@ -42,6 +42,7 @@ namespace COMBUSTIBLE.WIN
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                  });
+            Unidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             Unidades.Criteria = bo;
             lueUnidad.Properties.DataSource = Unidades;
             txtEmpleado.Focus();

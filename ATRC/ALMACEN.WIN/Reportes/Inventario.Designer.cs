@@ -263,11 +263,17 @@
             // 
             // xrTable2
             // 
+            this.xrTable2.BackColor = System.Drawing.Color.Red;
+            this.xrTable2.BorderColor = System.Drawing.Color.White;
+            this.xrTable2.ForeColor = System.Drawing.Color.White;
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 31.25F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
             this.xrTable2.SizeF = new System.Drawing.SizeF(751F, 25F);
+            this.xrTable2.StylePriority.UseBackColor = false;
+            this.xrTable2.StylePriority.UseBorderColor = false;
+            this.xrTable2.StylePriority.UseForeColor = false;
             // 
             // xrTableRow2
             // 

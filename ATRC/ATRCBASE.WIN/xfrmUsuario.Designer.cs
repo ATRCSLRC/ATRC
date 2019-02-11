@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -102,7 +103,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -279,6 +280,7 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Taller", "Taller"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Rutas", "Rutas"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Administración", "Administración"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Combustible", "Combustible"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("Configuración", "Configuración")});
             this.checkedComboBoxEdit1.Size = new System.Drawing.Size(471, 20);
             this.checkedComboBoxEdit1.StyleController = this.lcMainSeguridad;
@@ -834,7 +836,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbPatron.Properties.Items.AddRange(new object[] {
             "AutoTransportes del Río Colorado S.A. de C.V.",
-            "Recursos Profesionales Integrados S.C."});
+            "Servicios Administrativos Greenwood SAG S DE RL DE CV"});
             this.cmbPatron.Size = new System.Drawing.Size(606, 20);
             this.cmbPatron.StyleController = this.lcMainAdicionales;
             this.cmbPatron.TabIndex = 5;

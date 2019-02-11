@@ -122,10 +122,10 @@
             this.lblPatron.Dpi = 254F;
             this.lblPatron.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPatron.LocationFloat = new DevExpress.Utils.PointFloat(302.8506F, 25F);
+            this.lblPatron.LocationFloat = new DevExpress.Utils.PointFloat(193.1953F, 25.00001F);
             this.lblPatron.Name = "lblPatron";
             this.lblPatron.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblPatron.SizeF = new System.Drawing.SizeF(544.6526F, 58.42F);
+            this.lblPatron.SizeF = new System.Drawing.SizeF(666.8048F, 58.42F);
             this.lblPatron.StylePriority.UseFont = false;
             this.lblPatron.StylePriority.UseForeColor = false;
             this.lblPatron.StylePriority.UseTextAlignment = false;

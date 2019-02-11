@@ -1,4 +1,6 @@
-﻿using ATRCBASE.WIN;
+﻿using ATRCBASE.BL;
+using ATRCBASE.WIN;
+using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
@@ -9,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using UNIDADES.BL;
 using static ATRCBASE.BL.Enums;
 
 namespace UNIDADES.WIN.Reportes
@@ -24,6 +27,13 @@ namespace UNIDADES.WIN.Reportes
         {
             dteDel.DateTime = dteAl.DateTime = DateTime.Now;
             rgServicios.SelectedIndex = 0;
+            UnidadDeTrabajo UnidadControles = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Unidades = new XPView(UnidadControles, typeof(Unidad));
+            Unidades.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
+                 });
+            lueUnidad.Properties.DataSource = Unidades;
         }
 
         private void bbiImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -31,6 +41,11 @@ namespace UNIDADES.WIN.Reportes
             if (dteDel.DateTime.Date > dteAl.DateTime.Date)
             {
                 XtraMessageBox.Show("La primera fecha no debe ser mayor a segunda.");
+                return;
+            }
+            if (rgCantidadUnidad.EditValue.ToString() == "Unidad" & lueUnidad.EditValue ==  null)
+            {
+                XtraMessageBox.Show("Debe seleccionar una unidad.");
                 return;
             }
             bool SonTodos = false;
@@ -53,14 +68,26 @@ namespace UNIDADES.WIN.Reportes
                     SonTodos = true;
                     break;
             }
-
-            ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new REPORTES.Unidades.Servicios(dteDel.DateTime, dteAl.DateTime, Servicio, SonTodos));
+            
+            ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new REPORTES.Unidades.Servicios(dteDel.DateTime, dteAl.DateTime, Servicio, SonTodos,
+                rgCantidadUnidad.EditValue.ToString() == "Todos" ? false : true, Convert.ToInt32(lueUnidad.EditValue)));
             repHorasTrabajadas.ShowPreview();
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void rgCantidadUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rgCantidadUnidad.EditValue.ToString() == "Todos")
+            {
+                lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lueUnidad.EditValue = null;
+            }
+            else
+                lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
         }
     }
 }

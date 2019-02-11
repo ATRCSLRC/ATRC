@@ -237,9 +237,9 @@
             this.rbnpTaller,
             this.rbnpRutas,
             this.rbnpAdministracion,
+            this.rbnpCombustible,
             this.rbnpGuardias,
-            this.rbnpConfiguracion,
-            this.rbnpCombustible});
+            this.rbnpConfiguracion});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
@@ -1155,7 +1155,6 @@
             this.ribbonPageGroup4});
             this.rbnpGuardias.Name = "rbnpGuardias";
             this.rbnpGuardias.Text = "Guardias";
-            this.rbnpGuardias.Visible = false;
             // 
             // ribbonPageGroup3
             // 
@@ -1213,7 +1212,6 @@
             this.ribbonPageGroup9});
             this.rbnpCombustible.Name = "rbnpCombustible";
             this.rbnpCombustible.Text = "Combustible";
-            this.rbnpCombustible.Visible = false;
             // 
             // ribbonPageGroup6
             // 

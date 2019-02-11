@@ -115,6 +115,12 @@
     <Compile Include="Unidades\GastosPorUnidad.Designer.cs">
       <DependentUpon>GastosPorUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Unidades\ProximosCambiosAceite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\ProximosCambiosAceite.Designer.cs">
+      <DependentUpon>ProximosCambiosAceite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Unidades\Radios.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -139,6 +145,7 @@
     <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\GastosPorUnidad.resx">
       <DependentUpon>GastosPorUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\ProximosCambiosAceite.resx">
+      <DependentUpon>ProximosCambiosAceite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\Radios.resx">
       <DependentUpon>Radios.cs</DependentUpon>

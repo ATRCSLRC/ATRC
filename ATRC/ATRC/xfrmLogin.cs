@@ -78,5 +78,13 @@ namespace ATRC
                 XtraMessageBox.Show("Los datos proporcionados son incorrectos.","Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         #endregion
+
+        private void xfrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData == Keys.Enter))
+            {
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
     }
 }

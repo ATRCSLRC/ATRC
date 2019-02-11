@@ -44,6 +44,7 @@
             this.lciDepartamento = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciMotivo = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciGuardia = new DevExpress.XtraLayout.LayoutControlItem();
+            this.Loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::GUARDIAS.WIN.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueGuardia.Properties)).BeginInit();
@@ -144,7 +145,6 @@
             // 
             // memoMotivo
             // 
-            this.memoMotivo.EnterMoveNextControl = true;
             this.memoMotivo.Location = new System.Drawing.Point(12, 100);
             this.memoMotivo.MenuManager = this.ribbonControl1;
             this.memoMotivo.Name = "memoMotivo";
@@ -237,6 +237,10 @@
             this.lciGuardia.Text = "Guardia:";
             this.lciGuardia.TextSize = new System.Drawing.Size(111, 13);
             // 
+            // Loading
+            // 
+            this.Loading.ClosingDelay = 500;
+            // 
             // xfrmNuevoReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +287,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciGuardia;
         private DevExpress.XtraBars.BarButtonItem bbiGuardar;
         private DevExpress.XtraBars.BarButtonItem bbiCancelar;
+        private DevExpress.XtraSplashScreen.SplashScreenManager Loading;
     }
 }

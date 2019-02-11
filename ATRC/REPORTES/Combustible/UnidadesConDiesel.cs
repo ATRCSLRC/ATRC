@@ -21,6 +21,7 @@ namespace REPORTES.Combustible
             go.Operands.Add(new BinaryOperator("Fecha", De.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("Fecha", Al.Date, BinaryOperatorType.LessOrEqual));
             XPView Diesel = new XPView(Unidad, typeof(Diesel), "Oid;Unidad.Nombre;Litros;CandadoActual;Empleado.Nombre", go);
+            Diesel.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Unidad.Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             this.DataSource = Diesel;
         }
 

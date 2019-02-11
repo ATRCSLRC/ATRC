@@ -65,7 +65,7 @@ namespace GUARDIAS.WIN
                  });
             GroupOperator goGuardia = new GroupOperator();
             goGuardia.Operands.Add(bo);
-            goGuardia.Operands.Add(new BinaryOperator("Puesto", 10));
+            goGuardia.Operands.Add(new BinaryOperator("Departamento", 5));
             Guardias.Criteria = goGuardia;
             lueGuardia.Properties.DataSource = Guardias;
             lueGuardia.Properties.DisplayMember = "Nombre";
@@ -145,15 +145,15 @@ namespace GUARDIAS.WIN
                 switch (Departamento)
                 {
                     case "R":
-                        return 149;
+                        return 212;
                     case "RH":
                         return 6;
                     case "T":
-                        return 741;
+                        return 798;
                     case "S":
-                        return 1540;
+                        return 1541;
                     case "I":
-                        return 110;
+                        return 118;
                     case "A":
                         return 5;
                 }
@@ -163,13 +163,16 @@ namespace GUARDIAS.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            
             if (ValidarControles())
             {
+                Loading.ShowWaitForm();
                 if (ReporteModificacion != null)
                 {
                     ReporteModificacion.Motivo = memoMotivo.Text;
                     ReporteModificacion.Save();
                     ReporteModificacion.Session.CommitTransaction();
+                    Loading.CloseWaitForm();
                     ReportPrintTool repReporte = new ReportPrintTool(new REPORTES.Guardias.ReporteIndiciplina(ReporteModificacion.Oid));
                     repReporte.ShowPreviewDialog();
                     XtraMessageBox.Show("Se ha modificado elreporte correctamente.");
@@ -225,6 +228,7 @@ namespace GUARDIAS.WIN
                     }
                     Reporte.Save();
                     Unidad.CommitChanges();
+                    Loading.CloseWaitForm();
                     ReportPrintTool repReporte = new ReportPrintTool(new REPORTES.Guardias.ReporteIndiciplina(Reporte.Oid));
                     repReporte.ShowPreviewDialog();
                     XtraMessageBox.Show("El reporte se ha creado correctamente.");

@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
 
 namespace UNIDADES.WIN
 {
@@ -53,6 +54,21 @@ namespace UNIDADES.WIN
                 e.HighPriority = true;
             }
             
+        }
+
+        private void bbiImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView UnidadesReporte = new XPView(Unidad, typeof(Unidad));
+            UnidadesReporte.AddProperty("Oid", "Oid", true);
+            UnidadesReporte.AddProperty("Nombre", "Nombre", true);
+            UnidadesReporte.AddProperty("Combustible", "Combustible", true);
+            UnidadesReporte.AddProperty("UltimoCambioAceite", "UltimoCambioAceite", true);
+            UnidadesReporte.AddProperty("TipoUnidad", "TipoUnidad", true);
+            if(grvUnidades.ActiveFilterCriteria != null)
+                UnidadesReporte.CriteriaString = grvUnidades.ActiveFilterCriteria.ToString();
+            ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Unidades.ProximosCambiosAceite(UnidadesReporte));
+            repUsuarioRegistrado.ShowPreview();
         }
     }
 }

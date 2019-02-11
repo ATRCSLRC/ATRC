@@ -156,6 +156,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.EnterMoveNextControl = true;
             this.txtUsuario.Location = new System.Drawing.Point(12, 241);
             this.txtUsuario.MenuManager = this.barManager1;
             this.txtUsuario.Name = "txtUsuario";
@@ -257,6 +258,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmLogin";
             this.Load += new System.EventHandler(this.xfrmLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xfrmLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);

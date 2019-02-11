@@ -11,7 +11,7 @@ namespace REPORTES.Unidades
 {
     public partial class Servicios : DevExpress.XtraReports.UI.XtraReport
     {
-        public Servicios(DateTime FechaDel, DateTime FechaAl, Enums.ServiciosUnidad Servicios, bool Todos)
+        public Servicios(DateTime FechaDel, DateTime FechaAl, Enums.ServiciosUnidad Servicios, bool Todos, bool Filtro, int IDUnidad)
         {
             InitializeComponent();
             GroupOperator go = new GroupOperator();
@@ -19,6 +19,9 @@ namespace REPORTES.Unidades
             go.Operands.Add(new BinaryOperator("Fecha", FechaAl, BinaryOperatorType.LessOrEqual));
             if(!Todos)
                 go.Operands.Add(new BinaryOperator("Servicio", Servicios));
+
+            if(Filtro)
+                go.Operands.Add(new BinaryOperator("Unidad.Oid", IDUnidad));
 
             XPCollection XPServicios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(UNIDADES.BL.Servicios), go);
             this.DataSource = XPServicios;
