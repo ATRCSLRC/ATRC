@@ -20,7 +20,7 @@ namespace Checador
     {
 
         [WebMethod(EnableSession = true)]
-        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string Checa(string Parameter)
         {
             return Metodos.Checador(Parameter);

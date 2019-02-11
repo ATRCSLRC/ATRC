@@ -6,11 +6,16 @@
 });
 
 function ChecaGafete() {
+
+    //var fecha = new Date();
+    //var Hora = '';
+    //var Hora = PrepareTimeValue(fecha.getHours()) + ":" + PrepareTimeValue(fecha.getMinutes()) + ":" +
+    //    PrepareTimeValue(fecha.getSeconds());
         $.ajax({
             type: "POST",
             url: "Consultas.asmx/Checa",
             //async: true,
-            data: '{Parameter: "' + bteNumEmpleado.GetText() + '|gafete' + '" }',
+            data: '{Parameter: "' + bteNumEmpleado.GetText() + '|' + timeString +  '|gafete"}',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
@@ -26,23 +31,28 @@ function ChecaGafete() {
             failure: function (response) {
                 //bteNumEmpleado.SetVisible(true);
                 //bteNumEmpleado.SetFocus();
-                //document.getElementById('mensaje').innerHTML = '';
+                document.getElementById('mensaje').innerHTML = response;
             },
             error: function (response) {
                 //bteNumEmpleado.SetVisible(true);
                 //bteNumEmpleado.SetFocus();
-                //document.getElementById('mensaje').innerHTML = '';
+                document.getElementById('mensaje').innerHTML = response;
             }
     });
     setTimeout(function () { bteNumEmpleado.SetVisible(true); bteNumEmpleado.SetFocus(); $(".Footer").text(''); }, 2500);
     }
 
-    function ChecaManual() {
+function ChecaManual() {
+    //var fecha = new Date();
+    //var Hora = PrepareTimeValue(fecha.getHours()) + ":" + PrepareTimeValue(fecha.getMinutes()) + ":" +
+    //    PrepareTimeValue(fecha.getSeconds());
+   // var str = '';
+    //var value = str.concat('{ Parameter: ', bteManual.GetText(), '|manual|', Hora.toString(), '}'); 
         $.ajax({
             type: "POST",
             url: "Consultas.asmx/Checa",
             //async: true,
-            data: '{Parameter: "' + bteManual.GetText() + '|manual' + '" }',
+            data: '{ Parameter: "' + bteManual.GetText() + '|' + timeString + '|manual"}',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
@@ -58,12 +68,10 @@ function ChecaGafete() {
             failure: function (response) {
                 //bteNumEmpleado.SetVisible(true);
                 //bteNumEmpleado.SetFocus();
-                //document.getElementById('mensaje').innerHTML = '';
             },
             error: function (response) {
                 //bteNumEmpleado.SetVisible(true);
                 //bteNumEmpleado.SetFocus();
-                //document.getElementById('mensaje').innerHTML = '';
             }
         });
         setTimeout(function () { bteNumEmpleado.SetVisible(true); bteNumEmpleado.SetFocus(); $(".Footer").text(''); }, 2500);

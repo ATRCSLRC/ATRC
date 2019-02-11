@@ -3,7 +3,7 @@
 $(document).ready(function () {
     setInterval(UpdateTime, 1000);
 });
-
+var timeString = '';
 var dia_semana = [
     "Domingo",
     "Lunes",
@@ -36,7 +36,7 @@ function PrepareTimeValue(value) {
 
 function UpdateTime(s, e) {
     var fecha = new Date();
-    var timeString = PrepareTimeValue(fecha.getHours()) + ":" + PrepareTimeValue(fecha.getMinutes()) + ":" +
+    timeString = PrepareTimeValue(fecha.getHours()) + ":" + PrepareTimeValue(fecha.getMinutes()) + ":" +
         PrepareTimeValue(fecha.getSeconds());
     var Hoy = dia_semana[fecha.getDay()] + ", " + fecha.getDate() + " de " + mes[fecha.getMonth()] + " del " + fecha.getFullYear();
     document.getElementById("hora").innerHTML = timeString;

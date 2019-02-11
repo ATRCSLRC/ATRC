@@ -22,10 +22,17 @@ namespace Checador.Scripts
                     {
 
                         string Query = string.Empty;
+                        TimeSpan Hora;
+                        if (!TimeSpan.TryParse(valor[valor.Count()-2], out Hora))
+                        {
+                            return Parameter + " ==hora ==" + valor[valor.Count() - 2] + ".";
+                            // handle validation error
+                        }
+                        //TimeSpan Hora = TimeSpan.Parse(valor[2]);
                         int Tipo = 1;
                         if (!string.IsNullOrEmpty(valor[0]) & Int32.TryParse(valor[0], out int c))
                         {
-                            if (valor[1] != "gafete")
+                            if (valor[2] != "gafete")
                             {
                                 Tipo = 2;
                                 Query = "SELECT ch_UsuarioChecador.OID,gen_Usuario.NumEmpleado,gen_Usuario.Nombre FROM gen_Usuario INNER JOIN " +
@@ -56,9 +63,9 @@ namespace Checador.Scripts
                                     }
                                 }
                                 if (IDUsuario > 0)
-                                    return BuscarChecada(IDUsuario, Tipo, NumEmpleado, Nombre, sql);
+                                    return BuscarChecada(IDUsuario, Tipo, NumEmpleado, Nombre, sql, Hora);
                                 else
-                                    return UsuarioExiste(Convert.ToInt32(valor[0]), Tipo, sql);
+                                    return UsuarioExiste(Convert.ToInt32(valor[0]), Tipo, sql, Hora);
                             }
                         }
                         else
@@ -71,12 +78,13 @@ namespace Checador.Scripts
             }
             catch (Exception ex)
             {
+                return Parameter + "--hora --" + ex;
                 //Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
             }
             return "Usuario no registrado";
         }
 
-        private static string UsuarioExiste(int IDUsuario, int Tipo, SqlConnection sql)
+        private static string UsuarioExiste(int IDUsuario, int Tipo, SqlConnection sql, TimeSpan Hora)
         {
             string Query = string.Empty;
             int ID = 0;
@@ -111,10 +119,10 @@ namespace Checador.Scripts
             if (ID <= 0)
                 return "Usuario no registrado";
             else
-                return UsuarioNuevo(ID, Tipo, NumEmpleado, Nombre, sql);
+                return UsuarioNuevo(ID, Tipo, NumEmpleado, Nombre, sql, Hora);
         }
 
-        private static string UsuarioNuevo(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql)
+        private static string UsuarioNuevo(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql, TimeSpan Hora)
         {
             int IDChecador = 0;
             using (SqlCommand NuevoUsuario = new SqlCommand("INSERT INTO ch_UsuarioChecador(FechaAlta,UsuarioAlta,Usuario,OptimisticLockField)" +
@@ -144,7 +152,7 @@ namespace Checador.Scripts
             }
             if (IDChecador > 0)
             {
-                return BuscarChecada(IDChecador, Tipo, NumEmpleado, Nombre, sql);
+                return BuscarChecada(IDChecador, Tipo, NumEmpleado, Nombre, sql, Hora);
             }
             else
             {
@@ -181,7 +189,7 @@ namespace Checador.Scripts
             }
         }
 
-        private static string BuscarChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql)
+        private static string BuscarChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql, TimeSpan Hora)
         {
             string Notificacion = TieneNotificaciones(IDUsuario, sql);
             if (string.IsNullOrEmpty(Notificacion))
@@ -195,11 +203,11 @@ namespace Checador.Scripts
                     Busqueda.Dispose();
                     if (IDChecador > 0)
                     {
-                        return ModificarChecada(IDChecador, Tipo, NumEmpleado, Nombre, sql);
+                        return ModificarChecada(IDChecador, Tipo, NumEmpleado, Nombre, sql, Hora);
                     }
                     else
                     {
-                        return NuevaChecada(IDUsuario, Tipo, NumEmpleado, Nombre, sql);
+                        return NuevaChecada(IDUsuario, Tipo, NumEmpleado, Nombre, sql, Hora);
                     }
                 }
             }
@@ -209,15 +217,15 @@ namespace Checador.Scripts
             }
         }
 
-        private static string ModificarChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql)
+        private static string ModificarChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql, TimeSpan Hora)
         {
             using (SqlCommand Update = new SqlCommand("UPDATE Ch_HistoricoChecadas SET HoraChecadaSalida=@Salida, TipoIdentificacionSalida =@TipoIdentificacionSalida WHERE OID=@OID"))
             {
-                DateTime HoraChecada = DateTime.Now;
+                //DateTime HoraChecada = DateTime.Now;
                 Update.Connection = sql;
                 Update.CommandType = CommandType.Text;
                 Update.Parameters.AddWithValue("@OID", IDUsuario);
-                Update.Parameters.AddWithValue("@Salida", Math.Round((HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay).TotalSeconds));
+                Update.Parameters.AddWithValue("@Salida", Math.Round(Hora.TotalSeconds));//Math.Round((HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay).TotalSeconds));
                 Update.Parameters.AddWithValue("@TipoIdentificacionSalida", Tipo);
                 int recordsAffected = Update.ExecuteNonQuery();
                 //List<string> Salidas = (List<string>)Session["Salidas"];
@@ -227,11 +235,11 @@ namespace Checador.Scripts
                 //Session["Salidas"] = Salidas;
                 Update.Dispose();
                 sql.Close();
-                return "Salida registrada " + Nombre + "|" + NumEmpleado + " - " + Nombre + " Salida:" + Environment.NewLine + HoraChecada.ToShortDateString() + " " + HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay;
+                return "Salida registrada " + Nombre + "|" + NumEmpleado + " - " + Nombre + " Salida:" + Environment.NewLine + DateTime.Now.ToShortDateString() + " " + Hora;
             }
         }
 
-        private static string NuevaChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql)
+        private static string NuevaChecada(int IDUsuario, int Tipo, int NumEmpleado, string Nombre, SqlConnection sql, TimeSpan Hora)
         {
             using (SqlCommand insert = new SqlCommand("INSERT INTO Ch_HistoricoChecadas(FechaAlta,FechaChecada,HoraChecadaEntrada,TipoIdentificacionEntrada,Usuario,OptimisticLockField)" +
                     "VALUES (@FechaAlta,@FechaChecada,@HoraChecadaEntrada,@TipoIdentificacionEntrada,@Usuario,@OptimisticLockField)"))
@@ -241,7 +249,7 @@ namespace Checador.Scripts
                 insert.Connection = sql;
                 insert.CommandType = CommandType.Text;
                 insert.Parameters.AddWithValue("@FechaChecada", HoraChecada.Date);
-                insert.Parameters.AddWithValue("@HoraChecadaEntrada", Math.Round((HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay).TotalSeconds));
+                insert.Parameters.AddWithValue("@HoraChecadaEntrada", Math.Round(Hora.TotalSeconds));//Math.Round((HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay).TotalSeconds));
                 insert.Parameters.AddWithValue("@TipoIdentificacionEntrada", Tipo);
                 insert.Parameters.AddWithValue("@Usuario", IDUsuario);
                 insert.Parameters.AddWithValue("@FechaAlta", HoraChecada);
@@ -253,9 +261,10 @@ namespace Checador.Scripts
                 //    Entradas = new List<string>();
                 //Entradas.Add(NumEmpleado + " - " + Nombre + " Entrada:" + Environment.NewLine + HoraChecada.ToShortDateString() + " " + HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay);
                 //Session["Entradas"] = Entradas;
+                
                 insert.Dispose();
                 sql.Close();
-                return "Entrada registrada " + Nombre + "|"  + NumEmpleado + " - " + Nombre + " Entrada:" + Environment.NewLine + HoraChecada.ToShortDateString() + " " + HoraChecada.AddTicks(-(HoraChecada.Ticks % TimeSpan.TicksPerSecond)).TimeOfDay;
+                return "Entrada registrada " + Nombre + "|"  + NumEmpleado + " - " + Nombre + " Entrada:" + Environment.NewLine + HoraChecada.ToShortDateString() + " " + Hora;
 
             }
         }
