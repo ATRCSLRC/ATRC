@@ -1,0 +1,16 @@
+<div data-options="dxView : { name: 'UnidadGasolina', title: 'Pedido gasolina' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <div style="width:95%; text-align:center; margin:auto">
+            <br />
+            <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                <div data-bind="dxSelectBox: { placeholder: 'Empleado', dataSource: ListaEmpleados, valueExpr: 'ID', displayExpr: 'Nombre', value: Empleado}, dxValidator: {validationRules: [{type: 'required', message: 'Empleado requerido'}]}"></div>
+                <br />
+                <div data-bind="dxSelectBox: { placeholder: 'Unidad',  value: Unidad, dataSource: Unidades, valueExpr: 'ID', displayExpr: 'Nombre', }, dxValidator: {validationRules: [{type: 'required', message: 'Unidad requerida'}]}"></div>
+                <div style="display: inline;margin: auto;width: 133px;">
+                    <div data-bind="dxButton: { text: 'Guardar',onClick: OnGuardar }"></div>
+                    <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnCancelar }"></div>
+                </div>
+            </div>
+     </div>
+</div>
+    </div>

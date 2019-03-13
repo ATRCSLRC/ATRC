@@ -25,10 +25,16 @@ window.Diesel = $.extend(true, window.Diesel, {
         "icon": "unidaddiesel"
       },
       {
+        "title": "Medidores",
+        "onExecute": "#Medidores",
+        "icon": "medidores"
+      },
+      {
         "title": "Cerrar sesion",
         "onExecute": "#LogOut",
         "icon": "logout"
       }
+      
     ]
   }
 });

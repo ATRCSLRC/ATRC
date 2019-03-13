@@ -1,0 +1,23 @@
+<div data-options="dxView : { name: 'Medidores', title: 'Medidores' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <br />
+        <div id="gridContainer" data-bind="dxDataGrid:{
+             dataSource: Medidores,
+             columns: Columnas,
+             rowAlternationEnabled: true,
+             showBorders: false,
+             showColumnLines: false,
+             showRowLines: false,
+             selection: {
+             mode: 'single'
+             },
+             loadPanel: {
+            enabled: true
+            },
+            height: '85%',
+            scrolling: {
+                mode: 'virtual'
+            }
+             }"></div>
+    </div>
+</div>

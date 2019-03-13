@@ -17,7 +17,7 @@
         viewShowing: function () {
             var id = window.atob(localStorage.getItem(localStorage.key(0)));
             if (isNaN(id)) {
-                SigobAC.app.navigate({ view: "Login" }, { target: "back" });
+                Diesel.app.navigate({ view: "Login" }, { target: "back" });
             }
         },
         TanquesDiesel: new DevExpress.data.CustomStore({

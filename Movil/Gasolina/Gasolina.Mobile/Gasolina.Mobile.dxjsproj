@@ -1,0 +1,185 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>9dbc5b78-ff4f-4beb-9be1-54f0fe11d8e8</ProjectGuid>
+    <AutoAssignPort>True</AutoAssignPort>
+    <RunInSimulator>True</RunInSimulator>
+    <UploadPluginsToTheCourier>True</UploadPluginsToTheCourier>
+    <RootNamespace>Gasolina</RootNamespace>
+    <ApplicationPage>index.html</ApplicationPage>
+    <Name>Gasolina.Mobile</Name>
+    <PhoneGapTokenKey>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoIiwiaXNzIjoicGdiIiwianRpIjoiZTAyMmU0NGItMTNhZS00ZDM0LWE2NTQtYmIwMjFiZTcyOGFkIn0.VCTYlSFI17u8t73qZYy07ITTxhRMgoAL2pBfVIkQ8ko</PhoneGapTokenKey>
+    <UseCustomTemplateNameApk>True</UseCustomTemplateNameApk>
+    <TemplateFileApk>templates\ApplicationTemplate.apk</TemplateFileApk>
+    <KeyIpaPath />
+    <ProvisionProfile />
+    <IpaPrivateKeyFile />
+    <TemplateFileIpa />
+    <UseCustomTemplateNameIpa>False</UseCustomTemplateNameIpa>
+    <IpaDevicesFamily>Universal</IpaDevicesFamily>
+    <BundleIdentifier>Gasolina.Mobile</BundleIdentifier>
+    <IpaSupportedLanguages />
+    <ScreenOrientation>Default</ScreenOrientation>
+    <ApplicationTitle>Gasolina</ApplicationTitle>
+    <VersionPackage>1.0.0.0</VersionPackage>
+    <ShowSplashScreen>True</ShowSplashScreen>
+    <KeyApkPath />
+    <VersionCode>1</VersionCode>
+    <ApkDexFilePackageName>com.devextreme.Gasolina.Mobile</ApkDexFilePackageName>
+    <KeyDebuggable>False</KeyDebuggable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="gasolina.config.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="img\ATRC-LOGO.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="index.html" />
+    <Content Include="index.css" />
+    <Content Include="cordova.js" />
+    <Content Include="js\Funciones.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\RecargaGasolina\RecargaGasolina.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\RecargaGasolina\RecargaGasolina.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Tanques\Tanques.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Tanques\Tanques.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\UnidadesGasolina\UnidadGasolina.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\UnidadesGasolina\UnidadGasolina.js">
+      <SubType>Content</SubType>
+    </Content>
+    <None Include="config.xml" />
+    <Content Include="index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="layouts\Navbar\NavbarLayout.css" />
+    <Content Include="layouts\Navbar\NavbarLayout.html" />
+    <Content Include="layouts\Navbar\NavbarLayout.js" />
+    <Content Include="layouts\Pivot\PivotLayout.css" />
+    <Content Include="layouts\Pivot\PivotLayout.html" />
+    <Content Include="layouts\Pivot\PivotLayout.js" />
+    <Content Include="layouts\SlideOut\SlideOutLayout.css" />
+    <Content Include="layouts\SlideOut\SlideOutLayout.html" />
+    <Content Include="layouts\SlideOut\SlideOutLayout.js" />
+    <Content Include="layouts\Empty\EmptyLayout.css" />
+    <Content Include="layouts\Empty\EmptyLayout.html" />
+    <Content Include="layouts\Empty\EmptyLayout.js" />
+    <Content Include="layouts\Simple\SimpleLayout.css" />
+    <Content Include="layouts\Simple\SimpleLayout.html" />
+    <Content Include="layouts\Simple\SimpleLayout.js" />
+    <Content Include="layouts\Popup\PopupLayout.css" />
+    <Content Include="layouts\Popup\PopupLayout.html" />
+    <Content Include="layouts\Popup\PopupLayout.js" />
+    <Content Include="layouts\Split\SplitLayout.css" />
+    <Content Include="layouts\Split\SplitLayout.html" />
+    <Content Include="layouts\Split\SplitLayout.js" />
+    <Content Include="views\Cerrar Sesion\LogOut.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Cerrar Sesion\LogOut.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Login\Login.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Login\Login.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Main\Main.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Main\Main.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Medidores\Medidores.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Medidores\Medidores.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\readme.txt" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_36_36.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_48_48.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_72_72.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_96_96.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-60.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-72.png" />
+    <None Include="Resources\PackageIcons.iOS.icon-76.png" />
+    <None Include="Resources\PackageIcons.iOS.icon.png" />
+    <None Include="templates\ApplicationTemplate.apk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
+    <Folder Include="layouts\" />
+    <Folder Include="layouts\Empty\" />
+    <Folder Include="layouts\Navbar\" />
+    <Folder Include="layouts\Pivot\" />
+    <Folder Include="layouts\Popup\" />
+    <Folder Include="layouts\Simple\" />
+    <Folder Include="layouts\SlideOut\" />
+    <Folder Include="layouts\Split\" />
+    <Folder Include="Resources\" />
+    <Folder Include="templates\" />
+    <Folder Include="views\" />
+    <Folder Include="views\Cerrar Sesion\" />
+    <Folder Include="views\Login\" />
+    <Folder Include="views\Main\" />
+    <Folder Include="views\Medidores\" />
+    <Folder Include="views\RecargaGasolina\" />
+    <Folder Include="views\Tanques\" />
+    <Folder Include="views\UnidadesGasolina\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gasolina.Shared\Gasolina.Shared.dxjsproj">
+      <Name>Gasolina.Shared</Name>
+      <Project>{c7bcd26e-3288-47ed-9209-743d89931cb9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Target Name="ResolveReferences">
+    <Message Text="Copying references to output dir..." Importance="high" />
+    <MSBuild Targets="Build" Projects="@(ProjectReference)" Properties="OutputPath=$([System.IO.Path]::GetFullPath('$(OutputPath)'))">
+    </MSBuild>
+  </Target>
+  <Target Name="CopyFilesToOutputDirectory">
+    <Message Text="Copying files to output dir..." Importance="high" />
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(Content-&gt;'$(OutputPath)$([MSBuild]::MakeRelative($(MSBuildProjectDirectory),'%(FullPath)'))')" />
+  </Target>
+  <Target Name="CoreCompile">
+    <!--<Message Text="'$(MSBuildToolsPath)'"></Message>-->
+    <!--<Message Text="'$(BuildingProject)'"></Message>-->
+    <!--<Message Text="Build JSProject '$(MSBuildProjectFile)':" Importance="high"></Message>-->
+    <!--<Message Text="Finished Build JSProject '$(MSBuildProjectFile)'." Importance="high"></Message>-->
+  </Target>
+  <Target Name="CreateManifestResourceNames" Condition="'@(ResxWithNoCulture)@(ResxWithCulture)@(NonResxWithNoCulture)@(NonResxWithCulture)'!=''" />
+  <Target Name="Clean">
+    <!--
+    <Message Text="Cleaning Output files..." Importance="high" />
+    <Delete Files="@([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+    -->
+    <Message Text="Cleaning Output dir ($([System.IO.Path]::GetFullPath('$(OutputPath)')))..." Importance="high" />
+    <RemoveDir Directories="$([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+  </Target>
+</Project>

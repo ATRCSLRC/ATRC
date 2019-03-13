@@ -27,18 +27,32 @@
                 mode: 'virtual'
             },
              onRowClick: OnSeleccion
-             }"></div>
+             }">
+        </div>
+
         <div data-bind="dxPopup: { title: Titulo, visible:DetellePopUp, showTitle: true, fullScreen: true,showCloseButton: false, onShown: InicializarDetalle }">
             <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
                 <br />
                 <div id="rgTanques" data-bind="dxRadioGroup: { dataSource: Tanques, valueExpr: 'ID', displayExpr: 'Descripcion', layout: 'horizontal', value: TanqueSeleccionado}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
                 <br />
                 <div data-bind="dxNumberBox: {placeholder: 'Millas',value:Millas}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
-                <br />
-                <div data-bind="dxNumberBox: {placeholder: 'Candado anterior',value:CandadoAnterior, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado anterior requerido'}]}"></div>
-                <br />
-                <div data-bind="dxNumberBox: {placeholder: 'Candado actual',value:CandadoActual}, dxValidator: {validationRules: [{type: 'required', message: 'Candado actual requerido'}]}"></div>
-                <br />
+
+                <div class="dx-field">
+                    <div class="dx-field-label" style="width:15%;padding:0">
+                        <div data-bind="dxButton: { icon: 'image', type:'danger', onClick: OnScanCandadoAnterior }"></div>
+                    </div>
+                    <div class="dx-field-value" style="width:85%">
+                        <div data-bind="dxNumberBox: {placeholder: 'Candado anterior',value:CandadoAnterior, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado anterior requerido'}]}"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                <div class="dx-field-label" style="width:15%;padding:0">
+                    <div data-bind="dxButton: { icon: 'image', type:'success', onClick: OnScanCandadoActual }"></div>
+                </div>
+                    <div class="dx-field-value" style="width:85%">
+                        <div data-bind="dxNumberBox: {placeholder: 'Candado actual',value:CandadoActual, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado actual requerido'}]}"></div>
+                    </div>
+                </div>
                 <div data-bind="dxNumberBox: {placeholder: 'Litros',value:Litros}, dxValidator: {validationRules: [{type: 'required', message: 'Litros requeridos'}]}"></div>
                 <br />
                 <div style="display: block;margin: auto;width: 40%;">
@@ -57,6 +71,7 @@
                     <div class="centerbtn" data-bind="dxButton: { text: 'Guardar',type:'default', onClick: OnGuardarCandado }"></div>
                 </div>
             </div>
-            </div>
+        </div>
+
     </div>
 </div>

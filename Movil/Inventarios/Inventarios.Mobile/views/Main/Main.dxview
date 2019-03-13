@@ -1,0 +1,10 @@
+<div data-options="dxView : { name: 'Main', title: '' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <div style="width:90%; text-align:center; margin:auto">
+            <br />
+            <div data-bind="dxGallery: { showIndicator:false,height: 300, dataSource: galleryData, stretchImages: true,width:'60%'}" style="width:60%;height:25%;margin-left:20%">
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

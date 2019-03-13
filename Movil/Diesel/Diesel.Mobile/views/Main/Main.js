@@ -7,7 +7,7 @@ Diesel.Main = function (params) {
             var deferred = $.Deferred();
             $.ajax({
                 type: "POST",
-                url: ObtenerUrl() + "/TanquesDiesel",//"http://192.168.0.123:7777/WS/WS-Diesel.asmx",
+                url: ObtenerUrl() + "/TanquesDiesel",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (result) {
@@ -21,9 +21,6 @@ Diesel.Main = function (params) {
         }
     });
 
-    //TanquesDiesel.load().done(function (data) {
-    //    viewModel.TanquesDiesel(data);
-    //});
     var viewModel = {
         DetellePopUp: ko.observable(false),
         CandadoPopUp: ko.observable(false),
@@ -37,9 +34,9 @@ Diesel.Main = function (params) {
         viewShowing: function () {
             var id = window.atob(localStorage.getItem(localStorage.key(0)));
             if (isNaN(id)) {
-                SigobAC.app.navigate({ view: "Login" }, { target: "back" });
+                Diesel.app.navigate({ view: "Login" }, { target: "back" });
             }
-            
+
         },
         viewShown: function () {
             var grid = $("#gridContainer").dxDataGrid("instance");
@@ -54,7 +51,7 @@ Diesel.Main = function (params) {
                 var deferred = $.Deferred();
                 $.ajax({
                     type: "POST",
-                    url: ObtenerUrl() + "/PedidosDiesel",//"http://192.168.0.123:7777/WS/WS-Diesel.asmx",
+                    url: ObtenerUrl() + "/PedidosDiesel",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (result) {
@@ -70,14 +67,13 @@ Diesel.Main = function (params) {
         }),
         TanquesDiesel: ko.observableArray(),
         Tanques: new DevExpress.data.DataSource({
-           store: new DevExpress.data.CustomStore({
+            store: new DevExpress.data.CustomStore({
                 load: function (loadOptions) {
 
                     var deferred = $.Deferred();
-                    // return s;
                     $.ajax({
                         type: "POST",
-                        url: ObtenerUrl() + "/TanquesActuales",//"http://192.168.0.123:7777/WS/WS-Diesel.asmx",
+                        url: ObtenerUrl() + "/TanquesActuales",
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function (result) {
@@ -112,7 +108,6 @@ Diesel.Main = function (params) {
                 var grd = $("#gridContainer").dxDataGrid("instance");
                 var Diesel = grd._options.selectedRowKeys[0]["ID"];
                 var Tanque = $("#rgTanques").dxRadioGroup("instance").option("value");
-                //alert(Usuario);
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/DetalleDieselUnidad",
@@ -124,7 +119,7 @@ Diesel.Main = function (params) {
                     success: function (result) {
                         TanquesDiesel.load().done(function (data) {
                             viewModel.TanquesDiesel(data);
-                        }); 
+                        });
                         viewModel.DetellePopUp(false);
                         grd.refresh();
                         viewModel.Millas('');
@@ -149,7 +144,6 @@ Diesel.Main = function (params) {
             viewModel.Litros('');
             grid.refresh();
             e.validationGroup.reset();
-            
         },
         Columnas: [
             {
@@ -164,29 +158,41 @@ Diesel.Main = function (params) {
             },
             {
                 dataField: "Empleado",
-                caption: "Empleado",
+                caption: "Empleado"
             }
             ,
             {
-                dataField: "Litros",
-                caption: "Litros",
+                dataField: "Tanque1",
+                caption: "Tanque 1",
+                summaryType: 'sum'
+            },
+            {
+                dataField: "Tanque2",
+                caption: "Tanque 2",
                 summaryType: 'sum'
             }
         ],
         Total: {
-            totalItems: [ {
-                column: "Litros",
+            totalItems: [{
+                column: "Tanque1",
                 summaryType: "sum",
                 customizeText: function (data) {
-                    return "Total: " + data.value;
+                    return data.value;
                 }
-            }]
+            },
+            {
+                column: "Tanque2",
+                summaryType: "sum",
+                customizeText: function (data) {
+                    return data.value;
+                }
+            }
+            ]
         },
         OnValidarCandado: function (e) {
             var grd = $("#gridContainer").dxDataGrid("instance");
             var Diesel = grd._options.selectedRowKeys[0]["ID"];
             if (e.component.option("value") != undefined) {
-                //alert(e.component.option("value"));
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/MismoCandado",
@@ -202,6 +208,81 @@ Diesel.Main = function (params) {
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });
+            }
+        },
+        OnScanCandadoAnterior: function (e) {
+
+            var grd = $("#gridContainer").dxDataGrid("instance");
+            var Diesel = grd._options.selectedRowKeys[0]["ID"];
+            cordova.plugins.barcodeScanner.scan(
+                function (result) {
+                    viewModel.CandadoAnterior(parseInt(result.text));
+
+                    if (viewModel.CandadoAnterior() != undefined) {
+                        $.ajax({
+                            type: "POST",
+                            url: ObtenerUrl() + "/MismoCandado",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            data: '{IDDiesel:' + Diesel + ',Candado:' + viewModel.CandadoAnterior() + '}',
+                            success: function (result) {
+                                if (!result.d) {
+                                    viewModel.CandadoPopUp(true);
+                                }
+                            },
+                            error: function (jqXhr, textStatus, errorThrown) {
+                                DevExpress.ui.notify(errorThrown, 'error', 4000);
+                            }
+                        });
+                    }
+                },
+                function (error) {
+                    //viewModel.DetellePopUp(true);
+                },
+                {
+                    preferFrontCamera: true, // iOS and Android
+                    showFlipCameraButton: true, // iOS and Android
+                    showTorchButton: true, // iOS and Android
+                    torchOn: true, // Android, launch with the torch switched on (if available)
+                    saveHistory: true, // Android, save scan history (default false)
+                    prompt: "Place a barcode inside the scan area", // Android
+                    resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+                    formats: "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+                    orientation: "portrait", // Android only (portrait|landscape), default unset so it rotates with the device
+                    disableAnimations: true, // iOS
+                    disableSuccessBeep: false // iOS and Android
+                }
+            );
+
+
+
+        },
+        OnScanCandadoActual: function (e) {
+            if (viewModel.CandadoAnterior() != undefined || viewModel.CandadoAnterior() != '') {
+                cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                        viewModel.CandadoActual(parseInt(result.text));
+                    },
+                    function (error) {
+                        viewModel.DetellePopUp(true);
+                    },
+                    {
+                        preferFrontCamera: true, // iOS and Android
+                        showFlipCameraButton: true, // iOS and Android
+                        showTorchButton: true, // iOS and Android
+                        torchOn: true, // Android, launch with the torch switched on (if available)
+                        saveHistory: true, // Android, save scan history (default false)
+                        prompt: "Place a barcode inside the scan area", // Android
+                        resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+                        formats: "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+                        orientation: "portrait", // Android only (portrait|landscape), default unset so it rotates with the device
+                        disableAnimations: true, // iOS
+                        disableSuccessBeep: false // iOS and Android
+                    }
+                );
+            }
+            else {
+                DevExpress.ui.notify('Debe agregar el candado anterior.', 'error', 4000);
             }
         },
         OnGuardarCandado: function (e) {

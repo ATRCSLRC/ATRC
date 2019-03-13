@@ -1,0 +1,77 @@
+<div data-options="dxView : { name: 'Main', title: 'Gasolina' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <br>
+        <div class="stats" data-bind="foreach: TanquesGasolina">
+            <div>
+                <div data-bind="text: Descripcion" class="sub-title"></div>
+                <div class="stat-value" data-bind="text: Cantidad"></div>
+            </div>
+        </div>
+
+        <div id="gridContainer" data-bind="dxDataGrid:{
+             dataSource: PedidosGasolina,
+             columns: Columnas,
+             summary: Total,
+             rowAlternationEnabled: true,
+             showBorders: false,
+             showColumnLines: false,
+             showRowLines: false,
+             selection: {
+             mode: 'single'
+             },
+             loadPanel: {
+            enabled: true
+            },
+            height: '80%',
+            scrolling: {
+                mode: 'virtual'
+            },
+             onRowClick: OnSeleccion
+             }">
+        </div>
+
+        <div data-bind="dxPopup: { title: Titulo, visible:DetellePopUp, showTitle: true, fullScreen: true,showCloseButton: false, onShown: InicializarDetalle }">
+            <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                <br />
+                <div id="rgTanques" data-bind="dxRadioGroup: { dataSource: Tanques, valueExpr: 'ID', displayExpr: 'Descripcion', layout: 'horizontal', value: TanqueSeleccionado}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
+                <br />
+                <div data-bind="dxNumberBox: {placeholder: 'Millas',value:Millas}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
+
+                <div class="dx-field">
+                    <div class="dx-field-label" style="width:15%;padding:0">
+                        <div data-bind="dxButton: { icon: 'image', type:'danger', onClick: OnScanCandadoAnterior }"></div>
+                    </div>
+                    <div class="dx-field-value" style="width:85%">
+                        <div data-bind="dxNumberBox: {placeholder: 'Candado anterior',value:CandadoAnterior, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado anterior requerido'}]}"></div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                <div class="dx-field-label" style="width:15%;padding:0">
+                    <div data-bind="dxButton: { icon: 'image', type:'success', onClick: OnScanCandadoActual }"></div>
+                </div>
+                    <div class="dx-field-value" style="width:85%">
+                        <div data-bind="dxNumberBox: {placeholder: 'Candado actual',value:CandadoActual, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado actual requerido'}]}"></div>
+                    </div>
+                </div>
+                <div data-bind="dxNumberBox: {placeholder: 'Litros',value:Litros}, dxValidator: {validationRules: [{type: 'required', message: 'Litros requeridos'}]}"></div>
+                <br />
+                <div style="display: block;margin: auto;width: 40%;">
+                    <div data-bind="dxButton: { text: 'Guardar',type:'default', onClick: OnClickGuardar }"></div>
+                    <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnClickCancelar}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="dxPopup: { title: 'Candados diferentes', visible:CandadoPopUp, showTitle: true, fullScreen: false,showCloseButton: false }">
+            <div id="vgValidacionCandado" data-bind="dxValidationGroup: {  }">
+                <br />
+                <div id="memoCandado" data-bind="dxTextArea: {placeholder: 'Detalle del problema',value:DetalleCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Campo requerido'}]}"></div>
+                <br />
+                <div style="display: block;margin: auto;width: 133px;text-align: center">
+                    <div class="centerbtn" data-bind="dxButton: { text: 'Guardar',type:'default', onClick: OnGuardarCandado }"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

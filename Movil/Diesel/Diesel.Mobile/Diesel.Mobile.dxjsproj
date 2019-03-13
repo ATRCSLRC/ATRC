@@ -10,8 +10,8 @@
     <Name>Diesel.Mobile</Name>
     <KeyApkPath>certificates\android_certificate.p12</KeyApkPath>
     <VersionCode>1</VersionCode>
-    <TemplateFileApk />
-    <UseCustomTemplateNameApk>False</UseCustomTemplateNameApk>
+    <TemplateFileApk>templates\ApplicationTemplate.apk</TemplateFileApk>
+    <UseCustomTemplateNameApk>True</UseCustomTemplateNameApk>
     <ApkDexFilePackageName>com.devextreme.Diesel</ApkDexFilePackageName>
     <KeyDebuggable>False</KeyDebuggable>
     <KeyApkAlias>tmpl</KeyApkAlias>
@@ -20,6 +20,7 @@
     <ApplicationTitle>Diesel</ApplicationTitle>
     <VersionPackage>1.0.0.0</VersionPackage>
     <ShowSplashScreen>False</ShowSplashScreen>
+    <PhoneGapTokenKey>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoIiwiaXNzIjoicGdiIiwianRpIjoiZTAyMmU0NGItMTNhZS00ZDM0LWE2NTQtYmIwMjFiZTcyOGFkIn0.VCTYlSFI17u8t73qZYy07ITTxhRMgoAL2pBfVIkQ8ko</PhoneGapTokenKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\Cerrar Sesion\LogOut.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Medidores\Medidores.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\Medidores\Medidores.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\RecargaDiesel\RecargaDiesel.dxview">
@@ -114,6 +121,7 @@
     <None Include="Resources\PackageIcons.Android.ic_launcher_48_48.png" />
     <None Include="Resources\PackageIcons.Android.ic_launcher_72_72.png" />
     <None Include="Resources\PackageIcons.Android.ic_launcher_96_96.png" />
+    <None Include="templates\ApplicationTemplate.apk" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="certificates\" />
@@ -129,10 +137,12 @@
     <Folder Include="layouts\Split\" />
     <Folder Include="img" />
     <Folder Include="Resources\" />
+    <Folder Include="templates\" />
     <Folder Include="views\" />
     <Folder Include="views\Login" />
     <Folder Include="views\Main" />
     <Folder Include="views\Cerrar Sesion" />
+    <Folder Include="views\Medidores" />
     <Folder Include="views\UnidadesDiesel" />
     <Folder Include="views\RecargaDiesel" />
     <Folder Include="views\Tanques" />

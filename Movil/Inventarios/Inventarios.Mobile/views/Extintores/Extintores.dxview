@@ -1,0 +1,79 @@
+<div data-options="dxView : { name: 'Extintores', title: 'Extintores' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <p style="padding: 5px">Seleccionar un extintor de la lista y posteriormente llenar la informaci&#243;n.</p>
+        <div id="gridContainer" data-bind="dxDataGrid:{
+             dataSource: Extintores,
+             searchPanel: { visible: true },
+             columns: Columnas,
+             rowAlternationEnabled: true,
+             showBorders: false,
+             showColumnLines: false,
+             showRowLines: false,
+             selection: {
+             mode: 'single'
+             },
+             loadPanel: {
+            enabled: true
+            },
+            height: '90%',
+            scrolling: {
+                mode: 'virtual'
+            },
+             onRowClick: OnSeleccion
+             }"></div>
+
+        <div data-bind="dxPopup: { title: Titulo, visible:ExtintorPopUp, showTitle: true, fullScreen: true,showCloseButton: false }">
+            <div data-bind="dxScrollView: { showScrollbar: 'never', scrollByContent: true, scrollByThumb: false }">
+                <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Fecha de recarga:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaRecarga,  cancelButtonText: 'Cancelar', applyButtonText: 'Aceptar',  dateSerializationFormat: 'dd/MM/yyyy', displayFormat: 'dd/MM/yyyy'}, dxValidator: {validationRules: [{type: 'required', message: 'Fecha recarga requerida'}]}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Fecha de vencimiento:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaVencimiento, displayFormat: 'dd/MM/yyyy'}, , dxValidator: {validationRules: [{type: 'required', message: 'Fecha vencimiento requerida'}]}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Ubicaci&#243;n:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxSelectBox: { dataSource: Ubicaciones, value: SeleccionUbicacion, valueExpr: 'ID', displayExpr: 'Nombre', onValueChanged: OnUbicacion }, , dxValidator: {validationRules: [{type: 'required', message: 'Ubicacion requerida'}]}"></div>
+                        </div>
+                    </div>
+                    <div id="divDestino" class="dx-field">
+                        <div class="dx-field-label">Destino:</div>
+                        <div class="dx-field-value">
+                            <div id="comboUnidad" data-bind="dxSelectBox: { dataSource: Unidades, valueExpr: 'ID', displayExpr: 'Nombre', value: Unidad}"></div>
+                            <div id="txtOficina" data-bind="dxTextBox: {value: Oficina}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Peso:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxNumberBox: { value: Peso, format:'#0.##' }, dxValidator: {validationRules: [{type: 'required', message: 'Peso requerido'}]}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Estado:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxSelectBox: { dataSource: Estados, value: SeleccionEstado, valueExpr: 'ID', displayExpr: 'Nombre' }, dxValidator: {validationRules: [{type: 'required', message: 'Estado requerido'}]}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Comentario:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxTextArea: { value: Comentario}"></div>
+                        </div>
+                    </div>
+                    <div style="display: block;margin: auto;width: 40%;">
+                        <div data-bind="dxButton: { text: 'Guardar',type:'default', onClick: OnClickGuardar }"></div>
+                        <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnClickCancelar}"></div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

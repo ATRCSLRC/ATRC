@@ -1,0 +1,20 @@
+<div data-options="dxView : { name: 'RecargaGasolina', title: 'Recarga de gasolina' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <div style="width:95%; text-align:center; margin:auto">
+            <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                <br />
+                <div id="sbTanques" data-bind="dxSelectBox: { placeholder: 'Tanque', dataSource: TanquesGasolina,valueExpr: 'ID', displayExpr: 'Descripcion', value: SeleccionTanque, onSelectionChanged: OnTanqueSeleccion}, dxValidator: {validationRules: [{type: 'required', message: 'Seleccioné un tanque'}]}"></div>
+                <br />
+                <div id="txtPrecio" data-bind="dxNumberBox: {placeholder: 'Precio',  value: Precio, format:'$ #0.##'}, dxValidator: {validationRules: [{type: 'required', message: 'Precio requerido'}]}"></div>
+                <br />
+                <div id="txtCantidad" data-bind="dxNumberBox: {placeholder: 'Cantidad (lts)',  value: Cantidad}, dxValidator: {validationRules: [{type: 'required', message: 'Cantidad requerida'}]}"></div>
+                <br />
+                <div style="display: inline;margin: auto;width: 133px;">
+                    <div data-bind="dxButton: { onClick: OnGuardarRecarga, text: 'Guardar' }"></div>
+                    <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnCancelar}"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div data-options="dxView : { name: 'Baterias', title: 'Baterias' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " class="dx-content-background">
+        <p style="padding: 5px">Seleccionar una unidad de la lista y posteriormente llenar la informaci&#243;n.</p>
+        <div id="gridContainer" data-bind="dxDataGrid:{
+             dataSource: Unidades,
+             searchPanel: { visible: true },
+             columns: Columnas,
+             rowAlternationEnabled: true,
+             showBorders: false,
+             showColumnLines: false,
+             showRowLines: false,
+             selection: {
+             mode: 'single'
+             },
+             loadPanel: {
+            enabled: true
+            },
+            height: '90%',
+            scrolling: {
+                mode: 'virtual'
+            },
+             onRowClick: OnSeleccion
+             }"></div>
+
+        <div data-bind="dxPopup: { title: Titulo, visible:BateriasPopUp, showTitle: true, fullScreen: true,showCloseButton: false }">
+            <div data-bind="dxScrollView: { showScrollbar: 'never', scrollByContent: true, scrollByThumb: false }">
+                <div id="vgValidacion" data-bind="dxValidationGroup: {  }">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Baterias:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxTagBox: { acceptCustomValue: true, hideSelectedItems: true, value: Bateria, onOptionChanged: OnOption}, dxValidator: {validationRules: [{type: 'required', message: 'Bateria requerida'}]}"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Comentario:</div>
+                        <div class="dx-field-value">
+                            <div data-bind="dxTextArea: { value: Comentario}"></div>
+                        </div>
+                    </div>
+                    <div style="display: block;margin: auto;width: 40%;">
+                        <div data-bind="dxButton: { text: 'Guardar',type:'default', onClick: OnClickGuardar }"></div>
+                        <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnClickCancelar}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
