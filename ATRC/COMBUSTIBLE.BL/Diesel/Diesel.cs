@@ -8,10 +8,10 @@ using UNIDADES.BL;
 
 namespace COMBUSTIBLE.BL
 {
-    [Persistent("Com_Gasolina")]
-    public class Gasolina : ATRCBase
+    [Persistent("Com_Diesel")]
+    public class Diesel : ATRCBase
     {
-        public Gasolina(Session session) : base(session) { }
+        public Diesel(Session session) : base(session) { }
 
         private Usuario mEmpleado;
         public Usuario Empleado
@@ -81,6 +81,13 @@ namespace COMBUSTIBLE.BL
         {
             get { return mUltimaRecarga; }
             set { SetPropertyValue<RecargaDiesel>("UltimaRecarga", ref mUltimaRecarga, value); }
+        }
+
+        private MedidorDiesel mMedidorDiesel;
+        public MedidorDiesel MedidorDiesel
+        {
+            get { return mMedidorDiesel; }
+            set { SetPropertyValue<MedidorDiesel>("MedidorDiesel", ref mMedidorDiesel, value); }
         }
     }
 }

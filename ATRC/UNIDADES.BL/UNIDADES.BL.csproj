@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Extintores.cs" />
+    <Compile Include="Clases\HistorialBaterias.cs" />
     <Compile Include="Clases\HistorialExtintores.cs" />
     <Compile Include="Clases\Radios.cs" />
     <Compile Include="Clases\Servicios.cs" />

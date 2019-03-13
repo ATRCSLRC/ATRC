@@ -78,7 +78,7 @@ namespace UNIDADES.WIN
                     Servicio.Unidad = ((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject());
                     if ((Enums.ServiciosUnidad)rgTipoServicio.EditValue == Enums.ServiciosUnidad.CambioAceite)
                     {
-                        Servicio.Unidad.Millas = txtMillas.Text;
+                        //Servicio.Unidad.Millas = txtMillas.Text;
                         Servicio.Unidad.UltimoCambioAceite = dteFecha.DateTime;
                     }
                     Servicio.Save();

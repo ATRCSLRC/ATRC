@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using COMBUSTIBLE.BL;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraCharts;
@@ -52,11 +53,23 @@ namespace UNIDADES.WIN.Reportes
                 Salidas.AddProperty("Total", "[Salidas].Sum([Cantidad] * [Factura.Precio])");
                 Salidas.Criteria = go;
 
+                int Combustible = 0;
+                if (Unidad.Combustible == Enums.Combustible.Diesel)
+                {
+                    GroupOperator goDiesel = new GroupOperator(GroupOperatorType.And);
+                    goDiesel.Operands.Add(new BinaryOperator("Fecha", dteDel.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
+                    goDiesel.Operands.Add(new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual));
+                    goDiesel.Operands.Add(new BinaryOperator("Unidad.Oid", Unidad.Oid));
+                    goDiesel.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+                    XPView Diesel = new XPView(UnidadTrabajo, typeof(Diesel), "Oid;Litros", goDiesel);
+                    Combustible = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
+                }
+
                 if (Salidas.Count > 0)
                 {
                     Grafica.Series[0].Points.RemoveRange(0, Grafica.Series[0].Points.Count);
                     fypImprimir.ShowPopup();
-                    Grafica.Series[0].Points.Add(new SeriesPoint("Combustible", 0));
+                    Grafica.Series[0].Points.Add(new SeriesPoint("Combustible", Combustible));
                     Grafica.Series[0].Points.Add(new SeriesPoint("Almacen", Salidas[0]["Total"]));
                 }
             }else

@@ -7,6 +7,7 @@ using DevExpress.Xpo;
 using COMBUSTIBLE.BL;
 using ATRCBASE.BL;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo.DB;
 
 namespace REPORTES.Combustible
 {
@@ -20,7 +21,9 @@ namespace REPORTES.Combustible
             go.Operands.Add(new BinaryOperator("Fecha", De.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("Fecha", Al.Date, BinaryOperatorType.LessOrEqual));
             go.Operands.Add(new BinaryOperator("Unidad.Oid", Oid));
+            go.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
             XPView Diesel = new XPView(Unidad, typeof(Diesel), "Oid;Millas;Fecha;Litros;UltimaRecarga.PrecioLitro;MillasRecorridas;Unidad.Nombre;Unidad.Oid", go );
+            Diesel.Sorting.Add(new SortProperty("Millas", SortingDirection.Ascending));
             this.DataSource = Diesel;
         }
 

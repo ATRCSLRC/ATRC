@@ -143,6 +143,13 @@ namespace UNIDADES.BL
             set { SetPropertyValue<string>("Baterias", ref mBaterias, value); }
         }
 
+        private DateTime mFechaInventarioBaterias;
+        public DateTime FechaInventarioBaterias
+        {
+            get { return mFechaInventarioBaterias; }
+            set { SetPropertyValue<DateTime>("FechaInventarioBaterias", ref mFechaInventarioBaterias, value); }
+        }
+
         private int mAsientos;
         public int Asientos
         {
@@ -308,6 +315,15 @@ namespace UNIDADES.BL
         public object LlantaTraseraExtEstribo
         {
             get { return this.GetMemberValue("LlantaTraseraExteriorEstribo"); }
+        }
+
+        public void GenerarHistorialBaterias(string Baterias, DateTime Fecha)
+        {
+            HistorialBaterias Historial = new HistorialBaterias(this.Session);
+            Historial.Unidad = this;
+            Historial.Baterias = Baterias;
+            Historial.FechaInventarioBaterias = Fecha;
+            Historial.Save();
         }
     }
 }

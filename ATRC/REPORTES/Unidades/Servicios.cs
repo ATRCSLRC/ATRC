@@ -24,6 +24,7 @@ namespace REPORTES.Unidades
                 go.Operands.Add(new BinaryOperator("Unidad.Oid", IDUnidad));
 
             XPCollection XPServicios = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(UNIDADES.BL.Servicios), go);
+            XPServicios.Sorting.Add(new SortingCollection(new SortProperty("Fecha", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             this.DataSource = XPServicios;
             lblDetalles.Text = "Del: " + FechaDel.ToShortDateString() + " Al: " + FechaAl.ToShortDateString();
         }

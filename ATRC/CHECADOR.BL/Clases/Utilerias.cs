@@ -205,7 +205,8 @@ namespace CHECADOR.BL
 
             if (min == 100)
             {
-                Horas++;
+                 Horas++;
+                return Horas;
             }
             return min < 10 ? Convert.ToDecimal(Convert.ToDouble(".0" + min) + Horas) : Convert.ToDecimal(Horas + "." + min);
         }

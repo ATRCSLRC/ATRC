@@ -73,6 +73,16 @@ namespace COMBUSTIBLE.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guardar1 {
+            get {
+                object obj = ResourceManager.GetObject("Guardar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_manómetro_de_buceo_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-manómetro-de-buceo-32", resourceCulture);

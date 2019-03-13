@@ -42,6 +42,7 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -51,7 +52,6 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -180,7 +180,7 @@
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.Red;
-            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(111.4584F, 114.5416F);
+            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(119.4166F, 114.5416F);
             this.lblColor.Name = "lblColor";
             this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblColor.SizeF = new System.Drawing.SizeF(630.8333F, 5.791664F);
@@ -197,6 +197,14 @@
             this.lblTitulo.StylePriority.UseTextAlignment = false;
             this.lblTitulo.Text = "Auto transportes del río colorado S.A. de C.V.";
             this.lblTitulo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 11.66667F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(111.4584F, 108.6666F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
             // BottomMargin
             // 
@@ -291,14 +299,6 @@
             // 
             this.objectDataSource1.DataSource = typeof(COMBUSTIBLE.BL.Diesel);
             this.objectDataSource1.Name = "objectDataSource1";
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 11.66667F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(111.4584F, 108.6666F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
             // UnidadesConDiesel
             // 

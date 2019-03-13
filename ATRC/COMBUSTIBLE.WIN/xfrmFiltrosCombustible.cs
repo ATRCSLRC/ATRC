@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using UNIDADES.BL;
 using static ATRCBASE.BL.Enums;
 using REPORTES.Combustible;
+using DevExpress.Xpo.DB;
 
 namespace COMBUSTIBLE.WIN
 {
@@ -41,6 +42,7 @@ namespace COMBUSTIBLE.WIN
                       new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                       new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                      });
+                    Unidades.Sorting.Add(new SortProperty("Nombre", SortingDirection.Ascending));
                     Unidades.Criteria = bo;
                     lueUnidad.Properties.DataSource = Unidades;
                     this.Text = "Consumo de unidad";

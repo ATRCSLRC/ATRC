@@ -54,13 +54,19 @@ namespace COMBUSTIBLE.WIN
                     UltimaRecarga.TopReturnedRecords = 1;
                     if (UltimaRecarga.Count > 0)
                     {
-                        
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("Final", 0));
+                        go.Operands.Add(new BinaryOperator("Tanque", Tanque));
+                        XPView Medidor = new XPView(Diesel.Session, typeof(MedidorDiesel), "Oid", go);
+                        Medidor.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
+
                         Diesel.Millas =  Convert.ToInt64(txtMillas.Text);
                         Diesel.MillasRecorridas = Convert.ToInt64(txtMillas.Text) - Convert.ToInt64(Diesel.Unidad.Millas);
                         Diesel.Unidad.Millas = txtMillas.Text;
                         Diesel.CandadoAnterior = Convert.ToInt64(txtCandadoAnterior.Text);
                         Diesel.CandadoActual = Convert.ToInt64(txtCandadoActual.Text);
                         Diesel.Litros = Convert.ToInt32(txtLitros.Text);
+                        Diesel.MedidorDiesel = (Medidor[0].GetObject()) as MedidorDiesel;
                         Diesel.Llenado = true;
                         Diesel.UltimaRecarga = (UltimaRecarga[0].GetObject()) as RecargaDiesel;
                         Tanque.Cantidad -= Convert.ToInt32(txtLitros.Text);

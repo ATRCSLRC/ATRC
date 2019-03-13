@@ -6,6 +6,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.Xpo;
 using UNIDADES.BL;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo.DB;
 
 namespace REPORTES.Unidades
 {

@@ -555,5 +555,21 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show(); 
         }
+
+        private void bbiHistorialInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmHistorialExtintores xfrm = new UNIDADES.WIN.xfrmHistorialExtintores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPedidoGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmUnidadesGasolina xfrm = new COMBUSTIBLE.WIN.xfrmUnidadesGasolina();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
     }
 }

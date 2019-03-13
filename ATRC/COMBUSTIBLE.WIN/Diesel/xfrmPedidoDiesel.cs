@@ -93,14 +93,24 @@ namespace COMBUSTIBLE.WIN
                 }
                 else
                 {
-                    Diesel Diesel = new Diesel(Unidad);
-                    Diesel.Empleado = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
-                    Diesel.Unidad = UnidadDiesel;
-                    Diesel.Fecha = dteFecha.DateTime.Date;
-                    Diesel.Save();
-                    Unidad.CommitChanges();
-                    XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
-                    LimipiarControles();
+                    Usuario Usuario = UnidadControles.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
+                    if (Usuario == null)
+                    {
+                        XtraMessageBox.Show("No existe usuario con este número de empleado.");
+                        lblEmpleado.Text = string.Empty;
+                        txtEmpleado.EditValue = null;
+                    }
+                    else
+                    {
+                        Diesel Diesel = new Diesel(Unidad);
+                        Diesel.Empleado = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
+                        Diesel.Unidad = UnidadDiesel;
+                        Diesel.Fecha = dteFecha.DateTime.Date;
+                        Diesel.Save();
+                        Unidad.CommitChanges();
+                        XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
+                        LimipiarControles();
+                    }
                 }
                 if (Captura)
                     this.Close();
