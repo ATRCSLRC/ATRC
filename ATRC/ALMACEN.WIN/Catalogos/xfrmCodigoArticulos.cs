@@ -27,7 +27,8 @@ namespace ALMACEN.WIN
             Articulos.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true),
-                  new ViewProperty("Codigo", SortDirection.None, "[Codigo]", false, true)
+                  new ViewProperty("Codigo", SortDirection.None, "[Codigo]", false, true),
+                  new ViewProperty("Cantidad", SortDirection.None, "[Facturas].Sum([Cantidad])", false, true)
                  });
 
             grdArticulos.DataSource = Articulos;

@@ -141,6 +141,10 @@
             this.lueTraseraInteriorEstribo.Name = "lueTraseraInteriorEstribo";
             this.lueTraseraInteriorEstribo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTraseraInteriorEstribo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Medida", "Medida"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Serie", "Serie"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Marca.Nombre", "Marca")});
             this.lueTraseraInteriorEstribo.Properties.NullText = "[Seleccioné]";
             this.lueTraseraInteriorEstribo.Size = new System.Drawing.Size(196, 20);
             this.lueTraseraInteriorEstribo.TabIndex = 19;
@@ -267,6 +271,10 @@
             this.lueTraseroExteriorChofer.Name = "lueTraseroExteriorChofer";
             this.lueTraseroExteriorChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTraseroExteriorChofer.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Medida", "Medida"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Serie", "Serie"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Marca.Nombre", "Marca")});
             this.lueTraseroExteriorChofer.Properties.NullText = "[Seleccioné]";
             this.lueTraseroExteriorChofer.Size = new System.Drawing.Size(195, 20);
             this.lueTraseroExteriorChofer.TabIndex = 11;
@@ -279,6 +287,10 @@
             this.lueTraseraInteriorChofer.Name = "lueTraseraInteriorChofer";
             this.lueTraseraInteriorChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTraseraInteriorChofer.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Medida", "Medida"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Serie", "Serie"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Marca.Nombre", "Marca")});
             this.lueTraseraInteriorChofer.Properties.NullText = "[Seleccioné]";
             this.lueTraseraInteriorChofer.Size = new System.Drawing.Size(195, 20);
             this.lueTraseraInteriorChofer.TabIndex = 9;
@@ -308,6 +320,10 @@
             this.lueTraseroExteriorEstribo.Name = "lueTraseroExteriorEstribo";
             this.lueTraseroExteriorEstribo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTraseroExteriorEstribo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Medida", "Medida"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Serie", "Serie"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Factura.Marca.Nombre", "Marca")});
             this.lueTraseroExteriorEstribo.Properties.NullText = "[Seleccioné]";
             this.lueTraseroExteriorEstribo.Size = new System.Drawing.Size(196, 20);
             this.lueTraseroExteriorEstribo.TabIndex = 7;
@@ -355,6 +371,9 @@
             this.lueUnidad.Properties.Appearance.Options.UseForeColor = true;
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TipoUnidad", "Tipo de unidad")});
             this.lueUnidad.Properties.DisplayMember = "Nombre";
             this.lueUnidad.Size = new System.Drawing.Size(513, 20);
             this.lueUnidad.TabIndex = 4;

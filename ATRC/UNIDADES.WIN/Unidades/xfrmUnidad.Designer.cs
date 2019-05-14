@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUnidad));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -83,13 +82,13 @@
             this.lciAireAcondicionado = new DevExpress.XtraLayout.LayoutControlItem();
             this.TabExterior = new DevExpress.XtraTab.XtraTabPage();
             this.lcExterior = new DevExpress.XtraLayout.LayoutControl();
+            this.lueExtintor = new DevExpress.XtraEditors.LookUpEdit();
             this.tknBaterias = new DevExpress.XtraEditors.TokenEdit();
             this.rgRadio = new DevExpress.XtraEditors.RadioGroup();
             this.spnVentanas = new DevExpress.XtraEditors.SpinEdit();
             this.spnAbanicos = new DevExpress.XtraEditors.SpinEdit();
             this.spnAsientos = new DevExpress.XtraEditors.SpinEdit();
             this.rgTrancas = new DevExpress.XtraEditors.RadioGroup();
-            this.rgExtinguidor = new DevExpress.XtraEditors.RadioGroup();
             this.rgCamaras = new DevExpress.XtraEditors.RadioGroup();
             this.rgBocinas = new DevExpress.XtraEditors.RadioGroup();
             this.rgEstereo = new DevExpress.XtraEditors.RadioGroup();
@@ -101,7 +100,6 @@
             this.lciEstereo = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBocinas = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCamaras = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciExtinguidor = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTrancas = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAsientos = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciAbanicos = new DevExpress.XtraLayout.LayoutControlItem();
@@ -109,6 +107,7 @@
             this.lciRadio = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciBaterias = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciExtintor = new DevExpress.XtraLayout.LayoutControlItem();
             this.TabFiltros = new DevExpress.XtraTab.XtraTabPage();
             this.lcFiltros = new DevExpress.XtraLayout.LayoutControl();
             this.txtFiltroAgua = new DevExpress.XtraEditors.TextEdit();
@@ -138,7 +137,7 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
-            this.OpenFile = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.OpenFile = new DevExpress.XtraEditors.XtraOpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -194,13 +193,13 @@
             this.TabExterior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcExterior)).BeginInit();
             this.lcExterior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueExtintor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tknBaterias.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgRadio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnVentanas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnAbanicos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnAsientos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTrancas.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgExtinguidor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgCamaras.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgBocinas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgEstereo.Properties)).BeginInit();
@@ -212,7 +211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciEstereo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBocinas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCamaras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciExtinguidor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTrancas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAsientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAbanicos)).BeginInit();
@@ -220,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciRadio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciExtintor)).BeginInit();
             this.TabFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcFiltros)).BeginInit();
             this.lcFiltros.SuspendLayout();
@@ -840,13 +839,13 @@
             // 
             // lcExterior
             // 
+            this.lcExterior.Controls.Add(this.lueExtintor);
             this.lcExterior.Controls.Add(this.tknBaterias);
             this.lcExterior.Controls.Add(this.rgRadio);
             this.lcExterior.Controls.Add(this.spnVentanas);
             this.lcExterior.Controls.Add(this.spnAbanicos);
             this.lcExterior.Controls.Add(this.spnAsientos);
             this.lcExterior.Controls.Add(this.rgTrancas);
-            this.lcExterior.Controls.Add(this.rgExtinguidor);
             this.lcExterior.Controls.Add(this.rgCamaras);
             this.lcExterior.Controls.Add(this.rgBocinas);
             this.lcExterior.Controls.Add(this.rgEstereo);
@@ -861,6 +860,22 @@
             this.lcExterior.TabIndex = 0;
             this.lcExterior.Text = "layoutControl1";
             // 
+            // lueExtintor
+            // 
+            this.lueExtintor.Location = new System.Drawing.Point(109, 132);
+            this.lueExtintor.MenuManager = this.ribbonControl1;
+            this.lueExtintor.Name = "lueExtintor";
+            this.lueExtintor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueExtintor.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ubicacion", "Ubicacion")});
+            this.lueExtintor.Properties.DisplayMember = "Nombre";
+            this.lueExtintor.Properties.ValueMember = "Oid";
+            this.lueExtintor.Size = new System.Drawing.Size(424, 20);
+            this.lueExtintor.StyleController = this.lcExterior;
+            this.lueExtintor.TabIndex = 16;
+            // 
             // tknBaterias
             // 
             this.tknBaterias.Location = new System.Drawing.Point(109, 36);
@@ -870,20 +885,20 @@
             this.tknBaterias.Properties.Separators.AddRange(new string[] {
             ",",
             ";"});
-            this.tknBaterias.Size = new System.Drawing.Size(441, 20);
+            this.tknBaterias.Size = new System.Drawing.Size(424, 20);
             this.tknBaterias.StyleController = this.lcExterior;
             this.tknBaterias.TabIndex = 15;
             this.tknBaterias.ValidateToken += new DevExpress.XtraEditors.TokenEditValidateTokenEventHandler(this.tknBaterias_ValidateToken);
             // 
             // rgRadio
             // 
-            this.rgRadio.Location = new System.Drawing.Point(109, 277);
+            this.rgRadio.Location = new System.Drawing.Point(109, 272);
             this.rgRadio.MenuManager = this.ribbonControl1;
             this.rgRadio.Name = "rgRadio";
             this.rgRadio.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgRadio.Size = new System.Drawing.Size(441, 25);
+            this.rgRadio.Size = new System.Drawing.Size(424, 25);
             this.rgRadio.StyleController = this.lcExterior;
             this.rgRadio.TabIndex = 14;
             this.rgRadio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rgRadio_KeyUp);
@@ -905,7 +920,7 @@
             0,
             0,
             0});
-            this.spnVentanas.Size = new System.Drawing.Size(441, 20);
+            this.spnVentanas.Size = new System.Drawing.Size(424, 20);
             this.spnVentanas.StyleController = this.lcExterior;
             this.spnVentanas.TabIndex = 13;
             // 
@@ -926,7 +941,7 @@
             0,
             0,
             0});
-            this.spnAbanicos.Size = new System.Drawing.Size(441, 20);
+            this.spnAbanicos.Size = new System.Drawing.Size(424, 20);
             this.spnAbanicos.StyleController = this.lcExterior;
             this.spnAbanicos.TabIndex = 12;
             // 
@@ -947,80 +962,68 @@
             0,
             0,
             0});
-            this.spnAsientos.Size = new System.Drawing.Size(441, 20);
+            this.spnAsientos.Size = new System.Drawing.Size(424, 20);
             this.spnAsientos.StyleController = this.lcExterior;
             this.spnAsientos.TabIndex = 11;
             // 
             // rgTrancas
             // 
-            this.rgTrancas.Location = new System.Drawing.Point(109, 248);
+            this.rgTrancas.Location = new System.Drawing.Point(109, 243);
             this.rgTrancas.MenuManager = this.ribbonControl1;
             this.rgTrancas.Name = "rgTrancas";
             this.rgTrancas.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgTrancas.Size = new System.Drawing.Size(441, 25);
+            this.rgTrancas.Size = new System.Drawing.Size(424, 25);
             this.rgTrancas.StyleController = this.lcExterior;
             this.rgTrancas.TabIndex = 10;
             // 
-            // rgExtinguidor
-            // 
-            this.rgExtinguidor.Location = new System.Drawing.Point(109, 219);
-            this.rgExtinguidor.MenuManager = this.ribbonControl1;
-            this.rgExtinguidor.Name = "rgExtinguidor";
-            this.rgExtinguidor.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgExtinguidor.Size = new System.Drawing.Size(441, 25);
-            this.rgExtinguidor.StyleController = this.lcExterior;
-            this.rgExtinguidor.TabIndex = 9;
-            // 
             // rgCamaras
             // 
-            this.rgCamaras.Location = new System.Drawing.Point(109, 190);
+            this.rgCamaras.Location = new System.Drawing.Point(109, 214);
             this.rgCamaras.MenuManager = this.ribbonControl1;
             this.rgCamaras.Name = "rgCamaras";
             this.rgCamaras.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgCamaras.Size = new System.Drawing.Size(441, 25);
+            this.rgCamaras.Size = new System.Drawing.Size(424, 25);
             this.rgCamaras.StyleController = this.lcExterior;
             this.rgCamaras.TabIndex = 8;
             // 
             // rgBocinas
             // 
-            this.rgBocinas.Location = new System.Drawing.Point(109, 161);
+            this.rgBocinas.Location = new System.Drawing.Point(109, 185);
             this.rgBocinas.MenuManager = this.ribbonControl1;
             this.rgBocinas.Name = "rgBocinas";
             this.rgBocinas.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.rgBocinas.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgBocinas.Size = new System.Drawing.Size(441, 25);
+            this.rgBocinas.Size = new System.Drawing.Size(424, 25);
             this.rgBocinas.StyleController = this.lcExterior;
             this.rgBocinas.TabIndex = 7;
             // 
             // rgEstereo
             // 
-            this.rgEstereo.Location = new System.Drawing.Point(109, 132);
+            this.rgEstereo.Location = new System.Drawing.Point(109, 156);
             this.rgEstereo.MenuManager = this.ribbonControl1;
             this.rgEstereo.Name = "rgEstereo";
             this.rgEstereo.Properties.Columns = 2;
             this.rgEstereo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgEstereo.Size = new System.Drawing.Size(441, 25);
+            this.rgEstereo.Size = new System.Drawing.Size(424, 25);
             this.rgEstereo.StyleController = this.lcExterior;
             this.rgEstereo.TabIndex = 6;
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(282, 12);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(274, 12);
             this.txtNombreUsuario.MenuManager = this.ribbonControl1;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreUsuario.Properties.ReadOnly = true;
-            this.txtNombreUsuario.Size = new System.Drawing.Size(268, 20);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(259, 20);
             this.txtNombreUsuario.StyleController = this.lcExterior;
             this.txtNombreUsuario.TabIndex = 5;
             // 
@@ -1032,7 +1035,7 @@
             this.btnNumeroUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnNumeroUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnNumeroUsuario_Properties_ButtonClick);
-            this.btnNumeroUsuario.Size = new System.Drawing.Size(169, 20);
+            this.btnNumeroUsuario.Size = new System.Drawing.Size(161, 20);
             this.btnNumeroUsuario.StyleController = this.lcExterior;
             this.btnNumeroUsuario.TabIndex = 4;
             this.btnNumeroUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnNumeroUsuario_KeyDown);
@@ -1048,16 +1051,16 @@
             this.lciEstereo,
             this.lciBocinas,
             this.lciCamaras,
-            this.lciExtinguidor,
             this.lciTrancas,
             this.lciAsientos,
             this.lciAbanicos,
             this.lciVentanas,
             this.lciRadio,
             this.emptySpaceItem2,
-            this.lciBaterias});
+            this.lciBaterias,
+            this.lciExtintor});
             this.layoutControlGroup4.Name = "Root";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(562, 324);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(545, 319);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // lciNumUsuario
@@ -1065,27 +1068,27 @@
             this.lciNumUsuario.Control = this.btnNumeroUsuario;
             this.lciNumUsuario.Location = new System.Drawing.Point(0, 0);
             this.lciNumUsuario.Name = "lciNumUsuario";
-            this.lciNumUsuario.Size = new System.Drawing.Size(270, 24);
+            this.lciNumUsuario.Size = new System.Drawing.Size(262, 24);
             this.lciNumUsuario.Text = "Número de usuario:";
             this.lciNumUsuario.TextSize = new System.Drawing.Size(94, 13);
             // 
             // lciNombreUsuario
             // 
             this.lciNombreUsuario.Control = this.txtNombreUsuario;
-            this.lciNombreUsuario.Location = new System.Drawing.Point(270, 0);
+            this.lciNombreUsuario.Location = new System.Drawing.Point(262, 0);
             this.lciNombreUsuario.Name = "lciNombreUsuario";
-            this.lciNombreUsuario.Size = new System.Drawing.Size(272, 24);
+            this.lciNombreUsuario.Size = new System.Drawing.Size(263, 24);
             this.lciNombreUsuario.TextSize = new System.Drawing.Size(0, 0);
             this.lciNombreUsuario.TextVisible = false;
             // 
             // lciEstereo
             // 
             this.lciEstereo.Control = this.rgEstereo;
-            this.lciEstereo.Location = new System.Drawing.Point(0, 120);
+            this.lciEstereo.Location = new System.Drawing.Point(0, 144);
             this.lciEstereo.MaxSize = new System.Drawing.Size(0, 29);
             this.lciEstereo.MinSize = new System.Drawing.Size(151, 29);
             this.lciEstereo.Name = "lciEstereo";
-            this.lciEstereo.Size = new System.Drawing.Size(542, 29);
+            this.lciEstereo.Size = new System.Drawing.Size(525, 29);
             this.lciEstereo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciEstereo.Text = "Estéreo:";
             this.lciEstereo.TextSize = new System.Drawing.Size(94, 13);
@@ -1093,11 +1096,11 @@
             // lciBocinas
             // 
             this.lciBocinas.Control = this.rgBocinas;
-            this.lciBocinas.Location = new System.Drawing.Point(0, 149);
+            this.lciBocinas.Location = new System.Drawing.Point(0, 173);
             this.lciBocinas.MaxSize = new System.Drawing.Size(0, 29);
             this.lciBocinas.MinSize = new System.Drawing.Size(151, 29);
             this.lciBocinas.Name = "lciBocinas";
-            this.lciBocinas.Size = new System.Drawing.Size(542, 29);
+            this.lciBocinas.Size = new System.Drawing.Size(525, 29);
             this.lciBocinas.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciBocinas.Text = "Bocinas:";
             this.lciBocinas.TextSize = new System.Drawing.Size(94, 13);
@@ -1105,35 +1108,23 @@
             // lciCamaras
             // 
             this.lciCamaras.Control = this.rgCamaras;
-            this.lciCamaras.Location = new System.Drawing.Point(0, 178);
+            this.lciCamaras.Location = new System.Drawing.Point(0, 202);
             this.lciCamaras.MaxSize = new System.Drawing.Size(0, 29);
             this.lciCamaras.MinSize = new System.Drawing.Size(151, 29);
             this.lciCamaras.Name = "lciCamaras";
-            this.lciCamaras.Size = new System.Drawing.Size(542, 29);
+            this.lciCamaras.Size = new System.Drawing.Size(525, 29);
             this.lciCamaras.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCamaras.Text = "Cámaras:";
             this.lciCamaras.TextSize = new System.Drawing.Size(94, 13);
             // 
-            // lciExtinguidor
-            // 
-            this.lciExtinguidor.Control = this.rgExtinguidor;
-            this.lciExtinguidor.Location = new System.Drawing.Point(0, 207);
-            this.lciExtinguidor.MaxSize = new System.Drawing.Size(0, 29);
-            this.lciExtinguidor.MinSize = new System.Drawing.Size(151, 29);
-            this.lciExtinguidor.Name = "lciExtinguidor";
-            this.lciExtinguidor.Size = new System.Drawing.Size(542, 29);
-            this.lciExtinguidor.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciExtinguidor.Text = "Extinguidor:";
-            this.lciExtinguidor.TextSize = new System.Drawing.Size(94, 13);
-            // 
             // lciTrancas
             // 
             this.lciTrancas.Control = this.rgTrancas;
-            this.lciTrancas.Location = new System.Drawing.Point(0, 236);
+            this.lciTrancas.Location = new System.Drawing.Point(0, 231);
             this.lciTrancas.MaxSize = new System.Drawing.Size(0, 29);
             this.lciTrancas.MinSize = new System.Drawing.Size(151, 29);
             this.lciTrancas.Name = "lciTrancas";
-            this.lciTrancas.Size = new System.Drawing.Size(542, 29);
+            this.lciTrancas.Size = new System.Drawing.Size(525, 29);
             this.lciTrancas.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTrancas.Text = "Trancas:";
             this.lciTrancas.TextSize = new System.Drawing.Size(94, 13);
@@ -1143,7 +1134,7 @@
             this.lciAsientos.Control = this.spnAsientos;
             this.lciAsientos.Location = new System.Drawing.Point(0, 48);
             this.lciAsientos.Name = "lciAsientos";
-            this.lciAsientos.Size = new System.Drawing.Size(542, 24);
+            this.lciAsientos.Size = new System.Drawing.Size(525, 24);
             this.lciAsientos.Text = "Asientos:";
             this.lciAsientos.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1152,7 +1143,7 @@
             this.lciAbanicos.Control = this.spnAbanicos;
             this.lciAbanicos.Location = new System.Drawing.Point(0, 72);
             this.lciAbanicos.Name = "lciAbanicos";
-            this.lciAbanicos.Size = new System.Drawing.Size(542, 24);
+            this.lciAbanicos.Size = new System.Drawing.Size(525, 24);
             this.lciAbanicos.Text = "Abanicos:";
             this.lciAbanicos.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1161,18 +1152,18 @@
             this.lciVentanas.Control = this.spnVentanas;
             this.lciVentanas.Location = new System.Drawing.Point(0, 96);
             this.lciVentanas.Name = "lciVentanas";
-            this.lciVentanas.Size = new System.Drawing.Size(542, 24);
+            this.lciVentanas.Size = new System.Drawing.Size(525, 24);
             this.lciVentanas.Text = "Ventanas laterales:";
             this.lciVentanas.TextSize = new System.Drawing.Size(94, 13);
             // 
             // lciRadio
             // 
             this.lciRadio.Control = this.rgRadio;
-            this.lciRadio.Location = new System.Drawing.Point(0, 265);
+            this.lciRadio.Location = new System.Drawing.Point(0, 260);
             this.lciRadio.MaxSize = new System.Drawing.Size(0, 29);
             this.lciRadio.MinSize = new System.Drawing.Size(151, 29);
             this.lciRadio.Name = "lciRadio";
-            this.lciRadio.Size = new System.Drawing.Size(542, 29);
+            this.lciRadio.Size = new System.Drawing.Size(525, 29);
             this.lciRadio.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciRadio.Text = "Radio:";
             this.lciRadio.TextSize = new System.Drawing.Size(94, 13);
@@ -1180,9 +1171,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 294);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 289);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(542, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(525, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciBaterias
@@ -1190,9 +1181,18 @@
             this.lciBaterias.Control = this.tknBaterias;
             this.lciBaterias.Location = new System.Drawing.Point(0, 24);
             this.lciBaterias.Name = "lciBaterias";
-            this.lciBaterias.Size = new System.Drawing.Size(542, 24);
+            this.lciBaterias.Size = new System.Drawing.Size(525, 24);
             this.lciBaterias.Text = "Baterias:";
             this.lciBaterias.TextSize = new System.Drawing.Size(94, 13);
+            // 
+            // lciExtintor
+            // 
+            this.lciExtintor.Control = this.lueExtintor;
+            this.lciExtintor.Location = new System.Drawing.Point(0, 120);
+            this.lciExtintor.Name = "lciExtintor";
+            this.lciExtintor.Size = new System.Drawing.Size(525, 24);
+            this.lciExtintor.Text = "Extintor:";
+            this.lciExtintor.TextSize = new System.Drawing.Size(94, 13);
             // 
             // TabFiltros
             // 
@@ -1558,13 +1558,13 @@
             this.TabExterior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcExterior)).EndInit();
             this.lcExterior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lueExtintor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tknBaterias.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgRadio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnVentanas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnAbanicos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnAsientos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTrancas.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgExtinguidor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgCamaras.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgBocinas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgEstereo.Properties)).EndInit();
@@ -1576,7 +1576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciEstereo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBocinas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCamaras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciExtinguidor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTrancas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAsientos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciAbanicos)).EndInit();
@@ -1584,6 +1583,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciRadio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciExtintor)).EndInit();
             this.TabFiltros.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcFiltros)).EndInit();
             this.lcFiltros.ResumeLayout(false);
@@ -1672,7 +1672,6 @@
         private DevExpress.XtraEditors.SpinEdit spnAbanicos;
         private DevExpress.XtraEditors.SpinEdit spnAsientos;
         private DevExpress.XtraEditors.RadioGroup rgTrancas;
-        private DevExpress.XtraEditors.RadioGroup rgExtinguidor;
         private DevExpress.XtraEditors.RadioGroup rgCamaras;
         private DevExpress.XtraEditors.RadioGroup rgBocinas;
         private DevExpress.XtraEditors.RadioGroup rgEstereo;
@@ -1684,7 +1683,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciEstereo;
         private DevExpress.XtraLayout.LayoutControlItem lciBocinas;
         private DevExpress.XtraLayout.LayoutControlItem lciCamaras;
-        private DevExpress.XtraLayout.LayoutControlItem lciExtinguidor;
         private DevExpress.XtraLayout.LayoutControlItem lciTrancas;
         private DevExpress.XtraLayout.LayoutControlItem lciAsientos;
         private DevExpress.XtraLayout.LayoutControlItem lciAbanicos;
@@ -1729,5 +1727,7 @@
         private DevExpress.XtraEditors.DateEdit dteUltimoCambioAceite;
         private DevExpress.XtraLayout.LayoutControlItem lciUltimoCambioAceite;
         private DevExpress.XtraLayout.LayoutControlItem lciTipoUnidad;
+        private DevExpress.XtraEditors.LookUpEdit lueExtintor;
+        private DevExpress.XtraLayout.LayoutControlItem lciExtintor;
     }
 }

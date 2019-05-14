@@ -117,6 +117,7 @@
             // 
             // txtNombreFiscal
             // 
+            this.txtNombreFiscal.EnterMoveNextControl = true;
             this.txtNombreFiscal.Location = new System.Drawing.Point(12, 68);
             this.txtNombreFiscal.MenuManager = this.ribbonControl1;
             this.txtNombreFiscal.Name = "txtNombreFiscal";
@@ -127,6 +128,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.EnterMoveNextControl = true;
             this.txtNombre.Location = new System.Drawing.Point(12, 28);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";
@@ -176,7 +178,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmProveedor";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedor";
             this.Load += new System.EventHandler(this.xfrmPuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

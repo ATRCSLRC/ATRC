@@ -28,7 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>69</ApplicationRevision>
+    <ApplicationRevision>90</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -119,7 +119,6 @@
     <Compile Include="xfrmMain.Designer.cs">
       <DependentUpon>xfrmMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -272,6 +271,10 @@
     <None Include="Resources\icons8-transporte-terrestre-32 %281%29.png" />
     <None Include="Resources\icons8-transporte-terrestre-32 %282%29.png" />
     <None Include="Resources\icons8-el-tanque-de-almacenaje-de-petróleo-32 %282%29.png" />
+    <None Include="Resources\icons8-ver-detalles-32.png" />
+    <None Include="Resources\icons8-plataforma-petrolera-321.png" />
+    <None Include="Resources\icons8-pegar-especial-32.png" />
+    <None Include="Resources\icons8-portapapeles-32.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

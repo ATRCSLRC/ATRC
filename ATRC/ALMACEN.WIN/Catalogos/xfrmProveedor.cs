@@ -2,6 +2,9 @@
 using ALMACEN.BL;
 using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,9 +37,15 @@ namespace ALMACEN.WIN
         {
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
-                Proveedor.Save();
-                Unidad.CommitChanges();
-                this.Close();
+                if (!Existe())
+                {
+                    Proveedor.Save();
+                    Unidad.CommitChanges();
+                    this.Close();
+                } else
+                {
+                    XtraMessageBox.Show("Este proveedor se encuentra registrado.");
+                }
             }
         }
 
@@ -46,6 +55,17 @@ namespace ALMACEN.WIN
             txtNombre.DataBindings.Clear();
             txtNombreFiscal.DataBindings.Clear();
             this.Close();
+        }
+        #endregion
+
+        #region
+        private bool Existe()
+        {
+            UnidadDeTrabajo UnidadConsulta = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Proveedores = new XPView(UnidadConsulta, typeof(Proveedor), "Oid;Nombre", new BinaryOperator("Nombre", txtNombre.Text));
+            if (Proveedores.Count > 0)
+                return true;
+            return false;
         }
         #endregion
     }

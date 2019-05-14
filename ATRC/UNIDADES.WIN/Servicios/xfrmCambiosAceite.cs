@@ -67,6 +67,8 @@ namespace UNIDADES.WIN
             UnidadesReporte.AddProperty("TipoUnidad", "TipoUnidad", true);
             if(grvUnidades.ActiveFilterCriteria != null)
                 UnidadesReporte.CriteriaString = grvUnidades.ActiveFilterCriteria.ToString();
+            if(grvUnidades.SortInfo.Count > 0)
+                UnidadesReporte.Sorting.Add(new SortProperty(grvUnidades.SortInfo[0].Column.FieldName, grvUnidades.SortInfo[0].SortOrder ==  DevExpress.Data.ColumnSortOrder.Ascending ? DevExpress.Xpo.DB.SortingDirection.Ascending : DevExpress.Xpo.DB.SortingDirection.Descending));
             ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Unidades.ProximosCambiosAceite(UnidadesReporte));
             repUsuarioRegistrado.ShowPreview();
         }

@@ -26,6 +26,9 @@ namespace COMBUSTIBLE.WIN
 
         private void xfrmCapturaDiesel_Load(object sender, EventArgs e)
         {
+            bbiDiesel.Visibility = Utilerias.VisibilidadPermiso("GasolinaUnidad");
+            bbiMedidor.Visibility = Utilerias.VisibilidadPermiso("MedidoresTanqueGasolina");
+            bbiAgregarPedido.Visibility = Utilerias.VisibilidadPermiso("AgregarPedidoGasolina");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView PedidosDiesel = new XPView(Unidad, typeof(Gasolina), "Oid;Unidad.Nombre;Empleado.Nombre;Llenado", new BinaryOperator("Fecha", DateTime.Now.Date));
             grdUnidadDiesel.DataSource = PedidosDiesel;

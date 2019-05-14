@@ -24,6 +24,9 @@ namespace UNIDADES.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmRadiosGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevaRadio");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarRadio");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarRadio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Radios = new XPView(Unidad, typeof(Radios));
             Radios.Properties.AddRange(new ViewProperty[] {

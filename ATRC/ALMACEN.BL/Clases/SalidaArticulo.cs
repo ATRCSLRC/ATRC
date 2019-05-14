@@ -27,11 +27,11 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Factura>("Factura", ref mFactura, value); }
         }
 
-        private int mCantidad;
-        public int Cantidad
+        private decimal mCantidad;
+        public decimal Cantidad
         {
             get { return mCantidad; }
-            set { SetPropertyValue<int>("Cantidad", ref mCantidad, value); }
+            set { SetPropertyValue<decimal>("Cantidad", ref mCantidad, value); }
         }
 
         private bool mEsUtilizado;

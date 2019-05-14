@@ -93,8 +93,8 @@ namespace ALMACEN.WIN
                     var result = XtraInputBox.Show(args);
                     if (result != null)
                     {
-                        Salida.Factura.Cantidad += Convert.ToInt32(result);
-                        if (Convert.ToInt32(result) == Salida.Cantidad)
+                        Salida.Factura.Cantidad += Convert.ToDecimal(result);
+                        if (Convert.ToDecimal(result) == Salida.Cantidad)
                             Salida.Estado = Enums.EstadoSalida.Devuelto;
                         else
                             Salida.Cantidad -= Convert.ToInt32(result);

@@ -105,6 +105,7 @@ namespace CHECADOR.WIN
 
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
+
             GroupOperator go = new GroupOperator( GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaChecada", dteFechaInicial.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaChecada", dteFechaFinal.DateTime.Date, BinaryOperatorType.LessOrEqual));

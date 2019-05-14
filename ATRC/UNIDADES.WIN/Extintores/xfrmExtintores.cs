@@ -53,11 +53,6 @@ namespace UNIDADES.WIN
                         lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lueUnidad.EditValue = null;
                         break;
-                    case Enums.UbicacionExtintor.Almacen:
-                        lciOficina.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lueUnidad.EditValue = txtOficina.EditValue = null;
-                        break;
                 }
             }
         }
@@ -94,49 +89,52 @@ namespace UNIDADES.WIN
             Extintor.NumExtintor = Convert.ToInt32(txtExtintor.Text);
             Extintor.FechaRecarga = dteFechaRecarga.DateTime;
             Extintor.FechaVencimiento = dteVencimiento.DateTime;
-            Extintor.UbicacionExtintor = (Enums.UbicacionExtintor)rgUbicacion.EditValue;
-            Extintor.Peso = Convert.ToDecimal(txtPeso.Text);
-            Extintor.Tipo = rgTipo.Text;
             Extintor.EstadoExtintor = (Enums.EstadoExtintor)rgEstado.EditValue;
-            switch(Extintor.UbicacionExtintor)
-            {
-                case Enums.UbicacionExtintor.Unidad:
-                    Extintor.Unidad = Unidad.GetObjectByKey<Unidad>(lueUnidad.EditValue);
-                    Extintor.Oficina = string.Empty;
-                    break;
-                case Enums.UbicacionExtintor.Oficina:
-                    Extintor.Oficina = txtOficina.Text;
-                    Extintor.Unidad = null;
-                    break;
-            }
 
             if(EsInventario)
             {
                 Extintor.FechaInventario = DateTime.Now;
                 Extintor.UltimoComentario = memoComentarios.Text;
-                GuardarHistorial();
             }
-            
+            else
+            {
+                Extintor.UbicacionExtintor = (Enums.UbicacionExtintor)rgUbicacion.EditValue;
+                Extintor.Peso = Convert.ToDecimal(txtPeso.Text);
+                Extintor.Tipo = rgTipo.Text;
+                switch (Extintor.UbicacionExtintor)
+                {
+                    case Enums.UbicacionExtintor.Unidad:
+                        Extintor.Unidad = Unidad.GetObjectByKey<Unidad>(lueUnidad.EditValue);
+                        Extintor.Oficina = string.Empty;
+                        break;
+                    case Enums.UbicacionExtintor.Oficina:
+                        Extintor.Oficina = txtOficina.Text;
+                        Extintor.Unidad = null;
+                        break;
+                }
+            }
+            GuardarHistorial(Extintor);
+
         }
 
-        private void GuardarHistorial()
+        private void GuardarHistorial(Extintores ExtintorOriginal)
         {
             HistorialExtintores Extintor = new HistorialExtintores(Unidad);
-            Extintor.NumExtintor = Convert.ToInt32(txtExtintor.Text);
-            Extintor.FechaRecarga = dteFechaRecarga.DateTime;
-            Extintor.FechaVencimiento = dteVencimiento.DateTime;
-            Extintor.UbicacionExtintor = (Enums.UbicacionExtintor)rgUbicacion.EditValue;
-            Extintor.Peso = Convert.ToDecimal(txtPeso.Text);
-            Extintor.Tipo = rgTipo.Text;
-            Extintor.EstadoExtintor = (Enums.EstadoExtintor)rgEstado.EditValue;
+            Extintor.NumExtintor = ExtintorOriginal.NumExtintor;
+            Extintor.FechaRecarga = ExtintorOriginal.FechaRecarga;
+            Extintor.FechaVencimiento = ExtintorOriginal.FechaVencimiento;
+            Extintor.UbicacionExtintor = ExtintorOriginal.UbicacionExtintor;
+            Extintor.Peso = ExtintorOriginal.Peso;
+            Extintor.Tipo = ExtintorOriginal.Tipo;
+            Extintor.EstadoExtintor = ExtintorOriginal.EstadoExtintor;
             switch (Extintor.UbicacionExtintor)
             {
                 case Enums.UbicacionExtintor.Unidad:
-                    Extintor.Unidad = Unidad.GetObjectByKey<Unidad>(lueUnidad.EditValue);
+                    Extintor.Unidad = ExtintorOriginal.Unidad;
                     Extintor.Oficina = string.Empty;
                     break;
                 case Enums.UbicacionExtintor.Oficina:
-                    Extintor.Oficina = txtOficina.Text;
+                    Extintor.Oficina = ExtintorOriginal.Oficina;
                     Extintor.Unidad = null;
                     break;
             }
@@ -176,7 +174,13 @@ namespace UNIDADES.WIN
                 rgEstado.SelectedIndex = 0;
             }
             if (EsInventario)
+            {
                 lciComentarios.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciOficina.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciTipoUbicacion.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
         }
 
         private bool ValidarCampos()

@@ -118,14 +118,17 @@ namespace ALMACEN.WIN
             {
                 if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    SalidaArticulo Salida = new SalidaArticulo(Unidad);
-                    Salida.Articulo = Articulo;
-                    Salida.Factura = ((Factura)((ViewRecord)lueFactura.EditValue).GetObject());
-                    Salida.Cantidad = Convert.ToInt32(spnCantidad.Value);
+                    UnidadDeTrabajo UnidadSalida = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                    SalidaArticulo Salida = new SalidaArticulo(UnidadSalida);
+                    Salida.Articulo = UnidadSalida.GetObjectByKey<Articulo>(Articulo.Oid);
+                    Salida.Factura = UnidadSalida.GetObjectByKey<Factura>(((ViewRecord)lueFactura.EditValue)["Oid"]);//((Factura)((ViewRecord)lueFactura.EditValue).GetObject());
+                    Salida.Cantidad = Convert.ToDecimal(spnCantidad.Value);
                     if (rgDestino.SelectedIndex == 0)
                     {
                         Salida.TipoDestino = Enums.Destino.Unidad;
-                        ((XPCollection)((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject()).GetMemberValue("Salidas")).Add(Salida);
+                        Unidad UnidadCamion = UnidadSalida.GetObjectByKey<Unidad>(((ViewRecord)lueUnidad.EditValue)["Oid"]);
+                        Salida.SetMemberValue("Unidad", UnidadCamion);
+                        //((XPCollection)((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject()).GetMemberValue("Salidas")).Add(Salida);
                     }
                     else
                     {
@@ -136,7 +139,7 @@ namespace ALMACEN.WIN
                     if (rgRecibo.SelectedIndex == 0)
                     {
                         Salida.TipoRecibo = Enums.Recibo.Usuario;
-                        Salida.UsuarioRecibo = Usuario;
+                        Salida.UsuarioRecibo = UnidadSalida.GetObjectByKey<Usuario>(Usuario.Oid);
                     }
                     else
                     {
@@ -148,10 +151,10 @@ namespace ALMACEN.WIN
                     //unidad.Save();
                     Salida.Estado = Enums.EstadoSalida.Entregado;
                     Salida.Fecha = DateTime.Now.Date;
-                    Salida.Factura.Cantidad -= Convert.ToInt32(spnCantidad.Value);
+                    Salida.Factura.Cantidad -= Convert.ToDecimal(spnCantidad.Value);
                     Salida.Factura.Save();
                     Salida.Save();
-                    Unidad.CommitChanges();
+                    UnidadSalida.CommitChanges();
                     ActivarCampos(false);
                 }
             }
@@ -159,7 +162,12 @@ namespace ALMACEN.WIN
 
         private void btnUsuario_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode ==  Keys.Enter)
+
+        }
+
+        private void btnUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
                 if (!string.IsNullOrEmpty(btnUsuario.Text))
                 {
@@ -169,7 +177,8 @@ namespace ALMACEN.WIN
                     Usuario = Unidad.FindObject<Usuario>(goUsuario);
                     if (Usuario != null)
                     {
-                            txtNombreUsuario.Text = Usuario.Nombre;
+                        txtNombreUsuario.Text = Usuario.Nombre;
+                        btnAceptar.Focus();
                     }
                     else
                     {
@@ -221,7 +230,7 @@ namespace ALMACEN.WIN
                 Usuario = Unidad.FindObject<Usuario>(goUsuario);
                 if (Usuario != null)
                 {
-                   txtNombreUsuario.Text = Usuario.Nombre;
+                    txtNombreUsuario.Text = Usuario.Nombre;
                 }
                 else
                 {
@@ -413,7 +422,7 @@ namespace ALMACEN.WIN
             {
                 if (string.IsNullOrEmpty(txtOtroRecibo.Text))
                 {
-                    XtraMessageBox.Show("Debe de agregar una descripción al campo de otro recibo.");
+                    XtraMessageBox.Show("Debe de agregar una descripción al campo de otro.");
                     txtOtroRecibo.Focus();
                     return false;
                 }
@@ -436,5 +445,7 @@ namespace ALMACEN.WIN
             return true;
         }
         #endregion
+
+        
     }
 }

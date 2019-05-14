@@ -221,6 +221,7 @@
             this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
             this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(12, 78);
             this.vGridControl1.Name = "vGridControl1";
@@ -538,8 +539,8 @@
             this.colExtinguidor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colExtinguidor.Name = "colExtinguidor";
             this.colExtinguidor.OptionsRow.AllowFocus = false;
-            this.colExtinguidor.Properties.Caption = "Tiene extinguidor";
-            this.colExtinguidor.Properties.FieldName = "TieneExtinguidor";
+            this.colExtinguidor.Properties.Caption = "Extinguidor";
+            this.colExtinguidor.Properties.FieldName = "Extintor.NumExtintor";
             // 
             // colTrancas
             // 

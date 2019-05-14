@@ -26,7 +26,10 @@ namespace UNIDADES.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmRadiosGRD_Load(object sender, EventArgs e)
         {
-
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevaExtintor");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarExtintor");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarExtintor");
+            bbiExportar.Visibility = Utilerias.VisibilidadPermiso("ExportarExtintor");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Extintores = new XPView(Unidad, typeof(Extintores));
             Extintores.Properties.AddRange(new ViewProperty[] {

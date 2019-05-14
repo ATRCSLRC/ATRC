@@ -38,12 +38,12 @@
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdEmpleados = new DevExpress.XtraGrid.GridControl();
             this.grvEmpleados = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCHK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.richkSeleccionado = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TALLER.WIN.WaitForm1), true, true);
-            this.colCHK = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -145,11 +145,20 @@
             this.grvEmpleados.OptionsFind.AlwaysVisible = true;
             this.grvEmpleados.OptionsView.ShowGroupPanel = false;
             // 
+            // colCHK
+            // 
+            this.colCHK.Caption = "gridColumn1";
+            this.colCHK.Name = "colCHK";
+            this.colCHK.Visible = true;
+            this.colCHK.VisibleIndex = 0;
+            // 
             // colNombre
             // 
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsColumn.AllowEdit = false;
+            this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
             this.colNombre.Width = 286;
@@ -181,13 +190,6 @@
             // Loading
             // 
             this.Loading.ClosingDelay = 500;
-            // 
-            // colCHK
-            // 
-            this.colCHK.Caption = "gridColumn1";
-            this.colCHK.Name = "colCHK";
-            this.colCHK.Visible = true;
-            this.colCHK.VisibleIndex = 0;
             // 
             // xfrmSeleccionEmpleados
             // 

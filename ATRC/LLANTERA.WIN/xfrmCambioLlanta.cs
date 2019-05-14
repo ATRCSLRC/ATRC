@@ -153,37 +153,44 @@ namespace LLANTERA.WIN
                     SalidaArticulo Salida = vSalida.GetObject() as SalidaArticulo;
                     Articulo Llanta = null;
                     string PosicionLlanta = string.Empty;
+                    string Propiedad = string.Empty;
                     switch (lue.Name)
                     {
                         case "lueLlantaFrontalIzquierda":
                             Llanta = Unidad.GetMemberValue("LlantaFrontalIzquierdaChofer") as Articulo;
                             Unidad.SetMemberValue("LlantaFrontalIzquierdaChofer", Salida.Articulo);
                             PosicionLlanta = "Frontal izquierda";
+                            Propiedad = "LlantaFrontalIzquierdaChofer";
                             break;
                         case "lueFrontalDerecho":
                             Llanta = Unidad.GetMemberValue("LlantaFrontalDerechaEstribo") as Articulo;
                             Unidad.SetMemberValue("LlantaFrontalDerechaEstribo", Salida.Articulo);
                             PosicionLlanta = "Frontal derecha";
+                            Propiedad = "LlantaFrontalDerechaEstribo";
                             break;
                         case "lueTraseraInteriorChofer":
                             Llanta = Unidad.GetMemberValue("LlantaTraseraInteriorChofer") as Articulo;
                             Unidad.SetMemberValue("LlantaTraseraInteriorChofer", Salida.Articulo);
                             PosicionLlanta = "Trasera interior chofer";
+                            Propiedad = "LlantaTraseraInteriorChofer";
                             break;
                         case "lueTraseraInteriorEstribo":
                             Llanta = Unidad.GetMemberValue("LlantaTraseraInteriorEstribo") as Articulo;
                             Unidad.SetMemberValue("LlantaTraseraInteriorEstribo", Salida.Articulo);
                             PosicionLlanta = "Trasera interior estribo";
+                            Propiedad = "LlantaTraseraInteriorEstribo";
                             break;
                         case "lueTraseroExteriorChofer":
                             Llanta = Unidad.GetMemberValue("LlantaTraseraExteriorChofer") as Articulo;
                             Unidad.SetMemberValue("LlantaTraseraExteriorChofer", Salida.Articulo);
                             PosicionLlanta = "Trasera exterior chofer";
+                            Propiedad = "LlantaTraseraExteriorChofer";
                             break;
                         case "lueTraseroExteriorEstribo":
                             Llanta = Unidad.GetMemberValue("LlantaTraseraExteriorEstribo") as Articulo;
                             Unidad.SetMemberValue("LlantaTraseraExteriorEstribo", Salida.Articulo);
                             PosicionLlanta = "Trasera exterior estribo";
+                            Propiedad = "LlantaTraseraExteriorEstribo";
                             break;
                     }
                     Salida.EsUtilizado = true;
@@ -213,7 +220,7 @@ namespace LLANTERA.WIN
                         }
                     }
 
-                    BitacoraCambiosDeLlanta.CrearRegistro(unidad, Unidad, PosicionLlanta, Llanta != null ? Llanta.Facturas[0] : null, ((Articulo)Unidad.GetMemberValue("LlantaFrontalIzquierdaChofer")).Facturas[0], Llanta != null ? Llanta.EstadoLlanta.ToString() : "");
+                    BitacoraCambiosDeLlanta.CrearRegistro(unidad, Unidad, PosicionLlanta, Llanta != null ? Llanta.Facturas[0] : null, ((Articulo)Unidad.GetMemberValue(Propiedad)).Facturas[0], Llanta != null ? Llanta.EstadoLlanta.ToString() : "");
                     unidad.CommitChanges();
                     ((XPView)lueFrontalDerecho.Properties.DataSource).Reload();
                     lue.EditValue = null;

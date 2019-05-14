@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaArticulos));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lueCatalogo = new DevExpress.XtraEditors.LookUpEdit();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.grdArticulos = new DevExpress.XtraGrid.GridControl();
             this.grvArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAsignar = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,10 +58,12 @@
             this.lciCatalogos = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chkHistorico = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribtnAsignar)).BeginInit();
@@ -77,10 +79,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.chkHistorico);
             this.lcMain.Controls.Add(this.btnLimpiar);
             this.lcMain.Controls.Add(this.lueCatalogo);
             this.lcMain.Controls.Add(this.grdArticulos);
@@ -95,31 +100,6 @@
             this.lcMain.Size = new System.Drawing.Size(800, 423);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(659, 119);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
-            this.btnLimpiar.StyleController = this.lcMain;
-            this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "Limpiar [F12]";
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // lueCatalogo
-            // 
-            this.lueCatalogo.Location = new System.Drawing.Point(136, 66);
-            this.lueCatalogo.MenuManager = this.ribbonControl1;
-            this.lueCatalogo.Name = "lueCatalogo";
-            this.lueCatalogo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueCatalogo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lueCatalogo.Properties.NullText = "";
-            this.lueCatalogo.Size = new System.Drawing.Size(640, 20);
-            this.lueCatalogo.StyleController = this.lcMain;
-            this.lueCatalogo.TabIndex = 8;
-            this.lueCatalogo.EditValueChanged += new System.EventHandler(this.lueCatalogo_EditValueChanged);
             // 
             // ribbonControl1
             // 
@@ -139,15 +119,41 @@
             this.ribbonControl1.Size = new System.Drawing.Size(800, 27);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
+            this.btnLimpiar.Location = new System.Drawing.Point(659, 149);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
+            this.btnLimpiar.StyleController = this.lcMain;
+            this.btnLimpiar.TabIndex = 9;
+            this.btnLimpiar.Text = "Limpiar [F12]";
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // lueCatalogo
+            // 
+            this.lueCatalogo.EnterMoveNextControl = true;
+            this.lueCatalogo.Location = new System.Drawing.Point(136, 66);
+            this.lueCatalogo.MenuManager = this.ribbonControl1;
+            this.lueCatalogo.Name = "lueCatalogo";
+            this.lueCatalogo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCatalogo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueCatalogo.Properties.NullText = "";
+            this.lueCatalogo.Size = new System.Drawing.Size(640, 20);
+            this.lueCatalogo.StyleController = this.lcMain;
+            this.lueCatalogo.TabIndex = 8;
+            this.lueCatalogo.EditValueChanged += new System.EventHandler(this.lueCatalogo_EditValueChanged);
+            // 
             // grdArticulos
             // 
-            this.grdArticulos.Location = new System.Drawing.Point(12, 157);
+            this.grdArticulos.Location = new System.Drawing.Point(12, 187);
             this.grdArticulos.MainView = this.grvArticulos;
             this.grdArticulos.Name = "grdArticulos";
             this.grdArticulos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ribEditar,
             this.ribtnAsignar});
-            this.grdArticulos.Size = new System.Drawing.Size(776, 254);
+            this.grdArticulos.Size = new System.Drawing.Size(776, 224);
             this.grdArticulos.TabIndex = 7;
             this.grdArticulos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvArticulos});
@@ -289,7 +295,7 @@
             // btnBuscar
             // 
             this.btnBuscar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.ImageOptions.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(538, 119);
+            this.btnBuscar.Location = new System.Drawing.Point(538, 149);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(117, 22);
             this.btnBuscar.StyleController = this.lcMain;
@@ -299,21 +305,24 @@
             // 
             // rgBusqueda
             // 
+            this.rgBusqueda.EnterMoveNextControl = true;
             this.rgBusqueda.Location = new System.Drawing.Point(136, 90);
             this.rgBusqueda.Name = "rgBusqueda";
+            this.rgBusqueda.Properties.Columns = 3;
             this.rgBusqueda.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Código"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Descripción"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Número de parte"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Marca"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Proveedor")});
-            this.rgBusqueda.Size = new System.Drawing.Size(640, 25);
+            this.rgBusqueda.Size = new System.Drawing.Size(640, 55);
             this.rgBusqueda.StyleController = this.lcMain;
             this.rgBusqueda.TabIndex = 5;
             this.rgBusqueda.SelectedIndexChanged += new System.EventHandler(this.rgBusqueda_SelectedIndexChanged);
             // 
             // txtFiltro
             // 
+            this.txtFiltro.EnterMoveNextControl = true;
             this.txtFiltro.Location = new System.Drawing.Point(136, 42);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -342,16 +351,17 @@
             this.lciTipoBusqueda,
             this.lciBusqueda,
             this.lciCatalogos,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlItem2});
             this.lcgBusqueda.Location = new System.Drawing.Point(0, 0);
             this.lcgBusqueda.Name = "lcgBusqueda";
-            this.lcgBusqueda.Size = new System.Drawing.Size(780, 145);
+            this.lcgBusqueda.Size = new System.Drawing.Size(780, 175);
             this.lcgBusqueda.Text = "Detalle de búsqueda";
             // 
             // lcibtnBuscar
             // 
             this.lcibtnBuscar.Control = this.btnBuscar;
-            this.lcibtnBuscar.Location = new System.Drawing.Point(514, 77);
+            this.lcibtnBuscar.Location = new System.Drawing.Point(514, 107);
             this.lcibtnBuscar.Name = "lcibtnBuscar";
             this.lcibtnBuscar.Size = new System.Drawing.Size(121, 26);
             this.lcibtnBuscar.TextSize = new System.Drawing.Size(0, 0);
@@ -360,17 +370,20 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 77);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(257, 107);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(514, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(257, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciTipoBusqueda
             // 
             this.lciTipoBusqueda.Control = this.rgBusqueda;
             this.lciTipoBusqueda.Location = new System.Drawing.Point(0, 48);
+            this.lciTipoBusqueda.MaxSize = new System.Drawing.Size(0, 59);
+            this.lciTipoBusqueda.MinSize = new System.Drawing.Size(166, 59);
             this.lciTipoBusqueda.Name = "lciTipoBusqueda";
-            this.lciTipoBusqueda.Size = new System.Drawing.Size(756, 29);
+            this.lciTipoBusqueda.Size = new System.Drawing.Size(756, 59);
+            this.lciTipoBusqueda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipoBusqueda.Text = "Buscar por:";
             this.lciTipoBusqueda.TextSize = new System.Drawing.Size(109, 13);
             // 
@@ -396,7 +409,7 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnLimpiar;
-            this.layoutControlItem1.Location = new System.Drawing.Point(635, 77);
+            this.layoutControlItem1.Location = new System.Drawing.Point(635, 107);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(121, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -405,11 +418,30 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.grdArticulos;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 145);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 175);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(780, 258);
+            this.layoutControlItem4.Size = new System.Drawing.Size(780, 228);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // chkHistorico
+            // 
+            this.chkHistorico.Location = new System.Drawing.Point(24, 149);
+            this.chkHistorico.MenuManager = this.ribbonControl1;
+            this.chkHistorico.Name = "chkHistorico";
+            this.chkHistorico.Properties.Caption = "Mostrar histórico";
+            this.chkHistorico.Size = new System.Drawing.Size(253, 19);
+            this.chkHistorico.StyleController = this.lcMain;
+            this.chkHistorico.TabIndex = 10;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.chkHistorico;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 107);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(257, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // xfrmBusquedaArticulos
             // 
@@ -425,8 +457,8 @@
             this.Load += new System.EventHandler(this.xfrmBusquedaArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribtnAsignar)).EndInit();
@@ -442,6 +474,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +512,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAsignar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribtnAsignar;
         private DevExpress.XtraGrid.Columns.GridColumn colParte;
+        private DevExpress.XtraEditors.CheckEdit chkHistorico;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

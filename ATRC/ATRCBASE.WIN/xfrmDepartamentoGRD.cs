@@ -23,6 +23,9 @@ namespace ATRCBASE.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmDepartamentoGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevoDepartamento");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarDepartamento");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarDepartamento");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPCollection<Departamento> Puestos = new XPCollection<Departamento>(Unidad);
             grdDepartamentos.DataSource = Puestos;

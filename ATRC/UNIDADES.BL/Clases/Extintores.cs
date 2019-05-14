@@ -27,11 +27,38 @@ namespace UNIDADES.BL
             set { SetPropertyValue<UbicacionExtintor>("UbicacionExtintor", ref mUbicacionExtintor, value); }
         }
 
-        Unidad mUnidad;
+        //Unidad mUnidad;
+        //public Unidad Unidad
+        //{
+        //    get { return mUnidad; }
+        //    set { SetPropertyValue<Unidad>("Unidad", ref mUnidad, value); }
+        //}
+
+        Unidad mUnidad = null;
         public Unidad Unidad
         {
             get { return mUnidad; }
-            set { SetPropertyValue<Unidad>("Unidad", ref mUnidad, value); }
+            set
+            {
+                if (mUnidad == value)
+                    return;
+
+                // Store a reference to the person's former house. 
+                Unidad unidad = mUnidad;
+                mUnidad = value;
+
+                if (IsLoading) return;
+
+                // Remove a reference to the house's owner, if the person is its owner. 
+                if (unidad != null && unidad.Extintor == this)
+                    unidad.Extintor = null;
+
+                // Specify the person as a new owner of the house. 
+                if (mUnidad != null)
+                    mUnidad.Extintor = this;
+
+                OnChanged("Unidad");
+            }
         }
 
         string mOficina;

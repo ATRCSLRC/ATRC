@@ -35,5 +35,12 @@ namespace COMBUSTIBLE.BL
             get { return mProblema; }
             set { SetPropertyValue<string>("Problema", ref mProblema, value); }
         }
+
+        private bool mVerificado;
+        public bool Verificado
+        {
+            get { return mVerificado; }
+            set { SetPropertyValue<bool>("Verificado", ref mVerificado, value); }
+        }
     }
 }

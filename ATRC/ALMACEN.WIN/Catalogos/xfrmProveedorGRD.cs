@@ -24,6 +24,9 @@ namespace ALMACEN.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmPuestoGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevoProveedor");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarProveedor");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarProveedor");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPCollection<Proveedor> Proveedores = new XPCollection<Proveedor>(Unidad);
             grdMedidas.DataSource = Proveedores;

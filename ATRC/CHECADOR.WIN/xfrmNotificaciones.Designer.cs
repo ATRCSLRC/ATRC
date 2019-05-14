@@ -153,6 +153,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(276, 12);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";

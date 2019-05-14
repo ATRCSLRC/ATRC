@@ -37,6 +37,7 @@
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.dlcFacturas = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.cmbEstadoLlanta = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtFactura = new DevExpress.XtraEditors.TextEdit();
             this.txtParte = new DevExpress.XtraEditors.TextEdit();
             this.txtTipo = new DevExpress.XtraEditors.TextEdit();
@@ -65,6 +66,7 @@
             this.lciTipo = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciParte = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciMarca = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciEstadoLlanta = new DevExpress.XtraLayout.LayoutControlItem();
             this.dnFacturas = new DevExpress.XtraEditors.DataNavigator();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
@@ -80,13 +82,12 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciBoton = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cmbEstadoLlanta = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lciEstadoLlanta = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dlcFacturas)).BeginInit();
             this.dlcFacturas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoLlanta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactura.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipo.Properties)).BeginInit();
@@ -116,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoEditar.Properties)).BeginInit();
@@ -130,8 +132,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBoton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoLlanta.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -241,8 +241,22 @@
             this.dlcFacturas.TabIndex = 9;
             this.dlcFacturas.Text = "dataLayoutControl1";
             // 
+            // cmbEstadoLlanta
+            // 
+            this.cmbEstadoLlanta.EnterMoveNextControl = true;
+            this.cmbEstadoLlanta.Location = new System.Drawing.Point(367, 333);
+            this.cmbEstadoLlanta.MenuManager = this.ribbonControl1;
+            this.cmbEstadoLlanta.Name = "cmbEstadoLlanta";
+            this.cmbEstadoLlanta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbEstadoLlanta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbEstadoLlanta.Size = new System.Drawing.Size(76, 20);
+            this.cmbEstadoLlanta.StyleController = this.dlcFacturas;
+            this.cmbEstadoLlanta.TabIndex = 17;
+            // 
             // txtFactura
             // 
+            this.txtFactura.EnterMoveNextControl = true;
             this.txtFactura.Location = new System.Drawing.Point(12, 200);
             this.txtFactura.MenuManager = this.ribbonControl1;
             this.txtFactura.Name = "txtFactura";
@@ -253,6 +267,7 @@
             // 
             // txtParte
             // 
+            this.txtParte.EnterMoveNextControl = true;
             this.txtParte.Location = new System.Drawing.Point(12, 243);
             this.txtParte.MenuManager = this.ribbonControl1;
             this.txtParte.Name = "txtParte";
@@ -263,6 +278,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.EnterMoveNextControl = true;
             this.txtTipo.Location = new System.Drawing.Point(447, 333);
             this.txtTipo.MenuManager = this.ribbonControl1;
             this.txtTipo.Name = "txtTipo";
@@ -273,6 +289,7 @@
             // 
             // txtSerie
             // 
+            this.txtSerie.EnterMoveNextControl = true;
             this.txtSerie.Location = new System.Drawing.Point(174, 333);
             this.txtSerie.MenuManager = this.ribbonControl1;
             this.txtSerie.Name = "txtSerie";
@@ -283,6 +300,7 @@
             // 
             // txtMedida
             // 
+            this.txtMedida.EnterMoveNextControl = true;
             this.txtMedida.Location = new System.Drawing.Point(12, 333);
             this.txtMedida.MenuManager = this.ribbonControl1;
             this.txtMedida.Name = "txtMedida";
@@ -298,6 +316,7 @@
             0,
             0,
             0});
+            this.spnPrecio.EnterMoveNextControl = true;
             this.spnPrecio.Location = new System.Drawing.Point(12, 114);
             this.spnPrecio.MenuManager = this.ribbonControl1;
             this.spnPrecio.Name = "spnPrecio";
@@ -319,6 +338,7 @@
             0,
             0,
             0});
+            this.spnAlmacen.EnterMoveNextControl = true;
             this.spnAlmacen.Location = new System.Drawing.Point(286, 114);
             this.spnAlmacen.MenuManager = this.ribbonControl1;
             this.spnAlmacen.Name = "spnAlmacen";
@@ -341,6 +361,7 @@
             // dteFecha
             // 
             this.dteFecha.EditValue = null;
+            this.dteFecha.EnterMoveNextControl = true;
             this.dteFecha.Location = new System.Drawing.Point(12, 28);
             this.dteFecha.MenuManager = this.ribbonControl1;
             this.dteFecha.Name = "dteFecha";
@@ -355,6 +376,7 @@
             // 
             // cboTipoMedida
             // 
+            this.cboTipoMedida.EnterMoveNextControl = true;
             this.cboTipoMedida.Location = new System.Drawing.Point(286, 71);
             this.cboTipoMedida.MenuManager = this.ribbonControl1;
             this.cboTipoMedida.Name = "cboTipoMedida";
@@ -385,6 +407,7 @@
             0,
             0,
             0});
+            this.spnCantidad.EnterMoveNextControl = true;
             this.spnCantidad.Location = new System.Drawing.Point(12, 71);
             this.spnCantidad.MenuManager = this.ribbonControl1;
             this.spnCantidad.Name = "spnCantidad";
@@ -401,6 +424,7 @@
             // 
             // lueMarca
             // 
+            this.lueMarca.EnterMoveNextControl = true;
             this.lueMarca.Location = new System.Drawing.Point(12, 286);
             this.lueMarca.MenuManager = this.ribbonControl1;
             this.lueMarca.Name = "lueMarca";
@@ -414,6 +438,7 @@
             // 
             // lueProveedor
             // 
+            this.lueProveedor.EnterMoveNextControl = true;
             this.lueProveedor.Location = new System.Drawing.Point(12, 157);
             this.lueProveedor.MenuManager = this.ribbonControl1;
             this.lueProveedor.Name = "lueProveedor";
@@ -625,6 +650,16 @@
             this.lciMarca.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciMarca.TextSize = new System.Drawing.Size(76, 13);
             // 
+            // lciEstadoLlanta
+            // 
+            this.lciEstadoLlanta.Control = this.cmbEstadoLlanta;
+            this.lciEstadoLlanta.Location = new System.Drawing.Point(355, 305);
+            this.lciEstadoLlanta.Name = "lciEstadoLlanta";
+            this.lciEstadoLlanta.Size = new System.Drawing.Size(80, 40);
+            this.lciEstadoLlanta.Text = "Uso de llanta:";
+            this.lciEstadoLlanta.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciEstadoLlanta.TextSize = new System.Drawing.Size(76, 13);
+            // 
             // dnFacturas
             // 
             this.dnFacturas.Buttons.Append.Visible = false;
@@ -653,6 +688,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.EnterMoveNextControl = true;
             this.txtNombre.Location = new System.Drawing.Point(283, 100);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";
@@ -663,6 +699,7 @@
             // 
             // txtCodigoEditar
             // 
+            this.txtCodigoEditar.EnterMoveNextControl = true;
             this.txtCodigoEditar.Location = new System.Drawing.Point(68, 100);
             this.txtCodigoEditar.MenuManager = this.ribbonControl1;
             this.txtCodigoEditar.Name = "txtCodigoEditar";
@@ -673,6 +710,7 @@
             // 
             // rgOpciones
             // 
+            this.rgOpciones.EnterMoveNextControl = true;
             this.rgOpciones.Location = new System.Drawing.Point(24, 68);
             this.rgOpciones.MenuManager = this.ribbonControl1;
             this.rgOpciones.Name = "rgOpciones";
@@ -788,28 +826,6 @@
             this.lciBoton.TextSize = new System.Drawing.Size(0, 0);
             this.lciBoton.TextVisible = false;
             // 
-            // cmbEstadoLlanta
-            // 
-            this.cmbEstadoLlanta.Location = new System.Drawing.Point(367, 333);
-            this.cmbEstadoLlanta.MenuManager = this.ribbonControl1;
-            this.cmbEstadoLlanta.Name = "cmbEstadoLlanta";
-            this.cmbEstadoLlanta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstadoLlanta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbEstadoLlanta.Size = new System.Drawing.Size(76, 20);
-            this.cmbEstadoLlanta.StyleController = this.dlcFacturas;
-            this.cmbEstadoLlanta.TabIndex = 17;
-            // 
-            // lciEstadoLlanta
-            // 
-            this.lciEstadoLlanta.Control = this.cmbEstadoLlanta;
-            this.lciEstadoLlanta.Location = new System.Drawing.Point(355, 305);
-            this.lciEstadoLlanta.Name = "lciEstadoLlanta";
-            this.lciEstadoLlanta.Size = new System.Drawing.Size(80, 40);
-            this.lciEstadoLlanta.Text = "Uso de llanta:";
-            this.lciEstadoLlanta.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lciEstadoLlanta.TextSize = new System.Drawing.Size(76, 13);
-            // 
             // xfrmModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -827,6 +843,7 @@
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dlcFacturas)).EndInit();
             this.dlcFacturas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoLlanta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactura.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipo.Properties)).EndInit();
@@ -856,6 +873,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoEditar.Properties)).EndInit();
@@ -870,8 +888,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciBoton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoLlanta.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciEstadoLlanta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

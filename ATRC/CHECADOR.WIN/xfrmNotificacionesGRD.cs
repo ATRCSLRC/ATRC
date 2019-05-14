@@ -25,6 +25,8 @@ namespace CHECADOR.WIN
 
         private void xfrmNotificacionesGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("NuevaNotificacion");
+            bbiDesactivar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("DesactivarNotificacion");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Notificaciones = new XPView(Unidad,typeof(Notificaciones));
 

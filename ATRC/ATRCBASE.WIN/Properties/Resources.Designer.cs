@@ -163,6 +163,16 @@ namespace ATRCBASE.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_usuario_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-usuario-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ModificarUsuario {
             get {
                 object obj = ResourceManager.GetObject("ModificarUsuario", resourceCulture);

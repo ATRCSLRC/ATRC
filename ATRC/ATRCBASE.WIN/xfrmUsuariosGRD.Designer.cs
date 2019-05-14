@@ -41,6 +41,7 @@
             this.bbiAsignar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGafete = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDesactivarEmpleado = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReportes = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgGafete = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -97,16 +98,17 @@
             this.bbiSalirUsuario,
             this.bbiAsignar,
             this.bbiGafete,
-            this.bbiDesactivarEmpleado});
+            this.bbiDesactivarEmpleado,
+            this.bbiReportes});
             this.rbnUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.rbnUsuarios.MaxItemId = 8;
+            this.rbnUsuarios.MaxItemId = 9;
             this.rbnUsuarios.Name = "rbnUsuarios";
             this.rbnUsuarios.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.rbnUsuarios.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnUsuarios.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbnUsuarios.ShowToolbarCustomizeItem = false;
-            this.rbnUsuarios.Size = new System.Drawing.Size(554, 122);
+            this.rbnUsuarios.Size = new System.Drawing.Size(580, 122);
             this.rbnUsuarios.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevos
@@ -176,9 +178,20 @@
             this.bbiDesactivarEmpleado.Caption = "Activar/Desactivar empleado";
             this.bbiDesactivarEmpleado.Id = 7;
             this.bbiDesactivarEmpleado.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_usuario_32;
+            this.bbiDesactivarEmpleado.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9);
             this.bbiDesactivarEmpleado.Name = "bbiDesactivarEmpleado";
             this.bbiDesactivarEmpleado.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiDesactivarEmpleado.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDesactivarEmpleado_ItemClick);
+            // 
+            // bbiReportes
+            // 
+            this.bbiReportes.Caption = "Reportes";
+            this.bbiReportes.Id = 8;
+            this.bbiReportes.ImageOptions.LargeImage = global::ATRCBASE.WIN.Properties.Resources.icons8_usuario_321;
+            this.bbiReportes.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F8);
+            this.bbiReportes.Name = "bbiReportes";
+            this.bbiReportes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiReportes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReportes_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -202,6 +215,7 @@
             // rpgGafete
             // 
             this.rpgGafete.AllowTextClipping = false;
+            this.rpgGafete.ItemLinks.Add(this.bbiReportes);
             this.rpgGafete.ItemLinks.Add(this.bbiDesactivarEmpleado);
             this.rpgGafete.ItemLinks.Add(this.bbiGafete);
             this.rpgGafete.Name = "rpgGafete";
@@ -221,7 +235,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(554, 350);
+            this.lcMain.Size = new System.Drawing.Size(580, 350);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -231,7 +245,7 @@
             this.grdUsuarios.MainView = this.grvUsuarios;
             this.grdUsuarios.MenuManager = this.rbnUsuarios;
             this.grdUsuarios.Name = "grdUsuarios";
-            this.grdUsuarios.Size = new System.Drawing.Size(530, 326);
+            this.grdUsuarios.Size = new System.Drawing.Size(556, 326);
             this.grdUsuarios.TabIndex = 4;
             this.grdUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUsuarios});
@@ -289,7 +303,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(554, 350);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(580, 350);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -297,7 +311,7 @@
             this.layoutControlItem1.Control = this.grdUsuarios;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(534, 330);
+            this.layoutControlItem1.Size = new System.Drawing.Size(560, 330);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -305,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 472);
+            this.ClientSize = new System.Drawing.Size(580, 472);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbnUsuarios);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -351,5 +365,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGafete;
         private DevExpress.XtraBars.BarButtonItem bbiDesactivarEmpleado;
         private DevExpress.XtraGrid.Columns.GridColumn colActivo;
+        private DevExpress.XtraBars.BarButtonItem bbiReportes;
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using DevExpress.Xpo;
+using DevExpress.XtraBars;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -24,16 +25,147 @@ namespace ATRC
         private void xfrmMain_Load(object sender, EventArgs e)
         {
             bbiUsuario.Caption = "Usuario : " + ATRCBASE.BL.Utilerias.UsuarioActual.Nombre;
-            rbnpUsuarios.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Usuarios") ? true : false;
-            rbnpChecador.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Checador") ? true : false;
-            rbnpConfiguracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Configuración") ? true : false;
-            rpAlmacen.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) &&  ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Almacen") ? true : false;
-            rbnpUnidades.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Unidades") ? true : false;
-            rbnpLlantera.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Llantera") ? true : false;
-            rbnpTaller.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Taller") ? true : false;
-            rbnpRutas.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Rutas") ? true : false;
-            rbnpAdministracion.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Administración") ? true : false;
-            rbnpCombustible.Visible = !string.IsNullOrEmpty(ATRCBASE.BL.Utilerias.UsuarioActual.Modulos) && ATRCBASE.BL.Utilerias.UsuarioActual.Modulos.Contains("Combustible") ? true : false;
+
+            #region Usuario
+            rbnpUsuarios.Visible = VisibilidadPermiso("Usuario") == BarItemVisibility.Always ? true : false;
+            if(rbnpUsuarios.Visible)
+            {
+                bbiUsuarios.Visibility = VisibilidadPermiso("Usuarios");
+                rbnpgReportesUsuarios.Visible = VisibilidadPermiso("ReportesUsuarios") == BarItemVisibility.Always ? true : false;
+                rbnpgUsuario.Visible = bbiUsuarios.Visibility == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Checador
+            rbnpChecador.Visible = VisibilidadPermiso("Checador") == BarItemVisibility.Always ? true : false;
+            if (rbnpChecador.Visible)
+            {
+                bbiChecador.Visibility = VisibilidadPermiso("NuevaChecada");
+                bbiConsultasChecada.Visibility = VisibilidadPermiso("HistorialChecador");
+                bbiNotificacionesChecador.Visibility = VisibilidadPermiso("NotificacionesChecador");
+                rbnpgReportesChecador.Visible = VisibilidadPermiso("ReportesChecador") == BarItemVisibility.Always ? true : false;
+                rbnpgAdministracion.Visible = bbiChecador.Visibility == BarItemVisibility.Always & bbiConsultasChecada.Visibility == BarItemVisibility.Always &
+                    bbiNotificacionesChecador.Visibility == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Configuracion
+            rbnpConfiguracion.Visible = VisibilidadPermiso("Configuracion") == BarItemVisibility.Always ? true : false;
+            if (rbnpConfiguracion.Visible)
+            {
+                bbiDepartamento.Visibility = VisibilidadPermiso("Departamento");
+                bbiPuestos.Visibility = VisibilidadPermiso("Puesto");
+                bbiEmpresa.Visibility = VisibilidadPermiso("Empresa");
+                bbiTanques.Visibility = VisibilidadPermiso("Tanques");
+                bbiActualizarEsquemas.Visibility = VisibilidadPermiso("ActualizarEsquemas");
+                bbiActualizarPermisos.Visibility = VisibilidadPermiso("ActualizarPermisos");
+                rpgMantenimiento.Visible = bbiActualizarEsquemas.Visibility == BarItemVisibility.Always & 
+                    bbiActualizarPermisos.Visibility == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Almacen
+            rpAlmacen.Visible = VisibilidadPermiso("Almacen") == BarItemVisibility.Always ? true : false;
+            if (rpAlmacen.Visible)
+            {
+                bbiArticulo.Visibility = VisibilidadPermiso("NuevoArticulo");
+                bbiModificar.Visibility = VisibilidadPermiso("ModificarArticulo");
+                bbiBusquedaArticulos.Visibility = VisibilidadPermiso("BusquedaArticulos");
+                bbiSalida.Visibility = VisibilidadPermiso("SalidaArticulos");
+                bbiPrestamos.Visibility = VisibilidadPermiso("PrestamoArticulos");
+                bbiBitacoraSalida.Visibility = VisibilidadPermiso("BitacorasSalidas");
+                bbiInventarios.Visibility = VisibilidadPermiso("InventarioAlmacen");
+                bbiMarcas.Visibility = VisibilidadPermiso("Marcas");
+                bbiProveedor.Visibility = VisibilidadPermiso("Proveedor");
+                bbiCodigos.Visibility = VisibilidadPermiso("CodigosArticulos");
+            }
+            #endregion
+
+            #region Unidades
+            rbnpUnidades.Visible = VisibilidadPermiso("Unidades") == BarItemVisibility.Always ? true : false;
+            if (rbnpUnidades.Visible)
+            {
+                bbiUnidad.Visibility = VisibilidadPermiso("NuevaUnidad");
+                bbiBusquedaUnidad.Visibility = VisibilidadPermiso("DetallesDeUnidad");
+                bbiServicios.Visibility = VisibilidadPermiso("ServiciosUnidad");
+                bbiRadios.Visibility = VisibilidadPermiso("Radios");
+                bbiCambiosAceite.Visibility = VisibilidadPermiso("ProximosCambiosAceite");
+                bbiExtintores.Visibility = VisibilidadPermiso("Extintores");
+                bbiInventarioExtintores.Visibility = VisibilidadPermiso("InventarioExtintores");
+                bbiHistorialInventarioExtintores.Visibility = VisibilidadPermiso("HistorialExtintores");
+                rpgReportesUnidad.Visible = VisibilidadPermiso("ReportesUnidades") == BarItemVisibility.Always ? true : false;
+                rpgExtintores.Visible = bbiExtintores.Visibility == BarItemVisibility.Always & bbiInventarioExtintores.Visibility == BarItemVisibility.Always
+                    & bbiHistorialInventarioExtintores.Visibility == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region LLantera
+            rbnpLlantera.Visible = VisibilidadPermiso("Llantera") == BarItemVisibility.Always ? true : false;
+            if(rbnpLlantera.Visible)
+            {
+                bbiCambioLlanta.Visibility = VisibilidadPermiso("CambiosLlanta");
+                bbiReparacionLlanta.Visibility = VisibilidadPermiso("ReparacionLlanta");
+                rpgInventarioLlantas.Visible = VisibilidadPermiso("InventariosLlanta") == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Taller
+            rbnpTaller.Visible = VisibilidadPermiso("Taller") == BarItemVisibility.Always ? true : false;
+            if(rbnpTaller.Visible)
+            {
+                bbiBitacoraActividades.Visibility = VisibilidadPermiso("BitacoraActividadesTaller");
+                bbiCapturaActividades.Visibility = VisibilidadPermiso("ActividadesTaller");
+                rpgReportesTaller.Visible = VisibilidadPermiso("ReportesTaller") == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Rutas
+            rbnpRutas.Visible = VisibilidadPermiso("Rutas") == BarItemVisibility.Always ? true : false;
+            if(rbnpRutas.Visible)
+            {
+                bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
+                bbiMapaEmpresa.Visibility = VisibilidadPermiso("MapaEmpresa");
+                bbiChecadorRutas.Visibility = VisibilidadPermiso("ChecadorRutas");
+                bbiRegistrosRutas.Visibility = VisibilidadPermiso("EntradaSalidaRutas");
+            }
+            #endregion
+
+            #region Administracion
+            rbnpAdministracion.Visible = VisibilidadPermiso("Administracion") == BarItemVisibility.Always ? true : false;
+            if(rbnpAdministracion.Visible)
+            {
+                bbiChecadorAdmin.Visibility = VisibilidadPermiso("ChecadorAdministracion");
+                bbiRegistrosAdmin.Visibility = VisibilidadPermiso("EntradaSalidaAdministracion");
+            }
+            #endregion
+
+            #region Combustible
+            rbnpCombustible.Visible = VisibilidadPermiso("Combustible") == BarItemVisibility.Always ? true : false;
+            if(rbnpCombustible.Visible)
+            {
+                bbiDiesel.Visibility = VisibilidadPermiso("Diesel");
+                bbiModificacionDiesel.Visibility = VisibilidadPermiso("ModificacionDiesel");
+                bbiGasolina.Visibility = VisibilidadPermiso("Gasolina");
+                bbiMedidorTanques.Visibility = VisibilidadPermiso("MedidoresTanqueCombustible");
+                bbiRecargaDiesel.Visibility = VisibilidadPermiso("RecargasCombustible"); bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
+                bbiDetalleCandados.Visibility = VisibilidadPermiso("DetallesCandados");
+                rpgReportesCombustible.Visible = VisibilidadPermiso("ReportesCombustibles") == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
+            #region Guardias
+            rbnpGuardias.Visible = VisibilidadPermiso("Guardias") == BarItemVisibility.Always ? true : false;
+            if(rbnpGuardias.Visible)
+            {
+                bbiReporteNuevo.Visibility = VisibilidadPermiso("NuevoReporte");
+                bbiReportesAcciones.Visibility = VisibilidadPermiso("ReportesIndiciplina");
+                bbiListaDiesel.Visibility = VisibilidadPermiso("PedidosDieselGuardias");
+                bbiPedidoGasolina.Visibility = VisibilidadPermiso("PedidosGasolinaGuardias");
+                rpgCombustiblesGuardias.Visible = bbiListaDiesel.Visibility == BarItemVisibility.Always & 
+                    bbiPedidoGasolina.Visibility == BarItemVisibility.Always ? true : false;
+            }
+            #endregion
+
         }
 
         private void bvbiSalir_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
@@ -541,13 +673,13 @@ namespace ATRC
             COMBUSTIBLE.WIN.xfrmFiltrosCombustible xfrm = new COMBUSTIBLE.WIN.xfrmFiltrosCombustible();
             switch (e.Item.Description)
             {
-                case "Consumo de diesel":
+                case "Consumo de combustible":
                     xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.Consumo;
                     break;
                 case "Recargas de combustible":
                     xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.PedidoDiesel;
                     break;
-                case "Unidades con diesel":
+                case "Unidades con combustible":
                     xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.UnidadDiesel;
                     break;
             }
@@ -570,6 +702,56 @@ namespace ATRC
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
+        }
+
+        private void bbiDetalleCandados_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmProblemasCandados xfrm = new COMBUSTIBLE.WIN.xfrmProblemasCandados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiModificacionDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmModificarDiesel xfrm = new COMBUSTIBLE.WIN.xfrmModificarDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiActualizarPermisos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ATRCBASE.BL.Utilerias.Permisos();
+        }
+
+        private BarItemVisibility VisibilidadPermiso(string permiso)
+        {
+            if (ATRCBASE.BL.Utilerias.TienePermisos(permiso))
+            {
+                return BarItemVisibility.Always;
+            }
+            else
+            {
+                return BarItemVisibility.Never;
+            }
+        }
+
+        private void rgbiTaller_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            switch (e.Item.Description)
+            {
+                case "Actividades de taller por empleado":
+                    TALLER.WIN.xfrmFiltrosTaller xfrmEmpleado = new TALLER.WIN.xfrmFiltrosTaller();
+                    xfrmEmpleado.EsDiario = false;
+                    xfrmEmpleado.Show();
+                    break;
+                case "Actividades de taller por día":
+                    TALLER.WIN.xfrmFiltrosTaller xfrmDiario = new TALLER.WIN.xfrmFiltrosTaller();
+                    xfrmDiario.EsDiario = true;
+                    xfrmDiario.Show();
+                    break;
+            }
         }
     }
 }

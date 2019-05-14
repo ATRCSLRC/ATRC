@@ -53,6 +53,10 @@
             this.lciCantidad = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciPrecio = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciMedidor = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtFactura = new DevExpress.XtraEditors.TextEdit();
+            this.lciFactura = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtProveedor = new DevExpress.XtraEditors.TextEdit();
+            this.lciProveedor = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -70,6 +74,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMedidor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactura.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProveedor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -129,6 +137,8 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.txtProveedor);
+            this.lcMain.Controls.Add(this.txtFactura);
             this.lcMain.Controls.Add(this.GaugeControlMedidor);
             this.lcMain.Controls.Add(this.spnPrecio);
             this.lcMain.Controls.Add(this.spnCantidad);
@@ -138,7 +148,7 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(610, 47, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(471, 296);
+            this.lcMain.Size = new System.Drawing.Size(471, 384);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -146,16 +156,16 @@
             // 
             this.GaugeControlMedidor.Gauges.AddRange(new DevExpress.XtraGauges.Base.IGauge[] {
             this.circularGauge11});
-            this.GaugeControlMedidor.Location = new System.Drawing.Point(12, 99);
+            this.GaugeControlMedidor.Location = new System.Drawing.Point(12, 147);
             this.GaugeControlMedidor.Name = "GaugeControlMedidor";
-            this.GaugeControlMedidor.Size = new System.Drawing.Size(447, 185);
+            this.GaugeControlMedidor.Size = new System.Drawing.Size(447, 225);
             this.GaugeControlMedidor.TabIndex = 7;
             // 
             // circularGauge11
             // 
             this.circularGauge11.BackgroundLayers.AddRange(new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent[] {
             this.arcScaleBackgroundLayerComponent1});
-            this.circularGauge11.Bounds = new System.Drawing.Rectangle(6, 6, 435, 173);
+            this.circularGauge11.Bounds = new System.Drawing.Rectangle(6, 6, 435, 213);
             this.circularGauge11.Labels.AddRange(new DevExpress.XtraGauges.Win.Base.LabelComponent[] {
             this.labelComponent1});
             this.circularGauge11.Name = "circularGauge11";
@@ -301,9 +311,11 @@
             this.lciTanques,
             this.lciCantidad,
             this.lciPrecio,
-            this.lciMedidor});
+            this.lciMedidor,
+            this.lciFactura,
+            this.lciProveedor});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(471, 296);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(471, 384);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTanques
@@ -339,17 +351,53 @@
             // lciMedidor
             // 
             this.lciMedidor.Control = this.GaugeControlMedidor;
-            this.lciMedidor.Location = new System.Drawing.Point(0, 87);
+            this.lciMedidor.Location = new System.Drawing.Point(0, 135);
             this.lciMedidor.Name = "lciMedidor";
-            this.lciMedidor.Size = new System.Drawing.Size(451, 189);
+            this.lciMedidor.Size = new System.Drawing.Size(451, 229);
             this.lciMedidor.TextSize = new System.Drawing.Size(0, 0);
             this.lciMedidor.TextVisible = false;
+            // 
+            // txtFactura
+            // 
+            this.txtFactura.Location = new System.Drawing.Point(84, 99);
+            this.txtFactura.MenuManager = this.ribbonControl1;
+            this.txtFactura.Name = "txtFactura";
+            this.txtFactura.Size = new System.Drawing.Size(375, 20);
+            this.txtFactura.StyleController = this.lcMain;
+            this.txtFactura.TabIndex = 8;
+            // 
+            // lciFactura
+            // 
+            this.lciFactura.Control = this.txtFactura;
+            this.lciFactura.Location = new System.Drawing.Point(0, 87);
+            this.lciFactura.Name = "lciFactura";
+            this.lciFactura.Size = new System.Drawing.Size(451, 24);
+            this.lciFactura.Text = "Factura:";
+            this.lciFactura.TextSize = new System.Drawing.Size(69, 13);
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Location = new System.Drawing.Point(84, 123);
+            this.txtProveedor.MenuManager = this.ribbonControl1;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(375, 20);
+            this.txtProveedor.StyleController = this.lcMain;
+            this.txtProveedor.TabIndex = 9;
+            // 
+            // lciProveedor
+            // 
+            this.lciProveedor.Control = this.txtProveedor;
+            this.lciProveedor.Location = new System.Drawing.Point(0, 111);
+            this.lciProveedor.Name = "lciProveedor";
+            this.lciProveedor.Size = new System.Drawing.Size(451, 24);
+            this.lciProveedor.Text = "Proveedor:";
+            this.lciProveedor.TextSize = new System.Drawing.Size(69, 13);
             // 
             // xfrmRecargaDiesel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 418);
+            this.ClientSize = new System.Drawing.Size(471, 506);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmRecargaDiesel";
@@ -374,6 +422,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciMedidor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactura.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProveedor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +454,9 @@
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleNeedleComponent arcScaleNeedleComponent1;
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleSpindleCapComponent arcScaleSpindleCapComponent1;
         private DevExpress.XtraGauges.Win.Base.LabelComponent labelComponent1;
+        private DevExpress.XtraEditors.TextEdit txtProveedor;
+        private DevExpress.XtraEditors.TextEdit txtFactura;
+        private DevExpress.XtraLayout.LayoutControlItem lciFactura;
+        private DevExpress.XtraLayout.LayoutControlItem lciProveedor;
     }
 }

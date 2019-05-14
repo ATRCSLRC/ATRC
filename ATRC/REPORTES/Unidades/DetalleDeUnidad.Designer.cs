@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleDeUnidad));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -103,7 +104,7 @@
             this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -573,22 +574,22 @@
             // xrLabel49
             // 
             this.xrLabel49.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel49.LocationFloat = new DevExpress.Utils.PointFloat(40.70827F, 513.0241F);
+            this.xrLabel49.LocationFloat = new DevExpress.Utils.PointFloat(40.70826F, 513.0242F);
             this.xrLabel49.Name = "xrLabel49";
             this.xrLabel49.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel49.SizeF = new System.Drawing.SizeF(167.7083F, 22.99997F);
+            this.xrLabel49.SizeF = new System.Drawing.SizeF(130.1251F, 22.99994F);
             this.xrLabel49.StylePriority.UseFont = false;
-            this.xrLabel49.Text = "Tiene extinguidor:";
+            this.xrLabel49.Text = "Extinguidor:";
             // 
             // xrLabel50
             // 
             this.xrLabel50.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([TieneExtinguidor], \'Sí\', \'No\' )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Extintor].[NumExtintor]")});
             this.xrLabel50.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel50.LocationFloat = new DevExpress.Utils.PointFloat(208.4166F, 513.0242F);
+            this.xrLabel50.LocationFloat = new DevExpress.Utils.PointFloat(170.8333F, 513.0242F);
             this.xrLabel50.Name = "xrLabel50";
             this.xrLabel50.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel50.SizeF = new System.Drawing.SizeF(165.6251F, 23.00003F);
+            this.xrLabel50.SizeF = new System.Drawing.SizeF(203.2084F, 22.99994F);
             this.xrLabel50.StylePriority.UseFont = false;
             this.xrLabel50.StylePriority.UseTextAlignment = false;
             this.xrLabel50.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;

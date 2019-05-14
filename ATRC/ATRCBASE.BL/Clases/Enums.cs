@@ -166,8 +166,7 @@ namespace ATRCBASE.BL
         public enum UbicacionExtintor
         {
             Unidad = 0,
-            Oficina = 1,
-            Almacen = 2
+            Oficina = 1
         }
 
         public enum ReporteCombustible

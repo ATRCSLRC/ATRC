@@ -1,6 +1,7 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -45,11 +46,19 @@ namespace UNIDADES.WIN
                 {
                     if (!string.IsNullOrEmpty(btnNumeroUsuario.Text))
                     {
+                        
                         Usuario Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(btnNumeroUsuario.Text)));
                         if (Usuario != null)
                         {
                             UnidadCamion.Usuario = Usuario;
                         }
+                    }
+                    Extintores extintor = Unidad.GetObjectByKey<Extintores>(lueExtintor.EditValue);
+                    if (extintor != null)
+                    {
+                        UnidadCamion.Extintor = extintor;
+                        UnidadCamion.Extintor.UbicacionExtintor = Enums.UbicacionExtintor.Unidad;
+                        UnidadCamion.Extintor.Oficina = string.Empty;
                     }
                     UnidadCamion.Save();
                     Unidad.CommitChanges();
@@ -234,6 +243,14 @@ namespace UNIDADES.WIN
             rgSuspencion.Properties.Items.AddEnum(typeof(Enums.Suspencion));
             rgPuertas.Properties.Items.AddEnum(typeof(Enums.Puerta));
             picFoto.Properties.ContextMenu = new ContextMenu();
+            XPView Extintores = new XPView(Unidad, typeof(Extintores));
+            Extintores.Properties.AddRange(new ViewProperty[] {
+                      new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                      new ViewProperty("Nombre", SortDirection.None, "[NumExtintor]", false, true),
+                      new ViewProperty("Ubicacion", SortDirection.None, "iif([Unidad] is null, [Oficina], [Unidad.Nombre])", false, true)
+                     });
+            lueExtintor.Properties.DataSource = Extintores;
+
         }
         private void LigarControles()
         {
@@ -279,13 +296,15 @@ namespace UNIDADES.WIN
             #endregion
 
             #region Exterior
+
+            
             spnAsientos.DataBindings.Add("EditValue", UnidadCamion, "Asientos", true, DataSourceUpdateMode.OnPropertyChanged);
             spnAbanicos.DataBindings.Add("EditValue", UnidadCamion, "Abanicos", true, DataSourceUpdateMode.OnPropertyChanged);
             spnVentanas.DataBindings.Add("EditValue", UnidadCamion, "VentanasLaterales", true, DataSourceUpdateMode.OnPropertyChanged);
             rgEstereo.DataBindings.Add("EditValue", UnidadCamion, "TieneEstereo", true, DataSourceUpdateMode.OnPropertyChanged);
             rgBocinas.DataBindings.Add("EditValue", UnidadCamion, "TieneBocinas", true, DataSourceUpdateMode.OnPropertyChanged);
             rgCamaras.DataBindings.Add("EditValue", UnidadCamion, "TieneCamaras", true, DataSourceUpdateMode.OnPropertyChanged);
-            rgExtinguidor.DataBindings.Add("EditValue", UnidadCamion, "TieneExtinguidor", true, DataSourceUpdateMode.OnPropertyChanged);
+            lueExtintor.EditValue = UnidadCamion.Extintor == null ? -1 : UnidadCamion.Extintor.Oid;
             rgTrancas.DataBindings.Add("EditValue", UnidadCamion, "TieneTrancas", true, DataSourceUpdateMode.OnPropertyChanged);
             rgRadio.DataBindings.Add("EditValue", UnidadCamion, "TieneRadio", true, DataSourceUpdateMode.OnPropertyChanged);
             tknBaterias.DataBindings.Add("EditValue", UnidadCamion, "Baterias", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -341,7 +360,6 @@ namespace UNIDADES.WIN
             rgEstereo.DataBindings.Clear();
             rgBocinas.DataBindings.Clear();
             rgCamaras.DataBindings.Clear();
-            rgExtinguidor.DataBindings.Clear();
             rgTrancas.DataBindings.Clear();
             rgRadio.DataBindings.Clear();
             #endregion

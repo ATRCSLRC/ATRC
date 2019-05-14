@@ -193,6 +193,7 @@
             // 
             // cmbUsoLlanta
             // 
+            this.cmbUsoLlanta.EnterMoveNextControl = true;
             this.cmbUsoLlanta.Location = new System.Drawing.Point(432, 257);
             this.cmbUsoLlanta.MenuManager = this.rcMain;
             this.cmbUsoLlanta.Name = "cmbUsoLlanta";
@@ -206,6 +207,7 @@
             // dteFechaEntrega
             // 
             this.dteFechaEntrega.EditValue = null;
+            this.dteFechaEntrega.EnterMoveNextControl = true;
             this.dteFechaEntrega.Location = new System.Drawing.Point(12, 57);
             this.dteFechaEntrega.MenuManager = this.rcMain;
             this.dteFechaEntrega.Name = "dteFechaEntrega";
@@ -226,6 +228,7 @@
             // 
             // lueProveedor
             // 
+            this.lueProveedor.EnterMoveNextControl = true;
             this.lueProveedor.Location = new System.Drawing.Point(180, 177);
             this.lueProveedor.MenuManager = this.rcMain;
             this.lueProveedor.Name = "lueProveedor";
@@ -238,6 +241,7 @@
             // 
             // lueMarca
             // 
+            this.lueMarca.EnterMoveNextControl = true;
             this.lueMarca.Location = new System.Drawing.Point(432, 217);
             this.lueMarca.MenuManager = this.rcMain;
             this.lueMarca.Name = "lueMarca";
@@ -256,6 +260,7 @@
             0,
             0,
             0});
+            this.spnPrecio.EnterMoveNextControl = true;
             this.spnPrecio.Location = new System.Drawing.Point(12, 177);
             this.spnPrecio.MenuManager = this.rcMain;
             this.spnPrecio.Name = "spnPrecio";
@@ -277,6 +282,7 @@
             0,
             0,
             0});
+            this.spnCantidad.EnterMoveNextControl = true;
             this.spnCantidad.Location = new System.Drawing.Point(12, 137);
             this.spnCantidad.MenuManager = this.rcMain;
             this.spnCantidad.Name = "spnCantidad";
@@ -288,6 +294,7 @@
             // 
             // txtMedida
             // 
+            this.txtMedida.EnterMoveNextControl = true;
             this.txtMedida.Location = new System.Drawing.Point(12, 257);
             this.txtMedida.MenuManager = this.rcMain;
             this.txtMedida.Name = "txtMedida";
@@ -298,6 +305,7 @@
             // 
             // txtParte
             // 
+            this.txtParte.EnterMoveNextControl = true;
             this.txtParte.Location = new System.Drawing.Point(180, 217);
             this.txtParte.MenuManager = this.rcMain;
             this.txtParte.Name = "txtParte";
@@ -308,6 +316,7 @@
             // 
             // txtFactura
             // 
+            this.txtFactura.EnterMoveNextControl = true;
             this.txtFactura.Location = new System.Drawing.Point(12, 217);
             this.txtFactura.MenuManager = this.rcMain;
             this.txtFactura.Name = "txtFactura";
@@ -318,6 +327,7 @@
             // 
             // txtSerie
             // 
+            this.txtSerie.EnterMoveNextControl = true;
             this.txtSerie.Location = new System.Drawing.Point(180, 257);
             this.txtSerie.MenuManager = this.rcMain;
             this.txtSerie.Name = "txtSerie";
@@ -343,6 +353,7 @@
             0,
             0,
             0});
+            this.spnAlmacen.EnterMoveNextControl = true;
             this.spnAlmacen.Location = new System.Drawing.Point(584, 177);
             this.spnAlmacen.MenuManager = this.rcMain;
             this.spnAlmacen.Name = "spnAlmacen";
@@ -364,6 +375,7 @@
             // 
             // cboTipoMedida
             // 
+            this.cboTipoMedida.EnterMoveNextControl = true;
             this.cboTipoMedida.Location = new System.Drawing.Point(180, 137);
             this.cboTipoMedida.MenuManager = this.rcMain;
             this.cboTipoMedida.Name = "cboTipoMedida";
@@ -376,6 +388,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.EnterMoveNextControl = true;
             this.txtNombre.Location = new System.Drawing.Point(180, 97);
             this.txtNombre.MenuManager = this.rcMain;
             this.txtNombre.Name = "txtNombre";
@@ -398,6 +411,7 @@
             // 
             // rgOpciones
             // 
+            this.rgOpciones.EnterMoveNextControl = true;
             this.rgOpciones.Location = new System.Drawing.Point(12, 12);
             this.rgOpciones.MenuManager = this.rcMain;
             this.rgOpciones.Name = "rgOpciones";
@@ -559,7 +573,7 @@
             this.lciTipoMedida.Name = "lciTipoMedida";
             this.lciTipoMedida.Size = new System.Drawing.Size(504, 40);
             this.lciTipoMedida.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciTipoMedida.Text = "TipoMedida";
+            this.lciTipoMedida.Text = "Tipo de medida:";
             this.lciTipoMedida.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTipoMedida.TextSize = new System.Drawing.Size(96, 13);
             // 

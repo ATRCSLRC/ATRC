@@ -25,6 +25,8 @@ namespace UNIDADES.WIN
         UnidadDeTrabajo unidad;
         private void xfrmBusquedaUnidades_Load(object sender, EventArgs e)
         {
+            ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[0]).Visible = Utilerias.VisibilidadPermiso("DetallesUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
+            ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[1]).Visible = Utilerias.VisibilidadPermiso("ModificarUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
             unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", null);
             lueUnidad.Properties.DataSource = Unidades;

@@ -25,6 +25,9 @@ namespace ALMACEN.WIN
         private void xfrmDepartamentoGRD_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevaMarca");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarMarca");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarMarca");
             XPCollection<BL.Marcas> Marcas = new XPCollection<BL.Marcas>(Unidad);
             grdMarcas.DataSource = Marcas;
         }

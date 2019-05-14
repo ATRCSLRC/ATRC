@@ -202,6 +202,7 @@
             // 
             // txtCodigo1
             // 
+            this.txtCodigo1.EnterMoveNextControl = true;
             this.txtCodigo1.Location = new System.Drawing.Point(62, 12);
             this.txtCodigo1.Name = "txtCodigo1";
             this.txtCodigo1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -288,6 +289,7 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.EnterMoveNextControl = true;
             this.txtCantidad.Location = new System.Drawing.Point(62, 36);
             this.txtCantidad.MenuManager = this.rcPrestamos;
             this.txtCantidad.Name = "txtCantidad";
@@ -565,7 +567,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmPrestamoArticulos";
             this.Ribbon = this.rcPrestamos;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prestamos ";
             this.Load += new System.EventHandler(this.xfrmPrestamoArticulos_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.rcPrestamos)).EndInit();

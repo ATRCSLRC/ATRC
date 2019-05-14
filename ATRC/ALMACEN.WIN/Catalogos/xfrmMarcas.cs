@@ -1,6 +1,9 @@
 ﻿using ALMACEN.BL;
 using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,9 +35,15 @@ namespace ALMACEN.WIN
         {
             if (!string.IsNullOrEmpty(memoNombre.Text))
             {
-                Marca.Save();
-                Unidad.CommitChanges();
-                this.Close();
+                if (!Existe())
+                {
+                    Marca.Save();
+                    Unidad.CommitChanges();
+                    this.Close();
+                }else
+                {
+                    XtraMessageBox.Show("Esta marca se encuentra registrada.");
+                }
             }
         }
 
@@ -43,6 +52,17 @@ namespace ALMACEN.WIN
             Unidad.RollbackTransaction();
             memoNombre.DataBindings.Clear();
             this.Close();
+        }
+        #endregion
+
+        #region
+        private bool Existe()
+        {
+            UnidadDeTrabajo UnidadConsulta = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Marcas = new XPView(UnidadConsulta, typeof(Marcas), "Oid;Nombre", new BinaryOperator("Nombre", memoNombre.Text));
+            if (Marcas.Count > 0)
+                return true;
+            return false;
         }
         #endregion
     }

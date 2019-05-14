@@ -24,6 +24,10 @@ namespace ALMACEN.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmInventarioGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevoInventario");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarInventario");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarInventario");
+            bbiImprimir.Visibility = Utilerias.VisibilidadPermiso("ImprimirInventario");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Inventarios = new XPView(Unidad, typeof(InventarioArticulo), "Oid;Nombre", null);
             grdInventarios.DataSource = Inventarios;

@@ -243,6 +243,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_pegar_especial_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pegar-especial-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_plataforma_petrolera_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-32", resourceCulture);
@@ -256,6 +266,26 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_plataforma_petrolera_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_plataforma_petrolera_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_portapapeles_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-portapapeles-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +336,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_transporte_terrestre_32__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-transporte-terrestre-32 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ver_detalles_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ver-detalles-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -24,6 +24,7 @@ namespace UNIDADES.WIN
 
         private void xfrmInventarioExtintores_Load(object sender, EventArgs e)
         {
+            bbiRevisar.Visibility = Utilerias.VisibilidadPermiso("RevisarExtintor");
             Controles();
         }
 

@@ -32,6 +32,7 @@ namespace ATRCBASE.BL
             sesion.LockingOption = LockingOption.None;
             return sesion;
         }
+
         [Description("Regresa una nueva unidad de trabajo.")]
         public static UnidadDeTrabajo ObtenerNuevaUnidadDeTrabajo()
         {

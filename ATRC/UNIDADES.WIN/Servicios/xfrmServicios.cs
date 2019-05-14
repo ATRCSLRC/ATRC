@@ -2,6 +2,8 @@
 using ATRCBASE.WIN;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using REPORTES.Unidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +24,11 @@ namespace UNIDADES.WIN
         }
 
         UnidadDeTrabajo Unidad;
-        Servicios Servicio;
+        UNIDADES.BL.Servicios Servicio;
         private void xfrmServicios_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            Servicio = new Servicios(Unidad);
+            Servicio = new UNIDADES.BL.Servicios(Unidad);
             BeginInvoke(new MethodInvoker(delegate { IniciarControles(); }));
             LigarControles();
         }
@@ -83,6 +85,11 @@ namespace UNIDADES.WIN
                     }
                     Servicio.Save();
                     Unidad.CommitChanges();
+                    if (Servicio.Servicio == Enums.ServiciosUnidad.CambioAceite)
+                    {
+                        ReportPrintTool repCambioAceite = new ReportPrintTool(new DatosCambioAceite(Servicio));
+                        repCambioAceite.ShowPreview();
+                    }
                     LimpiarControles();
                     LigarControles();
                     dteFecha.DateTime = DateTime.Now;
@@ -118,7 +125,7 @@ namespace UNIDADES.WIN
             memoDetalles.Text = string.Empty;
             txtMillas.Text = string.Empty;
             lueUnidad.Focus();
-            Servicio = new Servicios(Unidad);
+            Servicio = new UNIDADES.BL.Servicios(Unidad);
         }
     }
 }

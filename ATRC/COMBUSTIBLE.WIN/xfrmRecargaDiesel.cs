@@ -58,6 +58,7 @@ namespace COMBUSTIBLE.WIN
                     Cantidad = Tanque.Cantidad;
                     arcScaleComponent1.Value = Cantidad;
                     spnCantidad.EditValue = spnPrecio.EditValue = 0;
+                    txtFactura.Text = txtProveedor.Text = string.Empty;
                     labelComponent1.Text = Cantidad.ToString() + " lts";
                 }
             }
@@ -96,6 +97,8 @@ namespace COMBUSTIBLE.WIN
                 RecargaDiesel Recarga = new RecargaDiesel(UnidadNueva);
                 Recarga.Cantidad = Convert.ToInt64(spnCantidad.EditValue);
                 Recarga.PrecioLitro = Convert.ToDouble(spnPrecio.EditValue);
+                Recarga.Factura = txtFactura.Text;
+                Recarga.Proveedor = txtProveedor.Text;
                 Recarga.Tanque = Tanque;
                 Recarga.Save();
                 Tanque.Save();
@@ -126,6 +129,20 @@ namespace COMBUSTIBLE.WIN
             {
                 XtraMessageBox.Show("Debe agregar la cantidad.");
                 spnCantidad.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtFactura.Text))
+            {
+                XtraMessageBox.Show("Debe agregar la factura.");
+                txtFactura.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtProveedor.Text))
+            {
+                XtraMessageBox.Show("Debe agregar el proveedor.");
+                txtProveedor.Focus();
                 return false;
             }
             return true;

@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diesel\xfrmModificarDiesel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diesel\xfrmModificarDiesel.Designer.cs">
+      <DependentUpon>xfrmModificarDiesel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gasolina\xfrmUnidadesGasolina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     <Compile Include="Diesel\xfrmPedidoDiesel.Designer.cs">
       <DependentUpon>xfrmPedidoDiesel.cs</DependentUpon>
     </Compile>
+    <Compile Include="xfrmProblemasCandados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmProblemasCandados.Designer.cs">
+      <DependentUpon>xfrmProblemasCandados.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmRecargaDiesel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,10 +151,12 @@
     <Compile Include="xfrmTanquesCombustibleGRD.Designer.cs">
       <DependentUpon>xfrmTanquesCombustibleGRD.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Diesel\xfrmModificarDiesel.resx">
+      <DependentUpon>xfrmModificarDiesel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gasolina\xfrmUnidadesGasolina.resx">
       <DependentUpon>xfrmUnidadesGasolina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -179,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Diesel\xfrmPedidoDiesel.resx">
       <DependentUpon>xfrmPedidoDiesel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmProblemasCandados.resx">
+      <DependentUpon>xfrmProblemasCandados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmRecargaDiesel.resx">
       <DependentUpon>xfrmRecargaDiesel.cs</DependentUpon>
@@ -232,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Guardar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plataforma-petrolera-321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

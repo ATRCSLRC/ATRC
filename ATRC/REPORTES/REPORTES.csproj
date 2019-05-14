@@ -91,11 +91,29 @@
     <Compile Include="Rutas\ReporteRutasExtras.Designer.cs">
       <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Taller\BitacoraActividadesEmpleadosTaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesEmpleadosTaller.Designer.cs">
+      <DependentUpon>BitacoraActividadesEmpleadosTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesTallerDiario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesTallerDiario.Designer.cs">
+      <DependentUpon>BitacoraActividadesTallerDiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Taller\BitacoraEmpleadosTaller.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Taller\BitacoraEmpleadosTaller.Designer.cs">
       <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\DatosCambioAceite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\DatosCambioAceite.Designer.cs">
+      <DependentUpon>DatosCambioAceite.cs</DependentUpon>
     </Compile>
     <Compile Include="Unidades\DetalleDeUnidad.cs">
       <SubType>Component</SubType>
@@ -145,7 +163,6 @@
     <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -158,8 +175,17 @@
     <EmbeddedResource Include="Rutas\ReporteRutasExtras.resx">
       <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Taller\BitacoraActividadesEmpleadosTaller.resx">
+      <DependentUpon>BitacoraActividadesEmpleadosTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taller\BitacoraActividadesTallerDiario.resx">
+      <DependentUpon>BitacoraActividadesTallerDiario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Taller\BitacoraEmpleadosTaller.resx">
       <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\DatosCambioAceite.resx">
+      <DependentUpon>DatosCambioAceite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\DetalleDeUnidad.resx">
       <DependentUpon>DetalleDeUnidad.cs</DependentUpon>

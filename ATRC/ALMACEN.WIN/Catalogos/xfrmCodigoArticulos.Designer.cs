@@ -33,6 +33,7 @@
             this.grvArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colArticulo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Cantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -70,7 +71,8 @@
             // 
             this.grvArticulos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCodigo,
-            this.colArticulo});
+            this.colArticulo,
+            this.Cantidad});
             this.grvArticulos.GridControl = this.grdArticulos;
             this.grvArticulos.Name = "grvArticulos";
             this.grvArticulos.OptionsFind.AlwaysVisible = true;
@@ -85,6 +87,7 @@
             this.colCodigo.OptionsColumn.AllowFocus = false;
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 0;
+            this.colCodigo.Width = 158;
             // 
             // colArticulo
             // 
@@ -95,6 +98,19 @@
             this.colArticulo.OptionsColumn.AllowFocus = false;
             this.colArticulo.Visible = true;
             this.colArticulo.VisibleIndex = 1;
+            this.colArticulo.Width = 469;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.Caption = "Cantidad";
+            this.Cantidad.FieldName = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.OptionsColumn.AllowEdit = false;
+            this.Cantidad.OptionsColumn.AllowFocus = false;
+            this.Cantidad.OptionsColumn.ReadOnly = true;
+            this.Cantidad.Visible = true;
+            this.Cantidad.VisibleIndex = 2;
+            this.Cantidad.Width = 131;
             // 
             // layoutControlGroup1
             // 
@@ -162,5 +178,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCodigo;
         private DevExpress.XtraGrid.Columns.GridColumn colArticulo;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn Cantidad;
     }
 }

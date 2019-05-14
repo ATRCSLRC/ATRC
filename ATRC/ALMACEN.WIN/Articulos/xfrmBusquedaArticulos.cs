@@ -92,7 +92,8 @@ namespace ALMACEN.WIN
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             GroupOperator go = new GroupOperator();
-            go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
+            if(!chkHistorico.Checked)
+                go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
@@ -168,7 +169,8 @@ namespace ALMACEN.WIN
             if (lueCatalogo.EditValue != null)
             {
                 GroupOperator go = new GroupOperator();
-                go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
+                if (!chkHistorico.Checked)
+                    go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
 
                 if (lueCatalogo.EditValue.GetType() == typeof(Proveedor))
                 {
@@ -200,7 +202,8 @@ namespace ALMACEN.WIN
         private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
         {
             GroupOperator go = new GroupOperator();
-            go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
+            if (!chkHistorico.Checked)
+                go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo

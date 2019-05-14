@@ -84,13 +84,13 @@ namespace ALMACEN.WIN
                 {
                     Factura factura = new Factura(Unidad);
                     factura.Almacen = Convert.ToInt32(spnAlmacen.Value);
-                    factura.Cantidad = Convert.ToInt32(spnCantidad.Value);
+                    factura.Cantidad = Convert.ToDecimal(spnCantidad.Value);
                     factura.Fecha = dteFechaEntrega.DateTime;
                     factura.Marca = (Marcas)lueMarca.EditValue;
                     factura.Medida = txtMedida.Text;
                     factura.NumFactura = txtFactura.Text;
                     factura.NumParte = txtParte.Text;
-                    factura.Precio = Convert.ToInt32(spnPrecio.Value);
+                    factura.Precio = Convert.ToDecimal(spnPrecio.Value);
                     factura.Proveedor = (Proveedor)lueProveedor.EditValue;
                     factura.Serie = txtSerie.Text;
                     factura.Tipo = txtTipo.Text;
@@ -258,7 +258,19 @@ namespace ALMACEN.WIN
                 Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
                 if (Articulo != null)
                 {
+                    Articulo.Facturas.TopReturnedObjects = 1;
                     txtNombre.Text = Articulo.Nombre;
+                    cboTipoMedida.EditValue = Articulo.Facturas[0].TipoMedida;
+                    spnPrecio.EditValue = Articulo.Facturas[0].Precio;
+                    lueProveedor.EditValue = Articulo.Facturas[0].Proveedor;
+                    spnAlmacen.EditValue = Articulo.Facturas[0].Almacen;
+                    txtFactura.Text = Articulo.Facturas[0].NumFactura;
+                    txtParte.Text = Articulo.Facturas[0].NumParte;
+                    lueMarca.EditValue = Articulo.Facturas[0].Marca;
+                    txtMedida.Text = Articulo.Facturas[0].Medida;
+                    txtSerie.Text = Articulo.Facturas[0].Serie;
+                    cmbUsoLlanta.EditValue = Articulo.EstadoLlanta;
+                    txtTipo.Text = Articulo.Facturas[0].Tipo;
                     rgOpciones.EditValue = Articulo.TipoArticulo;
                     txtNombre.ReadOnly = true;
                     rgOpciones.ReadOnly = true;
@@ -282,7 +294,19 @@ namespace ALMACEN.WIN
                 Articulo = Unidad.FindObject<Articulo>(new BinaryOperator("Codigo", txtCodigo.Text));
                 if (Articulo != null)
                 {
+                    Articulo.Facturas.TopReturnedObjects = 1;
                     txtNombre.Text = Articulo.Nombre;
+                    cboTipoMedida.EditValue = Articulo.Facturas[0].TipoMedida;
+                    spnPrecio.EditValue = Articulo.Facturas[0].Precio;
+                    lueProveedor.EditValue = Articulo.Facturas[0].Proveedor;
+                    spnAlmacen.EditValue = Articulo.Facturas[0].Almacen;
+                    txtFactura.Text = Articulo.Facturas[0].NumFactura;
+                    txtParte.Text = Articulo.Facturas[0].NumParte;
+                    lueMarca.EditValue = Articulo.Facturas[0].Marca;
+                    txtMedida.Text = Articulo.Facturas[0].Medida;
+                    txtSerie.Text = Articulo.Facturas[0].Serie;
+                    cmbUsoLlanta.EditValue = Articulo.EstadoLlanta;
+                    txtTipo.Text = Articulo.Facturas[0].Tipo;
                     rgOpciones.EditValue = Articulo.TipoArticulo;
                     txtNombre.ReadOnly = true;
                     rgOpciones.ReadOnly = true;

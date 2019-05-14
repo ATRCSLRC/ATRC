@@ -4,6 +4,7 @@ using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Camera;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraTreeList.Nodes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -205,9 +206,15 @@ namespace ATRCBASE.WIN
             cmbPatron.DataBindings.Add("EditValue", Usuario, "Patron", true, DataSourceUpdateMode.OnPropertyChanged);
             txtAvisar.DataBindings.Add("EditValue", Usuario, "AvisarA", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTipoSangre.DataBindings.Add("EditValue", Usuario, "TipoSangre", true, DataSourceUpdateMode.OnPropertyChanged);
-            checkedComboBoxEdit1.DataBindings.Add("EditValue", Usuario , "Modulos", true, DataSourceUpdateMode.OnPropertyChanged);
+            //checkedComboBoxEdit1.DataBindings.Add("EditValue", Usuario , "Modulos", true, DataSourceUpdateMode.OnPropertyChanged);
             txtContraseña.Text = txtConfContraseña.Text = Usuario.ConstraseñaDesencriptada;
             txtDomicilio.Text = Usuario.Latitud.ToString() + ", "+ Usuario.Longitud.ToString();
+            //, new NullOperator("PermisoPadre")
+            //XPCollection<Permiso> Permisos = new XPCollection<Permiso>(Unidad);
+            XPView Permisos = new XPView(Unidad, typeof(Permiso), "Oid;Nombre;PermisoPadre", null);
+            trModulos.DataSource = Permisos;
+
+            //
         }
 
         private void Desligar()
@@ -247,5 +254,60 @@ namespace ATRCBASE.WIN
         }
 
         #endregion
+
+        private void treeList1_BeforeCheckNode(object sender, DevExpress.XtraTreeList.CheckNodeEventArgs e)
+        {
+            if (e.State == CheckState.Checked)
+            {
+                e.Node.CheckAll();
+                ModificacionesPermisos(e.Node, true);
+            }
+            else
+            {
+                e.Node.UncheckAll();
+                ModificacionesPermisos(e.Node, false);
+            } 
+        }
+
+        private void treeList1_NodeChanged(object sender, DevExpress.XtraTreeList.NodeChangedEventArgs e)
+        {
+            
+        }
+
+        private void treeList1_Load(object sender, EventArgs e)
+        {
+            //treeList1.SetNodeCheckState(treeList1.FindNodeByKeyID(1), CheckState.Checked);
+            foreach (Permiso Permiso in Usuario.Permisos)
+            {
+                trModulos.SetNodeCheckState(trModulos.FindNodeByKeyID(Permiso.Oid), CheckState.Checked);
+            }
+            //    treeList1.SetNodeCheckState(treeList1.FindNodeByKeyID(Permiso.Oid), CheckState.Checked);
+        }
+
+        private void ModificacionesPermisos(TreeListNode Nodo, bool Agregar)
+        {
+            if (Agregar)
+            {
+                int ID = Convert.ToInt32(Nodo.GetValue(trModulos.KeyFieldName));
+                Permiso Permiso = Unidad.GetObjectByKey<Permiso>(ID);
+                Usuario.Permisos.Add(Permiso);
+
+                foreach (TreeListNode mNodo in Nodo.Nodes)
+                {
+                    ModificacionesPermisos(mNodo, true);
+                }
+            }else
+            {
+                int ID = Convert.ToInt32(Nodo.GetValue(trModulos.KeyFieldName));
+                Permiso Permiso = Unidad.GetObjectByKey<Permiso>(ID);
+                Usuario.Permisos.Remove(Permiso);
+
+                foreach (TreeListNode mNodo in Nodo.Nodes)
+                {
+                    ModificacionesPermisos(mNodo, false);
+                }
+            }
+        }
+
     }
 }

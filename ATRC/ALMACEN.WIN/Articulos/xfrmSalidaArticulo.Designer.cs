@@ -147,6 +147,8 @@
             // 
             // txtNombreUsuario
             // 
+            this.txtNombreUsuario.Enabled = false;
+            this.txtNombreUsuario.EnterMoveNextControl = true;
             this.txtNombreUsuario.Location = new System.Drawing.Point(306, 222);
             this.txtNombreUsuario.MenuManager = this.rcMain;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
@@ -158,6 +160,7 @@
             // 
             // lueUnidad
             // 
+            this.lueUnidad.EnterMoveNextControl = true;
             this.lueUnidad.Location = new System.Drawing.Point(24, 145);
             this.lueUnidad.MenuManager = this.rcMain;
             this.lueUnidad.Name = "lueUnidad";
@@ -193,6 +196,7 @@
             // 
             // txtOtroRecibo
             // 
+            this.txtOtroRecibo.EnterMoveNextControl = true;
             this.txtOtroRecibo.Location = new System.Drawing.Point(24, 246);
             this.txtOtroRecibo.MenuManager = this.rcMain;
             this.txtOtroRecibo.Name = "txtOtroRecibo";
@@ -213,11 +217,12 @@
             this.btnUsuario.Size = new System.Drawing.Size(181, 20);
             this.btnUsuario.StyleController = this.lcMain;
             this.btnUsuario.TabIndex = 15;
-            this.btnUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyUp);
+            this.btnUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyDown);
             this.btnUsuario.Leave += new System.EventHandler(this.btnUsuario_Leave);
             // 
             // rgRecibo
             // 
+            this.rgRecibo.EnterMoveNextControl = true;
             this.rgRecibo.Location = new System.Drawing.Point(121, 193);
             this.rgRecibo.MenuManager = this.rcMain;
             this.rgRecibo.Name = "rgRecibo";
@@ -232,6 +237,7 @@
             // 
             // txtOtroDestino
             // 
+            this.txtOtroDestino.EnterMoveNextControl = true;
             this.txtOtroDestino.Location = new System.Drawing.Point(24, 169);
             this.txtOtroDestino.MenuManager = this.rcMain;
             this.txtOtroDestino.Name = "txtOtroDestino";
@@ -262,6 +268,7 @@
             // 
             // rgDestino
             // 
+            this.rgDestino.EnterMoveNextControl = true;
             this.rgDestino.Location = new System.Drawing.Point(121, 116);
             this.rgDestino.MenuManager = this.rcMain;
             this.rgDestino.Name = "rgDestino";
@@ -314,6 +321,7 @@
             0,
             0,
             0});
+            this.spnCantidad.EnterMoveNextControl = true;
             this.spnCantidad.Location = new System.Drawing.Point(121, 92);
             this.spnCantidad.MenuManager = this.rcMain;
             this.spnCantidad.Name = "spnCantidad";

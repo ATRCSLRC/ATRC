@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +26,11 @@ namespace ATRCBASE.WIN
 
         private void xfrmUsuariosGRD_Load(object sender, EventArgs e)
         {
-
+            bbiNuevos.Visibility = Utilerias.VisibilidadPermiso("NuevoUsuario");
+            bbiModificarUsuario.Visibility = Utilerias.VisibilidadPermiso("ModificarUsuario");
+            bbiReportes.Visibility = Utilerias.VisibilidadPermiso("HistorialReportesUsuario");
+            bbiDesactivarEmpleado.Visibility = Utilerias.VisibilidadPermiso("ActivarDasactivarUsuario");
+            bbiGafete.Visibility = Utilerias.VisibilidadPermiso("ImprimirGafete");
             if (Unidad == null)
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
@@ -131,6 +136,17 @@ namespace ATRCBASE.WIN
                     Unidad.CommitChanges();
                     ((XPView)grdUsuarios.DataSource).Reload();
                 }
+            }
+        }
+
+        private void bbiReportes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord ViewUsuario = grvUsuarios.GetFocusedRow() as ViewRecord;
+            if (ViewUsuario != null)
+            {
+                Type form = Assembly.Load("GUARDIAS.WIN").GetType("GUARDIAS.WIN.xfrmReportesPorUsuario");
+                MethodInfo Metodo = form.GetMethod("MostrarVentana");
+                object Retorno = Metodo.Invoke(null, new object[] { Convert.ToInt32(ViewUsuario["NumEmpleado"]), ViewUsuario["Nombre"].ToString() });
             }
         }
     }

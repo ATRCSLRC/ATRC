@@ -82,11 +82,11 @@ namespace ALMACEN.BL
             set { SetPropertyValue<Enums.TipoMedida>("TipoMedida", ref mTipoMedida, value); }
         }
 
-        private int mCantidad;
-        public int Cantidad
+        private decimal mCantidad;
+        public decimal Cantidad
         {
             get { return mCantidad; }
-            set { SetPropertyValue<int>("Cantidad", ref mCantidad, value); }
+            set { SetPropertyValue<decimal>("Cantidad", ref mCantidad, value); }
         }
 
         private Marcas mMarca;

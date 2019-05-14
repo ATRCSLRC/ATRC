@@ -21,10 +21,15 @@ namespace COMBUSTIBLE.WIN
         }
 
         public int UnidadTransporte;
+        public bool EsListaProblemas = false;
 
         private void xfrmandados_Load(object sender, EventArgs e)
         {
-
+            if (EsListaProblemas)
+            {
+                this.ControlBox = true;
+                lciComentario.Text = "Debe explicar el problema:";
+            }
         }
 
         private void memoObservacion_KeyDown(object sender, KeyEventArgs e)
@@ -34,11 +39,23 @@ namespace COMBUSTIBLE.WIN
                 if (XtraMessageBox.Show("¿Desea guardar el detalle del problema?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                    DetallesCandados Candado = new DetallesCandados(Unidad);
-                    Candado.Empleado = Utilerias.ObtenerUsuarioActual(Unidad);
-                    Candado.Unidad = Unidad.GetObjectByKey<UNIDADES.BL.Unidad>(UnidadTransporte);
-                    Candado.Problema = memoObservacion.Text;
-                    Candado.Save();
+                    if (!EsListaProblemas)
+                    {
+
+                        DetallesCandados Candado = new DetallesCandados(Unidad);
+                        Candado.Empleado = Utilerias.ObtenerUsuarioActual(Unidad);
+                        Candado.Unidad = Unidad.GetObjectByKey<UNIDADES.BL.Unidad>(UnidadTransporte);
+                        Candado.Problema = memoObservacion.Text;
+                        Candado.Verificado = true;
+                        Candado.Save();
+                    }
+                    else
+                    {
+                        DetallesCandados Candado = Unidad.GetObjectByKey<DetallesCandados>(UnidadTransporte);
+                        Candado.Problema = memoObservacion.Text;
+                        Candado.Verificado = true;
+                        Candado.Save();
+                    }
                     Unidad.CommitChanges();
                     this.Close();
                 }

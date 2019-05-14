@@ -32,5 +32,19 @@ namespace COMBUSTIBLE.BL
             get { return mCantidad; }
             set { SetPropertyValue<Int64>("Cantidad", ref mCantidad, value); }
         }
+
+        private string mFactura;
+        public string Factura
+        {
+            get { return mFactura; }
+            set { SetPropertyValue<string>("Factura", ref mFactura, value); }
+        }
+
+        private string mProveedor;
+        public string Proveedor
+        {
+            get { return mProveedor; }
+            set { SetPropertyValue<string>("Proveedor", ref mProveedor, value); }
+        }
     }
 }

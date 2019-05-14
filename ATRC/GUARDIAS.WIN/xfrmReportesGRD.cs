@@ -27,6 +27,8 @@ namespace GUARDIAS.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmReportesGRD_Load(object sender, EventArgs e)
         {
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarReporte");
+            bbiImprimir.Visibility = Utilerias.VisibilidadPermiso("ImprimirReporte");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             BeginInvoke(new MethodInvoker(delegate { Controles(); }));
         }

@@ -161,6 +161,9 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<double>("Longitud", ref mLongitud, value); }
         }
 
+        [Association("Usuarios-Permisos", UseAssociationNameAsIntermediateTableName = true)]
+        public XPCollection<Permiso> Permisos { get { return GetCollection<Permiso>("Permisos"); } }
+
         [NonPersistent]
         public string ConstraseñaDesencriptada
         {

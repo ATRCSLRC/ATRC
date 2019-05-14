@@ -25,6 +25,9 @@ namespace COMBUSTIBLE.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmDepartamentoGRD_Load(object sender, EventArgs e)
         {
+            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevoTanque");
+            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarTanque");
+            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarTanque");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Tanques = new XPView(Unidad, typeof(DieselActual), "Oid;Descripcion;Capacidad;TipoCombustible", null);
             grdTanques.DataSource = Tanques;

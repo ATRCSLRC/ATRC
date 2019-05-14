@@ -595,6 +595,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(451, 95);
             this.txtNombre.MenuManager = this.Checador;
             this.txtNombre.Name = "txtNombre";

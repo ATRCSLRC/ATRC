@@ -213,6 +213,32 @@ namespace UNIDADES.BL
             set { SetPropertyValue<bool>("TieneExtinguidor", ref mTieneExtinguidor, value); }
         }
 
+        Extintores mExtintor = null;
+        public Extintores Extintor
+        {
+            get { return mExtintor; }
+            set
+            {
+                if (mExtintor == value)
+                    return;
+
+                // Store a reference to the former owner. 
+                Extintores extintor = mExtintor;
+                mExtintor = value;
+
+                if (IsLoading) return;
+
+                // Remove an owner's reference to this building, if exists. 
+                if (extintor != null && extintor.Unidad == this)
+                    extintor.Unidad = null;
+
+                // Specify that the building is a new owner's house. 
+                if (mExtintor != null)
+                    mExtintor.Unidad = this;
+                OnChanged("Extintor");
+            }
+        }
+
         private bool mTieneTrancas;
         public bool TieneTrancas
         {
