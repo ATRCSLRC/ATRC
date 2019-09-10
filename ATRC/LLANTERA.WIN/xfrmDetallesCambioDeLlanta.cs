@@ -26,7 +26,11 @@ namespace LLANTERA.WIN
         {
             UnidadTrabajo = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             dteAl.DateTime = dteDel.DateTime = DateTime.Now;
-            XPView Unidades = new XPView(UnidadTrabajo, typeof(UNIDADES.BL.Unidad), "Oid;Nombre", null);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            XPView Unidades = new XPView(UnidadTrabajo, typeof(UNIDADES.BL.Unidad), "Oid;Nombre", go);
             lueUnidad.Properties.DataSource = Unidades;
         }
 

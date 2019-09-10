@@ -83,6 +83,116 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_48__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-48 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_48__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-48 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_alquiler_de_coches_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-alquiler-de-coches-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_alquiler_de_coches_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-alquiler-de-coches-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_batería_de_coche_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-batería-de-coche-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_batería_de_coche_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-batería-de-coche-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cheque_de_nómina_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cheque-de-nómina-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cuenta_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cuenta-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_dispensador_de_gasolina_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-dispensador-de-gasolina-32", resourceCulture);
@@ -123,6 +233,26 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_fiat_500_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-fiat-500-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_fiat_500_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-fiat-500-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_formulario_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-formulario-32", resourceCulture);
@@ -136,6 +266,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_gasolinera_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-gasolinera-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_gestión_de_clientes_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-gestión-de-clientes-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +456,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_ruta_34 {
             get {
                 object obj = ResourceManager.GetObject("icons8-ruta-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_transporte_terrestre_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-transporte-terrestre-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

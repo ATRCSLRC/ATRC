@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ATRCBASE.BL.Enums;
@@ -430,7 +431,11 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Detalles de Unidad", "DetallesDeUnidad", nivel1);
             nivel3 = CrearPermisos(Unidad, "Detalle de Unidad", "DetallesUnidad", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Unidad", "ModificarUnidad", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Estado Unidad", "EstadoUnidad", nivel2);
             nivel3 = CrearPermisos(Unidad, "Eliminar Unidad", "EliminarUnidad", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Unidades de Fuera Servicio", "FueraServicioUnidad", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Estado Unidad", "EstadoUnidadFueraServicio", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Detalle de Unidad", "DetallesUnidadFueraServicio", nivel2);
             nivel2 = CrearPermisos(Unidad, "Servicios Unidad", "ServiciosUnidad", nivel1);
             nivel2 = CrearPermisos(Unidad, "Radios", "Radios", nivel1);
             nivel3 = CrearPermisos(Unidad, "Nueva Radio", "NuevaRadio", nivel2);
@@ -445,6 +450,8 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Inventario de Extintores", "InventarioExtintores", nivel1);
             nivel3 = CrearPermisos(Unidad, "Revisar Extintor", "RevisarExtintor", nivel2);
             nivel2 = CrearPermisos(Unidad, "Historial de Extintores", "HistorialExtintores", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Inventario de", "InventarioBaterias", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Historial de Baterias", "HistorialBaterias", nivel1);
             nivel2 = CrearPermisos(Unidad, "Reportes", "ReportesUnidades", nivel1);
             #endregion
 
@@ -504,6 +511,24 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Imprimir Reporte", "ImprimirReporte", nivel2);
             nivel2 = CrearPermisos(Unidad, "Pedidos Diesel", "PedidosDieselGuardias", nivel1);
             nivel2 = CrearPermisos(Unidad, "Pedidos Gasolina", "PedidosGasolinaGuardias", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Nuevo Recibo", "NuevoRecibo", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Recibos", "RecibosPago", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Modificar Recibo", "ModificarRecibo", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Imprimir Recibo", "ImprimirRecibo", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Nuevo Contrato", "NuevoContrato", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Abonar Contrato", "AbonarContrato", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Entregar Unidad", "EntregarUnidad", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Recibir Unidad", "RecibirUnidad", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Contratos", "Contratos", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Cancelar Contrato", "CancelarContrato", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Contrato", "ModificarContrato", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Reimprimir Contrato", "ReimprimirContrato", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Generar Contrato", "GenerarContrato", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Calendario Rentas", "CalendarioRentas", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Historial Rentas", "HistorialRentas", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Clientes", "Clientes", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Nuevo Cliente", "NuevoClienteRenta", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Cliente", "ModificarClienteRenta", nivel2);
             #endregion
 
             #region Configuracion
@@ -599,6 +624,175 @@ namespace ATRCBASE.BL
             permiso.Save();
             Unidad.CommitTransaction();
             return permiso;
+        }
+
+        private static String[] UNIDADES = { "", "un ", "dos ", "tres ", "cuatro ", "cinco ", "seis ", "siete ", "ocho ", "nueve " };
+        private static String[] DECENAS = {"diez ", "once ", "doce ", "trece ", "catorce ", "quince ", "dieciseis ",
+        "diecisiete ", "dieciocho ", "diecinueve", "veinte ", "treinta ", "cuarenta ",
+        "cincuenta ", "sesenta ", "setenta ", "ochenta ", "noventa "};
+        private static String[] CENTENAS = {"", "ciento ", "doscientos ", "trecientos ", "cuatrocientos ", "quinientos ", "seiscientos ",
+        "setecientos ", "ochocientos ", "novecientos "};
+
+        private static Regex r;
+
+        public static String Convertir(String numero, bool mayusculas, string moneda = "PESOS")
+        {
+
+            String literal = "";
+            String parte_decimal;
+            //si el numero utiliza (.) en lugar de (,) -> se reemplaza
+            numero = numero.Replace(".", ",");
+
+            //si el numero no tiene parte decimal, se le agrega ,00
+            if (numero.IndexOf(",") == -1)
+            {
+                numero = numero + ",00";
+            }
+            //se valida formato de entrada -> 0,00 y 999 999 999,00
+            r = new Regex(@"\d{1,9},\d{1,2}");
+            MatchCollection mc = r.Matches(numero);
+            if (mc.Count > 0)
+            {
+                //se divide el numero 0000000,00 -> entero y decimal
+                String[] Num = numero.Split(',');
+
+                string MN = " M.N.";
+                if (moneda != "PESOS")
+                    MN = "";
+
+                //de da formato al numero decimal
+                parte_decimal = moneda + " " + Num[1] + "/100" + MN;
+                //se convierte el numero a literal
+                if (int.Parse(Num[0]) == 0)
+                {//si el valor es cero
+                    literal = "cero ";
+                }
+                else if (int.Parse(Num[0]) > 999999)
+                {//si es millon
+                    literal = getMillones(Num[0]);
+                }
+                else if (int.Parse(Num[0]) > 999)
+                {//si es miles
+                    literal = getMiles(Num[0]);
+                }
+                else if (int.Parse(Num[0]) > 99)
+                {//si es centena
+                    literal = getCentenas(Num[0]);
+                }
+                else if (int.Parse(Num[0]) > 9)
+                {//si es decena
+                    literal = getDecenas(Num[0]);
+                }
+                else
+                {//sino unidades -> 9
+                    literal = getUnidades(Num[0]);
+                }
+                //devuelve el resultado en mayusculas o minusculas
+                if (mayusculas)
+                {
+                    return (literal + parte_decimal).ToUpper();
+                }
+                else
+                {
+                    return (literal + parte_decimal);
+                }
+            }
+            else
+            {//error, no se puede convertir
+                return literal = null;
+            }
+        }
+
+        /* funciones para convertir los numeros a literales */
+
+        private static String getUnidades(String numero)
+        {   // 1 - 9
+            //si tuviera algun 0 antes se lo quita -> 09 = 9 o 009=9
+            String num = numero.Substring(numero.Length - 1);
+            return UNIDADES[int.Parse(num)];
+        }
+
+        private static String getDecenas(String num)
+        {// 99
+            int n = int.Parse(num);
+            if (n < 10)
+            {//para casos como -> 01 - 09
+                return getUnidades(num);
+            }
+            else if (n > 19)
+            {//para 20...99
+                String u = getUnidades(num);
+                if (u.Equals(""))
+                { //para 20,30,40,50,60,70,80,90
+                    return DECENAS[int.Parse(num.Substring(0, 1)) + 8];
+                }
+                else
+                {
+                    return DECENAS[int.Parse(num.Substring(0, 1)) + 8] + "y " + u;
+                }
+            }
+            else
+            {//numeros entre 11 y 19
+                return DECENAS[n - 10];
+            }
+        }
+
+        private static String getCentenas(String num)
+        {// 999 o 099
+            if (int.Parse(num) > 99)
+            {//es centena
+                if (int.Parse(num) == 100)
+                {//caso especial
+                    return " cien ";
+                }
+                else
+                {
+                    return CENTENAS[int.Parse(num.Substring(0, 1))] + getDecenas(num.Substring(1));
+                }
+            }
+            else
+            {//por Ej. 099
+                //se quita el 0 antes de convertir a decenas
+                return getDecenas(int.Parse(num) + "");
+            }
+        }
+
+        private static String getMiles(String numero)
+        {// 999 999
+            //obtiene las centenas
+            String c = numero.Substring(numero.Length - 3);
+            //obtiene los miles
+            String m = numero.Substring(0, numero.Length - 3);
+            String n = "";
+            //se comprueba que miles tenga valor entero
+            if (int.Parse(m) > 0)
+            {
+                n = getCentenas(m);
+                return n + "mil " + getCentenas(c);
+            }
+            else
+            {
+                return "" + getCentenas(c);
+            }
+
+        }
+
+        private static String getMillones(String numero)
+        { //000 000 000
+            //se obtiene los miles
+            String miles = numero.Substring(numero.Length - 6);
+            //se obtiene los millones
+            String millon = numero.Substring(0, numero.Length - 6);
+            String n = "";
+            if (millon.Length > 1)
+            {
+                n = getCentenas(millon) + "millones ";
+            }
+            else
+            {
+                n = getUnidades(millon) + "millon ";
+            }
+            return n + getMiles(miles);
         }
     }
 }

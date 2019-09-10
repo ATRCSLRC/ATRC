@@ -97,15 +97,15 @@ namespace ALMACEN.WIN
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    go.Operands.Add(new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("Articulo.Codigo"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
                 case 1://Descripcion
-                    go.Operands.Add(new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("Articulo.Nombre"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
                 case 2://NumParte
-                    go.Operands.Add(new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("NumParte"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
             }
@@ -207,15 +207,15 @@ namespace ALMACEN.WIN
             switch (rgBusqueda.SelectedIndex)
             {
                 case 0://Codigo
-                    go.Operands.Add(new BinaryOperator("Articulo.Codigo", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("Articulo.Codigo"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
                 case 1://Descripcion
-                    go.Operands.Add(new BinaryOperator("Articulo.Nombre", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("Articulo.Nombre"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
                 case 2://NumParte
-                    go.Operands.Add(new BinaryOperator("NumParte", txtFiltro.Text + "%", BinaryOperatorType.Like));
+                    go.Operands.Add(new FunctionOperator("Like", new OperandProperty("NumParte"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
             }

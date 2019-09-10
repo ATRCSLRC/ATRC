@@ -29,7 +29,8 @@ namespace UNIDADES.WIN
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarRadio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Radios = new XPView(Unidad, typeof(Radios));
-            Radios.Properties.AddRange(new ViewProperty[] {
+            Radios.Properties.AddRange(new 
+                [] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Radio", SortDirection.None, "[Radio]", false, true),
                   new ViewProperty("Marca", SortDirection.None, "[Marca]", false, true),

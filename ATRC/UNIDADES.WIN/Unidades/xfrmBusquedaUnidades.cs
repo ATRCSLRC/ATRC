@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
@@ -27,8 +28,14 @@ namespace UNIDADES.WIN
         {
             ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[0]).Visible = Utilerias.VisibilidadPermiso("DetallesUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
             ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[1]).Visible = Utilerias.VisibilidadPermiso("ModificarUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
+            ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[2]).Visible = Utilerias.VisibilidadPermiso("EstadoUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
+            ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[3]).Visible = Utilerias.VisibilidadPermiso("EliminarUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
             unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", null);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", go);
             lueUnidad.Properties.DataSource = Unidades;
         }
 
@@ -42,11 +49,13 @@ namespace UNIDADES.WIN
                 vGridControl1.DataSource = Unidades;
                 fypEdicion.ShowPopup();
                 CargarImagen(UnidadCamion);
+                
+
             }
             else
             {
                 vGridControl1.DataSource = null;
-                picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+                picFoto.BackgroundImage = UNIDADES.WIN.Properties.Resources.car;
                 fypEdicion.HidePopup();
             }
         }
@@ -85,27 +94,91 @@ namespace UNIDADES.WIN
                     ReportPrintTool repDetalleUnidad = new ReportPrintTool(new REPORTES.Unidades.DetalleDeUnidad(Convert.ToInt32(((ViewRecord)lueUnidad.EditValue)["Oid"])));
                     repDetalleUnidad.ShowPreview();
                     break;
+                case "Estado":
+                    Unidad UnidadCamion = (Unidad)((ViewRecord)lueUnidad.EditValue).GetObject();
+                    XtraInputBoxArgs args = new XtraInputBoxArgs();
+                    args.Caption = "Unidad " + UnidadCamion.Nombre;
+                    args.Prompt = "Estado:";
+                    ComboBoxEdit editor = new ComboBoxEdit();
+                    editor.Properties.Items.Add(Enums.EstadoUnidad.Vendido);
+                    editor.Properties.Items.Add(Enums.EstadoUnidad.FueraServicio);
+                    editor.Properties.Items.Add(Enums.EstadoUnidad.Taller);
+                    args.Editor = editor;
+                    var result = XtraInputBox.Show(args);
+                    if (result != null)
+                    {
+                        UnidadCamion.EstadoUnidad = (Enums.EstadoUnidad)result;
+                        UnidadCamion.UltimoEstado = DateTime.Now;
+                        UnidadCamion.Save();
+                        UnidadCamion.Session.CommitTransaction();
+                        (lueUnidad.Properties.DataSource as XPView).Reload();
+                        vGridControl1.DataSource = null;
+                        picFoto.BackgroundImage = UNIDADES.WIN.Properties.Resources.car;
+                        fypEdicion.HidePopup();
+                    }
+                    break;
             }
 
         }
 
         private void CargarImagen(Unidad UnidadCamion)
         {
-
-            if (UnidadCamion.Imagen != null)
+            if (UnidadCamion.EstadoUnidad == Enums.EstadoUnidad.Taller)
             {
-                if (!string.IsNullOrEmpty(UnidadCamion.Imagen.Archivo))
+                picFoto.EditValue = UNIDADES.WIN.Properties.Resources.Taller;
+                if (UnidadCamion.Imagen != null)
                 {
-                    byte[] image = Convert.FromBase64String(UnidadCamion.Imagen.Archivo);
-                    MemoryStream stream = new MemoryStream(image);
-                    Image returnImage = Image.FromStream(stream);
-                    picFoto.EditValue = stream.ToArray();
+                    if (!string.IsNullOrEmpty(UnidadCamion.Imagen.Archivo))
+                    {
+                        byte[] image = Convert.FromBase64String(UnidadCamion.Imagen.Archivo);
+                        MemoryStream stream = new MemoryStream(image);
+                        Image returnImage = Image.FromStream(stream);
+                        picFoto.BackgroundImage = returnImage;
+                    }
+                    else
+                    {
+                        picFoto.BackgroundImage = UNIDADES.WIN.Properties.Resources.car;
+                    }
                 }
                 else
-                    picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+                {
+                    picFoto.BackgroundImage = UNIDADES.WIN.Properties.Resources.car;
+                }
             }
             else
-                picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+            {
+                if (UnidadCamion.Imagen != null)
+                {
+                    if (!string.IsNullOrEmpty(UnidadCamion.Imagen.Archivo))
+                    {
+                        byte[] image = Convert.FromBase64String(UnidadCamion.Imagen.Archivo);
+                        MemoryStream stream = new MemoryStream(image);
+                        Image returnImage = Image.FromStream(stream);
+                        picFoto.EditValue = returnImage;
+                        picFoto.BackgroundImage = null;
+                    }
+                    else
+                    {
+                        picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+                        picFoto.BackgroundImage = null;
+                    }
+                }
+                else
+                {
+                    picFoto.EditValue = UNIDADES.WIN.Properties.Resources.car;
+                    picFoto.BackgroundImage = null;
+                }
+            }
+        }
+
+        private void fypEdicion_Showing(object sender, DevExpress.Utils.FlyoutPanelEventArgs e)
+        {
+            fypEdicion.OwnerControl.FindForm().TopMost = false;
+        }
+
+        private void fypEdicion_Hidden(object sender, DevExpress.Utils.FlyoutPanelEventArgs e)
+        {
+           // fypEdicion.OwnerControl.FindForm().b();
         }
     }
 }

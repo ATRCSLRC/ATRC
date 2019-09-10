@@ -175,5 +175,23 @@ namespace ATRCBASE.BL
             PedidoDiesel = 1,
             UnidadDiesel = 2
         }
+
+        public enum EstadoUnidad
+        {
+            BuenEstado = 0,
+            Vendido = 1,
+            [Description("Fuera de servicio")]
+            FueraServicio = 2,
+            Taller = 3
+        }
+
+        public enum EstadoContrato
+        {
+            Creado = 0,
+            EnProceso = 1,
+            Terminado = 2,
+            Apartado = 3,
+            Cancelado = 4
+        }
     }
 }

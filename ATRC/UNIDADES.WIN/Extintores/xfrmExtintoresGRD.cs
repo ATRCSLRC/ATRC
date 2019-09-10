@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using static ATRCBASE.BL.Enums;
+using DevExpress.Data.Filtering;
 
 namespace UNIDADES.WIN
 { 
@@ -31,6 +32,7 @@ namespace UNIDADES.WIN
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarExtintor");
             bbiExportar.Visibility = Utilerias.VisibilidadPermiso("ExportarExtintor");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            
             XPView Extintores = new XPView(Unidad, typeof(Extintores));
             Extintores.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),

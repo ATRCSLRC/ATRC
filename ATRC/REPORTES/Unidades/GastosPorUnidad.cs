@@ -18,7 +18,9 @@ namespace REPORTES.Unidades
             InitializeComponent();
             XPCollection Unidades = new XPCollection(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(Unidad), new BinaryOperator("Oid", ID));
             this.DataSource = Unidades;
-            this.drAlmacen.DataSource = ((Unidad)Unidades[0]).GetMemberValue("Salidas");
+            XPCollection Salidas = ((Unidad)Unidades[0]).GetMemberValue("Salidas") as XPCollection;
+            Salidas.Criteria = new BinaryOperator("Estado", 0);
+            this.drAlmacen.DataSource = Salidas;// ((Unidad)Unidades[0]).GetMemberValue("Salidas");
         }
 
         private void xrTableCell17_SummaryCalculated(object sender, TextFormatEventArgs e)

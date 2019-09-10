@@ -37,7 +37,8 @@ namespace UNIDADES.WIN
 
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView HistorialExtintor = new XPView(Unidad, typeof(HistorialExtintores));
-            HistorialExtintor.Properties.AddRange(new ViewProperty[] {
+            HistorialExtintor.Properties.AddRange(new 
+                [] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("NumExtintor", SortDirection.None, "[NumExtintor]", false, true),
                   new ViewProperty("FechaRecarga", SortDirection.None, "[FechaRecarga]", false, true),

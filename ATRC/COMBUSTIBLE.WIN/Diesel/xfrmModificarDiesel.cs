@@ -12,6 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.Data.Filtering;
 using UNIDADES.BL;
+using static ATRCBASE.BL.Enums;
 
 namespace COMBUSTIBLE.WIN
 {
@@ -25,7 +26,12 @@ namespace COMBUSTIBLE.WIN
         private void xfrmModificarDiesel_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Unidades = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", new BinaryOperator("Combustible", Enums.Combustible.Diesel));
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            go.Operands.Add(new BinaryOperator("Combustible", Combustible.Diesel));
+            XPView Unidades = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
             Unidades.Sorting.Add(new SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending));
             lueUnidad.Properties.DataSource = Unidades;
             dteFecha.DateTime = DateTime.Now;

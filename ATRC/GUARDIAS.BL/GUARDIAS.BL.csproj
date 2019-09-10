@@ -58,7 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesRenta.cs" />
+    <Compile Include="ContratoRenta.cs" />
+    <Compile Include="DocumentosClientes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recibos.cs" />
     <Compile Include="Reportes.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +88,10 @@
     <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
       <Project>{A162FE83-383D-4225-A70E-EA9D27E0FB06}</Project>
       <Name>ATRCBASE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{E46D9066-2710-40BC-BE1C-E17EAFC6A044}</Project>
+      <Name>UNIDADES.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

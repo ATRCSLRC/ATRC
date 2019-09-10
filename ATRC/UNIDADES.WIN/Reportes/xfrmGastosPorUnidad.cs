@@ -46,6 +46,7 @@ namespace UNIDADES.WIN.Reportes
                 GroupOperator go = new GroupOperator(GroupOperatorType.And);
                 go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteDel.DateTime.AddDays(-1), BinaryOperatorType.GreaterOrEqual)));
                 go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual)));
+                go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Estado", 0)));
                 go.Operands.Add(new BinaryOperator("Oid", Unidad.Oid));
                 Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
                 XPView Salidas = new XPView(UnidadTrabajo, typeof(Unidad));

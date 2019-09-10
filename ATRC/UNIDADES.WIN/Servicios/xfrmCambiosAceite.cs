@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
+using DevExpress.Data.Filtering;
 
 namespace UNIDADES.WIN
 {
@@ -24,6 +25,10 @@ namespace UNIDADES.WIN
         private void xfrmCambiosAceite_Load(object sender, EventArgs e)
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
             XPView Unidades = new XPView(Unidad, typeof(Unidad));
             Unidades.AddProperty("Oid", "Oid", true);
             Unidades.AddProperty("Nombre", "Nombre", true);
@@ -31,6 +36,7 @@ namespace UNIDADES.WIN
             Unidades.AddProperty("UltimoCambioAceite", "UltimoCambioAceite", true);
             Unidades.AddProperty("TipoUnidad", "TipoUnidad", true);
             Unidades.AddProperty("ProximoCambioAceite", "iif([TipoUnidad] == 1 or [TipoUnidad] == 3, AddMonths([UltimoCambioAceite],3), AddMonths([UltimoCambioAceite],6)) ", false, true, SortDirection.Ascending);
+            Unidades.Criteria = go;
             grdUnidades.DataSource = Unidades;
         }
 

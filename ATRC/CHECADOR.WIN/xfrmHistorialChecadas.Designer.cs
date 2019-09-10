@@ -219,13 +219,13 @@
             // 
             // ftpDetalleChecada
             // 
-            this.ftpDetalleChecada.Appearance.BackColor = System.Drawing.Color.Red;
+            this.ftpDetalleChecada.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ftpDetalleChecada.Appearance.Options.UseBackColor = true;
             this.ftpDetalleChecada.Controls.Add(this.lcMainDetalle);
             this.ftpDetalleChecada.Location = new System.Drawing.Point(21, 524);
             this.ftpDetalleChecada.Name = "ftpDetalleChecada";
             this.ftpDetalleChecada.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
-            this.ftpDetalleChecada.OptionsBeakPanel.BackColor = System.Drawing.Color.Red;
+            this.ftpDetalleChecada.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ftpDetalleChecada.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
             this.ftpDetalleChecada.OptionsBeakPanel.Opacity = 0.5D;
             this.ftpDetalleChecada.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -234,6 +234,7 @@
             new DevExpress.Utils.PeekFormButton(),
             new DevExpress.Utils.PeekFormButton()});
             this.ftpDetalleChecada.OwnerControl = this;
+            this.ftpDetalleChecada.ParentForm = this;
             this.ftpDetalleChecada.Size = new System.Drawing.Size(917, 133);
             this.ftpDetalleChecada.TabIndex = 12;
             // 
@@ -391,7 +392,7 @@
             this.peFotoUsuario.Location = new System.Drawing.Point(12, 12);
             this.peFotoUsuario.MenuManager = this.Checador;
             this.peFotoUsuario.Name = "peFotoUsuario";
-            this.peFotoUsuario.Properties.Appearance.BackColor = System.Drawing.Color.Red;
+            this.peFotoUsuario.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.peFotoUsuario.Properties.Appearance.Options.UseBackColor = true;
             this.peFotoUsuario.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peFotoUsuario.Properties.OptionsMask.MaskType = DevExpress.XtraEditors.Controls.PictureEditMaskType.Circle;

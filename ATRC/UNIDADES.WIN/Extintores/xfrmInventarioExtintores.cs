@@ -12,6 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Repository;
 using static ATRCBASE.BL.Enums;
+using DevExpress.Data.Filtering;
 
 namespace UNIDADES.WIN
 {
@@ -31,6 +32,10 @@ namespace UNIDADES.WIN
         private void Controles()
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("Unidad.EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("Unidad.EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("Unidad.EstadoUnidad"));
             XPView Extintores = new XPView(Unidad, typeof(Extintores));
             Extintores.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
@@ -44,6 +49,7 @@ namespace UNIDADES.WIN
                   new ViewProperty("EstadoExtintor", SortDirection.None,  "[EstadoExtintor]", false, true),
                   new ViewProperty("FechaInventario", SortDirection.None,  "[FechaInventario]", false, true),
                   new ViewProperty("UltimoComentario", SortDirection.None,  "[UltimoComentario]", false, true)});
+            Extintores.Criteria = go;
             grdInventario.DataSource = Extintores;
 
             DevExpress.Utils.ImageCollection images = new DevExpress.Utils.ImageCollection();

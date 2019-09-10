@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -44,7 +45,7 @@ namespace ATRCBASE.WIN
                 bbiGafete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 rpgGafete.Visible = false;
             }
-            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo", null);
+            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo;Imagen;RFC;IMSS;Puesto.Descripcion;FechaIngreso", null);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdUsuarios.DataSource = Usuarios;
         }
@@ -147,6 +148,76 @@ namespace ATRCBASE.WIN
                 Type form = Assembly.Load("GUARDIAS.WIN").GetType("GUARDIAS.WIN.xfrmReportesPorUsuario");
                 MethodInfo Metodo = form.GetMethod("MostrarVentana");
                 object Retorno = Metodo.Invoke(null, new object[] { Convert.ToInt32(ViewUsuario["NumEmpleado"]), ViewUsuario["Nombre"].ToString() });
+            }
+        }
+
+        private void grvUsuarios_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            ViewRecord ViewUsuario = grvUsuarios.GetFocusedRow() as ViewRecord;
+            if (ViewUsuario != null)
+            {
+                Imagen Imagen = Unidad.GetObjectByKey<Imagen>(Convert.ToInt32(ViewUsuario["Imagen"]));
+                if (Imagen != null)
+                {
+                    if (!string.IsNullOrEmpty(Imagen.Archivo))
+                    {
+                        byte[] image = Convert.FromBase64String(Imagen.Archivo);
+                        MemoryStream stream = new MemoryStream(image);
+                        Image returnImage = Image.FromStream(stream);
+                        peFotoUsuario.EditValue = stream.ToArray();
+                    }
+                    else
+                        peFotoUsuario.Image = ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
+                }
+                else
+                    peFotoUsuario.Image = ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
+
+                lblDetalleFecha.Text = ViewUsuario["FechaIngreso"] == null ? "" : ((DateTime)ViewUsuario["FechaIngreso"]).ToShortDateString();
+                lblDetalleUsuario.Text = ViewUsuario["NumEmpleado"].ToString() + " - " + ViewUsuario["Nombre"].ToString();
+                lblIMSSDetalle.Text = ViewUsuario["IMSS"] == null ? "" : ViewUsuario["IMSS"].ToString();
+                lblRFCDetalle.Text = ViewUsuario["RFC"] == null ? "" : ViewUsuario["RFC"].ToString();
+                lblPuestoDetalle.Text = ViewUsuario["Puesto.Descripcion"] == null ? "" : ViewUsuario["Puesto.Descripcion"].ToString();
+                ftpDetalleUsuario.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+                esiDetalleUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                ftpDetalleUsuario.ShowPopup();
+            }
+        }
+
+        private void ftpDetalleUsuario_ButtonClick(object sender, DevExpress.Utils.FlyoutPanelButtonClickEventArgs e)
+        {
+            esiDetalleUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            ftpDetalleUsuario.HidePopup();
+        }
+
+        private void grvUsuarios_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            ViewRecord ViewUsuario = grvUsuarios.GetFocusedRow() as ViewRecord;
+            if (ViewUsuario != null)
+            {
+                Imagen Imagen = Unidad.GetObjectByKey<Imagen>(Convert.ToInt32(ViewUsuario["Imagen"]));
+                if (Imagen != null)
+                {
+                    if (!string.IsNullOrEmpty(Imagen.Archivo))
+                    {
+                        byte[] image = Convert.FromBase64String(Imagen.Archivo);
+                        MemoryStream stream = new MemoryStream(image);
+                        Image returnImage = Image.FromStream(stream);
+                        peFotoUsuario.EditValue = stream.ToArray();
+                    }
+                    else
+                        peFotoUsuario.Image = ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
+                }
+                else
+                    peFotoUsuario.Image = ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
+
+                lblDetalleFecha.Text = ViewUsuario["FechaIngreso"] == null ? "" : ((DateTime)ViewUsuario["FechaIngreso"]).ToShortDateString();
+                lblDetalleUsuario.Text = ViewUsuario["NumEmpleado"].ToString() + " - " + ViewUsuario["Nombre"].ToString();
+                lblIMSSDetalle.Text = ViewUsuario["IMSS"] == null ? "" : ViewUsuario["IMSS"].ToString();
+                lblRFCDetalle.Text = ViewUsuario["RFC"] == null ? "" : ViewUsuario["RFC"].ToString();
+                lblPuestoDetalle.Text = ViewUsuario["Puesto.Descripcion"] == null ? "" : ViewUsuario["Puesto.Descripcion"].ToString();
+                ftpDetalleUsuario.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+                esiDetalleUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                ftpDetalleUsuario.ShowPopup();
             }
         }
     }

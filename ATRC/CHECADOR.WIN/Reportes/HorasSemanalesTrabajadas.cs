@@ -57,7 +57,7 @@ namespace CHECADOR.WIN.Reportes
             result.Columns.Add("HoraChecadaEntrada", typeof(TimeSpan));
             result.Columns.Add("TotalHoras", typeof(decimal));
 
-            //foreach (ViewProperty property in view.Properties)
+            //foreach (property in view.Properties)
             //    result.Columns.Add(property.Name, view.ObjectClassInfo.GetMember(property.Name).MemberType);
             foreach (ViewRecord record in view)
                 result.Rows.Add(GetRecordValues(record));

@@ -143,6 +143,26 @@ namespace ATRCBASE.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_eliminar_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eliminar-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_eliminar_16__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eliminar-16 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_eliminar_archivo_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-eliminar-archivo-80", resourceCulture);

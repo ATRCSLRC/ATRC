@@ -26,6 +26,14 @@ namespace UNIDADES.BL
             set { SetPropertyValue<string>("Baterias", ref mBaterias, value); }
         }
 
+        private string mComentarios;
+        [Size(SizeAttribute.Unlimited)]
+        public string Comentarios
+        {
+            get { return mComentarios; }
+            set { SetPropertyValue<string>("Comentarios", ref mComentarios, value); }
+        }
+
         private DateTime mFechaInventarioBaterias;
         public DateTime FechaInventarioBaterias
         {

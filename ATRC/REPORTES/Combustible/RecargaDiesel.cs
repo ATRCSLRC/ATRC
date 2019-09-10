@@ -18,7 +18,7 @@ namespace REPORTES.Combustible
             GroupOperator go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("FechaAlta", De.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaAlta", Al.Date, BinaryOperatorType.LessOrEqual));
-            XPView RecargasDiesel = new XPView(Unidad, Clase, "Oid;FechaAlta;Tanque.Descripcion;Cantidad;PrecioLitro", go);
+            XPView RecargasDiesel = new XPView(Unidad, Clase, "Oid;FechaAlta;Tanque.Descripcion;Cantidad;PrecioLitro;Factura;Proveedor", go);
             this.DataSource = RecargasDiesel;
         }
 

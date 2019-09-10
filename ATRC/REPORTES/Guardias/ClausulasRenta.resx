@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="xrLabel4.Text" xml:space="preserve">
+    <value>1.- Contratante y Empresa celebran el presente Contrato en la Ciudad de San Luis Río Colorado, Sonora con el único fin de transportación de pasajeros. 
+2.- La empresa por el importe del presente, cubrirá todos los gastos referentes a la o las unidades contratadas tales como combustible, lubricantes, estacionamientos y pasajes exclusivamente dentro de los límites de la República Mexicana, excepto el pago de transbordadores y en el extranjero. 
+3.- Servicios fuera de la República Mexicana, los gastos ocasionados por la unidad y operadores corren por cuenta del contratante (peaje, seguros y viáticos). 
+4.- La Empresa se obliga a presentar la o las unidades a la hora y el lugar estipulado para el inicio del servicio.
+5.- Las unidades de esta clase deberán ofrecer a los usuarios las condiciones indispensables para un viaje cómodo y no llevarán ningún pasajero de pie, siendo el cupo admisible a personas por unidad. 
+6.- Los pasajeros deberán presentarse en el lugar acordado y cuando por cualquier circunstancia los pasajeros no usarán el servicio, tendrán que pagar el precio total del viaje. 
+7.- La empresa queda obligada solamente a prestar el servicio entre los puntos y las modalidades que se señalaron en el Contrato. 
+8.- La empresa rembolsara al contrato únicamente la cantidad depositada en calidad de anticipo, en el caso de no haber cumplido por caso fortuito o de la fuerza mayor con la transportación contratada, siempre y cuando no se hubiese efectuado ésta. 
+9.- Si un pasajero o el grupo interrumpe su viaje en alguna estación o lugar intermediado, por causas no imputables a la empresa, no tendrán derecho a reembolso de la parte proporcional del importe del servicio.
+10.- La Empresa no se hace responsable por objetos olvidados a bordo de nuestras unidades. 
+11.- El Contratante acepta cubrir todos los gastos que se originen por rotura de cristales, asientos, vestiduras, o cualquier otro que se derive por mal uso de la o las unidades. 
+12.- Queda prohibido terminantemente ingerir bebidas alcohólicas a bordo, así como usar la unidad para fines de dormitorio. 
+13.- La Empresa no se hace responsable y se deslinda de toda responsabilidad jurídica en caso de que el Contratante actúe de mala fe y lleve armas de fuego, armas blancas, o estupefacientes.
+14.- El Contratante acepta que la unidad circulara únicamente por caminos asfaltados.
+15.- La Empresa no se responsabiliza por cualquier falla o infracción a las leyes vigentes de nuestro país, en que incurra el contratante o los componentes de su grupo.
+16.- El contratante acepta que por su incumplimiento en alguno de los puntos y condiciones del presente autoriza a la Empresa en dar por rescindido el mismo. 
+17.- En caso de robo del vehículo total o parcial será responsabilidad total del Contratante. 
+18.- Las presentes reglas de aplicación tienen carácter de provisional, en consecuencia, podrán ser modificadas en cualquier tiempo a juicio de la Secretaria de Comunicaciones y Transportes, si el interés del servicio lo requiere.
+19.- Los niños de 6 años pagaran asiento completo. 
+20.- En caso de no respetar la hora de regreso convenida en este Contrato, se cobrará un cargo de $100.00 por cada hora extra.
+21.- No se efectuará ningún servicio si no se liquidó el total del mismo al iniciar el viaje. 
+22.- Cesa la responsabilidad de esta Oficina si SE ALTERA EL NUMERO DE PERSONAS ESTIPULADAS.
+23.- El pago de los servicios extras, así como el pago del I.V.A que marca la Ley, gastos e impuestos que correspondan y que se generen por el presente Contrato serán cubiertos en su totalidad por el Contratante. 
+</value>
+  </data>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>Para cancelación de servicios se admite con 5 días de anticipación, quedando el 50% del anticipo para los gastos de oficina y de la unidad. Si el servicio es cancelado el día y a la hora de salida por parte del contratante este pagará el importe total a la empresa del presente contrato.  </value>
+  </data>
+</root>

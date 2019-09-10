@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaUnidades));
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions4 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lueUnidad = new DevExpress.XtraEditors.LookUpEdit();
@@ -69,7 +70,7 @@
             this.colExtinguidor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colTrancas = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colRadio = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.category = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.catLlantera = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.colIzquierdaFrontal = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colDerechaFrontal = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colTraseraInteriorChofer = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -113,7 +114,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(800, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(841, 27);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // lcMain
@@ -126,7 +127,7 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(852, 245, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(800, 668);
+            this.lcMain.Size = new System.Drawing.Size(841, 668);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -141,21 +142,25 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.DisplayMember = "Nombre";
             this.lueUnidad.Properties.NullText = "[SELECCIONE]";
-            this.lueUnidad.Size = new System.Drawing.Size(649, 20);
+            this.lueUnidad.Size = new System.Drawing.Size(690, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 6;
             this.lueUnidad.EditValueChanged += new System.EventHandler(this.lueUnidad_EditValueChanged);
             // 
             // picFoto
             // 
+            this.picFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picFoto.EditValue = global::UNIDADES.WIN.Properties.Resources.car;
             this.picFoto.Location = new System.Drawing.Point(450, 78);
             this.picFoto.MenuManager = this.ribbonControl1;
             this.picFoto.Name = "picFoto";
+            this.picFoto.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.picFoto.Properties.Appearance.Options.UseBackColor = true;
             this.picFoto.Properties.InitialImageOptions.Image = global::UNIDADES.WIN.Properties.Resources.car;
+            this.picFoto.Properties.NullText = " ";
             this.picFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picFoto.Size = new System.Drawing.Size(338, 578);
+            this.picFoto.Size = new System.Drawing.Size(379, 578);
             this.picFoto.StyleController = this.lcMain;
             this.picFoto.TabIndex = 5;
             // 
@@ -221,7 +226,7 @@
             this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
             this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(12, 78);
             this.vGridControl1.Name = "vGridControl1";
@@ -232,7 +237,7 @@
             this.catGeneral,
             this.catInterior,
             this.catExterior,
-            this.category,
+            this.catLlantera,
             this.colFiltros});
             this.vGridControl1.Size = new System.Drawing.Size(434, 578);
             this.vGridControl1.TabIndex = 4;
@@ -560,17 +565,17 @@
             this.colRadio.Properties.Caption = "Tiene radio";
             this.colRadio.Properties.FieldName = "TieneRadio";
             // 
-            // category
+            // catLlantera
             // 
-            this.category.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.catLlantera.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.colIzquierdaFrontal,
             this.colDerechaFrontal,
             this.colTraseraInteriorChofer,
             this.colTraseraInteriorEstribo,
             this.colTraseraExteriorChofer,
             this.colTraseraExteriorEstribo});
-            this.category.Name = "category";
-            this.category.Properties.Caption = "category";
+            this.catLlantera.Name = "catLlantera";
+            this.catLlantera.Properties.Caption = "Llantera";
             // 
             // colIzquierdaFrontal
             // 
@@ -674,15 +679,18 @@
             this.lciImagen,
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 668);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(841, 668);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciVGRD
             // 
             this.lciVGRD.Control = this.vGridControl1;
             this.lciVGRD.Location = new System.Drawing.Point(0, 66);
+            this.lciVGRD.MaxSize = new System.Drawing.Size(438, 0);
+            this.lciVGRD.MinSize = new System.Drawing.Size(438, 24);
             this.lciVGRD.Name = "lciVGRD";
             this.lciVGRD.Size = new System.Drawing.Size(438, 582);
+            this.lciVGRD.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciVGRD.TextSize = new System.Drawing.Size(0, 0);
             this.lciVGRD.TextVisible = false;
             // 
@@ -691,7 +699,7 @@
             this.lciImagen.Control = this.picFoto;
             this.lciImagen.Location = new System.Drawing.Point(438, 66);
             this.lciImagen.Name = "lciImagen";
-            this.lciImagen.Size = new System.Drawing.Size(342, 582);
+            this.lciImagen.Size = new System.Drawing.Size(383, 582);
             this.lciImagen.TextSize = new System.Drawing.Size(0, 0);
             this.lciImagen.TextVisible = false;
             // 
@@ -701,7 +709,7 @@
             this.lciUnidad});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(780, 66);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(821, 66);
             this.layoutControlGroup2.Text = "Búsqueda por unidad";
             // 
             // lciUnidad
@@ -709,7 +717,7 @@
             this.lciUnidad.Control = this.lueUnidad;
             this.lciUnidad.Location = new System.Drawing.Point(0, 0);
             this.lciUnidad.Name = "lciUnidad";
-            this.lciUnidad.Size = new System.Drawing.Size(756, 24);
+            this.lciUnidad.Size = new System.Drawing.Size(797, 24);
             this.lciUnidad.Text = "Seleccione la unidad:";
             this.lciUnidad.TextSize = new System.Drawing.Size(100, 13);
             // 
@@ -736,22 +744,27 @@
             buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
             buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
             buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
+            buttonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions4.Image")));
             this.fypEdicion.OptionsButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.Utils.PeekFormButton("Detalle de unidad", true, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.Utils.PeekFormButton("Modificar", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.Utils.PeekFormButton("Eliminar", true, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.Utils.PeekFormButton("Estado", true, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.Utils.PeekFormButton("Eliminar", true, buttonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.fypEdicion.OptionsButtonPanel.ShowButtonPanel = true;
             this.fypEdicion.OwnerControl = this.picFoto;
             this.fypEdicion.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.fypEdicion.Size = new System.Drawing.Size(338, 39);
+            this.fypEdicion.ParentForm = this;
+            this.fypEdicion.Size = new System.Drawing.Size(379, 39);
             this.fypEdicion.TabIndex = 3;
+            this.fypEdicion.Showing += new DevExpress.Utils.FlyoutPanelEventHandler(this.fypEdicion_Showing);
+            this.fypEdicion.Hidden += new DevExpress.Utils.FlyoutPanelEventHandler(this.fypEdicion_Hidden);
             this.fypEdicion.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypEdicion_ButtonClick);
             // 
             // xfrmBusquedaUnidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 695);
+            this.ClientSize = new System.Drawing.Size(841, 695);
             this.Controls.Add(this.fypEdicion);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
@@ -827,7 +840,7 @@
         private DevExpress.Utils.FlyoutPanel fypEdicion;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTipoUnidad;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colUltimoCambioAceite;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow category;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow catLlantera;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colIzquierdaFrontal;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colDerechaFrontal;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraInteriorChofer;

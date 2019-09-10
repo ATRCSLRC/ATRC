@@ -31,7 +31,11 @@ namespace ALMACEN.WIN
         private void xfrmSalidaArticulo_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Usuarios = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", null);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            XPView Usuarios = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
             lueUnidad.Properties.DataSource = Usuarios;
             lueUnidad.Properties.DisplayMember = "Nombre";
             lueUnidad.Properties.BestFit();

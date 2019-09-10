@@ -35,14 +35,17 @@ namespace COMBUSTIBLE.WIN
         {
             dteFecha.DateTime = DateTime.Now;
             UnidadControles = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            BinaryOperator bo = new BinaryOperator("Combustible", Combustible.Gasolina);
-
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            go.Operands.Add(new BinaryOperator("Combustible", Combustible.Gasolina));
             XPView Unidades = new XPView(UnidadControles, typeof(Unidad));
             Unidades.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                  });
-            Unidades.Criteria = bo;
+            Unidades.Criteria = go;
             lueUnidad.Properties.DataSource = Unidades;
             txtEmpleado.Focus();
             lueUnidad.ItemIndex = 0;

@@ -147,8 +147,9 @@ namespace COMBUSTIBLE.WIN
                         go.Operands.Add(new BinaryOperator("Tanque", Tanque));
                         XPView Medidor = new XPView(Diesel.Session, typeof(MedidorDiesel), "Oid", go);
                         Medidor.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
-                        XPView UltimaRecarga = new XPView(Diesel.Session, typeof(RecargaDiesel), "Oid", new BinaryOperator("Tanque", Tanque));
-                        UltimaRecarga.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
+                        XPView UltimaRecarga = new XPView(Diesel.Session, typeof(RecargaDiesel));
+                        UltimaRecarga.Properties.Add(new ViewProperty("Oid", SortDirection.Descending, "Oid", false, true));
+                        UltimaRecarga.Criteria = new BinaryOperator("Tanque", Tanque);
                         UltimaRecarga.TopReturnedRecords = 1;
                         Diesel.UltimaRecarga.Tanque.Cantidad += LitrosOriginales;
                         Tanque.Cantidad -= Convert.ToInt32(txtLitros.Text);

@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static ATRCBASE.BL.Enums;
 
 namespace COMBUSTIBLE.WIN
 {
@@ -25,7 +26,14 @@ namespace COMBUSTIBLE.WIN
         private void xfrmUnidadesGasolina_Load(object sender, EventArgs e)
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Unidades = new XPView(Unidad, typeof(UNIDADES.BL.Unidad), "Oid;Nombre", new BinaryOperator("Combustible", Enums.Combustible.Gasolina));
+            GroupOperator goFinal = new GroupOperator();
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            goFinal.Operands.Add(new BinaryOperator("Combustible", Combustible.Gasolina));
+            goFinal.Operands.Add(go);
+            XPView Unidades = new XPView(Unidad, typeof(UNIDADES.BL.Unidad), "Oid;Nombre", goFinal);
             Unidades.Sorting.Add(new SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending));
             grdUnidades.DataSource = Unidades;
         }

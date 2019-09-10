@@ -66,6 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baterias\xfrmHistorialInventarioBaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baterias\xfrmHistorialInventarioBaterias.Designer.cs">
+      <DependentUpon>xfrmHistorialInventarioBaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Baterias\xfrmInventarioBaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baterias\xfrmInventarioBaterias.Designer.cs">
+      <DependentUpon>xfrmInventarioBaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extintores\xfrmExtintores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,18 @@
     <Compile Include="Unidades\xfrmUnidad.Designer.cs">
       <DependentUpon>xfrmUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Unidades\xfrmUnidadesFueraServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Unidades\xfrmUnidadesFueraServicio.Designer.cs">
+      <DependentUpon>xfrmUnidadesFueraServicio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Baterias\xfrmHistorialInventarioBaterias.resx">
+      <DependentUpon>xfrmHistorialInventarioBaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Baterias\xfrmInventarioBaterias.resx">
+      <DependentUpon>xfrmInventarioBaterias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Extintores\xfrmExtintores.resx">
       <DependentUpon>xfrmExtintores.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +175,7 @@
     <EmbeddedResource Include="Extintores\xfrmInventarioExtintores.resx">
       <DependentUpon>xfrmInventarioExtintores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -184,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\xfrmUnidad.resx">
       <DependentUpon>xfrmUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\xfrmUnidadesFueraServicio.resx">
+      <DependentUpon>xfrmUnidadesFueraServicio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\UNIDADES.BL.Unidad.datasource" />
     <None Include="Properties\Settings.settings">
@@ -235,6 +263,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-para-hacer-32 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Taller.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

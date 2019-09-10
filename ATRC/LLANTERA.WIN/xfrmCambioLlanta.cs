@@ -29,7 +29,11 @@ namespace LLANTERA.WIN
         private void xfrmCambioLlanta_Load(object sender, EventArgs e)
         {
             unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Unidades = new XPView(unidad, typeof(UNIDADES.BL.Unidad), "Oid;Nombre;TipoUnidad", null);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            XPView Unidades = new XPView(unidad, typeof(UNIDADES.BL.Unidad), "Oid;Nombre;TipoUnidad", go);
             lueUnidad.Properties.DataSource = Unidades;
             picFoto.Properties.ContextMenu = new ContextMenu();
         }

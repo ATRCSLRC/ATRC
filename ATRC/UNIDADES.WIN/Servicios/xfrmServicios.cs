@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
@@ -35,7 +36,11 @@ namespace UNIDADES.WIN
 
         private void IniciarControles()
         {
-            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", null);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
             lueUnidad.Properties.DataSource = xpc;
             lueUnidad.Properties.DisplayMember = "Nombre";
             lueUnidad.Properties.BestFit();

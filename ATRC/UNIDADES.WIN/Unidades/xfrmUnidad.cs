@@ -62,7 +62,10 @@ namespace UNIDADES.WIN
                     }
                     UnidadCamion.Save();
                     Unidad.CommitChanges();
-                    XtraMessageBox.Show("Se agrego la unidad correctamente.");
+                    if(!esModificacion)
+                        XtraMessageBox.Show("Se agrego la unidad correctamente.");
+                    else
+                        XtraMessageBox.Show("Se modifico la unidad correctamente.");
                     this.Close();
                 }
             }
@@ -269,6 +272,7 @@ namespace UNIDADES.WIN
                 Imagen img = new Imagen(Unidad);
                 UnidadCamion.Imagen = img;
             }
+            chkEsRenta.DataBindings.Add("Checked", UnidadCamion, "EsRenta", true, DataSourceUpdateMode.OnPropertyChanged);
             #region General
             txtNombre.DataBindings.Add("EditValue", UnidadCamion, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
             txtMarca.DataBindings.Add("EditValue", UnidadCamion, "Marca", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -332,6 +336,8 @@ namespace UNIDADES.WIN
         }
         private void DesligarControles()
         {
+            chkEsRenta.DataBindings.Clear();
+
             #region General
             txtNombre.DataBindings.Clear();
             txtMarca.DataBindings.Clear();

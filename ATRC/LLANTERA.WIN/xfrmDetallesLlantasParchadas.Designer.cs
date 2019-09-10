@@ -92,9 +92,9 @@
             // 
             this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
             this.btnLimpiar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnLimpiar.Location = new System.Drawing.Point(535, 90);
+            this.btnLimpiar.Location = new System.Drawing.Point(603, 90);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(257, 22);
+            this.btnLimpiar.Size = new System.Drawing.Size(189, 22);
             this.btnLimpiar.StyleController = this.lcMain;
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar (F12)";
@@ -104,9 +104,9 @@
             // 
             this.btnBuscar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.ImageOptions.Image")));
             this.btnBuscar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(273, 90);
+            this.btnBuscar.Location = new System.Drawing.Point(403, 90);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(258, 22);
+            this.btnBuscar.Size = new System.Drawing.Size(196, 22);
             this.btnBuscar.StyleController = this.lcMain;
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar (F5)";
@@ -172,7 +172,7 @@
             // dteAl
             // 
             this.dteAl.EditValue = null;
-            this.dteAl.Location = new System.Drawing.Point(376, 66);
+            this.dteAl.Location = new System.Drawing.Point(506, 66);
             this.dteAl.Name = "dteAl";
             this.dteAl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -183,7 +183,7 @@
             this.dteAl.Properties.EditFormat.FormatString = "D";
             this.dteAl.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteAl.Properties.Mask.EditMask = "D";
-            this.dteAl.Size = new System.Drawing.Size(416, 20);
+            this.dteAl.Size = new System.Drawing.Size(286, 20);
             this.dteAl.StyleController = this.lcMain;
             this.dteAl.TabIndex = 6;
             // 
@@ -201,7 +201,7 @@
             this.dteDel.Properties.EditFormat.FormatString = "D";
             this.dteDel.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDel.Properties.Mask.EditMask = "D";
-            this.dteDel.Size = new System.Drawing.Size(142, 20);
+            this.dteDel.Size = new System.Drawing.Size(272, 20);
             this.dteDel.StyleController = this.lcMain;
             this.dteDel.TabIndex = 5;
             // 
@@ -257,8 +257,10 @@
             // 
             this.lciUnidad.Control = this.lueUnidad;
             this.lciUnidad.Location = new System.Drawing.Point(0, 0);
+            this.lciUnidad.MinSize = new System.Drawing.Size(157, 24);
             this.lciUnidad.Name = "lciUnidad";
             this.lciUnidad.Size = new System.Drawing.Size(772, 24);
+            this.lciUnidad.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciUnidad.Text = "Seleccioné la unidad:";
             this.lciUnidad.TextSize = new System.Drawing.Size(100, 13);
             // 
@@ -266,28 +268,31 @@
             // 
             this.lciFechaDel.Control = this.dteDel;
             this.lciFechaDel.Location = new System.Drawing.Point(0, 24);
+            this.lciFechaDel.MinSize = new System.Drawing.Size(157, 24);
             this.lciFechaDel.Name = "lciFechaDel";
-            this.lciFechaDel.Size = new System.Drawing.Size(249, 24);
+            this.lciFechaDel.Size = new System.Drawing.Size(379, 24);
+            this.lciFechaDel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFechaDel.Text = "Del:";
             this.lciFechaDel.TextSize = new System.Drawing.Size(100, 13);
             // 
             // lciFechaAl
             // 
             this.lciFechaAl.Control = this.dteAl;
-            this.lciFechaAl.Location = new System.Drawing.Point(249, 24);
+            this.lciFechaAl.Location = new System.Drawing.Point(379, 24);
+            this.lciFechaAl.MinSize = new System.Drawing.Size(157, 24);
             this.lciFechaAl.Name = "lciFechaAl";
-            this.lciFechaAl.Size = new System.Drawing.Size(523, 24);
+            this.lciFechaAl.Size = new System.Drawing.Size(393, 24);
+            this.lciFechaAl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFechaAl.Text = "Al:";
             this.lciFechaAl.TextSize = new System.Drawing.Size(100, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnBuscar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(249, 48);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(262, 26);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(262, 26);
+            this.layoutControlItem5.Location = new System.Drawing.Point(379, 48);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(262, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(200, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -295,11 +300,10 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnLimpiar;
-            this.layoutControlItem6.Location = new System.Drawing.Point(511, 48);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(261, 26);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(261, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(579, 48);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(94, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(261, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(193, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -308,8 +312,10 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(249, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(379, 26);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ribbonControl1

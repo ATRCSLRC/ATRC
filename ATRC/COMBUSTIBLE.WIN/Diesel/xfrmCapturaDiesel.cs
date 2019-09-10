@@ -33,6 +33,7 @@ namespace COMBUSTIBLE.WIN
             XPView PedidosDiesel = new XPView(Unidad, typeof(Diesel), "Oid;Unidad.Nombre;Empleado.Nombre;Llenado", new BinaryOperator("Fecha", DateTime.Now.Date));
             grdUnidadDiesel.DataSource = PedidosDiesel;
             Tanques();
+
         }
 
         private void bbiMedidor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

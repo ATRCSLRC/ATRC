@@ -150,6 +150,14 @@ namespace UNIDADES.BL
             set { SetPropertyValue<DateTime>("FechaInventarioBaterias", ref mFechaInventarioBaterias, value); }
         }
 
+        private string mComentarioBateria;
+        [Size(SizeAttribute.Unlimited)]
+        public string ComentarioBateria
+        {
+            get { return mComentarioBateria; }
+            set { SetPropertyValue<string>("ComentarioBateria", ref mComentarioBateria, value); }
+        }
+
         private int mAsientos;
         public int Asientos
         {
@@ -307,6 +315,34 @@ namespace UNIDADES.BL
             set { SetPropertyValue<DateTime>("Usuario", ref mUltimoCambioAceite, value); }
         }
 
+        private EstadoUnidad mEstadoUnidad;
+        public EstadoUnidad EstadoUnidad
+        {
+            get { return mEstadoUnidad; }
+            set { SetPropertyValue<EstadoUnidad>("EstadoUnidad", ref mEstadoUnidad, value); }
+        }
+
+        private DateTime mUltimoEstado;
+        public DateTime UltimoEstado
+        {
+            get { return mUltimoEstado; }
+            set { SetPropertyValue<DateTime>("UltimoEstado", ref mUltimoEstado, value); }
+        }
+
+        private bool mEsRenta;
+        public bool EsRenta
+        {
+            get { return mEsRenta; }
+            set { SetPropertyValue<bool>("EsRenta", ref mEsRenta, value); }
+        }
+
+        //private decimal mPrecioRenta;
+        //public decimal PrecioRenta
+        //{
+        //    get { return mPrecioRenta; }
+        //    set { SetPropertyValue<decimal>("PrecioRenta", ref mPrecioRenta, value); }
+        //}
+
         [NonPersistent]
         public object LlantaFrontalIzquierda
         {
@@ -343,11 +379,12 @@ namespace UNIDADES.BL
             get { return this.GetMemberValue("LlantaTraseraExteriorEstribo"); }
         }
 
-        public void GenerarHistorialBaterias(string Baterias, DateTime Fecha)
+        public void GenerarHistorialBaterias(string Baterias, DateTime Fecha, string Comentario)
         {
             HistorialBaterias Historial = new HistorialBaterias(this.Session);
             Historial.Unidad = this;
             Historial.Baterias = Baterias;
+            Historial.Comentarios = Comentario;
             Historial.FechaInventarioBaterias = Fecha;
             Historial.Save();
         }

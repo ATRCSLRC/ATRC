@@ -451,7 +451,7 @@
             // 
             // xrTable2
             // 
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 759.0833F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0.0001827876F, 732F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow13,
@@ -778,7 +778,7 @@
             // txtMotivo
             // 
             this.txtMotivo.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Html", "[Motivo]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Html", "\'<FONT FACE=\"tahoma\">\' + [Motivo]")});
             this.txtMotivo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivo.LocationFloat = new DevExpress.Utils.PointFloat(0.0001827876F, 149.75F);
             this.txtMotivo.Name = "txtMotivo";
@@ -1010,7 +1010,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 51F;
+            this.BottomMargin.HeightF = 21.50008F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -1029,8 +1029,8 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(50, 49, 140, 51);
+            this.Font = new System.Drawing.Font("Vladimir Script", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margins = new System.Drawing.Printing.Margins(50, 49, 140, 22);
             this.Version = "17.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();

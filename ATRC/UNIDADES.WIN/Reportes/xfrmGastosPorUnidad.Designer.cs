@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel2 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView3 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView4 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel1 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmGastosPorUnidad));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -58,10 +58,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafica)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteAl.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteAl.Properties)).BeginInit();
@@ -139,21 +139,21 @@
             this.Grafica.PaletteRepository.Add("Paleta 1", new DevExpress.XtraCharts.Palette("Paleta 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(30)))), ((int)(((byte)(30))))), System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))))),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))))}));
-            doughnutSeriesLabel2.TextPattern = "{V:$0.00}";
-            series2.Label = doughnutSeriesLabel2;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.LegendName = "Default Legend";
-            series2.LegendTextPattern = "{A}";
-            series2.Name = "Serie1";
-            doughnutSeriesView3.SweepDirection = DevExpress.XtraCharts.PieSweepDirection.Clockwise;
-            doughnutSeriesView3.TotalLabel.BackColor = System.Drawing.Color.Transparent;
-            doughnutSeriesView3.TotalLabel.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            doughnutSeriesView3.TotalLabel.TextPattern = "Total                    {TV:$0.00}";
-            doughnutSeriesView3.TotalLabel.Visible = true;
-            series2.View = doughnutSeriesView3;
+            doughnutSeriesLabel1.TextPattern = "{V:$0.00}";
+            series1.Label = doughnutSeriesLabel1;
+            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series1.LegendName = "Default Legend";
+            series1.LegendTextPattern = "{A}";
+            series1.Name = "Serie1";
+            doughnutSeriesView1.SweepDirection = DevExpress.XtraCharts.PieSweepDirection.Clockwise;
+            doughnutSeriesView1.TotalLabel.BackColor = System.Drawing.Color.Transparent;
+            doughnutSeriesView1.TotalLabel.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            doughnutSeriesView1.TotalLabel.TextPattern = "Total                    {TV:$0.00}";
+            doughnutSeriesView1.TotalLabel.Visible = true;
+            series1.View = doughnutSeriesView1;
             this.Grafica.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.Grafica.SeriesTemplate.View = doughnutSeriesView4;
+        series1};
+            this.Grafica.SeriesTemplate.View = doughnutSeriesView2;
             this.Grafica.Size = new System.Drawing.Size(776, 441);
             this.Grafica.TabIndex = 9;
             // 
@@ -244,12 +244,13 @@
             this.fypImprimir.OptionsButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.fypImprimir.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.TopRight;
             this.fypImprimir.OptionsButtonPanel.ButtonPanelLocation = DevExpress.Utils.FlyoutPanelButtonPanelLocation.Top;
-            buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
+            buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
             this.fypImprimir.OptionsButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.Utils.PeekFormButton("Imprimir gastos", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, true)});
+            new DevExpress.Utils.PeekFormButton("Imprimir gastos", true, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, true)});
             this.fypImprimir.OptionsButtonPanel.ShowButtonPanel = true;
             this.fypImprimir.OwnerControl = this.Grafica;
             this.fypImprimir.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.fypImprimir.ParentForm = this;
             this.fypImprimir.Size = new System.Drawing.Size(119, 42);
             this.fypImprimir.TabIndex = 3;
             this.fypImprimir.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypImprimir_ButtonClick);
@@ -355,10 +356,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueUnidad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteAl.Properties.CalendarTimeProperties)).EndInit();

@@ -78,6 +78,36 @@
     <Compile Include="Combustible\UnidadesConDiesel.Designer.cs">
       <DependentUpon>UnidadesConDiesel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guardias\ClausulasRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ClausulasRenta.Designer.cs">
+      <DependentUpon>ClausulasRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ContratoRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ContratoRenta.Designer.cs">
+      <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\HistorialRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\HistorialRenta.Designer.cs">
+      <DependentUpon>HistorialRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\Pagare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\Pagare.Designer.cs">
+      <DependentUpon>Pagare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\RecibosPago.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\RecibosPago.Designer.cs">
+      <DependentUpon>RecibosPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guardias\ReporteIndiciplina.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -151,6 +181,12 @@
     <Compile Include="Unidades\Servicios.Designer.cs">
       <DependentUpon>Servicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\Usuarios.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Usuarios\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Combustible\ConsumoDieselUnidad.resx">
       <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,9 +196,25 @@
     <EmbeddedResource Include="Combustible\UnidadesConDiesel.resx">
       <DependentUpon>UnidadesConDiesel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ClausulasRenta.resx">
+      <DependentUpon>ClausulasRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ContratoRenta.resx">
+      <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\HistorialRenta.resx">
+      <DependentUpon>HistorialRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\Pagare.resx">
+      <DependentUpon>Pagare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\RecibosPago.resx">
+      <DependentUpon>RecibosPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -204,6 +256,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\Servicios.resx">
       <DependentUpon>Servicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
