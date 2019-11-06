@@ -63,13 +63,13 @@ namespace COMBUSTIBLE.WIN
                 go.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
                 XPView DieselAnterior = new XPView(Unidad, typeof(Diesel), "Oid;CandadoActual;CandadoAnterior", go);
                 DieselAnterior.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
-
-                Candado.CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
-                Candado.CandadoActual = DieselAnterior[0]["CandadoAnterior"].ToString();
-                Candados.Add(Candado);
-
+                if (DieselAnterior.Count > 0)
+                {
+                    Candado.CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
+                    Candado.CandadoActual = DieselAnterior[0]["CandadoAnterior"].ToString();
+                    Candados.Add(Candado);
+                }
             }
-
             grdProblemasCandados.DataSource = Candados;
         }
         public class Candados

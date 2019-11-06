@@ -336,6 +336,13 @@ namespace UNIDADES.BL
             set { SetPropertyValue<bool>("EsRenta", ref mEsRenta, value); }
         }
 
+        private string mDueño;
+        [Size(150)]
+        public string Dueño
+        {
+            get { return mDueño; }
+            set { SetPropertyValue<string>("Dueño", ref mDueño, value); }
+        }
         //private decimal mPrecioRenta;
         //public decimal PrecioRenta
         //{

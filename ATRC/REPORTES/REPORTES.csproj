@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\TicketEntregaArticulo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Almacen\TicketEntregaArticulo.Designer.cs">
+      <DependentUpon>TicketEntregaArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Combustible\ConsumoDieselUnidad.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="Guardias\HistorialRenta.Designer.cs">
       <DependentUpon>HistorialRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ListadoContratos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ListadoContratos.Designer.cs">
+      <DependentUpon>ListadoContratos.cs</DependentUpon>
     </Compile>
     <Compile Include="Guardias\Pagare.cs">
       <SubType>Component</SubType>
@@ -138,6 +150,12 @@
     </Compile>
     <Compile Include="Taller\BitacoraEmpleadosTaller.Designer.cs">
       <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\DellatesRadio.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\DellatesRadio.Designer.cs">
+      <DependentUpon>DellatesRadio.cs</DependentUpon>
     </Compile>
     <Compile Include="Unidades\DatosCambioAceite.cs">
       <SubType>Component</SubType>
@@ -187,6 +205,9 @@
     <Compile Include="Usuarios\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Almacen\TicketEntregaArticulo.resx">
+      <DependentUpon>TicketEntregaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Combustible\ConsumoDieselUnidad.resx">
       <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +226,9 @@
     <EmbeddedResource Include="Guardias\HistorialRenta.resx">
       <DependentUpon>HistorialRenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ListadoContratos.resx">
+      <DependentUpon>ListadoContratos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Guardias\Pagare.resx">
       <DependentUpon>Pagare.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,7 +238,6 @@
     <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -235,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Taller\BitacoraEmpleadosTaller.resx">
       <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\DellatesRadio.resx">
+      <DependentUpon>DellatesRadio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\DatosCambioAceite.resx">
       <DependentUpon>DatosCambioAceite.cs</DependentUpon>

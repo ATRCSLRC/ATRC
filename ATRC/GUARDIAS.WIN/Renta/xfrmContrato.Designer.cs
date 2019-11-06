@@ -115,6 +115,7 @@
             this.lblInstrucciones = new DevExpress.XtraLayout.SimpleLabelItem();
             this.fypEdicion = new DevExpress.Utils.FlyoutPanel();
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::GUARDIAS.WIN.WaitForm1), true, true);
+            this.twain = new Saraff.Twain.Twain32();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -400,7 +401,7 @@
             this.spnDiasRenta.Size = new System.Drawing.Size(166, 20);
             this.spnDiasRenta.StyleController = this.lcMain;
             this.spnDiasRenta.TabIndex = 29;
-            this.spnDiasRenta.Leave += new System.EventHandler(this.spnDiasRenta_Leave);
+            this.spnDiasRenta.EditValueChanged += new System.EventHandler(this.spnDiasRenta_EditValueChanged);
             // 
             // lcDocumentos
             // 
@@ -1353,6 +1354,12 @@
             // 
             this.loading.ClosingDelay = 500;
             // 
+            // twain
+            // 
+            this.twain.AppProductName = "Saraff.Twain.NET";
+            this.twain.Language = Saraff.Twain.TwLanguage.SPANISH_MEXICAN;
+            this.twain.Parent = this;
+            // 
             // xfrmContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1535,5 +1542,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciUsuario;
         private DevExpress.XtraLayout.EmptySpaceItem espacio;
         private DevExpress.XtraLayout.SimpleLabelItem lblInstrucciones;
+        private Saraff.Twain.Twain32 twain;
     }
 }

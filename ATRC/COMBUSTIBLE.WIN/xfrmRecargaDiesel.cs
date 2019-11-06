@@ -25,7 +25,7 @@ namespace COMBUSTIBLE.WIN
         }
 
         UnidadDeTrabajo Unidad;
-        Int64 Cantidad = 0;
+        decimal Cantidad = 0;
 
         private void xfrmRecargaDiesel_Load(object sender, EventArgs e)
         {
@@ -56,10 +56,10 @@ namespace COMBUSTIBLE.WIN
                     arcScaleComponent1.Ranges.Add(CreateNewRange(div + 1, (div * 2), Color.Yellow));
                     arcScaleComponent1.Ranges.Add(CreateNewRange((div * 2) + 1, Tanque.Capacidad, Color.Green));
                     Cantidad = Tanque.Cantidad;
-                    arcScaleComponent1.Value = Cantidad;
+                    arcScaleComponent1.Value = (float)Cantidad;
                     spnCantidad.EditValue = spnPrecio.EditValue = 0;
                     txtFactura.Text = txtProveedor.Text = string.Empty;
-                    labelComponent1.Text = Cantidad.ToString() + " lts";
+                    labelComponent1.Text = Cantidad.ToString("N2") + " lts";
                 }
             }
         }
@@ -78,8 +78,8 @@ namespace COMBUSTIBLE.WIN
 
         private void spnCantidad_EditValueChanged(object sender, EventArgs e)
         {
-            arcScaleComponent1.Value = Cantidad + Convert.ToInt64(spnCantidad.EditValue);
-            labelComponent1.Text = Cantidad + Convert.ToInt64(spnCantidad.EditValue) + " lts";
+            arcScaleComponent1.Value = (float)Cantidad + (float)spnCantidad.EditValue;
+            labelComponent1.Text = (float)Cantidad + (float)spnCantidad.EditValue + " lts";
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -100,6 +100,7 @@ namespace COMBUSTIBLE.WIN
                 Recarga.Factura = txtFactura.Text;
                 Recarga.Proveedor = txtProveedor.Text;
                 Recarga.Tanque = Tanque;
+                Recarga.Lectura = txtLecturaInicial.Text;
                 Recarga.Save();
                 Tanque.Save();
                 UnidadNueva.CommitChanges();

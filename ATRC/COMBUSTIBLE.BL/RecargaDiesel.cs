@@ -46,5 +46,12 @@ namespace COMBUSTIBLE.BL
             get { return mProveedor; }
             set { SetPropertyValue<string>("Proveedor", ref mProveedor, value); }
         }
+
+        private string mLectura;
+        public string Lectura
+        {
+            get { return mLectura; }
+            set { SetPropertyValue<string>("Lectura", ref mLectura, value); }
+        }
     }
 }

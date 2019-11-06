@@ -141,18 +141,19 @@ namespace ATRCBASE.BL
             Normal = 0,
             Entrada = 1,
             Salida = 2,
-            Apoyo = 3,
+            /*Apoyo = 3,
             Especial = 4,
             Extra = 5,
             ExtraSalida = 6,
-            ExtraEntrada = 7
+            ExtraEntrada = 7*/
 
         }
         public enum Turno
         {
             Primero = 0,
             Segundo = 1,
-            Tercero = 2
+            Tercero = 2,
+            Cuarto = 3
         }
 
         public enum EstadoExtintor
@@ -188,7 +189,7 @@ namespace ATRCBASE.BL
         public enum EstadoContrato
         {
             Creado = 0,
-            EnProceso = 1,
+            EnViaje = 1,
             Terminado = 2,
             Apartado = 3,
             Cancelado = 4

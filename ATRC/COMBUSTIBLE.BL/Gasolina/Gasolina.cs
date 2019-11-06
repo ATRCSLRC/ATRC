@@ -62,11 +62,11 @@ namespace COMBUSTIBLE.BL
             set { SetPropertyValue<Int64>("CandadoAnterior", ref mCandadoAnterior, value); }
         }
 
-        private int mLitros;
-        public int Litros
+        private decimal mLitros;
+        public decimal Litros
         {
             get { return mLitros; }
-            set { SetPropertyValue<int>("Litros", ref mLitros, value); }
+            set { SetPropertyValue<decimal>("Litros", ref mLitros, value); }
         }
 
         private bool mLlenado;
@@ -83,11 +83,11 @@ namespace COMBUSTIBLE.BL
             set { SetPropertyValue<RecargaDiesel>("UltimaRecarga", ref mUltimaRecarga, value); }
         }
 
-        private MedidorGasolina mMedidorGasolina;
-        public MedidorGasolina MedidorGasolina
+        private MedidorDiesel mMedidorGasolinas;
+        public MedidorDiesel MedidorGasolinas
         {
-            get { return mMedidorGasolina; }
-            set { SetPropertyValue<MedidorGasolina>("MedidorGasolina", ref mMedidorGasolina, value); }
+            get { return mMedidorGasolinas; }
+            set { SetPropertyValue<MedidorDiesel>("MedidorGasolinas", ref mMedidorGasolinas, value); }
         }
     }
 }

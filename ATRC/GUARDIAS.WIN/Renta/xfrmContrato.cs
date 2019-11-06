@@ -15,6 +15,7 @@ using GUARDIAS.BL;
 using System.IO;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraPrinting.Drawing;
 
 namespace GUARDIAS.WIN
 {
@@ -60,6 +61,8 @@ namespace GUARDIAS.WIN
                 lblCliente.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 this.Size= new Size(840, 710);
                 Contrato.Session.Delete(Contrato.Documentos);
+                grdDocumentos.DataSource = null;
+                lblCliente.Text = txtCliente.Text = string.Empty;
             }
             else
             {
@@ -76,7 +79,7 @@ namespace GUARDIAS.WIN
             {
                 if (ValidarDisponibilidad())
                 {
-                    if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     {
                         loading.ShowWaitForm();
                         UNIDADES.BL.Unidad UnidadCamion = Unidad.GetObjectByKey<UNIDADES.BL.Unidad>(lueUnidad.EditValue);
@@ -91,8 +94,8 @@ namespace GUARDIAS.WIN
                             Contrato.Estado = txtEstado.Text;
                             Contrato.Tel = txtTel.Text;
 
-                            if (IDContrato <= 0)
-                            {
+                            //if (IDContrato <= 0)
+                            //{
                                 if (XtraMessageBox.Show("¿Desea guardar la información de un cliente?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                                 {
                                     if (!Existe(Contrato.Responsable))
@@ -113,7 +116,7 @@ namespace GUARDIAS.WIN
                                         XtraMessageBox.Show("Ya se encuentra registrado el cliente.");
                                     }
                                 }
-                            }
+                            //}
                         }
                         else
                         {
@@ -122,8 +125,13 @@ namespace GUARDIAS.WIN
                             Contrato.Documentos.AddRange(Cliente.Documentos);
                         }
                         Contrato.EsApartado = rgAccion.SelectedIndex == 1 ? true : false;
-                        if(IDContrato <= 0 )
-                            Contrato.NumContrato =  NumContrato(Unidad);
+                        if (IDContrato <= 0)
+                        {
+                            if (!Contrato.EsApartado)
+                            {
+                                Contrato.NumContrato = NumContrato(Unidad);
+                            }
+                        }
                         Contrato.ADondeSeDirige = txtDestino.Text;
                         Contrato.LugarOrigenLugarDestino = txtRecepcionEntrega.Text;
                         Contrato.DiaSalida = dteSalida.DateTime.Date;
@@ -158,14 +166,21 @@ namespace GUARDIAS.WIN
                             REPORTES.Guardias.ContratoRenta RepContrato = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
                             RepContrato.CreateDocument();
 
+                            REPORTES.Guardias.ContratoRenta RepContratoCopia = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
+                            RepContratoCopia.CreateDocument();
+                            RepContrato.Pages.AddRange(RepContratoCopia.Pages);
+
                             REPORTES.Guardias.ClausulasRenta RepClausulas = new REPORTES.Guardias.ClausulasRenta();
                             RepClausulas.CreateDocument();
                             RepContrato.Pages.AddRange(RepClausulas.Pages);
 
-                            REPORTES.Guardias.Pagare RepPagare = new REPORTES.Guardias.Pagare();
+                            REPORTES.Guardias.Pagare RepPagare = new REPORTES.Guardias.Pagare(Contrato.NumContrato.ToString());
                             RepPagare.CreateDocument();
                             RepContrato.Pages.AddRange(RepPagare.Pages);
 
+                            RepContrato.Pages[0].AssignWatermark(new Watermark());
+                            RepContrato.Pages[2].AssignWatermark(new Watermark());
+                            RepContrato.Pages[3].AssignWatermark(new Watermark());
 
                             ReportPrintTool repContrato = new ReportPrintTool(RepContrato);
                             repContrato.ShowPreview();
@@ -175,7 +190,9 @@ namespace GUARDIAS.WIN
                             string PrecioEscrito = string.Empty;
                             PrecioEscrito = Utilerias.Convertir(Contrato.Anticipo.ToString(), true, "PESOS");
                             int ID = 0;
-                            Recibos.GenerarRecibo(Unidad, Contrato.Anticipo, Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, "Apartado de renta de la unidad " + Contrato.Unidad.Nombre + ", "  , DateTime.Now, "Pesos", PrecioEscrito, out ID);
+                            string texto = "Apartado de renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
+                            texto += Contrato.ADondeSeDirige; 
+                            Recibos.GenerarRecibo(Unidad, Contrato.Anticipo, Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, texto  , DateTime.Now, "Pesos", PrecioEscrito, out ID);
                             this.Close();
                             ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));
                             reprecibo.ShowPreview();
@@ -220,7 +237,7 @@ namespace GUARDIAS.WIN
             {
                 using (xfrmClientesRentaGRD xfrm = new xfrmClientesRentaGRD())
                 {
-                    xfrm.Asignar = false;
+                    xfrm.Asignar = true;
                     xfrm.ShowDialog();
                     txtCliente.Text = xfrm.IDCliente.ToString();
                     if(!string.IsNullOrEmpty(txtCliente.Text))
@@ -285,30 +302,7 @@ namespace GUARDIAS.WIN
             //}
             //lblTotal.Text = ((Convert.ToDecimal(spnCosto.EditValue) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
 
-            if (Convert.ToDecimal(spnDiasRenta.EditValue) > 0)
-            {
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = timeRegreso.Time = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
-
-            decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
-
-            int TotalHoras = timeSalida.Time.Hour + 12;
-            if (d > 0)
-            {
-                int restante = TotalHoras - 24;
-                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
-                dteRegreso.DateTime = dteRegreso.DateTime.AddDays(1);
-            }
-            else
-            {
-                DateTime dt = timeSalida.Time;
-                timeRegreso.Time = dt.AddHours(24);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
+            
         }
 
         private void dteSalida_Leave(object sender, EventArgs e)
@@ -401,7 +395,7 @@ namespace GUARDIAS.WIN
                     xfrmModificar.EsNuevo = false;
                     xfrmModificar.EsContrato = true;
                     xfrmModificar.Contrato = Contrato;
-                    xfrmModificar.IDDoc = Doc.Oid;
+                    xfrmModificar.Doc = Doc;
                     xfrmModificar.ShowDialog();
                     break;
             }
@@ -468,7 +462,8 @@ namespace GUARDIAS.WIN
             go.Operands.Add(new BinaryOperator("Unidad", lueUnidad.EditValue ));
             GroupOperator goEstado = new GroupOperator(GroupOperatorType.Or);
             goEstado.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Creado));
-            goEstado.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnProceso));
+            goEstado.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnViaje));
+            goEstado.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Apartado));
             go.Operands.Add(goEstado);
             XPView Contratos = new XPView(UnidadConsulta, typeof(ContratoRenta), "Oid;DiaRegreso;DiaSalida", go);
             if (Contratos.Count > 0)
@@ -492,11 +487,11 @@ namespace GUARDIAS.WIN
             new ViewProperty("NumContrato", SortDirection.Descending, "[NumContrato]", true, true)});
             Usuarios.SelectDeleted = true;
             if (Usuarios.Count <= 0)
-                return 123;
+                return 2702;
             else
             {
                 if (Convert.ToInt32(Usuarios[0]["NumContrato"]) == 0)
-                    return 123;
+                    return 2702;
                 return (Convert.ToInt32(Usuarios[0]["NumContrato"]) + 1);
             }
         }
@@ -644,8 +639,44 @@ namespace GUARDIAS.WIN
             lblTotal.Text = "$0.00";
         }
 
+
+
         #endregion
 
-        
+        private void spnDiasRenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void spnDiasRenta_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(spnDiasRenta.EditValue) > 0)
+            {
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = timeRegreso.Time = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+
+            decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
+
+            int TotalHoras = timeSalida.Time.Hour + 12;
+            if (d > 0)
+            {
+                int restante = TotalHoras - 24;
+                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
+                dteRegreso.DateTime = dteRegreso.DateTime.AddDays(1);
+            }
+            else
+            {
+                DateTime dt = timeSalida.Time;
+                timeRegreso.Time = dt.AddHours(24);
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+
+            lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+
+        }
     }
 }

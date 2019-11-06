@@ -13,6 +13,9 @@
         },*/
         Precio: ko.observable(),
         Cantidad: ko.observable(),
+        Factura: ko.observable(),
+        Proveedor: ko.observable(),
+        Lectura: ko.observable(),
         SeleccionTanque: ko.observable(),
         viewShowing: function () {
             var id = window.atob(localStorage.getItem(localStorage.key(0)));
@@ -48,11 +51,13 @@
                     url: ObtenerUrl() + "/GuardarRecarga",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    data: '{IDTanque:' + viewModel.SeleccionTanque() + ', Precio:' + viewModel.Precio() + ', Cantidad:' + viewModel.Cantidad() + '}',
+                    data: '{IDTanque:' + viewModel.SeleccionTanque() + ', Precio:' + viewModel.Precio() + ', Cantidad:' + viewModel.Cantidad() + ', Factura:"' + viewModel.Factura() + '", Proveedor:"' + viewModel.Proveedor() + '", Lectura:"' + viewModel.Lectura() + '"}',
                     success: function (result) {
                         Diesel.app.navigate({ view: "Main" }, { target: "back" });
                         viewModel.Precio(null);
                         viewModel.Cantidad(null);
+                        viewModel.Factura(null);
+                        viewModel.Proveedor(null);
                         viewModel.SeleccionTanque(null);
                         e.validationGroup.reset();
                         DevExpress.ui.notify('Recarga guardada', 'success', 4000);

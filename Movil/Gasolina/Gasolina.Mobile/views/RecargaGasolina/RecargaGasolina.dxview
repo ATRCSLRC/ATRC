@@ -9,11 +9,17 @@
                 <br />
                 <div id="txtCantidad" data-bind="dxNumberBox: {placeholder: 'Cantidad (lts)',  value: Cantidad}, dxValidator: {validationRules: [{type: 'required', message: 'Cantidad requerida'}]}"></div>
                 <br />
+                <div id="txtFactura" data-bind="dxTextBox: {placeholder: 'Factura',  value: Factura}, dxValidator: {validationRules: [{type: 'required', message: 'Factura requerida'}]}"></div>
+                <br />
+                <div id="txtProveedor" data-bind="dxTextBox: {placeholder: 'Proveedor',  value: Proveedor}, dxValidator: {validationRules: [{type: 'required', message: 'Proveedor requerido'}]}"></div>
+                <br />
+                <div id="txtLectura" data-bind="dxTextBox: {placeholder: 'Lectura inicial',  value: Lectura}, dxValidator: {validationRules: [{type: 'required', message: 'Lectura requerida'}]}"></div>
+                <br />
                 <div style="display: inline;margin: auto;width: 133px;">
                     <div data-bind="dxButton: { onClick: OnGuardarRecarga, text: 'Guardar' }"></div>
                     <div data-bind="dxButton: { text: 'Cancelar',type:'danger', onClick: OnCancelar}"></div>
                 </div>
-                
+
             </div>
         </div>
     </div>

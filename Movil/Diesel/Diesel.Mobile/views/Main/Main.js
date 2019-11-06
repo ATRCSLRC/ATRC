@@ -21,6 +21,24 @@ Diesel.Main = function (params) {
         }
     });
 
+    function CandadoProblema(e) {
+        var grd = $("#gridContainer").dxDataGrid("instance");
+        var Diesel = grd._options.selectedRowKeys[0]["ID"];
+        $.ajax({
+            type: "POST",
+            url: ObtenerUrl() + "/GuardarProblemaCandado",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: '{IDDiesel:' + Diesel + ',Problema:""}',
+            success: function (result) {
+                alert("Ocurrio un problema con los candados.");
+               // DevExpress.ui.notify('Datos guardados', 'success', 2000);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                DevExpress.ui.notify(errorThrown, 'error', 4000);
+            }
+        });
+    }
     var viewModel = {
         DetellePopUp: ko.observable(false),
         CandadoPopUp: ko.observable(false),
@@ -201,7 +219,8 @@ Diesel.Main = function (params) {
                     data: '{IDDiesel:' + Diesel + ',Candado:' + e.component.option("value") + '}',
                     success: function (result) {
                         if (!result.d) {
-                            viewModel.CandadoPopUp(true);
+                            //CandadoProblema();
+                            alert("Ocurrio un problema con los candados.");
                         }
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
@@ -227,7 +246,8 @@ Diesel.Main = function (params) {
                             data: '{IDDiesel:' + Diesel + ',Candado:' + viewModel.CandadoAnterior() + '}',
                             success: function (result) {
                                 if (!result.d) {
-                                    viewModel.CandadoPopUp(true);
+                                    //CandadoProblema();
+                                    alert("Ocurrio un problema con los candados.");
                                 }
                             },
                             error: function (jqXhr, textStatus, errorThrown) {
@@ -254,8 +274,6 @@ Diesel.Main = function (params) {
                 }
             );
 
-
-
         },
         OnScanCandadoActual: function (e) {
             if (viewModel.CandadoAnterior() != undefined || viewModel.CandadoAnterior() != '') {
@@ -264,7 +282,7 @@ Diesel.Main = function (params) {
                         viewModel.CandadoActual(parseInt(result.text));
                     },
                     function (error) {
-                        viewModel.DetellePopUp(true);
+                        alert("Ocurrio un problema con los candados.");
                     },
                     {
                         preferFrontCamera: true, // iOS and Android
@@ -306,6 +324,13 @@ Diesel.Main = function (params) {
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });
+            }
+        },
+        OnValidarMillas: function (e) {
+            var grd = $("#gridContainer").dxDataGrid("instance");
+            var Millas = grd._options.selectedRowKeys[0]["Millas"];
+            if (Millas > viewModel.Millas()) {
+                alert("Las millas deben ser mayores.");
             }
         }
     }

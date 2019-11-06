@@ -22,11 +22,12 @@
     <ScreenOrientation>Default</ScreenOrientation>
     <ApplicationTitle>Gasolina</ApplicationTitle>
     <VersionPackage>1.0.0.0</VersionPackage>
-    <ShowSplashScreen>True</ShowSplashScreen>
-    <KeyApkPath />
+    <ShowSplashScreen>False</ShowSplashScreen>
+    <KeyApkPath>certificates\android_certificate.p12</KeyApkPath>
     <VersionCode>1</VersionCode>
     <ApkDexFilePackageName>com.devextreme.Gasolina.Mobile</ApkDexFilePackageName>
     <KeyDebuggable>False</KeyDebuggable>
+    <KeyApkAlias>tmpl</KeyApkAlias>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +68,7 @@
     <Content Include="views\UnidadesGasolina\UnidadGasolina.js">
       <SubType>Content</SubType>
     </Content>
+    <None Include="certificates\android_certificate.p12" />
     <None Include="config.xml" />
     <Content Include="index.js">
       <SubType>Content</SubType>
@@ -128,6 +130,7 @@
     <None Include="templates\ApplicationTemplate.apk" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="certificates\" />
     <Folder Include="css\" />
     <Folder Include="img\" />
     <Folder Include="js\" />

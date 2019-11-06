@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContratoRenta));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
@@ -118,7 +119,6 @@
             this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.RichPrincipio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -205,6 +205,20 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([Cliente]), [Responsable], [Cliente].[Nombre])")});
+            this.xrLabel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(65.66666F, 669.9583F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(251.0836F, 37.83344F);
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.StylePriority.UseTextAlignment = false;
+            this.xrLabel2.Text = "AUTO TRANSPORTES DEL RIO COLORADO, S.A DE C.V";
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel21
             // 
@@ -473,7 +487,7 @@
             // lblLiquidar
             // 
             this.lblLiquidar.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Total]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Subtotal]")});
             this.lblLiquidar.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLiquidar.LocationFloat = new DevExpress.Utils.PointFloat(564.0826F, 381.0001F);
             this.lblLiquidar.Name = "lblLiquidar";
@@ -482,7 +496,7 @@
             this.lblLiquidar.StylePriority.UseFont = false;
             this.lblLiquidar.StylePriority.UseTextAlignment = false;
             this.lblLiquidar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblLiquidar.TextFormatString = "{0:$0.00}";
+            this.lblLiquidar.TextFormatString = "{0:$0,0.00}";
             // 
             // xrLabel38
             // 
@@ -508,7 +522,7 @@
             this.lblAnticipo.StylePriority.UseFont = false;
             this.lblAnticipo.StylePriority.UseTextAlignment = false;
             this.lblAnticipo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblAnticipo.TextFormatString = "{0:$0.00}";
+            this.lblAnticipo.TextFormatString = "{0:$0,0.00}";
             // 
             // xrLabel40
             // 
@@ -525,7 +539,7 @@
             // lblTotal
             // 
             this.lblTotal.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Total]+[Anticipo]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Total]")});
             this.lblTotal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(472.8743F, 358F);
             this.lblTotal.Name = "lblTotal";
@@ -534,7 +548,7 @@
             this.lblTotal.StylePriority.UseFont = false;
             this.lblTotal.StylePriority.UseTextAlignment = false;
             this.lblTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblTotal.TextFormatString = "{0:$0.00}";
+            this.lblTotal.TextFormatString = "{0:$0,0.00}";
             // 
             // xrLabel34
             // 
@@ -558,7 +572,7 @@
             this.lblSubtotal.StylePriority.UseFont = false;
             this.lblSubtotal.StylePriority.UseTextAlignment = false;
             this.lblSubtotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblSubtotal.TextFormatString = "{0:$0.00}";
+            this.lblSubtotal.TextFormatString = "{0:$0,0.00}";
             this.lblSubtotal.Visible = false;
             // 
             // xrLabel36
@@ -586,7 +600,7 @@
             this.lblIVA.StylePriority.UseFont = false;
             this.lblIVA.StylePriority.UseTextAlignment = false;
             this.lblIVA.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblIVA.TextFormatString = "{0:$0.00}";
+            this.lblIVA.TextFormatString = "{0:$0,0.00}";
             // 
             // xrLabel30
             // 
@@ -612,7 +626,7 @@
             this.lblCostoUnidad.StylePriority.UseFont = false;
             this.lblCostoUnidad.StylePriority.UseTextAlignment = false;
             this.lblCostoUnidad.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.lblCostoUnidad.TextFormatString = "{0:$0.00}";
+            this.lblCostoUnidad.TextFormatString = "{0:$0,0.00}";
             // 
             // xrLabel32
             // 
@@ -1012,7 +1026,7 @@
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseForeColor = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
-            this.xrLabel10.Text = "camionesatrc@hotmail.com";
+            this.xrLabel10.Text = "atrc@atrc.com.mx";
             this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel8
@@ -1142,20 +1156,6 @@
             this.objectDataSource1.DataSource = typeof(GUARDIAS.BL.ContratoRenta);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
-            // xrLabel2
-            // 
-            this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([Cliente]), [Responsable], [Cliente].[Nombre])")});
-            this.xrLabel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(65.66666F, 669.9583F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(251.0836F, 37.83344F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "AUTO TRANSPORTES DEL RIO COLORADO, S.A DE C.V";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            // 
             // ContratoRenta
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1167,6 +1167,8 @@
             this.DataSource = this.objectDataSource1;
             this.Margins = new System.Drawing.Printing.Margins(51, 50, 156, 121);
             this.Version = "17.2";
+            this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("ContratoRenta.Watermark.Image")));
+            this.Watermark.ImageTransparency = 204;
             ((System.ComponentModel.ISupportInitialize)(this.RichPrincipio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

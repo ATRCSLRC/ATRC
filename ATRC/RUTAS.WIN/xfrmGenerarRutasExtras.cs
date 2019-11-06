@@ -52,7 +52,7 @@ namespace RUTAS.WIN
                         {
                             RutasFijas Ruta = new RutasFijas(Unidad);
                             Ruta.TipoRuta = (TipoRuta)viewRuta["TipoRuta"];
-                            Ruta.TipoUnidad = (TipoUnidad)viewRuta["TipoUnidad"];
+                            //Ruta.TipoUnidad = (TipoUnidad)viewRuta["TipoUnidad"];
                             Ruta.Empresa = plantilla.Empresa;
                             Ruta.HoraEntrada = viewRuta["HoraEntrada"] == null ? null : (DateTime?)viewRuta["HoraEntrada"];
                             Ruta.HoraSalida = viewRuta["HoraSalida"] == null ? null : (DateTime?)viewRuta["HoraSalida"];

@@ -4,6 +4,7 @@ using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -159,6 +160,27 @@ namespace ALMACEN.WIN
                     Salida.Factura.Save();
                     Salida.Save();
                     UnidadSalida.CommitChanges();
+
+                    if (XtraMessageBox.Show("¿Desea generar comprobante de entrega?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        REPORTES.Almacen.TicketEntregaArticulo Ticket = new REPORTES.Almacen.TicketEntregaArticulo(Salida);
+
+                        ReportPrintTool printTool = new ReportPrintTool(Ticket);
+                        ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "ImpresoraTicketsAlmacen"));
+                        if (Configuracion != null)
+                        {
+                            Ticket.CreateDocument();
+                            Ticket.PrinterName = Configuracion.Accion;
+                            printTool.Print(Configuracion.Accion);
+                        }
+                    }
+
+
+                    //foreach (string Impresora in PrinterSettings.InstalledPrinters)
+                    //{
+                    //    cboImpresoras.Properties.Items.Add(Impresora);
+                    //}
+
                     ActivarCampos(false);
                 }
             }

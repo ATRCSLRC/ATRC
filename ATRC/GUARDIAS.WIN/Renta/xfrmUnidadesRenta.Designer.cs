@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUnidadesRenta));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.bbiModificarPrecio = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiModificarDueño = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -38,7 +38,7 @@
             this.grdUnidades = new DevExpress.XtraGrid.GridControl();
             this.grvUnidades = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDueño = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -55,7 +55,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.bbiModificarPrecio,
+            this.bbiModificarDueño,
             this.bbiSalir});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
@@ -65,18 +65,18 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(325, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(372, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
-            // bbiModificarPrecio
+            // bbiModificarDueño
             // 
-            this.bbiModificarPrecio.Caption = "Modificar precio";
-            this.bbiModificarPrecio.Id = 1;
-            this.bbiModificarPrecio.ImageOptions.LargeImage = global::GUARDIAS.WIN.Properties.Resources.icons8_etiqueta_de_precio_usd_80;
-            this.bbiModificarPrecio.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
-            this.bbiModificarPrecio.Name = "bbiModificarPrecio";
-            this.bbiModificarPrecio.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiModificarPrecio.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificarPrecio_ItemClick);
+            this.bbiModificarDueño.Caption = "Modificar dueño";
+            this.bbiModificarDueño.Id = 1;
+            this.bbiModificarDueño.ImageOptions.LargeImage = global::GUARDIAS.WIN.Properties.Resources.icons8_recepción_32;
+            this.bbiModificarDueño.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
+            this.bbiModificarDueño.Name = "bbiModificarDueño";
+            this.bbiModificarDueño.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiModificarDueño.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificarPrecio_ItemClick);
             // 
             // bbiSalir
             // 
@@ -99,7 +99,7 @@
             // 
             this.ribbonPageGroup1.AllowMinimize = false;
             this.ribbonPageGroup1.AllowTextClipping = false;
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiModificarPrecio);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiModificarDueño);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiSalir);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
@@ -111,7 +111,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(325, 318);
+            this.lcMain.Size = new System.Drawing.Size(372, 318);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -121,7 +121,7 @@
             this.grdUnidades.MainView = this.grvUnidades;
             this.grdUnidades.MenuManager = this.ribbonControl1;
             this.grdUnidades.Name = "grdUnidades";
-            this.grdUnidades.Size = new System.Drawing.Size(301, 294);
+            this.grdUnidades.Size = new System.Drawing.Size(348, 294);
             this.grdUnidades.TabIndex = 4;
             this.grdUnidades.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnidades});
@@ -130,7 +130,7 @@
             // 
             this.grvUnidades.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNombre,
-            this.colPrecio});
+            this.colDueño});
             this.grvUnidades.GridControl = this.grdUnidades;
             this.grvUnidades.Name = "grvUnidades";
             this.grvUnidades.OptionsView.ShowGroupPanel = false;
@@ -144,20 +144,18 @@
             this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 0;
-            this.colNombre.Width = 154;
+            this.colNombre.Width = 85;
             // 
-            // colPrecio
+            // colDueño
             // 
-            this.colPrecio.Caption = "Precio de renta";
-            this.colPrecio.DisplayFormat.FormatString = "C2";
-            this.colPrecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colPrecio.FieldName = "PrecioRenta";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.OptionsColumn.AllowEdit = false;
-            this.colPrecio.OptionsColumn.AllowFocus = false;
-            this.colPrecio.Visible = true;
-            this.colPrecio.VisibleIndex = 1;
-            this.colPrecio.Width = 129;
+            this.colDueño.Caption = "Dueño";
+            this.colDueño.FieldName = "Dueño";
+            this.colDueño.Name = "colDueño";
+            this.colDueño.OptionsColumn.AllowEdit = false;
+            this.colDueño.OptionsColumn.AllowFocus = false;
+            this.colDueño.Visible = true;
+            this.colDueño.VisibleIndex = 1;
+            this.colDueño.Width = 245;
             // 
             // layoutControlGroup1
             // 
@@ -166,7 +164,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(325, 318);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(372, 318);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -174,7 +172,7 @@
             this.layoutControlItem1.Control = this.grdUnidades;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(305, 298);
+            this.layoutControlItem1.Size = new System.Drawing.Size(352, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -182,12 +180,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 440);
+            this.ClientSize = new System.Drawing.Size(372, 440);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmUnidadesRenta";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "Precios de renta";
+            this.Text = "Dueños de las unidades de renta";
             this.Load += new System.EventHandler(this.xfrmUnidadesRenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
@@ -211,9 +209,9 @@
         private DevExpress.XtraGrid.GridControl grdUnidades;
         private DevExpress.XtraGrid.Views.Grid.GridView grvUnidades;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraBars.BarButtonItem bbiModificarPrecio;
+        private DevExpress.XtraBars.BarButtonItem bbiModificarDueño;
         private DevExpress.XtraBars.BarButtonItem bbiSalir;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrecio;
+        private DevExpress.XtraGrid.Columns.GridColumn colDueño;
     }
 }

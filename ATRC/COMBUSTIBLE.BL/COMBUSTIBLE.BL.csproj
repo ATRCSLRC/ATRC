@@ -52,7 +52,6 @@
     <Compile Include="DieselActual.cs" />
     <Compile Include="Gasolina\Gasolina.cs" />
     <Compile Include="Diesel\MedidorDiesel.cs" />
-    <Compile Include="Gasolina\MedidorGasolina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecargaDiesel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

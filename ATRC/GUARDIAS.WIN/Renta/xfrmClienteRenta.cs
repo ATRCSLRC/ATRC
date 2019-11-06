@@ -87,7 +87,7 @@ namespace GUARDIAS.WIN
                     xfrmDocumento xfrmModificar = new xfrmDocumento();
                     xfrmModificar.EsNuevo = false;
                     xfrmModificar.Cliente = Cliente;
-                    xfrmModificar.IDDoc = Doc.Oid;
+                    xfrmModificar.Doc = Doc;
                     xfrmModificar.ShowDialog();
                     break;
             }

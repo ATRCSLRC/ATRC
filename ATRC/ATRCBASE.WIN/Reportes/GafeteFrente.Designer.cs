@@ -58,9 +58,9 @@
             // xrPictureBox1
             // 
             this.xrPictureBox1.Dpi = 254F;
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(490F, 22F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(476.7708F, 14.41667F);
             this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(372F, 450F);
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(371.8125F, 460.5833F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
             // lblApellido
@@ -68,10 +68,10 @@
             this.lblApellido.Dpi = 254F;
             this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblApellido.LocationFloat = new DevExpress.Utils.PointFloat(101.13F, 384F);
+            this.lblApellido.LocationFloat = new DevExpress.Utils.PointFloat(82.60918F, 384F);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblApellido.SizeF = new System.Drawing.SizeF(388.87F, 58.41998F);
+            this.lblApellido.SizeF = new System.Drawing.SizeF(404.7449F, 58.41998F);
             this.lblApellido.StylePriority.UseFont = false;
             this.lblApellido.StylePriority.UseForeColor = false;
             this.lblApellido.StylePriority.UseTextAlignment = false;
@@ -96,11 +96,11 @@
             // 
             this.lblNombre.Dpi = 254F;
             this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblNombre.LocationFloat = new DevExpress.Utils.PointFloat(6F, 337F);
+            this.lblNombre.ForeColor = System.Drawing.Color.Black;
+            this.lblNombre.LocationFloat = new DevExpress.Utils.PointFloat(5.999997F, 337F);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblNombre.SizeF = new System.Drawing.SizeF(484F, 58.42001F);
+            this.lblNombre.SizeF = new System.Drawing.SizeF(470.7708F, 58.42004F);
             this.lblNombre.StylePriority.UseFont = false;
             this.lblNombre.StylePriority.UseForeColor = false;
             this.lblNombre.StylePriority.UseTextAlignment = false;
@@ -146,9 +146,10 @@
             this.Dpi = 254F;
             this.DrawWatermark = true;
             this.HorizontalContentSplitting = DevExpress.XtraPrinting.HorizontalContentSplitting.Smart;
+            this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 3);
             this.PageHeight = 540;
-            this.PageWidth = 885;
+            this.PageWidth = 863;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
@@ -157,6 +158,7 @@
             this.VerticalContentSplitting = DevExpress.XtraPrinting.VerticalContentSplitting.Smart;
             this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("GafeteFrente.Watermark.Image")));
             this.Watermark.ImageViewMode = DevExpress.XtraPrinting.Drawing.ImageViewMode.Stretch;
+            this.Watermark.PageRange = "1";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

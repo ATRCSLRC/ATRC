@@ -63,6 +63,16 @@ namespace GUARDIAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_acuerdo_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-acuerdo-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_acuerdo_48__4_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-acuerdo-48 (4)", resourceCulture);
@@ -93,9 +103,29 @@ namespace GUARDIAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_enviar_a_la_impresora_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-enviar-a-la-impresora-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_etiqueta_de_precio_usd_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-etiqueta-de-precio-usd-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_recepción_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-recepción-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

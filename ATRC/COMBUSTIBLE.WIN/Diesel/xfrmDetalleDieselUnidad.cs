@@ -28,8 +28,6 @@ namespace COMBUSTIBLE.WIN
         string CandadoAnterior;
         private void xfrmDetalleDieselUnidad_Load(object sender, EventArgs e)
         {
-            
-
             if (!EsModificacion)
             {
                 foreach (ViewRecord vr in Tanques)

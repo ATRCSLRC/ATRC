@@ -167,11 +167,11 @@ namespace GUARDIAS.WIN
             new ViewProperty("Folio", SortDirection.Descending, "[Folio]", true, true)});
             Usuarios.SelectDeleted = true;
             if (Usuarios.Count <= 0)
-                return 123;
+                return 2311;
             else
             {
                 if (Convert.ToInt32(Usuarios[0]["Folio"]) == 0)
-                    return 123;
+                    return 2311;
                 return (Convert.ToInt32(Usuarios[0]["Folio"]) + 1);
             }
 

@@ -3,6 +3,7 @@ using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Drawing;
 using DevExpress.XtraReports.UI;
 using GUARDIAS.BL;
 using System;
@@ -53,6 +54,7 @@ namespace GUARDIAS.WIN
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("EstadoContrato", SortDirection.None, "[EstadoContrato]", false, true),
                   new ViewProperty("NumContrato", SortDirection.None, "[NumContrato]", false, true),
+                  new ViewProperty("Unidad.Nombre", SortDirection.None, "[Unidad.Nombre]", false, true),
                   new ViewProperty("ADondeSeDirige", SortDirection.None, "[ADondeSeDirige]", false, true),
                   new ViewProperty("DiaSalida", SortDirection.None, "[DiaSalida]", false, true),
                   new ViewProperty("Cliente", SortDirection.None, "iif([Cliente] is null,[Responsable],[Cliente.Nombre])",false, true),
@@ -62,8 +64,9 @@ namespace GUARDIAS.WIN
                   new ViewProperty("Anticipo", SortDirection.None, "[Anticipo]", false, true),
                   new ViewProperty("Descuento", SortDirection.None, "[Descuento]",false, true),
                   new ViewProperty("Recargos", SortDirection.None, "[Recargos]",false, true),
-                  new ViewProperty("Total", SortDirection.None, "[Total]", false, true),
-                  new ViewProperty("SubTotal", SortDirection.None, "[Total] - [Anticipo]", false, true)
+                  new ViewProperty("Total", SortDirection.None, "[Total] + [Recargos]", false, true),
+                  new ViewProperty("Abono", SortDirection.None, "[Abono]", false, true),
+                  new ViewProperty("SubTotal", SortDirection.None, "[Subtotal]", false, true)
                  });
             GroupOperator go = new GroupOperator();
             
@@ -81,12 +84,15 @@ namespace GUARDIAS.WIN
                     go.Operands.Add(new BinaryOperator("DiaSalida", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual));
                     break;
             }
-            Contratos.Criteria = go;
-            grdContratos.DataSource = Contratos;
-            if (Contratos.Count > 0)
-                rpAcciones.Visible = true;
-            else
-                rpAcciones.Visible = false;
+            if (go.Operands.Count > 0)
+            {
+                Contratos.Criteria = go;
+                grdContratos.DataSource = Contratos;
+                if (Contratos.Count > 0)
+                    rpAcciones.Visible = true;
+                else
+                    rpAcciones.Visible = false;
+            }
 
         }
 
@@ -197,10 +203,33 @@ namespace GUARDIAS.WIN
             {
                 ContratoRenta Contrato = viewContrato.GetObject() as ContratoRenta;
                 Contrato.EstadoContrato = EstadoContrato.Creado;
+                Contrato.NumContrato = NumContrato((UnidadDeTrabajo)Contrato.Session);
                 Contrato.EsApartado = false;
                 Contrato.Session.CommitTransaction();
-                ReportPrintTool repContrato = new ReportPrintTool(new REPORTES.Guardias.ContratoRenta(Convert.ToInt32(viewContrato["Oid"])));
+
+
+                REPORTES.Guardias.ContratoRenta RepContrato = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
+                RepContrato.CreateDocument();
+
+                REPORTES.Guardias.ContratoRenta RepContratoCopia = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
+                RepContratoCopia.CreateDocument();
+                RepContrato.Pages.AddRange(RepContratoCopia.Pages);
+
+                REPORTES.Guardias.ClausulasRenta RepClausulas = new REPORTES.Guardias.ClausulasRenta();
+                RepClausulas.CreateDocument();
+                RepContrato.Pages.AddRange(RepClausulas.Pages);
+
+                REPORTES.Guardias.Pagare RepPagare = new REPORTES.Guardias.Pagare(Contrato.NumContrato.ToString());
+                RepPagare.CreateDocument();
+                RepContrato.Pages.AddRange(RepPagare.Pages);
+
+                RepContrato.Pages[0].AssignWatermark(new Watermark());
+                RepContrato.Pages[2].AssignWatermark(new Watermark());
+                RepContrato.Pages[3].AssignWatermark(new Watermark());
+
+                ReportPrintTool repContrato = new ReportPrintTool(RepContrato);
                 repContrato.ShowPreview();
+
             }
             ((XPView)grdContratos.DataSource).Reload();
         }
@@ -223,7 +252,7 @@ namespace GUARDIAS.WIN
                 }
 
                 if ((Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Cancelado ||
-                    (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.EnProceso || (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Terminado)
+                    (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.EnViaje || (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Terminado)
                 {
                     bbiCancelar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 }
@@ -251,7 +280,7 @@ namespace GUARDIAS.WIN
                 }
 
                 if ((Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Cancelado ||
-                    (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.EnProceso || (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Terminado)
+                    (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.EnViaje || (Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Terminado)
                 {
                     bbiCancelar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 }
@@ -259,6 +288,30 @@ namespace GUARDIAS.WIN
                 {
                     bbiCancelar.Visibility = Utilerias.VisibilidadPermiso("CancelarContrato");
                 }
+            }
+        }
+
+        private void bbiImprimirContratos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ReportPrintTool repContratos = new ReportPrintTool(new REPORTES.Guardias.ListadoContratos(((XPView)grdContratos.DataSource).Criteria));
+            repContratos.ShowPreview();
+            
+        }
+
+        public int NumContrato(UnidadDeTrabajo Unidad)
+        {
+            XPView Usuarios = new XPView(Unidad, typeof(ContratoRenta));
+
+            Usuarios.Properties.AddRange(new ViewProperty[] {
+            new ViewProperty("NumContrato", SortDirection.Descending, "[NumContrato]", true, true)});
+            Usuarios.SelectDeleted = true;
+            if (Usuarios.Count <= 0)
+                return 2702;
+            else
+            {
+                if (Convert.ToInt32(Usuarios[0]["NumContrato"]) == 0)
+                    return 2702;
+                return (Convert.ToInt32(Usuarios[0]["NumContrato"]) + 1);
             }
         }
     }

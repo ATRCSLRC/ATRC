@@ -2,6 +2,7 @@
 using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using GUARDIAS.BL;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace GUARDIAS.WIN.Renta
                 {
                     GroupOperator go = new GroupOperator();
                     go.Operands.Add(new BinaryOperator("NumContrato", Convert.ToInt32(txtNumContrato.Text)));
-                    go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnProceso));
+                    go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnViaje));
                     go.Operands.Add(new BinaryOperator("Cancelado", false));
                     go.Operands.Add(new BinaryOperator("EsApartado", false));
                     Contrato = Unidad.FindObject<ContratoRenta>(go);
@@ -56,46 +57,60 @@ namespace GUARDIAS.WIN.Renta
                         Contrato.HoraRegresoOriginal = Entrega.TimeOfDay;
                         Contrato.DiaRegresoOriginal = Entrega.Date;
                         var f = Contrato.DiaSalidaOriginal.Add(Contrato.HoraSalidaOriginal);
-                        int Horas = (Entrega - f).Hours;
-                        int Dias = (Entrega - f).Days;
+                        decimal Horas = (Entrega - f).Hours;
+                        decimal Dias = (Entrega - f).Days;
                         decimal HoraDias = (Horas / 24) + (Dias);
-
+                        decimal DiasExtra = 0;
                         decimal ExtraDia = 0;
-                        decimal DiasTardes = 0;
-                        int HorasTardes = 0;
                         int MediosDiasTarde = 0;
-                        if (HoraDias > Contrato.DiasRenta)
+                        decimal HorasTardes = 0;
+
+                        if (HoraDias >= Contrato.DiasRenta)
                         {
-                            DiasTardes = (Dias - Contrato.DiasRenta);
-                           ExtraDia = Contrato.Costo * DiasTardes;
-                           
-                           if(Horas >= 12)
+
+                            if ((HoraDias - Contrato.DiasRenta) > 1)
+                            {
+                                DiasExtra = (Dias - Contrato.DiasRenta);
+                                ExtraDia = Contrato.Costo * DiasExtra;
+                            }
+                            //else if (Contrato.DiasRenta.ToString().Contains(".5"))
+                            //{
+                            //    Horas -= 12;
+                            //}
+
+                            if (Horas >= 19 & Horas <= 24)
+                            {
+                                DiasExtra += 1;
+                                ExtraDia += DiasExtra * Contrato.Costo;
+                                Horas -= 24;
+                            }
+
+
+                            if (Horas >= 7 & Horas <= 18)
                             {
                                 MediosDiasTarde = 1;
                                 ExtraDia += Contrato.Costo / 2;
-                                HorasTardes = Horas - 12;
-                                ExtraDia += HorasTardes * 100;
-                            }else
-                            {
-                                if (Horas > Contrato.TiempoTolerancia)
-                                {
-                                    ExtraDia += Horas * 100;
-                                    HorasTardes = Horas;
-                                }
+                                Horas -= 12;
                             }
 
+                            if (Horas >= 1 & Horas <= 6 & Horas >= Contrato.TiempoTolerancia)
+                            {
+                                ExtraDia += Horas * Contrato.CostoTolerancia;
+                                HorasTardes = Horas;
+                            }
+
+
                             string EntregaTarde = string.Empty;
-                            if (DiasTardes >= 0)
-                                EntregaTarde += Convert.ToInt32(DiasTardes) + " días";
-                            if (MediosDiasTarde >= 0)
+                            if (DiasExtra > 0)
+                                EntregaTarde += DiasExtra.ToString("n1") + " día(s)";
+                            if (MediosDiasTarde > 0)
                                 EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? " medio día " : " y medio";
-                            if(HorasTardes >= 0)
-                                EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? HorasTardes + " horas " : " con " + HorasTardes + " horas ";
+                            if (HorasTardes > 0)
+                                EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? HorasTardes + " hora(s) " : " con " + HorasTardes + " hora(s) ";
 
-
-                            memoComentario.Text = "La unidad se entrego " + EntregaTarde + "tarde."; 
+                            if (!string.IsNullOrEmpty(EntregaTarde))
+                                memoComentario.Text = "La unidad se entrego " + EntregaTarde + " tarde.";
                         }
-
                         lblTotal.Text = (Contrato.Subtotal + ExtraDia).ToString("c");
                     }
                     else
@@ -117,7 +132,7 @@ namespace GUARDIAS.WIN.Renta
 
         private void bbiRegreso_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (XtraMessageBox.Show("¿La unidad se encuantra en buen estado y se cubrieron los gatos de ser necesarios?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (XtraMessageBox.Show("¿La unidad se encuentra en buen estado y se cubrieron los gatos de ser necesarios?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 if(Contrato != null)
                 {
@@ -127,6 +142,18 @@ namespace GUARDIAS.WIN.Renta
                     Contrato.Comentarios = memoComentario.Text;
                     Contrato.Save();
                     Contrato.Session.CommitTransaction();
+                    if (Convert.ToDecimal(lblTotal.Text.TrimStart('$')) > 0)
+                    {
+                        string PrecioEscrito = string.Empty;
+                        PrecioEscrito = Utilerias.Convertir(Convert.ToDecimal(lblTotal.Text.TrimStart('$')).ToString(), true, "PESOS");
+                        int ID = 0;
+                        string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalidaOriginal.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalidaOriginal.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
+                        textoPagado += Contrato.ADondeSeDirige;
+                        Recibos.GenerarRecibo(Unidad, Convert.ToDecimal(lblTotal.Text.TrimStart('$')), Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, textoPagado, DateTime.Now, "Pesos", PrecioEscrito, out ID);
+                        this.Close();
+                        ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));
+                        reprecibo.ShowPreview();
+                    }
                 }
             }
         }

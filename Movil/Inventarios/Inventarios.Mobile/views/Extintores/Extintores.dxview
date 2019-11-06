@@ -28,28 +28,29 @@
                     <div class="dx-field">
                         <div class="dx-field-label">Fecha de recarga:</div>
                         <div class="dx-field-value">
-                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaRecarga,  cancelButtonText: 'Cancelar', applyButtonText: 'Aceptar',  dateSerializationFormat: 'dd/MM/yyyy', displayFormat: 'dd/MM/yyyy'}, dxValidator: {validationRules: [{type: 'required', message: 'Fecha recarga requerida'}]}"></div>
+                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaRecarga,  cancelButtonText: 'Cancelar', applyButtonText: 'Aceptar', displayFormat: 'dd/MM/yyyy'}, dxValidator: {validationRules: [{type: 'required', message: 'Fecha recarga requerida'}]}"></div>
                         </div>
                     </div>
+
                     <div class="dx-field">
                         <div class="dx-field-label">Fecha de vencimiento:</div>
                         <div class="dx-field-value">
-                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaVencimiento, displayFormat: 'dd/MM/yyyy'}, , dxValidator: {validationRules: [{type: 'required', message: 'Fecha vencimiento requerida'}]}"></div>
+                            <div data-bind="dxDateBox: {pickerType: 'rollers', value: FechaVencimiento,  cancelButtonText: 'Cancelar', applyButtonText: 'Aceptar', displayFormat: 'dd/MM/yyyy'}, dxValidator: {validationRules: [{type: 'required', message: 'Fecha vencimiento requerida'}]}"></div>
                         </div>
                     </div>
-                    <div class="dx-field">
-                        <div class="dx-field-label">Ubicaci&#243;n:</div>
-                        <div class="dx-field-value">
-                            <div data-bind="dxSelectBox: { dataSource: Ubicaciones, value: SeleccionUbicacion, valueExpr: 'ID', displayExpr: 'Nombre', onValueChanged: OnUbicacion }, , dxValidator: {validationRules: [{type: 'required', message: 'Ubicacion requerida'}]}"></div>
-                        </div>
-                    </div>
-                    <div id="divDestino" class="dx-field">
-                        <div class="dx-field-label">Destino:</div>
-                        <div class="dx-field-value">
-                            <div id="comboUnidad" data-bind="dxSelectBox: { dataSource: Unidades, valueExpr: 'ID', displayExpr: 'Nombre', value: Unidad}"></div>
-                            <div id="txtOficina" data-bind="dxTextBox: {value: Oficina}"></div>
-                        </div>
-                    </div>
+                    <!--<div class="dx-field"> , dateSerializationFormat: 'dd/MM/yyyy'
+        <div class="dx-field-label">Ubicaci&#243;n:</div>
+        <div class="dx-field-value">
+            <div data-bind="dxSelectBox: { dataSource: Ubicaciones, value: SeleccionUbicacion, valueExpr: 'ID', displayExpr: 'Nombre', onValueChanged: OnUbicacion }, , dxValidator: {validationRules: [{type: 'required', message: 'Ubicacion requerida'}]}"></div>
+        </div>
+    </div>
+    <div id="divDestino" class="dx-field">
+        <div class="dx-field-label">Destino:</div>
+        <div class="dx-field-value">
+            <div id="comboUnidad" data-bind="dxSelectBox: { dataSource: Unidades, valueExpr: 'ID', displayExpr: 'Nombre', value: Unidad}"></div>
+            <div id="txtOficina" data-bind="dxTextBox: {value: Oficina}"></div>
+        </div>
+    </div>-->
                     <div class="dx-field">
                         <div class="dx-field-label">Peso:</div>
                         <div class="dx-field-value">

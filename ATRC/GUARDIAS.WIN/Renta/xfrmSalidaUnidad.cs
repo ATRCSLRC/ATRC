@@ -31,24 +31,7 @@ namespace GUARDIAS.WIN
 
         private void bbiRegistrarSalida_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(Contrato != null )
-            {
-                if (XtraMessageBox.Show("¿Está seguro de generar la entrega de la unidad?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-
-                    Contrato.HoraSalidaOriginal = DateTime.Now.TimeOfDay;
-                    Contrato.DiaSalidaOriginal = DateTime.Now.Date;
-                    Contrato.EstadoContrato = Enums.EstadoContrato.EnProceso;
-                    Contrato.Save();
-                    Contrato.Session.CommitTransaction();
-                    XtraMessageBox.Show("Se ha generado la entrega de la unidad.");
-                    LimpiarControles();
-                }
-            }else
-            {
-                XtraMessageBox.Show("Debe ingresar el número de contrato.");
-                txtFolio.Focus();
-            }
+            Guardar();
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -60,30 +43,39 @@ namespace GUARDIAS.WIN
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!string.IsNullOrEmpty(txtFolio.Text))
-                {   
-                    GroupOperator go = new GroupOperator();
-                    go.Operands.Add(new BinaryOperator("NumContrato", Convert.ToInt32(txtFolio.Text)));
-                    go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Creado));
-                    go.Operands.Add(new BinaryOperator("Cancelado", false));
-                    go.Operands.Add(new BinaryOperator("EsApartado", false));
-                    Contrato = Unidad.FindObject<ContratoRenta>(go);
-                    if (Contrato != null)
+                if (Contrato == null)
+                {
+                    if (!string.IsNullOrEmpty(txtFolio.Text))
                     {
-                        txtCliente.Text = Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre;
-                        txtDestino.Text = Contrato.ADondeSeDirige;
-                        txtUnidad.Text = Contrato.Unidad == null ? "" : Contrato.Unidad.Nombre;
-                    }else
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("NumContrato", Convert.ToInt32(txtFolio.Text)));
+                        go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Creado));
+                        go.Operands.Add(new BinaryOperator("Cancelado", false));
+                        go.Operands.Add(new BinaryOperator("EsApartado", false));
+                        Contrato = Unidad.FindObject<ContratoRenta>(go);
+                        if (Contrato != null)
+                        {
+                            txtCliente.Text = Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre;
+                            txtDestino.Text = Contrato.ADondeSeDirige;
+                            txtUnidad.Text = Contrato.Unidad == null ? "" : Contrato.Unidad.Nombre;
+                            lblTotal.Text = Contrato.Subtotal.ToString("c");
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Este contrato no existe.");
+                            txtCliente.Text = string.Empty;
+                            txtDestino.Text = string.Empty;
+                            txtUnidad.Text = string.Empty;
+                        }
+                    }
+                    else
                     {
-                        XtraMessageBox.Show("Este contrato no existe.");
-                        txtCliente.Text = string.Empty;
-                        txtDestino.Text = string.Empty;
-                        txtUnidad.Text = string.Empty;
+                        XtraMessageBox.Show("Debe ingresar el número de contrato.");
+                        txtFolio.Focus();
                     }
                 }else
                 {
-                    XtraMessageBox.Show("Debe ingresar el número de contrato.");
-                    txtFolio.Focus();
+                    Guardar();
                 }
             }
         }
@@ -97,6 +89,30 @@ namespace GUARDIAS.WIN
             txtFolio.Focus();
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             Contrato = null;
+        }
+
+        private void Guardar()
+        {
+            if (Contrato != null)
+            {
+                if (XtraMessageBox.Show("¿Está seguro de generar la entrega de la unidad?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+
+                    Contrato.HoraSalidaOriginal = DateTime.Now.TimeOfDay;
+                    Contrato.DiaSalidaOriginal = DateTime.Now.Date;
+                    Contrato.EstadoContrato = Enums.EstadoContrato.EnViaje;
+                    Contrato.Save();
+                    Contrato.Session.CommitTransaction();
+                    XtraMessageBox.Show("Se ha generado la entrega de la unidad.");
+                    LimpiarControles();
+                    this.Close();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Debe ingresar el número de contrato.");
+                txtFolio.Focus();
+            }
         }
 
     }

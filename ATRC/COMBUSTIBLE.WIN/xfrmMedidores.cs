@@ -82,8 +82,8 @@ namespace COMBUSTIBLE.WIN
                     arcScaleComponent1.Ranges.Add(CreateNewRange(0, div, Color.Red));
                     arcScaleComponent1.Ranges.Add(CreateNewRange(div + 1, (div * 2), Color.Yellow));
                     arcScaleComponent1.Ranges.Add(CreateNewRange((div * 2) + 1, Tanque.Capacidad, Color.Green));
-                    arcScaleComponent1.Value = Tanque.Cantidad;
-                    labelComponent1.Text = Tanque.Cantidad + " lts";
+                    arcScaleComponent1.Value = (float)Tanque.Cantidad;
+                    labelComponent1.Text = Tanque.Cantidad.ToString("N2") + " lts";
                 }
             }
         }

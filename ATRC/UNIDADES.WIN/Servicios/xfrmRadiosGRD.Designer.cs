@@ -40,13 +40,14 @@
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdRadios = new DevExpress.XtraGrid.GridControl();
             this.grvRadios = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colRadio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMarca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colModelo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSerie = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDestino = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colRadio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bbiImprimirDetalles = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -64,9 +65,10 @@
             this.bbiNuevo,
             this.bbiModificar,
             this.bbiEliminar,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.bbiImprimirDetalles});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -130,6 +132,7 @@
             this.rpgAcciones.ItemLinks.Add(this.bbiNuevo);
             this.rpgAcciones.ItemLinks.Add(this.bbiModificar);
             this.rpgAcciones.ItemLinks.Add(this.bbiEliminar);
+            this.rpgAcciones.ItemLinks.Add(this.bbiImprimirDetalles);
             this.rpgAcciones.Name = "rpgAcciones";
             this.rpgAcciones.ShowCaptionButton = false;
             // 
@@ -178,6 +181,16 @@
             this.grvRadios.OptionsView.ShowAutoFilterRow = true;
             this.grvRadios.OptionsView.ShowDetailButtons = false;
             this.grvRadios.OptionsView.ShowGroupPanel = false;
+            // 
+            // colRadio
+            // 
+            this.colRadio.Caption = "# Radio";
+            this.colRadio.FieldName = "Radio";
+            this.colRadio.Name = "colRadio";
+            this.colRadio.OptionsColumn.AllowEdit = false;
+            this.colRadio.OptionsColumn.AllowFocus = false;
+            this.colRadio.Visible = true;
+            this.colRadio.VisibleIndex = 0;
             // 
             // colMarca
             // 
@@ -234,15 +247,15 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // colRadio
+            // bbiImprimirDetalles
             // 
-            this.colRadio.Caption = "# Radio";
-            this.colRadio.FieldName = "Radio";
-            this.colRadio.Name = "colRadio";
-            this.colRadio.OptionsColumn.AllowEdit = false;
-            this.colRadio.OptionsColumn.AllowFocus = false;
-            this.colRadio.Visible = true;
-            this.colRadio.VisibleIndex = 0;
+            this.bbiImprimirDetalles.Caption = "Imprimir detalles";
+            this.bbiImprimirDetalles.Id = 5;
+            this.bbiImprimirDetalles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiImprimirDetalles.ImageOptions.Image")));
+            this.bbiImprimirDetalles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiImprimirDetalles.ImageOptions.LargeImage")));
+            this.bbiImprimirDetalles.Name = "bbiImprimirDetalles";
+            this.bbiImprimirDetalles.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiImprimirDetalles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirDetalles_ItemClick);
             // 
             // xfrmRadiosGRD
             // 
@@ -288,5 +301,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSerie;
         private DevExpress.XtraGrid.Columns.GridColumn colDestino;
         private DevExpress.XtraGrid.Columns.GridColumn colRadio;
+        private DevExpress.XtraBars.BarButtonItem bbiImprimirDetalles;
     }
 }

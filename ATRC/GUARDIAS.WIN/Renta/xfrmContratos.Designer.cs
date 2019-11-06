@@ -35,6 +35,7 @@
             this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGenerarContrato = new DevExpress.XtraBars.BarButtonItem();
             this.bbiModificarContrato = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiImprimirContratos = new DevExpress.XtraBars.BarButtonItem();
             this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgImprimir = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -46,6 +47,7 @@
             this.grvContratos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumContrato = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colResponsable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDestino = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaDel = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,6 +57,7 @@
             this.colAnticipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescuento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRecargos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAbono = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSubtotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -112,21 +115,22 @@
             this.bbiSalir,
             this.bbiCancelar,
             this.bbiGenerarContrato,
-            this.bbiModificarContrato});
+            this.bbiModificarContrato,
+            this.bbiImprimirContratos});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpAcciones});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1012, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(1076, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiImprimir
             // 
-            this.bbiImprimir.Caption = "Imprimir contrato";
+            this.bbiImprimir.Caption = "Reimprimir contrato";
             this.bbiImprimir.Id = 1;
             this.bbiImprimir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiImprimir.ImageOptions.Image")));
             this.bbiImprimir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiImprimir.ImageOptions.LargeImage")));
@@ -158,6 +162,7 @@
             // 
             this.bbiGenerarContrato.Caption = "Generar Contrato";
             this.bbiGenerarContrato.Id = 5;
+            this.bbiGenerarContrato.ImageOptions.LargeImage = global::GUARDIAS.WIN.Properties.Resources.icons8_acuerdo_32;
             this.bbiGenerarContrato.Name = "bbiGenerarContrato";
             this.bbiGenerarContrato.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiGenerarContrato.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -171,6 +176,16 @@
             this.bbiModificarContrato.Name = "bbiModificarContrato";
             this.bbiModificarContrato.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiModificarContrato.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiModificarContrato_ItemClick);
+            // 
+            // bbiImprimirContratos
+            // 
+            this.bbiImprimirContratos.Caption = "Imprimir contratos";
+            this.bbiImprimirContratos.Id = 7;
+            this.bbiImprimirContratos.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiImprimirContratos.ImageOptions.Image")));
+            this.bbiImprimirContratos.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiImprimirContratos.ImageOptions.LargeImage")));
+            this.bbiImprimirContratos.Name = "bbiImprimirContratos";
+            this.bbiImprimirContratos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiImprimirContratos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirContratos_ItemClick);
             // 
             // rpAcciones
             // 
@@ -196,6 +211,7 @@
             this.rpgImprimir.AllowMinimize = false;
             this.rpgImprimir.AllowTextClipping = false;
             this.rpgImprimir.ItemLinks.Add(this.bbiImprimir);
+            this.rpgImprimir.ItemLinks.Add(this.bbiImprimirContratos);
             this.rpgImprimir.Name = "rpgImprimir";
             this.rpgImprimir.ShowCaptionButton = false;
             // 
@@ -217,7 +233,7 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1120, 598, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(1012, 421);
+            this.lcMain.Size = new System.Drawing.Size(1076, 421);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -229,16 +245,16 @@
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstado.Size = new System.Drawing.Size(861, 20);
+            this.cmbEstado.Size = new System.Drawing.Size(925, 20);
             this.cmbEstado.StyleController = this.lcMain;
             this.cmbEstado.TabIndex = 13;
             // 
             // btnCancelar
             // 
             this.btnCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.ImageOptions.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(742, 146);
+            this.btnCancelar.Location = new System.Drawing.Point(789, 146);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(246, 22);
+            this.btnCancelar.Size = new System.Drawing.Size(263, 22);
             this.btnCancelar.StyleController = this.lcMain;
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
@@ -247,9 +263,9 @@
             // btnBuscar
             // 
             this.btnBuscar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.ImageOptions.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(492, 146);
+            this.btnBuscar.Location = new System.Drawing.Point(523, 146);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(246, 22);
+            this.btnBuscar.Size = new System.Drawing.Size(262, 22);
             this.btnBuscar.StyleController = this.lcMain;
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
@@ -261,7 +277,7 @@
             this.grdContratos.MainView = this.grvContratos;
             this.grdContratos.MenuManager = this.ribbonControl1;
             this.grdContratos.Name = "grdContratos";
-            this.grdContratos.Size = new System.Drawing.Size(988, 225);
+            this.grdContratos.Size = new System.Drawing.Size(1052, 225);
             this.grdContratos.TabIndex = 10;
             this.grdContratos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvContratos});
@@ -271,6 +287,7 @@
             this.grvContratos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colEstado,
             this.colNumContrato,
+            this.colUnidad,
             this.colResponsable,
             this.colDestino,
             this.colFechaDel,
@@ -280,6 +297,7 @@
             this.colAnticipo,
             this.colDescuento,
             this.colRecargos,
+            this.colAbono,
             this.colSubtotal,
             this.colTotal});
             this.grvContratos.GridControl = this.grdContratos;
@@ -299,7 +317,7 @@
             this.colEstado.OptionsColumn.AllowFocus = false;
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 0;
-            this.colEstado.Width = 63;
+            this.colEstado.Width = 57;
             // 
             // colNumContrato
             // 
@@ -310,7 +328,18 @@
             this.colNumContrato.OptionsColumn.AllowFocus = false;
             this.colNumContrato.Visible = true;
             this.colNumContrato.VisibleIndex = 1;
-            this.colNumContrato.Width = 57;
+            this.colNumContrato.Width = 51;
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.Caption = "Unidad";
+            this.colUnidad.FieldName = "Unidad.Nombre";
+            this.colUnidad.Name = "colUnidad";
+            this.colUnidad.OptionsColumn.AllowEdit = false;
+            this.colUnidad.OptionsColumn.AllowFocus = false;
+            this.colUnidad.Visible = true;
+            this.colUnidad.VisibleIndex = 2;
+            this.colUnidad.Width = 50;
             // 
             // colResponsable
             // 
@@ -320,8 +349,8 @@
             this.colResponsable.OptionsColumn.AllowEdit = false;
             this.colResponsable.OptionsColumn.AllowFocus = false;
             this.colResponsable.Visible = true;
-            this.colResponsable.VisibleIndex = 2;
-            this.colResponsable.Width = 136;
+            this.colResponsable.VisibleIndex = 3;
+            this.colResponsable.Width = 128;
             // 
             // colDestino
             // 
@@ -331,8 +360,8 @@
             this.colDestino.OptionsColumn.AllowEdit = false;
             this.colDestino.OptionsColumn.AllowFocus = false;
             this.colDestino.Visible = true;
-            this.colDestino.VisibleIndex = 3;
-            this.colDestino.Width = 106;
+            this.colDestino.VisibleIndex = 4;
+            this.colDestino.Width = 88;
             // 
             // colFechaDel
             // 
@@ -342,8 +371,8 @@
             this.colFechaDel.OptionsColumn.AllowEdit = false;
             this.colFechaDel.OptionsColumn.AllowFocus = false;
             this.colFechaDel.Visible = true;
-            this.colFechaDel.VisibleIndex = 4;
-            this.colFechaDel.Width = 61;
+            this.colFechaDel.VisibleIndex = 5;
+            this.colFechaDel.Width = 71;
             // 
             // colFechaAl
             // 
@@ -353,8 +382,8 @@
             this.colFechaAl.OptionsColumn.AllowEdit = false;
             this.colFechaAl.OptionsColumn.AllowFocus = false;
             this.colFechaAl.Visible = true;
-            this.colFechaAl.VisibleIndex = 5;
-            this.colFechaAl.Width = 70;
+            this.colFechaAl.VisibleIndex = 6;
+            this.colFechaAl.Width = 79;
             // 
             // colDias
             // 
@@ -365,8 +394,8 @@
             this.colDias.OptionsColumn.AllowEdit = false;
             this.colDias.OptionsColumn.AllowFocus = false;
             this.colDias.Visible = true;
-            this.colDias.VisibleIndex = 6;
-            this.colDias.Width = 50;
+            this.colDias.VisibleIndex = 7;
+            this.colDias.Width = 40;
             // 
             // colCosto
             // 
@@ -378,8 +407,8 @@
             this.colCosto.OptionsColumn.AllowEdit = false;
             this.colCosto.OptionsColumn.AllowFocus = false;
             this.colCosto.Visible = true;
-            this.colCosto.VisibleIndex = 7;
-            this.colCosto.Width = 68;
+            this.colCosto.VisibleIndex = 8;
+            this.colCosto.Width = 56;
             // 
             // colAnticipo
             // 
@@ -391,8 +420,8 @@
             this.colAnticipo.OptionsColumn.AllowEdit = false;
             this.colAnticipo.OptionsColumn.AllowFocus = false;
             this.colAnticipo.Visible = true;
-            this.colAnticipo.VisibleIndex = 8;
-            this.colAnticipo.Width = 70;
+            this.colAnticipo.VisibleIndex = 9;
+            this.colAnticipo.Width = 58;
             // 
             // colDescuento
             // 
@@ -404,8 +433,8 @@
             this.colDescuento.OptionsColumn.AllowEdit = false;
             this.colDescuento.OptionsColumn.AllowFocus = false;
             this.colDescuento.Visible = true;
-            this.colDescuento.VisibleIndex = 9;
-            this.colDescuento.Width = 69;
+            this.colDescuento.VisibleIndex = 10;
+            this.colDescuento.Width = 64;
             // 
             // colRecargos
             // 
@@ -417,12 +446,25 @@
             this.colRecargos.OptionsColumn.AllowEdit = false;
             this.colRecargos.OptionsColumn.AllowFocus = false;
             this.colRecargos.Visible = true;
-            this.colRecargos.VisibleIndex = 10;
-            this.colRecargos.Width = 64;
+            this.colRecargos.VisibleIndex = 11;
+            this.colRecargos.Width = 56;
+            // 
+            // colAbono
+            // 
+            this.colAbono.Caption = "Abono";
+            this.colAbono.DisplayFormat.FormatString = "C2";
+            this.colAbono.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colAbono.FieldName = "Abono";
+            this.colAbono.Name = "colAbono";
+            this.colAbono.OptionsColumn.AllowEdit = false;
+            this.colAbono.OptionsColumn.AllowFocus = false;
+            this.colAbono.Visible = true;
+            this.colAbono.VisibleIndex = 12;
+            this.colAbono.Width = 59;
             // 
             // colSubtotal
             // 
-            this.colSubtotal.Caption = "Subtotal";
+            this.colSubtotal.Caption = "Pendiente";
             this.colSubtotal.DisplayFormat.FormatString = "C2";
             this.colSubtotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSubtotal.FieldName = "SubTotal";
@@ -430,7 +472,8 @@
             this.colSubtotal.OptionsColumn.AllowEdit = false;
             this.colSubtotal.OptionsColumn.AllowFocus = false;
             this.colSubtotal.Visible = true;
-            this.colSubtotal.VisibleIndex = 11;
+            this.colSubtotal.VisibleIndex = 13;
+            this.colSubtotal.Width = 76;
             // 
             // colTotal
             // 
@@ -442,8 +485,8 @@
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.OptionsColumn.AllowFocus = false;
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 12;
-            this.colTotal.Width = 81;
+            this.colTotal.VisibleIndex = 14;
+            this.colTotal.Width = 101;
             // 
             // gridControl1
             // 
@@ -465,7 +508,7 @@
             // 
             this.dteAl.EditValue = null;
             this.dteAl.EnterMoveNextControl = true;
-            this.dteAl.Location = new System.Drawing.Point(522, 122);
+            this.dteAl.Location = new System.Drawing.Point(554, 122);
             this.dteAl.MenuManager = this.ribbonControl1;
             this.dteAl.Name = "dteAl";
             this.dteAl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -477,7 +520,7 @@
             this.dteAl.Properties.EditFormat.FormatString = "D";
             this.dteAl.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteAl.Properties.Mask.EditMask = "D";
-            this.dteAl.Size = new System.Drawing.Size(466, 20);
+            this.dteAl.Size = new System.Drawing.Size(498, 20);
             this.dteAl.StyleController = this.lcMain;
             this.dteAl.TabIndex = 8;
             // 
@@ -497,7 +540,7 @@
             this.dteDe.Properties.EditFormat.FormatString = "D";
             this.dteDe.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDe.Properties.Mask.EditMask = "D";
-            this.dteDe.Size = new System.Drawing.Size(454, 20);
+            this.dteDe.Size = new System.Drawing.Size(486, 20);
             this.dteDe.StyleController = this.lcMain;
             this.dteDe.TabIndex = 7;
             // 
@@ -507,7 +550,7 @@
             this.txtNumContrato.Location = new System.Drawing.Point(127, 74);
             this.txtNumContrato.MenuManager = this.ribbonControl1;
             this.txtNumContrato.Name = "txtNumContrato";
-            this.txtNumContrato.Size = new System.Drawing.Size(861, 20);
+            this.txtNumContrato.Size = new System.Drawing.Size(925, 20);
             this.txtNumContrato.StyleController = this.lcMain;
             this.txtNumContrato.TabIndex = 5;
             // 
@@ -520,7 +563,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Número de contrato"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Estado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Rango de fechas")});
-            this.rgTipoBusqueda.Size = new System.Drawing.Size(861, 25);
+            this.rgTipoBusqueda.Size = new System.Drawing.Size(925, 25);
             this.rgTipoBusqueda.StyleController = this.lcMain;
             this.rgTipoBusqueda.TabIndex = 4;
             this.rgTipoBusqueda.SelectedIndexChanged += new System.EventHandler(this.rgTipoBusqueda_SelectedIndexChanged);
@@ -542,7 +585,7 @@
             this.layoutControlItem7,
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1012, 421);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1076, 421);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem7
@@ -550,7 +593,7 @@
             this.layoutControlItem7.Control = this.grdContratos;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 172);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(992, 229);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1056, 229);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -569,7 +612,7 @@
             this.emptySpaceItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(992, 172);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1056, 172);
             this.layoutControlGroup2.Text = "Detalles de búsqueda";
             // 
             // lciDe
@@ -577,7 +620,7 @@
             this.lciDe.Control = this.dteDe;
             this.lciDe.Location = new System.Drawing.Point(0, 77);
             this.lciDe.Name = "lciDe";
-            this.lciDe.Size = new System.Drawing.Size(480, 24);
+            this.lciDe.Size = new System.Drawing.Size(512, 24);
             this.lciDe.Text = "De:";
             this.lciDe.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.lciDe.TextSize = new System.Drawing.Size(17, 13);
@@ -589,16 +632,16 @@
             this.lciNumContrato.Control = this.txtNumContrato;
             this.lciNumContrato.Location = new System.Drawing.Point(0, 29);
             this.lciNumContrato.Name = "lciNumContrato";
-            this.lciNumContrato.Size = new System.Drawing.Size(968, 24);
+            this.lciNumContrato.Size = new System.Drawing.Size(1032, 24);
             this.lciNumContrato.Text = "Número de contrato:";
             this.lciNumContrato.TextSize = new System.Drawing.Size(100, 13);
             // 
             // lciA
             // 
             this.lciA.Control = this.dteAl;
-            this.lciA.Location = new System.Drawing.Point(480, 77);
+            this.lciA.Location = new System.Drawing.Point(512, 77);
             this.lciA.Name = "lciA";
-            this.lciA.Size = new System.Drawing.Size(488, 24);
+            this.lciA.Size = new System.Drawing.Size(520, 24);
             this.lciA.Text = "Al:";
             this.lciA.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.lciA.TextSize = new System.Drawing.Size(13, 13);
@@ -612,7 +655,7 @@
             this.lciTipoBusqueda.MaxSize = new System.Drawing.Size(0, 29);
             this.lciTipoBusqueda.MinSize = new System.Drawing.Size(157, 29);
             this.lciTipoBusqueda.Name = "lciTipoBusqueda";
-            this.lciTipoBusqueda.Size = new System.Drawing.Size(968, 29);
+            this.lciTipoBusqueda.Size = new System.Drawing.Size(1032, 29);
             this.lciTipoBusqueda.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipoBusqueda.Text = "Tipo de búsqueda:";
             this.lciTipoBusqueda.TextSize = new System.Drawing.Size(100, 13);
@@ -620,18 +663,18 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnBuscar;
-            this.layoutControlItem1.Location = new System.Drawing.Point(468, 101);
+            this.layoutControlItem1.Location = new System.Drawing.Point(499, 101);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(250, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(266, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCancelar;
-            this.layoutControlItem2.Location = new System.Drawing.Point(718, 101);
+            this.layoutControlItem2.Location = new System.Drawing.Point(765, 101);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(250, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(267, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -640,7 +683,7 @@
             this.lciEstado.Control = this.cmbEstado;
             this.lciEstado.Location = new System.Drawing.Point(0, 53);
             this.lciEstado.Name = "lciEstado";
-            this.lciEstado.Size = new System.Drawing.Size(968, 24);
+            this.lciEstado.Size = new System.Drawing.Size(1032, 24);
             this.lciEstado.Text = "Estado:";
             this.lciEstado.TextSize = new System.Drawing.Size(100, 13);
             this.lciEstado.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -650,14 +693,14 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 101);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(468, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(499, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // xfrmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 543);
+            this.ClientSize = new System.Drawing.Size(1076, 543);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmContratos";
@@ -743,5 +786,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDias;
         private DevExpress.XtraGrid.Columns.GridColumn colCosto;
         private DevExpress.XtraGrid.Columns.GridColumn colSubtotal;
+        private DevExpress.XtraBars.BarButtonItem bbiImprimirContratos;
+        private DevExpress.XtraGrid.Columns.GridColumn colAbono;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnidad;
     }
 }

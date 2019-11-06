@@ -108,10 +108,10 @@
             this.lblAvisar.Dpi = 254F;
             this.lblAvisar.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvisar.ForeColor = System.Drawing.Color.White;
-            this.lblAvisar.LocationFloat = new DevExpress.Utils.PointFloat(500.6073F, 308.7174F);
+            this.lblAvisar.LocationFloat = new DevExpress.Utils.PointFloat(447.6906F, 308.7174F);
             this.lblAvisar.Name = "lblAvisar";
             this.lblAvisar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblAvisar.SizeF = new System.Drawing.SizeF(359.3928F, 58.42001F);
+            this.lblAvisar.SizeF = new System.Drawing.SizeF(412.3096F, 58.42004F);
             this.lblAvisar.StylePriority.UseFont = false;
             this.lblAvisar.StylePriority.UseForeColor = false;
             this.lblAvisar.StylePriority.UseTextAlignment = false;
@@ -198,9 +198,10 @@
             this.DrawWatermark = true;
             this.ForeColor = System.Drawing.Color.Transparent;
             this.HorizontalContentSplitting = DevExpress.XtraPrinting.HorizontalContentSplitting.Smart;
+            this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 3);
-            this.PageHeight = 535;
-            this.PageWidth = 885;
+            this.PageHeight = 540;
+            this.PageWidth = 863;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
@@ -210,6 +211,7 @@
             this.VerticalContentSplitting = DevExpress.XtraPrinting.VerticalContentSplitting.Smart;
             this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("GafeteAtras.Watermark.Image")));
             this.Watermark.ImageViewMode = DevExpress.XtraPrinting.Drawing.ImageViewMode.Stretch;
+            this.Watermark.PageRange = "1";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

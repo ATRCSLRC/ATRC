@@ -32,12 +32,15 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.txtTel = new DevExpress.XtraEditors.TextEdit();
+            this.txtDomicilioReferencia = new DevExpress.XtraEditors.TextEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.txtTelReferencia = new DevExpress.XtraEditors.TextEdit();
+            this.txtNombreReferencia = new DevExpress.XtraEditors.TextEdit();
+            this.txtTel = new DevExpress.XtraEditors.TextEdit();
             this.lcDocumentos = new DevExpress.XtraLayout.LayoutControl();
             this.picVistaPrevia = new DevExpress.XtraEditors.PictureEdit();
             this.grdDocumentos = new DevExpress.XtraGrid.GridControl();
@@ -63,20 +66,20 @@
             this.lciCiudad = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciEstado = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcgReferencia = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciDireccion = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciNombreReferencia = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTelReferencia = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.fypEdicion = new DevExpress.Utils.FlyoutPanel();
-            this.txtNombreReferencia = new DevExpress.XtraEditors.TextEdit();
-            this.lciNombreReferencia = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtTelReferencia = new DevExpress.XtraEditors.TextEdit();
-            this.lciTelReferencia = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtDomicilioReferencia = new DevExpress.XtraEditors.TextEdit();
-            this.lciDireccion = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lcgReferencia = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilioReferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelReferencia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreReferencia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDocumentos)).BeginInit();
             this.lcDocumentos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picVistaPrevia.Properties)).BeginInit();
@@ -101,16 +104,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgReferencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDireccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombreReferencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTelReferencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreReferencia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombreReferencia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelReferencia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTelReferencia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilioReferencia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciDireccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgReferencia)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
@@ -135,15 +135,14 @@
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
-            // txtTel
+            // txtDomicilioReferencia
             // 
-            this.txtTel.EnterMoveNextControl = true;
-            this.txtTel.Location = new System.Drawing.Point(47, 287);
-            this.txtTel.MenuManager = this.ribbonControl1;
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(651, 20);
-            this.txtTel.StyleController = this.lcMain;
-            this.txtTel.TabIndex = 11;
+            this.txtDomicilioReferencia.Location = new System.Drawing.Point(112, 365);
+            this.txtDomicilioReferencia.MenuManager = this.ribbonControl1;
+            this.txtDomicilioReferencia.Name = "txtDomicilioReferencia";
+            this.txtDomicilioReferencia.Size = new System.Drawing.Size(379, 20);
+            this.txtDomicilioReferencia.StyleController = this.lcMain;
+            this.txtDomicilioReferencia.TabIndex = 14;
             // 
             // ribbonControl1
             // 
@@ -198,6 +197,34 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiCancelar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
+            // 
+            // txtTelReferencia
+            // 
+            this.txtTelReferencia.Location = new System.Drawing.Point(518, 365);
+            this.txtTelReferencia.MenuManager = this.ribbonControl1;
+            this.txtTelReferencia.Name = "txtTelReferencia";
+            this.txtTelReferencia.Size = new System.Drawing.Size(168, 20);
+            this.txtTelReferencia.StyleController = this.lcMain;
+            this.txtTelReferencia.TabIndex = 13;
+            // 
+            // txtNombreReferencia
+            // 
+            this.txtNombreReferencia.Location = new System.Drawing.Point(112, 341);
+            this.txtNombreReferencia.MenuManager = this.ribbonControl1;
+            this.txtNombreReferencia.Name = "txtNombreReferencia";
+            this.txtNombreReferencia.Size = new System.Drawing.Size(574, 20);
+            this.txtNombreReferencia.StyleController = this.lcMain;
+            this.txtNombreReferencia.TabIndex = 12;
+            // 
+            // txtTel
+            // 
+            this.txtTel.EnterMoveNextControl = true;
+            this.txtTel.Location = new System.Drawing.Point(47, 287);
+            this.txtTel.MenuManager = this.ribbonControl1;
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(651, 20);
+            this.txtTel.StyleController = this.lcMain;
+            this.txtTel.TabIndex = 11;
             // 
             // lcDocumentos
             // 
@@ -490,6 +517,46 @@
             this.lciTel.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTel.TextSize = new System.Drawing.Size(50, 14);
             // 
+            // lcgReferencia
+            // 
+            this.lcgReferencia.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciDireccion,
+            this.lciNombreReferencia,
+            this.lciTelReferencia});
+            this.lcgReferencia.Location = new System.Drawing.Point(0, 287);
+            this.lcgReferencia.Name = "lcgReferencia";
+            this.lcgReferencia.Size = new System.Drawing.Size(655, 117);
+            this.lcgReferencia.Text = "Referencia";
+            // 
+            // lciDireccion
+            // 
+            this.lciDireccion.Control = this.txtDomicilioReferencia;
+            this.lciDireccion.Location = new System.Drawing.Point(0, 24);
+            this.lciDireccion.Name = "lciDireccion";
+            this.lciDireccion.Size = new System.Drawing.Size(436, 51);
+            this.lciDireccion.Text = "Domicilio:";
+            this.lciDireccion.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // lciNombreReferencia
+            // 
+            this.lciNombreReferencia.Control = this.txtNombreReferencia;
+            this.lciNombreReferencia.Location = new System.Drawing.Point(0, 0);
+            this.lciNombreReferencia.Name = "lciNombreReferencia";
+            this.lciNombreReferencia.Size = new System.Drawing.Size(631, 24);
+            this.lciNombreReferencia.Text = "Nombre:";
+            this.lciNombreReferencia.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // lciTelReferencia
+            // 
+            this.lciTelReferencia.Control = this.txtTelReferencia;
+            this.lciTelReferencia.Location = new System.Drawing.Point(436, 24);
+            this.lciTelReferencia.Name = "lciTelReferencia";
+            this.lciTelReferencia.Size = new System.Drawing.Size(195, 51);
+            this.lciTelReferencia.Text = "Tel:";
+            this.lciTelReferencia.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.lciTelReferencia.TextSize = new System.Drawing.Size(18, 13);
+            this.lciTelReferencia.TextToControlDistance = 5;
+            // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -542,73 +609,6 @@
             this.fypEdicion.TabIndex = 5;
             this.fypEdicion.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypEdicion_ButtonClick);
             // 
-            // txtNombreReferencia
-            // 
-            this.txtNombreReferencia.Location = new System.Drawing.Point(112, 341);
-            this.txtNombreReferencia.MenuManager = this.ribbonControl1;
-            this.txtNombreReferencia.Name = "txtNombreReferencia";
-            this.txtNombreReferencia.Size = new System.Drawing.Size(574, 20);
-            this.txtNombreReferencia.StyleController = this.lcMain;
-            this.txtNombreReferencia.TabIndex = 12;
-            // 
-            // lciNombreReferencia
-            // 
-            this.lciNombreReferencia.Control = this.txtNombreReferencia;
-            this.lciNombreReferencia.Location = new System.Drawing.Point(0, 0);
-            this.lciNombreReferencia.Name = "lciNombreReferencia";
-            this.lciNombreReferencia.Size = new System.Drawing.Size(631, 24);
-            this.lciNombreReferencia.Text = "Nombre:";
-            this.lciNombreReferencia.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // txtTelReferencia
-            // 
-            this.txtTelReferencia.Location = new System.Drawing.Point(518, 365);
-            this.txtTelReferencia.MenuManager = this.ribbonControl1;
-            this.txtTelReferencia.Name = "txtTelReferencia";
-            this.txtTelReferencia.Size = new System.Drawing.Size(168, 20);
-            this.txtTelReferencia.StyleController = this.lcMain;
-            this.txtTelReferencia.TabIndex = 13;
-            // 
-            // lciTelReferencia
-            // 
-            this.lciTelReferencia.Control = this.txtTelReferencia;
-            this.lciTelReferencia.Location = new System.Drawing.Point(436, 24);
-            this.lciTelReferencia.Name = "lciTelReferencia";
-            this.lciTelReferencia.Size = new System.Drawing.Size(195, 51);
-            this.lciTelReferencia.Text = "Tel:";
-            this.lciTelReferencia.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.lciTelReferencia.TextSize = new System.Drawing.Size(18, 13);
-            this.lciTelReferencia.TextToControlDistance = 5;
-            // 
-            // txtDomicilioReferencia
-            // 
-            this.txtDomicilioReferencia.Location = new System.Drawing.Point(112, 365);
-            this.txtDomicilioReferencia.MenuManager = this.ribbonControl1;
-            this.txtDomicilioReferencia.Name = "txtDomicilioReferencia";
-            this.txtDomicilioReferencia.Size = new System.Drawing.Size(379, 20);
-            this.txtDomicilioReferencia.StyleController = this.lcMain;
-            this.txtDomicilioReferencia.TabIndex = 14;
-            // 
-            // lciDireccion
-            // 
-            this.lciDireccion.Control = this.txtDomicilioReferencia;
-            this.lciDireccion.Location = new System.Drawing.Point(0, 24);
-            this.lciDireccion.Name = "lciDireccion";
-            this.lciDireccion.Size = new System.Drawing.Size(436, 51);
-            this.lciDireccion.Text = "Domicilio:";
-            this.lciDireccion.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // lcgReferencia
-            // 
-            this.lcgReferencia.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lciDireccion,
-            this.lciNombreReferencia,
-            this.lciTelReferencia});
-            this.lcgReferencia.Location = new System.Drawing.Point(0, 287);
-            this.lcgReferencia.Name = "lcgReferencia";
-            this.lcgReferencia.Size = new System.Drawing.Size(655, 117);
-            this.lcgReferencia.Text = "Referencia";
-            // 
             // xfrmClienteRenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,8 +623,11 @@
             this.Load += new System.EventHandler(this.xfrmClienteRenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilioReferencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelReferencia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreReferencia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDocumentos)).EndInit();
             this.lcDocumentos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picVistaPrevia.Properties)).EndInit();
@@ -649,16 +652,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCiudad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgReferencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDireccion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciNombreReferencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTelReferencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreReferencia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciNombreReferencia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelReferencia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciTelReferencia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDomicilioReferencia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciDireccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgReferencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

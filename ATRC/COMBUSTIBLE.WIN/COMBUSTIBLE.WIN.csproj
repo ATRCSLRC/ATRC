@@ -66,6 +66,12 @@
     <Compile Include="Diesel\xfrmModificarDiesel.Designer.cs">
       <DependentUpon>xfrmModificarDiesel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gasolina\xfrmModificarGasolina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gasolina\xfrmModificarGasolina.Designer.cs">
+      <DependentUpon>xfrmModificarGasolina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gasolina\xfrmUnidadesGasolina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="Diesel\xfrmDetalleDieselUnidad.Designer.cs">
       <DependentUpon>xfrmDetalleDieselUnidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmCalculosCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmCalculosCarga.Designer.cs">
+      <DependentUpon>xfrmCalculosCarga.cs</DependentUpon>
     </Compile>
     <Compile Include="xfrmFiltrosCombustible.cs">
       <SubType>Form</SubType>
@@ -154,10 +166,12 @@
     <EmbeddedResource Include="Diesel\xfrmModificarDiesel.resx">
       <DependentUpon>xfrmModificarDiesel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gasolina\xfrmModificarGasolina.resx">
+      <DependentUpon>xfrmModificarGasolina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gasolina\xfrmUnidadesGasolina.resx">
       <DependentUpon>xfrmUnidadesGasolina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -182,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Diesel\xfrmDetalleDieselUnidad.resx">
       <DependentUpon>xfrmDetalleDieselUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmCalculosCarga.resx">
+      <DependentUpon>xfrmCalculosCarga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmFiltrosCombustible.resx">
       <DependentUpon>xfrmFiltrosCombustible.cs</DependentUpon>

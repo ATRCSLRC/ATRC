@@ -1,14 +1,18 @@
 ﻿
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraBars;
 using DevExpress.XtraReports.UI;
+using Saraff.Twain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,8 +28,15 @@ namespace ATRC
 
         private void xfrmMain_Load(object sender, EventArgs e)
         {
-            bbiUsuario.Caption = "Usuario : " + ATRCBASE.BL.Utilerias.UsuarioActual.Nombre;
+            //Se revisa la version
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            AssemblyName assemblyName = assembly.GetName();
+            string version = assemblyName.Version.ToString();
 
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+                this.Text = "Auto Transportes del Río Colorado - " + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            else
+                this.Text = "Auto Transportes del Río Colorado - " + version;
             #region Usuario
             rbnpUsuarios.Visible = VisibilidadPermiso("Usuario") == BarItemVisibility.Always ? true : false;
             if(rbnpUsuarios.Visible)
@@ -68,6 +79,8 @@ namespace ATRC
             rpAlmacen.Visible = VisibilidadPermiso("Almacen") == BarItemVisibility.Always ? true : false;
             if (rpAlmacen.Visible)
             {
+                
+
                 bbiArticulo.Visibility = VisibilidadPermiso("NuevoArticulo");
                 bbiModificar.Visibility = VisibilidadPermiso("ModificarArticulo");
                 bbiBusquedaArticulos.Visibility = VisibilidadPermiso("BusquedaArticulos");
@@ -78,6 +91,19 @@ namespace ATRC
                 bbiMarcas.Visibility = VisibilidadPermiso("Marcas");
                 bbiProveedor.Visibility = VisibilidadPermiso("Proveedor");
                 bbiCodigos.Visibility = VisibilidadPermiso("CodigosArticulos");
+                rpgConfiguracion.Visible = VisibilidadPermiso("ImpresoraTicketAlmacen") == BarItemVisibility.Always ? true : false;
+                if(rpgConfiguracion.Visible)
+                {
+                    foreach (string Impresora in PrinterSettings.InstalledPrinters)
+                    {
+                        repositoryItemComboBox1.Items.Add(Impresora);
+                    }
+
+                    ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                    ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "ImpresoraTicketsAlmacen"));
+                    if (Configuracion != null)
+                        beiImpresoraAlmacen.EditValue = Configuracion.Accion;
+                }
             }
             #endregion
 
@@ -96,6 +122,7 @@ namespace ATRC
                 bbiHistorialInventarioExtintores.Visibility = VisibilidadPermiso("HistorialExtintores");
                 bbiBaterias.Visibility = VisibilidadPermiso("InventarioBaterias");
                 bbiHistorialBaterias.Visibility = VisibilidadPermiso("HistorialBaterias");
+                bbiUnidadesDisponibles.Visibility = VisibilidadPermiso("UnidadesDisponibles");
                 rpgReportesUnidad.Visible = VisibilidadPermiso("ReportesUnidades") == BarItemVisibility.Always ? true : false;
                 rpgExtintores.Visible = bbiExtintores.Visibility == BarItemVisibility.Always & bbiInventarioExtintores.Visibility == BarItemVisibility.Always
                     & bbiHistorialInventarioExtintores.Visibility == BarItemVisibility.Always ? true : false;
@@ -153,6 +180,9 @@ namespace ATRC
                 bbiMedidorTanques.Visibility = VisibilidadPermiso("MedidoresTanqueCombustible");
                 bbiRecargaDiesel.Visibility = VisibilidadPermiso("RecargasCombustible"); bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
                 bbiDetalleCandados.Visibility = VisibilidadPermiso("DetallesCandados");
+                bbiModificarGasolina.Visibility = VisibilidadPermiso("ModificacionGasolina");
+                bbiCalculosCarga.Visibility = VisibilidadPermiso("CalculoCargosDiesel");
+                bbiCalculosCargaGasolina.Visibility = VisibilidadPermiso("CalculoCargosGasolina");
                 rpgReportesCombustible.Visible = VisibilidadPermiso("ReportesCombustibles") == BarItemVisibility.Always ? true : false;
             }
             #endregion
@@ -181,10 +211,31 @@ namespace ATRC
                 bbiHistorialRentas.Visibility = VisibilidadPermiso("HistorialRentas");
                 bbiClientesRenta.Visibility = VisibilidadPermiso("NuevoReporte");
 
-                rpgRentas.Visible = bbiContrato.Visibility == BarItemVisibility.Always & bbiAbonar.Visibility == BarItemVisibility.Always &
-                    bbiEntregaUnidad.Visibility == BarItemVisibility.Always & bbiRecibirUnidadRentada.Visibility == BarItemVisibility.Always &
-                    bbiContratos.Visibility == BarItemVisibility.Always & bbiCalendarioRentas.Visibility == BarItemVisibility.Always &
-                    bbiHistorialRentas.Visibility == BarItemVisibility.Always & bbiClientesRenta.Visibility == BarItemVisibility.Always ? true : false;
+                rpgRentas.Visible = bbiContrato.Visibility == BarItemVisibility.Always || bbiAbonar.Visibility == BarItemVisibility.Always ||
+                    bbiContratos.Visibility == BarItemVisibility.Always || bbiClientesRenta.Visibility == BarItemVisibility.Always || bbiHistorialRentas.Visibility == BarItemVisibility.Always ? true : false;
+
+                beiEscanerGuardias.Visibility = VisibilidadPermiso("EscanerGuardias");
+                beiEscanerOficina.Visibility = VisibilidadPermiso("EscanerOficina");
+                bbiUnidadesRenta.Visibility = VisibilidadPermiso("UnidadesRenta");
+
+                rpgConfiguracionGuardias.Visible = beiEscanerGuardias.Visibility == BarItemVisibility.Always || bbiUnidadesRenta.Visibility == BarItemVisibility.Always || beiEscanerOficina.Visibility == BarItemVisibility.Always ? true : false;
+                Twain32 twain = new Twain32();
+                twain.OpenDSM();
+                bbiUsuario.Caption = "Usuario : " + ATRCBASE.BL.Utilerias.UsuarioActual.Nombre;
+                for (int i = 0; i < twain.SourcesCount; i++)
+                {
+                    cmbEscanerGuardias.Items.Add(twain.GetSourceProductName(i));
+                    cmbEscanerOficina.Items.Add(twain.GetSourceProductName(i));
+                }
+
+                ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                ATRCBASE.BL.Configuraciones ConfiguracionGuardias = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "EscanerGuardias"));
+                if (ConfiguracionGuardias != null)
+                    beiEscanerGuardias.EditValue = twain.GetSourceProductName(Convert.ToInt32(ConfiguracionGuardias.Accion));
+
+                ATRCBASE.BL.Configuraciones ConfiguracionOficina = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "EscanerOficina"));
+                if (ConfiguracionOficina != null)
+                    beiEscanerOficina.EditValue = twain.GetSourceProductName(Convert.ToInt32(ConfiguracionOficina.Accion));
             }
             #endregion
 
@@ -886,6 +937,117 @@ namespace ATRC
         private void bbiHistorialRentas_ItemClick(object sender, ItemClickEventArgs e)
         {
             GUARDIAS.WIN.Renta.xfrmReporteHistorialRenta xfrm = new GUARDIAS.WIN.Renta.xfrmReporteHistorialRenta();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiModificarGasolina_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmModificarGasolina xfrm = new COMBUSTIBLE.WIN.xfrmModificarGasolina();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void repositoryItemComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DevExpress.XtraEditors.ComboBoxEdit editor = sender as DevExpress.XtraEditors.ComboBoxEdit;
+            ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator();
+            //go.Operands.Add(new BinaryOperator("Accion", editor.SelectedItem));
+            go.Operands.Add(new BinaryOperator("Propiedad", "ImpresoraTicketsAlmacen"));
+            ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(go);
+
+            if(Configuracion != null)
+            {
+                Configuracion.Accion = editor.SelectedItem.ToString();
+            }
+            else
+            {
+                Configuracion = new ATRCBASE.BL.Configuraciones(Unidad);
+                Configuracion.Propiedad = "ImpresoraTicketsAlmacen";
+                Configuracion.Accion = editor.SelectedItem.ToString();
+            }
+            Configuracion.Save();
+            Unidad.CommitChanges();
+        }
+
+        private void cmbEscanerOficina_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DevExpress.XtraEditors.ComboBoxEdit editor = sender as DevExpress.XtraEditors.ComboBoxEdit;
+            ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator();
+            //go.Operands.Add(new BinaryOperator("Accion", editor.SelectedIndex));
+            go.Operands.Add(new BinaryOperator("Propiedad", "EscanerOficina"));
+            ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(go);
+
+            if (Configuracion != null)
+            {
+                Configuracion.Accion = editor.SelectedIndex.ToString();
+            }
+            else
+            {
+                Configuracion = new ATRCBASE.BL.Configuraciones(Unidad);
+                Configuracion.Propiedad = "EscanerOficina";
+                Configuracion.Accion = editor.SelectedIndex.ToString();
+            }
+            Configuracion.Save();
+            Unidad.CommitChanges();
+        }
+
+        private void cmbEscanerGuardias_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DevExpress.XtraEditors.ComboBoxEdit editor = sender as DevExpress.XtraEditors.ComboBoxEdit;
+            ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator();
+            //go.Operands.Add(new BinaryOperator("Accion", editor.SelectedIndex));
+            go.Operands.Add(new BinaryOperator("Propiedad", "EscanerGuardias"));
+            ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(go);
+
+            if (Configuracion != null)
+            {
+                Configuracion.Accion = editor.SelectedIndex.ToString();
+            }
+            else
+            {
+                Configuracion = new ATRCBASE.BL.Configuraciones(Unidad);
+                Configuracion.Propiedad = "EscanerGuardias";
+                Configuracion.Accion = editor.SelectedIndex.ToString();
+            }
+            Configuracion.Save();
+            Unidad.CommitChanges();
+        }
+
+        private void bbiCalculosCarga_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
+            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Diesel;
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiCalculosCargaGasolina_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
+            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Gasolina;
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiUnidadesDisponibles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles xfrm = new GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiUnidadesRenta_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.xfrmUnidadesRenta xfrm = new GUARDIAS.WIN.xfrmUnidadesRenta();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

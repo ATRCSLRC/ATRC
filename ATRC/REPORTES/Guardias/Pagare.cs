@@ -8,9 +8,10 @@ namespace REPORTES.Guardias
 {
     public partial class Pagare : DevExpress.XtraReports.UI.XtraReport
     {
-        public Pagare()
+        public Pagare(string Folio)
         {
             InitializeComponent();
+            lblFolio.Text = Folio;
         }
 
     }

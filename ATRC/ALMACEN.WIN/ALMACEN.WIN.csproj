@@ -78,7 +78,6 @@
     <EmbeddedResource Include="Inventario\xfrmInventarioGRD.resx">
       <DependentUpon>xfrmInventarioGRD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reportes\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +181,10 @@
       <Project>{CA92B7D6-6738-4A42-A76E-BA583C929BA1}</Project>
       <Name>ATRCBASE.WIN</Name>
     </ProjectReference>
+    <ProjectReference Include="..\REPORTES\REPORTES.csproj">
+      <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
+      <Name>REPORTES</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
       <Project>{E46D9066-2710-40BC-BE1C-E17EAFC6A044}</Project>
       <Name>UNIDADES.BL</Name>
@@ -215,6 +218,8 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

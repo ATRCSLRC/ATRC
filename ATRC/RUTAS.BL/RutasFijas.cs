@@ -27,12 +27,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<TipoRuta>("TipoRuta", ref mTipoRuta, value); }
         }
 
-        private TipoUnidad mTipoUnidad;
-        public TipoUnidad TipoUnidad
-        {
-            get { return mTipoUnidad; }
-            set { SetPropertyValue<TipoUnidad>("TipoUnidad", ref mTipoUnidad, value); }
-        }
+        //private TipoUnidad mTipoUnidad;
+        //public TipoUnidad TipoUnidad
+        //{
+        //    get { return mTipoUnidad; }
+        //    set { SetPropertyValue<TipoUnidad>("TipoUnidad", ref mTipoUnidad, value); }
+        //}
+
 
         private Turno mTurno;
         public Turno Turno

@@ -19,7 +19,7 @@ namespace REPORTES.Guardias
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView ViewContrato = new XPView(Unidad, typeof(GUARDIAS.BL.ContratoRenta), "Oid;NumContrato;Responsable;Domicilio;Colonia;CP;Ciudad;Estado;" +
                 "Tel;ADondeSeDirige;LugarOrigenLugarDestino;HoraSalida;HoraRegreso;DiaSalida;DiaRegreso;Costo;Iva;Total;Anticipo;Unidad.TipoUnidad;Cliente;" +
-                "Unidad.Nombre;Cliente.Nombre;Cliente.Domicilio;Cliente.Colonia;Cliente.CP;Cliente.Ciudad;Cliente.Estado;Cliente.Tel;Unidad.Pasajeros", new BinaryOperator("Oid", IDContrato));
+                "Unidad.Nombre;Cliente.Nombre;Cliente.Domicilio;Cliente.Colonia;Cliente.CP;Cliente.Ciudad;Cliente.Estado;Cliente.Tel;Unidad.Pasajeros;Subtotal", new BinaryOperator("Oid", IDContrato));
             this.DataSource = ViewContrato;
             var dateTimeRegreso = new DateTime(((TimeSpan)ViewContrato[0]["HoraRegreso"]).Ticks);
             var dateTimeSalida = new DateTime(((TimeSpan)ViewContrato[0]["HoraSalida"]).Ticks);

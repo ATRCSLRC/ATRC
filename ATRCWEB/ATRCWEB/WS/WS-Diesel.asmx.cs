@@ -57,7 +57,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("Unidad.Nombre", SortDirection.None, "[Unidad.Nombre]", false, true),
                   new ViewProperty("Empleado.Nombre", SortDirection.None, "[Empleado.Nombre]", false, true),
                   new ViewProperty("Llenado", SortDirection.None, "[Llenado]", false, true),
-                  //new ViewProperty("CandadoActual", SortDirection.None, "[CandadoActual]", false, true),
+                  new ViewProperty("Millas", SortDirection.None, "[Unidad.Millas]", false, true),
                   //new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true),
                   new ViewProperty("Tanque1", SortDirection.None, "iif([UltimaRecarga.Tanque.Oid] == 1, [Litros], 0)", false, true),
                   new ViewProperty("Tanque2", SortDirection.None, "iif([UltimaRecarga.Tanque.Oid] == 2, [Litros], 0)", false, true)
@@ -71,6 +71,7 @@ namespace ATRCWEB.WS
                 Diesel.Unidad = PedidoDiesel["Unidad.Nombre"].ToString();
                 Diesel.Empleado = PedidoDiesel["Empleado.Nombre"].ToString();
                 Diesel.Llenado = Convert.ToBoolean(PedidoDiesel["LLenado"]);
+                Diesel.Millas = Convert.ToInt32(PedidoDiesel["Millas"]);
                 Diesel.Tanque1 = Convert.ToInt32(PedidoDiesel["Tanque1"]);
                 Diesel.Tanque2 = Convert.ToInt32(PedidoDiesel["Tanque2"]);
                 ListDiesel.Add(Diesel);
@@ -94,6 +95,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("Total", SortDirection.None, "([Final] - [Inicial])", false, true)
                  });
             Medidores.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending)));
+            Medidores.Criteria = new BinaryOperator("Tanque.TipoCombustible", 2);
             int cont = 1;
             foreach (ViewRecord viewMedidor in Medidores)
             {
@@ -175,38 +177,44 @@ namespace ATRCWEB.WS
                 {
                     //if (Tanque.Cantidad >= 0)
                     //{
-                        XPView UltimaRecarga = new XPView(Unidad, typeof(RecargaDiesel), "Oid", new BinaryOperator("Tanque", Tanque));
-                        UltimaRecarga.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
-                        UltimaRecarga.TopReturnedRecords = 1;
-                        if (UltimaRecarga.Count > 0)
+                    XPView UltimaRecarga = new XPView(Diesel.Session, typeof(RecargaDiesel));
+                    UltimaRecarga.Properties.Add(new ViewProperty("Oid", SortDirection.Descending, "Oid", false, true));
+                    UltimaRecarga.Criteria = new BinaryOperator("Tanque", Tanque);
+                    UltimaRecarga.TopReturnedRecords = 1;
+                    if (UltimaRecarga.Count > 0)
+                    {
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("Final", 0));
+                        go.Operands.Add(new BinaryOperator("Tanque", Tanque));
+                        XPView Medidor = new XPView(Diesel.Session, typeof(MedidorDiesel), "Oid", go);
+                        Medidor.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
+
+                        if (!MismoCandado(IDDiesel, CandadoAnterior.ToString()))
                         {
-                            GroupOperator go = new GroupOperator();
-                            go.Operands.Add(new BinaryOperator("Final", 0));
-                            go.Operands.Add(new BinaryOperator("Tanque", Tanque));
-                            XPView Medidor = new XPView(Diesel.Session, typeof(MedidorDiesel), "Oid", go);
-                            Medidor.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
-
-
-                            Diesel.Millas = Millas;
-                            Diesel.MillasRecorridas = Millas - Convert.ToInt64(Diesel.Unidad.Millas);
-                            Diesel.Unidad.Millas = Millas.ToString();
-                            Diesel.CandadoAnterior = CandadoAnterior;
-                            Diesel.CandadoActual = CandadoActual;
-                            Diesel.Litros = Litros;
-                            Diesel.Llenado = true;
-                            Diesel.MedidorDiesel = (Medidor[0].GetObject()) as MedidorDiesel;
-                            Diesel.UltimaRecarga = (UltimaRecarga[0].GetObject()) as RecargaDiesel;
-                            Tanque.Cantidad -= Litros;
-                            Tanque.Save();
-                            Diesel.Save();
-
-                            Unidad.CommitChanges();
-                            return "";
+                            GuardarProblemaCandado(IDDiesel, "");
                         }
-                        else
-                        {
-                            return "No hay diesel.";
-                        }
+
+                        Diesel.Millas = Millas;
+                        Diesel.MillasRecorridas = Millas - Convert.ToInt64(Diesel.Unidad.Millas);
+                        Diesel.Unidad.Millas = Millas.ToString();
+                        Diesel.CandadoAnterior = CandadoAnterior;
+                        Diesel.CandadoActual = CandadoActual;
+                        Diesel.Litros = Litros;
+                        Diesel.Llenado = true;
+                        Diesel.MedidorDiesel = (Medidor[0].GetObject()) as MedidorDiesel;
+                        Diesel.UltimaRecarga = (UltimaRecarga[0].GetObject()) as RecargaDiesel;
+                        Tanque.Cantidad -= Litros;
+                        Tanque.Save();
+                        Diesel.Save();
+
+                        Unidad.CommitChanges();
+                        
+                        return "";
+                    }
+                    else
+                    {
+                        return "No hay diesel.";
+                    }
                     //}
                     //else
                     //{
@@ -252,7 +260,7 @@ namespace ATRCWEB.WS
         }
 
         [WebMethod(EnableSession = true)]
-        public int GuardarRecarga(int IDTanque, decimal Precio, int Cantidad)
+        public int GuardarRecarga(int IDTanque, decimal Precio, int Cantidad, string Factura, string Proveedor,string Lectura)
         {
             Session["OidAdministrador"] = 1;
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
@@ -262,6 +270,9 @@ namespace ATRCWEB.WS
             recarga.Tanque = Tanque;
             recarga.PrecioLitro = Convert.ToDouble(Precio);
             recarga.Cantidad = Cantidad;
+            recarga.Factura = Factura;
+            recarga.Proveedor = Proveedor;
+            recarga.Lectura = Lectura;
             Tanque.Save();
             recarga.Save();
             Unidad.CommitChanges();
@@ -281,7 +292,7 @@ namespace ATRCWEB.WS
             int div = Tanque.Capacidad / 3;
 
             RangosGrafica rangoInicial = new RangosGrafica();
-            rangoInicial.startValue = Tanque.Cantidad;
+            rangoInicial.startValue = Convert.ToInt64(Tanque.Cantidad);
             rangoInicial.endValue = Tanque.Capacidad;
             Rangos.Add(rangoInicial);
 
@@ -337,11 +348,14 @@ namespace ATRCWEB.WS
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             COMBUSTIBLE.BL.Diesel Diesel = Unidad.GetObjectByKey<COMBUSTIBLE.BL.Diesel>(IDDiesel);
-            XPView DieselAnterior = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Diesel), "Oid;CandadoActual", new BinaryOperator("Unidad.Oid", Diesel.Unidad.Oid));
+            GroupOperator go = new GroupOperator(GroupOperatorType.And);
+            go.Operands.Add(new BinaryOperator("Unidad.Oid", Diesel.Unidad.Oid));
+            go.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+            XPView DieselAnterior = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Diesel), "Oid;CandadoActual", go);
             DieselAnterior.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
             string CandadoAnterior = string.Empty;
             if (DieselAnterior.Count > 1)
-                CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
+                CandadoAnterior = DieselAnterior[0]["CandadoActual"].ToString();
 
             if (string.IsNullOrEmpty(CandadoAnterior))
                 return true;
@@ -394,7 +408,11 @@ namespace ATRCWEB.WS
         public List<Unidades> ObternerUnidadesDiesel()
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            BinaryOperator bo = new BinaryOperator("Combustible", Combustible.Diesel);
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("Combustible", Combustible.Ninguno));
+            GroupOperator goCombustible = new GroupOperator(GroupOperatorType.Or);
+            goCombustible.Operands.Add(new BinaryOperator("Combustible", Combustible.Diesel));
+            goCombustible.Operands.Add(go);
             List<Unidades> ListaUnidades = new List<Unidades>();
             XPView xpUnidades = new XPView(Unidad, typeof(UNIDADES.BL.Unidad));
             xpUnidades.Properties.AddRange(new ViewProperty[] {
@@ -402,7 +420,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                  });
             xpUnidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            xpUnidades.Criteria = bo;
+            xpUnidades.Criteria = goCombustible;
             foreach (ViewRecord viewUnidad in xpUnidades)
             {
                 Unidades UnidadCamion = new Unidades();
@@ -464,7 +482,7 @@ namespace ATRCWEB.WS
                 Gasolina.Unidad = PedidoDiesel["Unidad.Nombre"].ToString();
                 Gasolina.Empleado = PedidoDiesel["Empleado.Nombre"].ToString();
                 Gasolina.Llenado = Convert.ToBoolean(PedidoDiesel["LLenado"]);
-                Gasolina.Litros = Convert.ToInt32(PedidoDiesel["Litros"]);
+                Gasolina.Litros = Convert.ToDecimal(PedidoDiesel["Litros"]);
                 ListaGasolina.Add(Gasolina);
             }
             return ListaGasolina;
@@ -476,7 +494,7 @@ namespace ATRCWEB.WS
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             List<MedidorTanques> ListaMedidor = new List<MedidorTanques>();
-            XPView Medidores = new XPView(Unidad, typeof(COMBUSTIBLE.BL.MedidorGasolina));
+            XPView Medidores = new XPView(Unidad, typeof(COMBUSTIBLE.BL.MedidorDiesel));
             Medidores.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Fecha", SortDirection.None, "[FechaAlta]", false, true),
@@ -486,12 +504,13 @@ namespace ATRCWEB.WS
                   new ViewProperty("Total", SortDirection.None, "([Final] - [Inicial])", false, true)
                  });
             Medidores.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending)));
+            Medidores.Criteria = new BinaryOperator("Tanque.TipoCombustible", 1);
             int cont = 1;
             foreach (ViewRecord viewMedidor in Medidores)
             {
 
                 XPView Diesel = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Gasolina));
-                Diesel.Criteria = new BinaryOperator("MedidorGasolina.Oid", viewMedidor["Oid"]);
+                Diesel.Criteria = new BinaryOperator("MedidorGasolinas.Oid", viewMedidor["Oid"]);
                 Diesel.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true)
@@ -524,7 +543,7 @@ namespace ATRCWEB.WS
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("Final", 0));
             go.Operands.Add(new BinaryOperator("Tanque.TipoCombustible", Enums.Combustible.Gasolina));
-            XPView Tanques = new XPView(Unidad, typeof(COMBUSTIBLE.BL.MedidorGasolina), "Oid;Tanque.Oid;Tanque.Descripcion", go);
+            XPView Tanques = new XPView(Unidad, typeof(COMBUSTIBLE.BL.MedidorDiesel), "Oid;Tanque.Oid;Tanque.Descripcion", go);
             foreach (ViewRecord viewTanque in Tanques)
             {
                 Tanque Tanque = new Tanque();
@@ -554,7 +573,7 @@ namespace ATRCWEB.WS
         }
 
         [WebMethod(EnableSession = true)]
-        public string DetalleGasolinaUnidad(int IDGasolina, Int32 Millas, int CandadoAnterior, int CandadoActual, int Litros, int IDTanque)
+        public string DetalleGasolinaUnidad(int IDGasolina, Int32 Millas, int CandadoAnterior, int CandadoActual, decimal Litros, int IDTanque)
         {
             try
             {
@@ -575,9 +594,13 @@ namespace ATRCWEB.WS
                         GroupOperator go = new GroupOperator();
                         go.Operands.Add(new BinaryOperator("Final", 0));
                         go.Operands.Add(new BinaryOperator("Tanque", Tanque));
-                        XPView Medidor = new XPView(Gasolina.Session, typeof(MedidorGasolina), "Oid", go);
+                        XPView Medidor = new XPView(Gasolina.Session, typeof(MedidorDiesel), "Oid", go);
                         Medidor.Sorting.Add(new SortProperty("Oid", SortingDirection.Descending));
 
+                        if (!MismoCandadoGasolina(IDGasolina, CandadoAnterior.ToString()))
+                        {
+                            GuardarProblemaCandadoGasolina(IDGasolina, "");
+                        }
 
                         Gasolina.Millas = Millas;
                         Gasolina.MillasRecorridas = Millas - Convert.ToInt64(Gasolina.Unidad.Millas);
@@ -586,13 +609,15 @@ namespace ATRCWEB.WS
                         Gasolina.CandadoActual = CandadoActual;
                         Gasolina.Litros = Litros;
                         Gasolina.Llenado = true;
-                        Gasolina.MedidorGasolina = (Medidor[0].GetObject()) as MedidorGasolina;
+                        Gasolina.MedidorGasolinas = (Medidor[0].GetObject()) as MedidorDiesel;
                         Gasolina.UltimaRecarga = (UltimaRecarga[0].GetObject()) as RecargaDiesel;
                         Tanque.Cantidad -= Litros;
                         Tanque.Save();
                         Gasolina.Save();
 
                         Unidad.CommitChanges();
+
+                        
                         return "";
                     }
                     else
@@ -622,10 +647,10 @@ namespace ATRCWEB.WS
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("Final", 0));
             go.Operands.Add(new BinaryOperator("Tanque", Tanque.Oid));
-            XPView Medidores = new XPView(Unidad, typeof(MedidorGasolina), "Oid;Inicial", go);
+            XPView Medidores = new XPView(Unidad, typeof(MedidorDiesel), "Oid;Inicial", go);
             if (Medidores.Count > 0)
             {
-                MedidorGasolina Medidor = Medidores[0].GetObject() as MedidorGasolina;
+                MedidorDiesel Medidor = Medidores[0].GetObject() as MedidorDiesel;
                 Medidor.Inicial = Inicial;
                 Medidor.Final = Final;
                 Medidor.Tanque = Tanque;
@@ -634,7 +659,7 @@ namespace ATRCWEB.WS
             }
             else
             {
-                MedidorGasolina Medidor = new MedidorGasolina(Unidad);
+                MedidorDiesel Medidor = new MedidorDiesel(Unidad);
                 Medidor.Inicial = Inicial;
                 Medidor.Final = Final;
                 Medidor.Tanque = Tanque;
@@ -653,11 +678,11 @@ namespace ATRCWEB.WS
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("Final", 0));
             go.Operands.Add(new BinaryOperator("Tanque", Tanque.Oid));
-            XPView Medidor = new XPView(Unidad, typeof(MedidorGasolina), "Oid;Inicial", go);
+            XPView Medidor = new XPView(Unidad, typeof(MedidorDiesel), "Oid;Inicial", go);
             int div = Tanque.Capacidad / 3;
 
             RangosGrafica rangoInicial = new RangosGrafica();
-            rangoInicial.startValue = Tanque.Cantidad;
+            rangoInicial.startValue = Convert.ToInt64(Tanque.Cantidad);
             rangoInicial.endValue = Tanque.Capacidad;
             Rangos.Add(rangoInicial);
 
@@ -694,11 +719,14 @@ namespace ATRCWEB.WS
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             COMBUSTIBLE.BL.Gasolina Gasolina = Unidad.GetObjectByKey<COMBUSTIBLE.BL.Gasolina>(IDGasolina);
-            XPView DieselAnterior = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Gasolina), "Oid;CandadoActual", new BinaryOperator("Unidad.Oid", Gasolina.Unidad.Oid));
+            GroupOperator go = new GroupOperator(GroupOperatorType.And);
+            go.Operands.Add(new BinaryOperator("Unidad.Oid", Gasolina.Unidad.Oid));
+            go.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+            XPView DieselAnterior = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Gasolina), "Oid;CandadoActual", go);
             DieselAnterior.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
             string CandadoAnterior = string.Empty;
             if (DieselAnterior.Count > 1)
-                CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
+                CandadoAnterior = DieselAnterior[0]["CandadoActual"].ToString();
 
             if (string.IsNullOrEmpty(CandadoAnterior))
                 return true;
@@ -751,7 +779,11 @@ namespace ATRCWEB.WS
         public List<Unidades> ObternerUnidadesGasolina()
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            BinaryOperator bo = new BinaryOperator("Combustible", Combustible.Gasolina);
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("Combustible", Combustible.Ninguno));
+            GroupOperator goCombustible = new GroupOperator(GroupOperatorType.Or);
+            goCombustible.Operands.Add(new BinaryOperator("Combustible", Combustible.Gasolina));
+            goCombustible.Operands.Add(go);
             List<Unidades> ListaUnidades = new List<Unidades>();
             XPView xpUnidades = new XPView(Unidad, typeof(UNIDADES.BL.Unidad));
             xpUnidades.Properties.AddRange(new ViewProperty[] {
@@ -759,7 +791,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                  });
             xpUnidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            xpUnidades.Criteria = bo;
+            xpUnidades.Criteria = goCombustible;
             foreach (ViewRecord viewUnidad in xpUnidades)
             {
                 Unidades UnidadCamion = new Unidades();
@@ -770,15 +802,17 @@ namespace ATRCWEB.WS
             return ListaUnidades;
         }
         #endregion
-
-
+        
         #region Inventario
         [WebMethod(EnableSession = true)]
         public List<Extintor> Extintores()
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             List<Extintor> ListaExtintores = new List<Extintor>();
-
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("Unidad.EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("Unidad.EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("Unidad.EstadoUnidad"));
             XPView xpExtintores = new XPView(Unidad, typeof(UNIDADES.BL.Extintores));
             xpExtintores.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
@@ -795,6 +829,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("FechaInventario", SortDirection.None,  "[FechaInventario]", false, true),
                   new ViewProperty("UltimoComentario", SortDirection.None,  "[UltimoComentario]", false, true)
             });
+            xpExtintores.Criteria = go;
             foreach (ViewRecord viewExtintor in xpExtintores)
             {
                 Extintor Extintor = new Extintor();
@@ -849,6 +884,10 @@ namespace ATRCWEB.WS
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             List<Unidades> ListaUnidades = new List<Unidades>();
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
             XPView xpUnidades = new XPView(Unidad, typeof(UNIDADES.BL.Unidad));
             xpUnidades.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
@@ -856,6 +895,7 @@ namespace ATRCWEB.WS
                   new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true),
                   new ViewProperty("Baterias", SortDirection.None, "[Baterias]", false, true)
                  });
+            xpUnidades.Criteria = go;
             xpUnidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             foreach (ViewRecord viewUnidad in xpUnidades)
             {
@@ -935,7 +975,8 @@ namespace ATRCWEB.WS
             UNIDADES.BL.Unidad UnidadCamion = Unidad.GetObjectByKey<UNIDADES.BL.Unidad>(IDUnidad);
             UnidadCamion.FechaInventarioBaterias = DateTime.Now;
             UnidadCamion.Baterias = Baterias;
-            UnidadCamion.GenerarHistorialBaterias(Baterias, DateTime.Now);
+            UnidadCamion.ComentarioBateria = Comentario;
+            UnidadCamion.GenerarHistorialBaterias(Baterias, DateTime.Now, Comentario);
             UnidadCamion.Save();
             Unidad.CommitChanges();
             return "";
@@ -957,6 +998,7 @@ namespace ATRCWEB.WS
             public string Unidad { set; get; }
             public string Empleado { set; get; }
             public bool Llenado { set; get; }
+            public int Millas { set; get; }
             public int Tanque1 { set; get; }
             public int Tanque2 { set; get; }
         }
@@ -1033,7 +1075,7 @@ namespace ATRCWEB.WS
             public string Unidad { set; get; }
             public string Empleado { set; get; }
             public bool Llenado { set; get; }
-            public int Litros { set; get; }
+            public decimal Litros { set; get; }
         }
         #endregion
     }

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ATRCBase.cs" />
+    <Compile Include="Clases\Configuraciones.cs" />
     <Compile Include="Clases\Departamento.cs" />
     <Compile Include="Clases\Empresas.cs" />
     <Compile Include="Clases\Enums.cs" />

@@ -25,7 +25,7 @@ namespace GUARDIAS.WIN.Renta
 
         private void bbiGenerar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Guardias.HistorialRenta(dteDe.DateTime, dteA.DateTime));
+            ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Guardias.HistorialRenta(dteDe.DateTime, dteA.DateTime, rgRepresentante.Text));
             repUsuarioRegistrado.ShowPreview();
         }
 

@@ -26,11 +26,11 @@ namespace COMBUSTIBLE.BL
             set { SetPropertyValue<int>("Capacidad", ref mCapacidad, value); }
         }
 
-        private Int64 mCantidad;
-        public Int64 Cantidad
+        private decimal mCantidad;
+        public decimal Cantidad
         {
             get { return mCantidad; }
-            set { SetPropertyValue<Int64>("Cantidad", ref mCantidad, value); }
+            set { SetPropertyValue<decimal>("Cantidad", ref mCantidad, value); }
         }
 
         private Enums.Combustible mTipoCombustible;

@@ -8,6 +8,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +39,7 @@ namespace ALMACEN.WIN
             GroupOperator go = new GroupOperator(GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("Fecha", dteDel.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual));
-            if(rgOpcion.SelectedIndex == 1)
+            if (rgOpcion.SelectedIndex == 1)
                 go.Operands.Add(new BinaryOperator("Articulo.Codigo", txtCodigo.Text));
 
             XPView Salidas = new XPView(Unidad, typeof(SalidaArticulo));
@@ -51,10 +52,10 @@ namespace ALMACEN.WIN
                   new ViewProperty("Destino", SortDirection.None, "iif([Unidad] is null,[OtroDestino],[Unidad.Nombre])",false, true),
                   new ViewProperty("Recibio", SortDirection.None,  "iif([UsuarioRecibo] is null,[OtroRecibo],[UsuarioRecibo.Nombre])", false, true),
                   new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true)
-                 }); 
-            Salidas.Criteria = go; 
+                 });
+            Salidas.Criteria = go;
 
-           grdSalida.DataSource = Salidas;
+            grdSalida.DataSource = Salidas;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -79,11 +80,11 @@ namespace ALMACEN.WIN
             if (ViewSalida != null)
             {
                 SalidaArticulo Salida = (SalidaArticulo)ViewSalida.GetObject();
-                
+
                 if (Salida.Estado == Enums.EstadoSalida.Entregado)
                 {
                     XtraInputBoxArgs args = new XtraInputBoxArgs();
-                    args.Caption = "Devolver artículo '" + Salida.Articulo.Nombre +"'";
+                    args.Caption = "Devolver artículo '" + Salida.Articulo.Nombre + "'";
                     args.Prompt = "Cantidad:";
                     SpinEdit editor = new SpinEdit();
                     editor.Properties.MinValue = 1;
@@ -139,6 +140,25 @@ namespace ALMACEN.WIN
             //    if (((SalidaArticulo)ViewSalida.GetObject()).Estado == Enums.EstadoSalida.Devuelto)
             //        e.RepositoryItem = emptyEditor;
             //}
+        }
+
+        private void ribtnImprimir_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            ViewRecord ViewSalida = (ViewRecord)grvSalidas.GetRow(grvSalidas.FocusedRowHandle);
+            if (ViewSalida != null)
+            {
+                SalidaArticulo Salida = (SalidaArticulo)ViewSalida.GetObject();
+                REPORTES.Almacen.TicketEntregaArticulo Ticket = new REPORTES.Almacen.TicketEntregaArticulo(Salida);
+
+                ReportPrintTool printTool = new ReportPrintTool(Ticket);
+                ATRCBASE.BL.Configuraciones Configuracion = Unidad.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "ImpresoraTicketsAlmacen"));
+                if (Configuracion != null)
+                {
+                    Ticket.CreateDocument();
+                    Ticket.PrinterName = Configuracion.Accion;
+                    printTool.Print(Configuracion.Accion);
+                }
+            }
         }
     }
 }

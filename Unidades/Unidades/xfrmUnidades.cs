@@ -33,20 +33,8 @@ namespace Unidades
             btnAcciones.Text = Utilerias.UsuarioActual.Nombre;
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             flpNuevo.ShowPopup();
-            
-            GroupOperator go = new GroupOperator( GroupOperatorType.Or);
-            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Preparado));
-            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Translado));
-            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Detallado));
 
-            GroupOperator goDetalle = new GroupOperator(GroupOperatorType.And);
-            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.EsCredito", true));
-            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.Pagado", false));
-
-            go.Operands.Add(goDetalle);
-            XPCollection Unidades = new XPCollection(Unidad, typeof(Unidad.BL.Unidad), go);
-
-            grdUnidades.DataSource = Unidades;
+            DataSource();
             lciDetalleGastos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciAgregarCosto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciDetallesUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -392,7 +380,8 @@ namespace Unidades
                             UnidadCamion.Estado = (Enums.Estado)e.OldValue;
                             e.Cancel = true;
                         }
-                         (grdUnidades.DataSource as XPCollection).Reload();
+                        DataSource();
+                        //(grdUnidades.DataSource as XPCollection).Reload();
                     }
                     else
                     {
@@ -400,6 +389,7 @@ namespace Unidades
                         UnidadCamion.Save();
                         UnidadCamion.Session.CommitTransaction();
                         XtraMessageBox.Show("Se ha actualizo el estado correctamente.");
+                        //(grdUnidades.DataSource as XPCollection).Reload();
                     }
                 }
             }
@@ -425,6 +415,24 @@ namespace Unidades
                 }
 
             }
+        }
+
+        private void DataSource()
+        {
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Preparado));
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Translado));
+            go.Operands.Add(new BinaryOperator("Estado", Enums.Estado.Detallado));
+
+            GroupOperator goDetalle = new GroupOperator(GroupOperatorType.And);
+            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.EsCredito", true));
+            goDetalle.Operands.Add(new BinaryOperator("DetalleVenta.Pagado", false));
+
+            go.Operands.Add(goDetalle);
+            XPCollection Unidades = new XPCollection(Unidad, typeof(Unidad.BL.Unidad), go);
+            Unidades.Sorting = new SortingCollection(new SortProperty("UnidadDescripcion", DevExpress.Xpo.DB.SortingDirection.Ascending));
+
+            grdUnidades.DataSource = Unidades;
         }
     }
 }

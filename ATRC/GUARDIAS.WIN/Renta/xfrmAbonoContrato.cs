@@ -59,7 +59,7 @@ namespace GUARDIAS.WIN.Renta
                         txtCliente.Text = Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre;
                         txtDestino.Text = Contrato.ADondeSeDirige;
                         txtUnidad.Text = Contrato.Unidad == null ? "" : Contrato.Unidad.Nombre;
-                        lblTotal.Text = (Contrato.Subtotal - Contrato.Abono).ToString("c");
+                        lblTotal.Text = Contrato.Subtotal == 0 ? 0.ToString("C") : (Contrato.Subtotal - Contrato.Abono).ToString("c");
                         //lcgTotal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciDetallesRenta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     }
@@ -126,15 +126,20 @@ namespace GUARDIAS.WIN.Renta
         {
             if (Validar())
             {
-                if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (XtraMessageBox.Show("¿La información proporcionada es correcta?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     Contrato.Abono += spnCantidad.Value;
                     Contrato.Subtotal -= Contrato.Abono;
                     Contrato.Save();
+                    Contrato.Session.CommitTransaction();
                     string PrecioEscrito = string.Empty;
                     PrecioEscrito = Utilerias.Convertir(spnCantidad.Value.ToString()/*spnCantidad.Text.Remove(0, 1).Replace(",", "")*/, true, "PESOS");
                     int ID = 0;
-                    Recibos.GenerarRecibo(Unidad, spnCantidad.Value, Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, "Abono a renta de unidad " + Contrato.Unidad.Nombre, DateTime.Now, "Pesos", PrecioEscrito, out ID);
+                    string textoAbono = "Abono a renta de unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
+                    textoAbono += Contrato.ADondeSeDirige;
+                    string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
+                    textoPagado += Contrato.ADondeSeDirige;
+                    Recibos.GenerarRecibo(Unidad, spnCantidad.Value, Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, Contrato.Subtotal <= 0 ? textoPagado : textoAbono , DateTime.Now, "Pesos", PrecioEscrito, out ID);
                     this.Close();
                     ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));
                     reprecibo.ShowPreview();

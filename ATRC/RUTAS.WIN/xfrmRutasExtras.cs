@@ -146,7 +146,7 @@ namespace RUTAS.WIN
         private void ModificacionRuta()
         {
             cmbTipoRuta.EditValue = RutasFijas.TipoRuta;
-            cmbTipoUnidad.EditValue = RutasFijas.TipoUnidad;
+            //cmbTipoUnidad.EditValue = RutasFijas.TipoUnidad;
             timeDe.EditValue = RutasFijas.HoraEntrada;
             timeA.EditValue = RutasFijas.HoraSalida;
             chkRutaCompleta.EditValue = RutasFijas.RutaCompleta;
@@ -226,7 +226,7 @@ namespace RUTAS.WIN
             else
                 RutasFijasModificar = new RutasFijas(Unidad);
             RutasFijasModificar.TipoRuta = (Enums.TipoRuta)cmbTipoRuta.EditValue;
-            RutasFijasModificar.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
+            //RutasFijasModificar.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
             if (timeDe.EditValue == null)
                 RutasFijasModificar.HoraEntrada = null;
             else

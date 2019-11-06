@@ -45,7 +45,8 @@
             this.lciCliente = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDestino = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciUnidad = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lblTotal = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -59,7 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -87,6 +89,7 @@
             this.bbiRegistrarSalida.ImageOptions.LargeImage = global::GUARDIAS.WIN.Properties.Resources.icons8_comprobado_32;
             this.bbiRegistrarSalida.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bbiRegistrarSalida.ItemAppearance.Normal.Options.UseFont = true;
+            this.bbiRegistrarSalida.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
             this.bbiRegistrarSalida.Name = "bbiRegistrarSalida";
             this.bbiRegistrarSalida.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiRegistrarSalida.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistrarSalida_ItemClick);
@@ -98,6 +101,7 @@
             this.bbiCancelar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiCancelar.ImageOptions.LargeImage")));
             this.bbiCancelar.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bbiCancelar.ItemAppearance.Normal.Options.UseFont = true;
+            this.bbiCancelar.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F6);
             this.bbiCancelar.Name = "bbiCancelar";
             this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
@@ -128,14 +132,14 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(492, 150);
+            this.lcMain.Size = new System.Drawing.Size(492, 220);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // txtDestino
             // 
             this.txtDestino.Enabled = false;
-            this.txtDestino.Location = new System.Drawing.Point(82, 106);
+            this.txtDestino.Location = new System.Drawing.Point(82, 93);
             this.txtDestino.MenuManager = this.ribbonControl1;
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(196, 20);
@@ -145,7 +149,7 @@
             // txtUnidad
             // 
             this.txtUnidad.Enabled = false;
-            this.txtUnidad.Location = new System.Drawing.Point(336, 106);
+            this.txtUnidad.Location = new System.Drawing.Point(336, 93);
             this.txtUnidad.MenuManager = this.ribbonControl1;
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size(132, 20);
@@ -155,7 +159,7 @@
             // txtCliente
             // 
             this.txtCliente.Enabled = false;
-            this.txtCliente.Location = new System.Drawing.Point(76, 82);
+            this.txtCliente.Location = new System.Drawing.Point(76, 69);
             this.txtCliente.MenuManager = this.ribbonControl1;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(392, 20);
@@ -181,9 +185,9 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciFolio,
             this.layoutControlGroup2,
-            this.emptySpaceItem1});
+            this.layoutControlGroup3});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(492, 150);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(492, 220);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciFolio
@@ -205,7 +209,7 @@
             this.lciCliente,
             this.lciDestino,
             this.lciUnidad});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 37);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(472, 93);
             this.layoutControlGroup2.Text = "Detalles de renta";
@@ -249,19 +253,36 @@
             this.lciUnidad.TextSize = new System.Drawing.Size(49, 18);
             this.lciUnidad.TextToControlDistance = 5;
             // 
-            // emptySpaceItem1
+            // lblTotal
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(472, 13);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.lblTotal.AllowHotTrack = false;
+            this.lblTotal.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.AppearanceItemCaption.Options.UseFont = true;
+            this.lblTotal.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.lblTotal.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTotal.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblTotal.Location = new System.Drawing.Point(0, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(448, 38);
+            this.lblTotal.Text = "$0.00";
+            this.lblTotal.TextSize = new System.Drawing.Size(153, 25);
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup3.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lblTotal});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 117);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(472, 83);
+            this.layoutControlGroup3.Text = "Faltante";
             // 
             // xfrmSalidaUnidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 272);
+            this.ClientSize = new System.Drawing.Size(492, 342);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmSalidaUnidad";
@@ -281,7 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUnidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,7 +320,6 @@
         private DevExpress.XtraEditors.TextEdit txtFolio;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem lciFolio;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.TextEdit txtDestino;
         private DevExpress.XtraEditors.TextEdit txtUnidad;
         private DevExpress.XtraEditors.TextEdit txtCliente;
@@ -306,5 +327,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciUnidad;
         private DevExpress.XtraLayout.LayoutControlItem lciDestino;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.SimpleLabelItem lblTotal;
     }
 }

@@ -167,6 +167,7 @@
             // tmeRegreso
             // 
             this.tmeRegreso.EditValue = new System.DateTime(2019, 7, 3, 0, 0, 0, 0);
+            this.tmeRegreso.Enabled = false;
             this.tmeRegreso.Location = new System.Drawing.Point(609, 90);
             this.tmeRegreso.MenuManager = this.ribbonControl1;
             this.tmeRegreso.Name = "tmeRegreso";

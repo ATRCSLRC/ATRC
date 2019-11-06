@@ -29,7 +29,7 @@ namespace GUARDIAS.WIN.Renta
             goMain.Operands.Add(new BinaryOperator("Cancelado", false));
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
             go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Creado));
-            go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnProceso));
+            go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.EnViaje));
             go.Operands.Add(new BinaryOperator("EstadoContrato", Enums.EstadoContrato.Apartado));
             goMain.Operands.Add(go);
 
@@ -52,7 +52,7 @@ namespace GUARDIAS.WIN.Renta
                 schedulerControl1.Storage.Appointments.Add(apt);
 
             }
-
+            schedulerControl1.Start = DateTime.Now;
 
             //Appointment apt2 = schedulerControl1.Storage.CreateAppointment(AppointmentType.Normal);
             //apt2.Start = DateTime.Today.AddHours(8);

@@ -423,6 +423,7 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Modificar Proveedor", "ModificarProveedor", nivel2);
             nivel3 = CrearPermisos(Unidad, "Eliminar Proveedor", "EliminarProveedor", nivel2);
             nivel2 = CrearPermisos(Unidad, "Codigos de articulos", "CodigosArticulos", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Impresora ticket", "ImpresoraTicketAlmacen", nivel1);
             #endregion
 
             #region Unidades
@@ -441,6 +442,7 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Nueva Radio", "NuevaRadio", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Radio", "ModificarRadio", nivel2);
             nivel3 = CrearPermisos(Unidad, "Eliminar Radio", "EliminarRadio", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Imprimir Detalles", "ImprimirDetallesRadio", nivel2);
             nivel2 = CrearPermisos(Unidad, "Proximos cambios de aceite", "ProximosCambiosAceite", nivel1);
             nivel2 = CrearPermisos(Unidad, "Extintores", "Extintores", nivel1);
             nivel3 = CrearPermisos(Unidad, "Nueva Extintor", "NuevaExtintor", nivel2);
@@ -493,10 +495,13 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Medidores de Tanque", "MedidoresTanqueDiesel", nivel2);
             nivel3 = CrearPermisos(Unidad, "Agregar Pedido", "AgregarPedidoDiesel", nivel2);
             nivel2 = CrearPermisos(Unidad, "Modificacion Diesel", "ModificacionDiesel", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Cálculo Cargos Diesel", "CalculoCargosDiesel", nivel1);
             nivel2 = CrearPermisos(Unidad, "Gasolina", "Gasolina", nivel1);
             nivel3 = CrearPermisos(Unidad, "Gasolina en Unidad", "GasolinaUnidad", nivel2);
             nivel3 = CrearPermisos(Unidad, "Medidores de Tanque", "MedidoresTanqueGasolina", nivel2);
             nivel3 = CrearPermisos(Unidad, "Agregar Pedido", "AgregarPedidoGasolina", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Modificacion Gasolina", "ModificacionGasolina", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Cálculo Cargos Gasolina", "CalculoCargosGasolina", nivel1);
             nivel2 = CrearPermisos(Unidad, "Medidores de Tanque", "MedidoresTanqueCombustible", nivel1);
             nivel2 = CrearPermisos(Unidad, "Recargas de Combustible", "RecargasCombustible", nivel1);
             nivel2 = CrearPermisos(Unidad, "Detalles de Candados", "DetallesCandados", nivel1);
@@ -524,11 +529,16 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Modificar Contrato", "ModificarContrato", nivel2);
             nivel3 = CrearPermisos(Unidad, "Reimprimir Contrato", "ReimprimirContrato", nivel2);
             nivel3 = CrearPermisos(Unidad, "Generar Contrato", "GenerarContrato", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Unidades Disponibles", "UnidadesDisponibles", nivel1);
             nivel2 = CrearPermisos(Unidad, "Calendario Rentas", "CalendarioRentas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Historial Rentas", "HistorialRentas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Clientes", "Clientes", nivel1);
             nivel3 = CrearPermisos(Unidad, "Nuevo Cliente", "NuevoClienteRenta", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Cliente", "ModificarClienteRenta", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Escaner Oficina", "EscanerOficina", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Escaner Guardias", "EscanerGuardias", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Unidades de Renta", "UnidadesRenta", nivel1);
+
             #endregion
 
             #region Configuracion

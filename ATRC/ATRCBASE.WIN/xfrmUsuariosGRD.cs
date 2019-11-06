@@ -1,6 +1,7 @@
 ﻿using ATRCBASE.BL;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Drawing;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -118,10 +119,22 @@ namespace ATRCBASE.WIN
             if (ViewUsuario != null)
             {
                 Usuario Usuario = (Usuario)ViewUsuario.GetObject();
-                ReportPrintTool repGafeteFrente = new ReportPrintTool(new ATRCBASE.WIN.Reportes.GafeteFrente(Usuario));
-                repGafeteFrente.ShowPreviewDialog();
-                ReportPrintTool repGafeteAtras = new ReportPrintTool(new ATRCBASE.WIN.Reportes.GafeteAtras(Usuario));
-                repGafeteAtras.ShowPreviewDialog();
+                ATRCBASE.WIN.Reportes.GafeteFrente gafeteFrente = new ATRCBASE.WIN.Reportes.GafeteFrente(Usuario);
+                gafeteFrente.CreateDocument();
+                //repGafeteFrente.ShowPreviewDialog();
+                ATRCBASE.WIN.Reportes.GafeteAtras gafeteAtras = new ATRCBASE.WIN.Reportes.GafeteAtras(Usuario);
+                gafeteAtras.CreateDocument();
+                gafeteFrente.Pages.AddRange(gafeteAtras.Pages);
+
+                Watermark wm = new Watermark();
+                wm.Image = gafeteAtras.Watermark.Image;
+                wm.ImageViewMode = DevExpress.XtraPrinting.Drawing.ImageViewMode.Stretch;
+                //productReport.Pages[0].AssignWatermark(wm);
+                gafeteFrente.Pages[1].AssignWatermark(wm);
+
+
+                ReportPrintTool repGafete = new ReportPrintTool(gafeteFrente);
+                repGafete.ShowPreview();
             }
         }
 

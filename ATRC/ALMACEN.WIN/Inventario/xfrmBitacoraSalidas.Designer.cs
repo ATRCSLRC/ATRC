@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBitacoraSalidas));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdSalida = new DevExpress.XtraGrid.GridControl();
             this.grvSalidas = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -41,6 +46,8 @@
             this.colFechaSalida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDevolver = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribtnDevolver = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colImprimir = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribtnImprimir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnBusqueda = new DevExpress.XtraEditors.SimpleButton();
@@ -63,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdSalida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvSalidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribtnDevolver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribtnImprimir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgOpcion.Properties)).BeginInit();
@@ -107,7 +115,8 @@
             this.grdSalida.MenuManager = this.ribbonControl1;
             this.grdSalida.Name = "grdSalida";
             this.grdSalida.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.ribtnDevolver});
+            this.ribtnDevolver,
+            this.ribtnImprimir});
             this.grdSalida.Size = new System.Drawing.Size(939, 323);
             this.grdSalida.TabIndex = 10;
             this.grdSalida.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -123,7 +132,8 @@
             this.colDestino,
             this.colRecibio,
             this.colFechaSalida,
-            this.colDevolver});
+            this.colDevolver,
+            this.colImprimir});
             this.grvSalidas.GridControl = this.grdSalida;
             this.grvSalidas.Name = "grvSalidas";
             this.grvSalidas.OptionsView.ShowGroupPanel = false;
@@ -139,7 +149,7 @@
             this.colEstado.OptionsColumn.ReadOnly = true;
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 0;
-            this.colEstado.Width = 61;
+            this.colEstado.Width = 74;
             // 
             // colCodigo
             // 
@@ -151,7 +161,7 @@
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 1;
-            this.colCodigo.Width = 80;
+            this.colCodigo.Width = 97;
             // 
             // colNombre
             // 
@@ -163,7 +173,7 @@
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 2;
-            this.colNombre.Width = 170;
+            this.colNombre.Width = 206;
             // 
             // colCantidad
             // 
@@ -175,7 +185,7 @@
             this.colCantidad.OptionsColumn.ReadOnly = true;
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 3;
-            this.colCantidad.Width = 51;
+            this.colCantidad.Width = 61;
             // 
             // colDestino
             // 
@@ -187,7 +197,7 @@
             this.colDestino.OptionsColumn.ReadOnly = true;
             this.colDestino.Visible = true;
             this.colDestino.VisibleIndex = 4;
-            this.colDestino.Width = 110;
+            this.colDestino.Width = 133;
             // 
             // colRecibio
             // 
@@ -199,7 +209,7 @@
             this.colRecibio.OptionsColumn.ReadOnly = true;
             this.colRecibio.Visible = true;
             this.colRecibio.VisibleIndex = 5;
-            this.colRecibio.Width = 110;
+            this.colRecibio.Width = 133;
             // 
             // colFechaSalida
             // 
@@ -211,7 +221,7 @@
             this.colFechaSalida.OptionsColumn.ReadOnly = true;
             this.colFechaSalida.Visible = true;
             this.colFechaSalida.VisibleIndex = 6;
-            this.colFechaSalida.Width = 51;
+            this.colFechaSalida.Width = 76;
             // 
             // colDevolver
             // 
@@ -220,7 +230,7 @@
             this.colDevolver.Name = "colDevolver";
             this.colDevolver.Visible = true;
             this.colDevolver.VisibleIndex = 7;
-            this.colDevolver.Width = 51;
+            this.colDevolver.Width = 62;
             // 
             // ribtnDevolver
             // 
@@ -230,6 +240,25 @@
             this.ribtnDevolver.Name = "ribtnDevolver";
             this.ribtnDevolver.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ribtnDevolver.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribtnDevolver_ButtonClick);
+            // 
+            // colImprimir
+            // 
+            this.colImprimir.Caption = "Imprimir";
+            this.colImprimir.ColumnEdit = this.ribtnImprimir;
+            this.colImprimir.Name = "colImprimir";
+            this.colImprimir.Visible = true;
+            this.colImprimir.VisibleIndex = 8;
+            this.colImprimir.Width = 66;
+            // 
+            // ribtnImprimir
+            // 
+            this.ribtnImprimir.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.ribtnImprimir.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.ribtnImprimir.Name = "ribtnImprimir";
+            this.ribtnImprimir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.ribtnImprimir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribtnImprimir_ButtonClick);
             // 
             // ribbonControl1
             // 
@@ -440,7 +469,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "xfrmBitacoraSalidas";
             this.Ribbon = this.ribbonControl1;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bitácora de salidas";
             this.Load += new System.EventHandler(this.xfrmBitacoraSalidas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
@@ -448,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdSalida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvSalidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribtnDevolver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribtnImprimir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgOpcion.Properties)).EndInit();
@@ -501,5 +530,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDevolver;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribtnDevolver;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribtnImprimir;
+        private DevExpress.XtraGrid.Columns.GridColumn colImprimir;
     }
 }

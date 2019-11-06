@@ -20,19 +20,19 @@ namespace REPORTES.Guardias
             XPView ViewRecibo = new XPView(Unidad, typeof(Recibos),"Oid;Emisor;Precio;PrecioEscrito;Concepto;Fecha;Folio", new BinaryOperator("Oid", ID));
             this.DataSource = ViewRecibo;
             string Concepto = ViewRecibo[0]["Concepto"].ToString();
-            if (Concepto.Length <= 80)
+            if (Concepto.Length <= 82)
             {
                 lblConceptoUno.Text = lblConceptoUnoCopia.Text = Concepto;
-            }else if(Concepto.Length <= 180)
+            }else if(Concepto.Length <= 182)
             {
-                lblConceptoUno.Text = lblConceptoUnoCopia.Text = Concepto.Substring(0,79);
-                lblConceptoDos.Text = lblConceptoDosCopia.Text = Concepto.Substring(79);
+                lblConceptoUno.Text = lblConceptoUnoCopia.Text = Concepto.Substring(0,82);
+                lblConceptoDos.Text = lblConceptoDosCopia.Text = Concepto.Substring(82);
             }
             else
             {
-                lblConceptoUno.Text = lblConceptoUnoCopia.Text = Concepto.Substring(0, 79);
-                lblConceptoDos.Text = lblConceptoDosCopia.Text = Concepto.Substring(79, 100).TrimStart(new char[] {' '});
-                lblConceptoTresCopia.Text = lblConceptoTres.Text = Concepto.Substring(179).TrimStart(new char[] { ' ' });
+                lblConceptoUno.Text = lblConceptoUnoCopia.Text = Concepto.Substring(0, 82);
+                lblConceptoDos.Text = lblConceptoDosCopia.Text = Concepto.Substring(82, 102).TrimStart(new char[] {' '});
+                lblConceptoTresCopia.Text = lblConceptoTres.Text = Concepto.Substring(181).TrimStart(new char[] { ' ' });
             }
         }
 

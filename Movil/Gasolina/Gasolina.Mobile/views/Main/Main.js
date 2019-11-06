@@ -21,6 +21,7 @@ Gasolina.Main = function (params) {
         }
     });
 
+
     var viewModel = {
         DetellePopUp: ko.observable(false),
         CandadoPopUp: ko.observable(false),
@@ -188,7 +189,8 @@ Gasolina.Main = function (params) {
                     data: '{IDGasolina:' + Gasolina + ',Candado:' + e.component.option("value") + '}',
                     success: function (result) {
                         if (!result.d) {
-                            viewModel.CandadoPopUp(true);
+                            alert("Ocurrio un problema con los candados.");
+                            //viewModel.CandadoPopUp(true);
                         }
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
@@ -214,7 +216,7 @@ Gasolina.Main = function (params) {
                             data: '{IDGasolina:' + Gasolina + ',Candado:' + viewModel.CandadoAnterior() + '}',
                             success: function (result) {
                                 if (!result.d) {
-                                    viewModel.CandadoPopUp(true);
+                                    alert("Ocurrio un problema con los candados.");
                                 }
                             },
                             error: function (jqXhr, textStatus, errorThrown) {

@@ -90,7 +90,7 @@
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(586, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(524, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -165,7 +165,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(586, 328);
+            this.lcMain.Size = new System.Drawing.Size(524, 379);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -173,16 +173,16 @@
             // 
             this.gaugeControl1.Gauges.AddRange(new DevExpress.XtraGauges.Base.IGauge[] {
             this.CircularGauge});
-            this.gaugeControl1.Location = new System.Drawing.Point(12, 48);
+            this.gaugeControl1.Location = new System.Drawing.Point(12, 54);
             this.gaugeControl1.Name = "gaugeControl1";
-            this.gaugeControl1.Size = new System.Drawing.Size(562, 220);
+            this.gaugeControl1.Size = new System.Drawing.Size(500, 265);
             this.gaugeControl1.TabIndex = 7;
             // 
             // CircularGauge
             // 
             this.CircularGauge.BackgroundLayers.AddRange(new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent[] {
             this.arcScaleBackgroundLayerComponent1});
-            this.CircularGauge.Bounds = new System.Drawing.Rectangle(6, 6, 550, 208);
+            this.CircularGauge.Bounds = new System.Drawing.Rectangle(6, 6, 488, 253);
             this.CircularGauge.Labels.AddRange(new DevExpress.XtraGauges.Win.Base.LabelComponent[] {
             this.labelComponent1});
             this.CircularGauge.Name = "CircularGauge";
@@ -253,24 +253,24 @@
             // txtFinales
             // 
             this.txtFinales.EnterMoveNextControl = true;
-            this.txtFinales.Location = new System.Drawing.Point(60, 296);
+            this.txtFinales.Location = new System.Drawing.Point(60, 347);
             this.txtFinales.MenuManager = this.ribbonControl1;
             this.txtFinales.Name = "txtFinales";
             this.txtFinales.Properties.Mask.EditMask = "d";
             this.txtFinales.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtFinales.Size = new System.Drawing.Size(514, 20);
+            this.txtFinales.Size = new System.Drawing.Size(452, 20);
             this.txtFinales.StyleController = this.lcMain;
             this.txtFinales.TabIndex = 6;
             // 
             // txtIniciales
             // 
             this.txtIniciales.EnterMoveNextControl = true;
-            this.txtIniciales.Location = new System.Drawing.Point(60, 272);
+            this.txtIniciales.Location = new System.Drawing.Point(60, 323);
             this.txtIniciales.MenuManager = this.ribbonControl1;
             this.txtIniciales.Name = "txtIniciales";
             this.txtIniciales.Properties.Mask.EditMask = "d";
             this.txtIniciales.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtIniciales.Size = new System.Drawing.Size(514, 20);
+            this.txtIniciales.Size = new System.Drawing.Size(452, 20);
             this.txtIniciales.StyleController = this.lcMain;
             this.txtIniciales.TabIndex = 5;
             // 
@@ -280,7 +280,7 @@
             this.rgTanques.Location = new System.Drawing.Point(60, 12);
             this.rgTanques.MenuManager = this.ribbonControl1;
             this.rgTanques.Name = "rgTanques";
-            this.rgTanques.Size = new System.Drawing.Size(514, 32);
+            this.rgTanques.Size = new System.Drawing.Size(452, 38);
             this.rgTanques.StyleController = this.lcMain;
             this.rgTanques.TabIndex = 4;
             this.rgTanques.SelectedIndexChanged += new System.EventHandler(this.rgTanques_SelectedIndexChanged);
@@ -295,7 +295,7 @@
             this.lciFinales,
             this.lciMarcador});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(586, 328);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(524, 379);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTanques
@@ -303,34 +303,34 @@
             this.lciTanques.Control = this.rgTanques;
             this.lciTanques.Location = new System.Drawing.Point(0, 0);
             this.lciTanques.Name = "lciTanques";
-            this.lciTanques.Size = new System.Drawing.Size(566, 36);
+            this.lciTanques.Size = new System.Drawing.Size(504, 42);
             this.lciTanques.Text = "Tanques:";
             this.lciTanques.TextSize = new System.Drawing.Size(45, 13);
             // 
             // lciIniciales
             // 
             this.lciIniciales.Control = this.txtIniciales;
-            this.lciIniciales.Location = new System.Drawing.Point(0, 260);
+            this.lciIniciales.Location = new System.Drawing.Point(0, 311);
             this.lciIniciales.Name = "lciIniciales";
-            this.lciIniciales.Size = new System.Drawing.Size(566, 24);
+            this.lciIniciales.Size = new System.Drawing.Size(504, 24);
             this.lciIniciales.Text = "Iniciales:";
             this.lciIniciales.TextSize = new System.Drawing.Size(45, 13);
             // 
             // lciFinales
             // 
             this.lciFinales.Control = this.txtFinales;
-            this.lciFinales.Location = new System.Drawing.Point(0, 284);
+            this.lciFinales.Location = new System.Drawing.Point(0, 335);
             this.lciFinales.Name = "lciFinales";
-            this.lciFinales.Size = new System.Drawing.Size(566, 24);
+            this.lciFinales.Size = new System.Drawing.Size(504, 24);
             this.lciFinales.Text = "Finales:";
             this.lciFinales.TextSize = new System.Drawing.Size(45, 13);
             // 
             // lciMarcador
             // 
             this.lciMarcador.Control = this.gaugeControl1;
-            this.lciMarcador.Location = new System.Drawing.Point(0, 36);
+            this.lciMarcador.Location = new System.Drawing.Point(0, 42);
             this.lciMarcador.Name = "lciMarcador";
-            this.lciMarcador.Size = new System.Drawing.Size(566, 224);
+            this.lciMarcador.Size = new System.Drawing.Size(504, 269);
             this.lciMarcador.TextSize = new System.Drawing.Size(0, 0);
             this.lciMarcador.TextVisible = false;
             // 
@@ -338,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 450);
+            this.ClientSize = new System.Drawing.Size(524, 501);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmMedidores";

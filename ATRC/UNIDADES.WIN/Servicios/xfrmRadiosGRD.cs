@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace UNIDADES.WIN
 { 
@@ -27,6 +28,7 @@ namespace UNIDADES.WIN
             bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevaRadio");
             bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarRadio");
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarRadio");
+            bbiImprimirDetalles.Visibility = Utilerias.VisibilidadPermiso("ImprimirDetallesRadio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Radios = new XPView(Unidad, typeof(Radios));
             Radios.Properties.AddRange(new 
@@ -86,6 +88,16 @@ namespace UNIDADES.WIN
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void bbiImprimirDetalles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord ViewRadio = grvRadios.GetFocusedRow() as ViewRecord;
+            if (ViewRadio != null)
+            {
+                ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Unidades.DellatesRadio((Radios)ViewRadio.GetObject()));
+                reprecibo.ShowPreview();
+            }
         }
     }
 }

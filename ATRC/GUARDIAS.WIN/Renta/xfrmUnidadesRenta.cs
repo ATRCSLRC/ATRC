@@ -25,7 +25,7 @@ namespace GUARDIAS.WIN
         private void xfrmUnidadesRenta_Load(object sender, EventArgs e)
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView UnidadesRenta = new XPView(Unidad, typeof(Unidad), "Oid;Nombre;PrecioRenta", new BinaryOperator("EsRenta", true));
+            XPView UnidadesRenta = new XPView(Unidad, typeof(Unidad), "Oid;Nombre;Dueño", new BinaryOperator("EsRenta", true));
             grdUnidades.DataSource = UnidadesRenta;
         }
 
@@ -35,22 +35,26 @@ namespace GUARDIAS.WIN
             if (viewUnidad != null)
             {
                 XtraInputBoxArgs args = new XtraInputBoxArgs();
-                args.Caption = "Costo de renta de la unidad '" + viewUnidad["Nombre"] + "'";
-                args.Prompt = "Cantidad:";
-                SpinEdit editor = new SpinEdit();
-                editor.Properties.DisplayFormat.FormatString = "c";
-                editor.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                editor.Properties.EditFormat.FormatString = "c";
-                editor.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                editor.Properties.EditMask = "c";
+                args.Caption = "Dueño de la unidad de renta '" + viewUnidad["Nombre"] + "'";
+                args.Prompt = "Dueño:";
+                ComboBoxEdit editor = new ComboBoxEdit();
+
+                editor.Properties.Items.Add("Auto Transportes del Rio Colorado");
+                editor.Properties.Items.Add("Gilda Aidee Salgado Gonzalez");
+                //SpinEdit editor = new SpinEdit();
+                //editor.Properties.DisplayFormat.FormatString = "c";
+                //editor.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //editor.Properties.EditFormat.FormatString = "c";
+                //editor.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //editor.Properties.EditMask = "c";
                 args.Editor = editor;
-                args.DefaultResponse = viewUnidad["PrecioRenta"];
-                var result = XtraInputBox.Show(args);
+                args.DefaultResponse = viewUnidad["Dueño"];
+                var result = XtraInputBox.Show(args).ToString();
                 if (result != null)
                 {
                     UnidadDeTrabajo UnidadModificar = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                     Unidad UnidadRenta = UnidadModificar.GetObjectByKey<Unidad>(viewUnidad["Oid"]);
-                    //UnidadRenta.PrecioRenta = Convert.ToDecimal(result);
+                    UnidadRenta.Dueño = Convert.ToString(result);
 
                     UnidadRenta.Save();
                     UnidadModificar.CommitChanges();

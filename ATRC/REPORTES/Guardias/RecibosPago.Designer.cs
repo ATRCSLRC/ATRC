@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecibosPago));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLine5 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
@@ -46,6 +46,7 @@
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel45 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel44 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
@@ -84,13 +85,11 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblDetalle = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.xrLine5 = new DevExpress.XtraReports.UI.XRLine();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -161,6 +160,13 @@
             this.Detail.StylePriority.UseFont = false;
             this.Detail.StylePriority.UseTextAlignment = false;
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLine5
+            // 
+            this.xrLine5.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.xrLine5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 513F);
+            this.xrLine5.Name = "xrLine5";
+            this.xrLine5.SizeF = new System.Drawing.SizeF(753F, 6.166718F);
             // 
             // xrLabel12
             // 
@@ -347,6 +353,14 @@
             this.xrLabel44.Text = "xrLabel44";
             this.xrLabel44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
+            // xrPictureBox2
+            // 
+            this.xrPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox2.Image")));
+            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 542.7083F);
+            this.xrPictureBox2.Name = "xrPictureBox2";
+            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(121.8747F, 89.69537F);
+            this.xrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            // 
             // xrLabel21
             // 
             this.xrLabel21.BackColor = System.Drawing.Color.Red;
@@ -425,7 +439,7 @@
             this.xrLabel26.StylePriority.UseFont = false;
             this.xrLabel26.StylePriority.UseForeColor = false;
             this.xrLabel26.StylePriority.UseTextAlignment = false;
-            this.xrLabel26.Text = "camionesatrc@hotmail.com";
+            this.xrLabel26.Text = "atrc@atrc.com.mx";
             this.xrLabel26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel27
@@ -445,10 +459,10 @@
             // xrLabel28
             // 
             this.xrLabel28.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(7.947286E-06F, 646.987F);
+            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(0F, 646.987F);
             this.xrLabel28.Name = "xrLabel28";
             this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel28.SizeF = new System.Drawing.SizeF(148.5414F, 49.04163F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(179.7914F, 49.04163F);
             this.xrLabel28.StylePriority.UseFont = false;
             this.xrLabel28.Text = "RECIBO";
             // 
@@ -727,7 +741,7 @@
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 108.6537F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(148.5414F, 49.04165F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(179.7914F, 49.04164F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.Text = "RECIBO";
             // 
@@ -757,7 +771,7 @@
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseForeColor = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "camionesatrc@hotmail.com";
+            this.xrLabel3.Text = "atrc@atrc.com.mx";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel1
@@ -817,6 +831,14 @@
             this.lblTitulo.Text = "Auto transportes del río colorado S.A. de C.V.";
             this.lblTitulo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 4.375029F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(121.8747F, 89.69534F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            // 
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.Red;
@@ -844,29 +866,6 @@
             // 
             this.objectDataSource1.DataSource = typeof(GUARDIAS.BL.Recibos);
             this.objectDataSource1.Name = "objectDataSource1";
-            // 
-            // xrPictureBox2
-            // 
-            this.xrPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox2.Image")));
-            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 542.7083F);
-            this.xrPictureBox2.Name = "xrPictureBox2";
-            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(121.8747F, 89.69537F);
-            this.xrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 4.375029F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(121.8747F, 89.69534F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
-            // xrLine5
-            // 
-            this.xrLine5.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.xrLine5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 513F);
-            this.xrLine5.Name = "xrLine5";
-            this.xrLine5.SizeF = new System.Drawing.SizeF(753F, 6.166718F);
             // 
             // RecibosPago
             // 

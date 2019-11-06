@@ -34,7 +34,7 @@ namespace GUARDIAS.WIN
                 bbiAsignar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             }
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Clientes = new XPView(Unidad, typeof(ClientesRenta), "Oid;Nombre;Domicilio;Tel", null);
+            XPView Clientes = new XPView(Unidad, typeof(ClientesRenta), "Oid;Nombre;Domicilio;Tel;NombreReferencia;DomicilioReferencia;TelReferencia", null);
             grdClientes.DataSource = Clientes;
         }
 

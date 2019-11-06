@@ -30,6 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmDocumento));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +51,6 @@
             this.btnArchivo = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciArchivo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciVigencia = new DevExpress.XtraLayout.LayoutControlItem();
             this.ofdDocumento = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
@@ -54,7 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnArchivo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciArchivo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciVigencia)).BeginInit();
             this.SuspendLayout();
@@ -122,7 +130,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(359, 106);
+            this.lcMain.Size = new System.Drawing.Size(359, 103);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -154,10 +162,12 @@
             this.btnArchivo.Location = new System.Drawing.Point(58, 60);
             this.btnArchivo.MenuManager = this.ribbonControl1;
             this.btnArchivo.Name = "btnArchivo";
+            editorButtonImageOptions2.Image = global::GUARDIAS.WIN.Properties.Resources.icons8_enviar_a_la_impresora_16;
             this.btnArchivo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Seleccionar documento", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Escanear documento", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnArchivo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.btnArchivo.Size = new System.Drawing.Size(289, 20);
+            this.btnArchivo.Size = new System.Drawing.Size(289, 22);
             this.btnArchivo.StyleController = this.lcMain;
             this.btnArchivo.TabIndex = 4;
             this.btnArchivo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnArchivo_ButtonClick);
@@ -168,11 +178,10 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciArchivo,
-            this.emptySpaceItem1,
             this.lciNombre,
             this.lciVigencia});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(359, 106);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(359, 103);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciArchivo
@@ -180,17 +189,9 @@
             this.lciArchivo.Control = this.btnArchivo;
             this.lciArchivo.Location = new System.Drawing.Point(0, 48);
             this.lciArchivo.Name = "lciArchivo";
-            this.lciArchivo.Size = new System.Drawing.Size(339, 24);
+            this.lciArchivo.Size = new System.Drawing.Size(339, 35);
             this.lciArchivo.Text = "Archivo:";
             this.lciArchivo.TextSize = new System.Drawing.Size(43, 13);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(339, 14);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciNombre
             // 
@@ -218,12 +219,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 228);
+            this.ClientSize = new System.Drawing.Size(359, 225);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmDocumento";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Documento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.xfrmDocumento_FormClosing);
             this.Load += new System.EventHandler(this.xfrmDocumento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
@@ -234,7 +236,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnArchivo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciArchivo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciVigencia)).EndInit();
             this.ResumeLayout(false);
@@ -255,7 +256,6 @@
         private DevExpress.XtraEditors.TextEdit txtNombre;
         private DevExpress.XtraEditors.ButtonEdit btnArchivo;
         private DevExpress.XtraLayout.LayoutControlItem lciArchivo;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem lciNombre;
         private DevExpress.XtraLayout.LayoutControlItem lciVigencia;
         private DevExpress.XtraEditors.XtraOpenFileDialog ofdDocumento;

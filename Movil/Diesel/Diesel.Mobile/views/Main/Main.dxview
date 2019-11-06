@@ -35,7 +35,7 @@
                 <br />
                 <div id="rgTanques" data-bind="dxRadioGroup: { dataSource: Tanques, valueExpr: 'ID', displayExpr: 'Descripcion', layout: 'horizontal', value: TanqueSeleccionado}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
                 <br />
-                <div data-bind="dxNumberBox: {placeholder: 'Millas',value:Millas}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
+                <div data-bind="dxNumberBox: {placeholder: 'Millas',value:Millas, onFocusOut: OnValidarMillas}, dxValidator: {validationRules: [{type: 'required', message: 'Millas requeridas'}]}"></div>
 
                 <div class="dx-field">
                     <div class="dx-field-label" style="width:15%;padding:0">
@@ -50,7 +50,7 @@
                     <div data-bind="dxButton: { icon: 'image', type:'success', onClick: OnScanCandadoActual }"></div>
                 </div>
                     <div class="dx-field-value" style="width:85%">
-                        <div data-bind="dxNumberBox: {placeholder: 'Candado actual',value:CandadoActual, onFocusOut: OnValidarCandado}, dxValidator: {validationRules: [{type: 'required', message: 'Candado actual requerido'}]}"></div>
+                        <div data-bind="dxNumberBox: {placeholder: 'Candado actual',value:CandadoActual}, dxValidator: {validationRules: [{type: 'required', message: 'Candado actual requerido'}]}"></div>
                     </div>
                 </div>
                 <div data-bind="dxNumberBox: {placeholder: 'Litros',value:Litros}, dxValidator: {validationRules: [{type: 'required', message: 'Litros requeridos'}]}"></div>
