@@ -24,11 +24,11 @@ namespace RUTAS.WIN
         }
 
         UnidadDeTrabajo Unidad;
-        XPCollection<RutasFijas> Rutas;
+        XPCollection<RutasGeneradas> Rutas;
         private void xfrmGenerarRutasExtras_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            Rutas = new XPCollection<RutasFijas>(Unidad,0);
+            Rutas = new XPCollection<RutasGeneradas>(Unidad,0);
             grdRutas.DataSource = Rutas;
             flpAcciones.ShowPopup();
             dteFecha.DateTime = DateTime.Now;
@@ -47,13 +47,13 @@ namespace RUTAS.WIN
                     PlantillaRutas plantilla = Unidad.GetObjectByKey<PlantillaRutas>(xfrmPlantilla.PlantillaRutas);
                     if (plantilla != null)
                     {
-                        XPView PlantillaRutasExtras = new XPView(UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(PlantillaRutaExtra), "Oid;TipoRuta;TipoUnidad;HoraEntrada;HoraSalida;ChoferEntrada;ChoferSalida;RutaCompleta;PagarChoferEntrada;PagarChoferSalida;Comentarios", new BinaryOperator("PlantillaRutas", plantilla.Oid));
+                        XPView PlantillaRutasExtras = new XPView(UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(PlantillaRutaFija), "Oid;TipoRuta;TipoUnidad;HoraEntrada;HoraSalida;ChoferEntrada;ChoferSalida;RutaCompleta;PagarChoferEntrada;PagarChoferSalida;Comentarios", new BinaryOperator("PlantillaRutas", plantilla.Oid));
                         foreach (ViewRecord viewRuta in PlantillaRutasExtras)
                         {
-                            RutasFijas Ruta = new RutasFijas(Unidad);
+                            RutasGeneradas Ruta = new RutasGeneradas(Unidad);
                             Ruta.TipoRuta = (TipoRuta)viewRuta["TipoRuta"];
                             //Ruta.TipoUnidad = (TipoUnidad)viewRuta["TipoUnidad"];
-                            Ruta.Empresa = plantilla.Empresa;
+                            //Ruta.Empresa = plantilla.Empresa;
                             Ruta.HoraEntrada = viewRuta["HoraEntrada"] == null ? null : (DateTime?)viewRuta["HoraEntrada"];
                             Ruta.HoraSalida = viewRuta["HoraSalida"] == null ? null : (DateTime?)viewRuta["HoraSalida"];
                             Ruta.ChoferEntrada = viewRuta["ChoferEntrada"] == null ? null : Unidad.GetObjectByKey<Usuario>(Convert.ToInt32(viewRuta["ChoferEntrada"]));
@@ -80,7 +80,7 @@ namespace RUTAS.WIN
                     break;
 
                 case "Modificar ruta":
-                    RutasFijas RutaExtraModificar = grvRutas.GetFocusedRow() as RutasFijas;
+                    RutasGeneradas RutaExtraModificar = grvRutas.GetFocusedRow() as RutasGeneradas;
                     if (RutaExtraModificar != null)
                     {
                         xfrmRutasExtras xfrmModificar = new xfrmRutasExtras();
@@ -93,7 +93,7 @@ namespace RUTAS.WIN
                     break;
 
                 case "Eliminar ruta":
-                    RutasFijas RutaExtra = grvRutas.GetFocusedRow() as RutasFijas;
+                    RutasGeneradas RutaExtra = grvRutas.GetFocusedRow() as RutasGeneradas;
                     if (RutaExtra != null)
                     {
                         if (XtraMessageBox.Show("¿Está seguro de querer eliminar la ruta seleccionada ?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -110,9 +110,9 @@ namespace RUTAS.WIN
             if (ValidarCampos())
             {
                 Loading.ShowWaitForm();
-                foreach(RutasFijas Ruta in Rutas)
+                foreach(RutasGeneradas Ruta in Rutas)
                 {
-                    Ruta.FechaRuta = dteFecha.DateTime;
+                    //Ruta.FechaRuta = dteFecha.DateTime;
                     Ruta.Save();
                 }
                 Unidad.CommitChanges();

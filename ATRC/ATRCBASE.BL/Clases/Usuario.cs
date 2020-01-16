@@ -49,6 +49,13 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<bool>("EsAdministrativo", ref mEsAdministrativo, value); }
         }
 
+        private bool mAccesoSistema;
+        public bool AccesoSistema
+        {
+            get { return mAccesoSistema; }
+            set { SetPropertyValue<bool>("AccesoSistema", ref mAccesoSistema, value); }
+        }
+
         private string mContraseña;
         [Size(500)]
         public string Constraseña

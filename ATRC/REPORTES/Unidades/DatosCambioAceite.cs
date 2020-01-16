@@ -13,7 +13,8 @@ namespace REPORTES.Unidades
             InitializeComponent();
             lblFecha.Text = Servicio.Fecha.ToShortDateString();
             lblUnidad.Text = Servicio.Unidad.Nombre;
-            if(Servicio.Unidad.TipoUnidad == ATRCBASE.BL.Enums.TipoUnidad.Automovil || Servicio.Unidad.TipoUnidad == ATRCBASE.BL.Enums.TipoUnidad.Panel)
+            if(Servicio.Unidad.TipoUnidad == ATRCBASE.BL.Enums.TipoUnidad.Automovil || Servicio.Unidad.TipoUnidad == ATRCBASE.BL.Enums.TipoUnidad.Panel
+                || Servicio.Unidad.TipoUnidad == ATRCBASE.BL.Enums.TipoUnidad.Micro & Servicio.Unidad.Combustible == ATRCBASE.BL.Enums.Combustible.Gasolina)
             {
                 lblFechaPro.Text = Servicio.Fecha.AddMonths(3).ToShortDateString();
                 lblMillas.Text = (Convert.ToInt32(Servicio.Millas) + 5000).ToString();

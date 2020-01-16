@@ -26,6 +26,8 @@ namespace COMBUSTIBLE.WIN
 
         UnidadDeTrabajo UnidadControles;
         public bool Captura = false;
+        public bool EsAnterior = false;
+        public DateTime Fecha = DateTime.Now.Date;
         private void xfrmPedidoDiesel_Load(object sender, EventArgs e)
         {
             BeginInvoke(new MethodInvoker(delegate { IniciarControles(); }));
@@ -33,7 +35,7 @@ namespace COMBUSTIBLE.WIN
 
         private void IniciarControles()
         {
-            dteFecha.DateTime = DateTime.Now;
+            dteFecha.DateTime = EsAnterior ? Fecha : DateTime.Now;
             UnidadControles = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator goFinal = new GroupOperator();
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);

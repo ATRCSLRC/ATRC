@@ -52,7 +52,7 @@ namespace ATRCBASE.WIN
         {
             if (ValidarCampos())
             {
-                if (chkEsAdministrativo.Checked & !string.IsNullOrEmpty(txtContraseña.Text))
+                if (chkAccesoSistema.Checked & !string.IsNullOrEmpty(txtContraseña.Text))
                     Usuario.Constraseña = txtContraseña.Text;
                 Usuario.Save();
                 Unidad.CommitChanges();
@@ -144,10 +144,7 @@ namespace ATRCBASE.WIN
 
         private void chkEsAdministrativo_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkEsAdministrativo.Checked)
-                TabSeguridad.PageVisible = true;
-            else
-                TabSeguridad.PageVisible = false;
+            
         }
 
         private void txtConfContraseña_TextChanged(object sender, EventArgs e)
@@ -202,6 +199,7 @@ namespace ATRCBASE.WIN
             lueDepartamento.DataBindings.Add("EditValue", Usuario, "Departamento!", true, DataSourceUpdateMode.OnPropertyChanged);
             txtNumCredencial.DataBindings.Add("EditValue", Usuario, "IDCard", true, DataSourceUpdateMode.OnPropertyChanged);
             chkEsAdministrativo.DataBindings.Add("EditValue", Usuario, "EsAdministrativo", true, DataSourceUpdateMode.OnPropertyChanged);
+            chkAccesoSistema.DataBindings.Add("EditValue", Usuario, "AccesoSistema", true, DataSourceUpdateMode.OnPropertyChanged);
             dteIngreso.DataBindings.Add("EditValue", Usuario, "FechaIngreso", true, DataSourceUpdateMode.OnPropertyChanged);
             cmbPatron.DataBindings.Add("EditValue", Usuario, "Patron", true, DataSourceUpdateMode.OnPropertyChanged);
             txtAvisar.DataBindings.Add("EditValue", Usuario, "AvisarA", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -227,6 +225,7 @@ namespace ATRCBASE.WIN
             lueDepartamento.DataBindings.Clear();
             txtNumCredencial.DataBindings.Clear();
             chkEsAdministrativo.DataBindings.Clear();
+            chkAccesoSistema.DataBindings.Clear();
         }
         
         private bool ValidarCampos()
@@ -236,7 +235,7 @@ namespace ATRCBASE.WIN
                 XtraMessageBox.Show("Debe asignarle un nombre.");
                 return false;
             }
-            if (chkEsAdministrativo.Checked)
+            if (chkAccesoSistema.Checked)
             {
                 if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrEmpty(txtConfContraseña.Text))
                 {
@@ -309,5 +308,12 @@ namespace ATRCBASE.WIN
             }
         }
 
+        private void chkAccesoSistema_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAccesoSistema.Checked)
+                TabSeguridad.PageVisible = true;
+            else
+                TabSeguridad.PageVisible = false;
+        }
     }
 }

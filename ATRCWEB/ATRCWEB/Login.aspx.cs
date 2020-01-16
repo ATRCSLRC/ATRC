@@ -23,7 +23,7 @@ namespace ATRCWEB
         UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
         GroupOperator go = new GroupOperator( GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("NumEmpleado", spnNumUsuario.Text));
-            go.Operands.Add(new BinaryOperator("EsAdministrativo", true));
+            go.Operands.Add(new BinaryOperator("AccesoSistema", true));
             go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", txtContraseña.Text));
             Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
             if (Usuario != null)

@@ -40,6 +40,11 @@ namespace COMBUSTIBLE.WIN
 
                 XPView DieselAnterior = new XPView(Diesel.Session, typeof(Diesel), "Oid;CandadoActual", new BinaryOperator("Unidad.Oid", Diesel.Unidad.Oid));
                 DieselAnterior.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
+                GroupOperator go = new GroupOperator(GroupOperatorType.And);
+                go.Operands.Add(new BinaryOperator("Unidad.Oid", Diesel.Unidad.Oid));
+                go.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+                DieselAnterior.Criteria = go;
+
                 if (DieselAnterior.Count > 1)
                     CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
             }

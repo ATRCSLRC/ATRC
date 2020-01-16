@@ -72,6 +72,12 @@
     <Compile Include="Combustible\ConsumoDieselUnidad.Designer.cs">
       <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Combustible\DetallesMedidoresCombustible.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Combustible\DetallesMedidoresCombustible.Designer.cs">
+      <DependentUpon>DetallesMedidoresCombustible.cs</DependentUpon>
+    </Compile>
     <Compile Include="Combustible\RecargaDiesel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="Guardias\ContratoRenta.Designer.cs">
       <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\HistorialRecibos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\HistorialRecibos.Designer.cs">
+      <DependentUpon>HistorialRecibos.cs</DependentUpon>
     </Compile>
     <Compile Include="Guardias\HistorialRenta.cs">
       <SubType>Component</SubType>
@@ -211,6 +223,9 @@
     <EmbeddedResource Include="Combustible\ConsumoDieselUnidad.resx">
       <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Combustible\DetallesMedidoresCombustible.resx">
+      <DependentUpon>DetallesMedidoresCombustible.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Combustible\RecargaDiesel.resx">
       <DependentUpon>RecargaDiesel.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Guardias\ContratoRenta.resx">
       <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\HistorialRecibos.resx">
+      <DependentUpon>HistorialRecibos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Guardias\HistorialRenta.resx">
       <DependentUpon>HistorialRenta.cs</DependentUpon>

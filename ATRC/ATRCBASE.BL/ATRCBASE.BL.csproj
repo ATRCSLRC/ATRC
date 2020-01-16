@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\AnuncioUsuario.cs" />
     <Compile Include="Clases\ATRCBase.cs" />
     <Compile Include="Clases\Configuraciones.cs" />
     <Compile Include="Clases\Departamento.cs" />

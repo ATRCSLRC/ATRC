@@ -60,6 +60,7 @@ namespace COMBUSTIBLE.WIN
                     spnCantidad.EditValue = spnPrecio.EditValue = 0;
                     txtFactura.Text = txtProveedor.Text = string.Empty;
                     labelComponent1.Text = Cantidad.ToString("N2") + " lts";
+
                 }
             }
         }
@@ -93,9 +94,9 @@ namespace COMBUSTIBLE.WIN
             {
                 UnidadDeTrabajo UnidadNueva = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 DieselActual Tanque = UnidadNueva.GetObjectByKey<DieselActual>(rgTanques.EditValue);
-                Tanque.Cantidad += Convert.ToInt64(spnCantidad.EditValue);
+                Tanque.Cantidad += Convert.ToDecimal(spnCantidad.EditValue);
                 RecargaDiesel Recarga = new RecargaDiesel(UnidadNueva);
-                Recarga.Cantidad = Convert.ToInt64(spnCantidad.EditValue);
+                Recarga.Cantidad = Convert.ToDecimal(spnCantidad.EditValue);
                 Recarga.PrecioLitro = Convert.ToDouble(spnPrecio.EditValue);
                 Recarga.Factura = txtFactura.Text;
                 Recarga.Proveedor = txtProveedor.Text;
@@ -147,6 +148,21 @@ namespace COMBUSTIBLE.WIN
                 return false;
             }
             return true;
+        }
+
+        private void bbiInicializarCero_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("¿Está seguro de querer iniciar el tanque en 'cero'? Podría perder información.", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                UnidadDeTrabajo UnidadNueva = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                DieselActual Tanque = UnidadNueva.GetObjectByKey<DieselActual>(rgTanques.EditValue);
+                Tanque.Cantidad = 0;
+                Tanque.Save();
+                UnidadNueva.CommitChanges();
+                arcScaleComponent1.Value = 0;
+                labelComponent1.Text = 0 + " lts";
+            }
+
         }
     }
 }

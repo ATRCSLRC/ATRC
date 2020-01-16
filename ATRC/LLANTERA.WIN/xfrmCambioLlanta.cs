@@ -42,7 +42,7 @@ namespace LLANTERA.WIN
         {
             ViewRecord vUnidad = lueUnidad.EditValue as ViewRecord;
             if(vUnidad != null)
-            {
+            { 
                 GroupOperator go = new GroupOperator();
                 go.Operands.Add(new BinaryOperator("EsUtilizado", false));
                 go.Operands.Add(new BinaryOperator("Estado", Enums.EstadoSalida.Entregado));
@@ -53,16 +53,21 @@ namespace LLANTERA.WIN
                 switch (vUnidad["TipoUnidad"])
                 {
                     case Enums.TipoUnidad.Camion:
+                    case Enums.TipoUnidad.Micro:
                         picFoto.Image = LLANTERA.WIN.Properties.Resources.bus;
+                        this.Size = new Size(722, 619);
                         break;
                     case Enums.TipoUnidad.Automovil:
                         picFoto.Image = LLANTERA.WIN.Properties.Resources.car;
+                        this.Size = new Size(722, 500);
                         break;
                     case Enums.TipoUnidad.Maquinaria:
                         picFoto.Image = LLANTERA.WIN.Properties.Resources.f150;
+                        this.Size = new Size(722, 500);
                         break;
                     case Enums.TipoUnidad.Panel:
                         picFoto.Image = LLANTERA.WIN.Properties.Resources.panel;
+                        this.Size = new Size(722, 500);
                         break;
                 }
                 lueLlantaFrontalIzquierda.Properties.DataSource = Llantas;
@@ -71,6 +76,7 @@ namespace LLANTERA.WIN
                 lueTraseraInteriorEstribo.Properties.DataSource = Llantas;
                 lueTraseroExteriorChofer.Properties.DataSource = Llantas;
                 lueTraseroExteriorEstribo.Properties.DataSource = Llantas;
+                lueLlantaExtra.Properties.DataSource = Llantas;
 
                 Unidad = ((ViewRecord)lueUnidad.EditValue).GetObject() as Unidad;
                 lblFrontalIzquierda.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaFrontalIzquierdaChofer");
@@ -79,8 +85,9 @@ namespace LLANTERA.WIN
                 lblTraseraInteriorEstribo.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraInteriorEstribo");
                 lblTraseraExteriorChofer.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraExteriorChofer");
                 lblTraseraExteriorEstribo.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraExteriorEstribo");
+                lblLlantaActualExtra.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaExtraUnidad");
 
-                if (Unidad.TipoUnidad != Enums.TipoUnidad.Camion)
+                if (Unidad.TipoUnidad != Enums.TipoUnidad.Camion & Unidad.TipoUnidad != Enums.TipoUnidad.Micro)
                 {
                     lciTraseraInteriorChofer.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciTraseraInteriorEstribo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -196,6 +203,12 @@ namespace LLANTERA.WIN
                             PosicionLlanta = "Trasera exterior estribo";
                             Propiedad = "LlantaTraseraExteriorEstribo";
                             break;
+                        case "lueLlantaExtra":
+                            Llanta = Unidad.GetMemberValue("LlantaExtraUnidad") as Articulo;
+                            Unidad.SetMemberValue("LlantaExtraUnidad", Salida.Articulo);
+                            PosicionLlanta = "Extra";
+                            Propiedad = "LlantaExtraUnidad";
+                            break;
                     }
                     Salida.EsUtilizado = true;
                     Unidad.Save();
@@ -234,6 +247,7 @@ namespace LLANTERA.WIN
                     lblTraseraInteriorEstribo.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraInteriorEstribo");
                     lblTraseraExteriorChofer.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraExteriorChofer");
                     lblTraseraExteriorEstribo.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaTraseraExteriorEstribo");
+                    lblLlantaActualExtra.Text = "<u><b>Llanta Actual:</b></u><br>" + ObtenerDetalleLlanta("LlantaExtraUnidad");
                 }
                 else
                 {
@@ -250,6 +264,11 @@ namespace LLANTERA.WIN
                 return articulo.Facturas[0].Marca.Nombre + " " + articulo.Facturas[0].Serie + " R-" + articulo.Facturas[0].Medida;
             else
                 return string.Empty;
+        }
+
+        private void lueLlantaExtra_EditValueChanged(object sender, EventArgs e)
+        {
+            AsignarLlanta(lueLlantaExtra);
         }
     }
 }

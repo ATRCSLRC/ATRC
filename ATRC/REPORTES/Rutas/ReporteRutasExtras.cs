@@ -34,7 +34,7 @@ namespace REPORTES.Rutas
             XPView Empresas = new XPView(Unidad, typeof(Empresas), "Oid;Nombre", null);
             this.DataSource = Empresas;
 
-            RutasExtras = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(RutasFijas));
+            RutasExtras = new XPView(ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo(), typeof(RutasGeneradas));
             RutasExtras.AddProperty("Empresa", "Empresa", true);
             RutasExtras.AddProperty("TipoUnidad", "TipoUnidad", true);
             RutasExtras.AddProperty("HoraEntrada", "HoraEntrada", true);

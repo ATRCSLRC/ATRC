@@ -26,6 +26,9 @@ namespace COMBUSTIBLE.WIN
 
         UnidadDeTrabajo UnidadControles;
         public bool Captura = false;
+        public bool EsAnterior = false;
+        public DateTime Fecha = DateTime.Now.Date;
+
         private void xfrmPedidoDiesel_Load(object sender, EventArgs e)
         {
             BeginInvoke(new MethodInvoker(delegate { IniciarControles(); }));
@@ -33,7 +36,7 @@ namespace COMBUSTIBLE.WIN
 
         private void IniciarControles()
         {
-            dteFecha.DateTime = DateTime.Now;
+            dteFecha.DateTime = EsAnterior ? Fecha : DateTime.Now;
             UnidadControles = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
@@ -79,22 +82,23 @@ namespace COMBUSTIBLE.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             if (XtraMessageBox.Show("¿Está seguro de guardar el pedido a la unidad '" + lueUnidad.Text + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 Unidad UnidadDiesel = Unidad.GetObjectByKey<Unidad>(lueUnidad.EditValue);
 
-                GroupOperator go = new GroupOperator();
-                go.Operands.Add(new BinaryOperator("Unidad", UnidadDiesel));
-                go.Operands.Add(new BinaryOperator("Fecha", dteFecha.DateTime.Date));
-                XPView UnidadesConDiesel = new XPView(Unidad, typeof(Gasolina), "Oid", go);
-                if (UnidadesConDiesel.Count > 0)
-                {
-                    XtraMessageBox.Show("La unidad ya se encuentra registrada.");
-                    LimipiarControles();
-                }
-                else
-                {
+                //GroupOperator go = new GroupOperator();
+                //go.Operands.Add(new BinaryOperator("Unidad", UnidadDiesel));
+                //go.Operands.Add(new BinaryOperator("Fecha", dteFecha.DateTime.Date));
+                //XPView UnidadesConDiesel = new XPView(Unidad, typeof(Gasolina), "Oid", go);
+                //if (UnidadesConDiesel.Count > 0)
+                //{
+                //    XtraMessageBox.Show("La unidad ya se encuentra registrada.");
+                //    LimipiarControles();
+                //}
+                //else
+                //{
                     Gasolina Diesel = new Gasolina(Unidad);
                     Diesel.Empleado = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
                     Diesel.Unidad = UnidadDiesel;
@@ -103,7 +107,7 @@ namespace COMBUSTIBLE.WIN
                     Unidad.CommitChanges();
                     XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
                     LimipiarControles();
-                }
+                //}
                 if (Captura)
                     this.Close();
             }

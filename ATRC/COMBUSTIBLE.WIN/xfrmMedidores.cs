@@ -111,6 +111,19 @@ namespace COMBUSTIBLE.WIN
                     if (Medidor.Count > 0)
                     {
                         Medidor[0].Final = Convert.ToInt64(txtFinales.Text);
+                        XPView Diesel = new XPView(Unidad, Tanque.TipoCombustible == Enums.Combustible.Diesel ? typeof(COMBUSTIBLE.BL.Diesel) : typeof(COMBUSTIBLE.BL.Gasolina));
+                        if (Tanque.TipoCombustible == Enums.Combustible.Diesel)
+                            Diesel.Criteria = new BinaryOperator("MedidorDiesel.Oid", Medidor[0].Oid);
+                        else
+                            Diesel.Criteria = new BinaryOperator("MedidorGasolinas.Oid", Medidor[0].Oid);
+                        Diesel.Properties.AddRange(new ViewProperty[] {
+                        new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                        new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true)
+                        });
+                        Int32 TotalTanque = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
+
+                        Medidor[0].LitrosCapturados = TotalTanque;
+                        Medidor[0].LitrosEnTanque = Convert.ToInt32(Tanque.Cantidad);
                         Medidor[0].Save();
                     }
                     else

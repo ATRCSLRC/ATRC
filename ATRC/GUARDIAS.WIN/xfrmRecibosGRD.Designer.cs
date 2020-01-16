@@ -61,6 +61,7 @@
             this.lciA = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciCancelar = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bbiExportar = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -91,9 +92,10 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiModificar,
             this.bbiReimprimir,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.bbiExportar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -156,6 +158,7 @@
             // 
             this.ribbonPageGroup2.AllowMinimize = false;
             this.ribbonPageGroup2.AllowTextClipping = false;
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiExportar);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiSalir);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
@@ -458,6 +461,16 @@
             this.lciCancelar.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancelar.TextVisible = false;
             // 
+            // bbiExportar
+            // 
+            this.bbiExportar.Caption = "Exportar";
+            this.bbiExportar.Id = 4;
+            this.bbiExportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.bbiExportar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.bbiExportar.Name = "bbiExportar";
+            this.bbiExportar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiExportar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExportar_ItemClick);
+            // 
             // xfrmRecibosGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +542,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem lciCancelar;
         private DevExpress.XtraGrid.Columns.GridColumn colFolio;
+        private DevExpress.XtraBars.BarButtonItem bbiExportar;
     }
 }

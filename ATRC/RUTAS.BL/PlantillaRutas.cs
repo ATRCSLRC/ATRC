@@ -28,13 +28,13 @@ namespace RUTAS.BL
         }
 
         [Association("rut_PlantillaRutas-PlantillaRutaExtra")]
-        public XPCollection<PlantillaRutaExtra> PlantillasRutasExtras
+        public XPCollection<PlantillaRutaFija> PlantillasRutasFijas
         {
             get
             {
-                XPCollection<PlantillaRutaExtra> PlantillasRutasExtras = GetCollection<PlantillaRutaExtra>("PlantillasRutasExtras");
+                XPCollection<PlantillaRutaFija> PlantillasRutasExtras = GetCollection<PlantillaRutaFija>("PlantillasRutasFijas");
                 PlantillasRutasExtras.DisplayableProperties = "Oid;TipoRuta;TipoUnidad;HoraEntrada;HoraSalida;ChoferEntrada;ChoferSalida;RutaCompleta;PagarChoferEntrada;PagarChoferSalida;Comentarios";
-                return PlantillasRutasExtras;
+                return PlantillasRutasFijas;
             }
         }
     }

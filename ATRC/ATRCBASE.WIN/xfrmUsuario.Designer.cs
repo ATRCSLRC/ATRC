@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuario));
             this.rbbnUsuario = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -101,8 +102,10 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager();
+            this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.chkAccesoSistema = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -172,6 +175,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // rbbnUsuario
@@ -413,6 +418,7 @@
             // 
             // lcMainTabGeneral
             // 
+            this.lcMainTabGeneral.Controls.Add(this.chkAccesoSistema);
             this.lcMainTabGeneral.Controls.Add(this.lueDepartamento);
             this.lcMainTabGeneral.Controls.Add(this.luePuesto);
             this.lcMainTabGeneral.Controls.Add(this.bbiSeleccionar);
@@ -593,7 +599,8 @@
             this.lciPuesto,
             this.lciDepartamento,
             this.emptySpaceItem1,
-            this.emptySpaceItem3});
+            this.emptySpaceItem3,
+            this.layoutControlItem3});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(630, 327);
             this.layoutControlGroup2.TextVisible = false;
@@ -699,7 +706,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(505, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(367, 23);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPuesto
@@ -975,6 +982,26 @@
             // 
             this.ofdFoto.FileName = null;
             // 
+            // chkAccesoSistema
+            // 
+            this.chkAccesoSistema.Location = new System.Drawing.Point(379, 12);
+            this.chkAccesoSistema.MenuManager = this.rbbnUsuario;
+            this.chkAccesoSistema.Name = "chkAccesoSistema";
+            this.chkAccesoSistema.Properties.Caption = "Tiene acceso al sistema";
+            this.chkAccesoSistema.Size = new System.Drawing.Size(134, 19);
+            this.chkAccesoSistema.StyleController = this.lcMainTabGeneral;
+            this.chkAccesoSistema.TabIndex = 17;
+            this.chkAccesoSistema.CheckedChanged += new System.EventHandler(this.chkAccesoSistema_CheckedChanged);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.chkAccesoSistema;
+            this.layoutControlItem3.Location = new System.Drawing.Point(367, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(138, 23);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
             // xfrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1056,6 +1083,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1137,5 +1166,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNombre;
+        private DevExpress.XtraEditors.CheckEdit chkAccesoSistema;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

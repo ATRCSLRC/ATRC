@@ -65,6 +65,9 @@ namespace UNIDADES.WIN.Reportes
                     Servicio = ServiciosUnidad.Otro;
                     break;
                 case 4:
+                    Servicio = ServiciosUnidad.Preventivo;
+                    break;
+                case 5:
                     SonTodos = true;
                     break;
             }

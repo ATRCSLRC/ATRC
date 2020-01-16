@@ -47,15 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalogos\Destinos.cs" />
-    <Compile Include="Catalogos\NombresRutas.cs" />
     <Compile Include="Catalogos\Servicio.cs" />
-    <Compile Include="Coordenadas.cs" />
-    <Compile Include="PlantillaRutaExtra.cs" />
+    <Compile Include="Mapa\Coordenadas.cs" />
+    <Compile Include="PlantillaRutaFija.cs" />
     <Compile Include="PlantillaRutas.cs" />
+    <Compile Include="Catalogos\PreciosServicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rutas.cs" />
-    <Compile Include="RutasFijas.cs" />
+    <Compile Include="Mapa\Rutas.cs" />
+    <Compile Include="RutasGeneradas.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,6 +82,10 @@
     <ProjectReference Include="..\ATRCBASE.WIN\ATRCBASE.WIN.csproj">
       <Project>{ca92b7d6-6738-4a42-a76e-ba583c929ba1}</Project>
       <Name>ATRCBASE.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{E46D9066-2710-40BC-BE1C-E17EAFC6A044}</Project>
+      <Name>UNIDADES.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

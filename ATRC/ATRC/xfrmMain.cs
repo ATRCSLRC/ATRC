@@ -2,6 +2,7 @@
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using Saraff.Twain;
 using System;
@@ -42,6 +43,7 @@ namespace ATRC
             if(rbnpUsuarios.Visible)
             {
                 bbiUsuarios.Visibility = VisibilidadPermiso("Usuarios");
+                bbiAnunciosUsuarios.Visibility = VisibilidadPermiso("AnunciosUsuario");
                 rbnpgReportesUsuarios.Visible = VisibilidadPermiso("ReportesUsuarios") == BarItemVisibility.Always ? true : false;
                 rbnpgUsuario.Visible = bbiUsuarios.Visibility == BarItemVisibility.Always ? true : false;
             }
@@ -55,7 +57,7 @@ namespace ATRC
                 bbiConsultasChecada.Visibility = VisibilidadPermiso("HistorialChecador");
                 bbiNotificacionesChecador.Visibility = VisibilidadPermiso("NotificacionesChecador");
                 rbnpgReportesChecador.Visible = VisibilidadPermiso("ReportesChecador") == BarItemVisibility.Always ? true : false;
-                rbnpgAdministracion.Visible = bbiChecador.Visibility == BarItemVisibility.Always & bbiConsultasChecada.Visibility == BarItemVisibility.Always &
+                rbnpgAdministracion.Visible = bbiChecador.Visibility == BarItemVisibility.Always || bbiConsultasChecada.Visibility == BarItemVisibility.Always ||
                     bbiNotificacionesChecador.Visibility == BarItemVisibility.Always ? true : false;
             }
             #endregion
@@ -158,6 +160,7 @@ namespace ATRC
                 bbiMapaEmpresa.Visibility = VisibilidadPermiso("MapaEmpresa");
                 bbiChecadorRutas.Visibility = VisibilidadPermiso("ChecadorRutas");
                 bbiRegistrosRutas.Visibility = VisibilidadPermiso("EntradaSalidaRutas");
+                rpgReportesRutas.Visible = VisibilidadPermiso("ReportesRutas") == BarItemVisibility.Always ? true : false;
             }
             #endregion
 
@@ -243,7 +246,8 @@ namespace ATRC
 
         private void bvbiSalir_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            //Application.Exit();
         }
 
         #region Usuarios
@@ -300,25 +304,31 @@ namespace ATRC
 
         private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ////ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            ////DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
-            ////Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            ////foreach (ViewRecord Usuario in Usuarios)
-            ////{
-            ////    if (Usuario["Imagen.Archivo"] != null)
-            ////    {
-            ////        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
-            ////        if (image != null)
-            ////        {
-            ////            System.IO.MemoryStream stream = new System.IO.MemoryStream(image);
-            ////            Image returnImage = Image.FromStream(stream);
-            ////            string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + "." + ATRCBASE.BL.Utilerias.GetExtension(returnImage).ToString();
-            ////            File.WriteAllBytes(f, image);
-            ////        }
-            ////    }
-            ////}
+            //ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            //DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
+            //Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            //foreach (ViewRecord Usuario in Usuarios)
+            //{
+            //    if (Usuario["Imagen.Archivo"] != null)
+            //    {
+            //        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+            //        if (image != null)
+            //        {
+            //            string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+            //            if (!File.Exists(f))
+            //            {
+            //                using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
+            //                {
+            //                    Image returnImage = Image.FromStream(stream);
+
+            //                    File.WriteAllBytes(f, image);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
             Utilerias.ActualizarEsquema();
-            Application.Exit();
+           // Application.Exit();
         }
         #endregion
 
@@ -361,17 +371,23 @@ namespace ATRC
                 case "Horas trabajadas semanales":
                     CHECADOR.WIN.xfrmFiltrosReportes xfrm = new CHECADOR.WIN.xfrmFiltrosReportes();
                     xfrm.Titulo = e.Item.Description;
-                    xfrm.EsConcentrado = false;
                     xfrm.MdiParent = this;
                     xfrm.Show();
                     break;
                 case "Concentrado de nómina":
                     CHECADOR.WIN.xfrmFiltrosReportes xfrmConcentrado = new CHECADOR.WIN.xfrmFiltrosReportes();
                     xfrmConcentrado.Titulo = e.Item.Description;
-                    xfrmConcentrado.EsConcentrado = true;
                     xfrmConcentrado.Size = new Size(635, 240);
                     xfrmConcentrado.MdiParent = this;
                     xfrmConcentrado.Show();
+                    break;
+                case "Total horas trabajadas semanales":
+                    CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
+                    xfrmHoras.Titulo = e.Item.Description;
+                    xfrmHoras.Size = new Size(635, 240);
+                    xfrmHoras.Todos = true;
+                    xfrmHoras.MdiParent = this;
+                    xfrmHoras.Show();
                     break;
             }
         }
@@ -651,10 +667,12 @@ namespace ATRC
 
         private void bbiRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            RUTAS.WIN.xfrmGenerarRutasExtras xfrm = new RUTAS.WIN.xfrmGenerarRutasExtras();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
+            //ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Usuarios.Usuarios());
+            //repUsuarioRegistrado.ShowPreview();
+            //RUTAS.WIN.xfrmGenerarRutasExtras xfrm = new RUTAS.WIN.xfrmGenerarRutasExtras();
+            //xfrm.ShowInTaskbar = false;
+            //xfrm.MdiParent = this;
+            //xfrm.Show();
         }
 
         private void bbiReporteNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -754,6 +772,9 @@ namespace ATRC
                     break;
                 case "Unidades con combustible":
                     xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.UnidadDiesel;
+                    break;
+                case "Detalles de medidores":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.DetallesMedidores;
                     break;
             }
             xfrm.ShowInTaskbar = false;
@@ -1048,6 +1069,32 @@ namespace ATRC
         private void bbiUnidadesRenta_ItemClick(object sender, ItemClickEventArgs e)
         {
             GUARDIAS.WIN.xfrmUnidadesRenta xfrm = new GUARDIAS.WIN.xfrmUnidadesRenta();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void xfrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (XtraMessageBox.Show("¿Desea salir del sistema?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void rgbiReportesRutas_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
+            xfrmHoras.Titulo = e.Item.Description;
+            xfrmHoras.Size = new Size(635, 240);
+            xfrmHoras.Todos = false;
+            xfrmHoras.MdiParent = this;
+            xfrmHoras.Show();
+        }
+
+        private void bbiAnunciosUsuarios_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmAnunciosUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmAnunciosUsuariosGRD();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

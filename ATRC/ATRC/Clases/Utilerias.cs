@@ -24,6 +24,7 @@ namespace ATRC
                     Usuario.Constraseña = "atrc1234";
                     Usuario.NumEmpleado = 1;
                     Usuario.EsAdministrativo = true;
+                    Usuario.AccesoSistema = true;
                     Usuario.Activo = true;
                     Usuario.Imagen = new Imagen(Unidad);
                     Usuario.Save();
@@ -53,12 +54,14 @@ namespace ATRC
             XPClassInfo Unidad = XpoDefault.Session.GetClassInfo(typeUnidad);
             XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
             XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
+            XPMemberInfo LlantaExtraUnidad = Unidad.CreateMember("LlantaExtraUnidad", typeArticulo);
             XPMemberInfo LlantaFrontalIzquierdaChofer = Unidad.CreateMember("LlantaFrontalIzquierdaChofer", typeArticulo);
             XPMemberInfo LlantaFrontalDerechaEstribo = Unidad.CreateMember("LlantaFrontalDerechaEstribo", typeArticulo);
             XPMemberInfo LlantaTraseraInteriorChofer = Unidad.CreateMember("LlantaTraseraInteriorChofer", typeArticulo);
             XPMemberInfo LlantaTraseraInteriorEstribo = Unidad.CreateMember("LlantaTraseraInteriorEstribo", typeArticulo);
             XPMemberInfo LlantaTraseraExteriorChofer = Unidad.CreateMember("LlantaTraseraExteriorChofer", typeArticulo);
             XPMemberInfo LlantaTraseraExteriorEstribo = Unidad.CreateMember("LlantaTraseraExteriorEstribo", typeArticulo);
+            
 
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("ATRCBASE.BL"));
             XpoDefault.Session.UpdateSchema(System.Reflection.Assembly.Load("CHECADOR.BL"));

@@ -32,7 +32,7 @@ namespace ATRCWEB.WS
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("NumEmpleado", Usuario));
-            go.Operands.Add(new BinaryOperator("EsAdministrativo", true));
+            go.Operands.Add(new BinaryOperator("AccesoSistema", true));
             go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", Contrasena));
             Usuario UsuarioLogin = (Usuario)Unidad.FindObject(typeof(Usuario), go);
             if (UsuarioLogin != null)
@@ -191,7 +191,19 @@ namespace ATRCWEB.WS
 
                         if (!MismoCandado(IDDiesel, CandadoAnterior.ToString()))
                         {
-                            GuardarProblemaCandado(IDDiesel, "");
+                            UnidadDeTrabajo UnidadDieselCandado = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                            COMBUSTIBLE.BL.Diesel DieselCandado = Unidad.GetObjectByKey<COMBUSTIBLE.BL.Diesel>(IDDiesel);
+                            GroupOperator goCandado = new GroupOperator(GroupOperatorType.And);
+                            goCandado.Operands.Add(new BinaryOperator("Unidad.Oid", Diesel.Unidad.Oid));
+                            goCandado.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+                            XPView DieselAnterior = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Diesel), "Oid;CandadoActual", goCandado);
+                            DieselAnterior.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
+                            string CandadoAnteriorCandado = string.Empty;
+                            if (DieselAnterior.Count > 1)
+                                CandadoAnteriorCandado = DieselAnterior[0]["CandadoActual"].ToString();
+
+
+                            GuardarProblemaCandado(IDDiesel, "Ingreso: " + CandadoAnterior + ", deberia: " + CandadoAnteriorCandado);
                         }
 
                         Diesel.Millas = Millas;
@@ -240,10 +252,22 @@ namespace ATRCWEB.WS
             XPView Medidores = new XPView(Unidad, typeof(MedidorDiesel), "Oid;Inicial", go);
             if(Medidores.Count > 0)
             {
+
                 MedidorDiesel Medidor = Medidores[0].GetObject() as MedidorDiesel;
+                XPView Diesel = new XPView(Unidad, Tanque.TipoCombustible == Enums.Combustible.Diesel ? typeof(COMBUSTIBLE.BL.Diesel) : typeof(COMBUSTIBLE.BL.Gasolina));
+                if (Tanque.TipoCombustible == Enums.Combustible.Diesel)
+                    Diesel.Criteria = new BinaryOperator("MedidorDiesel.Oid", Medidor.Oid);
+                Diesel.Properties.AddRange(new ViewProperty[] {
+                        new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                        new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true)
+                        });
+                Int32 TotalTanque = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
+
                 Medidor.Inicial = Inicial;
                 Medidor.Final = Final;
-                Medidor.Tanque = Tanque;
+                //Medidor.Tanque = Tanque;
+                Medidor.LitrosCapturados = TotalTanque;
+                Medidor.LitrosEnTanque = Convert.ToInt32(Tanque.Cantidad);
                 Medidor.Save();
                 Unidad.CommitChanges();
             }
@@ -651,9 +675,20 @@ namespace ATRCWEB.WS
             if (Medidores.Count > 0)
             {
                 MedidorDiesel Medidor = Medidores[0].GetObject() as MedidorDiesel;
+
+                XPView Diesel = new XPView(Unidad, Tanque.TipoCombustible == Enums.Combustible.Diesel ? typeof(COMBUSTIBLE.BL.Diesel) : typeof(COMBUSTIBLE.BL.Gasolina));
+                Diesel.Criteria = new BinaryOperator("MedidorGasolinas.Oid", Medidor.Oid);
+                Diesel.Properties.AddRange(new ViewProperty[] {
+                        new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                        new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true)
+                        });
+                Int32 TotalTanque = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
+
+                Medidor.LitrosCapturados = TotalTanque;
+                Medidor.LitrosEnTanque = Convert.ToInt32(Tanque.Cantidad);
                 Medidor.Inicial = Inicial;
                 Medidor.Final = Final;
-                Medidor.Tanque = Tanque;
+                //Medidor.Tanque = Tanque;
                 Medidor.Save();
                 Unidad.CommitChanges();
             }

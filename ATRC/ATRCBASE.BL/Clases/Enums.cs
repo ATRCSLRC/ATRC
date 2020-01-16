@@ -111,7 +111,8 @@ namespace ATRCBASE.BL
             [Description("Cambio de aceite")]
             CambioAceite = 1,
             Lavado = 2,
-            Otro = 3
+            Otro = 3,
+            Preventivo = 4
         }
 
         public enum TipoDestino
@@ -174,7 +175,8 @@ namespace ATRCBASE.BL
         {
             Consumo = 0,
             PedidoDiesel = 1,
-            UnidadDiesel = 2
+            UnidadDiesel = 2,
+            DetallesMedidores = 3
         }
 
         public enum EstadoUnidad

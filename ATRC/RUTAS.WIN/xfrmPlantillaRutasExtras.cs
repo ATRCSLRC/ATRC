@@ -41,7 +41,7 @@ namespace RUTAS.WIN
         {
             txtNombre.Text = Plantilla.Nombre;
             lueMaquiladora.EditValue = Plantilla.Empresa == null ? -1 : Plantilla.Empresa.Oid;
-            grdRutasExtras.DataSource = Plantilla.PlantillasRutasExtras;
+            grdRutasExtras.DataSource = Plantilla.PlantillasRutasFijas;
                
         }
 
@@ -78,11 +78,11 @@ namespace RUTAS.WIN
                     xfrmAgregar.PlantillaRuta = Plantilla;
                     xfrmAgregar.ShowDialog();
                     if(grdRutasExtras.DataSource == null)
-                        grdRutasExtras.DataSource = Plantilla.PlantillasRutasExtras;
+                        grdRutasExtras.DataSource = Plantilla.PlantillasRutasFijas;
                     break;
 
                 case "Modificar ruta":
-                    PlantillaRutaExtra PlantillaRutaExtraModificar = grvRutasExtras.GetFocusedRow() as PlantillaRutaExtra;
+                    PlantillaRutaFija PlantillaRutaExtraModificar = grvRutasExtras.GetFocusedRow() as PlantillaRutaFija;
                     if (PlantillaRutaExtraModificar != null)
                     {
                         xfrmRutasExtras xfrmModificar = new xfrmRutasExtras();
@@ -94,7 +94,7 @@ namespace RUTAS.WIN
                     break;
 
                 case "Eliminar ruta":
-                    PlantillaRutaExtra PlantillaRutaExtra = grvRutasExtras.GetFocusedRow() as PlantillaRutaExtra;
+                    PlantillaRutaFija PlantillaRutaExtra = grvRutasExtras.GetFocusedRow() as PlantillaRutaFija;
                     if (PlantillaRutaExtra != null)
                     {
                         if (XtraMessageBox.Show("¿Está seguro de querer eliminar la plantilla la ruta seleccionada ?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)

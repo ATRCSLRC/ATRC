@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -47,7 +48,9 @@
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.Horas = new DevExpress.XtraReports.UI.CalculatedField();
+            this.lblFecha = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -69,7 +72,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.BorderWidth = 1F;
             this.xrTable2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0.0001430511F, 0F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
@@ -107,6 +110,8 @@
             // 
             // tlHoras
             // 
+            this.tlHoras.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HorasTrabajadas]")});
             this.tlHoras.Name = "tlHoras";
             this.tlHoras.StylePriority.UseTextAlignment = false;
             this.tlHoras.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -115,6 +120,7 @@
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblFecha,
             this.lblNombreReporte,
             this.lblTitulo,
             this.lblColor,
@@ -130,10 +136,10 @@
             this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 43.83334F);
             this.lblNombreReporte.Name = "lblNombreReporte";
             this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(560.0417F, 34.62501F);
+            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(560.0417F, 28.37501F);
             this.lblNombreReporte.StylePriority.UseFont = false;
             this.lblNombreReporte.StylePriority.UseTextAlignment = false;
-            this.lblNombreReporte.Text = "Listado de empleados";
+            this.lblNombreReporte.Text = "Total de horas trabajadas de empleados";
             this.lblNombreReporte.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lblTitulo
@@ -151,10 +157,10 @@
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.Red;
-            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 78.45834F);
+            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 96.16667F);
             this.lblColor.Name = "lblColor";
             this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblColor.SizeF = new System.Drawing.SizeF(560.0417F, 23F);
+            this.lblColor.SizeF = new System.Drawing.SizeF(560.0417F, 5.291672F);
             this.lblColor.StylePriority.UseBackColor = false;
             // 
             // xrPictureBox1
@@ -239,6 +245,21 @@
             this.objectDataSource1.DataSource = typeof(ATRCBASE.BL.Usuario);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
+            // Horas
+            // 
+            this.Horas.Name = "Horas";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 72.20834F);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.lblFecha.SizeF = new System.Drawing.SizeF(560.0417F, 23F);
+            this.lblFecha.StylePriority.UseFont = false;
+            this.lblFecha.StylePriority.UseTextAlignment = false;
+            this.lblFecha.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // Usuarios
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -247,9 +268,10 @@
             this.BottomMargin,
             this.GroupHeader1});
             this.BorderWidth = 1.5F;
+            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
+            this.Horas});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
-            this.DataSource = this.objectDataSource1;
             this.Margins = new System.Drawing.Printing.Margins(58, 83, 102, 33);
             this.Version = "17.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
@@ -280,5 +302,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.DataAccess.ObjectBinding.ObjectDataSource objectDataSource1;
+        private DevExpress.XtraReports.UI.CalculatedField Horas;
+        private DevExpress.XtraReports.UI.XRLabel lblFecha;
     }
 }

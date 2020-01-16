@@ -144,16 +144,19 @@ namespace GUARDIAS.WIN.Renta
                     Contrato.Session.CommitTransaction();
                     if (Convert.ToDecimal(lblTotal.Text.TrimStart('$')) > 0)
                     {
-                        string PrecioEscrito = string.Empty;
-                        PrecioEscrito = Utilerias.Convertir(Convert.ToDecimal(lblTotal.Text.TrimStart('$')).ToString(), true, "PESOS");
-                        int ID = 0;
-                        string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalidaOriginal.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalidaOriginal.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
-                        textoPagado += Contrato.ADondeSeDirige;
-                        Recibos.GenerarRecibo(Unidad, Convert.ToDecimal(lblTotal.Text.TrimStart('$')), Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, textoPagado, DateTime.Now, "Pesos", PrecioEscrito, out ID);
-                        this.Close();
-                        ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));
-                        reprecibo.ShowPreview();
+                        if (Contrato.Iva <= 0)
+                        {
+                            string PrecioEscrito = string.Empty;
+                            PrecioEscrito = Utilerias.Convertir(Convert.ToDecimal(lblTotal.Text.TrimStart('$')).ToString(), true, "PESOS");
+                            int ID = 0;
+                            string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " con contrato " + Contrato.NumContrato + ". " + Contrato.Comentarios;
+                            Recibos.GenerarRecibo(Unidad, Convert.ToDecimal(lblTotal.Text.TrimStart('$')), Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, textoPagado, DateTime.Now, "Pesos", PrecioEscrito, out ID);
+                            this.Close();
+                            ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));
+                            reprecibo.ShowPreview();
+                        }
                     }
+                    this.Close();
                 }
             }
         }

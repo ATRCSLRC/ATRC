@@ -194,6 +194,10 @@
       <Project>{7c282930-b616-4c4d-a28b-73abeb1c9d8f}</Project>
       <Name>CHECADOR.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\REPORTES\REPORTES.csproj">
+      <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
+      <Name>REPORTES</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-guardar-96.png" />

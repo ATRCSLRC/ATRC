@@ -59,6 +59,8 @@
             this.lciFactura = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciProveedor = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciLecturaInicial = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rpg = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiInicializarCero = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -90,9 +92,10 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.bbiInicializarCero});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -126,7 +129,8 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.rpg});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
@@ -419,6 +423,24 @@
             this.lciLecturaInicial.Text = "Lectura inicial:";
             this.lciLecturaInicial.TextSize = new System.Drawing.Size(69, 13);
             // 
+            // rpg
+            // 
+            this.rpg.AllowMinimize = false;
+            this.rpg.AllowTextClipping = false;
+            this.rpg.ItemLinks.Add(this.bbiInicializarCero);
+            this.rpg.Name = "rpg";
+            this.rpg.ShowCaptionButton = false;
+            // 
+            // bbiInicializarCero
+            // 
+            this.bbiInicializarCero.Caption = "Inicializar en cero";
+            this.bbiInicializarCero.Id = 3;
+            this.bbiInicializarCero.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiInicializarCero.ImageOptions.Image")));
+            this.bbiInicializarCero.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiInicializarCero.ImageOptions.LargeImage")));
+            this.bbiInicializarCero.Name = "bbiInicializarCero";
+            this.bbiInicializarCero.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiInicializarCero.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInicializarCero_ItemClick);
+            // 
             // xfrmRecargaDiesel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,5 +510,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciProveedor;
         private DevExpress.XtraEditors.TextEdit txtLecturaInicial;
         private DevExpress.XtraLayout.LayoutControlItem lciLecturaInicial;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpg;
+        private DevExpress.XtraBars.BarButtonItem bbiInicializarCero;
     }
 }

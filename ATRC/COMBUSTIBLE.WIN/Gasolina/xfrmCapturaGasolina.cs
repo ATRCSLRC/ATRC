@@ -76,7 +76,9 @@ namespace COMBUSTIBLE.WIN
         private void bbiAgregarPedido_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             xfrmPedidoGasolina xfrm = new xfrmPedidoGasolina();
-            xfrm.Captura = true;
+            xfrm.Captura =  true;
+            xfrm.EsAnterior = lciDia.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Always ? true : false;
+            xfrm.Fecha = dteDia.DateTime.Date;
             xfrm.ShowDialog();
             (grdUnidadDiesel.DataSource as XPView).Reload();
         }
@@ -89,6 +91,31 @@ namespace COMBUSTIBLE.WIN
                 bbiTanques.Caption += view["Descripcion"].ToString() + ": " + view["Cantidad"].ToString() + " lts | ";
 
             bbiTanques.Caption = bbiTanques.Caption.Remove(bbiTanques.Caption.Length - 2);
+        }
+
+        private void bbiDiasAnterior_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (lciDia.Visibility != DevExpress.XtraLayout.Utils.LayoutVisibility.Always)
+            {
+                lciDia.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                bbiDiasAnterior.Caption = "Desactivar días anteriores";
+                dteDia.DateTime = DateTime.Now.Date;
+            }
+            else
+            {
+                bbiDiasAnterior.Caption = "Días anteriores";
+                lciDia.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                XPView PedidosDiesel = new XPView(Unidad, typeof(Gasolina), "Oid;Unidad.Nombre;Empleado.Nombre;Llenado", new BinaryOperator("Fecha", DateTime.Now.Date));
+                grdUnidadDiesel.DataSource = PedidosDiesel;
+            }
+        }
+
+        private void dteDia_EditValueChanged(object sender, EventArgs e)
+        {
+            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView PedidosDiesel = new XPView(Unidad, typeof(Gasolina), "Oid;Unidad.Nombre;Empleado.Nombre;Llenado", new BinaryOperator("Fecha", lciDia.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Always ? dteDia.DateTime : DateTime.Now));
+            grdUnidadDiesel.DataSource = PedidosDiesel;
         }
     }
 }

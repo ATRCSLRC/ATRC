@@ -120,6 +120,7 @@
   <ItemGroup>
     <Content Include="Administracion\Departamentos.aspx" />
     <Content Include="Administracion\Puestos.aspx" />
+    <Content Include="AnunciosUsuarios.aspx" />
     <Content Include="ChecadorEmpleados.aspx" />
     <Content Include="Checador\Checador.aspx" />
     <Content Include="Checador\HistoricoChecadas.aspx" />
@@ -132,6 +133,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\Converted - copia.jpg" />
+    <Content Include="img\Converted.jpg" />
     <Content Include="img\logo.jpg" />
     <Content Include="img\wheel_back.png" />
     <Content Include="js\adminlte.js" />
@@ -185,6 +188,13 @@
     </Compile>
     <Compile Include="Administracion\Puestos.aspx.designer.cs">
       <DependentUpon>Puestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnunciosUsuarios.aspx.cs">
+      <DependentUpon>AnunciosUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnunciosUsuarios.aspx.designer.cs">
+      <DependentUpon>AnunciosUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChecadorEmpleados.aspx.cs">
       <DependentUpon>ChecadorEmpleados.aspx</DependentUpon>

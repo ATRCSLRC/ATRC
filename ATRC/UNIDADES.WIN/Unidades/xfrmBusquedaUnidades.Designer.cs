@@ -77,6 +77,7 @@
             this.colTraseraInteriorEstribo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colTraseraExteriorChofer = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colTraseraExteriorEstribo = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.colExtra = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colFiltros = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.colAceiteMotor = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.colAceiteTransmision = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -226,7 +227,7 @@
             this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
             this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(12, 78);
             this.vGridControl1.Name = "vGridControl1";
@@ -573,27 +574,36 @@
             this.colTraseraInteriorChofer,
             this.colTraseraInteriorEstribo,
             this.colTraseraExteriorChofer,
-            this.colTraseraExteriorEstribo});
+            this.colTraseraExteriorEstribo,
+            this.colExtra});
             this.catLlantera.Name = "catLlantera";
             this.catLlantera.Properties.Caption = "Llantera";
             // 
             // colIzquierdaFrontal
             // 
+            this.colIzquierdaFrontal.Appearance.Options.UseTextOptions = true;
+            this.colIzquierdaFrontal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colIzquierdaFrontal.Name = "colIzquierdaFrontal";
+            this.colIzquierdaFrontal.OptionsRow.AllowFocus = false;
             this.colIzquierdaFrontal.Properties.Caption = "Llanta frontal chofer";
             this.colIzquierdaFrontal.Properties.FieldName = "LlantaFrontalIzquierda.DetalleLlanta";
+            this.colIzquierdaFrontal.Properties.ReadOnly = false;
             // 
             // colDerechaFrontal
             // 
             this.colDerechaFrontal.Name = "colDerechaFrontal";
+            this.colDerechaFrontal.OptionsRow.AllowFocus = false;
             this.colDerechaFrontal.Properties.Caption = "Llanta frontal estribo";
             this.colDerechaFrontal.Properties.FieldName = "LlantaFrontalDerecha.DetalleLlanta";
+            this.colDerechaFrontal.Properties.ReadOnly = false;
             // 
             // colTraseraInteriorChofer
             // 
             this.colTraseraInteriorChofer.Name = "colTraseraInteriorChofer";
+            this.colTraseraInteriorChofer.OptionsRow.AllowFocus = false;
             this.colTraseraInteriorChofer.Properties.Caption = "Llanta trasera interior chofer";
             this.colTraseraInteriorChofer.Properties.FieldName = "LlantaTraseraIntChofer.DetalleLlanta";
+            this.colTraseraInteriorChofer.Properties.ReadOnly = false;
             // 
             // colTraseraInteriorEstribo
             // 
@@ -601,18 +611,31 @@
             this.colTraseraInteriorEstribo.OptionsRow.AllowFocus = false;
             this.colTraseraInteriorEstribo.Properties.Caption = "Llanta trasera interior estribo";
             this.colTraseraInteriorEstribo.Properties.FieldName = "LlantaTraseraIntEstribo.DetalleLlanta";
+            this.colTraseraInteriorEstribo.Properties.ReadOnly = false;
             // 
             // colTraseraExteriorChofer
             // 
             this.colTraseraExteriorChofer.Name = "colTraseraExteriorChofer";
+            this.colTraseraExteriorChofer.OptionsRow.AllowFocus = false;
             this.colTraseraExteriorChofer.Properties.Caption = "Llanta trasera exterior chofer";
             this.colTraseraExteriorChofer.Properties.FieldName = "LlantaTraseraExtChofer.DetalleLlanta";
+            this.colTraseraExteriorChofer.Properties.ReadOnly = false;
             // 
             // colTraseraExteriorEstribo
             // 
             this.colTraseraExteriorEstribo.Name = "colTraseraExteriorEstribo";
+            this.colTraseraExteriorEstribo.OptionsRow.AllowFocus = false;
             this.colTraseraExteriorEstribo.Properties.Caption = "Llanta trasera exterior estribo";
             this.colTraseraExteriorEstribo.Properties.FieldName = "LlantaTraseraExtEstribo.DetalleLlanta";
+            this.colTraseraExteriorEstribo.Properties.ReadOnly = false;
+            // 
+            // colExtra
+            // 
+            this.colExtra.Name = "colExtra";
+            this.colExtra.OptionsRow.AllowFocus = false;
+            this.colExtra.Properties.Caption = "Llanta extra";
+            this.colExtra.Properties.FieldName = "LlantaExtra.DetalleLlanta";
+            this.colExtra.Properties.ReadOnly = false;
             // 
             // colFiltros
             // 
@@ -847,5 +870,6 @@
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraInteriorEstribo;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraExteriorChofer;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow colTraseraExteriorEstribo;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow colExtra;
     }
 }

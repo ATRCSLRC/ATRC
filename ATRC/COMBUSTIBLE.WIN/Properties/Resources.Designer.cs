@@ -103,6 +103,26 @@ namespace COMBUSTIBLE.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_plataforma_petrolera_32__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-32 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_plataforma_petrolera_32__3_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-32 (3)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_plataforma_petrolera_321 {
             get {
                 object obj = ResourceManager.GetObject("icons8-plataforma-petrolera-321", resourceCulture);

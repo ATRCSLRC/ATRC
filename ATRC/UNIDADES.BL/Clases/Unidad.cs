@@ -386,6 +386,12 @@ namespace UNIDADES.BL
             get { return this.GetMemberValue("LlantaTraseraExteriorEstribo"); }
         }
 
+        [NonPersistent]
+        public object LlantaExtra
+        {
+            get { return this.GetMemberValue("LlantaExtraUnidad"); }
+        }
+
         public void GenerarHistorialBaterias(string Baterias, DateTime Fecha, string Comentario)
         {
             HistorialBaterias Historial = new HistorialBaterias(this.Session);

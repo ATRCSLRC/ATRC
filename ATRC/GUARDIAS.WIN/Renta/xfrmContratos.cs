@@ -162,6 +162,7 @@ namespace GUARDIAS.WIN
                                 {
                                     Contrato.Cancelado = true;
                                     Contrato.EstadoContrato = EstadoContrato.Cancelado;
+                                    Contrato.Comentarios = "Cancelado";
                                     Contrato.CantidadDevuelta = Convert.ToDecimal(result);
                                     Contrato.Save();
                                     Contrato.Session.CommitTransaction();
@@ -198,40 +199,43 @@ namespace GUARDIAS.WIN
 
         private void bbiGenerarContrato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
-            if (viewContrato != null)
+            if (XtraMessageBox.Show("¿Esta seguro de querer generar el contrato?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                ContratoRenta Contrato = viewContrato.GetObject() as ContratoRenta;
-                Contrato.EstadoContrato = EstadoContrato.Creado;
-                Contrato.NumContrato = NumContrato((UnidadDeTrabajo)Contrato.Session);
-                Contrato.EsApartado = false;
-                Contrato.Session.CommitTransaction();
+                ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
+                if (viewContrato != null)
+                {
+                    ContratoRenta Contrato = viewContrato.GetObject() as ContratoRenta;
+                    Contrato.EstadoContrato = EstadoContrato.Creado;
+                    Contrato.NumContrato = NumContrato((UnidadDeTrabajo)Contrato.Session);
+                    Contrato.EsApartado = false;
+                    Contrato.Session.CommitTransaction();
 
 
-                REPORTES.Guardias.ContratoRenta RepContrato = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
-                RepContrato.CreateDocument();
+                    REPORTES.Guardias.ContratoRenta RepContrato = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
+                    RepContrato.CreateDocument();
 
-                REPORTES.Guardias.ContratoRenta RepContratoCopia = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
-                RepContratoCopia.CreateDocument();
-                RepContrato.Pages.AddRange(RepContratoCopia.Pages);
+                    REPORTES.Guardias.ContratoRenta RepContratoCopia = new REPORTES.Guardias.ContratoRenta(Contrato.Oid);
+                    RepContratoCopia.CreateDocument();
+                    RepContrato.Pages.AddRange(RepContratoCopia.Pages);
 
-                REPORTES.Guardias.ClausulasRenta RepClausulas = new REPORTES.Guardias.ClausulasRenta();
-                RepClausulas.CreateDocument();
-                RepContrato.Pages.AddRange(RepClausulas.Pages);
+                    REPORTES.Guardias.ClausulasRenta RepClausulas = new REPORTES.Guardias.ClausulasRenta();
+                    RepClausulas.CreateDocument();
+                    RepContrato.Pages.AddRange(RepClausulas.Pages);
 
-                REPORTES.Guardias.Pagare RepPagare = new REPORTES.Guardias.Pagare(Contrato.NumContrato.ToString());
-                RepPagare.CreateDocument();
-                RepContrato.Pages.AddRange(RepPagare.Pages);
+                    REPORTES.Guardias.Pagare RepPagare = new REPORTES.Guardias.Pagare(Contrato.NumContrato.ToString());
+                    RepPagare.CreateDocument();
+                    RepContrato.Pages.AddRange(RepPagare.Pages);
 
-                RepContrato.Pages[0].AssignWatermark(new Watermark());
-                RepContrato.Pages[2].AssignWatermark(new Watermark());
-                RepContrato.Pages[3].AssignWatermark(new Watermark());
+                    RepContrato.Pages[0].AssignWatermark(new Watermark());
+                    RepContrato.Pages[2].AssignWatermark(new Watermark());
+                    RepContrato.Pages[3].AssignWatermark(new Watermark());
 
-                ReportPrintTool repContrato = new ReportPrintTool(RepContrato);
-                repContrato.ShowPreview();
+                    ReportPrintTool repContrato = new ReportPrintTool(RepContrato);
+                    repContrato.ShowPreview();
 
-            }
+                }
             ((XPView)grdContratos.DataSource).Reload();
+            }
         }
 
         private void grvContratos_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)

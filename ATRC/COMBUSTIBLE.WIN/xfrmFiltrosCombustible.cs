@@ -57,6 +57,10 @@ namespace COMBUSTIBLE.WIN
                     lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     this.Text = "Unidades con diesel";
                     break;
+                case ReporteCombustible.DetallesMedidores:
+                    lciUnidad.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    this.Text = "Detalles de medidores Diesel";
+                    break;
             }
         }
 
@@ -72,6 +76,9 @@ namespace COMBUSTIBLE.WIN
                     break;
                 case ReporteCombustible.UnidadDiesel:
                     this.Text = "Unidades con gasolina";
+                    break;
+                case ReporteCombustible.DetallesMedidores:
+                    this.Text = "Detalles de medidores Gasolina";
                     break;
             }
         }
@@ -111,12 +118,16 @@ namespace COMBUSTIBLE.WIN
                             repConsumo.ShowPreview();
                             break;
                         case ReporteCombustible.PedidoDiesel:
-                            ReportPrintTool repPedidoDiesel = new ReportPrintTool(new REPORTES.Combustible.RecargaDiesel(dteDe.DateTime, dteA.DateTime, typeof(BL.RecargaDiesel)));
+                            ReportPrintTool repPedidoDiesel = new ReportPrintTool(new REPORTES.Combustible.RecargaDiesel(dteDe.DateTime, dteA.DateTime, typeof(BL.RecargaDiesel), Combustible.Diesel));
                             repPedidoDiesel.ShowPreview();
                             break;
                         case ReporteCombustible.UnidadDiesel:
                             ReportPrintTool repUnidadDiesel = new ReportPrintTool(new UnidadesConDiesel(dteDe.DateTime, dteA.DateTime, typeof(Diesel)));
                             repUnidadDiesel.ShowPreview();
+                            break;
+                        case ReporteCombustible.DetallesMedidores:
+                            ReportPrintTool repDetalles = new ReportPrintTool(new DetallesMedidoresCombustible(dteDe.DateTime, dteA.DateTime, Combustible.Diesel));
+                            repDetalles.ShowPreview();
                             break;
                     }
                 }
@@ -130,12 +141,16 @@ namespace COMBUSTIBLE.WIN
                             repConsumo.ShowPreview();
                             break;
                         case ReporteCombustible.PedidoDiesel:
-                            ReportPrintTool repPedidoDiesel = new ReportPrintTool(new REPORTES.Combustible.RecargaDiesel(dteDe.DateTime, dteA.DateTime, typeof(BL.RecargaDiesel)));
+                            ReportPrintTool repPedidoDiesel = new ReportPrintTool(new REPORTES.Combustible.RecargaDiesel(dteDe.DateTime, dteA.DateTime, typeof(BL.RecargaDiesel), Combustible.Gasolina));
                             repPedidoDiesel.ShowPreview();
                             break;
                         case ReporteCombustible.UnidadDiesel:
                             ReportPrintTool repUnidadDiesel = new ReportPrintTool(new UnidadesConDiesel(dteDe.DateTime, dteA.DateTime, typeof(Gasolina)));
                             repUnidadDiesel.ShowPreview();
+                            break;
+                        case ReporteCombustible.DetallesMedidores:
+                            ReportPrintTool repDetalles = new ReportPrintTool(new DetallesMedidoresCombustible(dteDe.DateTime, dteA.DateTime, Combustible.Gasolina));
+                            repDetalles.ShowPreview();
                             break;
                     }
                 }

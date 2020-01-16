@@ -62,6 +62,8 @@
             </div>
         </div>
 
+        <div id="loadPanel" data-bind="dxLoadPanel: { message: 'Loading...', visible: false, showIndicator: true, showPane: true, shading: true, closeOnOutsideClick: false }"></div>
+
         <div data-bind="dxPopup: { title: 'Candados diferentes', visible:CandadoPopUp, showTitle: true, fullScreen: false,showCloseButton: false }">
             <div id="vgValidacionCandado" data-bind="dxValidationGroup: {  }">
                 <br />

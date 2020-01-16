@@ -94,5 +94,17 @@ namespace GUARDIAS.WIN
         {
             this.Close();
         }
+
+        private void bbiExportar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView ViewRecibo = new XPView(Unidad, typeof(Recibos), "Oid;Emisor;TipoCambio;Precio;Concepto;Fecha;Folio", null);
+            if (grvRecibos.ActiveFilterCriteria != null)
+                ViewRecibo.CriteriaString = grvRecibos.ActiveFilterCriteria.ToString();
+            if (grvRecibos.SortInfo.Count > 0)
+                ViewRecibo.Sorting.Add(new SortProperty(grvRecibos.SortInfo[0].Column.FieldName, grvRecibos.SortInfo[0].SortOrder == DevExpress.Data.ColumnSortOrder.Ascending ? DevExpress.Xpo.DB.SortingDirection.Ascending : DevExpress.Xpo.DB.SortingDirection.Descending));
+            ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Guardias.HistorialRecibos(dteDe.DateTime, dteA.DateTime, ViewRecibo));
+            repUsuarioRegistrado.ShowPreview();
+        }
     }
 }

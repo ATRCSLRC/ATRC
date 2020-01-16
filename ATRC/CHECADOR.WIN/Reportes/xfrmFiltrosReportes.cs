@@ -23,7 +23,7 @@ namespace CHECADOR.WIN
             InitializeComponent();
         }
 
-        public bool EsConcentrado;
+        public bool Todos;
         public string Titulo;
         UnidadDeTrabajo UnidadConsulta;
         private void bbiImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -39,25 +39,30 @@ namespace CHECADOR.WIN
                 return;
             }
 
-            if (EsConcentrado)
+            switch(Titulo)
             {
-                ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new CHECADOR.WIN.Reportes.ConcentradoNomina(dteDel.DateTime, dteAl.DateTime));
-                //repHorasTrabajadas.PrintDialog();
-                repHorasTrabajadas.ShowPreview();
-            }
-            else
-            {
-                if (rgTipoBusqueda.SelectedIndex == 0)
-                {
-                    ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new CHECADOR.WIN.Reportes.HorasSemanalesTrabajadas(0, dteDel.DateTime, dteAl.DateTime));
+                case "Concentrado de nómina":
+                    ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new CHECADOR.WIN.Reportes.ConcentradoNomina(dteDel.DateTime, dteAl.DateTime));
                     repHorasTrabajadas.ShowPreview();
-                }
-                else
-                {
-                    ReportPrintTool repHorasTrabajadas = new ReportPrintTool(new CHECADOR.WIN.Reportes.HorasSemanalesTrabajadas(Convert.ToInt32(btnNumUsuario.Text) , dteDel.DateTime, dteAl.DateTime));
-                    repHorasTrabajadas.ShowPreview();
-                }
+                    break;
+                case "Horas trabajadas semanales":
+                    if (rgTipoBusqueda.SelectedIndex == 0)
+                    {
+                        ReportPrintTool repHorasTrabajadasTodo = new ReportPrintTool(new CHECADOR.WIN.Reportes.HorasSemanalesTrabajadas(0, dteDel.DateTime, dteAl.DateTime));
+                        repHorasTrabajadasTodo.ShowPreview();
+                    }
+                    else
+                    {
+                        ReportPrintTool repHorasTrabajadasUsuario = new ReportPrintTool(new CHECADOR.WIN.Reportes.HorasSemanalesTrabajadas(Convert.ToInt32(btnNumUsuario.Text), dteDel.DateTime, dteAl.DateTime));
+                        repHorasTrabajadasUsuario.ShowPreview();
+                    }
+                    break;
+                case "Total horas trabajadas semanales":
+                    ReportPrintTool repTotalHoras = new ReportPrintTool(new REPORTES.Usuarios.Usuarios(dteDel.DateTime, dteAl.DateTime, Todos));
+                    repTotalHoras.ShowPreview();
+                    break;
             }
+            
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -70,7 +75,7 @@ namespace CHECADOR.WIN
             UnidadConsulta = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             this.Text = Titulo;
             dteDel.DateTime = dteAl.DateTime = DateTime.Now;
-            if (EsConcentrado)
+            if (Titulo != "Horas trabajadas semanales")
             {
                 lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;

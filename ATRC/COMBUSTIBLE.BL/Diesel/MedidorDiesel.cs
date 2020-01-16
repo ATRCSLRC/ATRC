@@ -32,5 +32,19 @@ namespace COMBUSTIBLE.BL
             get { return mTanque; }
             set { SetPropertyValue<DieselActual>("Tanque", ref mTanque, value); }
         }
+
+        private Int32 mLitrosEnTanque;
+        public Int32 LitrosEnTanque
+        {
+            get { return mLitrosEnTanque; }
+            set { SetPropertyValue<Int32>("LitrosEnTanque", ref mLitrosEnTanque, value); }
+        }
+
+        private Int32 mLitrosCapturados;
+        public Int32 LitrosCapturados
+        {
+            get { return mLitrosCapturados; }
+            set { SetPropertyValue<Int32>("LitrosCapturados", ref mLitrosCapturados, value); }
+        }
     }
 }

@@ -71,14 +71,17 @@ namespace ATRCBASE.BL
             Type typeUnidad = System.Reflection.Assembly.Load("UNIDADES.BL").GetType("UNIDADES.BL.Unidad");
             XPClassInfo Almacen = dict.GetClassInfo(typeSalida);
             XPClassInfo Unidad = dict.GetClassInfo(typeUnidad);
+            XPMemberInfo LlantaExtraUnidad = Unidad.CreateMember("LlantaExtraUnidad", typeArticulo);
             XPMemberInfo salidas = Almacen.CreateMember("Unidad", typeUnidad, new AssociationAttribute("Uni_Unidades-Salidas"));
             XPMemberInfo unidades = Unidad.CreateMember("Salidas", typeof(XPCollection), true, new AssociationAttribute("Uni_Unidades-Salidas", typeSalida));
+            
             XPMemberInfo LlantaFrontalIzquierdaChofer = Unidad.CreateMember("LlantaFrontalIzquierdaChofer", typeArticulo);
             XPMemberInfo LlantaFrontalDerechaEstribo = Unidad.CreateMember("LlantaFrontalDerechaEstribo", typeArticulo);
             XPMemberInfo LlantaTraseraInteriorChofer = Unidad.CreateMember("LlantaTraseraInteriorChofer", typeArticulo);
             XPMemberInfo LlantaTraseraInteriorEstribo = Unidad.CreateMember("LlantaTraseraInteriorEstribo", typeArticulo);
             XPMemberInfo LlantaTraseraExteriorChofer = Unidad.CreateMember("LlantaTraseraExteriorChofer", typeArticulo);
             XPMemberInfo LlantaTraseraExteriorEstribo = Unidad.CreateMember("LlantaTraseraExteriorEstribo", typeArticulo);
+            
             dict.GetDataStoreSchema(AppDomain.CurrentDomain.GetAssemblies());
             IDataLayer dl = null;
             if (Utilerias.TipoAplicacion == Enums.TipoAplicacion.Web)

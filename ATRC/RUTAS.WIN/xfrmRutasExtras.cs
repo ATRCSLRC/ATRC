@@ -22,9 +22,9 @@ namespace RUTAS.WIN
             InitializeComponent();
         }
 
-        public PlantillaRutaExtra PlantillaRutaExtraEditar;
+        public PlantillaRutaFija PlantillaRutaExtraEditar;
         public PlantillaRutas PlantillaRuta;
-        public RutasFijas RutasFijas;
+        public RutasGeneradas RutasFijas;
         public UnidadDeTrabajo Unidad;
         public bool EsPlantilla;
         public bool EsModificacion;
@@ -182,11 +182,11 @@ namespace RUTAS.WIN
 
         private void Guardar()
         {
-            PlantillaRutaExtra PlantillaRutaExtra;
+            PlantillaRutaFija PlantillaRutaExtra;
             if (EsModificacion)
                 PlantillaRutaExtra = PlantillaRutaExtraEditar;
             else
-                PlantillaRutaExtra = new PlantillaRutaExtra(PlantillaRuta.Session);
+                PlantillaRutaExtra = new PlantillaRutaFija(PlantillaRuta.Session);
             PlantillaRutaExtra.TipoRuta = (Enums.TipoRuta)cmbTipoRuta.EditValue;
             PlantillaRutaExtra.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
             if (timeDe.EditValue == null)
@@ -214,17 +214,17 @@ namespace RUTAS.WIN
             //PlantillaRutaExtra.Comentarios = memoObservacion.Text;
             PlantillaRutaExtra.Save();
             if (!EsModificacion)
-                PlantillaRuta.PlantillasRutasExtras.Add(PlantillaRutaExtra);
+                PlantillaRuta.PlantillasRutasFijas.Add(PlantillaRutaExtra);
 
         }
 
         private void GuardarRuta()
         {
-            RutasFijas RutasFijasModificar;
+            RutasGeneradas RutasFijasModificar;
             if (EsModificacion)
                 RutasFijasModificar = RutasFijas;
             else
-                RutasFijasModificar = new RutasFijas(Unidad);
+                RutasFijasModificar = new RutasGeneradas(Unidad);
             RutasFijasModificar.TipoRuta = (Enums.TipoRuta)cmbTipoRuta.EditValue;
             //RutasFijasModificar.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
             if (timeDe.EditValue == null)
@@ -236,7 +236,7 @@ namespace RUTAS.WIN
                 RutasFijasModificar.HoraSalida = null;
             else
                 RutasFijasModificar.HoraSalida = timeA.Time;
-            RutasFijasModificar.Empresa = RutasFijasModificar.Session.GetObjectByKey<Empresas>(lueMaquiladora.EditValue);
+            //RutasFijasModificar.Empresa = RutasFijasModificar.Session.GetObjectByKey<Empresas>(lueMaquiladora.EditValue);
             RutasFijasModificar.RutaCompleta = chkRutaCompleta.Checked;
             RutasFijasModificar.ChoferEntrada = RutasFijasModificar.Session.GetObjectByKey<Usuario>(lueChofer.EditValue);
             RutasFijasModificar.PagarChoferEntrada = chkSePagaChofer.Checked;

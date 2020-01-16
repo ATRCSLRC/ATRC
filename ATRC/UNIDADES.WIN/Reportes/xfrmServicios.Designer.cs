@@ -181,8 +181,9 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cambio de aceite"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(2)), "Lavado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(3)), "Otro"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(4)), "Todos")});
-            this.rgServicios.Size = new System.Drawing.Size(590, 41);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(4)), "Preventivo"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(5)), "Todos")});
+            this.rgServicios.Size = new System.Drawing.Size(590, 40);
             this.rgServicios.StyleController = this.lcMain;
             this.rgServicios.TabIndex = 6;
             // 
@@ -258,7 +259,7 @@
             this.lciServicio.Control = this.rgServicios;
             this.lciServicio.Location = new System.Drawing.Point(0, 109);
             this.lciServicio.Name = "lciServicio";
-            this.lciServicio.Size = new System.Drawing.Size(594, 61);
+            this.lciServicio.Size = new System.Drawing.Size(594, 60);
             this.lciServicio.Text = "Servicio:";
             this.lciServicio.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciServicio.TextSize = new System.Drawing.Size(87, 13);
@@ -275,7 +276,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 175);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 169);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(594, 17);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);

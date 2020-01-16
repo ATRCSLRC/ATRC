@@ -135,10 +135,10 @@ namespace GUARDIAS.WIN.Renta
                     string PrecioEscrito = string.Empty;
                     PrecioEscrito = Utilerias.Convertir(spnCantidad.Value.ToString()/*spnCantidad.Text.Remove(0, 1).Replace(",", "")*/, true, "PESOS");
                     int ID = 0;
-                    string textoAbono = "Abono a renta de unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
-                    textoAbono += Contrato.ADondeSeDirige;
-                    string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta + " días con destino a ";
-                    textoPagado += Contrato.ADondeSeDirige;
+                    string textoAbono = "Abono a renta de unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta.ToString("n1") + " días con destino a ";
+                    textoAbono += Contrato.ADondeSeDirige + "Contrato: " + Contrato.NumContrato;
+                    string textoPagado = "Se saldo la renta de la unidad " + Contrato.Unidad.Nombre + " para el día " + Contrato.DiaSalida.ToLongDateString() + " a las " + new DateTime(Contrato.HoraSalida.Ticks).ToShortTimeString() + " por " + Contrato.DiasRenta.ToString("n1") + " días con destino a ";
+                    textoPagado += Contrato.ADondeSeDirige + "Contrato: " + Contrato.NumContrato;
                     Recibos.GenerarRecibo(Unidad, spnCantidad.Value, Contrato.Cliente == null ? Contrato.Responsable : Contrato.Cliente.Nombre, Contrato.Subtotal <= 0 ? textoPagado : textoAbono , DateTime.Now, "Pesos", PrecioEscrito, out ID);
                     this.Close();
                     ReportPrintTool reprecibo = new ReportPrintTool(new REPORTES.Guardias.RecibosPago(ID));

@@ -42,9 +42,12 @@ namespace COMBUSTIBLE.WIN
             int cont = 1;
             foreach (ViewRecord viewMedidor in Medidores)
             {
-
-                XPView Diesel = new XPView(Unidad, typeof(COMBUSTIBLE.BL.Diesel));
-                Diesel.Criteria = new BinaryOperator("MedidorDiesel.Oid", viewMedidor["Oid"]);
+                
+                XPView Diesel = new XPView(Unidad, Tipo == Enums.Combustible.Diesel ? typeof(COMBUSTIBLE.BL.Diesel) : typeof(COMBUSTIBLE.BL.Gasolina));
+                if (Tipo == Enums.Combustible.Diesel)
+                    Diesel.Criteria = new BinaryOperator("MedidorDiesel.Oid", viewMedidor["Oid"]);
+                else
+                    Diesel.Criteria = new BinaryOperator("MedidorGasolinas.Oid", viewMedidor["Oid"]);
                 Diesel.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
                   new ViewProperty("Litros", SortDirection.None, "[Litros]", false, true)

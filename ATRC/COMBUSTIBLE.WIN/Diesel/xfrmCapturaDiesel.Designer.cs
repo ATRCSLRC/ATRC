@@ -36,11 +36,13 @@
             this.bbiMedidor = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.bbiTanques = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDiasAnterior = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rsbTanques = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.dteDia = new DevExpress.XtraEditors.DateEdit();
             this.grdUnidadDiesel = new DevExpress.XtraGrid.GridControl();
             this.grvUnidadDiesel = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,14 +51,18 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciDia = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDia.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnidadDiesel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnidadDiesel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDia)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -69,9 +75,10 @@
             this.bbiSalir,
             this.bbiMedidor,
             this.barStaticItem1,
-            this.bbiTanques});
+            this.bbiTanques,
+            this.bbiDiasAnterior});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -133,6 +140,15 @@
             this.bbiTanques.Id = 6;
             this.bbiTanques.Name = "bbiTanques";
             // 
+            // bbiDiasAnterior
+            // 
+            this.bbiDiasAnterior.Caption = "Días anteriores";
+            this.bbiDiasAnterior.Id = 7;
+            this.bbiDiasAnterior.ImageOptions.LargeImage = global::COMBUSTIBLE.WIN.Properties.Resources.icons8_plataforma_petrolera_32__3_1;
+            this.bbiDiasAnterior.Name = "bbiDiasAnterior";
+            this.bbiDiasAnterior.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiDiasAnterior.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDiasAnterior_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -148,6 +164,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiDiesel);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiMedidor);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiAgregarPedido);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDiasAnterior);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             // 
@@ -169,6 +186,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.dteDia);
             this.lcMain.Controls.Add(this.grdUnidadDiesel);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 122);
@@ -179,13 +197,33 @@
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // dteDia
+            // 
+            this.dteDia.EditValue = null;
+            this.dteDia.Location = new System.Drawing.Point(90, 12);
+            this.dteDia.MenuManager = this.ribbonControl1;
+            this.dteDia.Name = "dteDia";
+            this.dteDia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteDia.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteDia.Properties.DisplayFormat.FormatString = "D";
+            this.dteDia.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDia.Properties.EditFormat.FormatString = "D";
+            this.dteDia.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDia.Properties.Mask.EditMask = "D";
+            this.dteDia.Size = new System.Drawing.Size(378, 20);
+            this.dteDia.StyleController = this.lcMain;
+            this.dteDia.TabIndex = 5;
+            this.dteDia.EditValueChanged += new System.EventHandler(this.dteDia_EditValueChanged);
+            // 
             // grdUnidadDiesel
             // 
-            this.grdUnidadDiesel.Location = new System.Drawing.Point(12, 12);
+            this.grdUnidadDiesel.Location = new System.Drawing.Point(12, 36);
             this.grdUnidadDiesel.MainView = this.grvUnidadDiesel;
             this.grdUnidadDiesel.MenuManager = this.ribbonControl1;
             this.grdUnidadDiesel.Name = "grdUnidadDiesel";
-            this.grdUnidadDiesel.Size = new System.Drawing.Size(456, 449);
+            this.grdUnidadDiesel.Size = new System.Drawing.Size(456, 426);
             this.grdUnidadDiesel.TabIndex = 4;
             this.grdUnidadDiesel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnidadDiesel});
@@ -239,7 +277,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.lciDia});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(480, 496);
             this.layoutControlGroup1.TextVisible = false;
@@ -247,19 +286,29 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.grdUnidadDiesel;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(460, 453);
+            this.layoutControlItem1.Size = new System.Drawing.Size(460, 430);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 453);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 454);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(460, 23);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(460, 22);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciDia
+            // 
+            this.lciDia.Control = this.dteDia;
+            this.lciDia.Location = new System.Drawing.Point(0, 0);
+            this.lciDia.Name = "lciDia";
+            this.lciDia.Size = new System.Drawing.Size(460, 24);
+            this.lciDia.Text = "Seleccionar día:";
+            this.lciDia.TextSize = new System.Drawing.Size(75, 13);
+            this.lciDia.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // xfrmCapturaDiesel
             // 
@@ -277,11 +326,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dteDia.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnidadDiesel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvUnidadDiesel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciDia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +361,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarButtonItem bbiTanques;
+        private DevExpress.XtraEditors.DateEdit dteDia;
+        private DevExpress.XtraLayout.LayoutControlItem lciDia;
+        private DevExpress.XtraBars.BarButtonItem bbiDiasAnterior;
     }
 }
