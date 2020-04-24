@@ -33,7 +33,8 @@
         OnGuardar: function (e) {
             var result = e.validationGroup.validate();
             if (result.isValid) {
-
+                var Load = $("#loadPanel").dxLoadPanel("instance");
+                Load.show();
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/GuardarUnidadGasolina",
@@ -45,9 +46,11 @@
                         viewModel.Empleado(null);
                         viewModel.Unidad(null);
                         e.validationGroup.reset();
+                        Load.hide();
                         DevExpress.ui.notify(result.d, 'success', 4000);
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
+                        Load.hide();
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });

@@ -53,6 +53,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabDatosGenerales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainTabGeneral = new DevExpress.XtraLayout.LayoutControl();
+            this.chkAccesoSistema = new DevExpress.XtraEditors.CheckEdit();
             this.lueDepartamento = new DevExpress.XtraEditors.LookUpEdit();
             this.luePuesto = new DevExpress.XtraEditors.LookUpEdit();
             this.bbiSeleccionar = new DevExpress.XtraEditors.SimpleButton();
@@ -81,6 +82,7 @@
             this.lciDepartamento = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.TabDatosAdicionales = new DevExpress.XtraTab.XtraTabPage();
             this.lcMainAdicionales = new DevExpress.XtraLayout.LayoutControl();
             this.bbiMapa = new DevExpress.XtraEditors.SimpleButton();
@@ -104,8 +106,6 @@
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.chkAccesoSistema = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -126,6 +126,7 @@
             this.tabDatosGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).BeginInit();
             this.lcMainTabGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDepartamento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePuesto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsAdministrativo.Properties)).BeginInit();
@@ -151,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.TabDatosAdicionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).BeginInit();
             this.lcMainAdicionales.SuspendLayout();
@@ -175,8 +177,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // rbbnUsuario
@@ -439,6 +439,17 @@
             this.lcMainTabGeneral.Size = new System.Drawing.Size(630, 327);
             this.lcMainTabGeneral.TabIndex = 0;
             this.lcMainTabGeneral.Text = "layoutControl1";
+            // 
+            // chkAccesoSistema
+            // 
+            this.chkAccesoSistema.Location = new System.Drawing.Point(379, 12);
+            this.chkAccesoSistema.MenuManager = this.rbbnUsuario;
+            this.chkAccesoSistema.Name = "chkAccesoSistema";
+            this.chkAccesoSistema.Properties.Caption = "Tiene acceso al sistema";
+            this.chkAccesoSistema.Size = new System.Drawing.Size(134, 19);
+            this.chkAccesoSistema.StyleController = this.lcMainTabGeneral;
+            this.chkAccesoSistema.TabIndex = 17;
+            this.chkAccesoSistema.CheckedChanged += new System.EventHandler(this.chkAccesoSistema_CheckedChanged);
             // 
             // lueDepartamento
             // 
@@ -745,6 +756,15 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(20, 58);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.chkAccesoSistema;
+            this.layoutControlItem3.Location = new System.Drawing.Point(367, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(138, 23);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
             // TabDatosAdicionales
             // 
             this.TabDatosAdicionales.Controls.Add(this.lcMainAdicionales);
@@ -982,26 +1002,6 @@
             // 
             this.ofdFoto.FileName = null;
             // 
-            // chkAccesoSistema
-            // 
-            this.chkAccesoSistema.Location = new System.Drawing.Point(379, 12);
-            this.chkAccesoSistema.MenuManager = this.rbbnUsuario;
-            this.chkAccesoSistema.Name = "chkAccesoSistema";
-            this.chkAccesoSistema.Properties.Caption = "Tiene acceso al sistema";
-            this.chkAccesoSistema.Size = new System.Drawing.Size(134, 19);
-            this.chkAccesoSistema.StyleController = this.lcMainTabGeneral;
-            this.chkAccesoSistema.TabIndex = 17;
-            this.chkAccesoSistema.CheckedChanged += new System.EventHandler(this.chkAccesoSistema_CheckedChanged);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.chkAccesoSistema;
-            this.layoutControlItem3.Location = new System.Drawing.Point(367, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(138, 23);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
             // xfrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,6 +1034,7 @@
             this.tabDatosGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainTabGeneral)).EndInit();
             this.lcMainTabGeneral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDepartamento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePuesto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsAdministrativo.Properties)).EndInit();
@@ -1059,6 +1060,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.TabDatosAdicionales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcMainAdicionales)).EndInit();
             this.lcMainAdicionales.ResumeLayout(false);
@@ -1083,8 +1085,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAccesoSistema.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

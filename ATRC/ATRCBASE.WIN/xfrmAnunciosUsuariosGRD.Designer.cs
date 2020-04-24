@@ -40,7 +40,9 @@
             this.grdAnuncios = new DevExpress.XtraGrid.GridControl();
             this.grvAnuncios = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTipoAnuncio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -71,7 +73,7 @@
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowQatLocationSelector = false;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(534, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(591, 122);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevo
@@ -147,7 +149,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(534, 277);
+            this.lcMain.Size = new System.Drawing.Size(591, 277);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -157,7 +159,7 @@
             this.grdAnuncios.MainView = this.grvAnuncios;
             this.grdAnuncios.MenuManager = this.ribbonControl1;
             this.grdAnuncios.Name = "grdAnuncios";
-            this.grdAnuncios.Size = new System.Drawing.Size(510, 253);
+            this.grdAnuncios.Size = new System.Drawing.Size(567, 253);
             this.grdAnuncios.TabIndex = 4;
             this.grdAnuncios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvAnuncios});
@@ -166,7 +168,9 @@
             // 
             this.grvAnuncios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNombre,
-            this.colTipoAnuncio});
+            this.gridColumn2,
+            this.colTipoAnuncio,
+            this.gridColumn1});
             this.grvAnuncios.GridControl = this.grdAnuncios;
             this.grvAnuncios.Name = "grvAnuncios";
             this.grvAnuncios.OptionsBehavior.Editable = false;
@@ -183,6 +187,18 @@
             this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 0;
+            this.colNombre.Width = 236;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Lugar de publicación";
+            this.gridColumn2.FieldName = "LugarPublicar";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.AllowFocus = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 119;
             // 
             // colTipoAnuncio
             // 
@@ -192,7 +208,19 @@
             this.colTipoAnuncio.OptionsColumn.AllowEdit = false;
             this.colTipoAnuncio.OptionsColumn.AllowFocus = false;
             this.colTipoAnuncio.Visible = true;
-            this.colTipoAnuncio.VisibleIndex = 1;
+            this.colTipoAnuncio.VisibleIndex = 2;
+            this.colTipoAnuncio.Width = 130;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Publicado";
+            this.gridColumn1.FieldName = "Publicar";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.AllowFocus = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.Width = 64;
             // 
             // layoutControlGroup1
             // 
@@ -201,7 +229,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(534, 277);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(591, 277);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -209,7 +237,7 @@
             this.layoutControlItem1.Control = this.grdAnuncios;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(514, 257);
+            this.layoutControlItem1.Size = new System.Drawing.Size(571, 257);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -217,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 399);
+            this.ClientSize = new System.Drawing.Size(591, 399);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "xfrmAnunciosUsuariosGRD";
@@ -253,5 +281,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colTipoAnuncio;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

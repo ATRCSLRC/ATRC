@@ -33,35 +33,40 @@
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem4 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem13 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem14 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup7 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem15 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup7 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem17 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup8 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem17 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem18 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem19 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem20 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem21 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem22 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.rbnMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bvcAyuda = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.bvbiContraseña = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
@@ -161,6 +166,12 @@
             this.bbiUnidadesRenta = new DevExpress.XtraBars.BarButtonItem();
             this.rgbiReportesRutas = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.bbiAnunciosUsuarios = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTurnos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiServiciosRutas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPrecioServicio = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiImportarRutas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiServiciosRealizados = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReportesServicios = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -186,7 +197,7 @@
             this.rpgReportesTaller = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpRutas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgChecadorRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRutasExtras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgReportesRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -197,7 +208,7 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgReportesCombustible = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpGuardias = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgReportesGuardias = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgCombustiblesGuardias = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRecibosPago = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -310,9 +321,15 @@
             this.bbiUnidadesDisponibles,
             this.bbiUnidadesRenta,
             this.rgbiReportesRutas,
-            this.bbiAnunciosUsuarios});
+            this.bbiAnunciosUsuarios,
+            this.bbiTurnos,
+            this.bbiServiciosRutas,
+            this.bbiPrecioServicio,
+            this.bbiImportarRutas,
+            this.bbiServiciosRealizados,
+            this.bbiReportesServicios});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 98;
+            this.rbnMain.MaxItemId = 104;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -419,10 +436,15 @@
             galleryItem3.Description = "Total horas trabajadas semanales";
             galleryItem3.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage2")));
             galleryItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            galleryItem4.Description = "Rutas a pagar por usuario";
+            galleryItem4.Hint = "Rutas a pagar por usuario";
+            galleryItem4.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage3")));
+            galleryItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
             galleryItem1,
             galleryItem2,
-            galleryItem3});
+            galleryItem3,
+            galleryItem4});
             this.rgbiChecador.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup1});
             this.rgbiChecador.Gallery.ImageSize = new System.Drawing.Size(30, 30);
@@ -441,23 +463,23 @@
             this.rgbiUsuarios.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             this.rgbiUsuarios.Gallery.ColumnCount = 2;
             galleryItemGroup2.Caption = "Usuarios";
-            galleryItem4.Description = "Usuarios registrados";
-            galleryItem4.Hint = "Usuarios registrados";
-            galleryItem4.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage3")));
-            galleryItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            toolTipTitleItem1.Text = "Usuarios registrados";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            galleryItem4.SuperTip = superToolTip1;
-            galleryItem5.Description = "Direcciones de usuarios";
-            galleryItem5.Hint = "Direcciones de usuarios";
+            galleryItem5.Description = "Usuarios registrados";
+            galleryItem5.Hint = "Usuarios registrados";
             galleryItem5.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage4")));
             galleryItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            toolTipTitleItem1.Text = "Usuarios registrados";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            galleryItem5.SuperTip = superToolTip1;
+            galleryItem6.Description = "Direcciones de usuarios";
+            galleryItem6.Hint = "Direcciones de usuarios";
+            galleryItem6.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage5")));
+            galleryItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             toolTipTitleItem2.Text = "Direcciones de usuarios";
             superToolTip2.Items.Add(toolTipTitleItem2);
-            galleryItem5.SuperTip = superToolTip2;
+            galleryItem6.SuperTip = superToolTip2;
             galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem4,
-            galleryItem5});
+            galleryItem5,
+            galleryItem6});
             this.rgbiUsuarios.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup2});
             this.rgbiUsuarios.Gallery.ImageSize = new System.Drawing.Size(28, 28);
@@ -664,19 +686,19 @@
             this.rgbiReportesUnidades.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             this.rgbiReportesUnidades.Gallery.ColumnCount = 2;
             galleryItemGroup4.Caption = "Group1";
-            galleryItem6.Description = "Servicios";
-            galleryItem6.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage5")));
-            galleryItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            galleryItem7.Description = "Gastos por unidad";
+            galleryItem7.Description = "Servicios";
             galleryItem7.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage6")));
             galleryItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            galleryItem8.Description = "Radios";
+            galleryItem8.Description = "Gastos por unidad";
             galleryItem8.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage7")));
             galleryItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+            galleryItem9.Description = "Radios";
+            galleryItem9.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage8")));
+            galleryItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
             galleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem6,
             galleryItem7,
-            galleryItem8});
+            galleryItem8,
+            galleryItem9});
             this.rgbiReportesUnidades.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup4});
             this.rgbiReportesUnidades.Gallery.ImageSize = new System.Drawing.Size(30, 30);
@@ -734,15 +756,15 @@
             this.rgbiLlantas.Gallery.AllowHoverImages = true;
             this.rgbiLlantas.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             galleryItemGroup5.Caption = "Group1";
-            galleryItem9.Description = "Detalle de cambios de llantas";
-            galleryItem9.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage8")));
-            galleryItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-            galleryItem10.Description = "Detalles de reparación de llantas";
+            galleryItem10.Description = "Detalle de cambios de llantas";
             galleryItem10.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage9")));
             galleryItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
+            galleryItem11.Description = "Detalles de reparación de llantas";
+            galleryItem11.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage10")));
+            galleryItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
             galleryItemGroup5.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem9,
-            galleryItem10});
+            galleryItem10,
+            galleryItem11});
             this.rgbiLlantas.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup5});
             this.rgbiLlantas.Gallery.ShowItemText = true;
@@ -844,15 +866,16 @@
             // 
             // bbiPlantillasRutasExternas
             // 
-            this.bbiPlantillasRutasExternas.Caption = "Rutas fijas";
+            this.bbiPlantillasRutasExternas.Caption = "Plantillas de rutas";
             this.bbiPlantillasRutasExternas.Id = 45;
             this.bbiPlantillasRutasExternas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiPlantillasRutasExternas.ImageOptions.Image")));
             this.bbiPlantillasRutasExternas.Name = "bbiPlantillasRutasExternas";
+            this.bbiPlantillasRutasExternas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiPlantillasRutasExternas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPlantillasRutasExternas_ItemClick);
             // 
             // bbiRutasExternas
             // 
-            this.bbiRutasExternas.Caption = "Rutas";
+            this.bbiRutasExternas.Caption = "Generar rutas";
             this.bbiRutasExternas.Id = 46;
             this.bbiRutasExternas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRutasExternas.ImageOptions.LargeImage")));
             this.bbiRutasExternas.Name = "bbiRutasExternas";
@@ -983,27 +1006,27 @@
             this.rgbiCombustibles.Gallery.AllowHoverImages = true;
             this.rgbiCombustibles.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             galleryItemGroup6.Caption = "Combustibles";
-            galleryItem11.Description = "Consumo de combustible";
-            galleryItem11.Hint = "Consumo de combustible";
-            galleryItem11.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage10")));
-            galleryItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
-            galleryItem12.Description = "Recargas de combustible";
-            galleryItem12.Hint = "Recargas de combustible";
+            galleryItem12.Description = "Consumo de combustible";
+            galleryItem12.Hint = "Consumo de combustible";
             galleryItem12.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage11")));
             galleryItem12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
-            galleryItem13.Description = "Unidades con combustible";
-            galleryItem13.Hint = "Unidades con combustible";
+            galleryItem13.Description = "Recargas de combustible";
+            galleryItem13.Hint = "Recargas de combustible";
             galleryItem13.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage12")));
             galleryItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
-            galleryItem14.Description = "Detalles de medidores";
-            galleryItem14.Hint = "Detalles de medidores";
-            galleryItem14.ImageOptions.HoverImage = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
-            galleryItem14.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
+            galleryItem14.Description = "Unidades con combustible";
+            galleryItem14.Hint = "Unidades con combustible";
+            galleryItem14.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage13")));
+            galleryItem14.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
+            galleryItem15.Description = "Detalles de medidores";
+            galleryItem15.Hint = "Detalles de medidores";
+            galleryItem15.ImageOptions.HoverImage = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
+            galleryItem15.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_indicador_de_barómetro_32;
             galleryItemGroup6.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem11,
             galleryItem12,
             galleryItem13,
-            galleryItem14});
+            galleryItem14,
+            galleryItem15});
             this.rgbiCombustibles.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup6});
             this.rgbiCombustibles.Gallery.ImageSize = new System.Drawing.Size(28, 28);
@@ -1069,23 +1092,23 @@
             this.rgbiTaller.Gallery.AllowHoverImages = true;
             this.rgbiTaller.Gallery.CheckDrawMode = DevExpress.XtraBars.Ribbon.Gallery.CheckDrawMode.ImageAndText;
             galleryItemGroup7.Caption = "Taller";
-            galleryItem15.Description = "Actividades de taller por empleado";
-            galleryItem15.Hint = "Actividades de taller por empleado";
-            galleryItem15.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage13")));
-            galleryItem15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
-            toolTipTitleItem3.Text = "Actividades de taller por empleado";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            galleryItem15.SuperTip = superToolTip3;
-            galleryItem16.Description = "Actividades de taller por día";
-            galleryItem16.Hint = "Actividades de taller por día";
+            galleryItem16.Description = "Actividades de taller por empleado";
+            galleryItem16.Hint = "Actividades de taller por empleado";
             galleryItem16.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage14")));
             galleryItem16.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
+            toolTipTitleItem3.Text = "Actividades de taller por empleado";
+            superToolTip3.Items.Add(toolTipTitleItem3);
+            galleryItem16.SuperTip = superToolTip3;
+            galleryItem17.Description = "Actividades de taller por día";
+            galleryItem17.Hint = "Actividades de taller por día";
+            galleryItem17.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage15")));
+            galleryItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
             toolTipTitleItem4.Text = "Actividades de taller por día";
             superToolTip4.Items.Add(toolTipTitleItem4);
-            galleryItem16.SuperTip = superToolTip4;
+            galleryItem17.SuperTip = superToolTip4;
             galleryItemGroup7.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem15,
-            galleryItem16});
+            galleryItem16,
+            galleryItem17});
             this.rgbiTaller.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup7});
             this.rgbiTaller.Gallery.ImageSize = new System.Drawing.Size(28, 28);
@@ -1332,12 +1355,33 @@
             // 
             // 
             // 
+            this.rgbiReportesRutas.Gallery.ColumnCount = 3;
             galleryItemGroup8.Caption = "Group1";
-            galleryItem17.Description = "Total horas trabajadas semanales";
-            galleryItem17.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage15")));
-            galleryItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
+            galleryItem18.Description = "Total horas trabajadas semanales";
+            galleryItem18.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage16")));
+            galleryItem18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
+            galleryItem19.Description = "Rutas fijas";
+            galleryItem19.Hint = "Rutas fijas";
+            galleryItem19.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage17")));
+            galleryItem19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
+            galleryItem20.Description = "Rutas extras";
+            galleryItem20.Hint = "Rutas extras";
+            galleryItem20.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage18")));
+            galleryItem20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
+            galleryItem21.Description = "Rutas a pagar por usuario";
+            galleryItem21.Hint = "Rutas fijas por usuario";
+            galleryItem21.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage19")));
+            galleryItem21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image19")));
+            galleryItem22.Description = "Rutas del usuario";
+            galleryItem22.Hint = "Rutas del usuario";
+            galleryItem22.ImageOptions.HoverImage = ((System.Drawing.Image)(resources.GetObject("resource.HoverImage20")));
+            galleryItem22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image20")));
             galleryItemGroup8.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem17});
+            galleryItem18,
+            galleryItem19,
+            galleryItem20,
+            galleryItem21,
+            galleryItem22});
             this.rgbiReportesRutas.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup8});
             this.rgbiReportesRutas.Gallery.ImageSize = new System.Drawing.Size(30, 30);
@@ -1354,6 +1398,54 @@
             this.bbiAnunciosUsuarios.Name = "bbiAnunciosUsuarios";
             this.bbiAnunciosUsuarios.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiAnunciosUsuarios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAnunciosUsuarios_ItemClick);
+            // 
+            // bbiTurnos
+            // 
+            this.bbiTurnos.Caption = "Turnos";
+            this.bbiTurnos.Id = 98;
+            this.bbiTurnos.Name = "bbiTurnos";
+            this.bbiTurnos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTurnos_ItemClick);
+            // 
+            // bbiServiciosRutas
+            // 
+            this.bbiServiciosRutas.Caption = "Servicios";
+            this.bbiServiciosRutas.Id = 99;
+            this.bbiServiciosRutas.Name = "bbiServiciosRutas";
+            this.bbiServiciosRutas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiServiciosRutas_ItemClick);
+            // 
+            // bbiPrecioServicio
+            // 
+            this.bbiPrecioServicio.Caption = "Precios de servicios";
+            this.bbiPrecioServicio.Id = 100;
+            this.bbiPrecioServicio.Name = "bbiPrecioServicio";
+            this.bbiPrecioServicio.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrecioServicio_ItemClick);
+            // 
+            // bbiImportarRutas
+            // 
+            this.bbiImportarRutas.Caption = "Importación de rutas";
+            this.bbiImportarRutas.Id = 101;
+            this.bbiImportarRutas.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_ms_excel_32;
+            this.bbiImportarRutas.Name = "bbiImportarRutas";
+            this.bbiImportarRutas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiImportarRutas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImportarRutas_ItemClick);
+            // 
+            // bbiServiciosRealizados
+            // 
+            this.bbiServiciosRealizados.Caption = "Servicios realizados";
+            this.bbiServiciosRealizados.Id = 102;
+            this.bbiServiciosRealizados.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_servicios_32;
+            this.bbiServiciosRealizados.Name = "bbiServiciosRealizados";
+            this.bbiServiciosRealizados.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiServiciosRealizados.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiServiciosRealizados_ItemClick);
+            // 
+            // bbiReportesServicios
+            // 
+            this.bbiReportesServicios.Caption = "Consulta reportes de servicios";
+            this.bbiReportesServicios.Id = 103;
+            this.bbiReportesServicios.ImageOptions.LargeImage = global::ATRC.Properties.Resources.icons8_servicios_32__1_;
+            this.bbiReportesServicios.Name = "bbiReportesServicios";
+            this.bbiReportesServicios.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiReportesServicios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReportesServicios_ItemClick);
             // 
             // rbnpUsuarios
             // 
@@ -1574,7 +1666,7 @@
             // 
             this.rbnpRutas.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgRutas,
-            this.ribbonPageGroup2,
+            this.rpgChecadorRutas,
             this.rpgRutasExtras,
             this.rpgReportesRutas});
             this.rbnpRutas.Name = "rbnpRutas";
@@ -1590,24 +1682,29 @@
             this.rpgRutas.ShowCaptionButton = false;
             this.rpgRutas.Text = "Rutas";
             // 
-            // ribbonPageGroup2
+            // rpgChecadorRutas
             // 
-            this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiChecadorRutas);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiRegistrosRutas);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Checador";
+            this.rpgChecadorRutas.AllowTextClipping = false;
+            this.rpgChecadorRutas.ItemLinks.Add(this.bbiChecadorRutas);
+            this.rpgChecadorRutas.ItemLinks.Add(this.bbiRegistrosRutas);
+            this.rpgChecadorRutas.Name = "rpgChecadorRutas";
+            this.rpgChecadorRutas.ShowCaptionButton = false;
+            this.rpgChecadorRutas.Text = "Checador";
             // 
             // rpgRutasExtras
             // 
             this.rpgRutasExtras.AllowTextClipping = false;
             this.rpgRutasExtras.ItemLinks.Add(this.bbiRutasExternas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiPlantillasRutasExternas);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiImportarRutas);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRealizados);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiReportesServicios);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiTurnos);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRutas);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiPrecioServicio);
             this.rpgRutasExtras.Name = "rpgRutasExtras";
             this.rpgRutasExtras.ShowCaptionButton = false;
-            this.rpgRutasExtras.Text = "Rutas extras";
-            this.rpgRutasExtras.Visible = false;
+            this.rpgRutasExtras.Text = "Rutas ";
             // 
             // rpgReportesRutas
             // 
@@ -1686,7 +1783,7 @@
             // rbnpGuardias
             // 
             this.rbnpGuardias.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3,
+            this.rpgReportesGuardias,
             this.rpgCombustiblesGuardias,
             this.rpgRecibosPago,
             this.rpgRentas,
@@ -1694,15 +1791,15 @@
             this.rbnpGuardias.Name = "rbnpGuardias";
             this.rbnpGuardias.Text = "Guardias";
             // 
-            // ribbonPageGroup3
+            // rpgReportesGuardias
             // 
-            this.ribbonPageGroup3.AllowMinimize = false;
-            this.ribbonPageGroup3.AllowTextClipping = false;
-            this.ribbonPageGroup3.ItemLinks.Add(this.bbiReporteNuevo);
-            this.ribbonPageGroup3.ItemLinks.Add(this.bbiReportesAcciones);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.ShowCaptionButton = false;
-            this.ribbonPageGroup3.Text = "Reportes";
+            this.rpgReportesGuardias.AllowMinimize = false;
+            this.rpgReportesGuardias.AllowTextClipping = false;
+            this.rpgReportesGuardias.ItemLinks.Add(this.bbiReporteNuevo);
+            this.rpgReportesGuardias.ItemLinks.Add(this.bbiReportesAcciones);
+            this.rpgReportesGuardias.Name = "rpgReportesGuardias";
+            this.rpgReportesGuardias.ShowCaptionButton = false;
+            this.rpgReportesGuardias.Text = "Reportes";
             // 
             // rpgCombustiblesGuardias
             // 
@@ -1890,7 +1987,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiEmpresa;
         private DevExpress.XtraBars.BarButtonItem bbiMapaEmpresa;
         private DevExpress.XtraBars.BarButtonItem bbiChecadorRutas;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgChecadorRutas;
         private DevExpress.XtraBars.BarButtonItem bbiCodigos;
         private DevExpress.XtraBars.BarButtonItem bbiChecadorAdmin;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnpAdministracion;
@@ -1904,7 +2001,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiReportesAcciones;
         private DevExpress.XtraBars.BarButtonItem bbiListaDiesel;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnpGuardias;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReportesGuardias;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCombustiblesGuardias;
         private DevExpress.XtraBars.BarButtonItem bbiExtintores;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgExtintores;
@@ -1965,5 +2062,11 @@
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiReportesRutas;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReportesRutas;
         private DevExpress.XtraBars.BarButtonItem bbiAnunciosUsuarios;
+        private DevExpress.XtraBars.BarButtonItem bbiTurnos;
+        private DevExpress.XtraBars.BarButtonItem bbiServiciosRutas;
+        private DevExpress.XtraBars.BarButtonItem bbiPrecioServicio;
+        private DevExpress.XtraBars.BarButtonItem bbiImportarRutas;
+        private DevExpress.XtraBars.BarButtonItem bbiServiciosRealizados;
+        private DevExpress.XtraBars.BarButtonItem bbiReportesServicios;
     }
 }

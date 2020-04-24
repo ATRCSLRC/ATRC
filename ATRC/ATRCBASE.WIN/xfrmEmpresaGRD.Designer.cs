@@ -40,10 +40,14 @@
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdEmpresa = new DevExpress.XtraGrid.GridControl();
             this.grvEmpresa = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colClave = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColDireccion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colRFC = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -70,7 +74,7 @@
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbnMain.ShowToolbarCustomizeItem = false;
-            this.rbnMain.Size = new System.Drawing.Size(510, 122);
+            this.rbnMain.Size = new System.Drawing.Size(729, 122);
             this.rbnMain.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevo
@@ -144,7 +148,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 122);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(510, 281);
+            this.lcMain.Size = new System.Drawing.Size(729, 281);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -154,7 +158,7 @@
             this.grdEmpresa.MainView = this.grvEmpresa;
             this.grdEmpresa.MenuManager = this.rbnMain;
             this.grdEmpresa.Name = "grdEmpresa";
-            this.grdEmpresa.Size = new System.Drawing.Size(486, 257);
+            this.grdEmpresa.Size = new System.Drawing.Size(705, 257);
             this.grdEmpresa.TabIndex = 4;
             this.grdEmpresa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvEmpresa});
@@ -162,8 +166,12 @@
             // grvEmpresa
             // 
             this.grvEmpresa.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID,
-            this.colNombre});
+            this.colClave,
+            this.colNombre,
+            this.colRFC,
+            this.ColDireccion,
+            this.colTel,
+            this.colLocacion});
             this.grvEmpresa.GridControl = this.grdEmpresa;
             this.grvEmpresa.Name = "grvEmpresa";
             this.grvEmpresa.OptionsBehavior.Editable = false;
@@ -173,25 +181,60 @@
             this.grvEmpresa.OptionsView.ShowDetailButtons = false;
             this.grvEmpresa.OptionsView.ShowGroupPanel = false;
             // 
-            // colID
+            // colClave
             // 
-            this.colID.Caption = "ID";
-            this.colID.FieldName = "Oid";
-            this.colID.Name = "colID";
-            this.colID.OptionsColumn.AllowFocus = false;
-            this.colID.Visible = true;
-            this.colID.VisibleIndex = 0;
-            this.colID.Width = 70;
+            this.colClave.Caption = "Clave";
+            this.colClave.FieldName = "Clave";
+            this.colClave.Name = "colClave";
+            this.colClave.OptionsColumn.AllowEdit = false;
+            this.colClave.OptionsColumn.AllowFocus = false;
+            this.colClave.Visible = true;
+            this.colClave.VisibleIndex = 0;
+            this.colClave.Width = 37;
             // 
             // colNombre
             // 
             this.colNombre.Caption = "Nombre";
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.OptionsColumn.AllowEdit = false;
             this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
-            this.colNombre.Width = 398;
+            this.colNombre.Width = 176;
+            // 
+            // ColDireccion
+            // 
+            this.ColDireccion.Caption = "Dirección";
+            this.ColDireccion.FieldName = "Direccion";
+            this.ColDireccion.Name = "ColDireccion";
+            this.ColDireccion.OptionsColumn.AllowEdit = false;
+            this.ColDireccion.OptionsColumn.AllowFocus = false;
+            this.ColDireccion.Visible = true;
+            this.ColDireccion.VisibleIndex = 3;
+            this.ColDireccion.Width = 153;
+            // 
+            // colTel
+            // 
+            this.colTel.Caption = "Tel";
+            this.colTel.FieldName = "Tel";
+            this.colTel.Name = "colTel";
+            this.colTel.OptionsColumn.AllowEdit = false;
+            this.colTel.OptionsColumn.AllowFocus = false;
+            this.colTel.Visible = true;
+            this.colTel.VisibleIndex = 4;
+            this.colTel.Width = 82;
+            // 
+            // colLocacion
+            // 
+            this.colLocacion.Caption = "Locación";
+            this.colLocacion.FieldName = "Locacion";
+            this.colLocacion.Name = "colLocacion";
+            this.colLocacion.OptionsColumn.AllowEdit = false;
+            this.colLocacion.OptionsColumn.AllowFocus = false;
+            this.colLocacion.Visible = true;
+            this.colLocacion.VisibleIndex = 5;
+            this.colLocacion.Width = 140;
             // 
             // layoutControlGroup1
             // 
@@ -200,7 +243,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(510, 281);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(729, 281);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -208,15 +251,26 @@
             this.layoutControlItem1.Control = this.grdEmpresa;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(490, 261);
+            this.layoutControlItem1.Size = new System.Drawing.Size(709, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // colRFC
+            // 
+            this.colRFC.Caption = "RFC";
+            this.colRFC.FieldName = "RFC";
+            this.colRFC.Name = "colRFC";
+            this.colRFC.OptionsColumn.AllowEdit = false;
+            this.colRFC.OptionsColumn.AllowFocus = false;
+            this.colRFC.Visible = true;
+            this.colRFC.VisibleIndex = 2;
+            this.colRFC.Width = 99;
             // 
             // xfrmEmpresaGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 403);
+            this.ClientSize = new System.Drawing.Size(729, 403);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -251,7 +305,11 @@
         private DevExpress.XtraBars.BarButtonItem bbiModificar;
         private DevExpress.XtraBars.BarButtonItem bbiEliminar;
         private DevExpress.XtraBars.BarButtonItem bbiSalir;
-        private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colClave;
+        private DevExpress.XtraGrid.Columns.GridColumn ColDireccion;
+        private DevExpress.XtraGrid.Columns.GridColumn colTel;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocacion;
+        private DevExpress.XtraGrid.Columns.GridColumn colRFC;
     }
 }

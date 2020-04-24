@@ -34,7 +34,7 @@ namespace REPORTES.Guardias
                         new ViewProperty("DiaRegreso", SortDirection.None, "[DiaRegreso]", false, true),
                         new ViewProperty("DiaRegresoOriginal", SortDirection.None, "[DiaRegresoOriginal]", false, true),
                         new ViewProperty("Recargos", SortDirection.None, "[Recargos]", false, true),
-                        new ViewProperty("Total", SortDirection.None, "iif([EstadoContrato] == 4, [Total] - [CantidadDevuelta] ,[Total])", false, true),
+                        new ViewProperty("Total", SortDirection.None, "iif([EstadoContrato] == 4, ([Anticipo] + [Abono]) - [CantidadDevuelta] ,[Total])", false, true),
                         new ViewProperty("Iva", SortDirection.None, "[Iva]", false, true),
                         new ViewProperty("Costo", SortDirection.None, "[Costo]", false, true),
                         new ViewProperty("DiasRenta", SortDirection.None, "[DiasRenta]", false, true),
@@ -68,7 +68,7 @@ namespace REPORTES.Guardias
                 if (GetCurrentColumnValue("HoraRegresoOriginal") != null)
                     TimeRegreso = new DateTime(((TimeSpan)GetCurrentColumnValue("HoraRegresoOriginal")).Ticks);
                 Enums.EstadoContrato Estado = ((Enums.EstadoContrato)GetCurrentColumnValue("EstadoContrato"));
-                lblComentarios.Text = Estado == Enums.EstadoContrato.Creado ? "Aun no se ha ido en renta." : GetCurrentColumnValue("Comentarios") + " Hora de salida: " + TimeSalida.ToShortTimeString() + (Estado == Enums.EstadoContrato.Terminado ? " hora de regreso: " + TimeRegreso.ToShortTimeString() : "");
+                lblComentarios.Text = Estado == Enums.EstadoContrato.Creado ? "Aun no se ha ido en renta." : GetCurrentColumnValue("Comentarios") + (Estado == Enums.EstadoContrato.Cancelado ? "" : " Hora de salida: " + TimeSalida.ToShortTimeString()) + (Estado == Enums.EstadoContrato.Terminado ? " hora de regreso: " + TimeRegreso.ToShortTimeString() : "");
             }
         }
     }

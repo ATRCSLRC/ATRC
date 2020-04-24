@@ -21,6 +21,7 @@
                 </div>
 
             </div>
+            <div id="loadPanel" data-bind="dxLoadPanel: { message: 'Loading...', visible: false, showIndicator: true, showPane: true, shading: true, closeOnOutsideClick: false }"></div>
         </div>
     </div>
 </div>

@@ -129,7 +129,10 @@ namespace CHECADOR.WIN
             }
             //XPCollection<HistoricoChecadas> Checadas = new XPCollection<HistoricoChecadas>(Unidad, go);
             XPView Checadas = new XPView(Unidad, typeof(HistoricoChecadas), "Oid;FechaChecada;HoraChecadaEntrada;HoraChecadaSalida;Usuario.Usuario.NumEmpleado;Motivo;Usuario.Usuario.Imagen;Usuario.Usuario.Nombre", go);
-            Checadas.Sorting.Add(new SortingCollection(new SortProperty("HoraChecadaEntrada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            SortingCollection sc = new SortingCollection();
+            sc.Add(new SortingCollection(new SortProperty("FechaChecada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            sc.Add(new SortingCollection(new SortProperty("HoraChecadaEntrada", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            Checadas.Sorting = sc;
             grdHistorialChecadas.DataSource = Checadas;
             DetalleChecada.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             ftpDetalleChecada.HidePopup();

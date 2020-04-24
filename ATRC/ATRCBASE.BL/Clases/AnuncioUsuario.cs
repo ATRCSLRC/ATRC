@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static ATRCBASE.BL.Enums;
 
 namespace ATRCBASE.BL
 {
@@ -25,6 +26,20 @@ namespace ATRCBASE.BL
         {
             get { return mTipoAnuncio; }
             set { SetPropertyValue<string>("TipoAnuncio", ref mTipoAnuncio, value); }
+        }
+
+        private bool mPublicar;
+        public bool Publicar
+        {
+            get { return mPublicar; }
+            set { SetPropertyValue<bool>("Publicar", ref mPublicar, value); }
+        }
+
+        private LugarPublicar mLugarPublicar;
+        public LugarPublicar LugarPublicar
+        {
+            get { return mLugarPublicar; }
+            set { SetPropertyValue<LugarPublicar>("LugarPublicar", ref mLugarPublicar, value); }
         }
 
         [Delayed]

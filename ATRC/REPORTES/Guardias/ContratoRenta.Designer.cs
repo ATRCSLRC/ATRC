@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContratoRenta));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblArrendador = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
@@ -127,7 +127,7 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel2,
-            this.xrLabel21,
+            this.lblArrendador,
             this.xrLabel16,
             this.xrLabel17,
             this.xrLabel13,
@@ -220,17 +220,17 @@
             this.xrLabel2.Text = "AUTO TRANSPORTES DEL RIO COLORADO, S.A DE C.V";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
-            // xrLabel21
+            // lblArrendador
             // 
-            this.xrLabel21.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(445.791F, 669.9583F);
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(251.0836F, 37.83337F);
-            this.xrLabel21.StylePriority.UseFont = false;
-            this.xrLabel21.StylePriority.UseTextAlignment = false;
-            this.xrLabel21.Text = "AUTO TRANSPORTES DEL RIO COLORADO, S.A DE C.V";
-            this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.lblArrendador.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrendador.LocationFloat = new DevExpress.Utils.PointFloat(445.791F, 669.9583F);
+            this.lblArrendador.Name = "lblArrendador";
+            this.lblArrendador.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblArrendador.SizeF = new System.Drawing.SizeF(251.0836F, 37.83337F);
+            this.lblArrendador.StylePriority.UseFont = false;
+            this.lblArrendador.StylePriority.UseTextAlignment = false;
+            this.lblArrendador.Text = "AUTO TRANSPORTES DEL RIO COLORADO, S.A DE C.V";
+            this.lblArrendador.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel16
             // 
@@ -1054,7 +1054,7 @@
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseForeColor = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "RFC. ATRC-910625-DX1";
+            this.xrLabel6.Text = "RFC. ATR-910625-DX1";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lblColor
@@ -1257,7 +1257,7 @@
         private DevExpress.XtraReports.UI.XRLabel lblTitulo;
         private DevExpress.XtraReports.UI.XRLabel lblDetalle;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel21;
+        private DevExpress.XtraReports.UI.XRLabel lblArrendador;
         private DevExpress.XtraReports.UI.XRLabel xrLabel16;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;

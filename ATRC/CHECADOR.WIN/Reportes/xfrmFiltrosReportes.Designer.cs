@@ -175,6 +175,7 @@
             // dteAl
             // 
             this.dteAl.EditValue = null;
+            this.dteAl.EnterMoveNextControl = true;
             this.dteAl.Location = new System.Drawing.Point(411, 42);
             this.dteAl.MenuManager = this.ribbonControl1;
             this.dteAl.Name = "dteAl";
@@ -192,6 +193,7 @@
             // dteDel
             // 
             this.dteDel.EditValue = null;
+            this.dteDel.EnterMoveNextControl = true;
             this.dteDel.Location = new System.Drawing.Point(121, 42);
             this.dteDel.MenuManager = this.ribbonControl1;
             this.dteDel.Name = "dteDel";

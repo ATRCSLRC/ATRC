@@ -28,12 +28,21 @@ namespace CHECADOR.WIN
         UnidadDeTrabajo UnidadConsulta;
         private void bbiImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(dteDel.DateTime.Date > dteAl.DateTime.Date)
+            if(Titulo != "Rutas fijas" & Titulo != "Rutas extras")
             {
-                XtraMessageBox.Show("La primera fecha no debe ser mayor a segunda.");
-                return;
+                if (dteDel.DateTime.Date > dteAl.DateTime.Date)
+                {
+                    XtraMessageBox.Show("La primera fecha no debe ser mayor a segunda.");
+                    return;
+                }
+                if (rgTipoBusqueda.SelectedIndex == 1 & string.IsNullOrEmpty(btnNumUsuario.Text))
+                {
+                    XtraMessageBox.Show("Debe de ingresar un número de empleado.");
+                    return;
+                }
             }
-            if(rgTipoBusqueda.SelectedIndex == 1 & string.IsNullOrEmpty(btnNumUsuario.Text))
+
+            if(Titulo == "Rutas del usuario" & string.IsNullOrEmpty(btnNumUsuario.Text))
             {
                 XtraMessageBox.Show("Debe de ingresar un número de empleado.");
                 return;
@@ -61,6 +70,40 @@ namespace CHECADOR.WIN
                     ReportPrintTool repTotalHoras = new ReportPrintTool(new REPORTES.Usuarios.Usuarios(dteDel.DateTime, dteAl.DateTime, Todos));
                     repTotalHoras.ShowPreview();
                     break;
+                case "Rutas fijas":
+                    ReportPrintTool repRutasFijas = new ReportPrintTool(new REPORTES.Rutas.ReporteRutasFijas(dteDel.DateTime.Date));
+                    repRutasFijas.ShowPreview();
+                    break;
+                case "Rutas extras":
+                    ReportPrintTool repRutasExtras = new ReportPrintTool(new REPORTES.Rutas.ReporteRutasExtras(dteDel.DateTime.Date));
+                    repRutasExtras.ShowPreview();
+                    break;
+                case "Rutas a pagar por usuario":
+                    string atrc = "AutoTransportes del Río Colorado S.A. de C.V.";
+                    string green = "Servicios Administrativos Greenwood SAG S DE RL DE CV";
+                    REPORTES.Rutas.RutasFijasUsuario repRutasOperGreen = new REPORTES.Rutas.RutasFijasUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, green, false);
+                    repRutasOperGreen.CreateDocument();
+
+                    REPORTES.Rutas.RutasFijasUsuario repRutasAdimGreen = new REPORTES.Rutas.RutasFijasUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, green, true);
+                    repRutasAdimGreen.CreateDocument();
+                    repRutasOperGreen.Pages.AddRange(repRutasAdimGreen.Pages);
+
+                    REPORTES.Rutas.RutasFijasUsuario repRutasOperAtrc = new REPORTES.Rutas.RutasFijasUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, atrc, false);
+                    repRutasOperAtrc.CreateDocument();
+                    repRutasOperGreen.Pages.AddRange(repRutasOperAtrc.Pages);
+
+                    REPORTES.Rutas.RutasFijasUsuario repRutasAdimAtrc = new REPORTES.Rutas.RutasFijasUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, atrc, true);
+                    repRutasAdimAtrc.CreateDocument();
+                    repRutasOperGreen.Pages.AddRange(repRutasAdimAtrc.Pages);
+                    
+                    
+                    ReportPrintTool Rutas = new ReportPrintTool(repRutasOperGreen);
+                    Rutas.ShowPreview();
+                    break;
+                case "Rutas del usuario":
+                    ReportPrintTool repRutasDelUsuario = new ReportPrintTool(new REPORTES.Rutas.RutasPorUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, Convert.ToInt32(btnNumUsuario.Text)));
+                    repRutasDelUsuario.ShowPreview();
+                    break;
             }
             
         }
@@ -81,6 +124,15 @@ namespace CHECADOR.WIN
                 lciNumUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
+            if(Titulo == "Rutas fijas" || Titulo == "Rutas extras")
+            {
+                lciHasta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
+
+            if(Titulo == "Rutas del usuario")
+            {
+                lciNumUsuario.Visibility = lciNombre.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             }
         }
 

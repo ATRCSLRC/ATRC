@@ -145,6 +145,36 @@
     <Compile Include="Rutas\ReporteRutasExtras.Designer.cs">
       <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rutas\ReporteRutasFijas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasFijas.Designer.cs">
+      <DependentUpon>ReporteRutasFijas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasExtrasUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasExtrasUsuario.Designer.cs">
+      <DependentUpon>RutasExtrasUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasFijasUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasFijasUsuario.Designer.cs">
+      <DependentUpon>RutasFijasUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasPorUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasPorUsuario.Designer.cs">
+      <DependentUpon>RutasPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\ServiciosRealizadosEmpresa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ServiciosRealizadosEmpresa.Designer.cs">
+      <DependentUpon>ServiciosRealizadosEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Taller\BitacoraActividadesEmpleadosTaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -267,6 +297,23 @@
     </Compile>
     <EmbeddedResource Include="Rutas\ReporteRutasExtras.resx">
       <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ReporteRutasFijas.resx">
+      <DependentUpon>ReporteRutasFijas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasExtrasUsuario.resx">
+      <DependentUpon>RutasExtrasUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasFijasUsuario.resx">
+      <DependentUpon>RutasFijasUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasPorUsuario.resx">
+      <DependentUpon>RutasPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ServiciosRealizadosEmpresa.resx">
+      <DependentUpon>ServiciosRealizadosEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Taller\BitacoraActividadesEmpleadosTaller.resx">
       <DependentUpon>BitacoraActividadesEmpleadosTaller.cs</DependentUpon>

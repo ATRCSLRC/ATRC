@@ -196,5 +196,12 @@ namespace ATRCBASE.BL
             Apartado = 3,
             Cancelado = 4
         }
+        public enum LugarPublicar
+        {
+            Comedor = 0,
+            Caseta = 1,
+            Recepcion = 2, 
+            Todas = 3
+        }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleDeUnidad));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -104,7 +103,7 @@
             this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -201,7 +200,7 @@
             this.xrLabel55.LocationFloat = new DevExpress.Utils.PointFloat(0F, 582.1909F);
             this.xrLabel55.Name = "xrLabel55";
             this.xrLabel55.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel55.SizeF = new System.Drawing.SizeF(753F, 35.5F);
+            this.xrLabel55.SizeF = new System.Drawing.SizeF(753F, 26.13F);
             this.xrLabel55.StylePriority.UseBackColor = false;
             this.xrLabel55.StylePriority.UseFont = false;
             this.xrLabel55.StylePriority.UseForeColor = false;
@@ -378,7 +377,7 @@
             this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(0F, 374.8992F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel32.SizeF = new System.Drawing.SizeF(753.0001F, 35.50003F);
+            this.xrLabel32.SizeF = new System.Drawing.SizeF(753.0001F, 26.13F);
             this.xrLabel32.StylePriority.UseBackColor = false;
             this.xrLabel32.StylePriority.UseFont = false;
             this.xrLabel32.StylePriority.UseForeColor = false;
@@ -799,10 +798,10 @@
             this.xrLabel13.BackColor = System.Drawing.Color.Red;
             this.xrLabel13.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel13.ForeColor = System.Drawing.Color.White;
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(0F, 193.4826F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(0F, 195.5659F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel13.SizeF = new System.Drawing.SizeF(753F, 35.50002F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(753F, 26.12503F);
             this.xrLabel13.StylePriority.UseBackColor = false;
             this.xrLabel13.StylePriority.UseFont = false;
             this.xrLabel13.StylePriority.UseForeColor = false;
@@ -1040,7 +1039,7 @@
             this.Version = "17.2";
             this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("DetalleDeUnidad.Watermark.Image")));
             this.Watermark.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.Watermark.ImageTransparency = 200;
+            this.Watermark.ImageTransparency = 255;
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

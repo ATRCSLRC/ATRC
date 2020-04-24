@@ -38,7 +38,8 @@
         OnGuardarRecarga: function (e) {
             var result = e.validationGroup.validate();
             if (result.isValid) {
-                
+                var Load = $("#loadPanel").dxLoadPanel("instance");
+                Load.show();
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/GuardarRecarga",
@@ -53,9 +54,11 @@
                         viewModel.Proveedor(null);
                         viewModel.SeleccionTanque(null);
                         e.validationGroup.reset();
+                        Load.hide();
                         DevExpress.ui.notify('Recarga guardada', 'success', 4000);
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
+                        Load.hide();
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });

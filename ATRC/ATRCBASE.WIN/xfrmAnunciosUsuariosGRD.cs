@@ -26,7 +26,7 @@ namespace ATRCBASE.WIN
             bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarAnuncio");
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarAnuncio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio", null);
+            XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Publicar;LugarPublicar", null);
             //Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdAnuncios.DataSource = Usuarios;
         }

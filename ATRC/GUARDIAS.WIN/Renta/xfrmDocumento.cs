@@ -65,6 +65,9 @@ namespace GUARDIAS.WIN
                     txtNombre.Text = Doc.Nombre;
                     dteVigencia.DateTime = Doc.FechaVigencia;
                     btnArchivo.Text = string.IsNullOrEmpty(Doc.Archivo) ? "No hay documentos" : "Existe un documento";
+                }else
+                {
+                    dteVigencia.DateTime = DateTime.Now.AddMonths(4);
                 }
             }else
             {
@@ -74,6 +77,9 @@ namespace GUARDIAS.WIN
                     txtNombre.Text = Doc.Nombre;
                     dteVigencia.DateTime = Doc.FechaVigencia;
                     btnArchivo.Text = string.IsNullOrEmpty(Doc.Archivo) ? "No hay documentos" : "Existe un documento";
+                }else
+                {
+                    dteVigencia.DateTime = DateTime.Now.AddMonths(4);
                 }
             }
 

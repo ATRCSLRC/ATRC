@@ -103,9 +103,29 @@ namespace RUTAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancelar_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancelar-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_prioridad_media_34 {
             get {
                 object obj = ResourceManager.GetObject("icons8-prioridad-media-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ruta_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ruta-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -393,6 +393,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_ms_excel_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ms-excel-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_neumático_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-neumático-32", resourceCulture);
@@ -516,6 +526,26 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_ruta_34 {
             get {
                 object obj = ResourceManager.GetObject("icons8-ruta-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_servicios_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-servicios-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_servicios_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-servicios-32 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

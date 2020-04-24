@@ -82,7 +82,6 @@ namespace GUARDIAS.WIN
                 lciUsuario.Visibility = /*espacio.Visibility =*/ lblInstrucciones.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lblCliente.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 this.Size= new Size(840, 710);
-                Contrato.Session.Delete(Contrato.Documentos);
                 grdDocumentos.DataSource = null;
                 lblCliente.Text = txtCliente.Text = " ";
             }
@@ -91,8 +90,11 @@ namespace GUARDIAS.WIN
                 lcgCliente.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 lciUsuario.Visibility = /*espacio.Visibility =**/ lblInstrucciones.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lblCliente.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                txtCliente.Focus();
                 this.Size = new Size(840, 570);
             }
+            Contrato.Session.Delete(Contrato.Documentos);
+            picVistaPrevia.Image = null;
         }
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -145,6 +147,11 @@ namespace GUARDIAS.WIN
                             Contrato.Cliente = Cliente;
                             Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
                             Contrato.Documentos.AddRange(Cliente.Documentos);
+                            if(Cliente.Documentos.Count < Contrato.Documentos.Count)
+                            {
+                                Cliente.Documentos.AddRange(Contrato.Documentos);
+                                Cliente.Save();
+                            }
                         }
                         Contrato.EsApartado = rgAccion.SelectedIndex == 1 ? true : false;
                         if (IDContrato <= 0)
@@ -270,9 +277,10 @@ namespace GUARDIAS.WIN
                         {
                             lblCliente.Text = Cliente.Nombre;
                             Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
-                            grdDocumentos.DataSource = Cliente.Documentos;
-                            //Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
-                            //Contrato.Documentos.AddRange(Cliente.Documentos);
+                            //grdDocumentos.DataSource = Cliente.Documentos;
+                            Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
+                            Contrato.Documentos.AddRange(Cliente.Documentos);
+                            grdDocumentos.DataSource = Contrato.Documentos;
                         }
                     }
                 }
@@ -285,9 +293,10 @@ namespace GUARDIAS.WIN
                     {
                         lblCliente.Text = Cliente.Nombre;
                         Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
-                        grdDocumentos.DataSource = Cliente.Documentos;
-                        //Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
-                        //Contrato.Documentos.AddRange(Cliente.Documentos);
+                        
+                        Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
+                        Contrato.Documentos.AddRange(Cliente.Documentos);
+                        grdDocumentos.DataSource = Contrato.Documentos;
                         lueUnidad.Focus();
                     }
                 }else
@@ -404,9 +413,9 @@ namespace GUARDIAS.WIN
 
         private void tabbedControlGroup1_SelectedPageChanged(object sender, DevExpress.XtraLayout.LayoutTabPageChangedEventArgs e)
         {
-            if (rgCliente.SelectedIndex == 0) {
+            //if (rgCliente.SelectedIndex == 0) {
                 fypEdicion.ShowPopup();
-            }
+            //}
         }
 
         private void fypEdicion_ButtonClick(object sender, DevExpress.Utils.FlyoutPanelButtonClickEventArgs e)
@@ -745,7 +754,8 @@ namespace GUARDIAS.WIN
                 int restante = TotalHoras - 24;
                 timeRegreso.Time = timeRegreso.Time.AddHours(restante);
                 decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                dteRegreso.DateTime = dteRegreso.DateTime.AddDays(Convert.ToInt32(dias));
+                DateTime regreso = dteSalida.DateTime;
+                dteRegreso.DateTime = regreso.AddDays(Convert.ToInt32(dias));
             }
             else if (d == 0)
             {

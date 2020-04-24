@@ -96,6 +96,9 @@
                 if (viewModel.Final() != undefined) {
                     numFinal = viewModel.Final();
                 }
+                var Load = $("#loadPanel").dxLoadPanel("instance");
+                Load.show();
+
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/GuardarTanques",
@@ -108,9 +111,11 @@
                         viewModel.Final(null);
                         viewModel.SeleccionTanque(null);
                         e.validationGroup.reset();
+                        Load.hide();
                         DevExpress.ui.notify('Datos guardados', 'success', 4000);
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
+                        Load.hide();
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });

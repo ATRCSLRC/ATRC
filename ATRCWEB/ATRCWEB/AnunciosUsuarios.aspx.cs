@@ -17,9 +17,10 @@ namespace ATRCWEB
             {
                 ASPxImageSlider1.ImageContentBytesField = "Anuncio";
                 UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
+                XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
+                Session["Anuncios"] = Anuncios.Count;
                 //Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-                ASPxImageSlider1.DataSource = Usuarios;
+                ASPxImageSlider1.DataSource = Anuncios;
                 ASPxImageSlider1.DataBind();
             }
         }
@@ -28,10 +29,23 @@ namespace ATRCWEB
         {
             ASPxImageSlider1.ImageContentBytesField = "Anuncio";
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
+            XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
             //Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            ASPxImageSlider1.DataSource = Usuarios;
+            Session["Anuncios"] = Anuncios.Count;
+            ASPxImageSlider1.DataSource = Anuncios;
             ASPxImageSlider1.DataBind();
+            
+        }
+
+        protected void CallBackValidar_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+           
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
+            if(Anuncios.Count != Convert.ToInt32(Session["Anuncios"]))
+                CallBackValidar.JSProperties["cpAnunciosActualizar"] = "SI";
+            else
+                CallBackValidar.JSProperties["cpAnunciosActualizar"] = "NO";
         }
     }
 }

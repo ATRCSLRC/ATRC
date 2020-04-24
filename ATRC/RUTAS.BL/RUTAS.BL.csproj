@@ -48,13 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalogos\Servicio.cs" />
+    <Compile Include="Catalogos\Turno.cs" />
     <Compile Include="Mapa\Coordenadas.cs" />
-    <Compile Include="PlantillaRutaFija.cs" />
-    <Compile Include="PlantillaRutas.cs" />
+    <Compile Include="Rutas\HistorialRutaGenerada.cs" />
+    <Compile Include="Rutas\PlantillaRutaFija.cs" />
+    <Compile Include="Rutas\PlantillaRutas.cs" />
     <Compile Include="Catalogos\PreciosServicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mapa\Rutas.cs" />
-    <Compile Include="RutasGeneradas.cs" />
+    <Compile Include="Rutas\ReportesServiciosRealizados.cs" />
+    <Compile Include="Rutas\RutasGeneradas.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

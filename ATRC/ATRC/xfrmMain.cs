@@ -158,8 +158,21 @@ namespace ATRC
             {
                 bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
                 bbiMapaEmpresa.Visibility = VisibilidadPermiso("MapaEmpresa");
+                rpgRutas.Visible = bbiMapa.Visibility == BarItemVisibility.Always || bbiMapaEmpresa.Visibility == BarItemVisibility.Always ? true : false;
+
                 bbiChecadorRutas.Visibility = VisibilidadPermiso("ChecadorRutas");
                 bbiRegistrosRutas.Visibility = VisibilidadPermiso("EntradaSalidaRutas");
+                rpgChecadorRutas.Visible = bbiChecadorRutas.Visibility == BarItemVisibility.Always || bbiRegistrosRutas.Visibility == BarItemVisibility.Always ? true : false;
+
+                bbiRutasExternas.Visibility = VisibilidadPermiso("GenerarRutas");
+                bbiPlantillasRutasExternas.Visibility = VisibilidadPermiso("PlantillasRutas");
+                bbiTurnos.Visibility = VisibilidadPermiso("Turnos");
+                bbiServiciosRutas.Visibility = VisibilidadPermiso("ServiciosRutas");
+                bbiPrecioServicio.Visibility = VisibilidadPermiso("PreciosServicios");
+                bbiImportarRutas.Visibility = VisibilidadPermiso("ImportacionRutas");
+                bbiServiciosRealizados.Visibility = VisibilidadPermiso("ServiciosRealizados");
+                bbiReportesServicios.Visibility = VisibilidadPermiso("ConsultaReportesServicios");
+
                 rpgReportesRutas.Visible = VisibilidadPermiso("ReportesRutas") == BarItemVisibility.Always ? true : false;
             }
             #endregion
@@ -196,9 +209,11 @@ namespace ATRC
             {
                 bbiReporteNuevo.Visibility = VisibilidadPermiso("NuevoReporte");
                 bbiReportesAcciones.Visibility = VisibilidadPermiso("ReportesIndiciplina");
+                rpgReportesGuardias.Visible = bbiReporteNuevo.Visibility == BarItemVisibility.Always ||
+                    bbiReportesAcciones.Visibility == BarItemVisibility.Always ? true : false;
                 bbiListaDiesel.Visibility = VisibilidadPermiso("PedidosDieselGuardias");
                 bbiPedidoGasolina.Visibility = VisibilidadPermiso("PedidosGasolinaGuardias");
-                rpgCombustiblesGuardias.Visible = bbiListaDiesel.Visibility == BarItemVisibility.Always & 
+                rpgCombustiblesGuardias.Visible = bbiListaDiesel.Visibility == BarItemVisibility.Always || 
                     bbiPedidoGasolina.Visibility == BarItemVisibility.Always ? true : false;
                 bbiNuevoRecibo.Visibility = VisibilidadPermiso("NuevoRecibo");
                 bbiRecibos.Visibility = VisibilidadPermiso("RecibosPago");
@@ -328,7 +343,7 @@ namespace ATRC
             //    }
             //}
             Utilerias.ActualizarEsquema();
-           // Application.Exit();
+            Application.Exit();
         }
         #endregion
 
@@ -388,6 +403,14 @@ namespace ATRC
                     xfrmHoras.Todos = true;
                     xfrmHoras.MdiParent = this;
                     xfrmHoras.Show();
+                    break;
+                case "Rutas a pagar por usuario":
+                    CHECADOR.WIN.xfrmFiltrosReportes xfrmRutasUaurios = new CHECADOR.WIN.xfrmFiltrosReportes();
+                    xfrmRutasUaurios.Titulo = e.Item.Description;
+                    xfrmRutasUaurios.Size = new Size(635, 240);
+                    xfrmRutasUaurios.Todos = false;
+                    xfrmRutasUaurios.MdiParent = this;
+                    xfrmRutasUaurios.Show();
                     break;
             }
         }
@@ -659,7 +682,7 @@ namespace ATRC
 
         private void bbiPlantillasRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            RUTAS.WIN.xfrmPlantillasRutasExtrasGRD xfrm = new RUTAS.WIN.xfrmPlantillasRutasExtrasGRD();
+            RUTAS.WIN.xfrmPlantillasRutasFijasGRD xfrm = new RUTAS.WIN.xfrmPlantillasRutasFijasGRD();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
@@ -667,12 +690,10 @@ namespace ATRC
 
         private void bbiRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ReportPrintTool repUsuarioRegistrado = new ReportPrintTool(new REPORTES.Usuarios.Usuarios());
-            //repUsuarioRegistrado.ShowPreview();
-            //RUTAS.WIN.xfrmGenerarRutasExtras xfrm = new RUTAS.WIN.xfrmGenerarRutasExtras();
-            //xfrm.ShowInTaskbar = false;
-            //xfrm.MdiParent = this;
-            //xfrm.Show();
+            RUTAS.WIN.xfrmGenerarRutasExtras xfrm = new RUTAS.WIN.xfrmGenerarRutasExtras();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
         }
 
         private void bbiReporteNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1084,17 +1105,78 @@ namespace ATRC
 
         private void rgbiReportesRutas_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
         {
-            CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
-            xfrmHoras.Titulo = e.Item.Description;
-            xfrmHoras.Size = new Size(635, 240);
-            xfrmHoras.Todos = false;
-            xfrmHoras.MdiParent = this;
-            xfrmHoras.Show();
+            //switch (e.Item.Description)
+            //{
+            //    case "Rutas fijas":
+            //        break;
+            //    case "Rutas extras":
+            //        break;
+            //    case "Rutas fijas por usuario":
+            //        break;
+            //    case "Rutas extras por usuario":
+            //        break;
+            //    case "Total horas trabajadas semanales":
+                    CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
+                    xfrmHoras.Titulo = e.Item.Description;
+                    xfrmHoras.Size = new Size(635, 240);
+                    xfrmHoras.Todos = false;
+                    xfrmHoras.MdiParent = this;
+                    xfrmHoras.Show();
+            //        break;
+            //}    
         }
 
         private void bbiAnunciosUsuarios_ItemClick(object sender, ItemClickEventArgs e)
         {
             ATRCBASE.WIN.xfrmAnunciosUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmAnunciosUsuariosGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiTurnos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmTurnosGRD xfrmd = new RUTAS.WIN.xfrmTurnosGRD();
+            xfrmd.ShowInTaskbar = false;
+            xfrmd.MdiParent = this;
+            xfrmd.Show();
+        }
+
+        private void bbiServiciosRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmServiciosGRD xfrm = new RUTAS.WIN.xfrmServiciosGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPrecioServicio_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmPreciosPorEmpresa xfrm = new RUTAS.WIN.xfrmPreciosPorEmpresa();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiImportarRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmImportacionRutas xfrm = new RUTAS.WIN.xfrmImportacionRutas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiServiciosRealizados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmServiciosRealizados xfrm = new RUTAS.WIN.xfrmServiciosRealizados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiReportesServicios_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmReportesServiciosRealizados xfrm = new RUTAS.WIN.xfrmReportesServiciosRealizados();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

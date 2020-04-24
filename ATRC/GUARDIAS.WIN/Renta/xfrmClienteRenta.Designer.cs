@@ -137,6 +137,7 @@
             // 
             // txtDomicilioReferencia
             // 
+            this.txtDomicilioReferencia.EnterMoveNextControl = true;
             this.txtDomicilioReferencia.Location = new System.Drawing.Point(112, 365);
             this.txtDomicilioReferencia.MenuManager = this.ribbonControl1;
             this.txtDomicilioReferencia.Name = "txtDomicilioReferencia";
@@ -200,6 +201,7 @@
             // 
             // txtTelReferencia
             // 
+            this.txtTelReferencia.EnterMoveNextControl = true;
             this.txtTelReferencia.Location = new System.Drawing.Point(518, 365);
             this.txtTelReferencia.MenuManager = this.ribbonControl1;
             this.txtTelReferencia.Name = "txtTelReferencia";
@@ -209,6 +211,7 @@
             // 
             // txtNombreReferencia
             // 
+            this.txtNombreReferencia.EnterMoveNextControl = true;
             this.txtNombreReferencia.Location = new System.Drawing.Point(112, 341);
             this.txtNombreReferencia.MenuManager = this.ribbonControl1;
             this.txtNombreReferencia.Name = "txtNombreReferencia";

@@ -1,0 +1,39 @@
+﻿using ATRCBASE.BL;
+using DevExpress.Xpo;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RUTAS.BL
+{
+    [Persistent("rut_PlantillaRutas")]
+    public class PlantillaRutas : ATRCBase
+    {
+        public PlantillaRutas(Session session) : base(session) { }
+
+        private string mNombre;
+        [Size(SizeAttribute.Unlimited)]
+        public string Nombre
+        {
+            get { return mNombre; }
+            set { SetPropertyValue<string>("Nombre", ref mNombre, value); }
+        }
+
+        private Empresas mEmpresa;
+        public Empresas Empresa
+        {
+            get { return mEmpresa; }
+            set { SetPropertyValue<Empresas>("Empresa", ref mEmpresa, value); }
+        }
+
+        [Association("rut_PlantillaRutas-PlantillaRutaFija")]
+        public XPCollection<PlantillaRutaFija> PlantillasRutasFijas
+        {
+            get
+            {
+                return GetCollection<PlantillaRutaFija>(nameof(PlantillasRutasFijas));
+            }
+        }
+    }
+}

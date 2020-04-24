@@ -52,7 +52,6 @@
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -155,11 +154,12 @@
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable1,
             this.xrPictureBox1,
             this.lblTitulo,
             this.lblEmpleado,
             this.lblColor});
-            this.TopMargin.HeightF = 109F;
+            this.TopMargin.HeightF = 155.875F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -223,7 +223,7 @@
             this.xrTable1.BorderColor = System.Drawing.Color.White;
             this.xrTable1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable1.ForeColor = System.Drawing.Color.White;
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.95833F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 130.875F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
@@ -303,24 +303,16 @@
             this.xrTableCell3.Text = "Destino";
             this.xrTableCell3.Weight = 1.2694297969642352D;
             // 
-            // GroupHeader2
-            // 
-            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable1});
-            this.GroupHeader2.HeightF = 48.95834F;
-            this.GroupHeader2.Name = "GroupHeader2";
-            // 
             // Radios
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
             this.TopMargin,
-            this.BottomMargin,
-            this.GroupHeader2});
+            this.BottomMargin});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(49, 50, 109, 32);
+            this.Margins = new System.Drawing.Printing.Margins(49, 50, 156, 32);
             this.Version = "17.2";
             this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("Radios.Watermark.Image")));
             this.Watermark.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -356,6 +348,5 @@
         private DevExpress.XtraReports.UI.XRLabel lblColor;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader2;
     }
 }

@@ -165,7 +165,7 @@
             // lblNombreReporte
             // 
             this.lblNombreReporte.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 43.83334F);
+            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(148.9584F, 52.16667F);
             this.lblNombreReporte.Name = "lblNombreReporte";
             this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblNombreReporte.SizeF = new System.Drawing.SizeF(560.0417F, 34.62501F);
@@ -177,7 +177,7 @@
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Tahoma", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 12.5F);
+            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(148.9584F, 20.83333F);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTitulo.SizeF = new System.Drawing.SizeF(560.0417F, 31.33334F);
@@ -189,18 +189,18 @@
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.Red;
-            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 78.45834F);
+            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 97.45836F);
             this.lblColor.Name = "lblColor";
             this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblColor.SizeF = new System.Drawing.SizeF(560.0417F, 23F);
+            this.lblColor.SizeF = new System.Drawing.SizeF(560.0417F, 4F);
             this.lblColor.StylePriority.UseBackColor = false;
             // 
             // xrPictureBox1
             // 
             this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(26.66667F, 10.00001F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(25.625F, 10.00001F);
             this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(107.2917F, 91.45834F);
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(108.3334F, 91.45835F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             // 
             // BottomMargin
@@ -219,21 +219,25 @@
             // 
             // xrTable1
             // 
-            this.xrTable1.BackColor = System.Drawing.Color.Transparent;
+            this.xrTable1.BackColor = System.Drawing.Color.Red;
+            this.xrTable1.BorderColor = System.Drawing.Color.White;
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable1.BorderWidth = 1F;
             this.xrTable1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTable1.ForeColor = System.Drawing.Color.White;
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
             this.xrTable1.SizeF = new System.Drawing.SizeF(708.9999F, 25F);
             this.xrTable1.StylePriority.UseBackColor = false;
+            this.xrTable1.StylePriority.UseBorderColor = false;
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseBorderWidth = false;
             this.xrTable1.StylePriority.UseFont = false;
+            this.xrTable1.StylePriority.UseForeColor = false;
             // 
             // xrTableRow1
             // 
@@ -249,7 +253,7 @@
             // 
             // xrTableCell1
             // 
-            this.xrTableCell1.ForeColor = System.Drawing.Color.Black;
+            this.xrTableCell1.ForeColor = System.Drawing.Color.White;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.StylePriority.UseForeColor = false;
             this.xrTableCell1.StylePriority.UseTextAlignment = false;
@@ -259,7 +263,7 @@
             // 
             // xrTableCell2
             // 
-            this.xrTableCell2.ForeColor = System.Drawing.Color.Black;
+            this.xrTableCell2.ForeColor = System.Drawing.Color.White;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseForeColor = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;

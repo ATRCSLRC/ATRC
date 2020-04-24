@@ -28,7 +28,7 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>38</ApplicationRevision>
     <ApplicationVersion>1.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -303,6 +303,9 @@
     <None Include="Resources\icons8-embotellamiento-32.png" />
     <None Include="Resources\icons8-furgoneta-32.png" />
     <None Include="Resources\icons8-publicar-anuncios-32.png" />
+    <None Include="Resources\icons8-ms-excel-32.png" />
+    <None Include="Resources\icons8-servicios-32.png" />
+    <None Include="Resources\icons8-servicios-32 %281%29.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

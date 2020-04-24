@@ -485,6 +485,35 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Checador", "ChecadorRutas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Registros de Entrada/Salida", "EntradaSalidaRutas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Reportes", "ReportesRutas", nivel1);
+
+            nivel2 = CrearPermisos(Unidad, "Generar rutas", "GenerarRutas", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Rutas fijas", "RutasFijasGenerar", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Nueva Ruta", "NuevaRutasGenerar", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Ruta", "ModificarRutasGenerar", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Eliminar Ruta", "EliminarRutasGenerar", nivel2);
+
+            nivel2 = CrearPermisos(Unidad, "Plantillas de rutas", "PlantillasRutas", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Nueva Plantilla", "NuevaPlantilla", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Plantilla", "ModificarPlantilla", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Eliminar Plantilla", "EliminarPlantilla", nivel2);
+
+            nivel2 = CrearPermisos(Unidad, "Turnos", "Turnos", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Nuevo Turno", "NuevoTurno", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Turno", "ModificarTurno", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Eliminar Turno", "EliminarTurno", nivel2);
+
+            nivel2 = CrearPermisos(Unidad, "Servicios", "ServiciosRutas", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Nuevo Servicio", "NuevoServicio", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Servicio", "ModificarServicio", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Eliminar Servicio", "EliminarServicio", nivel2);
+
+            nivel2 = CrearPermisos(Unidad, "Precios de Servicios", "PreciosServicios", nivel1);
+            nivel3 = CrearPermisos(Unidad, "Nuevo Servicio", "NuevoServicioPrecio", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Modificar Servicio", "ModificarServicioPrecio", nivel2);
+
+            nivel2 = CrearPermisos(Unidad, "Importación de rutas", "ImportacionRutas", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Servicios realizados", "ServiciosRealizados", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Consulta reportes de servicios", "ConsultaReportesServicios", nivel1);
             #endregion
 
             #region Administracion

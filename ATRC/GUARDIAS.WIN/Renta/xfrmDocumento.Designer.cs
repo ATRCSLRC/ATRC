@@ -137,6 +137,7 @@
             // dteVigencia
             // 
             this.dteVigencia.EditValue = null;
+            this.dteVigencia.EnterMoveNextControl = true;
             this.dteVigencia.Location = new System.Drawing.Point(58, 36);
             this.dteVigencia.MenuManager = this.ribbonControl1;
             this.dteVigencia.Name = "dteVigencia";
@@ -150,6 +151,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.EnterMoveNextControl = true;
             this.txtNombre.Location = new System.Drawing.Point(58, 12);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";

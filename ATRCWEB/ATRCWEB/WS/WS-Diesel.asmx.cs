@@ -6,11 +6,13 @@ using DevExpress.Xpo.DB;
 using REPORTES.Unidades;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
 using static ATRCBASE.BL.Enums;
+using static ATRCWEB.WS.WS_Diesel;
 
 namespace ATRCWEB.WS
 {
@@ -1018,6 +1020,43 @@ namespace ATRCWEB.WS
         }
         #endregion
 
+        #region Anuncios
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<string> ObtenerAnuncios(int Lugar)
+
+        {
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            List<string> ListaAnuncios = new List<string>();
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
+            goMain.Operands.Add(new BinaryOperator("Publicar", true));
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("LugarPublicar", Lugar));
+            go.Operands.Add(new BinaryOperator("LugarPublicar", 3));
+            goMain.Operands.Add(go);
+
+            XPView Anuncios = new XPView(Unidad, typeof(ATRCBASE.BL.AnuncioUsuario));
+            Anuncios.Properties.AddRange(new ViewProperty[] {
+                  new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
+                  new ViewProperty("Anuncio", SortDirection.None, "[Anuncio]", false, true)
+                 });
+            Anuncios.Criteria = goMain;
+            //Anuncios.Criteria = new BinaryOperator("Fecha", DateTime.Now.Date);
+            //Anuncios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Unidad.Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            foreach (ViewRecord Anuncio in Anuncios)
+            {
+                //Anuncios NuevoAnuncio = new Anuncios();
+                System.IO.MemoryStream stream = new System.IO.MemoryStream(Anuncio["Anuncio"] as byte[]);
+                Image returnImage = Image.FromStream(stream);
+                //ATRCBASE.BL.Utilerias.GetExtension(returnImage);
+                //NuevoAnuncio.Imagen = "data:image/jpeg"/*"+ ATRCBASE.BL.Utilerias.GetExtension(returnImage).ToString() + "*/+ ";base64," + Convert.ToBase64String(Anuncio["Anuncio"] as byte[]);
+                ListaAnuncios.Add("data:image/jpeg"/*"+ ATRCBASE.BL.Utilerias.GetExtension(returnImage).ToString() + "*/+ ";base64," + Convert.ToBase64String(Anuncio["Anuncio"] as byte[]));
+            }
+            return ListaAnuncios;
+        }
+        #endregion
+
         #region Clases de Diesel
         public class Tanque
         {
@@ -1111,6 +1150,13 @@ namespace ATRCWEB.WS
             public string Empleado { set; get; }
             public bool Llenado { set; get; }
             public decimal Litros { set; get; }
+        }
+        #endregion
+
+        #region Clases Anuncios
+        public class Anuncios
+        {
+            public string Imagen { set; get; }
         }
         #endregion
     }

@@ -16,19 +16,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:48:50</publishTime>
     </File>
     <File Include="AnunciosUsuarios.aspx">
-      <publishTime>12/06/2019 08:48:50</publishTime>
+      <publishTime>03/27/2020 09:47:44</publishTime>
     </File>
     <File Include="bin/ALMACEN.BL.dll">
       <publishTime>05/22/2019 12:37:28</publishTime>
     </File>
     <File Include="bin/ATRCBASE.BL.dll">
-      <publishTime>12/19/2019 16:57:01</publishTime>
+      <publishTime>04/06/2020 11:57:40</publishTime>
     </File>
     <File Include="bin/ATRCWEB.dll">
-      <publishTime>12/19/2019 17:07:47</publishTime>
+      <publishTime>04/08/2020 16:24:44</publishTime>
     </File>
     <File Include="bin/ATRCWEB.pdb">
-      <publishTime>12/19/2019 17:07:47</publishTime>
+      <publishTime>04/08/2020 16:24:44</publishTime>
     </File>
     <File Include="bin/CHECADOR.BL.dll">
       <publishTime>05/22/2019 12:37:26</publishTime>
@@ -586,7 +586,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/15/2018 11:49:50</publishTime>
     </File>
     <File Include="Sorteo.aspx">
-      <publishTime>12/19/2018 13:00:35</publishTime>
+      <publishTime>04/06/2020 17:03:17</publishTime>
     </File>
     <File Include="Usuarios/Usuarios.aspx">
       <publishTime>05/15/2018 11:49:50</publishTime>
@@ -766,7 +766,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/12/2017 03:53:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/15/2019 12:51:16</publishTime>
+      <publishTime>04/08/2020 16:24:45</publishTime>
     </File>
     <File Include="WS/WS-Diesel.asmx">
       <publishTime>01/09/2019 08:39:04</publishTime>

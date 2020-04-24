@@ -29,10 +29,13 @@ namespace ATRCBASE.WIN
 
         private void xfrmAnunciosUsuario_Load(object sender, EventArgs e)
         {
+            cmbLugarPublicacion.Properties.Items.AddRange(Enum.GetValues(typeof(Enums.LugarPublicar)));
             if(!EsNuevo)
             {
                 txtNombre.Text = Anuncio.Nombre;
                 rgTipoAnuncio.EditValue = Anuncio.TipoAnuncio;
+                chkPublicar.Checked = Anuncio.Publicar;
+                cmbLugarPublicacion.EditValue = (Enums.LugarPublicar)Anuncio.LugarPublicar;
                 if(Anuncio.TipoAnuncio == "Texto")
                 {
                     Stream stream = new MemoryStream(Anuncio.Documento);
@@ -129,36 +132,41 @@ namespace ATRCBASE.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
-            Anuncio.Nombre = txtNombre.Text;
-            Anuncio.TipoAnuncio = rgTipoAnuncio.Text;
-            if(rgTipoAnuncio.SelectedIndex == 1)
+            if (ValidarCampos())
             {
-
-                PrintableComponentLink pcl = new PrintableComponentLink(new PrintingSystem());
-                ImageExportOptions options = new ImageExportOptions(ImageFormat.Png);
-                options.Resolution = 300;
-                options.ExportMode = ImageExportMode.SingleFilePageByPage;
-
-                pcl.Component = richTexto;
-                pcl.CreateDocument();
-
-                using (Stream stream = new MemoryStream())
+                Anuncio.Nombre = txtNombre.Text;
+                Anuncio.TipoAnuncio = rgTipoAnuncio.Text;
+                Anuncio.LugarPublicar = (Enums.LugarPublicar)cmbLugarPublicacion.EditValue;
+                Anuncio.Publicar = chkPublicar.Checked;
+                if (rgTipoAnuncio.SelectedIndex == 1)
                 {
-                    pcl.ExportToImage(stream, options);
-                    Anuncio.Anuncio = new byte[stream.Length];
-                    stream.Seek(0, SeekOrigin.Begin);
-                    stream.Read(Anuncio.Anuncio, 0, (int)stream.Length);
 
-                }
+                    PrintableComponentLink pcl = new PrintableComponentLink(new PrintingSystem());
+                    ImageExportOptions options = new ImageExportOptions(ImageFormat.Png);
+                    options.Resolution = 300;
+                    options.ExportMode = ImageExportMode.SingleFilePageByPage;
+
+                    pcl.Component = richTexto;
+                    pcl.CreateDocument();
+
+                    using (Stream stream = new MemoryStream())
+                    {
+                        pcl.ExportToImage(stream, options);
+                        Anuncio.Anuncio = new byte[stream.Length];
+                        stream.Seek(0, SeekOrigin.Begin);
+                        stream.Read(Anuncio.Anuncio, 0, (int)stream.Length);
+
+                    }
                     using (MemoryStream stream = new MemoryStream())
-                {
-                    richTexto.SaveDocument(stream, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
-                    Anuncio.Documento = stream.ToArray();
+                    {
+                        richTexto.SaveDocument(stream, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                        Anuncio.Documento = stream.ToArray();
+                    }
                 }
+                Anuncio.Save();
+                Unidad.CommitChanges();
+                this.Close();
             }
-            Anuncio.Save();
-            Unidad.CommitChanges();
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -186,5 +194,25 @@ namespace ATRCBASE.WIN
                 }
             }
         }
+
+        private bool ValidarCampos()
+        {
+            if(string.IsNullOrEmpty(txtNombre.Text))
+            {
+                XtraMessageBox.Show("Debe ingresar el nombre del anuncio.");
+                txtNombre.Focus();
+                return false;
+            }
+
+            if (cmbLugarPublicacion.SelectedItem == null)
+            {
+                XtraMessageBox.Show("Debe seleccionar donde publicar el anuncio.");
+                cmbLugarPublicacion.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

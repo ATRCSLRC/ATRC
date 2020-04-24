@@ -13,6 +13,20 @@ namespace RUTAS.BL
     {
         public Servicio(Session session) : base(session) { }
 
+        private string mClave;
+        public string Clave
+        {
+            get { return mClave; }
+            set { SetPropertyValue<string>("Clave", ref mClave, value); }
+        }
+
+        private bool mEsMediaVuelta;
+        public bool EsMediaVuelta
+        {
+            get { return mEsMediaVuelta; }
+            set { SetPropertyValue<bool>("EsMediaVuelta", ref mEsMediaVuelta, value); }
+        }
+
         private string mDescripcion;
         public string Descripcion
         {

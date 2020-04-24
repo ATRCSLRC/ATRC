@@ -73,10 +73,10 @@ namespace GUARDIAS.WIN.Renta
                                 DiasExtra = (Dias - Contrato.DiasRenta);
                                 ExtraDia = Contrato.Costo * DiasExtra;
                             }
-                            //else if (Contrato.DiasRenta.ToString().Contains(".5"))
-                            //{
-                            //    Horas -= 12;
-                            //}
+                            else if (Contrato.DiasRenta.ToString().Contains(".5"))
+                            {
+                                Horas -= 12;
+                            }
 
                             if (Horas >= 19 & Horas <= 24)
                             {

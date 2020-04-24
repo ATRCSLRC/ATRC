@@ -109,6 +109,8 @@ Gasolina.Main = function (params) {
                 var grd = $("#gridContainer").dxDataGrid("instance");
                 var Gasolina = grd._options.selectedRowKeys[0]["ID"];
                 var Tanque = $("#rgTanques").dxRadioGroup("instance").option("value");
+                var Load = $("#loadPanel").dxLoadPanel("instance");
+                Load.show();
                 $.ajax({
                     type: "POST",
                     url: ObtenerUrl() + "/DetalleGasolinaUnidad",
@@ -128,9 +130,11 @@ Gasolina.Main = function (params) {
                         viewModel.CandadoActual('');
                         viewModel.Litros('');
                         e.validationGroup.reset();
+                        Load.hide();
                         DevExpress.ui.notify('Datos guardados', 'success', 4000);
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
+                        Load.hide();
                         DevExpress.ui.notify(errorThrown, 'error', 4000);
                     }
                 });

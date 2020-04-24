@@ -10,10 +10,15 @@
 <body style=" height:100%; margin:0;">
     <form id="form1" runat="server" style=" height:100%; margin:0;">
         <dx:ASPxTimer ID="ASPxTimer1" runat="server" Interval="50000">
-            <ClientSideEvents Tick="function(s,e){pnlActualizar.PerformCallback()();}" />
+            <ClientSideEvents Tick="function(s,e){CallBackValidar.PerformCallback();}" />
         </dx:ASPxTimer>
+        <dx:ASPxCallbackPanel ID="CallBackValidar" ClientInstanceName="CallBackValidar" OnCallback="CallBackValidar_Callback" runat="server" Width="200px">
+            <SettingsLoadingPanel Enabled="false" />
+            <ClientSideEvents EndCallback="function (s,e){ if(CallBackValidar.cpAnunciosActualizar === 'SI'){pnlActualizar.PerformCallback();}}" />        
+        </dx:ASPxCallbackPanel>
 
         <dx:BootstrapCallbackPanel runat="server" ClientInstanceName="pnlActualizar" ID="pnlActualizar" Height="100%" Width="100%" OnCallback="pnlActualizar_Callback">
+            <SettingsLoadingPanel Enabled="false" />
             <ContentCollection>
                 <dx:ContentControl>
                     <dx:ASPxImageSlider ID="ASPxImageSlider1" runat="server" Height="100%" Width="100%" BackColor="White" Styles-Dot-BackColor="White" Styles-ImageArea-BackColor="White" Styles-Item-BackColor="White"

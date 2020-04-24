@@ -200,7 +200,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 100F;
+            this.BottomMargin.HeightF = 40.625F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -300,11 +300,11 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(50, 49, 109, 100);
+            this.Margins = new System.Drawing.Printing.Margins(50, 49, 109, 41);
             this.Version = "17.2";
             this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("Servicios.Watermark.Image")));
             this.Watermark.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.Watermark.ImageTransparency = 200;
+            this.Watermark.ImageTransparency = 255;
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();

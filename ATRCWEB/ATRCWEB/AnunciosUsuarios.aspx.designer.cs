@@ -31,6 +31,15 @@ namespace ATRCWEB {
         protected global::DevExpress.Web.ASPxTimer ASPxTimer1;
         
         /// <summary>
+        /// Control CallBackValidar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel CallBackValidar;
+        
+        /// <summary>
         /// Control pnlActualizar.
         /// </summary>
         /// <remarks>

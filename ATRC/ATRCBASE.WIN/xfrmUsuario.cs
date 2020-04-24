@@ -202,6 +202,7 @@ namespace ATRCBASE.WIN
             chkAccesoSistema.DataBindings.Add("EditValue", Usuario, "AccesoSistema", true, DataSourceUpdateMode.OnPropertyChanged);
             dteIngreso.DataBindings.Add("EditValue", Usuario, "FechaIngreso", true, DataSourceUpdateMode.OnPropertyChanged);
             cmbPatron.DataBindings.Add("EditValue", Usuario, "Patron", true, DataSourceUpdateMode.OnPropertyChanged);
+            //cmbClasificacion.DataBindings.Add("EditValue", Usuario, "Clasificacion", true, DataSourceUpdateMode.OnPropertyChanged);
             txtAvisar.DataBindings.Add("EditValue", Usuario, "AvisarA", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTipoSangre.DataBindings.Add("EditValue", Usuario, "TipoSangre", true, DataSourceUpdateMode.OnPropertyChanged);
             //checkedComboBoxEdit1.DataBindings.Add("EditValue", Usuario , "Modulos", true, DataSourceUpdateMode.OnPropertyChanged);
