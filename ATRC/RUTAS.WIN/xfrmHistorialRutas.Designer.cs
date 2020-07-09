@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmHistorialRutas));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdHistorial = new DevExpress.XtraGrid.GridControl();
@@ -68,7 +69,8 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -76,17 +78,17 @@
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1438, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(1438, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdHistorial);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(1438, 439);
+            this.lcMain.Size = new System.Drawing.Size(1438, 434);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -99,7 +101,7 @@
             this.grdHistorial.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoExEdit1,
             this.repositoryItemMemoExEdit2});
-            this.grdHistorial.Size = new System.Drawing.Size(1414, 415);
+            this.grdHistorial.Size = new System.Drawing.Size(1414, 410);
             this.grdHistorial.TabIndex = 4;
             this.grdHistorial.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvHistorial});
@@ -312,7 +314,7 @@
             // colModifico
             // 
             this.colModifico.Caption = "Modificó";
-            this.colModifico.FieldName = "UsuarioModificacion.Nombre";
+            this.colModifico.FieldName = "UsuarioModificacionClase.Nombre";
             this.colModifico.Name = "colModifico";
             this.colModifico.OptionsColumn.AllowEdit = false;
             this.colModifico.OptionsColumn.AllowFocus = false;
@@ -340,7 +342,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1438, 439);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1438, 434);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -348,7 +350,7 @@
             this.layoutControlItem1.Control = this.grdHistorial;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1418, 419);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1418, 414);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -359,6 +361,7 @@
             this.ClientSize = new System.Drawing.Size(1438, 466);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmHistorialRutas.IconOptions.Icon")));
             this.Name = "xfrmHistorialRutas";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Historial de rutas";

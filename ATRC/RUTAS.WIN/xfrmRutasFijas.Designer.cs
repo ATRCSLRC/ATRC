@@ -35,6 +35,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.memoComentarioFacturacion = new DevExpress.XtraEditors.MemoEdit();
             this.chkEsRutaExtra = new DevExpress.XtraEditors.CheckEdit();
             this.memoComentarios = new DevExpress.XtraEditors.MemoEdit();
             this.cmbTipoRuta = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -67,11 +68,11 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lciComentarios = new DevExpress.XtraLayout.LayoutControlItem();
-            this.memoComentarioFacturacion = new DevExpress.XtraEditors.MemoEdit();
             this.lciComentariosChofer = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsRutaExtra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarios.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoRuta.Properties)).BeginInit();
@@ -104,7 +105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentariosChofer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,6 +113,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.bbiGuardar,
             this.bbiCancelar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
@@ -123,7 +124,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(567, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(567, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -156,10 +157,10 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiGuardar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiCancelar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             // 
             // lcMain
             // 
@@ -178,37 +179,46 @@
             this.lcMain.Controls.Add(this.timeA);
             this.lcMain.Controls.Add(this.timeDe);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(778, 257, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(567, 377);
+            this.lcMain.Size = new System.Drawing.Size(567, 367);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // memoComentarioFacturacion
+            // 
+            this.memoComentarioFacturacion.Location = new System.Drawing.Point(285, 331);
+            this.memoComentarioFacturacion.MenuManager = this.ribbonControl1;
+            this.memoComentarioFacturacion.Name = "memoComentarioFacturacion";
+            this.memoComentarioFacturacion.Size = new System.Drawing.Size(270, 24);
+            this.memoComentarioFacturacion.StyleController = this.lcMain;
+            this.memoComentarioFacturacion.TabIndex = 23;
+            // 
             // chkEsRutaExtra
             // 
-            this.chkEsRutaExtra.Location = new System.Drawing.Point(454, 42);
+            this.chkEsRutaExtra.Location = new System.Drawing.Point(454, 45);
             this.chkEsRutaExtra.MenuManager = this.ribbonControl1;
             this.chkEsRutaExtra.Name = "chkEsRutaExtra";
             this.chkEsRutaExtra.Properties.Caption = "Es ruta extra";
-            this.chkEsRutaExtra.Size = new System.Drawing.Size(89, 19);
+            this.chkEsRutaExtra.Size = new System.Drawing.Size(89, 20);
             this.chkEsRutaExtra.StyleController = this.lcMain;
             this.chkEsRutaExtra.TabIndex = 22;
             // 
             // memoComentarios
             // 
-            this.memoComentarios.Location = new System.Drawing.Point(12, 320);
+            this.memoComentarios.Location = new System.Drawing.Point(12, 331);
             this.memoComentarios.MenuManager = this.ribbonControl1;
             this.memoComentarios.Name = "memoComentarios";
-            this.memoComentarios.Size = new System.Drawing.Size(269, 45);
+            this.memoComentarios.Size = new System.Drawing.Size(269, 24);
             this.memoComentarios.StyleController = this.lcMain;
             this.memoComentarios.TabIndex = 21;
             // 
             // cmbTipoRuta
             // 
             this.cmbTipoRuta.EnterMoveNextControl = true;
-            this.cmbTipoRuta.Location = new System.Drawing.Point(91, 89);
+            this.cmbTipoRuta.Location = new System.Drawing.Point(91, 93);
             this.cmbTipoRuta.MenuManager = this.ribbonControl1;
             this.cmbTipoRuta.Name = "cmbTipoRuta";
             this.cmbTipoRuta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -221,7 +231,7 @@
             // txtRuta
             // 
             this.txtRuta.EnterMoveNextControl = true;
-            this.txtRuta.Location = new System.Drawing.Point(56, 65);
+            this.txtRuta.Location = new System.Drawing.Point(56, 69);
             this.txtRuta.MenuManager = this.ribbonControl1;
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(106, 20);
@@ -231,7 +241,7 @@
             // lueServicio
             // 
             this.lueServicio.EnterMoveNextControl = true;
-            this.lueServicio.Location = new System.Drawing.Point(290, 65);
+            this.lueServicio.Location = new System.Drawing.Point(290, 69);
             this.lueServicio.MenuManager = this.ribbonControl1;
             this.lueServicio.Name = "lueServicio";
             this.lueServicio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -252,7 +262,7 @@
             // lueTurno
             // 
             this.lueTurno.EnterMoveNextControl = true;
-            this.lueTurno.Location = new System.Drawing.Point(410, 89);
+            this.lueTurno.Location = new System.Drawing.Point(410, 93);
             this.lueTurno.MenuManager = this.ribbonControl1;
             this.lueTurno.Name = "lueTurno";
             this.lueTurno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -270,11 +280,11 @@
             // 
             this.chkRutaCompleta.EditValue = true;
             this.chkRutaCompleta.EnterMoveNextControl = true;
-            this.chkRutaCompleta.Location = new System.Drawing.Point(385, 221);
+            this.chkRutaCompleta.Location = new System.Drawing.Point(384, 231);
             this.chkRutaCompleta.MenuManager = this.ribbonControl1;
             this.chkRutaCompleta.Name = "chkRutaCompleta";
             this.chkRutaCompleta.Properties.Caption = "Chofer realizó ruta completa";
-            this.chkRutaCompleta.Size = new System.Drawing.Size(158, 19);
+            this.chkRutaCompleta.Size = new System.Drawing.Size(159, 20);
             this.chkRutaCompleta.StyleController = this.lcMain;
             this.chkRutaCompleta.TabIndex = 13;
             this.chkRutaCompleta.CheckedChanged += new System.EventHandler(this.chkRutaCompleta_CheckedChanged);
@@ -282,66 +292,68 @@
             // chkSePagaChofer
             // 
             this.chkSePagaChofer.EnterMoveNextControl = true;
-            this.chkSePagaChofer.Location = new System.Drawing.Point(458, 244);
+            this.chkSePagaChofer.Location = new System.Drawing.Point(457, 255);
             this.chkSePagaChofer.MenuManager = this.ribbonControl1;
             this.chkSePagaChofer.Name = "chkSePagaChofer";
             this.chkSePagaChofer.Properties.Caption = "Es ruta extra";
-            this.chkSePagaChofer.Size = new System.Drawing.Size(85, 19);
+            this.chkSePagaChofer.Size = new System.Drawing.Size(86, 20);
             this.chkSePagaChofer.StyleController = this.lcMain;
             this.chkSePagaChofer.TabIndex = 12;
             // 
             // chkSePagaChoferSalida
             // 
             this.chkSePagaChoferSalida.EnterMoveNextControl = true;
-            this.chkSePagaChoferSalida.Location = new System.Drawing.Point(458, 268);
+            this.chkSePagaChoferSalida.Location = new System.Drawing.Point(457, 279);
             this.chkSePagaChoferSalida.MenuManager = this.ribbonControl1;
             this.chkSePagaChoferSalida.Name = "chkSePagaChoferSalida";
             this.chkSePagaChoferSalida.Properties.Caption = "Es ruta extra";
-            this.chkSePagaChoferSalida.Size = new System.Drawing.Size(85, 19);
+            this.chkSePagaChoferSalida.Size = new System.Drawing.Size(86, 20);
             this.chkSePagaChoferSalida.StyleController = this.lcMain;
             this.chkSePagaChoferSalida.TabIndex = 11;
             // 
             // lueChoferSalida
             // 
             this.lueChoferSalida.EnterMoveNextControl = true;
-            this.lueChoferSalida.Location = new System.Drawing.Point(148, 268);
+            this.lueChoferSalida.Location = new System.Drawing.Point(148, 279);
             this.lueChoferSalida.MenuManager = this.ribbonControl1;
             this.lueChoferSalida.Name = "lueChoferSalida";
             this.lueChoferSalida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueChoferSalida.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumEmpleado", "Num. Empleado", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NomCompleto", "Nombre")});
             this.lueChoferSalida.Properties.DisplayMember = "NomCompleto";
             this.lueChoferSalida.Properties.NullText = "[Seleccioné]";
+            this.lueChoferSalida.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueChoferSalida.Properties.ValueMember = "Oid";
-            this.lueChoferSalida.Size = new System.Drawing.Size(306, 20);
+            this.lueChoferSalida.Size = new System.Drawing.Size(305, 20);
             this.lueChoferSalida.StyleController = this.lcMain;
             this.lueChoferSalida.TabIndex = 10;
+            this.lueChoferSalida.EditValueChanged += new System.EventHandler(this.lueChoferSalida_EditValueChanged);
             // 
             // lueChofer
             // 
             this.lueChofer.EnterMoveNextControl = true;
-            this.lueChofer.Location = new System.Drawing.Point(148, 244);
+            this.lueChofer.Location = new System.Drawing.Point(148, 255);
             this.lueChofer.MenuManager = this.ribbonControl1;
             this.lueChofer.Name = "lueChofer";
             this.lueChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueChofer.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumEmpleado", "Num. Empleado", 10, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NomCompleto", "Nombre")});
             this.lueChofer.Properties.DisplayMember = "NomCompleto";
             this.lueChofer.Properties.NullText = "[Seleccioné]";
+            this.lueChofer.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueChofer.Properties.ValueMember = "Oid";
-            this.lueChofer.Size = new System.Drawing.Size(306, 20);
+            this.lueChofer.Size = new System.Drawing.Size(305, 20);
             this.lueChofer.StyleController = this.lcMain;
             this.lueChofer.TabIndex = 9;
+            this.lueChofer.EditValueChanged += new System.EventHandler(this.lueChofer_EditValueChanged);
             // 
             // timeA
             // 
             this.timeA.EditValue = new System.DateTime(2018, 9, 11, 0, 0, 0, 0);
             this.timeA.EnterMoveNextControl = true;
-            this.timeA.Location = new System.Drawing.Point(301, 155);
+            this.timeA.Location = new System.Drawing.Point(301, 162);
             this.timeA.MenuManager = this.ribbonControl1;
             this.timeA.Name = "timeA";
             this.timeA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -359,7 +371,7 @@
             // 
             this.timeDe.EditValue = new System.DateTime(2018, 9, 11, 0, 0, 0, 0);
             this.timeDe.EnterMoveNextControl = true;
-            this.timeDe.Location = new System.Drawing.Point(46, 155);
+            this.timeDe.Location = new System.Drawing.Point(46, 162);
             this.timeDe.MenuManager = this.ribbonControl1;
             this.timeDe.Name = "timeDe";
             this.timeDe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -384,7 +396,7 @@
             this.lciComentarios,
             this.lciComentariosChofer});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(567, 377);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(567, 367);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -392,9 +404,9 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciHoraDe,
             this.lciHoraA});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 113);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 117);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(547, 66);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(547, 69);
             this.layoutControlGroup2.Text = "Horario de servicio";
             // 
             // lciHoraDe
@@ -428,26 +440,26 @@
             this.layoutControlItem10,
             this.lciChofer,
             this.emptySpaceItem2});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 179);
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 186);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(547, 113);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(547, 117);
             this.layoutControlGroup3.Text = "Detalles del chofer";
             // 
             // lciSePaga
             // 
             this.lciSePaga.Control = this.chkSePagaChofer;
-            this.lciSePaga.Location = new System.Drawing.Point(434, 23);
+            this.lciSePaga.Location = new System.Drawing.Point(433, 24);
             this.lciSePaga.Name = "lciSePaga";
-            this.lciSePaga.Size = new System.Drawing.Size(89, 24);
+            this.lciSePaga.Size = new System.Drawing.Size(90, 24);
             this.lciSePaga.TextSize = new System.Drawing.Size(0, 0);
             this.lciSePaga.TextVisible = false;
             // 
             // lciChoferSalida
             // 
             this.lciChoferSalida.Control = this.lueChoferSalida;
-            this.lciChoferSalida.Location = new System.Drawing.Point(0, 47);
+            this.lciChoferSalida.Location = new System.Drawing.Point(0, 48);
             this.lciChoferSalida.Name = "lciChoferSalida";
-            this.lciChoferSalida.Size = new System.Drawing.Size(434, 24);
+            this.lciChoferSalida.Size = new System.Drawing.Size(433, 24);
             this.lciChoferSalida.Text = "Chofer de salida:";
             this.lciChoferSalida.TextSize = new System.Drawing.Size(121, 13);
             this.lciChoferSalida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -455,9 +467,9 @@
             // lciSePagaSalida
             // 
             this.lciSePagaSalida.Control = this.chkSePagaChoferSalida;
-            this.lciSePagaSalida.Location = new System.Drawing.Point(434, 47);
+            this.lciSePagaSalida.Location = new System.Drawing.Point(433, 48);
             this.lciSePagaSalida.Name = "lciSePagaSalida";
-            this.lciSePagaSalida.Size = new System.Drawing.Size(89, 24);
+            this.lciSePagaSalida.Size = new System.Drawing.Size(90, 24);
             this.lciSePagaSalida.TextSize = new System.Drawing.Size(0, 0);
             this.lciSePagaSalida.TextVisible = false;
             this.lciSePagaSalida.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -465,18 +477,18 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.chkRutaCompleta;
-            this.layoutControlItem10.Location = new System.Drawing.Point(361, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(360, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(162, 23);
+            this.layoutControlItem10.Size = new System.Drawing.Size(163, 24);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // lciChofer
             // 
             this.lciChofer.Control = this.lueChofer;
-            this.lciChofer.Location = new System.Drawing.Point(0, 23);
+            this.lciChofer.Location = new System.Drawing.Point(0, 24);
             this.lciChofer.Name = "lciChofer";
-            this.lciChofer.Size = new System.Drawing.Size(434, 24);
+            this.lciChofer.Size = new System.Drawing.Size(433, 24);
             this.lciChofer.Text = "Chofer:";
             this.lciChofer.TextSize = new System.Drawing.Size(121, 13);
             // 
@@ -485,7 +497,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(361, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(360, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup4
@@ -499,13 +511,13 @@
             this.emptySpaceItem1});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(547, 113);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(547, 117);
             this.layoutControlGroup4.Text = "Detalle de ruta";
             // 
             // lciServicios
             // 
             this.lciServicios.Control = this.lueServicio;
-            this.lciServicios.Location = new System.Drawing.Point(142, 23);
+            this.lciServicios.Location = new System.Drawing.Point(142, 24);
             this.lciServicios.Name = "lciServicios";
             this.lciServicios.Size = new System.Drawing.Size(381, 24);
             this.lciServicios.Text = "Servicio:";
@@ -514,7 +526,7 @@
             // lciRuta
             // 
             this.lciRuta.Control = this.txtRuta;
-            this.lciRuta.Location = new System.Drawing.Point(0, 23);
+            this.lciRuta.Location = new System.Drawing.Point(0, 24);
             this.lciRuta.Name = "lciRuta";
             this.lciRuta.Size = new System.Drawing.Size(142, 24);
             this.lciRuta.Text = "Ruta:";
@@ -525,7 +537,7 @@
             // lciTipoRuta
             // 
             this.lciTipoRuta.Control = this.cmbTipoRuta;
-            this.lciTipoRuta.Location = new System.Drawing.Point(0, 47);
+            this.lciTipoRuta.Location = new System.Drawing.Point(0, 48);
             this.lciTipoRuta.Name = "lciTipoRuta";
             this.lciTipoRuta.Size = new System.Drawing.Size(262, 24);
             this.lciTipoRuta.Text = "Tipo de ruta:";
@@ -536,7 +548,7 @@
             // lciTurno
             // 
             this.lciTurno.Control = this.lueTurno;
-            this.lciTurno.Location = new System.Drawing.Point(262, 47);
+            this.lciTurno.Location = new System.Drawing.Point(262, 48);
             this.lciTurno.Name = "lciTurno";
             this.lciTurno.Size = new System.Drawing.Size(261, 24);
             this.lciTurno.Text = "Turno:";
@@ -547,7 +559,7 @@
             this.layoutControlItem1.Control = this.chkEsRutaExtra;
             this.layoutControlItem1.Location = new System.Drawing.Point(430, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(93, 23);
+            this.layoutControlItem1.Size = new System.Drawing.Size(93, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -556,34 +568,25 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 23);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciComentarios
             // 
             this.lciComentarios.Control = this.memoComentarios;
-            this.lciComentarios.Location = new System.Drawing.Point(0, 292);
+            this.lciComentarios.Location = new System.Drawing.Point(0, 303);
             this.lciComentarios.Name = "lciComentarios";
-            this.lciComentarios.Size = new System.Drawing.Size(273, 65);
+            this.lciComentarios.Size = new System.Drawing.Size(273, 44);
             this.lciComentarios.Text = "Comentarios chofer:";
             this.lciComentarios.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciComentarios.TextSize = new System.Drawing.Size(121, 13);
             // 
-            // memoComentarioFacturacion
-            // 
-            this.memoComentarioFacturacion.Location = new System.Drawing.Point(285, 320);
-            this.memoComentarioFacturacion.MenuManager = this.ribbonControl1;
-            this.memoComentarioFacturacion.Name = "memoComentarioFacturacion";
-            this.memoComentarioFacturacion.Size = new System.Drawing.Size(270, 45);
-            this.memoComentarioFacturacion.StyleController = this.lcMain;
-            this.memoComentarioFacturacion.TabIndex = 23;
-            // 
             // lciComentariosChofer
             // 
             this.lciComentariosChofer.Control = this.memoComentarioFacturacion;
-            this.lciComentariosChofer.Location = new System.Drawing.Point(273, 292);
+            this.lciComentariosChofer.Location = new System.Drawing.Point(273, 303);
             this.lciComentariosChofer.Name = "lciComentariosChofer";
-            this.lciComentariosChofer.Size = new System.Drawing.Size(274, 65);
+            this.lciComentariosChofer.Size = new System.Drawing.Size(274, 44);
             this.lciComentariosChofer.Text = "Comentarios facturación:";
             this.lciComentariosChofer.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciComentariosChofer.TextSize = new System.Drawing.Size(121, 13);
@@ -595,6 +598,7 @@
             this.ClientSize = new System.Drawing.Size(567, 499);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmRutasFijas.IconOptions.Icon")));
             this.Name = "xfrmRutasFijas";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Ruta";
@@ -602,6 +606,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsRutaExtra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarios.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoRuta.Properties)).EndInit();
@@ -634,7 +639,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentariosChofer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -4,10 +4,12 @@ using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -412,6 +414,7 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Busqueda Articulos", "BusquedaArticulos", nivel1);
             nivel2 = CrearPermisos(Unidad, "Salida Articulos", "SalidaArticulos", nivel1);
             nivel2 = CrearPermisos(Unidad, "Prestamo Articulos", "PrestamoArticulos", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Historial Prestamo Herramienta", "HistorialPrestamoHerramienta", nivel1);
             nivel2 = CrearPermisos(Unidad, "Bitacoras Salidas", "BitacorasSalidas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Inventario", "InventarioAlmacen", nivel1);
             nivel3 = CrearPermisos(Unidad, "Nuevo Inventario", "NuevoInventario", nivel2);
@@ -496,6 +499,7 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Nueva Plantilla", "NuevaPlantilla", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Plantilla", "ModificarPlantilla", nivel2);
             nivel3 = CrearPermisos(Unidad, "Eliminar Plantilla", "EliminarPlantilla", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Clonar Plantilla", "ClonarPlantilla", nivel2);
 
             nivel2 = CrearPermisos(Unidad, "Turnos", "Turnos", nivel1);
             nivel3 = CrearPermisos(Unidad, "Nuevo Turno", "NuevoTurno", nivel2);
@@ -837,6 +841,165 @@ namespace ATRCBASE.BL
                 n = getUnidades(millon) + "millon ";
             }
             return n + getMiles(miles);
+        }
+
+        public static void EnviarCorreo(string CorreoAutentificacion, string Host, string Contraseña, bool SSL, string Puerto, string Destinatario, string Mensaje, string Asunto)
+        {
+            MailMessage msg = new MailMessage();
+            if (!string.IsNullOrWhiteSpace(Destinatario)) msg.To.Add(new MailAddress(Destinatario)); else throw new InvalidOperationException("El Destinatario no puede estar vacio");
+            msg.Body = Mensaje;
+            if (Mensaje.Replace(" ", "").Contains("<br/>") || Mensaje.Replace(" ", "").Contains("<b>") || Mensaje.Replace(" ", "").Contains("<p>") || Mensaje.Replace(" ", "").Contains("</a>") || Mensaje.Replace(" ", "").Contains("<table"))
+                msg.IsBodyHtml = true;
+            //}
+
+            msg.From = new MailAddress(CorreoAutentificacion, "", System.Text.Encoding.UTF8);
+            msg.Subject = Asunto;
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            // Configuración SMTP
+            SmtpClient mailSmtp = new SmtpClient();
+            mailSmtp.Host = Host;
+            System.Net.NetworkCredential mailAuthentication = new System.Net.NetworkCredential(CorreoAutentificacion, Contraseña);
+            mailSmtp.UseDefaultCredentials = false;
+            mailSmtp.Credentials = mailAuthentication;
+            mailSmtp.EnableSsl = SSL;
+            mailSmtp.Port = Convert.ToInt32(Puerto);
+
+            mailSmtp.Send(msg);
+        }
+        public static void EnviarCorreo(string Destinatario, string Mensaje, string Asunto, ArrayList cc, ArrayList cco)
+        {
+            #region Variables para configuracion
+            string correoAutenticacionConfig = "";
+            string correoAutenticacionPassConfig = "";
+            string correoHostConfig = "";
+            string correoHostPortConfig = "";
+            bool habilitarSSLConfig = false;
+            #endregion
+
+            #region
+            Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            XPView Configuraciones = new XPView(Unidad, typeof(ATRCBASE.BL.Configuraciones), "Oid;Propiedad;Accion", null);
+            Configuraciones.Criteria = new BinaryOperator("Propiedad", "CorreoAutentificacion");
+            if (Configuraciones.Count > 0)
+            {
+                correoAutenticacionConfig = Configuraciones[0]["Accion"].ToString();
+            }
+
+            Configuraciones.Criteria = new BinaryOperator("Propiedad", "Host");
+            if (Configuraciones.Count > 0)
+            {
+                correoHostConfig = Configuraciones[0]["Accion"].ToString();
+            }
+
+            Configuraciones.Criteria = new BinaryOperator("Propiedad", "Contraseña");
+            if (Configuraciones.Count > 0)
+            {
+                correoAutenticacionPassConfig = Configuraciones[0]["Accion"].ToString();
+            }
+
+            Configuraciones.Criteria = new BinaryOperator("Propiedad", "SSL");
+            if (Configuraciones.Count > 0)
+            {
+                habilitarSSLConfig = Convert.ToBoolean(Configuraciones[0]["Accion"].ToString());
+            }
+
+            Configuraciones.Criteria = new BinaryOperator("Propiedad", "Puerto");
+            if (Configuraciones.Count > 0)
+            {
+                correoHostPortConfig = Configuraciones[0]["Accion"].ToString();
+            }
+            #endregion
+
+
+            MailMessage msg = new MailMessage();
+            if (!string.IsNullOrWhiteSpace(Destinatario)) msg.To.Add(new MailAddress(Destinatario)); else throw new InvalidOperationException("El Destinatario no puede estar vacio");
+
+            if (cc != null && cc.Count > 0)
+            {
+                foreach (string mail in cc)
+                {
+                    if (mail != "")
+                        msg.CC.Add(new MailAddress(mail));
+                }
+            }
+
+            if (cco != null && cco.Count > 0)
+            {
+                foreach (string mail in cco)
+                {
+                    if (mail != "")
+                        msg.Bcc.Add(new MailAddress(mail));
+                }
+            }
+
+            //if (attachments != null && attachments.Count > 0)
+            //{
+            //    foreach (object adjunto in attachments)
+            //    {
+            //        if (adjunto is byte[])
+            //        {
+            //            Stream documento = new MemoryStream((byte[])adjunto);
+            //            System.Net.Mail.Attachment attachment;
+            //            if (NombreArchivo.Contains(".zip"))
+            //                attachment = new System.Net.Mail.Attachment(documento, NombreArchivo, System.Net.Mime.MediaTypeNames.Application.Zip);
+            //            else
+            //                attachment = new System.Net.Mail.Attachment(documento, NombreArchivo + ".pdf", System.Net.Mime.MediaTypeNames.Application.Pdf);
+            //            msg.Attachments.Add(attachment);
+            //        }
+            //        if (adjunto is string)
+            //        {
+            //            string path = Convert.ToString(adjunto);
+            //            ArrayList mArray = new ArrayList(path.Split(new char[] { '&' }));
+            //            System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(mArray[0].ToString());
+            //            if (mArray.Count > 1)
+            //                attachment.Name = mArray[1].ToString() + mArray[0].ToString().Substring(mArray[0].ToString().LastIndexOf("."));
+            //            msg.Attachments.Add(attachment);
+            //        }
+            //        if (adjunto is FileInfo)
+            //        {
+            //            FileInfo adj = adjunto as FileInfo;
+            //            System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(adj.FullName);
+            //            msg.Attachments.Add(attachment);
+            //        }
+            //    }
+            //}
+
+            //if (config.LogoSistema != null && config.ExtensionLogo.Trim() != string.Empty)
+            //{
+            //    LinkedResource imagen = null;
+            //    Stream stream = new MemoryStream(config.LogoSistema);
+            //    if (stream != null)
+            //    {
+            //        imagen = new LinkedResource(stream);
+            //        imagen.ContentType.Name = "Logo." + config.ExtensionLogo;
+            //        imagen.ContentId = "Imagen1";
+            //    }
+
+            //    AlternateView av1 = AlternateView.CreateAlternateViewFromString("<br/>" + Mensaje + "<br/><br/>" + "<img src='cid:Imagen1'/>", null, MediaTypeNames.Text.Html);
+            //    if (imagen != null)
+            //        av1.LinkedResources.Add(imagen);
+            //    msg.AlternateViews.Add(av1);
+            //}
+            //else
+            //{
+            msg.Body = Mensaje;
+                if (Mensaje.Replace(" ", "").Contains("<br/>") || Mensaje.Replace(" ", "").Contains("<b>") || Mensaje.Replace(" ", "").Contains("<p>") || Mensaje.Replace(" ", "").Contains("</a>") || Mensaje.Replace(" ", "").Contains("<table"))
+                    msg.IsBodyHtml = true;
+            //}
+
+            msg.From = new MailAddress(correoAutenticacionConfig, "", System.Text.Encoding.UTF8);
+            msg.Subject = Asunto;
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            // Configuración SMTP
+            SmtpClient mailSmtp = new SmtpClient();
+            mailSmtp.Host = correoHostConfig;
+            System.Net.NetworkCredential mailAuthentication = new System.Net.NetworkCredential(correoAutenticacionConfig, correoAutenticacionPassConfig);
+            mailSmtp.UseDefaultCredentials = false;
+            mailSmtp.Credentials = mailAuthentication;
+            mailSmtp.EnableSsl = habilitarSSLConfig;
+            mailSmtp.Port = Convert.ToInt32(correoHostPortConfig);
+
+            mailSmtp.Send(msg);
         }
     }
 }

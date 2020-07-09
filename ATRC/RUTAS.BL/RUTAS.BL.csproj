@@ -8,8 +8,9 @@
     <OutputType>Library</OutputType>
     <RootNamespace>RUTAS.BL</RootNamespace>
     <AssemblyName>RUTAS.BL</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -29,12 +31,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +53,10 @@
     <Compile Include="Catalogos\Servicio.cs" />
     <Compile Include="Catalogos\Turno.cs" />
     <Compile Include="Mapa\Coordenadas.cs" />
+    <Compile Include="RutasMaquiladora\HistorialPedidoRutas.cs" />
+    <Compile Include="RutasMaquiladora\HistorialRutasDePedido.cs" />
+    <Compile Include="RutasMaquiladora\PedidoRutas.cs" />
+    <Compile Include="RutasMaquiladora\RutasDePedido.cs" />
     <Compile Include="Rutas\HistorialRutaGenerada.cs" />
     <Compile Include="Rutas\PlantillaRutaFija.cs" />
     <Compile Include="Rutas\PlantillaRutas.cs" />
@@ -91,5 +98,6 @@
       <Name>UNIDADES.BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

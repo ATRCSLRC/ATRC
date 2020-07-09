@@ -74,6 +74,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.bbiGuardar,
             this.bbiCancelar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
@@ -84,7 +85,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(580, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(580, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -117,10 +118,10 @@
             // prgAcciones
             // 
             this.prgAcciones.AllowTextClipping = false;
+            this.prgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.prgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.prgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.prgAcciones.Name = "prgAcciones";
-            this.prgAcciones.ShowCaptionButton = false;
             // 
             // lcMain
             // 
@@ -131,20 +132,20 @@
             this.lcMain.Controls.Add(this.btnNumUsuario);
             this.lcMain.Controls.Add(this.dteFecha);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(580, 189);
+            this.lcMain.Size = new System.Drawing.Size(580, 179);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // memoMotivo
             // 
             this.memoMotivo.EnterMoveNextControl = true;
-            this.memoMotivo.Location = new System.Drawing.Point(121, 114);
+            this.memoMotivo.Location = new System.Drawing.Point(121, 117);
             this.memoMotivo.MenuManager = this.ribbonControl1;
             this.memoMotivo.Name = "memoMotivo";
-            this.memoMotivo.Size = new System.Drawing.Size(435, 51);
+            this.memoMotivo.Size = new System.Drawing.Size(435, 38);
             this.memoMotivo.StyleController = this.lcMain;
             this.memoMotivo.TabIndex = 9;
             // 
@@ -152,7 +153,7 @@
             // 
             this.tmeHoraEntrada.EditValue = null;
             this.tmeHoraEntrada.EnterMoveNextControl = true;
-            this.tmeHoraEntrada.Location = new System.Drawing.Point(121, 90);
+            this.tmeHoraEntrada.Location = new System.Drawing.Point(121, 93);
             this.tmeHoraEntrada.MenuManager = this.ribbonControl1;
             this.tmeHoraEntrada.Name = "tmeHoraEntrada";
             this.tmeHoraEntrada.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -167,7 +168,7 @@
             // 
             this.tmeHoraSalida.EditValue = null;
             this.tmeHoraSalida.EnterMoveNextControl = true;
-            this.tmeHoraSalida.Location = new System.Drawing.Point(396, 90);
+            this.tmeHoraSalida.Location = new System.Drawing.Point(396, 93);
             this.tmeHoraSalida.MenuManager = this.ribbonControl1;
             this.tmeHoraSalida.Name = "tmeHoraSalida";
             this.tmeHoraSalida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -180,7 +181,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(310, 66);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(310, 69);
             this.txtNombreUsuario.MenuManager = this.ribbonControl1;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Properties.ReadOnly = true;
@@ -190,7 +191,7 @@
             // 
             // btnNumUsuario
             // 
-            this.btnNumUsuario.Location = new System.Drawing.Point(121, 66);
+            this.btnNumUsuario.Location = new System.Drawing.Point(121, 69);
             this.btnNumUsuario.MenuManager = this.ribbonControl1;
             this.btnNumUsuario.Name = "btnNumUsuario";
             this.btnNumUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -207,7 +208,7 @@
             // dteFecha
             // 
             this.dteFecha.EditValue = null;
-            this.dteFecha.Location = new System.Drawing.Point(121, 42);
+            this.dteFecha.Location = new System.Drawing.Point(121, 45);
             this.dteFecha.MenuManager = this.ribbonControl1;
             this.dteFecha.Name = "dteFecha";
             this.dteFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -231,7 +232,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lcgGrupo});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(580, 189);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(580, 179);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lcgGrupo
@@ -245,7 +246,7 @@
             this.lciMotivo});
             this.lcgGrupo.Location = new System.Drawing.Point(0, 0);
             this.lcgGrupo.Name = "lcgGrupo";
-            this.lcgGrupo.Size = new System.Drawing.Size(560, 169);
+            this.lcgGrupo.Size = new System.Drawing.Size(560, 159);
             this.lcgGrupo.Text = "Ingresar los siguientes datos";
             // 
             // lciDia
@@ -298,7 +299,7 @@
             this.lciMotivo.Control = this.memoMotivo;
             this.lciMotivo.Location = new System.Drawing.Point(0, 72);
             this.lciMotivo.Name = "lciMotivo";
-            this.lciMotivo.Size = new System.Drawing.Size(536, 55);
+            this.lciMotivo.Size = new System.Drawing.Size(536, 42);
             this.lciMotivo.Text = "Motivo:";
             this.lciMotivo.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -309,7 +310,7 @@
             this.ClientSize = new System.Drawing.Size(580, 311);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmChecador.IconOptions.Icon")));
             this.Name = "xfrmChecador";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Checador";

@@ -200,5 +200,6 @@ namespace RUTAS.BL
                 return GetCollection<HistorialRutaGenerada>(nameof(Historial));
             }
         }
+
     }
 }

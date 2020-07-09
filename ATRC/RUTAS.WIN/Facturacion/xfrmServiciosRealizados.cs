@@ -190,7 +190,8 @@ namespace RUTAS.WIN
 
         private void bbiReporte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            //UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            UnidadDeTrabajo UnidadGuardar = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             if (chkPorTurno.Checked)
             {
                 for (int i = 0; i < grvRutas.RowCount; i++)
@@ -207,17 +208,18 @@ namespace RUTAS.WIN
                         }
 
                         REPORTES.Rutas.ServiciosRealizadosEmpresa repServicios = new REPORTES.Rutas.ServiciosRealizadosEmpresa(Turnos, dteDe.DateTime, dteAl.DateTime, true);
-                        //UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                        ReportesServiciosRealizados ReportesServicios = new ReportesServiciosRealizados(Unidad);
+
+                        
+                        ReportesServiciosRealizados ReportesServicios = new ReportesServiciosRealizados(UnidadGuardar);
                         ReportesServicios.Fecha = DateTime.Now.Date;
                         ReportesServicios.Descripcion = "Semana del " + dteDe.DateTime.ToLongDateString() + " al " + dteAl.DateTime.ToLongDateString();
-                        ReportesServicios.Empresa = Unidad.GetObjectByKey<Empresas>(lueEmpresas.EditValue);
+                        ReportesServicios.Empresa = UnidadGuardar.GetObjectByKey<Empresas>(lueEmpresas.EditValue);
 
                         MemoryStream stream = new MemoryStream();
                         repServicios.ExportToPdf(stream);
                         ReportesServicios.Archivo = Convert.ToBase64String(stream.ToArray());
                         ReportesServicios.Save();
-                        Unidad.CommitChanges();
+                        UnidadGuardar.CommitChanges();
 
                         ReportPrintTool repServiciosRealizados = new ReportPrintTool(repServicios);
                         repServiciosRealizados.ShowPreview();
@@ -233,16 +235,16 @@ namespace RUTAS.WIN
                 }
                     REPORTES.Rutas.ServiciosRealizadosEmpresa repServicios = new REPORTES.Rutas.ServiciosRealizadosEmpresa(RutasReporte, dteDe.DateTime, dteAl.DateTime);
                 //UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                ReportesServiciosRealizados ReportesServicios = new ReportesServiciosRealizados(Unidad);
+                ReportesServiciosRealizados ReportesServicios = new ReportesServiciosRealizados(UnidadGuardar);
                 ReportesServicios.Fecha = DateTime.Now.Date;
                 ReportesServicios.Descripcion = "Semana del " + dteDe.DateTime.ToLongDateString() + " al " + dteAl.DateTime.ToLongDateString();
-                ReportesServicios.Empresa = Unidad.GetObjectByKey<Empresas>(lueEmpresas.EditValue);
+                ReportesServicios.Empresa = UnidadGuardar.GetObjectByKey<Empresas>(lueEmpresas.EditValue);
                 
                 MemoryStream stream = new MemoryStream();
                 repServicios.ExportToPdf(stream);
                 ReportesServicios.Archivo = Convert.ToBase64String(stream.ToArray());
                 ReportesServicios.Save();
-                Unidad.CommitChanges();
+                UnidadGuardar.CommitChanges();
 
                 ReportPrintTool repServiciosRealizados = new ReportPrintTool(repServicios);
                 repServiciosRealizados.ShowPreview();

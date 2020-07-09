@@ -31,6 +31,7 @@ namespace RUTAS.WIN
             bbiAgregar.Visibility = Utilerias.VisibilidadPermiso("NuevaPlantilla");
             bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarPlantilla");
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarPlantilla");
+            bbiClonar.Visibility = Utilerias.VisibilidadPermiso("ClonarPlantilla");
 
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Rutas = new XPView(Unidad, typeof(PlantillaRutas), "Oid;Nombre;Empresa.Nombre", null);
@@ -120,6 +121,45 @@ namespace RUTAS.WIN
         private void bbiSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void bbiClonar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord ViewPlantilla = grvPlantillas.GetFocusedRow() as ViewRecord;
+            if (ViewPlantilla != null)
+            {
+                PlantillaRutas Plantilla = (PlantillaRutas)ViewPlantilla.GetObject();
+                if (XtraMessageBox.Show("¿Está seguro de querer clonar la plantilla " + Plantilla.Empresa.Nombre + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    PlantillaRutas PlantillaClonada = new PlantillaRutas(Unidad);
+                    PlantillaClonada.Nombre = Plantilla.Nombre + " - " +Guid.NewGuid().ToString().Substring(0,8);
+                    PlantillaClonada.Empresa = Plantilla.Empresa;
+                    PlantillaClonada.EsExterno = Plantilla.EsExterno;
+                    foreach(PlantillaRutaFija PlantillaRuta in Plantilla.PlantillasRutasFijas)
+                    {
+                        PlantillaRutaFija PlantillaRutaClon = new PlantillaRutaFija(PlantillaRuta.Session);
+                        PlantillaRutaClon.TipoRuta = PlantillaRuta.TipoRuta;
+                        PlantillaRutaClon.Ruta = PlantillaRuta.Ruta;
+                        PlantillaRutaClon.Servicio = PlantillaRuta.Servicio;
+                        PlantillaRutaClon.Turno = PlantillaRuta.Turno;
+                        PlantillaRutaClon.EsRutaExtra = PlantillaRuta.EsRutaExtra;
+                        PlantillaRutaClon.HoraEntrada = PlantillaRuta.HoraEntrada;
+                        PlantillaRutaClon.HoraSalida = PlantillaRuta.HoraSalida;
+                        PlantillaRutaClon.RutaCompleta = PlantillaRuta.RutaCompleta;
+                        PlantillaRutaClon.ChoferEntrada = PlantillaRuta.ChoferEntrada;
+                        PlantillaRutaClon.PagarChoferEntrada = PlantillaRuta.PagarChoferEntrada;
+                        PlantillaRutaClon.ChoferSalida = PlantillaRuta.ChoferSalida;
+                        PlantillaRutaClon.PagarChoferSalida = PlantillaRuta.PagarChoferSalida;
+                        PlantillaRutaClon.Comentarios = PlantillaRuta.Comentarios;
+                        PlantillaRutaClon.ComentariosFacturacion = PlantillaRuta.ComentariosFacturacion;
+                        PlantillaClonada.PlantillasRutasFijas.Add(PlantillaRutaClon);
+                        PlantillaRutaClon.Save();
+                    }
+                    PlantillaClonada.Save();
+                    Unidad.CommitChanges();
+                    ((XPView)grdPlantillas.DataSource).Reload();
+                }
+            }
         }
     }
 }

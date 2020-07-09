@@ -185,18 +185,19 @@
             this.rbbnUsuario.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbbnUsuario.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.rbbnUsuario.SearchEditItem});
             this.rbbnUsuario.Location = new System.Drawing.Point(0, 0);
             this.rbbnUsuario.MaxItemId = 3;
             this.rbbnUsuario.Name = "rbbnUsuario";
+            this.rbbnUsuario.OptionsPageCategories.ShowCaptions = false;
             this.rbbnUsuario.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.rbbnUsuario.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.rbbnUsuario.ShowCategoryInCaption = false;
             this.rbbnUsuario.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbbnUsuario.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbbnUsuario.ShowToolbarCustomizeItem = false;
-            this.rbbnUsuario.Size = new System.Drawing.Size(660, 122);
+            this.rbbnUsuario.Size = new System.Drawing.Size(660, 132);
             this.rbbnUsuario.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -226,17 +227,17 @@
             // 
             // rpgAcciones
             // 
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // xtraTabControl1
             // 
             this.xtraTabControl1.Location = new System.Drawing.Point(12, 12);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.TabSeguridad;
-            this.xtraTabControl1.Size = new System.Drawing.Size(636, 355);
+            this.xtraTabControl1.Size = new System.Drawing.Size(636, 345);
             this.xtraTabControl1.TabIndex = 8;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabDatosGenerales,
@@ -248,7 +249,7 @@
             this.TabSeguridad.Controls.Add(this.lcMainSeguridad);
             this.TabSeguridad.Name = "TabSeguridad";
             this.TabSeguridad.PageVisible = false;
-            this.TabSeguridad.Size = new System.Drawing.Size(630, 327);
+            this.TabSeguridad.Size = new System.Drawing.Size(634, 320);
             this.TabSeguridad.Text = "Seguridad";
             // 
             // lcMainSeguridad
@@ -262,7 +263,7 @@
             this.lcMainSeguridad.Name = "lcMainSeguridad";
             this.lcMainSeguridad.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(695, 206, 650, 400);
             this.lcMainSeguridad.Root = this.layoutControlGroup3;
-            this.lcMainSeguridad.Size = new System.Drawing.Size(630, 327);
+            this.lcMainSeguridad.Size = new System.Drawing.Size(634, 320);
             this.lcMainSeguridad.TabIndex = 0;
             this.lcMainSeguridad.Text = "layoutControl1";
             // 
@@ -270,9 +271,8 @@
             // 
             this.trModulos.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colNombre});
-            this.trModulos.DataSource = null;
             this.trModulos.KeyFieldName = "Oid";
-            this.trModulos.Location = new System.Drawing.Point(24, 154);
+            this.trModulos.Location = new System.Drawing.Point(24, 155);
             this.trModulos.Name = "trModulos";
             this.trModulos.OptionsBehavior.Editable = false;
             this.trModulos.OptionsBehavior.ReadOnly = true;
@@ -280,10 +280,10 @@
             this.trModulos.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.trModulos.OptionsSelection.MultiSelect = true;
             this.trModulos.OptionsView.AllowHtmlDrawHeaders = true;
+            this.trModulos.OptionsView.CheckBoxStyle = DevExpress.XtraTreeList.DefaultNodeCheckBoxStyle.Check;
             this.trModulos.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
-            this.trModulos.OptionsView.ShowCheckBoxes = true;
             this.trModulos.ParentFieldName = "PermisoPadre";
-            this.trModulos.Size = new System.Drawing.Size(582, 149);
+            this.trModulos.Size = new System.Drawing.Size(586, 141);
             this.trModulos.TabIndex = 9;
             this.trModulos.BeforeCheckNode += new DevExpress.XtraTreeList.CheckNodeEventHandler(this.treeList1_BeforeCheckNode);
             this.trModulos.NodeChanged += new DevExpress.XtraTreeList.NodeChangedEventHandler(this.treeList1_NodeChanged);
@@ -301,31 +301,31 @@
             // 
             this.lblComparaContraseña.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblComparaContraseña.Appearance.Options.UseForeColor = true;
-            this.lblComparaContraseña.Location = new System.Drawing.Point(452, 90);
+            this.lblComparaContraseña.Location = new System.Drawing.Point(455, 93);
             this.lblComparaContraseña.Name = "lblComparaContraseña";
-            this.lblComparaContraseña.Size = new System.Drawing.Size(154, 18);
+            this.lblComparaContraseña.Size = new System.Drawing.Size(155, 13);
             this.lblComparaContraseña.StyleController = this.lcMainSeguridad;
             this.lblComparaContraseña.TabIndex = 6;
             this.lblComparaContraseña.Text = "No coinciden las contraseñas";
             // 
             // txtConfContraseña
             // 
-            this.txtConfContraseña.Location = new System.Drawing.Point(135, 66);
+            this.txtConfContraseña.Location = new System.Drawing.Point(135, 69);
             this.txtConfContraseña.MenuManager = this.rbbnUsuario;
             this.txtConfContraseña.Name = "txtConfContraseña";
             this.txtConfContraseña.Properties.PasswordChar = '*';
-            this.txtConfContraseña.Size = new System.Drawing.Size(471, 20);
+            this.txtConfContraseña.Size = new System.Drawing.Size(475, 20);
             this.txtConfContraseña.StyleController = this.lcMainSeguridad;
             this.txtConfContraseña.TabIndex = 5;
             this.txtConfContraseña.TextChanged += new System.EventHandler(this.txtConfContraseña_TextChanged);
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(135, 42);
+            this.txtContraseña.Location = new System.Drawing.Point(135, 45);
             this.txtContraseña.MenuManager = this.rbbnUsuario;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Properties.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(471, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(475, 20);
             this.txtContraseña.StyleController = this.lcMainSeguridad;
             this.txtContraseña.TabIndex = 4;
             // 
@@ -337,7 +337,7 @@
             this.lcgContraseña,
             this.lcgPermisos});
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(630, 327);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(634, 320);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // lcgContraseña
@@ -349,7 +349,7 @@
             this.emptySpaceItem5});
             this.lcgContraseña.Location = new System.Drawing.Point(0, 0);
             this.lcgContraseña.Name = "lcgContraseña";
-            this.lcgContraseña.Size = new System.Drawing.Size(610, 112);
+            this.lcgContraseña.Size = new System.Drawing.Size(614, 110);
             this.lcgContraseña.Text = "Ingresé su contraseña";
             // 
             // lciContraseña
@@ -357,7 +357,7 @@
             this.lciContraseña.Control = this.txtContraseña;
             this.lciContraseña.Location = new System.Drawing.Point(0, 0);
             this.lciContraseña.Name = "lciContraseña";
-            this.lciContraseña.Size = new System.Drawing.Size(586, 24);
+            this.lciContraseña.Size = new System.Drawing.Size(590, 24);
             this.lciContraseña.Text = "Contraseña:";
             this.lciContraseña.TextSize = new System.Drawing.Size(108, 13);
             // 
@@ -366,17 +366,17 @@
             this.lciConfirmarContraseña.Control = this.txtConfContraseña;
             this.lciConfirmarContraseña.Location = new System.Drawing.Point(0, 24);
             this.lciConfirmarContraseña.Name = "lciConfirmarContraseña";
-            this.lciConfirmarContraseña.Size = new System.Drawing.Size(586, 24);
+            this.lciConfirmarContraseña.Size = new System.Drawing.Size(590, 24);
             this.lciConfirmarContraseña.Text = "Confirmar contraseña:";
             this.lciConfirmarContraseña.TextSize = new System.Drawing.Size(108, 13);
             // 
             // lciComparaContraseña
             // 
             this.lciComparaContraseña.Control = this.lblComparaContraseña;
-            this.lciComparaContraseña.Location = new System.Drawing.Point(428, 48);
+            this.lciComparaContraseña.Location = new System.Drawing.Point(431, 48);
             this.lciComparaContraseña.MinSize = new System.Drawing.Size(67, 17);
             this.lciComparaContraseña.Name = "lciComparaContraseña";
-            this.lciComparaContraseña.Size = new System.Drawing.Size(158, 22);
+            this.lciComparaContraseña.Size = new System.Drawing.Size(159, 17);
             this.lciComparaContraseña.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciComparaContraseña.TextSize = new System.Drawing.Size(0, 0);
             this.lciComparaContraseña.TextVisible = false;
@@ -387,7 +387,7 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(0, 48);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(428, 22);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(431, 17);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcgPermisos
@@ -395,9 +395,9 @@
             this.lcgPermisos.CustomizationFormText = "Marque modulos con acceso";
             this.lcgPermisos.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.lcgPermisos.Location = new System.Drawing.Point(0, 112);
+            this.lcgPermisos.Location = new System.Drawing.Point(0, 110);
             this.lcgPermisos.Name = "lcgPermisos";
-            this.lcgPermisos.Size = new System.Drawing.Size(610, 195);
+            this.lcgPermisos.Size = new System.Drawing.Size(614, 190);
             this.lcgPermisos.Text = "Marque modulos con acceso";
             // 
             // layoutControlItem1
@@ -405,7 +405,7 @@
             this.layoutControlItem1.Control = this.trModulos;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(586, 153);
+            this.layoutControlItem1.Size = new System.Drawing.Size(590, 145);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -413,7 +413,7 @@
             // 
             this.tabDatosGenerales.Controls.Add(this.lcMainTabGeneral);
             this.tabDatosGenerales.Name = "tabDatosGenerales";
-            this.tabDatosGenerales.Size = new System.Drawing.Size(630, 327);
+            this.tabDatosGenerales.Size = new System.Drawing.Size(634, 320);
             this.tabDatosGenerales.Text = "Datos generales";
             // 
             // lcMainTabGeneral
@@ -436,42 +436,42 @@
             this.lcMainTabGeneral.Name = "lcMainTabGeneral";
             this.lcMainTabGeneral.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(773, 206, 650, 400);
             this.lcMainTabGeneral.Root = this.layoutControlGroup2;
-            this.lcMainTabGeneral.Size = new System.Drawing.Size(630, 327);
+            this.lcMainTabGeneral.Size = new System.Drawing.Size(634, 320);
             this.lcMainTabGeneral.TabIndex = 0;
             this.lcMainTabGeneral.Text = "layoutControl1";
             // 
             // chkAccesoSistema
             // 
-            this.chkAccesoSistema.Location = new System.Drawing.Point(379, 12);
+            this.chkAccesoSistema.Location = new System.Drawing.Point(364, 12);
             this.chkAccesoSistema.MenuManager = this.rbbnUsuario;
             this.chkAccesoSistema.Name = "chkAccesoSistema";
             this.chkAccesoSistema.Properties.Caption = "Tiene acceso al sistema";
-            this.chkAccesoSistema.Size = new System.Drawing.Size(134, 19);
+            this.chkAccesoSistema.Size = new System.Drawing.Size(135, 20);
             this.chkAccesoSistema.StyleController = this.lcMainTabGeneral;
             this.chkAccesoSistema.TabIndex = 17;
             this.chkAccesoSistema.CheckedChanged += new System.EventHandler(this.chkAccesoSistema_CheckedChanged);
             // 
             // lueDepartamento
             // 
-            this.lueDepartamento.Location = new System.Drawing.Point(12, 251);
+            this.lueDepartamento.Location = new System.Drawing.Point(12, 252);
             this.lueDepartamento.MenuManager = this.rbbnUsuario;
             this.lueDepartamento.Name = "lueDepartamento";
             this.lueDepartamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueDepartamento.Properties.NullText = "[Seleccione]";
-            this.lueDepartamento.Size = new System.Drawing.Size(384, 20);
+            this.lueDepartamento.Size = new System.Drawing.Size(376, 20);
             this.lueDepartamento.StyleController = this.lcMainTabGeneral;
             this.lueDepartamento.TabIndex = 16;
             // 
             // luePuesto
             // 
-            this.luePuesto.Location = new System.Drawing.Point(12, 211);
+            this.luePuesto.Location = new System.Drawing.Point(12, 212);
             this.luePuesto.MenuManager = this.rbbnUsuario;
             this.luePuesto.Name = "luePuesto";
             this.luePuesto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luePuesto.Properties.NullText = "[Seleccione]";
-            this.luePuesto.Size = new System.Drawing.Size(384, 20);
+            this.luePuesto.Size = new System.Drawing.Size(376, 20);
             this.luePuesto.StyleController = this.lcMainTabGeneral;
             this.luePuesto.TabIndex = 15;
             // 
@@ -480,9 +480,9 @@
             this.bbiSeleccionar.BackgroundImage = global::ATRCBASE.WIN.Properties.Resources.SeleccionarImagen;
             this.bbiSeleccionar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.SeleccionarImagen;
             this.bbiSeleccionar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiSeleccionar.Location = new System.Drawing.Point(482, 261);
+            this.bbiSeleccionar.Location = new System.Drawing.Point(471, 260);
             this.bbiSeleccionar.Name = "bbiSeleccionar";
-            this.bbiSeleccionar.Size = new System.Drawing.Size(56, 54);
+            this.bbiSeleccionar.Size = new System.Drawing.Size(55, 52);
             this.bbiSeleccionar.StyleController = this.lcMainTabGeneral;
             this.bbiSeleccionar.TabIndex = 14;
             this.bbiSeleccionar.ToolTip = "Seleccionar foto";
@@ -492,9 +492,9 @@
             // 
             this.bbiCancelarImagen.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.EliminarImagen;
             this.bbiCancelarImagen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiCancelarImagen.Location = new System.Drawing.Point(542, 261);
+            this.bbiCancelarImagen.Location = new System.Drawing.Point(530, 260);
             this.bbiCancelarImagen.Name = "bbiCancelarImagen";
-            this.bbiCancelarImagen.Size = new System.Drawing.Size(56, 54);
+            this.bbiCancelarImagen.Size = new System.Drawing.Size(55, 52);
             this.bbiCancelarImagen.StyleController = this.lcMainTabGeneral;
             this.bbiCancelarImagen.TabIndex = 13;
             this.bbiCancelarImagen.ToolTip = "Eliminar foto";
@@ -504,9 +504,9 @@
             // 
             this.bbiCamara.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.WebCam;
             this.bbiCamara.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiCamara.Location = new System.Drawing.Point(422, 261);
+            this.bbiCamara.Location = new System.Drawing.Point(413, 260);
             this.bbiCamara.Name = "bbiCamara";
-            this.bbiCamara.Size = new System.Drawing.Size(56, 54);
+            this.bbiCamara.Size = new System.Drawing.Size(54, 52);
             this.bbiCamara.StyleController = this.lcMainTabGeneral;
             this.bbiCamara.TabIndex = 12;
             this.bbiCamara.ToolTip = "Tomar foto";
@@ -514,56 +514,56 @@
             // 
             // chkEsAdministrativo
             // 
-            this.chkEsAdministrativo.Location = new System.Drawing.Point(517, 12);
+            this.chkEsAdministrativo.Location = new System.Drawing.Point(503, 12);
             this.chkEsAdministrativo.MenuManager = this.rbbnUsuario;
             this.chkEsAdministrativo.Name = "chkEsAdministrativo";
             this.chkEsAdministrativo.Properties.Caption = "Es administrador";
-            this.chkEsAdministrativo.Size = new System.Drawing.Size(101, 19);
+            this.chkEsAdministrativo.Size = new System.Drawing.Size(102, 20);
             this.chkEsAdministrativo.StyleController = this.lcMainTabGeneral;
             this.chkEsAdministrativo.TabIndex = 9;
             this.chkEsAdministrativo.CheckedChanged += new System.EventHandler(this.chkEsAdministrativo_CheckedChanged);
             // 
             // txtNumCredencial
             // 
-            this.txtNumCredencial.Location = new System.Drawing.Point(12, 291);
+            this.txtNumCredencial.Location = new System.Drawing.Point(12, 292);
             this.txtNumCredencial.MenuManager = this.rbbnUsuario;
             this.txtNumCredencial.Name = "txtNumCredencial";
             this.txtNumCredencial.Properties.Mask.EditMask = "\\d+";
             this.txtNumCredencial.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtNumCredencial.Properties.Mask.ShowPlaceHolders = false;
-            this.txtNumCredencial.Size = new System.Drawing.Size(384, 20);
+            this.txtNumCredencial.Size = new System.Drawing.Size(376, 20);
             this.txtNumCredencial.StyleController = this.lcMainTabGeneral;
             this.txtNumCredencial.TabIndex = 11;
             // 
             // txtIMSS
             // 
-            this.txtIMSS.Location = new System.Drawing.Point(12, 171);
+            this.txtIMSS.Location = new System.Drawing.Point(12, 172);
             this.txtIMSS.MenuManager = this.rbbnUsuario;
             this.txtIMSS.Name = "txtIMSS";
             this.txtIMSS.Properties.Mask.EditMask = "\\d+";
             this.txtIMSS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtIMSS.Properties.Mask.ShowPlaceHolders = false;
-            this.txtIMSS.Size = new System.Drawing.Size(384, 20);
+            this.txtIMSS.Size = new System.Drawing.Size(376, 20);
             this.txtIMSS.StyleController = this.lcMainTabGeneral;
             this.txtIMSS.TabIndex = 8;
             // 
             // txtRFC
             // 
-            this.txtRFC.Location = new System.Drawing.Point(12, 131);
+            this.txtRFC.Location = new System.Drawing.Point(12, 132);
             this.txtRFC.MenuManager = this.rbbnUsuario;
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Properties.Mask.EditMask = "\\p{Lu}{4}-\\d{6}-[0-9A-Z]{3}";
             this.txtRFC.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtRFC.Size = new System.Drawing.Size(384, 20);
+            this.txtRFC.Size = new System.Drawing.Size(376, 20);
             this.txtRFC.StyleController = this.lcMainTabGeneral;
             this.txtRFC.TabIndex = 7;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(12, 91);
+            this.txtNombre.Location = new System.Drawing.Point(12, 92);
             this.txtNombre.MenuManager = this.rbbnUsuario;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(384, 20);
+            this.txtNombre.Size = new System.Drawing.Size(376, 20);
             this.txtNombre.StyleController = this.lcMainTabGeneral;
             this.txtNombre.TabIndex = 6;
             // 
@@ -571,23 +571,23 @@
             // 
             this.peFoto.Cursor = System.Windows.Forms.Cursors.Default;
             this.peFoto.EditValue = global::ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
-            this.peFoto.Location = new System.Drawing.Point(400, 51);
+            this.peFoto.Location = new System.Drawing.Point(392, 52);
             this.peFoto.MenuManager = this.rbbnUsuario;
             this.peFoto.Name = "peFoto";
             this.peFoto.Properties.PictureInterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
             this.peFoto.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.Image;
             this.peFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.peFoto.Size = new System.Drawing.Size(218, 206);
+            this.peFoto.Size = new System.Drawing.Size(213, 204);
             this.peFoto.StyleController = this.lcMainTabGeneral;
             this.peFoto.TabIndex = 5;
             // 
             // txtNumeroEmpleado
             // 
-            this.txtNumeroEmpleado.Location = new System.Drawing.Point(12, 51);
+            this.txtNumeroEmpleado.Location = new System.Drawing.Point(12, 52);
             this.txtNumeroEmpleado.MenuManager = this.rbbnUsuario;
             this.txtNumeroEmpleado.Name = "txtNumeroEmpleado";
-            this.txtNumeroEmpleado.Size = new System.Drawing.Size(384, 20);
+            this.txtNumeroEmpleado.Size = new System.Drawing.Size(376, 20);
             this.txtNumeroEmpleado.StyleController = this.lcMainTabGeneral;
             this.txtNumeroEmpleado.TabIndex = 4;
             // 
@@ -613,15 +613,15 @@
             this.emptySpaceItem3,
             this.layoutControlItem3});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(630, 327);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(617, 324);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // lciFoto
             // 
             this.lciFoto.Control = this.peFoto;
-            this.lciFoto.Location = new System.Drawing.Point(388, 23);
+            this.lciFoto.Location = new System.Drawing.Point(380, 24);
             this.lciFoto.Name = "lciFoto";
-            this.lciFoto.Size = new System.Drawing.Size(222, 226);
+            this.lciFoto.Size = new System.Drawing.Size(217, 224);
             this.lciFoto.Text = "Foto:";
             this.lciFoto.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciFoto.TextSize = new System.Drawing.Size(107, 13);
@@ -629,36 +629,36 @@
             // lciCamara
             // 
             this.lciCamara.Control = this.bbiCamara;
-            this.lciCamara.Location = new System.Drawing.Point(410, 249);
+            this.lciCamara.Location = new System.Drawing.Point(401, 248);
             this.lciCamara.Name = "lciCamara";
-            this.lciCamara.Size = new System.Drawing.Size(60, 58);
+            this.lciCamara.Size = new System.Drawing.Size(58, 56);
             this.lciCamara.TextSize = new System.Drawing.Size(0, 0);
             this.lciCamara.TextVisible = false;
             // 
             // lciRemoverImagen
             // 
             this.lciRemoverImagen.Control = this.bbiCancelarImagen;
-            this.lciRemoverImagen.Location = new System.Drawing.Point(530, 249);
+            this.lciRemoverImagen.Location = new System.Drawing.Point(518, 248);
             this.lciRemoverImagen.Name = "lciRemoverImagen";
-            this.lciRemoverImagen.Size = new System.Drawing.Size(60, 58);
+            this.lciRemoverImagen.Size = new System.Drawing.Size(59, 56);
             this.lciRemoverImagen.TextSize = new System.Drawing.Size(0, 0);
             this.lciRemoverImagen.TextVisible = false;
             // 
             // lciSeleecionarImagen
             // 
             this.lciSeleecionarImagen.Control = this.bbiSeleccionar;
-            this.lciSeleecionarImagen.Location = new System.Drawing.Point(470, 249);
+            this.lciSeleecionarImagen.Location = new System.Drawing.Point(459, 248);
             this.lciSeleecionarImagen.Name = "lciSeleecionarImagen";
-            this.lciSeleecionarImagen.Size = new System.Drawing.Size(60, 58);
+            this.lciSeleecionarImagen.Size = new System.Drawing.Size(59, 56);
             this.lciSeleecionarImagen.TextSize = new System.Drawing.Size(0, 0);
             this.lciSeleecionarImagen.TextVisible = false;
             // 
             // lciNumEmpleado
             // 
             this.lciNumEmpleado.Control = this.txtNumeroEmpleado;
-            this.lciNumEmpleado.Location = new System.Drawing.Point(0, 23);
+            this.lciNumEmpleado.Location = new System.Drawing.Point(0, 24);
             this.lciNumEmpleado.Name = "lciNumEmpleado";
-            this.lciNumEmpleado.Size = new System.Drawing.Size(388, 40);
+            this.lciNumEmpleado.Size = new System.Drawing.Size(380, 40);
             this.lciNumEmpleado.Text = "Número de empleado:";
             this.lciNumEmpleado.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNumEmpleado.TextSize = new System.Drawing.Size(107, 13);
@@ -666,9 +666,9 @@
             // lciNombre
             // 
             this.lciNombre.Control = this.txtNombre;
-            this.lciNombre.Location = new System.Drawing.Point(0, 63);
+            this.lciNombre.Location = new System.Drawing.Point(0, 64);
             this.lciNombre.Name = "lciNombre";
-            this.lciNombre.Size = new System.Drawing.Size(388, 40);
+            this.lciNombre.Size = new System.Drawing.Size(380, 40);
             this.lciNombre.Text = "Nombre completo:";
             this.lciNombre.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNombre.TextSize = new System.Drawing.Size(107, 13);
@@ -676,9 +676,9 @@
             // lciRFC
             // 
             this.lciRFC.Control = this.txtRFC;
-            this.lciRFC.Location = new System.Drawing.Point(0, 103);
+            this.lciRFC.Location = new System.Drawing.Point(0, 104);
             this.lciRFC.Name = "lciRFC";
-            this.lciRFC.Size = new System.Drawing.Size(388, 40);
+            this.lciRFC.Size = new System.Drawing.Size(380, 40);
             this.lciRFC.Text = "RFC:";
             this.lciRFC.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciRFC.TextSize = new System.Drawing.Size(107, 13);
@@ -686,9 +686,9 @@
             // lciIMSS
             // 
             this.lciIMSS.Control = this.txtIMSS;
-            this.lciIMSS.Location = new System.Drawing.Point(0, 143);
+            this.lciIMSS.Location = new System.Drawing.Point(0, 144);
             this.lciIMSS.Name = "lciIMSS";
-            this.lciIMSS.Size = new System.Drawing.Size(388, 40);
+            this.lciIMSS.Size = new System.Drawing.Size(380, 40);
             this.lciIMSS.Text = "IMSS:";
             this.lciIMSS.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciIMSS.TextSize = new System.Drawing.Size(107, 13);
@@ -696,9 +696,9 @@
             // lciNumCredencial
             // 
             this.lciNumCredencial.Control = this.txtNumCredencial;
-            this.lciNumCredencial.Location = new System.Drawing.Point(0, 263);
+            this.lciNumCredencial.Location = new System.Drawing.Point(0, 264);
             this.lciNumCredencial.Name = "lciNumCredencial";
-            this.lciNumCredencial.Size = new System.Drawing.Size(388, 44);
+            this.lciNumCredencial.Size = new System.Drawing.Size(380, 40);
             this.lciNumCredencial.Text = "Número de credencial:";
             this.lciNumCredencial.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNumCredencial.TextSize = new System.Drawing.Size(107, 13);
@@ -706,9 +706,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.chkEsAdministrativo;
-            this.layoutControlItem2.Location = new System.Drawing.Point(505, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(491, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(105, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(106, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -717,15 +717,15 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(367, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(352, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPuesto
             // 
             this.lciPuesto.Control = this.luePuesto;
-            this.lciPuesto.Location = new System.Drawing.Point(0, 183);
+            this.lciPuesto.Location = new System.Drawing.Point(0, 184);
             this.lciPuesto.Name = "lciPuesto";
-            this.lciPuesto.Size = new System.Drawing.Size(388, 40);
+            this.lciPuesto.Size = new System.Drawing.Size(380, 40);
             this.lciPuesto.Text = "Puesto:";
             this.lciPuesto.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciPuesto.TextSize = new System.Drawing.Size(107, 13);
@@ -733,9 +733,9 @@
             // lciDepartamento
             // 
             this.lciDepartamento.Control = this.lueDepartamento;
-            this.lciDepartamento.Location = new System.Drawing.Point(0, 223);
+            this.lciDepartamento.Location = new System.Drawing.Point(0, 224);
             this.lciDepartamento.Name = "lciDepartamento";
-            this.lciDepartamento.Size = new System.Drawing.Size(388, 40);
+            this.lciDepartamento.Size = new System.Drawing.Size(380, 40);
             this.lciDepartamento.Text = "Departamento:";
             this.lciDepartamento.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciDepartamento.TextSize = new System.Drawing.Size(107, 13);
@@ -743,25 +743,25 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(388, 249);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(380, 248);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(22, 58);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(21, 56);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(590, 249);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(577, 248);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(20, 58);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(20, 56);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.chkAccesoSistema;
-            this.layoutControlItem3.Location = new System.Drawing.Point(367, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(352, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(138, 23);
+            this.layoutControlItem3.Size = new System.Drawing.Size(139, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -769,7 +769,7 @@
             // 
             this.TabDatosAdicionales.Controls.Add(this.lcMainAdicionales);
             this.TabDatosAdicionales.Name = "TabDatosAdicionales";
-            this.TabDatosAdicionales.Size = new System.Drawing.Size(630, 327);
+            this.TabDatosAdicionales.Size = new System.Drawing.Size(634, 330);
             this.TabDatosAdicionales.Text = "Datos adicionales";
             // 
             // lcMainAdicionales
@@ -786,16 +786,16 @@
             this.lcMainAdicionales.Name = "lcMainAdicionales";
             this.lcMainAdicionales.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(695, 207, 650, 400);
             this.lcMainAdicionales.Root = this.layoutControlGroup4;
-            this.lcMainAdicionales.Size = new System.Drawing.Size(630, 327);
+            this.lcMainAdicionales.Size = new System.Drawing.Size(634, 330);
             this.lcMainAdicionales.TabIndex = 0;
             this.lcMainAdicionales.Text = "layoutControl1";
             // 
             // bbiMapa
             // 
             this.bbiMapa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiMapa.ImageOptions.Image")));
-            this.bbiMapa.Location = new System.Drawing.Point(578, 212);
+            this.bbiMapa.Location = new System.Drawing.Point(582, 212);
             this.bbiMapa.Name = "bbiMapa";
-            this.bbiMapa.Size = new System.Drawing.Size(40, 38);
+            this.bbiMapa.Size = new System.Drawing.Size(40, 36);
             this.bbiMapa.StyleController = this.lcMainAdicionales;
             this.bbiMapa.TabIndex = 11;
             this.bbiMapa.Click += new System.EventHandler(this.bbiMapa_Click);
@@ -807,7 +807,7 @@
             this.txtDomicilio.MenuManager = this.rbbnUsuario;
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Properties.ReadOnly = true;
-            this.txtDomicilio.Size = new System.Drawing.Size(562, 20);
+            this.txtDomicilio.Size = new System.Drawing.Size(566, 20);
             this.txtDomicilio.StyleController = this.lcMainAdicionales;
             this.txtDomicilio.TabIndex = 9;
             // 
@@ -820,7 +820,7 @@
             this.txtTel.Properties.Mask.IgnoreMaskBlank = false;
             this.txtTel.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             this.txtTel.Properties.Mask.ShowPlaceHolders = false;
-            this.txtTel.Size = new System.Drawing.Size(606, 20);
+            this.txtTel.Size = new System.Drawing.Size(610, 20);
             this.txtTel.StyleController = this.lcMainAdicionales;
             this.txtTel.TabIndex = 8;
             // 
@@ -829,7 +829,7 @@
             this.txtTipoSangre.Location = new System.Drawing.Point(12, 188);
             this.txtTipoSangre.MenuManager = this.rbbnUsuario;
             this.txtTipoSangre.Name = "txtTipoSangre";
-            this.txtTipoSangre.Size = new System.Drawing.Size(606, 20);
+            this.txtTipoSangre.Size = new System.Drawing.Size(610, 20);
             this.txtTipoSangre.StyleController = this.lcMainAdicionales;
             this.txtTipoSangre.TabIndex = 7;
             // 
@@ -838,7 +838,7 @@
             this.txtAvisar.Location = new System.Drawing.Point(12, 108);
             this.txtAvisar.MenuManager = this.rbbnUsuario;
             this.txtAvisar.Name = "txtAvisar";
-            this.txtAvisar.Size = new System.Drawing.Size(606, 20);
+            this.txtAvisar.Size = new System.Drawing.Size(610, 20);
             this.txtAvisar.StyleController = this.lcMainAdicionales;
             this.txtAvisar.TabIndex = 6;
             // 
@@ -852,7 +852,7 @@
             this.cmbPatron.Properties.Items.AddRange(new object[] {
             "AutoTransportes del Río Colorado S.A. de C.V.",
             "Servicios Administrativos Greenwood SAG S DE RL DE CV"});
-            this.cmbPatron.Size = new System.Drawing.Size(606, 20);
+            this.cmbPatron.Size = new System.Drawing.Size(610, 20);
             this.cmbPatron.StyleController = this.lcMainAdicionales;
             this.cmbPatron.TabIndex = 5;
             // 
@@ -868,7 +868,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteIngreso.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteIngreso.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dteIngreso.Size = new System.Drawing.Size(606, 20);
+            this.dteIngreso.Size = new System.Drawing.Size(610, 20);
             this.dteIngreso.StyleController = this.lcMainAdicionales;
             this.dteIngreso.TabIndex = 4;
             // 
@@ -886,7 +886,7 @@
             this.lciDomicilio,
             this.lcibtnMapa});
             this.layoutControlGroup4.Name = "Root";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(630, 327);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(634, 330);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // lciIngreso
@@ -894,7 +894,7 @@
             this.lciIngreso.Control = this.dteIngreso;
             this.lciIngreso.Location = new System.Drawing.Point(0, 0);
             this.lciIngreso.Name = "lciIngreso";
-            this.lciIngreso.Size = new System.Drawing.Size(610, 40);
+            this.lciIngreso.Size = new System.Drawing.Size(614, 40);
             this.lciIngreso.Text = "Fecha de ingreso:";
             this.lciIngreso.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciIngreso.TextSize = new System.Drawing.Size(86, 13);
@@ -902,9 +902,9 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 242);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 240);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(610, 65);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(614, 70);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPatron
@@ -912,7 +912,7 @@
             this.lciPatron.Control = this.cmbPatron;
             this.lciPatron.Location = new System.Drawing.Point(0, 40);
             this.lciPatron.Name = "lciPatron";
-            this.lciPatron.Size = new System.Drawing.Size(610, 40);
+            this.lciPatron.Size = new System.Drawing.Size(614, 40);
             this.lciPatron.Text = "Patrón:";
             this.lciPatron.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciPatron.TextSize = new System.Drawing.Size(86, 13);
@@ -922,7 +922,7 @@
             this.lciAvisar.Control = this.txtAvisar;
             this.lciAvisar.Location = new System.Drawing.Point(0, 80);
             this.lciAvisar.Name = "lciAvisar";
-            this.lciAvisar.Size = new System.Drawing.Size(610, 40);
+            this.lciAvisar.Size = new System.Drawing.Size(614, 40);
             this.lciAvisar.Text = "Avisar a:";
             this.lciAvisar.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciAvisar.TextSize = new System.Drawing.Size(86, 13);
@@ -932,7 +932,7 @@
             this.lciTipoSangre.Control = this.txtTipoSangre;
             this.lciTipoSangre.Location = new System.Drawing.Point(0, 160);
             this.lciTipoSangre.Name = "lciTipoSangre";
-            this.lciTipoSangre.Size = new System.Drawing.Size(610, 40);
+            this.lciTipoSangre.Size = new System.Drawing.Size(614, 40);
             this.lciTipoSangre.Text = "Tipo de sangre:";
             this.lciTipoSangre.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTipoSangre.TextSize = new System.Drawing.Size(86, 13);
@@ -942,7 +942,7 @@
             this.lciTel.Control = this.txtTel;
             this.lciTel.Location = new System.Drawing.Point(0, 120);
             this.lciTel.Name = "lciTel";
-            this.lciTel.Size = new System.Drawing.Size(610, 40);
+            this.lciTel.Size = new System.Drawing.Size(614, 40);
             this.lciTel.Text = "Teléfono avisar:";
             this.lciTel.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTel.TextSize = new System.Drawing.Size(86, 13);
@@ -952,7 +952,7 @@
             this.lciDomicilio.Control = this.txtDomicilio;
             this.lciDomicilio.Location = new System.Drawing.Point(0, 200);
             this.lciDomicilio.Name = "lciDomicilio";
-            this.lciDomicilio.Size = new System.Drawing.Size(566, 42);
+            this.lciDomicilio.Size = new System.Drawing.Size(570, 40);
             this.lciDomicilio.Text = "Domicilio:";
             this.lciDomicilio.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciDomicilio.TextSize = new System.Drawing.Size(86, 13);
@@ -960,9 +960,9 @@
             // lcibtnMapa
             // 
             this.lcibtnMapa.Control = this.bbiMapa;
-            this.lcibtnMapa.Location = new System.Drawing.Point(566, 200);
+            this.lcibtnMapa.Location = new System.Drawing.Point(570, 200);
             this.lcibtnMapa.Name = "lcibtnMapa";
-            this.lcibtnMapa.Size = new System.Drawing.Size(44, 42);
+            this.lcibtnMapa.Size = new System.Drawing.Size(44, 40);
             this.lcibtnMapa.TextSize = new System.Drawing.Size(0, 0);
             this.lcibtnMapa.TextVisible = false;
             // 
@@ -973,7 +973,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciTab});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(660, 379);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(660, 369);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTab
@@ -981,7 +981,7 @@
             this.lciTab.Control = this.xtraTabControl1;
             this.lciTab.Location = new System.Drawing.Point(0, 0);
             this.lciTab.Name = "lciTab";
-            this.lciTab.Size = new System.Drawing.Size(640, 359);
+            this.lciTab.Size = new System.Drawing.Size(640, 349);
             this.lciTab.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTab.TextSize = new System.Drawing.Size(0, 0);
             this.lciTab.TextVisible = false;
@@ -990,11 +990,11 @@
             // 
             this.lcMain.Controls.Add(this.xtraTabControl1);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(624, 148, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(660, 379);
+            this.lcMain.Size = new System.Drawing.Size(660, 369);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -1009,7 +1009,7 @@
             this.ClientSize = new System.Drawing.Size(660, 501);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbbnUsuario);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUsuario.IconOptions.Icon")));
             this.Name = "xfrmUsuario";
             this.Ribbon = this.rbbnUsuario;
             this.Text = "Usuario";

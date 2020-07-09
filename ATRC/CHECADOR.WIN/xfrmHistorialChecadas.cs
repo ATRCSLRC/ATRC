@@ -146,7 +146,7 @@ namespace CHECADOR.WIN
                     //if (Usuario != null)
                     //{
                         emptySpaceItem1.Text = "Total de horas trabajadas: " + HorasTrabajadas(UnidadConsulta, NumEmpleado, dteFechaInicial.DateTime, dteFechaFinal.DateTime);
-                        //txtNombre.Text = 
+                    //txtNombre.Text = 
                     //}
                 }
             }

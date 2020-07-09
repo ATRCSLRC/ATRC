@@ -81,20 +81,22 @@ namespace ATRC
             rpAlmacen.Visible = VisibilidadPermiso("Almacen") == BarItemVisibility.Always ? true : false;
             if (rpAlmacen.Visible)
             {
-                
-
                 bbiArticulo.Visibility = VisibilidadPermiso("NuevoArticulo");
                 bbiModificar.Visibility = VisibilidadPermiso("ModificarArticulo");
                 bbiBusquedaArticulos.Visibility = VisibilidadPermiso("BusquedaArticulos");
                 bbiSalida.Visibility = VisibilidadPermiso("SalidaArticulos");
                 bbiPrestamos.Visibility = VisibilidadPermiso("PrestamoArticulos");
+                bbiHistorialHerramientaPrestada.Visibility = VisibilidadPermiso("HistorialPrestamoHerramienta");
                 bbiBitacoraSalida.Visibility = VisibilidadPermiso("BitacorasSalidas");
                 bbiInventarios.Visibility = VisibilidadPermiso("InventarioAlmacen");
                 bbiMarcas.Visibility = VisibilidadPermiso("Marcas");
                 bbiProveedor.Visibility = VisibilidadPermiso("Proveedor");
                 bbiCodigos.Visibility = VisibilidadPermiso("CodigosArticulos");
                 rpgConfiguracion.Visible = VisibilidadPermiso("ImpresoraTicketAlmacen") == BarItemVisibility.Always ? true : false;
-                if(rpgConfiguracion.Visible)
+                rpgInventario.Visible = bbiInventarios.Visibility == BarItemVisibility.Always || bbiBitacoraSalida.Visibility == BarItemVisibility.Always;
+                rpgCatalogo.Visible = bbiMarcas.Visibility == BarItemVisibility.Always || bbiProveedor.Visibility == BarItemVisibility.Always || bbiCodigos.Visibility == BarItemVisibility.Always;
+
+                if (rpgConfiguracion.Visible)
                 {
                     foreach (string Impresora in PrinterSettings.InstalledPrinters)
                     {
@@ -343,7 +345,7 @@ namespace ATRC
             //    }
             //}
             Utilerias.ActualizarEsquema();
-            Application.Exit();
+            //Application.Exit();
         }
         #endregion
 
@@ -491,7 +493,7 @@ namespace ATRC
 
         private void bbiPrestamos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ALMACEN.WIN.xfrmPrestamoArticulos xfrm = new ALMACEN.WIN.xfrmPrestamoArticulos();
+            ALMACEN.WIN.Articulos.xfrmPrestamoArticulo xfrm = new ALMACEN.WIN.Articulos.xfrmPrestamoArticulo();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
@@ -1005,7 +1007,7 @@ namespace ATRC
             {
                 Configuracion.Accion = editor.SelectedItem.ToString();
             }
-            else
+
             {
                 Configuracion = new ATRCBASE.BL.Configuraciones(Unidad);
                 Configuracion.Propiedad = "ImpresoraTicketsAlmacen";
@@ -1177,6 +1179,30 @@ namespace ATRC
         private void bbiReportesServicios_ItemClick(object sender, ItemClickEventArgs e)
         {
             RUTAS.WIN.xfrmReportesServiciosRealizados xfrm = new RUTAS.WIN.xfrmReportesServiciosRealizados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiUsuariosExternos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmUsuariosPortalGRD xfrm = new ATRCBASE.WIN.xfrmUsuariosPortalGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiConfiguracion_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmConfiguraciones xfrm = new ATRCBASE.WIN.xfrmConfiguraciones();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiHistorialHerramientaPrestada_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmBusquedaHerramientaPrestada xfrm = new ALMACEN.WIN.xfrmBusquedaHerramientaPrestada();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

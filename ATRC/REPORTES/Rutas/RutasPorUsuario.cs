@@ -24,6 +24,10 @@ namespace REPORTES.Rutas
             goChofer.Operands.Add(new BinaryOperator("ChoferSalida.NumEmpleado", NumEmpleado));
             goMain.Operands.Add(goChofer);
             XPView Rutas = new XPView(Unidad, typeof(RutasGeneradas), "Oid;FechaRuta;Empresa.Nombre;Empresa.Oid;Ruta;TipoRuta;Servicio.TipoUnidad;ChoferEntrada.Nombre;ChoferSalida.Nombre;HoraEntrada;HoraSalida;Turno.Oid;Turno.Descripcion;Comentarios", goMain);
+            SortingCollection sc = new SortingCollection();
+            sc.Add(new SortProperty("FechaRuta", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            sc.Add(new SortProperty("HoraEntrada", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            Rutas.Sorting = sc;
             this.DataSource = Rutas;
             Usuario Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", NumEmpleado));
 

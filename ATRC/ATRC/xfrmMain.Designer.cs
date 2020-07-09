@@ -172,6 +172,9 @@
             this.bbiImportarRutas = new DevExpress.XtraBars.BarButtonItem();
             this.bbiServiciosRealizados = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReportesServicios = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiUsuariosExternos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiConfiguracion = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHistorialHerramientaPrestada = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -227,10 +230,11 @@
             // rbnMain
             // 
             this.rbnMain.ApplicationButtonDropDownControl = this.bvcAyuda;
-            this.rbnMain.ApplicationIcon = ((System.Drawing.Bitmap)(resources.GetObject("rbnMain.ApplicationIcon")));
+            this.rbnMain.ApplicationButtonImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rbnMain.ApplicationButtonImageOptions.Image")));
             this.rbnMain.ExpandCollapseItem.Id = 0;
             this.rbnMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbnMain.ExpandCollapseItem,
+            this.rbnMain.SearchEditItem,
             this.bbiUsuario,
             this.bbiChecador,
             this.bbiConsultasChecada,
@@ -327,9 +331,12 @@
             this.bbiPrecioServicio,
             this.bbiImportarRutas,
             this.bbiServiciosRealizados,
-            this.bbiReportesServicios});
+            this.bbiReportesServicios,
+            this.bbiUsuariosExternos,
+            this.bbiConfiguracion,
+            this.bbiHistorialHerramientaPrestada});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 104;
+            this.rbnMain.MaxItemId = 107;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -351,7 +358,7 @@
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowToolbarCustomizeItem = false;
-            this.rbnMain.Size = new System.Drawing.Size(1061, 143);
+            this.rbnMain.Size = new System.Drawing.Size(1061, 158);
             this.rbnMain.StatusBar = this.rsbMain;
             this.rbnMain.Toolbar.ShowCustomizeItem = false;
             this.rbnMain.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -367,6 +374,7 @@
             this.bvcAyuda.Size = new System.Drawing.Size(283, 415);
             this.bvcAyuda.TabIndex = 2;
             this.bvcAyuda.Text = "backstageViewControl1";
+            this.bvcAyuda.VisibleInDesignTime = true;
             // 
             // bvbiContraseña
             // 
@@ -1447,6 +1455,30 @@
             this.bbiReportesServicios.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiReportesServicios.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReportesServicios_ItemClick);
             // 
+            // bbiUsuariosExternos
+            // 
+            this.bbiUsuariosExternos.Caption = "Usuarios externos";
+            this.bbiUsuariosExternos.Id = 104;
+            this.bbiUsuariosExternos.Name = "bbiUsuariosExternos";
+            this.bbiUsuariosExternos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUsuariosExternos_ItemClick);
+            // 
+            // bbiConfiguracion
+            // 
+            this.bbiConfiguracion.Caption = "Configuraciones";
+            this.bbiConfiguracion.Id = 105;
+            this.bbiConfiguracion.Name = "bbiConfiguracion";
+            this.bbiConfiguracion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiConfiguracion_ItemClick);
+            // 
+            // bbiHistorialHerramientaPrestada
+            // 
+            this.bbiHistorialHerramientaPrestada.Caption = "Historial de herramienta prestada";
+            this.bbiHistorialHerramientaPrestada.Id = 106;
+            this.bbiHistorialHerramientaPrestada.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiHistorialHerramientaPrestada.ImageOptions.Image")));
+            this.bbiHistorialHerramientaPrestada.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiHistorialHerramientaPrestada.ImageOptions.LargeImage")));
+            this.bbiHistorialHerramientaPrestada.Name = "bbiHistorialHerramientaPrestada";
+            this.bbiHistorialHerramientaPrestada.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiHistorialHerramientaPrestada.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHistorialHerramientaPrestada_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1458,18 +1490,18 @@
             // rbnpgUsuario
             // 
             this.rbnpgUsuario.AllowTextClipping = false;
+            this.rbnpgUsuario.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rbnpgUsuario.ItemLinks.Add(this.bbiUsuarios);
             this.rbnpgUsuario.ItemLinks.Add(this.bbiAnunciosUsuarios);
             this.rbnpgUsuario.Name = "rbnpgUsuario";
-            this.rbnpgUsuario.ShowCaptionButton = false;
             this.rbnpgUsuario.Text = "Usuario";
             // 
             // rbnpgReportesUsuarios
             // 
             this.rbnpgReportesUsuarios.AllowTextClipping = false;
+            this.rbnpgReportesUsuarios.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rbnpgReportesUsuarios.ItemLinks.Add(this.rgbiUsuarios);
             this.rbnpgReportesUsuarios.Name = "rbnpgReportesUsuarios";
-            this.rbnpgReportesUsuarios.ShowCaptionButton = false;
             this.rbnpgReportesUsuarios.Text = "Reportes";
             // 
             // rbnpChecador
@@ -1483,19 +1515,19 @@
             // 
             // rbnpgAdministracion
             // 
+            this.rbnpgAdministracion.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rbnpgAdministracion.ItemLinks.Add(this.bbiChecador);
             this.rbnpgAdministracion.ItemLinks.Add(this.bbiConsultasChecada);
             this.rbnpgAdministracion.ItemLinks.Add(this.bbiNotificacionesChecador);
             this.rbnpgAdministracion.Name = "rbnpgAdministracion";
-            this.rbnpgAdministracion.ShowCaptionButton = false;
             this.rbnpgAdministracion.Text = "Administración";
             // 
             // rbnpgReportesChecador
             // 
             this.rbnpgReportesChecador.AllowTextClipping = false;
+            this.rbnpgReportesChecador.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rbnpgReportesChecador.ItemLinks.Add(this.rgbiChecador);
             this.rbnpgReportesChecador.Name = "rbnpgReportesChecador";
-            this.rbnpgReportesChecador.ShowCaptionButton = false;
             this.rbnpgReportesChecador.Text = "Reportes";
             // 
             // rpAlmacen
@@ -1511,42 +1543,43 @@
             // 
             // rpgArticulos
             // 
-            this.rpgArticulos.AllowMinimize = false;
+            this.rpgArticulos.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgArticulos.ItemLinks.Add(this.bbiArticulo);
             this.rpgArticulos.ItemLinks.Add(this.bbiModificar);
             this.rpgArticulos.ItemLinks.Add(this.bbiBusquedaArticulos);
             this.rpgArticulos.ItemLinks.Add(this.bbiSalida);
             this.rpgArticulos.ItemLinks.Add(this.bbiPrestamos);
+            this.rpgArticulos.ItemLinks.Add(this.bbiHistorialHerramientaPrestada);
             this.rpgArticulos.Name = "rpgArticulos";
-            this.rpgArticulos.ShowCaptionButton = false;
+            this.rpgArticulos.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgArticulos.Text = "Artículos";
             // 
             // rpgInventario
             // 
-            this.rpgInventario.AllowMinimize = false;
+            this.rpgInventario.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgInventario.ItemLinks.Add(this.bbiBitacoraSalida);
             this.rpgInventario.ItemLinks.Add(this.bbiInventarios);
             this.rpgInventario.Name = "rpgInventario";
-            this.rpgInventario.ShowCaptionButton = false;
+            this.rpgInventario.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgInventario.Text = "Inventario";
             // 
             // rpgCatalogo
             // 
-            this.rpgCatalogo.AllowMinimize = false;
+            this.rpgCatalogo.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgCatalogo.ItemLinks.Add(this.bbiMarcas);
             this.rpgCatalogo.ItemLinks.Add(this.bbiProveedor);
             this.rpgCatalogo.ItemLinks.Add(this.bbiCodigos);
             this.rpgCatalogo.Name = "rpgCatalogo";
-            this.rpgCatalogo.ShowCaptionButton = false;
+            this.rpgCatalogo.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgCatalogo.Text = "Catálogo";
             // 
             // rpgConfiguracion
             // 
-            this.rpgConfiguracion.AllowMinimize = false;
             this.rpgConfiguracion.AllowTextClipping = false;
+            this.rpgConfiguracion.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgConfiguracion.ItemLinks.Add(this.beiImpresoraAlmacen);
             this.rpgConfiguracion.Name = "rpgConfiguracion";
-            this.rpgConfiguracion.ShowCaptionButton = false;
+            this.rpgConfiguracion.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgConfiguracion.Text = "Configuración";
             // 
             // rbnpUnidades
@@ -1564,50 +1597,50 @@
             // rpgUnidades
             // 
             this.rpgUnidades.AllowTextClipping = false;
+            this.rpgUnidades.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgUnidades.ItemLinks.Add(this.bbiUnidad);
             this.rpgUnidades.ItemLinks.Add(this.bbiBusquedaUnidad);
             this.rpgUnidades.ItemLinks.Add(this.bbiUnidadesFueraServicio);
             this.rpgUnidades.Name = "rpgUnidades";
-            this.rpgUnidades.ShowCaptionButton = false;
             this.rpgUnidades.Text = "Unidades";
             // 
             // rpgServicios
             // 
             this.rpgServicios.AllowTextClipping = false;
+            this.rpgServicios.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgServicios.ItemLinks.Add(this.bbiServicios);
             this.rpgServicios.ItemLinks.Add(this.bbiRadios);
             this.rpgServicios.ItemLinks.Add(this.bbiCambiosAceite);
             this.rpgServicios.Name = "rpgServicios";
-            this.rpgServicios.ShowCaptionButton = false;
             this.rpgServicios.Text = "Servicios";
             // 
             // rpgExtintores
             // 
-            this.rpgExtintores.AllowMinimize = false;
             this.rpgExtintores.AllowTextClipping = false;
+            this.rpgExtintores.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgExtintores.ItemLinks.Add(this.bbiExtintores);
             this.rpgExtintores.ItemLinks.Add(this.bbiInventarioExtintores);
             this.rpgExtintores.ItemLinks.Add(this.bbiHistorialInventarioExtintores);
             this.rpgExtintores.Name = "rpgExtintores";
-            this.rpgExtintores.ShowCaptionButton = false;
+            this.rpgExtintores.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgExtintores.Text = "Extintores";
             // 
             // rpgBaterias
             // 
-            this.rpgBaterias.AllowMinimize = false;
             this.rpgBaterias.AllowTextClipping = false;
+            this.rpgBaterias.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgBaterias.ItemLinks.Add(this.bbiBaterias);
             this.rpgBaterias.ItemLinks.Add(this.bbiHistorialBaterias);
             this.rpgBaterias.Name = "rpgBaterias";
-            this.rpgBaterias.ShowCaptionButton = false;
+            this.rpgBaterias.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgBaterias.Text = "Baterias";
             // 
             // rpgReportesUnidad
             // 
             this.rpgReportesUnidad.AllowTextClipping = false;
+            this.rpgReportesUnidad.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgReportesUnidad.ItemLinks.Add(this.rgbiReportesUnidades);
             this.rpgReportesUnidad.Name = "rpgReportesUnidad";
-            this.rpgReportesUnidad.ShowCaptionButton = false;
             this.rpgReportesUnidad.Text = "Reportes";
             // 
             // rbnpLlantera
@@ -1622,18 +1655,18 @@
             // rpgLlantas
             // 
             this.rpgLlantas.AllowTextClipping = false;
+            this.rpgLlantas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgLlantas.ItemLinks.Add(this.bbiCambioLlanta);
             this.rpgLlantas.ItemLinks.Add(this.bbiReparacionLlanta);
             this.rpgLlantas.Name = "rpgLlantas";
-            this.rpgLlantas.ShowCaptionButton = false;
             this.rpgLlantas.Text = "Llantas";
             // 
             // rpgInventarioLlantas
             // 
             this.rpgInventarioLlantas.AllowTextClipping = false;
+            this.rpgInventarioLlantas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgInventarioLlantas.ItemLinks.Add(this.rgbiLlantas);
             this.rpgInventarioLlantas.Name = "rpgInventarioLlantas";
-            this.rpgInventarioLlantas.ShowCaptionButton = false;
             this.rpgInventarioLlantas.Text = "Inventarios";
             // 
             // rbnpTaller
@@ -1648,18 +1681,18 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiBitacoraActividades);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiCapturaActividades);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Actividades";
             // 
             // rpgReportesTaller
             // 
-            this.rpgReportesTaller.AllowMinimize = false;
+            this.rpgReportesTaller.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgReportesTaller.ItemLinks.Add(this.rgbiTaller);
             this.rpgReportesTaller.Name = "rpgReportesTaller";
-            this.rpgReportesTaller.ShowCaptionButton = false;
+            this.rpgReportesTaller.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgReportesTaller.Text = "Reportes";
             // 
             // rbnpRutas
@@ -1676,24 +1709,25 @@
             // rpgRutas
             // 
             this.rpgRutas.AllowTextClipping = false;
+            this.rpgRutas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgRutas.ItemLinks.Add(this.bbiMapa);
             this.rpgRutas.ItemLinks.Add(this.bbiMapaEmpresa);
             this.rpgRutas.Name = "rpgRutas";
-            this.rpgRutas.ShowCaptionButton = false;
             this.rpgRutas.Text = "Rutas";
             // 
             // rpgChecadorRutas
             // 
             this.rpgChecadorRutas.AllowTextClipping = false;
+            this.rpgChecadorRutas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgChecadorRutas.ItemLinks.Add(this.bbiChecadorRutas);
             this.rpgChecadorRutas.ItemLinks.Add(this.bbiRegistrosRutas);
             this.rpgChecadorRutas.Name = "rpgChecadorRutas";
-            this.rpgChecadorRutas.ShowCaptionButton = false;
             this.rpgChecadorRutas.Text = "Checador";
             // 
             // rpgRutasExtras
             // 
             this.rpgRutasExtras.AllowTextClipping = false;
+            this.rpgRutasExtras.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgRutasExtras.ItemLinks.Add(this.bbiRutasExternas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiPlantillasRutasExternas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiImportarRutas);
@@ -1703,16 +1737,15 @@
             this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRutas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiPrecioServicio);
             this.rpgRutasExtras.Name = "rpgRutasExtras";
-            this.rpgRutasExtras.ShowCaptionButton = false;
             this.rpgRutasExtras.Text = "Rutas ";
             // 
             // rpgReportesRutas
             // 
-            this.rpgReportesRutas.AllowMinimize = false;
             this.rpgReportesRutas.AllowTextClipping = false;
+            this.rpgReportesRutas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgReportesRutas.ItemLinks.Add(this.rgbiReportesRutas);
             this.rpgReportesRutas.Name = "rpgReportesRutas";
-            this.rpgReportesRutas.ShowCaptionButton = false;
+            this.rpgReportesRutas.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgReportesRutas.Text = "Reportes";
             // 
             // rbnpAdministracion
@@ -1725,10 +1758,10 @@
             // rpgChecador
             // 
             this.rpgChecador.AllowTextClipping = false;
+            this.rpgChecador.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgChecador.ItemLinks.Add(this.bbiChecadorAdmin);
             this.rpgChecador.ItemLinks.Add(this.bbiRegistrosAdmin);
             this.rpgChecador.Name = "rpgChecador";
-            this.rpgChecador.ShowCaptionButton = false;
             this.rpgChecador.Text = "Checador";
             // 
             // rbnpCombustible
@@ -1743,41 +1776,41 @@
             // 
             // ribbonPageGroup6
             // 
-            this.ribbonPageGroup6.AllowMinimize = false;
             this.ribbonPageGroup6.AllowTextClipping = false;
+            this.ribbonPageGroup6.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiDiesel);
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiModificacionDiesel);
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiCalculosCarga);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.ShowCaptionButton = false;
+            this.ribbonPageGroup6.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroup6.Text = "Diesel";
             // 
             // ribbonPageGroup7
             // 
             this.ribbonPageGroup7.AllowTextClipping = false;
+            this.ribbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup7.ItemLinks.Add(this.bbiGasolina);
             this.ribbonPageGroup7.ItemLinks.Add(this.bbiModificarGasolina);
             this.ribbonPageGroup7.ItemLinks.Add(this.bbiCalculosCargaGasolina);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Gasolina";
             // 
             // ribbonPageGroup8
             // 
             this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiMedidorTanques, true);
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiRecargaDiesel);
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiDetalleCandados);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Combustible";
             // 
             // rpgReportesCombustible
             // 
             this.rpgReportesCombustible.AllowTextClipping = false;
+            this.rpgReportesCombustible.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgReportesCombustible.ItemLinks.Add(this.rgbiCombustibles);
             this.rpgReportesCombustible.Name = "rpgReportesCombustible";
-            this.rpgReportesCombustible.ShowCaptionButton = false;
             this.rpgReportesCombustible.Text = "Reportes";
             // 
             // rbnpGuardias
@@ -1793,38 +1826,38 @@
             // 
             // rpgReportesGuardias
             // 
-            this.rpgReportesGuardias.AllowMinimize = false;
             this.rpgReportesGuardias.AllowTextClipping = false;
+            this.rpgReportesGuardias.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgReportesGuardias.ItemLinks.Add(this.bbiReporteNuevo);
             this.rpgReportesGuardias.ItemLinks.Add(this.bbiReportesAcciones);
             this.rpgReportesGuardias.Name = "rpgReportesGuardias";
-            this.rpgReportesGuardias.ShowCaptionButton = false;
+            this.rpgReportesGuardias.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgReportesGuardias.Text = "Reportes";
             // 
             // rpgCombustiblesGuardias
             // 
-            this.rpgCombustiblesGuardias.AllowMinimize = false;
             this.rpgCombustiblesGuardias.AllowTextClipping = false;
+            this.rpgCombustiblesGuardias.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgCombustiblesGuardias.ItemLinks.Add(this.bbiListaDiesel);
             this.rpgCombustiblesGuardias.ItemLinks.Add(this.bbiPedidoGasolina);
             this.rpgCombustiblesGuardias.Name = "rpgCombustiblesGuardias";
-            this.rpgCombustiblesGuardias.ShowCaptionButton = false;
+            this.rpgCombustiblesGuardias.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgCombustiblesGuardias.Text = "Combustibles";
             // 
             // rpgRecibosPago
             // 
-            this.rpgRecibosPago.AllowMinimize = false;
             this.rpgRecibosPago.AllowTextClipping = false;
+            this.rpgRecibosPago.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgRecibosPago.ItemLinks.Add(this.bbiNuevoRecibo);
             this.rpgRecibosPago.ItemLinks.Add(this.bbiRecibos);
             this.rpgRecibosPago.Name = "rpgRecibosPago";
-            this.rpgRecibosPago.ShowCaptionButton = false;
+            this.rpgRecibosPago.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgRecibosPago.Text = "Recibos";
             // 
             // rpgRentas
             // 
-            this.rpgRentas.AllowMinimize = false;
             this.rpgRentas.AllowTextClipping = false;
+            this.rpgRentas.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgRentas.ItemLinks.Add(this.bbiContrato);
             this.rpgRentas.ItemLinks.Add(this.bbiAbonar);
             this.rpgRentas.ItemLinks.Add(this.bbiEntregaUnidad, true);
@@ -1835,18 +1868,18 @@
             this.rpgRentas.ItemLinks.Add(this.bbiHistorialRentas);
             this.rpgRentas.ItemLinks.Add(this.bbiClientesRenta, true);
             this.rpgRentas.Name = "rpgRentas";
-            this.rpgRentas.ShowCaptionButton = false;
+            this.rpgRentas.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgRentas.Text = "Rentas";
             // 
             // rpgConfiguracionGuardias
             // 
-            this.rpgConfiguracionGuardias.AllowMinimize = false;
             this.rpgConfiguracionGuardias.AllowTextClipping = false;
+            this.rpgConfiguracionGuardias.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgConfiguracionGuardias.ItemLinks.Add(this.beiEscanerOficina);
             this.rpgConfiguracionGuardias.ItemLinks.Add(this.beiEscanerGuardias);
             this.rpgConfiguracionGuardias.ItemLinks.Add(this.bbiUnidadesRenta);
             this.rpgConfiguracionGuardias.Name = "rpgConfiguracionGuardias";
-            this.rpgConfiguracionGuardias.ShowCaptionButton = false;
+            this.rpgConfiguracionGuardias.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgConfiguracionGuardias.Text = "Configuración";
             // 
             // rbnpConfiguracion
@@ -1861,30 +1894,32 @@
             // pbnpgCatalogos
             // 
             this.pbnpgCatalogos.AllowTextClipping = false;
+            this.pbnpgCatalogos.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.pbnpgCatalogos.ItemLinks.Add(this.bbiDepartamento);
             this.pbnpgCatalogos.ItemLinks.Add(this.bbiPuestos);
             this.pbnpgCatalogos.ItemLinks.Add(this.bbiEmpresa);
             this.pbnpgCatalogos.ItemLinks.Add(this.bbiTanques);
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiUsuariosExternos);
+            this.pbnpgCatalogos.ItemLinks.Add(this.bbiConfiguracion);
             this.pbnpgCatalogos.Name = "pbnpgCatalogos";
-            this.pbnpgCatalogos.ShowCaptionButton = false;
             this.pbnpgCatalogos.Text = "Catálogos";
             // 
             // rpgMantenimiento
             // 
             this.rpgMantenimiento.AllowTextClipping = false;
+            this.rpgMantenimiento.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgMantenimiento.ItemLinks.Add(this.bbiActualizarEsquemas);
             this.rpgMantenimiento.ItemLinks.Add(this.bbiActualizarPermisos);
             this.rpgMantenimiento.Name = "rpgMantenimiento";
-            this.rpgMantenimiento.ShowCaptionButton = false;
             this.rpgMantenimiento.Text = "Mantenimiento";
             // 
             // rsbMain
             // 
             this.rsbMain.ItemLinks.Add(this.bbiUsuario);
-            this.rsbMain.Location = new System.Drawing.Point(0, 520);
+            this.rsbMain.Location = new System.Drawing.Point(0, 527);
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
-            this.rsbMain.Size = new System.Drawing.Size(1061, 31);
+            this.rsbMain.Size = new System.Drawing.Size(1061, 24);
             // 
             // xfrmMain
             // 
@@ -1896,7 +1931,7 @@
             this.Controls.Add(this.bvcAyuda);
             this.Controls.Add(this.rsbMain);
             this.Controls.Add(this.rbnMain);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmMain.IconOptions.Icon")));
             this.IsMdiContainer = true;
             this.Name = "xfrmMain";
             this.Ribbon = this.rbnMain;
@@ -2068,5 +2103,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiImportarRutas;
         private DevExpress.XtraBars.BarButtonItem bbiServiciosRealizados;
         private DevExpress.XtraBars.BarButtonItem bbiReportesServicios;
+        private DevExpress.XtraBars.BarButtonItem bbiUsuariosExternos;
+        private DevExpress.XtraBars.BarButtonItem bbiConfiguracion;
+        private DevExpress.XtraBars.BarButtonItem bbiHistorialHerramientaPrestada;
     }
 }

@@ -27,6 +27,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<Empresas>("Empresa", ref mEmpresa, value); }
         }
 
+        private bool mEsExterno;
+        public bool EsExterno
+        {
+            get { return mEsExterno; }
+            set { SetPropertyValue<bool>("EsExterno", ref mEsExterno, value); }
+        }
+
         [Association("rut_PlantillaRutas-PlantillaRutaFija")]
         public XPCollection<PlantillaRutaFija> PlantillasRutasFijas
         {

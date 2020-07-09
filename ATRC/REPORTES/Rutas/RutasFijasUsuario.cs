@@ -39,6 +39,15 @@ namespace REPORTES.Rutas
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
 
             DataTable Tabla = CreateDataTableFromXPView(Usuarios);
+
+            Tabla.DefaultView.RowFilter = "NumEmpleado = 296";
+            if(Tabla.DefaultView.Count > 0)
+            {
+                Tabla.DefaultView[0].Row.SetField(2, 10 + Convert.ToInt32(Tabla.DefaultView[0].Row.ItemArray[2]));
+                Tabla.DefaultView[0].Row.SetField(3, Convert.ToInt32(Tabla.DefaultView[0].Row.ItemArray[2]) * Convert.ToDecimal(8.5));
+            }
+            
+
             Tabla.DefaultView.RowFilter = "RutasLaboradas > 0 OR RutasExtras > 0";
             //Tabla.DefaultView.Sort = "HorasTrabajadas desc";
 

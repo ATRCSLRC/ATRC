@@ -168,6 +168,28 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<double>("Longitud", ref mLongitud, value); }
         }
 
+        private string mCorreo;
+        [Size(100)]
+        public string Correo
+        {
+            get { return mCorreo; }
+            set { SetPropertyValue<string>("Correo", ref mCorreo, value); }
+        }
+
+        private Empresas mEmpresa;
+        public Empresas Empresa
+        {
+            get { return mEmpresa; }
+            set { SetPropertyValue<Empresas>("Empresa", ref mEmpresa, value); }
+        }
+
+        private bool mEsExterno;
+        public bool EsExterno
+        {
+            get { return mEsExterno; }
+            set { SetPropertyValue<bool>("EsExterno", ref mEsExterno, value); }
+        }
+
         [Association("Usuarios-Permisos", UseAssociationNameAsIntermediateTableName = true)]
         public XPCollection<Permiso> Permisos { get { return GetCollection<Permiso>("Permisos"); } }
 

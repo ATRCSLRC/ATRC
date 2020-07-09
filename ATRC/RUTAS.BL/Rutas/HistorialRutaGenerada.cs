@@ -122,11 +122,11 @@ namespace RUTAS.BL
             set { SetPropertyValue<string>("Ruta", ref mRuta, value); }
         }
 
-        private Usuario mUsuarioModificacion;
-        public Usuario UsuarioModificacion
+        private Usuario mUsuarioModificacionClase;
+        public Usuario UsuarioModificacionClase
         {
-            get { return mUsuarioModificacion; }
-            set { SetPropertyValue<Usuario>("UsuarioModificacion", ref mUsuarioModificacion, value); }
+            get { return mUsuarioModificacionClase; }
+            set { SetPropertyValue<Usuario>("UsuarioModificacionClase", ref mUsuarioModificacionClase, value); }
         }
 
         private DateTime mHorarioModificacion;

@@ -8,16 +8,16 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ATRC</RootNamespace>
     <AssemblyName>ATRC</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Users\ATRC\Documents\ATRC\PublicacionATRC\</PublishUrl>
+    <PublishUrl>\\192.168.0.123\ATRC Programas\ATRC\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -28,16 +28,15 @@
     <PublisherName>ATRC</PublisherName>
     <SuiteName>ATRC</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>5</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>38</ApplicationRevision>
+    <ApplicationVersion>1.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -45,6 +44,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,12 +54,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>47F6918AAF18A2A0E66DC344955E275E6201E117</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>3CAF9960F2AE3BDD6EEDC369EA2A55F1DD754056</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ATRC_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -71,18 +73,29 @@
     <ApplicationIcon>school-bus.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Images.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.BonusSkins.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.2.UI, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Saraff.Twain, Version=1.0.28.662, Culture=neutral, PublicKeyToken=467d7c56f22cafb6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Saraff.Twain.1.0.28.662\lib\net40\Saraff.Twain.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -92,7 +105,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -127,8 +139,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmMain.resx">
       <DependentUpon>xfrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="ATRC_1_TemporaryKey.pfx" />
     <None Include="ATRC_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,6 +158,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ALMACEN.BL\ALMACEN.BL.csproj">
+      <Project>{4dcf1397-42cb-43a5-9a91-bd8089f6cc94}</Project>
+      <Name>ALMACEN.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALMACEN.WIN\ALMACEN.WIN.csproj">
+      <Project>{987c750f-feb2-4b67-a78c-e10528a9d097}</Project>
+      <Name>ALMACEN.WIN</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
       <Project>{a162fe83-383d-4225-a70e-ea9d27e0fb06}</Project>
       <Name>ATRCBASE.BL</Name>
@@ -158,6 +181,58 @@
     <ProjectReference Include="..\CHECADOR.WIN\CHECADOR.WIN.csproj">
       <Project>{514f888c-012b-4e16-adf8-c4d72a604dea}</Project>
       <Name>CHECADOR.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COMBUSTIBLE.BL\COMBUSTIBLE.BL.csproj">
+      <Project>{5809cf78-5a3d-4b08-a98f-3af110a38506}</Project>
+      <Name>COMBUSTIBLE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COMBUSTIBLE.WIN\COMBUSTIBLE.WIN.csproj">
+      <Project>{41e56312-544a-4139-81bb-66ba030c5dfd}</Project>
+      <Name>COMBUSTIBLE.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUARDIAS.BL\GUARDIAS.BL.csproj">
+      <Project>{ef8d6426-c120-463f-b57c-27acf8e4a663}</Project>
+      <Name>GUARDIAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUARDIAS.WIN\GUARDIAS.WIN.csproj">
+      <Project>{e43f5dfd-3039-4923-b4fa-4c8fe2c0f03c}</Project>
+      <Name>GUARDIAS.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LLANTERA.BL\LLANTERA.BL.csproj">
+      <Project>{fc68347a-5277-41e9-9899-fa982e7efed9}</Project>
+      <Name>LLANTERA.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LLANTERA.WIN\LLANTERA.WIN.csproj">
+      <Project>{667198b9-fa5d-4533-9ecf-ec75faa1c2d0}</Project>
+      <Name>LLANTERA.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\REPORTES\REPORTES.csproj">
+      <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
+      <Name>REPORTES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.BL\RUTAS.BL.csproj">
+      <Project>{7cd908da-9d9d-4c01-90d2-67b7f78119dd}</Project>
+      <Name>RUTAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.WIN\RUTAS.WIN.csproj">
+      <Project>{8ccaeb98-d277-4166-b28e-0d5a0a59c23a}</Project>
+      <Name>RUTAS.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TALLER.BL\TALLER.BL.csproj">
+      <Project>{3e049336-d487-4b03-86a2-56d4ded5c441}</Project>
+      <Name>TALLER.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TALLER.WIN\TALLER.WIN.csproj">
+      <Project>{39dbca79-3cf4-4642-93fc-c4fb38aa3294}</Project>
+      <Name>TALLER.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{e46d9066-2710-40bc-be1c-e17eafc6a044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.WIN\UNIDADES.WIN.csproj">
+      <Project>{2e97f929-27eb-4cd8-8daa-21dc9d248deb}</Project>
+      <Name>UNIDADES.WIN</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +255,59 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-plataforma-petrolera-32.png" />
+    <None Include="Resources\icons8-llave-de-cruz-32.png" />
+    <None Include="Resources\icons8-neumático-32.png" />
+    <None Include="Resources\icons8-presión-de-los-neumáticos-32.png" />
+    <None Include="Resources\icons8-rueda-pinchada-32.png" />
+    <None Include="Resources\icons8-para-hacer-32.png" />
+    <None Include="Resources\icons8-formulario-32.png" />
+    <None Include="Resources\icons8-ruta-34.png" />
+    <None Include="Resources\icons8-mapa-waypoint-34.png" />
+    <None Include="Resources\icons8-manual-de-usuario-32.png" />
+    <None Include="Resources\icons8-hombre-menú-de-usuario-32.png" />
+    <None Include="Resources\icons8-gasolinera-32.png" />
+    <None Include="Resources\icons8-para-hacer-32 %282%29.png" />
+    <None Include="Resources\icons8-extintor-de-incendios-32.png" />
+    <None Include="Resources\icons8-industria-de-petróleo-16.png" />
+    <None Include="Resources\icons8-plataforma-petrolera-32 %281%29.png" />
+    <None Include="Resources\icons8-dispensador-de-gasolina-32.png" />
+    <None Include="Resources\icons8-el-tanque-de-almacenaje-de-petróleo-32.png" />
+    <None Include="Resources\icons8-indicador-de-barómetro-32.png" />
+    <None Include="Resources\icons8-medidor-de-co2-32.png" />
+    <None Include="Resources\icons8-transporte-terrestre-32 %281%29.png" />
+    <None Include="Resources\icons8-transporte-terrestre-32 %282%29.png" />
+    <None Include="Resources\icons8-el-tanque-de-almacenaje-de-petróleo-32 %282%29.png" />
+    <None Include="Resources\icons8-ver-detalles-32.png" />
+    <None Include="Resources\icons8-plataforma-petrolera-321.png" />
+    <None Include="Resources\icons8-pegar-especial-32.png" />
+    <None Include="Resources\icons8-portapapeles-32.png" />
+    <None Include="Resources\icons8-batería-de-coche-32 %281%29.png" />
+    <None Include="Resources\icons8-batería-de-coche-32.png" />
+    <None Include="Resources\icons8-transporte-terrestre-32.png" />
+    <None Include="Resources\icons8-cheque-de-nómina-32.png" />
+    <None Include="Resources\icons8-cuenta-32.png" />
+    <None Include="Resources\icons8-acuerdo-32.png" />
+    <None Include="Resources\icons8-alquiler-de-coches-32.png" />
+    <None Include="Resources\icons8-alquiler-de-coches-321.png" />
+    <None Include="Resources\icons8-gestión-de-clientes-32.png" />
+    <None Include="Resources\icons8-acuerdo-48.png" />
+    <None Include="Resources\icons8-fiat-500-48.png" />
+    <None Include="Resources\icons8-fiat-500-48 %281%29.png" />
+    <None Include="Resources\icons8-acuerdo-48 %283%29.png" />
+    <None Include="Resources\icons8-acuerdo-48 %281%29.png" />
+    <None Include="Resources\icons8-acuerdo-48 %282%29.png" />
+    <None Include="Resources\gas_station_48px.png" />
+    <Content Include="COPYING.LESSER.txt" />
+    <Content Include="COPYING.txt" />
+    <None Include="Resources\icons8-plataforma-petrolera-32 %282%29.png" />
+    <None Include="Resources\icons8-gasolinera-32 %281%29.png" />
+    <None Include="Resources\icons8-embotellamiento-32.png" />
+    <None Include="Resources\icons8-furgoneta-32.png" />
+    <None Include="Resources\icons8-publicar-anuncios-32.png" />
+    <None Include="Resources\icons8-ms-excel-32.png" />
+    <None Include="Resources\icons8-servicios-32.png" />
+    <None Include="Resources\icons8-servicios-32 %281%29.png" />
     <Content Include="school-bus.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

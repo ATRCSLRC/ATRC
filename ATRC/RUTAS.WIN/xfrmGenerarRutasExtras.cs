@@ -104,7 +104,7 @@ namespace RUTAS.WIN
                                         HistorialRutaGenerada.PagarChoferSalida = (bool)viewRuta["PagarChoferSalida"];
                                         HistorialRutaGenerada.Comentarios = viewRuta["Comentarios"].ToString();
                                         HistorialRutaGenerada.ComentariosFacturacion = viewRuta["ComentariosFacturacion"] != null ? viewRuta["ComentariosFacturacion"].ToString() : "";
-                                        HistorialRutaGenerada.UsuarioModificacion = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(Unidad);
+                                        HistorialRutaGenerada.UsuarioModificacionClase = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(Unidad);
                                         HistorialRutaGenerada.HorarioModificacion = DateTime.Now;
                                         HistorialRutaGenerada.Save();
                                         Ruta.Historial.Add(HistorialRutaGenerada);

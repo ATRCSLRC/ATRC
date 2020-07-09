@@ -203,5 +203,27 @@ namespace ATRCBASE.BL
             Recepcion = 2, 
             Todas = 3
         }
+
+        public enum EstadoPedidoRutas
+        {
+            Creado = 0,
+            Enviado = 1,
+            Revicion = 2,
+            Aprobado = 3,
+            Cancelado = 4,
+            Rechazado = 5,
+            Pendiente = 6
+        }
+
+        public enum TipoCreacionRutas
+        {  
+            Creado = 0,
+            Enviado = 1,
+            Revicion = 2,
+            Aprobado = 3,
+            Cancelado = 4,
+            Rechazado = 5,
+            Pendiente = 6
+        }
     }
 }

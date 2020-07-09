@@ -35,6 +35,7 @@
             this.bbiEliminar = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAsignar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiClonar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,25 +60,27 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.bbiAgregar,
             this.bbiModificar,
             this.bbiEliminar,
             this.bbiSalir,
-            this.bbiAsignar});
+            this.bbiAsignar,
+            this.bbiClonar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 6;
+            this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(399, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(399, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiAgregar
             // 
-            this.bbiAgregar.Caption = "Agregar rutas";
+            this.bbiAgregar.Caption = "Agregar plantilla";
             this.bbiAgregar.Id = 1;
             this.bbiAgregar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiAgregar.ImageOptions.LargeImage")));
             this.bbiAgregar.Name = "bbiAgregar";
@@ -86,7 +89,7 @@
             // 
             // bbiModificar
             // 
-            this.bbiModificar.Caption = "Modificar rutas";
+            this.bbiModificar.Caption = "Modificar plantilla";
             this.bbiModificar.Id = 2;
             this.bbiModificar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiModificar.ImageOptions.LargeImage")));
             this.bbiModificar.Name = "bbiModificar";
@@ -95,7 +98,7 @@
             // 
             // bbiEliminar
             // 
-            this.bbiEliminar.Caption = "Eliminar rutas";
+            this.bbiEliminar.Caption = "Eliminar plantilla";
             this.bbiEliminar.Id = 3;
             this.bbiEliminar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiEliminar.ImageOptions.LargeImage")));
             this.bbiEliminar.Name = "bbiEliminar";
@@ -120,6 +123,15 @@
             this.bbiAsignar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiAsignar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAsignar_ItemClick);
             // 
+            // bbiClonar
+            // 
+            this.bbiClonar.Caption = "Clonar plantilla";
+            this.bbiClonar.Id = 6;
+            this.bbiClonar.ImageOptions.Image = global::RUTAS.WIN.Properties.Resources.icons8_archivo_32;
+            this.bbiClonar.Name = "bbiClonar";
+            this.bbiClonar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiClonar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiClonar_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -131,28 +143,29 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiAsignar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiAgregar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiModificar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiEliminar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiClonar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.AllowTextClipping = false;
+            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiSalir);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdPlantillas);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(399, 328);
+            this.lcMain.Size = new System.Drawing.Size(399, 318);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -162,7 +175,7 @@
             this.grdPlantillas.MainView = this.grvPlantillas;
             this.grdPlantillas.MenuManager = this.ribbonControl1;
             this.grdPlantillas.Name = "grdPlantillas";
-            this.grdPlantillas.Size = new System.Drawing.Size(375, 304);
+            this.grdPlantillas.Size = new System.Drawing.Size(375, 294);
             this.grdPlantillas.TabIndex = 4;
             this.grdPlantillas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPlantillas});
@@ -174,6 +187,7 @@
             this.colEmpresa});
             this.grvPlantillas.GridControl = this.grdPlantillas;
             this.grvPlantillas.Name = "grvPlantillas";
+            this.grvPlantillas.OptionsFind.AlwaysVisible = true;
             this.grvPlantillas.OptionsView.ShowGroupPanel = false;
             // 
             // colNombre
@@ -203,7 +217,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(399, 328);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(399, 318);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -211,7 +225,7 @@
             this.layoutControlItem1.Control = this.grdPlantillas;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(379, 308);
+            this.layoutControlItem1.Size = new System.Drawing.Size(379, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -222,6 +236,7 @@
             this.ClientSize = new System.Drawing.Size(399, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmPlantillasRutasFijasGRD.IconOptions.Icon")));
             this.Name = "xfrmPlantillasRutasFijasGRD";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Plantillas de rutas";
@@ -256,5 +271,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colEmpresa;
         private DevExpress.XtraBars.BarButtonItem bbiAsignar;
+        private DevExpress.XtraBars.BarButtonItem bbiClonar;
     }
 }

@@ -62,6 +62,7 @@ namespace ATRC
             Cursor.Current = Cursors.WaitCursor;
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("NumEmpleado", txtUsuario.Text));
+            go.Operands.Add(new BinaryOperator("Activo", true));
             go.Operands.Add(new BinaryOperator("AccesoSistema", true));
             go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", txtContraseña.Text));
             Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);

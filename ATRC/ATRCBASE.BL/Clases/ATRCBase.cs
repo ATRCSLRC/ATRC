@@ -23,6 +23,16 @@ namespace ATRCBASE.BL
             }
         }
 
+        private DateTime mFechaModificacion;
+        public DateTime FechaModificacion
+        {
+            get { return mFechaModificacion; }
+            set
+            {
+                SetPropertyValue<DateTime>("FechaModificacion", ref mFechaModificacion, value);
+            }
+        }
+
         private DateTime mFechaBaja;
         public DateTime FechaBaja
         {
@@ -40,6 +50,13 @@ namespace ATRCBASE.BL
             }
         }
 
+        private int mUsuarioModificacion;
+        public int UsuarioModificacion
+        {
+            get { return mUsuarioModificacion; }
+            set { SetPropertyValue<int>("UsuarioModificacion", ref mUsuarioModificacion, value); }
+        }
+
         private int mUsuarioBaja;
         public int UsuarioBaja
         {
@@ -49,19 +66,30 @@ namespace ATRCBASE.BL
 
         protected override void EndEdit()
         {
-            this.FechaAlta = Utilerias.ObtenerFechaHora();
+            this.FechaModificacion = Utilerias.ObtenerFechaHora();
             Usuario usuario = Utilerias.ObtenerUsuarioActual((UnidadDeTrabajo)this.Session);
             if (usuario != null)
-                this.UsuarioBaja = usuario.Oid;
+                this.UsuarioModificacion = usuario.Oid;
             base.EndEdit();
     }
 
     protected override void OnSaving()
         {
-            this.FechaAlta = Utilerias.ObtenerFechaHora();
+            
             Usuario usuario = Utilerias.ObtenerUsuarioActual((UnidadDeTrabajo)this.Session);
             if (usuario != null)
-                this.UsuarioAlta = usuario.Oid;
+            {
+                if (UsuarioAlta == null || UsuarioAlta <= 0)
+                {
+                    this.FechaAlta = Utilerias.ObtenerFechaHora();
+                    this.UsuarioAlta = usuario.Oid;
+                }
+                else
+                {
+                    this.FechaModificacion = Utilerias.ObtenerFechaHora();
+                    this.UsuarioModificacion = usuario.Oid;
+                }
+            }
             base.OnSaving();
         }
 

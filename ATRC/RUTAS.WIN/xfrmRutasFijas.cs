@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using CHECADOR.BL;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
@@ -179,8 +180,8 @@ namespace RUTAS.WIN
             XPView Usuarios = new XPView(Unidad, typeof(Usuario));
             Usuarios.Properties.AddRange(new ViewProperty[] {
                   new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
-                  new ViewProperty("NumEmpleado", SortDirection.None, "[NumEmpleado]", false, true),
-                  new ViewProperty("NomCompleto", SortDirection.None, "[Nombre]", false, true)
+                  new ViewProperty("NomCompleto", SortDirection.None, "Concat(ToStr([NumEmpleado]), ' - ', [Nombre])", false, true)
+                  //new ViewProperty("NomCompleto", SortDirection.None, "[Nombre]", false, true)
                  });
             Usuarios.Criteria = new BinaryOperator("Activo", true);
 
@@ -282,6 +283,16 @@ namespace RUTAS.WIN
                 RutasFijasModificar.ChoferSalida = RutasFijasModificar.ChoferEntrada;
                 RutasFijasModificar.PagarChoferSalida = RutasFijasModificar.PagarChoferEntrada ? true : false;
             }
+            if (RutasFijasModificar.RutaCompleta && RutasFijasModificar.TipoRuta == Enums.TipoRuta.Entrada)
+            {
+                RutasFijasModificar.ChoferSalida = null;//HistorialRutaGenerada.Session.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
+                RutasFijasModificar.PagarChoferSalida = false;
+            }
+            if (RutasFijasModificar.RutaCompleta && RutasFijasModificar.TipoRuta == Enums.TipoRuta.Salida)
+            {
+                RutasFijasModificar.ChoferEntrada = null;//HistorialRutaGenerada.Session.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
+                RutasFijasModificar.PagarChoferSalida = false;
+            }
             RutasFijasModificar.Comentarios = memoComentarios.Text;
             RutasFijasModificar.ComentariosFacturacion = memoComentarioFacturacion.Text;
             RutasFijasModificar.Save();
@@ -318,9 +329,19 @@ namespace RUTAS.WIN
                 HistorialRutaGenerada.ChoferSalida = HistorialRutaGenerada.ChoferEntrada;
                 HistorialRutaGenerada.PagarChoferSalida = HistorialRutaGenerada.PagarChoferEntrada ? true : false;
             }
+            if (HistorialRutaGenerada.RutaCompleta && HistorialRutaGenerada.TipoRuta == Enums.TipoRuta.Entrada)
+            {
+                HistorialRutaGenerada.ChoferSalida = null;//HistorialRutaGenerada.Session.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
+                HistorialRutaGenerada.PagarChoferSalida = false;
+            }
+            if (HistorialRutaGenerada.RutaCompleta && HistorialRutaGenerada.TipoRuta == Enums.TipoRuta.Salida)
+            {
+                HistorialRutaGenerada.ChoferEntrada = null;//HistorialRutaGenerada.Session.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
+                HistorialRutaGenerada.PagarChoferSalida = false;
+            }
             HistorialRutaGenerada.Comentarios = memoComentarios.Text;
             HistorialRutaGenerada.ComentariosFacturacion = memoComentarioFacturacion.Text;
-            HistorialRutaGenerada.UsuarioModificacion = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual((UnidadDeTrabajo)RutasFijasModificar.Session);
+            HistorialRutaGenerada.UsuarioModificacionClase = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual((UnidadDeTrabajo)RutasFijasModificar.Session);
             HistorialRutaGenerada.HorarioModificacion = DateTime.Now;
             HistorialRutaGenerada.Save();
             RutasFijas.Historial.Add(HistorialRutaGenerada);
@@ -487,6 +508,74 @@ namespace RUTAS.WIN
                 }
                 cmbTipoRuta.SelectedIndex = 0;
                     
+            }
+        }
+
+        private DateTime GetFirstDayOfWeek(DateTime dayInWeek)
+        {
+            DateTime firstDayInWeek = dayInWeek.Date;
+
+            while (firstDayInWeek.DayOfWeek != DayOfWeek.Monday)
+            {
+                firstDayInWeek = firstDayInWeek.AddDays(-1);
+            }
+
+            return firstDayInWeek;
+        }
+
+        private void lueChofer_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!EsPlantilla)
+            {
+                Usuario Chofer = Unidad.GetObjectByKey<Usuario>(lueChofer.EditValue);
+                if (Chofer != null)
+                {
+                    decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(DateTime.Now.Date), DateTime.Now.Date);
+                    lueChofer.ToolTip = Horas + " Horas laboradas";
+                    if (Horas >= 60)
+                    {
+                        XtraMessageBox.Show("El chofer ya cuenta con mas de 60 horas labodas.");
+                    }
+                }
+            }
+        }
+
+        public static decimal HorasTrabajadas(UnidadDeTrabajo Unidad, int usuario, DateTime FechaInicial, DateTime FechaFinal)
+        {
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("FechaChecada", FechaInicial.Date, BinaryOperatorType.GreaterOrEqual));
+            go.Operands.Add(new BinaryOperator("FechaChecada", FechaFinal.Date, BinaryOperatorType.LessOrEqual));
+            go.Operands.Add(new BinaryOperator("Usuario", CHECADOR.BL.Utilerias.ObtenerUsuarioChecador(Unidad, usuario)));
+            XPView Checadas = new XPView(Unidad, typeof(HistoricoChecadas), "Oid;FechaChecada;HoraChecadaEntrada;HoraChecadaSalida;Usuario", go);
+            decimal Horas = 0;
+            foreach (ViewRecord ViewHistorico in Checadas)
+            {
+                decimal HoraEntrada = ViewHistorico["HoraChecadaEntrada"] == null ? 0 : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)ViewHistorico["HoraChecadaEntrada"]);
+                decimal HoraSalida = ViewHistorico["HoraChecadaSalida"] == null ? HoraEntrada : CHECADOR.BL.Utilerias.CalcularHora((TimeSpan)ViewHistorico["HoraChecadaSalida"]);
+
+                //if (HoraSalida > 0 & HoraEntrada > 0)
+                if ((HoraSalida > HoraEntrada))
+                    Horas += (HoraSalida - HoraEntrada);
+                else
+                    Horas += (HoraSalida - HoraEntrada) == 0 ? 0 : ((HoraSalida - HoraEntrada) + 24);
+            }
+            return Horas;
+        }
+
+        private void lueChoferSalida_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!EsPlantilla)
+            {
+                Usuario Chofer = Unidad.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
+                if (Chofer != null)
+                {
+                    decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(DateTime.Now.Date), DateTime.Now.Date);
+                    lueChoferSalida.ToolTip = Horas + " Horas laboradas";
+                    if (Horas >= 60)
+                    {
+                        XtraMessageBox.Show("El chofer ya cuenta con mas de 60 horas labodas.");
+                    }
+                }
             }
         }
     }
