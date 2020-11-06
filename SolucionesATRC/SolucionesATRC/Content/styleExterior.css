@@ -1,0 +1,27 @@
+﻿body {
+    background-image: url(../Content/Exterior/x.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.funfacts {
+    
+    /*background-color: #000;*/
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 100px 0;
+    width:100%;
+}
+
+
+.slide {
+    display: block;
+    position: absolute;
+    height: 100% !important;
+    /*background-image: url(../Content/Exterior/SCHOOL.PNG);*/
+    float:left;
+    /*width: 200px !important;*/
+}

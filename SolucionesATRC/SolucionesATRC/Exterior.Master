@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Exterior.master.cs" Inherits="SolucionesATRC.Exterior" %>
+
+<%@ Register Src="~/UserControls/HeaderExterior.ascx" TagPrefix="demo" TagName="Header" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+
+    <link id="themeLink" runat="server" rel="stylesheet"
+        href="Content/light/bootstrap.min.css"
+        data-theme-dark-url="Content/dark/bootstrap.min.css"
+        data-theme-light-url="Content/light/bootstrap.min.css" />
+    <link runat="server" href="~/Content/demo-icons.css" rel="stylesheet" />
+    <link runat="server" href="~/Content/common.css" rel="stylesheet" />
+    <link runat="server" href="~/Content/styleExterior.css" rel="stylesheet" />
+
+    <%--<script type="text/javascript" src="/Content/common.js" defer></script>--%>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" defer></script>
+    
+    <script src="Content/Exterior.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js" defer></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="h-100" style="background-color: white">
+    <form id="form1" runat="server" class="h-100">
+        <div class="demo-header-separator shadow" style="box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3)!important; background-color: red"></div>
+        <div class="d-flex h-100">
+            <div class="d-flex flex-fill flex-column demo-content">
+                <demo:Header runat="server" ID="Header" />
+                <div class="d-flex flex-fill overflow-auto">
+                    <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
