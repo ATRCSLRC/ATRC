@@ -46,6 +46,7 @@
             this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colExterno = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -184,7 +185,8 @@
             // 
             this.grvPlantillas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNombre,
-            this.colEmpresa});
+            this.colEmpresa,
+            this.colExterno});
             this.grvPlantillas.GridControl = this.grdPlantillas;
             this.grvPlantillas.Name = "grvPlantillas";
             this.grvPlantillas.OptionsFind.AlwaysVisible = true;
@@ -229,6 +231,14 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // colExterno
+            // 
+            this.colExterno.Caption = "Mostrar a externos";
+            this.colExterno.FieldName = "EsExterno";
+            this.colExterno.Name = "colExterno";
+            this.colExterno.Visible = true;
+            this.colExterno.VisibleIndex = 2;
+            // 
             // xfrmPlantillasRutasFijasGRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,5 +282,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmpresa;
         private DevExpress.XtraBars.BarButtonItem bbiAsignar;
         private DevExpress.XtraBars.BarButtonItem bbiClonar;
+        private DevExpress.XtraGrid.Columns.GridColumn colExterno;
     }
 }

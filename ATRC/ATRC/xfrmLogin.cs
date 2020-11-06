@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace ATRC
 {
-    public partial class xfrmLogin : xfrmBase
+    public partial class xfrmLogin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public xfrmLogin()
         {

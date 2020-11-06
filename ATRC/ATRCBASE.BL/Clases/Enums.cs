@@ -208,7 +208,7 @@ namespace ATRCBASE.BL
         {
             Creado = 0,
             Enviado = 1,
-            Revicion = 2,
+            Revision = 2,
             Aprobado = 3,
             Cancelado = 4,
             Rechazado = 5,

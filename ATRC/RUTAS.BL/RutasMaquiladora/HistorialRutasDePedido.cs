@@ -107,5 +107,26 @@ namespace RUTAS.BL
             get { return mRutasDePedido; }
             set { SetPropertyValue<RutasDePedido>("RutasDePedido", ref mRutasDePedido, value); }
         }
+
+        private bool mEsApoyo;
+        public bool EsApoyo
+        {
+            get { return mEsApoyo; }
+            set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
+        }
+
+        [Delayed]
+        public Byte[] Documento
+        {
+            get { return GetDelayedPropertyValue<Byte[]>("Documento"); }
+            set { SetDelayedPropertyValue<Byte[]>("Documento", value); }
+        }
+
+        private string mNombreDocumento;
+        public string NombreDocumento
+        {
+            get { return mNombreDocumento; }
+            set { SetPropertyValue<string>("NombreDocumento", ref mNombreDocumento, value); }
+        }
     }
 }

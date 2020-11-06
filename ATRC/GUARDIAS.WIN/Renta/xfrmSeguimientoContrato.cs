@@ -68,7 +68,7 @@ namespace GUARDIAS.WIN.Renta
                         if (HoraDias >= Contrato.DiasRenta)
                         {
 
-                            if ((HoraDias - Contrato.DiasRenta) > 1)
+                            if ((HoraDias - Contrato.DiasRenta) >= 1)
                             {
                                 DiasExtra = (Dias - Contrato.DiasRenta);
                                 ExtraDia = Contrato.Costo * DiasExtra;

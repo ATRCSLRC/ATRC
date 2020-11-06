@@ -36,9 +36,15 @@
             this.bbiGenerarContrato = new DevExpress.XtraBars.BarButtonItem();
             this.bbiModificarContrato = new DevExpress.XtraBars.BarButtonItem();
             this.bbiImprimirContratos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEntregarUnidad = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRecibirUnidad = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiGenerarRecargos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDescuentosContrato = new DevExpress.XtraBars.BarButtonItem();
             this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgHorario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgImprimir = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgDescuentos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.cmbEstado = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
@@ -111,21 +117,26 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.bbiImprimir,
             this.bbiSalir,
             this.bbiCancelar,
             this.bbiGenerarContrato,
             this.bbiModificarContrato,
-            this.bbiImprimirContratos});
+            this.bbiImprimirContratos,
+            this.bbiEntregarUnidad,
+            this.bbiRecibirUnidad,
+            this.bbiGenerarRecargos,
+            this.bbiDescuentosContrato});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 8;
+            this.ribbonControl1.MaxItemId = 12;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpAcciones});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1076, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(1076, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiImprimir
@@ -187,33 +198,89 @@
             this.bbiImprimirContratos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiImprimirContratos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImprimirContratos_ItemClick);
             // 
+            // bbiEntregarUnidad
+            // 
+            this.bbiEntregarUnidad.Caption = "Cambiar horario de entrega";
+            this.bbiEntregarUnidad.Id = 8;
+            this.bbiEntregarUnidad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiEntregarUnidad.ImageOptions.Image")));
+            this.bbiEntregarUnidad.Name = "bbiEntregarUnidad";
+            this.bbiEntregarUnidad.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiEntregarUnidad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntregarUnidad_ItemClick);
+            // 
+            // bbiRecibirUnidad
+            // 
+            this.bbiRecibirUnidad.Caption = "Cambiar horario de recepción";
+            this.bbiRecibirUnidad.Id = 9;
+            this.bbiRecibirUnidad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRecibirUnidad.ImageOptions.Image")));
+            this.bbiRecibirUnidad.Name = "bbiRecibirUnidad";
+            this.bbiRecibirUnidad.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiRecibirUnidad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRecibirUnidad_ItemClick);
+            // 
+            // bbiGenerarRecargos
+            // 
+            this.bbiGenerarRecargos.Caption = "Generar recargos";
+            this.bbiGenerarRecargos.Id = 10;
+            this.bbiGenerarRecargos.ImageOptions.Image = global::GUARDIAS.WIN.Properties.Resources.descuento;
+            this.bbiGenerarRecargos.Name = "bbiGenerarRecargos";
+            this.bbiGenerarRecargos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiGenerarRecargos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGenerarRecargos_ItemClick);
+            // 
+            // bbiDescuentosContrato
+            // 
+            this.bbiDescuentosContrato.Caption = "Descuento en recargos";
+            this.bbiDescuentosContrato.Id = 11;
+            this.bbiDescuentosContrato.ImageOptions.Image = global::GUARDIAS.WIN.Properties.Resources.descuento;
+            this.bbiDescuentosContrato.Name = "bbiDescuentosContrato";
+            this.bbiDescuentosContrato.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiDescuentosContrato.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDescuentosContrato_ItemClick);
+            // 
             // rpAcciones
             // 
             this.rpAcciones.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgAcciones,
-            this.rpgImprimir});
+            this.rpgHorario,
+            this.rpgImprimir,
+            this.rpgDescuentos});
             this.rpAcciones.Name = "rpAcciones";
             this.rpAcciones.Text = "ribbonPage1";
             this.rpAcciones.Visible = false;
             // 
             // rpgAcciones
             // 
-            this.rpgAcciones.AllowMinimize = false;
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGenerarContrato);
             this.rpgAcciones.ItemLinks.Add(this.bbiModificarContrato);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
+            this.rpgAcciones.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
+            // 
+            // rpgHorario
+            // 
+            this.rpgHorario.AllowTextClipping = false;
+            this.rpgHorario.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.rpgHorario.ItemLinks.Add(this.bbiEntregarUnidad);
+            this.rpgHorario.ItemLinks.Add(this.bbiRecibirUnidad);
+            this.rpgHorario.Name = "rpgHorario";
+            this.rpgHorario.Text = " ";
             // 
             // rpgImprimir
             // 
-            this.rpgImprimir.AllowMinimize = false;
             this.rpgImprimir.AllowTextClipping = false;
+            this.rpgImprimir.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgImprimir.ItemLinks.Add(this.bbiImprimir);
             this.rpgImprimir.ItemLinks.Add(this.bbiImprimirContratos);
             this.rpgImprimir.Name = "rpgImprimir";
-            this.rpgImprimir.ShowCaptionButton = false;
+            this.rpgImprimir.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
+            // 
+            // rpgDescuentos
+            // 
+            this.rpgDescuentos.AllowTextClipping = false;
+            this.rpgDescuentos.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.rpgDescuentos.ItemLinks.Add(this.bbiGenerarRecargos);
+            this.rpgDescuentos.ItemLinks.Add(this.bbiDescuentosContrato);
+            this.rpgDescuentos.Name = "rpgDescuentos";
+            this.rpgDescuentos.Visible = false;
             // 
             // lcMain
             // 
@@ -229,11 +296,11 @@
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1120, 598, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(1076, 421);
+            this.lcMain.Size = new System.Drawing.Size(1076, 411);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -277,7 +344,7 @@
             this.grdContratos.MainView = this.grvContratos;
             this.grdContratos.MenuManager = this.ribbonControl1;
             this.grdContratos.Name = "grdContratos";
-            this.grdContratos.Size = new System.Drawing.Size(1052, 225);
+            this.grdContratos.Size = new System.Drawing.Size(1052, 215);
             this.grdContratos.TabIndex = 10;
             this.grdContratos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvContratos});
@@ -585,7 +652,7 @@
             this.layoutControlItem7,
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1076, 421);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1076, 411);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem7
@@ -593,7 +660,7 @@
             this.layoutControlItem7.Control = this.grdContratos;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 172);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(1056, 229);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1056, 219);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -703,6 +770,7 @@
             this.ClientSize = new System.Drawing.Size(1076, 543);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmContratos.IconOptions.Icon")));
             this.Name = "xfrmContratos";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Contratos";
@@ -789,5 +857,11 @@
         private DevExpress.XtraBars.BarButtonItem bbiImprimirContratos;
         private DevExpress.XtraGrid.Columns.GridColumn colAbono;
         private DevExpress.XtraGrid.Columns.GridColumn colUnidad;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHorario;
+        private DevExpress.XtraBars.BarButtonItem bbiEntregarUnidad;
+        private DevExpress.XtraBars.BarButtonItem bbiRecibirUnidad;
+        private DevExpress.XtraBars.BarButtonItem bbiGenerarRecargos;
+        private DevExpress.XtraBars.BarButtonItem bbiDescuentosContrato;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDescuentos;
     }
 }

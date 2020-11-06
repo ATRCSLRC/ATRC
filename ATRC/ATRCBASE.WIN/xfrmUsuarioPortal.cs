@@ -71,6 +71,13 @@ namespace ATRCBASE.WIN
                 return false;
             }
 
+            //if (string.IsNullOrEmpty(txtUsuario.Text))
+            //{
+            //    XtraMessageBox.Show("Debe asignar un usuario.");
+            //    txtNombre.Focus();
+            //    return false;
+            //}
+
             if (string.IsNullOrEmpty(txtCorreo.Text))
             {
                 XtraMessageBox.Show("Debe asignarle un correo.");

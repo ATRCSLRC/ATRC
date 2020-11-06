@@ -175,6 +175,16 @@
             this.bbiUsuariosExternos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiConfiguracion = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHistorialHerramientaPrestada = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHistorialRutasGeneradas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAprobar = new DevExpress.XtraBars.BarEditItem();
+            this.tknAprobar = new DevExpress.XtraEditors.Repository.RepositoryItemTokenEdit();
+            this.bbiNuevaRecarga = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPedidosRecibidos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPedidosAprobados = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPedidosCancelados = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPedidos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPlantillaCorreo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiConfiguracionRutas = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -203,6 +213,8 @@
             this.rpgChecadorRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRutasExtras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgReportesRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgConfiguracionRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpCombustible = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -219,12 +231,22 @@
             this.rbnpConfiguracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pbnpgCatalogos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.tknRecibir = new DevExpress.XtraEditors.Repository.RepositoryItemTokenEdit();
+            this.chkActivarSeguridadModificacion = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.txtCodigoDesbloqueoRutas = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.spnDiasHabilesRutas = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.rsbMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.rbnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bvcAyuda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEscanerOficina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEscanerGuardias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tknAprobar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tknRecibir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActivarSeguridadModificacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoDesbloqueoRutas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnDiasHabilesRutas)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnMain
@@ -334,9 +356,18 @@
             this.bbiReportesServicios,
             this.bbiUsuariosExternos,
             this.bbiConfiguracion,
-            this.bbiHistorialHerramientaPrestada});
+            this.bbiHistorialHerramientaPrestada,
+            this.bbiHistorialRutasGeneradas,
+            this.bbiAprobar,
+            this.bbiNuevaRecarga,
+            this.bbiPedidosRecibidos,
+            this.bbiPedidosAprobados,
+            this.bbiPedidosCancelados,
+            this.bbiPedidos,
+            this.bbiPlantillaCorreo,
+            this.bbiConfiguracionRutas});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 107;
+            this.rbnMain.MaxItemId = 120;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -354,11 +385,16 @@
             this.rbnMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemComboBox1,
             this.cmbEscanerOficina,
-            this.cmbEscanerGuardias});
+            this.cmbEscanerGuardias,
+            this.tknRecibir,
+            this.tknAprobar,
+            this.chkActivarSeguridadModificacion,
+            this.txtCodigoDesbloqueoRutas,
+            this.spnDiasHabilesRutas});
             this.rbnMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
             this.rbnMain.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.rbnMain.ShowToolbarCustomizeItem = false;
-            this.rbnMain.Size = new System.Drawing.Size(1061, 158);
+            this.rbnMain.Size = new System.Drawing.Size(1938, 158);
             this.rbnMain.StatusBar = this.rsbMain;
             this.rbnMain.Toolbar.ShowCustomizeItem = false;
             this.rbnMain.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
@@ -1479,6 +1515,76 @@
             this.bbiHistorialHerramientaPrestada.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiHistorialHerramientaPrestada.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHistorialHerramientaPrestada_ItemClick);
             // 
+            // bbiHistorialRutasGeneradas
+            // 
+            this.bbiHistorialRutasGeneradas.Caption = "Historial rutas generadas";
+            this.bbiHistorialRutasGeneradas.Id = 107;
+            this.bbiHistorialRutasGeneradas.Name = "bbiHistorialRutasGeneradas";
+            this.bbiHistorialRutasGeneradas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHistorialRutasGeneradas_ItemClick);
+            // 
+            // bbiAprobar
+            // 
+            this.bbiAprobar.Caption = "Aprobar:";
+            this.bbiAprobar.Edit = this.tknAprobar;
+            this.bbiAprobar.EditWidth = 350;
+            this.bbiAprobar.Id = 109;
+            this.bbiAprobar.Name = "bbiAprobar";
+            // 
+            // tknAprobar
+            // 
+            this.tknAprobar.Name = "tknAprobar";
+            // 
+            // bbiNuevaRecarga
+            // 
+            this.bbiNuevaRecarga.Caption = "Nueva recarga";
+            this.bbiNuevaRecarga.Id = 113;
+            this.bbiNuevaRecarga.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_gas_pump_32;
+            this.bbiNuevaRecarga.Name = "bbiNuevaRecarga";
+            this.bbiNuevaRecarga.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiNuevaRecarga.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNuevaRecarga_ItemClick);
+            // 
+            // bbiPedidosRecibidos
+            // 
+            this.bbiPedidosRecibidos.Caption = "Pedidos recibidos";
+            this.bbiPedidosRecibidos.Id = 114;
+            this.bbiPedidosRecibidos.Name = "bbiPedidosRecibidos";
+            this.bbiPedidosRecibidos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPedidosRecibidos_ItemClick);
+            // 
+            // bbiPedidosAprobados
+            // 
+            this.bbiPedidosAprobados.Caption = "Pedidos aprobados";
+            this.bbiPedidosAprobados.Id = 115;
+            this.bbiPedidosAprobados.Name = "bbiPedidosAprobados";
+            this.bbiPedidosAprobados.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPedidosAprobados_ItemClick);
+            // 
+            // bbiPedidosCancelados
+            // 
+            this.bbiPedidosCancelados.Caption = "Pedidos cancelados";
+            this.bbiPedidosCancelados.Id = 116;
+            this.bbiPedidosCancelados.Name = "bbiPedidosCancelados";
+            this.bbiPedidosCancelados.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPedidosCancelados_ItemClick);
+            // 
+            // bbiPedidos
+            // 
+            this.bbiPedidos.Caption = "Pedidos";
+            this.bbiPedidos.Id = 117;
+            this.bbiPedidos.Name = "bbiPedidos";
+            this.bbiPedidos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPedidos_ItemClick);
+            // 
+            // bbiPlantillaCorreo
+            // 
+            this.bbiPlantillaCorreo.Caption = "Plantilla de correo";
+            this.bbiPlantillaCorreo.Id = 118;
+            this.bbiPlantillaCorreo.Name = "bbiPlantillaCorreo";
+            this.bbiPlantillaCorreo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPlantillaCorreo_ItemClick);
+            // 
+            // bbiConfiguracionRutas
+            // 
+            this.bbiConfiguracionRutas.Caption = "Configuración";
+            this.bbiConfiguracionRutas.Id = 119;
+            this.bbiConfiguracionRutas.Name = "bbiConfiguracionRutas";
+            this.bbiConfiguracionRutas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiConfiguracionRutas_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1701,7 +1807,9 @@
             this.rpgRutas,
             this.rpgChecadorRutas,
             this.rpgRutasExtras,
-            this.rpgReportesRutas});
+            this.rpgReportesRutas,
+            this.rpgConfiguracionRutas,
+            this.ribbonPageGroup2});
             this.rbnpRutas.Name = "rbnpRutas";
             this.rbnpRutas.Text = "Rutas";
             this.rbnpRutas.Visible = false;
@@ -1736,6 +1844,7 @@
             this.rpgRutasExtras.ItemLinks.Add(this.bbiTurnos);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRutas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiPrecioServicio);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiHistorialRutasGeneradas);
             this.rpgRutasExtras.Name = "rpgRutasExtras";
             this.rpgRutasExtras.Text = "Rutas ";
             // 
@@ -1747,6 +1856,21 @@
             this.rpgReportesRutas.Name = "rpgReportesRutas";
             this.rpgReportesRutas.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.rpgReportesRutas.Text = "Reportes";
+            // 
+            // rpgConfiguracionRutas
+            // 
+            this.rpgConfiguracionRutas.ItemLinks.Add(this.bbiConfiguracionRutas);
+            this.rpgConfiguracionRutas.Name = "rpgConfiguracionRutas";
+            this.rpgConfiguracionRutas.Text = "Configuración";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosRecibidos);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosAprobados);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosCancelados);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidos);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // rbnpAdministracion
             // 
@@ -1800,8 +1924,9 @@
             this.ribbonPageGroup8.AllowTextClipping = false;
             this.ribbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiMedidorTanques, true);
-            this.ribbonPageGroup8.ItemLinks.Add(this.bbiRecargaDiesel);
             this.ribbonPageGroup8.ItemLinks.Add(this.bbiDetalleCandados);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiNuevaRecarga);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiRecargaDiesel);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Combustible";
             // 
@@ -1886,7 +2011,8 @@
             // 
             this.rbnpConfiguracion.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.pbnpgCatalogos,
-            this.rpgMantenimiento});
+            this.rpgMantenimiento,
+            this.ribbonPageGroup3});
             this.rbnpConfiguracion.Name = "rbnpConfiguracion";
             this.rbnpConfiguracion.Text = "Configuración";
             this.rbnpConfiguracion.Visible = false;
@@ -1913,13 +2039,35 @@
             this.rpgMantenimiento.Name = "rpgMantenimiento";
             this.rpgMantenimiento.Text = "Mantenimiento";
             // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.bbiPlantillaCorreo);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            // 
+            // tknRecibir
+            // 
+            this.tknRecibir.Name = "tknRecibir";
+            // 
+            // chkActivarSeguridadModificacion
+            // 
+            this.chkActivarSeguridadModificacion.Name = "chkActivarSeguridadModificacion";
+            // 
+            // txtCodigoDesbloqueoRutas
+            // 
+            this.txtCodigoDesbloqueoRutas.Name = "txtCodigoDesbloqueoRutas";
+            // 
+            // spnDiasHabilesRutas
+            // 
+            this.spnDiasHabilesRutas.Name = "spnDiasHabilesRutas";
+            // 
             // rsbMain
             // 
             this.rsbMain.ItemLinks.Add(this.bbiUsuario);
             this.rsbMain.Location = new System.Drawing.Point(0, 527);
             this.rsbMain.Name = "rsbMain";
             this.rsbMain.Ribbon = this.rbnMain;
-            this.rsbMain.Size = new System.Drawing.Size(1061, 24);
+            this.rsbMain.Size = new System.Drawing.Size(1938, 24);
             // 
             // xfrmMain
             // 
@@ -1927,7 +2075,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 551);
+            this.ClientSize = new System.Drawing.Size(1938, 551);
             this.Controls.Add(this.bvcAyuda);
             this.Controls.Add(this.rsbMain);
             this.Controls.Add(this.rbnMain);
@@ -1946,6 +2094,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEscanerOficina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEscanerGuardias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tknAprobar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tknRecibir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActivarSeguridadModificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoDesbloqueoRutas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnDiasHabilesRutas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2106,5 +2259,22 @@
         private DevExpress.XtraBars.BarButtonItem bbiUsuariosExternos;
         private DevExpress.XtraBars.BarButtonItem bbiConfiguracion;
         private DevExpress.XtraBars.BarButtonItem bbiHistorialHerramientaPrestada;
+        private DevExpress.XtraBars.BarButtonItem bbiHistorialRutasGeneradas;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTokenEdit tknRecibir;
+        private DevExpress.XtraBars.BarEditItem bbiAprobar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTokenEdit tknAprobar;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkActivarSeguridadModificacion;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgConfiguracionRutas;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtCodigoDesbloqueoRutas;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit spnDiasHabilesRutas;
+        private DevExpress.XtraBars.BarButtonItem bbiNuevaRecarga;
+        private DevExpress.XtraBars.BarButtonItem bbiPedidosRecibidos;
+        private DevExpress.XtraBars.BarButtonItem bbiPedidosAprobados;
+        private DevExpress.XtraBars.BarButtonItem bbiPedidosCancelados;
+        private DevExpress.XtraBars.BarButtonItem bbiPedidos;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem bbiPlantillaCorreo;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem bbiConfiguracionRutas;
     }
 }

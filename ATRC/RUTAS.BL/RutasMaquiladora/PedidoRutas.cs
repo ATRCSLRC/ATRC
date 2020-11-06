@@ -43,6 +43,15 @@ namespace RUTAS.BL
             set { SetPropertyValue<EstadoPedidoRutas>("Estado", ref mEstado, value); }
         }
 
+        private string mDetalle;
+        [NonPersistent]
+        [Size(SizeAttribute.Unlimited)]
+        public string Detalle
+        {
+            get { return mDetalle; }
+            set { SetPropertyValue<string>("Detalle", ref mDetalle, value); }
+        }
+
         [Association("Rutas-PedidoRutas")]
         public XPCollection<RutasDePedido> Rutas
         {
@@ -69,8 +78,9 @@ namespace RUTAS.BL
             Historial.Fecha = this.Fecha;
             Historial.Empresa = this.Empresa;
             Historial.Estado = this.Estado;
-            Historial.Usuario = Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo); ;
+            Historial.Usuario = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo);
             Historial.HorarioModificacion = DateTime.Now;
+            Historial.Detalle = this.Detalle;
             Historial.Save();
             this.Historial.Add(Historial);
             base.OnSaving();

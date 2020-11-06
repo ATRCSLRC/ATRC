@@ -29,6 +29,10 @@ namespace GUARDIAS.WIN
         {
             cmbEstado.Properties.Items.AddRange(typeof(EstadoContrato).GetEnumValues());
             dteAl.DateTime = dteDe.DateTime = DateTime.Now;
+            bbiEntregarUnidad.Visibility = Utilerias.VisibilidadPermiso("CambioHorarioEntrega");
+            bbiRecibirUnidad.Visibility = Utilerias.VisibilidadPermiso("CambioHorarioRecibir");
+            rpgHorario.Visible = bbiEntregarUnidad.Visibility == DevExpress.XtraBars.BarItemVisibility.Always ||
+                bbiRecibirUnidad.Visibility == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
         }
 
         private void bbiImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -264,6 +268,23 @@ namespace GUARDIAS.WIN
                 {
                     bbiCancelar.Visibility = Utilerias.VisibilidadPermiso("CancelarContrato");
                 }
+
+                if ((Enums.EstadoContrato)viewContrato["EstadoContrato"] == Enums.EstadoContrato.Terminado)
+                {
+                    if (Convert.ToDecimal(viewContrato["Recargos"]) == 0)
+                    {
+                        bbiGenerarRecargos.Caption = "Generar recargos";
+
+                    }else
+                    {
+                        bbiGenerarRecargos.Caption = "Quitar recargos";
+                    }
+                    rpgDescuentos.Visible = true;
+
+                }else
+                {
+                    rpgDescuentos.Visible = false;
+                }
             }
         }
 
@@ -317,6 +338,162 @@ namespace GUARDIAS.WIN
                     return 2702;
                 return (Convert.ToInt32(Usuarios[0]["NumContrato"]) + 1);
             }
+        }
+
+        private void bbiEntregarUnidad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
+            if (viewContrato != null)
+            {
+                xfrmCambioHorario xfrm = new xfrmCambioHorario();
+                xfrm.IDContrato = Convert.ToInt32(viewContrato["Oid"]);
+                xfrm.EsSalida = true;
+                xfrm.Show();
+            }
+            ((XPView)grdContratos.DataSource).Reload();
+        }
+
+        private void bbiRecibirUnidad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
+            if (viewContrato != null)
+            {
+                xfrmCambioHorario xfrm = new xfrmCambioHorario();
+                xfrm.IDContrato = Convert.ToInt32(viewContrato["Oid"]);
+                xfrm.EsSalida = false;
+                xfrm.Show();
+            }
+            ((XPView)grdContratos.DataSource).Reload();
+        }
+
+        private void bbiGenerarRecargos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
+            if (viewContrato != null)
+            {
+                ContratoRenta Contrato = viewContrato.GetObject() as ContratoRenta;
+                if(Contrato.Recargos == 0)
+                {
+                    Tuple<decimal, string> X = Calcular(Contrato);
+                    Contrato.Recargos = X.Item1;
+                }
+                else
+                {
+                    Contrato.Recargos = 0;
+                }
+                Contrato.Save();
+                Contrato.Session.CommitTransaction();
+                XtraMessageBox.Show("Se realizarón modificaciones en los recargos.");
+                ((XPView)grdContratos.DataSource).Reload();
+            }
+        }
+
+        private void bbiDescuentosContrato_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ViewRecord viewContrato = grvContratos.GetFocusedRow() as ViewRecord;
+            if (viewContrato != null)
+            {
+                if (XtraMessageBox.Show("¿Esta seguro de querer hacer un descuento en los recargos?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    XtraInputBoxArgs args = new XtraInputBoxArgs();
+                    args.Caption = "Cantidad a descontar en los recargos.";
+                    args.Prompt = "Cantidad:";
+                    SpinEdit editor = new SpinEdit();
+                    editor.Properties.DisplayFormat.FormatString = "c";
+                    editor.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    editor.Properties.EditFormat.FormatString = "c";
+                    editor.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    editor.Properties.EditMask = "c";
+                    args.Editor = editor;
+                    //args.DefaultResponse = viewUnidad["PrecioRenta"];
+                    var result = XtraInputBox.Show(args);
+                    if (result != null)
+                    {
+                        if (XtraMessageBox.Show("¿El monto ingresado es correcto?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            ContratoRenta Contrato = viewContrato.GetObject() as ContratoRenta;
+                            if (Contrato.Recargos > 0 & Convert.ToDecimal(result) <= Contrato.Recargos)
+                            {
+                                Contrato.Recargos = Contrato.Recargos - Convert.ToDecimal(result);
+                                Contrato.Save();
+                                Contrato.Session.CommitTransaction();
+                                ((XPView)grdContratos.DataSource).Reload();
+                                XtraMessageBox.Show("Se ha cancelado correctamente.");
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("No es posible hacer descuentos al contrato.");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Ocurrio un problema al ingresar la cantidad devolución.");
+                    }
+                }
+            }
+        }
+
+        private Tuple<decimal, string> Calcular(ContratoRenta Contrato)
+        {
+            var f = Contrato.DiaSalidaOriginal.Add(Contrato.HoraSalidaOriginal);
+            var Entrega = Contrato.DiaRegresoOriginal.Add(Contrato.HoraRegresoOriginal);
+            decimal Horas = (Entrega - f).Hours;
+            decimal Dias = (Entrega - f).Days;
+            decimal HoraDias = (Horas / 24) + (Dias);
+            decimal DiasExtra = 0;
+            decimal ExtraDia = 0;
+            int MediosDiasTarde = 0;
+            decimal HorasTardes = 0;
+            string Comentarios = string.Empty;
+
+            if (HoraDias >= Contrato.DiasRenta)
+            {
+
+                if ((HoraDias - Contrato.DiasRenta) >= 1)
+                {
+                    DiasExtra = (Dias - Contrato.DiasRenta);
+                    ExtraDia = Contrato.Costo * DiasExtra;
+                }
+                else if (Contrato.DiasRenta.ToString().Contains(".5"))
+                {
+                    Horas -= 12;
+                }
+
+                if (Horas >= 19 & Horas <= 24)
+                {
+                    DiasExtra += 1;
+                    ExtraDia += DiasExtra * Contrato.Costo;
+                    Horas -= 24;
+                }
+
+
+                if (Horas >= 7 & Horas <= 18)
+                {
+                    MediosDiasTarde = 1;
+                    ExtraDia += Contrato.Costo / 2;
+                    Horas -= 12;
+                }
+
+                if (Horas >= 1 & Horas <= 6 & Horas >= Contrato.TiempoTolerancia)
+                {
+                    ExtraDia += Horas * Contrato.CostoTolerancia;
+                    HorasTardes = Horas;
+                }
+
+                string EntregaTarde = string.Empty;
+
+                if (DiasExtra > 0)
+                    EntregaTarde += DiasExtra.ToString("n1") + " día(s)";
+                if (MediosDiasTarde > 0)
+                    EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? " medio día " : " y medio";
+                if (HorasTardes > 0)
+                    EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? HorasTardes + " hora(s) " : " con " + HorasTardes + " hora(s) ";
+
+                if (!string.IsNullOrEmpty(EntregaTarde))
+                    Comentarios = "La unidad se entrego " + EntregaTarde + " tarde.";
+            }
+            return new Tuple<decimal, string>(ExtraDia, Comentarios);
         }
     }
 }

@@ -53,5 +53,19 @@ namespace COMBUSTIBLE.BL
             get { return mLectura; }
             set { SetPropertyValue<string>("Lectura", ref mLectura, value); }
         }
+
+        private string mLecturaFinal;
+        public string LecturaFinal
+        {
+            get { return mLecturaFinal; }
+            set { SetPropertyValue<string>("LecturaFinal", ref mLecturaFinal, value); }
+        }
+
+        private double mTotal;
+        public double Total
+        {
+            get { return mTotal; }
+            set { SetPropertyValue<double>("Total", ref mTotal, value); }
+        }
     }
 }

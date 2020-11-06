@@ -100,6 +100,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsRutaExtra", ref mEsRutaExtra, value); }
         }
 
+        private bool mEsApoyo;
+        public bool EsApoyo
+        {
+            get { return mEsApoyo; }
+            set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
+        }
+
         private bool mRutaCompleta;
         public bool RutaCompleta
         {
@@ -159,6 +166,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<decimal>("Precio", ref mPrecio, value); }
         }
 
+        [Delayed]
+        public Byte[] Documento
+        {
+            get { return GetDelayedPropertyValue<Byte[]>("Documento"); }
+            set { SetDelayedPropertyValue<Byte[]>("Documento", value); }
+        }
+
         private int mCantidad;
         [NonPersistent]
         public int Cantidad
@@ -191,6 +205,12 @@ namespace RUTAS.BL
             set { SetPropertyValue<int>("Orden", ref mOrden, value); }
         }
 
+        private int mOrdenRutas;
+        public int OrdenRutas
+        {
+            get { return mOrdenRutas; }
+            set { SetPropertyValue<int>("OrdenRutas", ref mOrdenRutas, value); }
+        }
 
         [Association("Historial-RutasGeneradas")] 
         public XPCollection<HistorialRutaGenerada> Historial
@@ -198,6 +218,15 @@ namespace RUTAS.BL
             get
             {
                 return GetCollection<HistorialRutaGenerada>(nameof(Historial));
+            }
+        }
+
+        [Association("Modificaciones-RutasGeneradas")]
+        public XPCollection<MotivosModificacionRutas> Motivos
+        {
+            get
+            {
+                return GetCollection<MotivosModificacionRutas>(nameof(Motivos));
             }
         }
 

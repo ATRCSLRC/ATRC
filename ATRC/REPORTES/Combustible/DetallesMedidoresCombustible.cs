@@ -21,6 +21,7 @@ namespace REPORTES.Combustible
             go.Operands.Add(new BinaryOperator("FechaAlta", De.Date.AddDays(-1), BinaryOperatorType.GreaterOrEqual));
             go.Operands.Add(new BinaryOperator("FechaAlta", Al.Date.AddDays(1), BinaryOperatorType.LessOrEqual));
             go.Operands.Add(new BinaryOperator("Tanque.TipoCombustible", Combustible));
+            //go.Operands.Add(new BinaryOperator("Tanque.Oid", 2));
             XPView RecargasDiesel = new XPView(Unidad, typeof(MedidorDiesel), "Oid;FechaAlta;Tanque.Descripcion;Tanque.TipoCombustible;LitrosCapturados;LitrosEnTanque", go);
             this.DataSource = RecargasDiesel;
         }

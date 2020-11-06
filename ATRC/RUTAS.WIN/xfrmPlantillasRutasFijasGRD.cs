@@ -28,13 +28,13 @@ namespace RUTAS.WIN
         public bool AsignarPlantilla;
         private void xfrmPlantillasRutasExtrasGRD_Load(object sender, EventArgs e)
         {
-            bbiAgregar.Visibility = Utilerias.VisibilidadPermiso("NuevaPlantilla");
-            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarPlantilla");
-            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarPlantilla");
-            bbiClonar.Visibility = Utilerias.VisibilidadPermiso("ClonarPlantilla");
+            bbiAgregar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("NuevaPlantilla");
+            bbiModificar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("ModificarPlantilla");
+            bbiEliminar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("EliminarPlantilla");
+            bbiClonar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("ClonarPlantilla");
 
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Rutas = new XPView(Unidad, typeof(PlantillaRutas), "Oid;Nombre;Empresa.Nombre", null);
+            XPView Rutas = new XPView(Unidad, typeof(PlantillaRutas), "Oid;Nombre;Empresa.Nombre;EsExterno", null);
             
             if(AsignarPlantilla)
             {

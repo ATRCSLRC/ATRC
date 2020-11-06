@@ -1,6 +1,7 @@
 ﻿using ATRCBASE.BL;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Controls;
 using DevExpress.XtraPrinting.Drawing;
 using DevExpress.XtraReports.UI;
 using System;
@@ -49,7 +50,14 @@ namespace ATRCBASE.WIN
             XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo;Imagen;RFC;IMSS;Puesto.Descripcion;FechaIngreso", null);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdUsuarios.DataSource = Usuarios;
+            BeginInvoke(new MethodInvoker(delegate {
+                PropertyInfo property = typeof(DevExpress.XtraGrid.Views.Grid.GridView).GetProperty("FindPanel", BindingFlags.Instance | BindingFlags.NonPublic);
+
+                FindControl findPanel = property.GetValue(grvUsuarios) as FindControl;
+                findPanel.Focus();
+            }));
         }
+    
 
         private void bbiNuevos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

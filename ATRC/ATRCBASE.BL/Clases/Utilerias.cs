@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using ATRCBASE.BL.Clases;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
@@ -56,7 +57,7 @@ namespace ATRCBASE.BL
                         _usuarioActual = (Usuario)mUnidad.GetObjectByKey<Usuario>(valor);
                     }
                     catch { _usuarioActual = new Usuario(mUnidad); }
-                    
+
                     if (_usuarioActual == null) _usuarioActual = new Usuario(mUnidad);
                     break;
                 case TipoAplicacion.Windows:
@@ -364,11 +365,11 @@ namespace ATRCBASE.BL
             else
                 return System.Drawing.Imaging.ImageFormat.Wmf;
         }
-        public static string NumEmpleado( UnidadDeTrabajo Unidad)
+        public static string NumEmpleado(UnidadDeTrabajo Unidad)
         {
-           
+
             XPView Usuarios = new XPView(Unidad, typeof(Usuario));
-            
+
             Usuarios.Properties.AddRange(new ViewProperty[] {
             new ViewProperty("NumEmpleado", SortDirection.Descending, "[NumEmpleado]", true, true)});
             Usuarios.SelectDeleted = true;
@@ -383,7 +384,7 @@ namespace ATRCBASE.BL
             #region Usuarios
             nivel1 = CrearPermisos(Unidad, "Usuario", "Usuario", null);
             nivel2 = CrearPermisos(Unidad, "Usuarios", "Usuarios", nivel1);
-            nivel3 = CrearPermisos(Unidad, "Nuevo Usuario","NuevoUsuario", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Nuevo Usuario", "NuevoUsuario", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Usuario", "ModificarUsuario", nivel2);
             nivel3 = CrearPermisos(Unidad, "Historial Reportes Usuario", "HistorialReportesUsuario", nivel2);
             nivel3 = CrearPermisos(Unidad, "Activar/Desactivar Usuario", "ActivarDasactivarUsuario", nivel2);
@@ -515,9 +516,12 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Nuevo Servicio", "NuevoServicioPrecio", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Servicio", "ModificarServicioPrecio", nivel2);
 
+            nivel2 = CrearPermisos(Unidad, "Historial de Rutas Generadas", "HistorialRutasGeneradas", nivel1);
+
             nivel2 = CrearPermisos(Unidad, "Importación de rutas", "ImportacionRutas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Servicios realizados", "ServiciosRealizados", nivel1);
             nivel2 = CrearPermisos(Unidad, "Consulta reportes de servicios", "ConsultaReportesServicios", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Configuración de rutas", "ConfiguracionRutas", nivel1);
             #endregion
 
             #region Administracion
@@ -541,6 +545,7 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Modificacion Gasolina", "ModificacionGasolina", nivel1);
             nivel2 = CrearPermisos(Unidad, "Cálculo Cargos Gasolina", "CalculoCargosGasolina", nivel1);
             nivel2 = CrearPermisos(Unidad, "Medidores de Tanque", "MedidoresTanqueCombustible", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Nueva Recarga de Combustible", "NuevaRecargaCombustible", nivel1);
             nivel2 = CrearPermisos(Unidad, "Recargas de Combustible", "RecargasCombustible", nivel1);
             nivel2 = CrearPermisos(Unidad, "Detalles de Candados", "DetallesCandados", nivel1);
             nivel2 = CrearPermisos(Unidad, "Reportes", "ReportesCombustibles", nivel1);
@@ -558,6 +563,7 @@ namespace ATRCBASE.BL
             nivel2 = CrearPermisos(Unidad, "Recibos", "RecibosPago", nivel1);
             nivel3 = CrearPermisos(Unidad, "Modificar Recibo", "ModificarRecibo", nivel2);
             nivel3 = CrearPermisos(Unidad, "Imprimir Recibo", "ImprimirRecibo", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Cancelar Recibo", "CancelarRecibo", nivel2);
             nivel2 = CrearPermisos(Unidad, "Nuevo Contrato", "NuevoContrato", nivel1);
             nivel2 = CrearPermisos(Unidad, "Abonar Contrato", "AbonarContrato", nivel1);
             nivel2 = CrearPermisos(Unidad, "Entregar Unidad", "EntregarUnidad", nivel1);
@@ -567,6 +573,8 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Modificar Contrato", "ModificarContrato", nivel2);
             nivel3 = CrearPermisos(Unidad, "Reimprimir Contrato", "ReimprimirContrato", nivel2);
             nivel3 = CrearPermisos(Unidad, "Generar Contrato", "GenerarContrato", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Cambio Horario Entrega", "CambioHorarioEntrega", nivel2);
+            nivel3 = CrearPermisos(Unidad, "Cambio Horario Recibir", "CambioHorarioRecibir", nivel2);
             nivel2 = CrearPermisos(Unidad, "Unidades Disponibles", "UnidadesDisponibles", nivel1);
             nivel2 = CrearPermisos(Unidad, "Calendario Rentas", "CalendarioRentas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Historial Rentas", "HistorialRentas", nivel1);
@@ -637,7 +645,8 @@ namespace ATRCBASE.BL
                     return true;
                 else
                     return false;
-            }else
+            }
+            else
             {
                 return true;
             }
@@ -645,7 +654,7 @@ namespace ATRCBASE.BL
 
         public static Permiso CrearPermisos(UnidadDeTrabajo Unidad, string Nombre, string Llave, Permiso Padre)
         {
-            
+
             XPView Permisos = new XPView(Unidad, typeof(Permiso));
             Permisos.Properties.Add(new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true));
             Permisos.Criteria = CriteriaOperator.Parse("Llave = '" + Llave + "'");
@@ -910,7 +919,6 @@ namespace ATRCBASE.BL
             }
             #endregion
 
-
             MailMessage msg = new MailMessage();
             if (!string.IsNullOrWhiteSpace(Destinatario)) msg.To.Add(new MailAddress(Destinatario)); else throw new InvalidOperationException("El Destinatario no puede estar vacio");
 
@@ -983,8 +991,8 @@ namespace ATRCBASE.BL
             //else
             //{
             msg.Body = Mensaje;
-                if (Mensaje.Replace(" ", "").Contains("<br/>") || Mensaje.Replace(" ", "").Contains("<b>") || Mensaje.Replace(" ", "").Contains("<p>") || Mensaje.Replace(" ", "").Contains("</a>") || Mensaje.Replace(" ", "").Contains("<table"))
-                    msg.IsBodyHtml = true;
+            //if (Mensaje.Replace(" ", "").Contains("<br/>") || Mensaje.Replace(" ", "").Contains("<b>") || Mensaje.Replace(" ", "").Contains("<p>") || Mensaje.Replace(" ", "").Contains("</a>") || Mensaje.Replace(" ", "").Contains("<table"))
+            msg.IsBodyHtml = true;
             //}
 
             msg.From = new MailAddress(correoAutenticacionConfig, "", System.Text.Encoding.UTF8);
@@ -1000,6 +1008,19 @@ namespace ATRCBASE.BL
             mailSmtp.Port = Convert.ToInt32(correoHostPortConfig);
 
             mailSmtp.Send(msg);
+        }
+
+        public static void EnviarCorreoActivacion(ActivacionUsuario Activacion)
+        {
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            PlantillaDeCorreo Plantilla = (PlantillaDeCorreo)Unidad.FindObject(typeof(PlantillaDeCorreo), new BinaryOperator("Nombre", "Activación de usuario"));
+
+            string Mensaje = string.Empty;
+            string Asunto = string.Empty;
+
+            Mensaje = Plantilla.Contenido.Replace("[Nombre]", Activacion.Usuario.Nombre).Replace("[Correo]", Activacion.Usuario.Correo).Replace("[LinkActivacion]", Activacion.Usuario.Correo);
+            Asunto = Plantilla.Asunto.Replace("[Nombre]", Activacion.Usuario.Nombre).Replace("[Correo]", Activacion.Usuario.Correo).Replace("[LinkActivacion]", Activacion.Usuario.Correo);
+
         }
     }
 }

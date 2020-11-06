@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmLogin));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -46,6 +47,8 @@
             this.lciContraseña = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciIngresar = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCancelar = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -58,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIngresar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancelar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -67,7 +71,6 @@
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
-            this.barManager1.MaxItemId = 0;
             // 
             // barDockControlTop
             // 
@@ -75,7 +78,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(289, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(283, 0);
             // 
             // barDockControlBottom
             // 
@@ -83,7 +86,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 323);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(289, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(283, 0);
             // 
             // barDockControlLeft
             // 
@@ -97,7 +100,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(289, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(283, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 323);
             // 
@@ -109,19 +112,19 @@
             this.lcMain.Controls.Add(this.txtUsuario);
             this.lcMain.Controls.Add(this.peLogo);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(693, 153, 604, 600);
             this.lcMain.Root = this.lcgContenedor;
-            this.lcMain.Size = new System.Drawing.Size(289, 323);
+            this.lcMain.Size = new System.Drawing.Size(283, 291);
             this.lcMain.TabIndex = 4;
             this.lcMain.Text = "layoutControl1";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(12, 289);
+            this.btnCancelar.Location = new System.Drawing.Point(12, 257);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(131, 22);
+            this.btnCancelar.Size = new System.Drawing.Size(128, 22);
             this.btnCancelar.StyleController = this.lcMain;
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
@@ -131,9 +134,9 @@
             // 
             this.btnIngresar.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.btnIngresar.Appearance.Options.UseBackColor = true;
-            this.btnIngresar.Location = new System.Drawing.Point(147, 289);
+            this.btnIngresar.Location = new System.Drawing.Point(144, 257);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(130, 22);
+            this.btnIngresar.Size = new System.Drawing.Size(127, 22);
             this.btnIngresar.StyleController = this.lcMain;
             this.btnIngresar.TabIndex = 7;
             this.btnIngresar.Text = "Ingresar";
@@ -141,15 +144,14 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(12, 265);
+            this.txtContraseña.EditValue = "";
+            this.txtContraseña.Location = new System.Drawing.Point(12, 233);
             this.txtContraseña.MenuManager = this.barManager1;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Properties.NullText = "Contraseña";
             this.txtContraseña.Properties.NullValuePrompt = "Contraseña";
-            this.txtContraseña.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtContraseña.Properties.PasswordChar = '*';
-            this.txtContraseña.Properties.ShowNullValuePromptWhenFocused = true;
-            this.txtContraseña.Size = new System.Drawing.Size(265, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(259, 20);
             this.txtContraseña.StyleController = this.lcMain;
             this.txtContraseña.TabIndex = 6;
             this.txtContraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContraseña_KeyDown);
@@ -157,13 +159,12 @@
             // txtUsuario
             // 
             this.txtUsuario.EnterMoveNextControl = true;
-            this.txtUsuario.Location = new System.Drawing.Point(12, 241);
+            this.txtUsuario.Location = new System.Drawing.Point(12, 209);
             this.txtUsuario.MenuManager = this.barManager1;
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Properties.NullText = "Número de usuario";
             this.txtUsuario.Properties.NullValuePrompt = "Número de usuario";
-            this.txtUsuario.Properties.NullValuePromptShowForEmptyValue = true;
-            this.txtUsuario.Properties.ShowNullValuePromptWhenFocused = true;
-            this.txtUsuario.Size = new System.Drawing.Size(265, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(259, 20);
             this.txtUsuario.StyleController = this.lcMain;
             this.txtUsuario.TabIndex = 5;
             // 
@@ -178,7 +179,7 @@
             this.peLogo.Properties.Appearance.Options.UseBackColor = true;
             this.peLogo.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.peLogo.Size = new System.Drawing.Size(265, 225);
+            this.peLogo.Size = new System.Drawing.Size(259, 193);
             this.peLogo.StyleController = this.lcMain;
             this.peLogo.TabIndex = 4;
             // 
@@ -193,7 +194,7 @@
             this.lciIngresar,
             this.lciCancelar});
             this.lcgContenedor.Name = "lcgContenedor";
-            this.lcgContenedor.Size = new System.Drawing.Size(289, 323);
+            this.lcgContenedor.Size = new System.Drawing.Size(283, 291);
             this.lcgContenedor.TextVisible = false;
             // 
             // lciLogo
@@ -201,16 +202,16 @@
             this.lciLogo.Control = this.peLogo;
             this.lciLogo.Location = new System.Drawing.Point(0, 0);
             this.lciLogo.Name = "lciLogo";
-            this.lciLogo.Size = new System.Drawing.Size(269, 229);
+            this.lciLogo.Size = new System.Drawing.Size(263, 197);
             this.lciLogo.TextSize = new System.Drawing.Size(0, 0);
             this.lciLogo.TextVisible = false;
             // 
             // lciUsuario
             // 
             this.lciUsuario.Control = this.txtUsuario;
-            this.lciUsuario.Location = new System.Drawing.Point(0, 229);
+            this.lciUsuario.Location = new System.Drawing.Point(0, 197);
             this.lciUsuario.Name = "lciUsuario";
-            this.lciUsuario.Size = new System.Drawing.Size(269, 24);
+            this.lciUsuario.Size = new System.Drawing.Size(263, 24);
             this.lciUsuario.Text = "Usuario:";
             this.lciUsuario.TextSize = new System.Drawing.Size(0, 0);
             this.lciUsuario.TextVisible = false;
@@ -218,9 +219,9 @@
             // lciContraseña
             // 
             this.lciContraseña.Control = this.txtContraseña;
-            this.lciContraseña.Location = new System.Drawing.Point(0, 253);
+            this.lciContraseña.Location = new System.Drawing.Point(0, 221);
             this.lciContraseña.Name = "lciContraseña";
-            this.lciContraseña.Size = new System.Drawing.Size(269, 24);
+            this.lciContraseña.Size = new System.Drawing.Size(263, 24);
             this.lciContraseña.Text = "Contraseña:";
             this.lciContraseña.TextSize = new System.Drawing.Size(0, 0);
             this.lciContraseña.TextVisible = false;
@@ -228,20 +229,43 @@
             // lciIngresar
             // 
             this.lciIngresar.Control = this.btnIngresar;
-            this.lciIngresar.Location = new System.Drawing.Point(135, 277);
+            this.lciIngresar.Location = new System.Drawing.Point(132, 245);
             this.lciIngresar.Name = "lciIngresar";
-            this.lciIngresar.Size = new System.Drawing.Size(134, 26);
+            this.lciIngresar.Size = new System.Drawing.Size(131, 26);
             this.lciIngresar.TextSize = new System.Drawing.Size(0, 0);
             this.lciIngresar.TextVisible = false;
             // 
             // lciCancelar
             // 
             this.lciCancelar.Control = this.btnCancelar;
-            this.lciCancelar.Location = new System.Drawing.Point(0, 277);
+            this.lciCancelar.Location = new System.Drawing.Point(0, 245);
             this.lciCancelar.Name = "lciCancelar";
-            this.lciCancelar.Size = new System.Drawing.Size(135, 26);
+            this.lciCancelar.Size = new System.Drawing.Size(132, 26);
             this.lciCancelar.TextSize = new System.Drawing.Size(0, 0);
             this.lciCancelar.TextVisible = false;
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowMoreCommandsButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.ribbonControl1.ShowQatLocationSelector = false;
+            this.ribbonControl1.ShowToolbarCustomizeItem = false;
+            this.ribbonControl1.Size = new System.Drawing.Size(283, 32);
+            this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
             // 
             // xfrmLogin
             // 
@@ -249,14 +273,19 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 323);
+            this.ClientSize = new System.Drawing.Size(283, 323);
             this.Controls.Add(this.lcMain);
+            this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmLogin.IconOptions.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "xfrmLogin";
+            this.Ribbon = this.ribbonControl1;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.xfrmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xfrmLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -271,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIngresar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCancelar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +325,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lciContraseña;
         private DevExpress.XtraLayout.LayoutControlItem lciIngresar;
         private DevExpress.XtraLayout.LayoutControlItem lciCancelar;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
     }
 }

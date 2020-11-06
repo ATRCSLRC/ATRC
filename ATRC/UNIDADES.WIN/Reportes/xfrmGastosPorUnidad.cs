@@ -25,6 +25,8 @@ namespace UNIDADES.WIN.Reportes
             InitializeComponent();
         }
         UnidadDeTrabajo UnidadTrabajo;
+        double Combustible = 0;
+        XPView CombustibleUnidad;
         #region Eventos
         private void xfrmGastosPorUnidad_Load(object sender, EventArgs e)
         {
@@ -43,18 +45,26 @@ namespace UNIDADES.WIN.Reportes
             if (lueUnidad.EditValue != null)
             {
                 Unidad Unidad = ((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject());
+                UnidadTrabajo = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 GroupOperator go = new GroupOperator(GroupOperatorType.And);
-                go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteDel.DateTime.AddDays(-1), BinaryOperatorType.GreaterOrEqual)));
-                go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual)));
-                go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Estado", 0)));
-                go.Operands.Add(new BinaryOperator("Oid", Unidad.Oid));
+                go.Operands.Add(new BinaryOperator("Unidad.Oid", Unidad.Oid));
+                go.Operands.Add(new BetweenOperator("Fecha", dteDel.DateTime.Date, dteAl.DateTime.Date));
+                //go.Operands.Add(new ContainsOperator("Salidas", new BetweenOperator("Fecha", dteDel.DateTime.AddDays(-1), dteAl.DateTime.Date)));
+                ////go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteDel.DateTime.AddDays(-1), BinaryOperatorType.GreaterOrEqual)));
+                ////go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual)));
+                //go.Operands.Add(new ContainsOperator("Salidas", new BinaryOperator("Estado", 0)));
+                //go.Operands.Add(new BinaryOperator("Oid", Unidad.Oid));
                 Type typeSalida = System.Reflection.Assembly.Load("ALMACEN.BL").GetType("ALMACEN.BL.SalidaArticulo");
-                XPView Salidas = new XPView(UnidadTrabajo, typeof(Unidad));
-                Salidas.AddProperty("Oid", "Oid", true);
-                Salidas.AddProperty("Total", "[Salidas].Sum([Cantidad] * [Factura.Precio])");
-                Salidas.Criteria = go;
+                XPView Salidas = new XPView(UnidadTrabajo, typeSalida, "Oid;Fecha;Cantidad;Factura.Precio", go);
+                //Salidas.AddProperty("Oid", "Oid", true);
+                //Salidas.AddProperty("Total", "Sum([Cantidad] * [Factura.Precio])");
+                //Salidas.Criteria = go;
+                ////XPCollection Unidades = new XPCollection(UnidadTrabajo, typeof(Unidad), new BinaryOperator("Oid", Unidad.Oid));
+                ////XPCollection Salidas = ((Unidad)Unidades[0]).GetMemberValue("Salidas") as XPCollection;
+                ////Salidas.Criteria = new BetweenOperator("Fecha", dteDel.DateTime.Date, dteAl.DateTime.Date);
+                double Almacen = (from ViewRecord sP in Salidas select (Convert.ToDouble(sP["Cantidad"]) * Convert.ToDouble(sP["Factura.Precio"]))).Sum();
 
-                int Combustible = 0;
+                Combustible = 0;
                 if (Unidad.Combustible == Enums.Combustible.Diesel)
                 {
                     GroupOperator goDiesel = new GroupOperator(GroupOperatorType.And);
@@ -62,17 +72,26 @@ namespace UNIDADES.WIN.Reportes
                     goDiesel.Operands.Add(new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual));
                     goDiesel.Operands.Add(new BinaryOperator("Unidad.Oid", Unidad.Oid));
                     goDiesel.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
-                    XPView Diesel = new XPView(UnidadTrabajo, typeof(Diesel), "Oid;Litros", goDiesel);
-                    Combustible = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
+                    CombustibleUnidad = new XPView(UnidadTrabajo, typeof(Diesel), "Oid;Fecha;Unidad.Nombre;Litros;UltimaRecarga.PrecioLitro", goDiesel);
+                    Combustible = (from ViewRecord sP in CombustibleUnidad select (Convert.ToInt32(sP["Litros"]) * Convert.ToDouble(sP["UltimaRecarga.PrecioLitro"]))).Sum();
+                }else
+                {
+                    GroupOperator goGasolina = new GroupOperator(GroupOperatorType.And);
+                    goGasolina.Operands.Add(new BinaryOperator("Fecha", dteDel.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
+                    goGasolina.Operands.Add(new BinaryOperator("Fecha", dteAl.DateTime.Date, BinaryOperatorType.LessOrEqual));
+                    goGasolina.Operands.Add(new BinaryOperator("Unidad.Oid", Unidad.Oid));
+                    goGasolina.Operands.Add(new NotOperator(new NullOperator("UltimaRecarga")));
+                    CombustibleUnidad = new XPView(UnidadTrabajo, typeof(Gasolina), "Oid;Fecha;Unidad.Nombre;Litros;UltimaRecarga.PrecioLitro", goGasolina);
+                    Combustible = (from ViewRecord sP in CombustibleUnidad select (Convert.ToInt32(sP["Litros"]) * Convert.ToDouble(sP["UltimaRecarga.PrecioLitro"]))).Sum();
                 }
 
-                if (Salidas.Count > 0)
-                {
+                //if (Salidas.Count > 0 )
+                //{
                     Grafica.Series[0].Points.RemoveRange(0, Grafica.Series[0].Points.Count);
                     fypImprimir.ShowPopup();
                     Grafica.Series[0].Points.Add(new SeriesPoint("Combustible", Combustible));
-                    Grafica.Series[0].Points.Add(new SeriesPoint("Almacen", Salidas[0]["Total"]));
-                }
+                    Grafica.Series[0].Points.Add(new SeriesPoint("Almacen", Almacen));
+                //}
             }else
             {
                 XtraMessageBox.Show("Debe de seleccionar una unidad.");
@@ -93,11 +112,27 @@ namespace UNIDADES.WIN.Reportes
             if (lueUnidad.EditValue != null)
             {
                 Unidad Unidad = ((Unidad)((ViewRecord)lueUnidad.EditValue).GetObject());
-                ReportPrintTool repRadios = new ReportPrintTool(new REPORTES.Unidades.GastosPorUnidad(Unidad.Oid));
-                repRadios.ShowPreview();
+                switch (e.Button.Caption)
+                {
+                    case "Imprimir gastos almacen":
+                        ReportPrintTool repRadios = new ReportPrintTool(new REPORTES.Unidades.GastosPorUnidad(Unidad.Oid, dteDel.DateTime.Date, dteAl.DateTime.Date));
+                        repRadios.ShowPreview();
+                        break;
+                    case "Imprimir gastos combustible":
+                        if (CombustibleUnidad.Count > 0)
+                        {
+                            ReportPrintTool repCombustible = new ReportPrintTool(new REPORTES.Unidades.GastosDeCombustible(CombustibleUnidad, Combustible));
+                            repCombustible.ShowPreview();
+                        }else
+                        {
+                            XtraMessageBox.Show("No hay registros de combustible.");
+                        }
+                        break;
+                } 
             }
         }
         #endregion
+
         #region Metodos
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

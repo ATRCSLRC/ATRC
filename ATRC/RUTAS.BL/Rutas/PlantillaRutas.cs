@@ -2,6 +2,7 @@
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -28,6 +29,7 @@ namespace RUTAS.BL
         }
 
         private bool mEsExterno;
+        [Description("Plantilla se muestra a externos.")]
         public bool EsExterno
         {
             get { return mEsExterno; }

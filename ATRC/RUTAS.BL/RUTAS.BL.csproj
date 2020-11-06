@@ -37,6 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,6 +56,7 @@
     <Compile Include="Mapa\Coordenadas.cs" />
     <Compile Include="RutasMaquiladora\HistorialPedidoRutas.cs" />
     <Compile Include="RutasMaquiladora\HistorialRutasDePedido.cs" />
+    <Compile Include="RutasMaquiladora\MotivosModificacionRutas.cs" />
     <Compile Include="RutasMaquiladora\PedidoRutas.cs" />
     <Compile Include="RutasMaquiladora\RutasDePedido.cs" />
     <Compile Include="Rutas\HistorialRutaGenerada.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Mapa\Rutas.cs" />
     <Compile Include="Rutas\ReportesServiciosRealizados.cs" />
     <Compile Include="Rutas\RutasGeneradas.cs" />
+    <Compile Include="Utilerias.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

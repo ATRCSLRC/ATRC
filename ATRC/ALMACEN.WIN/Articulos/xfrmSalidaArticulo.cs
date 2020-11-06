@@ -161,7 +161,7 @@ namespace ALMACEN.WIN
                     Salida.Save();
                     UnidadSalida.CommitChanges();
 
-                    if (XtraMessageBox.Show("¿Desea generar comprobante de entrega?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    if (XtraMessageBox.Show("¿Desea generar comprobante de entrega?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
                         REPORTES.Almacen.TicketEntregaArticulo Ticket = new REPORTES.Almacen.TicketEntregaArticulo(Salida);
 

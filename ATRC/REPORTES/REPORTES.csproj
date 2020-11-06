@@ -149,6 +149,12 @@
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rutas\HistorialRutasGeneradas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\HistorialRutasGeneradas.Designer.cs">
+      <DependentUpon>HistorialRutasGeneradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rutas\ReporteRutasExtras.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -233,6 +239,12 @@
     <Compile Include="Unidades\Extintores.Designer.cs">
       <DependentUpon>Extintores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Unidades\GastosDeCombustible.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\GastosDeCombustible.Designer.cs">
+      <DependentUpon>GastosDeCombustible.cs</DependentUpon>
+    </Compile>
     <Compile Include="Unidades\GastosPorUnidad.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -305,6 +317,7 @@
     <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
       <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -314,6 +327,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rutas\HistorialRutasGeneradas.resx">
+      <DependentUpon>HistorialRutasGeneradas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rutas\ReporteRutasExtras.resx">
       <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\Extintores.resx">
       <DependentUpon>Extintores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\GastosDeCombustible.resx">
+      <DependentUpon>GastosDeCombustible.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Unidades\GastosPorUnidad.resx">
       <DependentUpon>GastosPorUnidad.cs</DependentUpon>

@@ -37,7 +37,8 @@ namespace ALMACEN.WIN
             new ViewProperty("Oid", SortDirection.None, "[Oid]", false, true),
             new ViewProperty("NumParte", SortDirection.None, "[NumParte]", false, true),
             new ViewProperty("Codigo", SortDirection.None, "[Articulo.Codigo]", false, true),
-            new ViewProperty("Articulo", SortDirection.None, "[Articulo.Oid]", false, true),
+            new ViewProperty("Articulo", SortDirection.None, "[Articulo.Oid]", false, true),//
+            new ViewProperty("Articulo.TipoArticulo", SortDirection.None, "[Articulo.TipoArticulo]", false, true),
             new ViewProperty("Nombre", SortDirection.None, "[Articulo.Nombre]", false, true),
             new ViewProperty("Cantidad", SortDirection.None, "[Cantidad]", false, true),
             new ViewProperty("Proveedor.Nombre", SortDirection.None, "[Proveedor.Nombre]", false, true),
@@ -45,7 +46,8 @@ namespace ALMACEN.WIN
             new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true),
             //new ViewProperty("Cantidad", SortDirection.None, "[Facturas].Sum([Cantidad])", false, true)
             });
-            rgBusqueda.SelectedIndex = 0;
+            rgTipo.Properties.Items.AddEnum(typeof(Enums.TipoArticulo));
+            rgBusqueda.SelectedIndex = 1;
             if (Asignar)
                 col.Visible = false;
             else
@@ -108,6 +110,11 @@ namespace ALMACEN.WIN
                     go.Operands.Add(new FunctionOperator("Like", new OperandProperty("NumParte"), new OperandValue("%" + txtFiltro.Text + "%")));
                     Articulos.Criteria = go;
                     break;
+                case 5://Tipo
+                    go.Operands.Add(new BinaryOperator("Articulo.TipoArticulo", rgTipo.SelectedIndex));//Tipo
+                    Articulos.Criteria = go;
+                    break;
+
             }
             grdArticulos.DataSource = Articulos;
         }
@@ -124,6 +131,7 @@ namespace ALMACEN.WIN
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     break;
                 case 1://Nombre
                     lciBusqueda.Text = "Ingresé descripción:";
@@ -133,6 +141,7 @@ namespace ALMACEN.WIN
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     break;
                 case 2://NumParte
                     grdArticulos.DataSource = null;
@@ -141,6 +150,7 @@ namespace ALMACEN.WIN
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     break;
                 case 3://Marca
                     
@@ -151,6 +161,7 @@ namespace ALMACEN.WIN
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     break;
                 case 4://Proveedor
                     grdArticulos.DataSource = null;
@@ -160,6 +171,17 @@ namespace ALMACEN.WIN
                     lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    break;
+                case 5://Tipo
+                    grdArticulos.DataSource = null;
+                    txtFiltro.Text = string.Empty;
+                    lueCatalogo.Focus();
+                    Utilerias.CargarLookupEdit(lueCatalogo, typeof(Proveedor), Unidad, "Nombre", "Nombre", false);
+                    lciCatalogos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lciBusqueda.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lcibtnBuscar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
             }
         }
@@ -238,5 +260,6 @@ namespace ALMACEN.WIN
             return base.ProcessCmdKey(ref msg, keyData);
         }
         #endregion
+
     }
 }

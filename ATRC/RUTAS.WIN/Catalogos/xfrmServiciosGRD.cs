@@ -25,9 +25,9 @@ namespace RUTAS.WIN
         public UnidadDeTrabajo Unidad;
         private void xfrmServiciosGRD_Load(object sender, EventArgs e)
         {
-            bbiNuevo.Visibility = Utilerias.VisibilidadPermiso("NuevoServicio");
-            bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarServicio");
-            bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarServicio");
+            bbiNuevo.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("NuevoServicio");
+            bbiModificar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("ModificarServicio");
+            bbiEliminar.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("EliminarServicio");
 
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Servicios = new XPView(Unidad, typeof(Servicio), "Oid;Clave;Descripcion;TipoUnidad", null);

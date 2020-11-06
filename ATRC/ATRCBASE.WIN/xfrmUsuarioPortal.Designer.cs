@@ -30,29 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUsuarioPortal));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiCancelar = new DevExpress.XtraBars.BarButtonItem();
+            this.txtCorreo = new DevExpress.XtraEditors.TextEdit();
+            this.lueEmpresa = new DevExpress.XtraEditors.LookUpEdit();
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciNombre = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lueEmpresa = new DevExpress.XtraEditors.LookUpEdit();
             this.lciEmpresa = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCorreo = new DevExpress.XtraEditors.TextEdit();
             this.lciCorreo = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCorreo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmpresa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCorreo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCorreo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +80,24 @@
             this.ribbonControl1.Size = new System.Drawing.Size(457, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
+            // bbiGuardar
+            // 
+            this.bbiGuardar.Caption = "Guardar";
+            this.bbiGuardar.Id = 1;
+            this.bbiGuardar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.Guardar;
+            this.bbiGuardar.Name = "bbiGuardar";
+            this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
+            // 
+            // bbiCancelar
+            // 
+            this.bbiCancelar.Caption = "Cancelar";
+            this.bbiCancelar.Id = 2;
+            this.bbiCancelar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.Cancelar;
+            this.bbiCancelar.Name = "bbiCancelar";
+            this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -104,9 +122,38 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(505, 42, 650, 400);
             this.lcMain.Root = this.Root;
-            this.lcMain.Size = new System.Drawing.Size(457, 102);
+            this.lcMain.Size = new System.Drawing.Size(457, 104);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(60, 60);
+            this.txtCorreo.MenuManager = this.ribbonControl1;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(385, 20);
+            this.txtCorreo.StyleController = this.lcMain;
+            this.txtCorreo.TabIndex = 6;
+            // 
+            // lueEmpresa
+            // 
+            this.lueEmpresa.Location = new System.Drawing.Point(60, 36);
+            this.lueEmpresa.MenuManager = this.ribbonControl1;
+            this.lueEmpresa.Name = "lueEmpresa";
+            this.lueEmpresa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueEmpresa.Size = new System.Drawing.Size(385, 20);
+            this.lueEmpresa.StyleController = this.lcMain;
+            this.lueEmpresa.TabIndex = 5;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(60, 12);
+            this.txtNombre.MenuManager = this.ribbonControl1;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(385, 20);
+            this.txtNombre.StyleController = this.lcMain;
+            this.txtNombre.TabIndex = 4;
             // 
             // Root
             // 
@@ -118,35 +165,8 @@
             this.lciEmpresa,
             this.lciCorreo});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(457, 102);
+            this.Root.Size = new System.Drawing.Size(457, 104);
             this.Root.TextVisible = false;
-            // 
-            // bbiGuardar
-            // 
-            this.bbiGuardar.Caption = "Guardar";
-            this.bbiGuardar.Id = 1;
-            this.bbiGuardar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.Guardar;
-            this.bbiGuardar.Name = "bbiGuardar";
-            this.bbiGuardar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
-            // 
-            // bbiCancelar
-            // 
-            this.bbiCancelar.Caption = "Cancelar";
-            this.bbiCancelar.Id = 2;
-            this.bbiCancelar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.Cancelar;
-            this.bbiCancelar.Name = "bbiCancelar";
-            this.bbiCancelar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bbiCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancelar_ItemClick);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(60, 12);
-            this.txtNombre.MenuManager = this.ribbonControl1;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(385, 20);
-            this.txtNombre.StyleController = this.lcMain;
-            this.txtNombre.TabIndex = 4;
             // 
             // lciNombre
             // 
@@ -162,19 +182,8 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(437, 12);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // lueEmpresa
-            // 
-            this.lueEmpresa.Location = new System.Drawing.Point(60, 36);
-            this.lueEmpresa.MenuManager = this.ribbonControl1;
-            this.lueEmpresa.Name = "lueEmpresa";
-            this.lueEmpresa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueEmpresa.Size = new System.Drawing.Size(385, 20);
-            this.lueEmpresa.StyleController = this.lcMain;
-            this.lueEmpresa.TabIndex = 5;
             // 
             // lciEmpresa
             // 
@@ -184,15 +193,6 @@
             this.lciEmpresa.Size = new System.Drawing.Size(437, 24);
             this.lciEmpresa.Text = "Empresa:";
             this.lciEmpresa.TextSize = new System.Drawing.Size(45, 13);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(60, 60);
-            this.txtCorreo.MenuManager = this.ribbonControl1;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(385, 20);
-            this.txtCorreo.StyleController = this.lcMain;
-            this.txtCorreo.TabIndex = 6;
             // 
             // lciCorreo
             // 
@@ -207,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 234);
+            this.ClientSize = new System.Drawing.Size(457, 236);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUsuarioPortal.IconOptions.Icon")));
@@ -218,13 +218,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCorreo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueEmpresa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciEmpresa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCorreo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCorreo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

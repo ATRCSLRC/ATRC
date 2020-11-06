@@ -35,6 +35,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.chkApoyo = new DevExpress.XtraEditors.CheckEdit();
             this.memoComentarioFacturacion = new DevExpress.XtraEditors.MemoEdit();
             this.chkEsRutaExtra = new DevExpress.XtraEditors.CheckEdit();
             this.memoComentarios = new DevExpress.XtraEditors.MemoEdit();
@@ -67,11 +68,13 @@
             this.lciTurno = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciComentarios = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciComentariosChofer = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkApoyo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsRutaExtra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarios.Properties)).BeginInit();
@@ -104,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentariosChofer)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +168,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.chkApoyo);
             this.lcMain.Controls.Add(this.memoComentarioFacturacion);
             this.lcMain.Controls.Add(this.chkEsRutaExtra);
             this.lcMain.Controls.Add(this.memoComentarios);
@@ -183,26 +188,36 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(778, 257, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(567, 367);
+            this.lcMain.Size = new System.Drawing.Size(567, 382);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // chkApoyo
+            // 
+            this.chkApoyo.Location = new System.Drawing.Point(379, 45);
+            this.chkApoyo.MenuManager = this.ribbonControl1;
+            this.chkApoyo.Name = "chkApoyo";
+            this.chkApoyo.Properties.Caption = "Es apoyo";
+            this.chkApoyo.Size = new System.Drawing.Size(74, 20);
+            this.chkApoyo.StyleController = this.lcMain;
+            this.chkApoyo.TabIndex = 24;
             // 
             // memoComentarioFacturacion
             // 
             this.memoComentarioFacturacion.Location = new System.Drawing.Point(285, 331);
             this.memoComentarioFacturacion.MenuManager = this.ribbonControl1;
             this.memoComentarioFacturacion.Name = "memoComentarioFacturacion";
-            this.memoComentarioFacturacion.Size = new System.Drawing.Size(270, 24);
+            this.memoComentarioFacturacion.Size = new System.Drawing.Size(270, 39);
             this.memoComentarioFacturacion.StyleController = this.lcMain;
             this.memoComentarioFacturacion.TabIndex = 23;
             // 
             // chkEsRutaExtra
             // 
-            this.chkEsRutaExtra.Location = new System.Drawing.Point(454, 45);
+            this.chkEsRutaExtra.Location = new System.Drawing.Point(457, 45);
             this.chkEsRutaExtra.MenuManager = this.ribbonControl1;
             this.chkEsRutaExtra.Name = "chkEsRutaExtra";
             this.chkEsRutaExtra.Properties.Caption = "Es ruta extra";
-            this.chkEsRutaExtra.Size = new System.Drawing.Size(89, 20);
+            this.chkEsRutaExtra.Size = new System.Drawing.Size(86, 20);
             this.chkEsRutaExtra.StyleController = this.lcMain;
             this.chkEsRutaExtra.TabIndex = 22;
             // 
@@ -211,7 +226,7 @@
             this.memoComentarios.Location = new System.Drawing.Point(12, 331);
             this.memoComentarios.MenuManager = this.ribbonControl1;
             this.memoComentarios.Name = "memoComentarios";
-            this.memoComentarios.Size = new System.Drawing.Size(269, 24);
+            this.memoComentarios.Size = new System.Drawing.Size(269, 39);
             this.memoComentarios.StyleController = this.lcMain;
             this.memoComentarios.TabIndex = 21;
             // 
@@ -329,6 +344,7 @@
             this.lueChoferSalida.StyleController = this.lcMain;
             this.lueChoferSalida.TabIndex = 10;
             this.lueChoferSalida.EditValueChanged += new System.EventHandler(this.lueChoferSalida_EditValueChanged);
+            this.lueChoferSalida.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lueChoferSalida_KeyUp);
             // 
             // lueChofer
             // 
@@ -348,6 +364,7 @@
             this.lueChofer.StyleController = this.lcMain;
             this.lueChofer.TabIndex = 9;
             this.lueChofer.EditValueChanged += new System.EventHandler(this.lueChofer_EditValueChanged);
+            this.lueChofer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lueChofer_KeyUp);
             // 
             // timeA
             // 
@@ -396,7 +413,7 @@
             this.lciComentarios,
             this.lciComentariosChofer});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(567, 367);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(567, 382);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -508,7 +525,8 @@
             this.lciTipoRuta,
             this.lciTurno,
             this.layoutControlItem1,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(547, 117);
@@ -557,9 +575,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.chkEsRutaExtra;
-            this.layoutControlItem1.Location = new System.Drawing.Point(430, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(433, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(93, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(90, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -568,15 +586,24 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(355, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.chkApoyo;
+            this.layoutControlItem2.Location = new System.Drawing.Point(355, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(78, 24);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // lciComentarios
             // 
             this.lciComentarios.Control = this.memoComentarios;
             this.lciComentarios.Location = new System.Drawing.Point(0, 303);
             this.lciComentarios.Name = "lciComentarios";
-            this.lciComentarios.Size = new System.Drawing.Size(273, 44);
+            this.lciComentarios.Size = new System.Drawing.Size(273, 59);
             this.lciComentarios.Text = "Comentarios chofer:";
             this.lciComentarios.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciComentarios.TextSize = new System.Drawing.Size(121, 13);
@@ -586,7 +613,7 @@
             this.lciComentariosChofer.Control = this.memoComentarioFacturacion;
             this.lciComentariosChofer.Location = new System.Drawing.Point(273, 303);
             this.lciComentariosChofer.Name = "lciComentariosChofer";
-            this.lciComentariosChofer.Size = new System.Drawing.Size(274, 44);
+            this.lciComentariosChofer.Size = new System.Drawing.Size(274, 59);
             this.lciComentariosChofer.Text = "Comentarios facturación:";
             this.lciComentariosChofer.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciComentariosChofer.TextSize = new System.Drawing.Size(121, 13);
@@ -595,7 +622,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 499);
+            this.ClientSize = new System.Drawing.Size(567, 514);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmRutasFijas.IconOptions.Icon")));
@@ -606,6 +633,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkApoyo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarioFacturacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEsRutaExtra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoComentarios.Properties)).EndInit();
@@ -638,6 +666,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciComentariosChofer)).EndInit();
             this.ResumeLayout(false);
@@ -687,5 +716,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.MemoEdit memoComentarioFacturacion;
         private DevExpress.XtraLayout.LayoutControlItem lciComentariosChofer;
+        private DevExpress.XtraEditors.CheckEdit chkApoyo;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

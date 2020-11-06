@@ -79,6 +79,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsRutaExtra", ref mEsRutaExtra, value); }
         }
 
+        private bool mEsApoyo;
+        public bool EsApoyo
+        {
+            get { return mEsApoyo; }
+            set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
+        }
+
         private bool mRutaCompleta;
         public bool RutaCompleta
         {
@@ -122,6 +129,13 @@ namespace RUTAS.BL
         {
             get { return mRuta; }
             set { SetPropertyValue<string>("Ruta", ref mRuta, value); }
+        }
+
+        private int mOrdenRutas;
+        public int OrdenRutas
+        {
+            get { return mOrdenRutas; }
+            set { SetPropertyValue<int>("OrdenRutas", ref mOrdenRutas, value); }
         }
         //[NonPersistent]
         //public string ChoferEntradaDetalle

@@ -63,6 +63,16 @@ namespace GUARDIAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap descuento {
+            get {
+                object obj = ResourceManager.GetObject("descuento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_acuerdo_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-acuerdo-32", resourceCulture);
@@ -86,6 +96,16 @@ namespace GUARDIAS.WIN.Properties {
         internal static System.Drawing.Bitmap icons8_acuerdo_48__7_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-acuerdo-48 (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_archivo_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-archivo-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

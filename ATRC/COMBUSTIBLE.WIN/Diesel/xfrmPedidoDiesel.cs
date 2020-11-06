@@ -52,6 +52,10 @@ namespace COMBUSTIBLE.WIN
             Unidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             Unidades.Criteria = goFinal;
             lueUnidad.Properties.DataSource = Unidades;
+            XPView UnidadesAgregadas = new XPView(UnidadControles, typeof(Diesel), "Oid;Unidad.Nombre",new BinaryOperator("Fecha", DateTime.Now.Date ));
+            UnidadesAgregadas.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
+            grdUnidades.DataSource = UnidadesAgregadas;
+
             txtEmpleado.Focus();
             lueUnidad.ItemIndex = 0;
         }
@@ -60,7 +64,7 @@ namespace COMBUSTIBLE.WIN
             txtEmpleado.Focus();
             lueUnidad.ItemIndex = 0;
             txtEmpleado.EditValue = null;
-            lblEmpleado.Text = string.Empty;
+            lblEmpleado.Text = " ";
         }
 
         private void txtEmpleado_KeyDown(object sender, KeyEventArgs e)
@@ -76,7 +80,7 @@ namespace COMBUSTIBLE.WIN
                 else
                 {
                     XtraMessageBox.Show("No existe usuario con este número de empleado.");
-                    lblEmpleado.Text = string.Empty;
+                    lblEmpleado.Text = " ";
                     txtEmpleado.EditValue = null;
                 }
             }
@@ -104,7 +108,7 @@ namespace COMBUSTIBLE.WIN
                     if (Usuario == null)
                     {
                         XtraMessageBox.Show("No existe usuario con este número de empleado.");
-                        lblEmpleado.Text = string.Empty;
+                        lblEmpleado.Text = " ";
                         txtEmpleado.EditValue = null;
                     }
                     else
@@ -116,6 +120,8 @@ namespace COMBUSTIBLE.WIN
                         Diesel.Save();
                         Unidad.CommitChanges();
                         XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
+                        (grdUnidades.DataSource as XPView).Reload();
+                        grvUnidades.FocusedRowHandle = 0;
                         LimipiarControles();
                     }
                 }

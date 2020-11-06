@@ -63,6 +63,21 @@ namespace GUARDIAS.BL
             set { SetPropertyValue<string>("TipoCambio", ref mTipoCambio, value); }
         }
 
+        private bool mCancelado;
+        public bool Cancelado
+        {
+            get { return mCancelado; }
+            set { SetPropertyValue<bool>("Cancelado", ref mCancelado, value); }
+        }
+
+        private string mMotivoCancelacion;
+        [Size(SizeAttribute.Unlimited)]
+        public string MotivoCancelacion
+        {
+            get { return mMotivoCancelacion; }
+            set { SetPropertyValue<string>("MotivoCancelacion", ref mMotivoCancelacion, value); }
+        }
+
         static public void GenerarRecibo(UnidadDeTrabajo Unidad, decimal Precio, string Emisor, string Concepto, DateTime Fecha, string TipoCambio, string PrecioEscrito, out int ID)
         {
             Recibos Recibo = new Recibos(Unidad);

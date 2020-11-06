@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GastosPorUnidad));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTotal = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
             this.lblEmpleado = new DevExpress.XtraReports.UI.XRLabel();
@@ -85,6 +85,23 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.BackColor = System.Drawing.Color.Red;
+            this.lblTotal.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(637.3334F, 25.99999F);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotal.SizeF = new System.Drawing.SizeF(166.6666F, 31F);
+            this.lblTotal.StylePriority.UseBackColor = false;
+            this.lblTotal.StylePriority.UseFont = false;
+            this.lblTotal.StylePriority.UseForeColor = false;
+            this.lblTotal.StylePriority.UseTextAlignment = false;
+            this.lblTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.lblTotal.TextFormatString = "{0:$0.00}";
+            this.lblTotal.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.lblTotal_PrintOnPage);
+            // 
             // xrLabel3
             // 
             this.xrLabel3.BackColor = System.Drawing.Color.Red;
@@ -102,23 +119,6 @@
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "Total:";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.BackColor = System.Drawing.Color.Red;
-            this.lblTotal.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(637.3334F, 25.99999F);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotal.SizeF = new System.Drawing.SizeF(166.6666F, 31F);
-            this.lblTotal.StylePriority.UseBackColor = false;
-            this.lblTotal.StylePriority.UseFont = false;
-            this.lblTotal.StylePriority.UseForeColor = false;
-            this.lblTotal.StylePriority.UseTextAlignment = false;
-            this.lblTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.lblTotal.TextFormatString = "{0:$0.00}";
-            this.lblTotal.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.lblTotal_PrintOnPage);
             // 
             // TopMargin
             // 
@@ -181,7 +181,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(111.4584F, 108.6666F);
@@ -189,7 +189,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 100F;
+            this.BottomMargin.HeightF = 46.45844F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -435,7 +435,6 @@
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable3});
-            this.GroupFooter1.HeightF = 100F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
             // xrTable3
@@ -500,11 +499,12 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(24, 22, 110, 100);
-            this.Version = "17.2";
-            this.Watermark.Image = ((System.Drawing.Image)(resources.GetObject("GastosPorUnidad.Watermark.Image")));
+            this.Margins = new System.Drawing.Printing.Margins(24, 22, 110, 46);
+            this.Version = "19.2";
             this.Watermark.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.Watermark.ImageTransparency = 200;
+            this.Watermark.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("GastosPorUnidad.Watermark.ImageSource"));
+            this.Watermark.ImageTransparency = 255;
+            this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.GastosPorUnidad_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();

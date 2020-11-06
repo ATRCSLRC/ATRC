@@ -32,6 +32,7 @@ namespace RUTAS.WIN
         public DateTime FechaRuta;
         public bool EsPlantilla;
         public bool EsModificacion;
+        public int Orden;
         private void xfrmRutasExtras_Load(object sender, EventArgs e)
         {
             BeginInvoke(new MethodInvoker(() => { txtRuta.Focus(); }));
@@ -135,9 +136,9 @@ namespace RUTAS.WIN
             txtRuta.Text = PlantillaRutaExtraEditar.Ruta;
             cmbTipoRuta.EditValue = PlantillaRutaExtraEditar.TipoRuta;
             chkEsRutaExtra.Checked = PlantillaRutaExtraEditar.EsRutaExtra;
-            //cmbTipoUnidad.EditValue = PlantillaRutaExtraEditar.TipoUnidad;
-            timeDe.EditValue = PlantillaRutaExtraEditar.HoraEntrada;
-            timeA.EditValue = PlantillaRutaExtraEditar.HoraSalida;
+            lueServicio.EditValue = PlantillaRutaExtraEditar.Servicio == null ? -1 : PlantillaRutaExtraEditar.Servicio.Oid;
+            cmbTipoRuta.EditValue = PlantillaRutaExtraEditar.TipoRuta;
+            chkApoyo.Checked = PlantillaRutaExtraEditar.EsApoyo;
             chkRutaCompleta.EditValue = PlantillaRutaExtraEditar.RutaCompleta;
             lueChofer.EditValue = PlantillaRutaExtraEditar.ChoferEntrada == null ? -1 : PlantillaRutaExtraEditar.ChoferEntrada.Oid;
             lueChoferSalida.EditValue = PlantillaRutaExtraEditar.ChoferSalida == null ? -1 : PlantillaRutaExtraEditar.ChoferSalida.Oid;
@@ -146,7 +147,9 @@ namespace RUTAS.WIN
             memoComentarios.Text = PlantillaRutaExtraEditar.Comentarios;
             memoComentarioFacturacion.Text = PlantillaRutaExtraEditar.ComentariosFacturacion;
             lueTurno.EditValue = PlantillaRutaExtraEditar.Turno == null ? -1 : PlantillaRutaExtraEditar.Turno.Oid;
-            lueServicio.EditValue = PlantillaRutaExtraEditar.Servicio == null ? -1 : PlantillaRutaExtraEditar.Servicio.Oid;
+            
+            timeDe.EditValue = PlantillaRutaExtraEditar.HoraEntrada;
+            timeA.EditValue = PlantillaRutaExtraEditar.HoraSalida;
         }
 
         private void ModificacionRuta()
@@ -155,6 +158,7 @@ namespace RUTAS.WIN
             chkEsRutaExtra.Checked = RutasFijas.EsRutaExtra;
             lueServicio.EditValue = RutasFijas.Servicio == null ? -1 : RutasFijas.Servicio.Oid;
             cmbTipoRuta.EditValue = RutasFijas.TipoRuta;
+            chkApoyo.Checked = RutasFijas.EsApoyo;
             //cmbTipoUnidad.EditValue = RutasFijas.TipoUnidad;
             timeDe.EditValue = RutasFijas.HoraEntrada;
             timeA.EditValue = RutasFijas.HoraSalida;
@@ -209,12 +213,16 @@ namespace RUTAS.WIN
             if (EsModificacion)
                 PlantillaRutaExtra = PlantillaRutaExtraEditar;
             else
+            {
                 PlantillaRutaExtra = new PlantillaRutaFija(PlantillaRuta.Session);
+                PlantillaRutaExtra.OrdenRutas = Orden;
+            }
             PlantillaRutaExtra.TipoRuta = (Enums.TipoRuta)cmbTipoRuta.EditValue;
             PlantillaRutaExtra.Ruta = txtRuta.Text;
             PlantillaRutaExtra.Servicio = PlantillaRutaExtra.Session.GetObjectByKey<Servicio>(lueServicio.EditValue);
             PlantillaRutaExtra.Turno = PlantillaRutaExtra.Session.GetObjectByKey<BL.Turno>(lueTurno.EditValue);
             PlantillaRutaExtra.EsRutaExtra = chkEsRutaExtra.Checked;
+            PlantillaRutaExtra.EsApoyo = chkApoyo.Checked;
             //PlantillaRutaExtra.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
             if (timeDe.EditValue == null)
                 PlantillaRutaExtra.HoraEntrada = null;
@@ -252,13 +260,17 @@ namespace RUTAS.WIN
             if (EsModificacion)
                 RutasFijasModificar = RutasFijas;
             else
+            {
                 RutasFijasModificar = new RutasGeneradas(Unidad);
+                RutasFijasModificar.OrdenRutas = Orden;
+            }
             RutasFijasModificar.TipoRuta = (Enums.TipoRuta)cmbTipoRuta.EditValue;
             RutasFijasModificar.Ruta = txtRuta.Text;
             RutasFijasModificar.FechaRuta = FechaRuta;
             RutasFijasModificar.Servicio = RutasFijasModificar.Session.GetObjectByKey<Servicio>(lueServicio.EditValue);
             RutasFijasModificar.Turno = RutasFijasModificar.Session.GetObjectByKey<BL.Turno>(lueTurno.EditValue);
             RutasFijasModificar.EsRutaExtra = chkEsRutaExtra.Checked;
+            RutasFijasModificar.EsApoyo = chkApoyo.Checked;
             //RutasFijasModificar.TipoUnidad = (Enums.TipoUnidad)cmbTipoUnidad.EditValue;
             if (timeDe.EditValue == null)
                 RutasFijasModificar.HoraEntrada = null;
@@ -291,10 +303,11 @@ namespace RUTAS.WIN
             if (RutasFijasModificar.RutaCompleta && RutasFijasModificar.TipoRuta == Enums.TipoRuta.Salida)
             {
                 RutasFijasModificar.ChoferEntrada = null;//HistorialRutaGenerada.Session.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
-                RutasFijasModificar.PagarChoferSalida = false;
+                RutasFijasModificar.PagarChoferEntrada = false;
             }
             RutasFijasModificar.Comentarios = memoComentarios.Text;
             RutasFijasModificar.ComentariosFacturacion = memoComentarioFacturacion.Text;
+
             RutasFijasModificar.Save();
             RutasFijas = RutasFijasModificar;
 
@@ -523,6 +536,18 @@ namespace RUTAS.WIN
             return firstDayInWeek;
         }
 
+        private DateTime GetEndDayOfWeek(DateTime dayInWeek)
+        {
+            DateTime endDayInWeek = dayInWeek.Date;
+
+            while (endDayInWeek.DayOfWeek != DayOfWeek.Sunday)
+            {
+                endDayInWeek = endDayInWeek.AddDays(+1);
+            }
+
+            return endDayInWeek;
+        }
+
         private void lueChofer_EditValueChanged(object sender, EventArgs e)
         {
             if (!EsPlantilla)
@@ -530,11 +555,11 @@ namespace RUTAS.WIN
                 Usuario Chofer = Unidad.GetObjectByKey<Usuario>(lueChofer.EditValue);
                 if (Chofer != null)
                 {
-                    decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(DateTime.Now.Date), DateTime.Now.Date);
+                    decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(FechaRuta), GetEndDayOfWeek(FechaRuta));
                     lueChofer.ToolTip = Horas + " Horas laboradas";
                     if (Horas >= 60)
                     {
-                        XtraMessageBox.Show("El chofer ya cuenta con mas de 60 horas labodas.");
+                        XtraMessageBox.Show("El chofer de entrada ya cuenta con mas de 60 horas labodas.");
                     }
                 }
             }
@@ -569,12 +594,52 @@ namespace RUTAS.WIN
                 Usuario Chofer = Unidad.GetObjectByKey<Usuario>(lueChoferSalida.EditValue);
                 if (Chofer != null)
                 {
-                    decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(DateTime.Now.Date), DateTime.Now.Date);
-                    lueChoferSalida.ToolTip = Horas + " Horas laboradas";
-                    if (Horas >= 60)
+                    if (EsModificacion)
                     {
-                        XtraMessageBox.Show("El chofer ya cuenta con mas de 60 horas labodas.");
+                        if(RutasFijas != null)
+                        {
+                            if(RutasFijas.ChoferEntrada != Chofer)
+                            {
+                                decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(FechaRuta), GetEndDayOfWeek(FechaRuta));
+                                lueChoferSalida.ToolTip = Horas + " Horas laboradas";
+                                if (Horas >= 60)
+                                {
+                                    XtraMessageBox.Show("El chofer de salida ya cuenta con mas de 60 horas labodas.");
+                                }
+                            }
+                        }
+                        
                     }
+                    else { 
+                        decimal Horas = HorasTrabajadas(Unidad, Chofer.NumEmpleado, GetFirstDayOfWeek(FechaRuta), GetEndDayOfWeek(FechaRuta));
+                        lueChoferSalida.ToolTip = Horas + " Horas laboradas";
+                        if (Horas >= 60)
+                        {
+                            XtraMessageBox.Show("El chofer de salida ya cuenta con mas de 60 horas labodas.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void lueChofer_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.Escape)
+            {
+                if (((LookUpEdit)sender).EditValue != null)
+                {
+                    ((LookUpEdit)sender).EditValue = null;
+                }
+            }
+        }
+
+        private void lueChoferSalida_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.Escape)
+            {
+                if (((LookUpEdit)sender).EditValue != null)
+                {
+                    ((LookUpEdit)sender).EditValue = null;
                 }
             }
         }

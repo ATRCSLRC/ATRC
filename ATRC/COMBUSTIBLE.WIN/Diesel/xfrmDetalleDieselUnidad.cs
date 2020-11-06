@@ -46,7 +46,7 @@ namespace COMBUSTIBLE.WIN
                 DieselAnterior.Criteria = go;
 
                 if (DieselAnterior.Count > 1)
-                    CandadoAnterior = DieselAnterior[1]["CandadoActual"].ToString();
+                    CandadoAnterior = DieselAnterior[0]["CandadoActual"].ToString();
             }
             else
             {

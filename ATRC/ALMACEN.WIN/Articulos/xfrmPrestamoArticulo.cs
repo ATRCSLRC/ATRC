@@ -32,45 +32,9 @@ namespace ALMACEN.WIN.Articulos
 
         private void btnUsuario_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            ATRCBASE.WIN.xfrmUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmUsuariosGRD();
-            xfrm.Unidad = Unidad;
-            xfrm.ShowInTaskbar = false;
-            xfrm.ShowDialog();
-            if (xfrm.IDUsuario > 0)
-            {
-                Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(xfrm.IDUsuario)));
-                if (Usuario != null)
-                {
-                    btnUsuario.Text = Usuario.NumEmpleado.ToString();
-                    Usuario Usuarios = (Usuario)Unidad.FindObject(typeof(Usuario), new BinaryOperator("NumEmpleado", btnUsuario.Text));
-                    Usuario = Usuarios;
-                    if (Usuarios != null)
-                    {
-                        lcgPrestar.Enabled = lcgEntregar.Enabled = true;
-                        btnArticulo.Focus();
-                        GroupOperator go = new GroupOperator();
-                        go.Operands.Add(new BinaryOperator("Prestamo.Usuario.NumEmpleado", btnUsuario.Text));
-                        go.Operands.Add(new BinaryOperator("Entregado", false));
-                        lblUsuario.Text = Usuarios.Nombre;
-                        XPView DetallesPrestamo = new XPView(Unidad, typeof(DetallePrestamo), "Oid;Articulo.Nombre;Fecha", go);
-                        grdEntregasArticulos.DataSource = DetallesPrestamo;
-                        lcgEntregar.Text = "Entregar artículos (" + DetallesPrestamo.Count + ")";
-                    }
-                }
-                else
-                {
-                    XtraMessageBox.Show("El usuario no se encuentra registrado.");
-                    btnUsuario.Text = lblUsuario.Text = string.Empty;
-                }
-            }
-            else
-            {
-                Usuario = null;
-                btnUsuario.Text = lblUsuario.Text = string.Empty;
-            }
+            AvanzadaUsuario();
         }
-        
+
         private void btnUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
@@ -89,41 +53,29 @@ namespace ALMACEN.WIN.Articulos
                     XPView DetallesPrestamo = new XPView(Unidad, typeof(DetallePrestamo), "Oid;Articulo.Nombre;Fecha", go);
                     grdEntregasArticulos.DataSource = DetallesPrestamo;
                     lcgEntregar.Text = "Entregar artículos (" + DetallesPrestamo.Count + ")";
-                    
+                    btnUsuario.Enabled = false;
+
                 }
                 else
+                {
                     XtraMessageBox.Show("Usuario no registrado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnUsuario.Enabled = true;
+                    btnUsuario.Focus();
+                }
+            }
+        }
+
+        private void btnUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                AvanzadaUsuario();
             }
         }
 
         private void btnArticulo_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            xfrmBusquedaArticulos xfrm = new xfrmBusquedaArticulos();
-            xfrm.Asignar = true;
-            xfrm.ShowInTaskbar = false;
-            xfrm.ShowDialog();
-            if (!string.IsNullOrEmpty(xfrm.Codigo))
-            {
-                Articulo Articulo = (Articulo)Unidad.FindObject(typeof(Articulo), new BinaryOperator("Codigo", xfrm.Codigo));
-                if (Articulo != null)
-                {
-                    if (Prestamo == null)
-                        Prestamo = new PrestamoArticulo(Unidad);
-
-                    DetallePrestamo Detalles = new DetallePrestamo(Unidad);
-                    Detalles.Articulo = Articulo;
-                    Detalles.Cantidad = 1;
-                    Detalles.Fecha = DateTime.Now;
-                    Prestamo.Usuario = Usuario;
-                    Prestamo.Detalles.Add(Detalles);
-                    Detalles.Save();
-                    Prestamo.Save();
-
-                    grdArticulos.DataSource = Prestamo.Detalles;
-                    btnArticulo.Text = string.Empty;
-                    btnArticulo.Focus();
-                }
-            }
+            AvanzadaArticulo();
         }
 
         private void btnArticulo_KeyPress(object sender, KeyPressEventArgs e)
@@ -153,6 +105,15 @@ namespace ALMACEN.WIN.Articulos
                     XtraMessageBox.Show("Artículo no registrado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnArticulo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                AvanzadaArticulo();
+            }
+        }
+
 
         private void grvArticulos_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
@@ -207,11 +168,13 @@ namespace ALMACEN.WIN.Articulos
                 tabbedControlGroup1.SelectedTabPage = lcgPrestar;
                 btnArticulo.Text = btnUsuario.Text = lblUsuario.Text = string.Empty;
                 btnUsuario.Focus();
+                btnUsuario.Enabled = true;
             }
         }
 
         private void bbiCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            btnUsuario.Enabled = true;
             btnUsuario.Focus();
             btnUsuario.Text = lblUsuario.Text = btnArticulo.Text = string.Empty;
             tabbedControlGroup1.SelectedTabPage = lcgPrestar;
@@ -227,5 +190,81 @@ namespace ALMACEN.WIN.Articulos
             lcgPrestar.Enabled = lcgEntregar.Enabled = true;
             
         }
+
+        private void AvanzadaUsuario()
+        {
+            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            ATRCBASE.WIN.xfrmUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmUsuariosGRD();
+            xfrm.Unidad = Unidad;
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+            if (xfrm.IDUsuario > 0)
+            {
+                Usuario = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(xfrm.IDUsuario)));
+                if (Usuario != null)
+                {
+                    btnUsuario.Text = Usuario.NumEmpleado.ToString();
+                    Usuario Usuarios = (Usuario)Unidad.FindObject(typeof(Usuario), new BinaryOperator("NumEmpleado", btnUsuario.Text));
+                    Usuario = Usuarios;
+                    if (Usuarios != null)
+                    {
+                        lcgPrestar.Enabled = lcgEntregar.Enabled = true;
+                        btnArticulo.Focus();
+                        GroupOperator go = new GroupOperator();
+                        go.Operands.Add(new BinaryOperator("Prestamo.Usuario.NumEmpleado", btnUsuario.Text));
+                        go.Operands.Add(new BinaryOperator("Entregado", false));
+                        lblUsuario.Text = Usuarios.Nombre;
+                        XPView DetallesPrestamo = new XPView(Unidad, typeof(DetallePrestamo), "Oid;Articulo.Nombre;Fecha", go);
+                        grdEntregasArticulos.DataSource = DetallesPrestamo;
+                        lcgEntregar.Text = "Entregar artículos (" + DetallesPrestamo.Count + ")";
+                        btnUsuario.Enabled = false;
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("El usuario no se encuentra registrado.");
+                    btnUsuario.Text = lblUsuario.Text = string.Empty;
+                    btnUsuario.Enabled = true;
+                }
+            }
+            else
+            {
+                Usuario = null;
+                btnUsuario.Text = lblUsuario.Text = string.Empty;
+                btnUsuario.Enabled = true;
+            }
+        }
+
+        private void AvanzadaArticulo()
+        {
+            xfrmBusquedaArticulos xfrm = new xfrmBusquedaArticulos();
+            xfrm.Asignar = true;
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+            if (!string.IsNullOrEmpty(xfrm.Codigo))
+            {
+                Articulo Articulo = (Articulo)Unidad.FindObject(typeof(Articulo), new BinaryOperator("Codigo", xfrm.Codigo));
+                if (Articulo != null)
+                {
+                    if (Prestamo == null)
+                        Prestamo = new PrestamoArticulo(Unidad);
+
+                    DetallePrestamo Detalles = new DetallePrestamo(Unidad);
+                    Detalles.Articulo = Articulo;
+                    Detalles.Cantidad = 1;
+                    Detalles.Fecha = DateTime.Now;
+                    Prestamo.Usuario = Usuario;
+                    Prestamo.Detalles.Add(Detalles);
+                    Detalles.Save();
+                    Prestamo.Save();
+
+                    grdArticulos.DataSource = Prestamo.Detalles;
+                    btnArticulo.Text = string.Empty;
+                    btnArticulo.Focus();
+                }
+            }
+        }
+
+        
     }
 }

@@ -50,6 +50,14 @@ namespace RUTAS.BL
             set { SetPropertyValue<Usuario>("Usuario", ref mUsuario, value); }
         }
 
+        private string mDetalle;
+        [Size(SizeAttribute.Unlimited)]
+        public string Detalle
+        {
+            get { return mDetalle; }
+            set { SetPropertyValue<string>("Detalle", ref mDetalle, value); }
+        }
+
         private DateTime mHorarioModificacion;
         public DateTime HorarioModificacion
         {

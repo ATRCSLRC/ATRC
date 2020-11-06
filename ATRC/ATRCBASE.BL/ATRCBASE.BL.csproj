@@ -68,6 +68,7 @@
     <Compile Include="Clases\Enums.cs" />
     <Compile Include="Clases\Imagen.cs" />
     <Compile Include="Clases\Permiso.cs" />
+    <Compile Include="Clases\PlantillaDeCorreo.cs" />
     <Compile Include="Clases\Puesto.cs" />
     <Compile Include="Clases\UnidadDeTrabajo.cs">
       <SubType>Component</SubType>

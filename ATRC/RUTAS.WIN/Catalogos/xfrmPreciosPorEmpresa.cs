@@ -24,8 +24,8 @@ namespace RUTAS.WIN
         UnidadDeTrabajo Unidad;
         private void xfrmPreciosPorEmpresa_Load(object sender, EventArgs e)
         {
-            bbiNuevoServicio.Visibility = Utilerias.VisibilidadPermiso("NuevoServicioPrecio");
-            bbiModificarServicio.Visibility = Utilerias.VisibilidadPermiso("ModificarServicioPrecio");
+            bbiNuevoServicio.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("NuevoServicioPrecio");
+            bbiModificarServicio.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("ModificarServicioPrecio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Empresas = new XPView(Unidad, typeof(Empresas), "Oid;Nombre" , null);
             lueEmpresa.Properties.DataSource = Empresas;

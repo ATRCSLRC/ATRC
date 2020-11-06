@@ -103,6 +103,55 @@ namespace RUTAS.BL
             set { SetPropertyValue<PedidoRutas>("PedidoRutas", ref mPedidoRutas, value); }
         }
 
+        private bool mEsApoyo;
+        public bool EsApoyo
+        {
+            get { return mEsApoyo; }
+            set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
+        }
+
+
+        private Usuario mChoferEntrada;
+        public Usuario ChoferEntrada
+        {
+            get { return mChoferEntrada; }
+            set { SetPropertyValue<Usuario>("ChoferEntrada", ref mChoferEntrada, value); }
+        }
+
+        private Usuario mChoferSalida;
+        public Usuario ChoferSalida
+        {
+            get { return mChoferSalida; }
+            set { SetPropertyValue<Usuario>("ChoferSalida", ref mChoferSalida, value); }
+        }
+
+        private bool mPagarChoferEntrada;
+        public bool PagarChoferEntrada
+        {
+            get { return mPagarChoferEntrada; }
+            set { SetPropertyValue<bool>("PagarChoferEntrada", ref mPagarChoferEntrada, value); }
+        }
+
+        private bool mPagarChoferSalida;
+        public bool PagarChoferSalida
+        {
+            get { return mPagarChoferSalida; }
+            set { SetPropertyValue<bool>("PagarChoferSalida", ref mPagarChoferSalida, value); }
+        }
+
+        [Delayed]
+        public Byte[] Documento
+        {
+            get { return GetDelayedPropertyValue<Byte[]>("Documento"); }
+            set { SetDelayedPropertyValue<Byte[]>("Documento", value); }
+        }
+
+        private string mNombreDocumento;
+        public string NombreDocumento
+        {
+            get { return mNombreDocumento; }
+            set { SetPropertyValue<string>("NombreDocumento", ref mNombreDocumento, value); }
+        }
         protected override void OnSaving()
         {
             HistorialRutasDePedido Historial = new HistorialRutasDePedido(this.Session);
@@ -118,7 +167,10 @@ namespace RUTAS.BL
             Historial.Servicio = this.Servicio;
             Historial.TipoRuta = this.TipoRuta;
             Historial.Turno = this.Turno;
-            Historial.Usuario = Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo);
+            Historial.EsApoyo = this.EsApoyo;
+            Historial.Documento = this.Documento;
+            Historial.NombreDocumento = this.NombreDocumento;
+            Historial.Usuario = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo);
             Historial.Save();
             this.Historial.Add(Historial);
             base.OnSaving();

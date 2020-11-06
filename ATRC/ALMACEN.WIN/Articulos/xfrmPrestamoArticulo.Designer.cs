@@ -38,6 +38,7 @@
             this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lblUsuario = new DevExpress.XtraEditors.TextEdit();
             this.grdEntregasArticulos = new DevExpress.XtraGrid.GridControl();
             this.grvEntregasArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFechaEntrega = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,18 +52,18 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciUsuario = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.lcgEntregar = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgPrestar = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciArticulo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcgEntregar = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.fypEdicion = new DevExpress.Utils.FlyoutPanel();
-            this.lblUsuario = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEntregasArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEntregasArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
@@ -72,15 +73,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgEntregar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgPrestar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgEntregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblUsuario.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -152,6 +152,28 @@
             this.lcMain.Size = new System.Drawing.Size(541, 361);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Location = new System.Drawing.Point(196, 12);
+            this.lblUsuario.MenuManager = this.ribbonControl1;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Properties.Appearance.Options.UseFont = true;
+            this.lblUsuario.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.lblUsuario.Properties.AppearanceDisabled.Options.UseTextOptions = true;
+            this.lblUsuario.Properties.AppearanceDisabled.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblUsuario.Properties.AppearanceDisabled.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblUsuario.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.lblUsuario.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
+            this.lblUsuario.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblUsuario.Properties.AppearanceReadOnly.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblUsuario.Properties.ReadOnly = true;
+            this.lblUsuario.Size = new System.Drawing.Size(333, 22);
+            this.lblUsuario.StyleController = this.lcMain;
+            this.lblUsuario.TabIndex = 8;
             // 
             // grdEntregasArticulos
             // 
@@ -264,6 +286,8 @@
             this.btnArticulo.Size = new System.Drawing.Size(434, 22);
             this.btnArticulo.StyleController = this.lcMain;
             this.btnArticulo.TabIndex = 5;
+            this.btnArticulo.ToolTip = "Presione F2 para busqueda avanzada";
+            this.btnArticulo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnArticulo_KeyDown);
             this.btnArticulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnArticulo_KeyPress);
             // 
             // btnUsuario
@@ -288,6 +312,8 @@
             this.btnUsuario.Size = new System.Drawing.Size(112, 22);
             this.btnUsuario.StyleController = this.lcMain;
             this.btnUsuario.TabIndex = 4;
+            this.btnUsuario.ToolTip = "Presione F2 para busqueda avanzada";
+            this.btnUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnUsuario_KeyDown);
             this.btnUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnUsuario_KeyPress);
             // 
             // Root
@@ -325,27 +351,6 @@
             this.lcgPrestar,
             this.lcgEntregar});
             // 
-            // lcgEntregar
-            // 
-            this.lcgEntregar.AppearanceTabPage.Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lcgEntregar.AppearanceTabPage.Header.Options.UseFont = true;
-            this.lcgEntregar.Enabled = false;
-            this.lcgEntregar.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.lcgEntregar.Location = new System.Drawing.Point(0, 0);
-            this.lcgEntregar.Name = "lcgEntregar";
-            this.lcgEntregar.Size = new System.Drawing.Size(497, 267);
-            this.lcgEntregar.Text = "Entregar artículos";
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdEntregasArticulos;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(497, 267);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // lcgPrestar
             // 
             this.lcgPrestar.AppearanceTabPage.Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -378,6 +383,37 @@
             this.lciArticulo.Size = new System.Drawing.Size(497, 26);
             this.lciArticulo.Text = "Artículo:";
             this.lciArticulo.TextSize = new System.Drawing.Size(56, 16);
+            // 
+            // lcgEntregar
+            // 
+            this.lcgEntregar.AppearanceTabPage.Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcgEntregar.AppearanceTabPage.Header.Options.UseFont = true;
+            this.lcgEntregar.Enabled = false;
+            this.lcgEntregar.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.lcgEntregar.Location = new System.Drawing.Point(0, 0);
+            this.lcgEntregar.Name = "lcgEntregar";
+            this.lcgEntregar.Size = new System.Drawing.Size(497, 267);
+            this.lcgEntregar.Text = "Entregar artículos";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdEntregasArticulos;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(497, 267);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.lblUsuario;
+            this.layoutControlItem2.Enabled = false;
+            this.layoutControlItem2.Location = new System.Drawing.Point(184, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(337, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // fypEdicion
             // 
@@ -412,38 +448,6 @@
             this.fypEdicion.TabIndex = 4;
             this.fypEdicion.ButtonClick += new DevExpress.Utils.FlyoutPanelButtonClickEventHandler(this.fypEdicion_ButtonClick);
             // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Location = new System.Drawing.Point(196, 12);
-            this.lblUsuario.MenuManager = this.ribbonControl1;
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Properties.Appearance.Options.UseFont = true;
-            this.lblUsuario.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.lblUsuario.Properties.AppearanceDisabled.Options.UseTextOptions = true;
-            this.lblUsuario.Properties.AppearanceDisabled.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblUsuario.Properties.AppearanceDisabled.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblUsuario.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.lblUsuario.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
-            this.lblUsuario.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblUsuario.Properties.AppearanceReadOnly.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblUsuario.Properties.ReadOnly = true;
-            this.lblUsuario.Size = new System.Drawing.Size(333, 22);
-            this.lblUsuario.StyleController = this.lcMain;
-            this.lblUsuario.TabIndex = 8;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.lblUsuario;
-            this.layoutControlItem2.Enabled = false;
-            this.layoutControlItem2.Location = new System.Drawing.Point(184, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(337, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
             // xfrmPrestamoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +464,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lblUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdEntregasArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEntregasArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).EndInit();
@@ -469,15 +474,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgEntregar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgPrestar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgEntregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fypEdicion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblUsuario.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

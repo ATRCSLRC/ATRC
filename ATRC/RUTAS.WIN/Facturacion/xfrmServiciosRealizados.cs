@@ -49,6 +49,7 @@ namespace RUTAS.WIN
             new ViewProperty("FechaRuta", SortDirection.None, "[FechaRuta]", false, true),
             new ViewProperty("HoraEntrada", SortDirection.None, "[HoraEntrada]", false, true),
             new ViewProperty("HoraSalida", SortDirection.None, "[HoraSalida]", false, true),
+            new ViewProperty("EsApoyo", SortDirection.None, "[EsApoyo]", false, true),
             new ViewProperty("Servicio", SortDirection.None, "[Servicio.Oid]", false, true),
             new ViewProperty("Servicio.Descripcion", SortDirection.None, "[Servicio.Descripcion]", false, true),
             new ViewProperty("EsRutaExtra", SortDirection.None, "[EsRutaExtra]", false, true),
@@ -113,19 +114,19 @@ namespace RUTAS.WIN
                         & Convert.ToDateTime(viewRuta["HoraSalida"]).TimeOfDay == Convert.ToDateTime(Ruta["HoraSalida"]).TimeOfDay & Convert.ToBoolean(viewRuta["EsRutaExtra"]) == Convert.ToBoolean(Ruta["EsRutaExtra"]) & (chkPorNombre.Checked & !Convert.ToBoolean(Ruta["EsRutaExtra"]) ? (viewRuta["Ruta"].ToString() == Ruta["Ruta"].ToString()) : true))
                     {
 
-                        if (chkAgruparApoyos.Checked & Convert.ToString(viewRuta["Ruta"]).Contains("APOYO") & RutaGenerada.Ruta.Contains("APOYO"))
+                        if (chkAgruparApoyos.Checked & Convert.ToBoolean(viewRuta["EsApoyo"]) & RutaGenerada.EsApoyo)
                         {
                             if (string.IsNullOrEmpty(NombresRuta))
                                 NombresRuta = viewRuta["Ruta"].ToString().Replace("APOYO", "").TrimStart().TrimEnd() + " APOYO";
                             else
                             {
-                                string[] Nombres = NombresRuta.Split(' ');
-                                NombresRuta = Nombres[0] + "," + viewRuta["Ruta"].ToString().Replace("APOYO", "").TrimStart().TrimEnd() + " " + Nombres[1];
+                                //string[] Nombres = NombresRuta.Split(',');
+                                NombresRuta = NombresRuta.Replace("APOYO", "") + "," + viewRuta["Ruta"].ToString().Replace("APOYO", "").TrimStart().TrimEnd() + " APOYO";// + Nombres[1];
                             }
                             Actualizada.Remove(viewRuta);
                             RutaGenerada.Cantidad++;
                         }
-                        else if (chkAgruparApoyos.Checked & (Convert.ToString(viewRuta["Ruta"]).Contains("APOYO") || RutaGenerada.Ruta.Contains("APOYO")))
+                        else if (chkAgruparApoyos.Checked & (Convert.ToBoolean(viewRuta["EsApoyo"]) || RutaGenerada.EsApoyo))
                         {
 
                         } else if (chkSepararServiciosValle.Checked & RutaGenerada.Servicio.Descripcion.Contains("VALLE") & Convert.ToString(viewRuta["Servicio.Descripcion"]).Contains("VALLE"))

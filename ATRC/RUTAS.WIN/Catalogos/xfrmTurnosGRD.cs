@@ -40,9 +40,9 @@ namespace RUTAS.WIN
 
         private void xfrmTurnosGRD_Load(object sender, EventArgs e)
         {
-            bbiNuevoTurno.Visibility = Utilerias.VisibilidadPermiso("NuevoTurno");
-            bbiModificarTurno.Visibility = Utilerias.VisibilidadPermiso("ModificarTurno");
-            bbiEliminarTurno.Visibility = Utilerias.VisibilidadPermiso("EliminarTurno");
+            bbiNuevoTurno.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("NuevoTurno");
+            bbiModificarTurno.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("ModificarTurno");
+            bbiEliminarTurno.Visibility = ATRCBASE.BL.Utilerias.VisibilidadPermiso("EliminarTurno");
 
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             XPView Turnos = new XPView(Unidad, typeof(Turno), "Oid;Descripcion", null);

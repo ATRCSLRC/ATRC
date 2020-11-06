@@ -36,10 +36,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 403);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmBase.IconOptions.Icon")));
             this.Name = "xfrmBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "xfrmBase";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.xfrmBase_FormClosing);
             this.Load += new System.EventHandler(this.xfrmBase_Load);
             this.ResumeLayout(false);
 

@@ -64,6 +64,7 @@
             this.flpAcciones = new DevExpress.Utils.FlyoutPanel();
             this.Loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::RUTAS.WIN.WaitForm1), true, true);
             this.ofdDocumento = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.colEsApoyo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -85,6 +86,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.bbiGuardar,
             this.bbiCancelar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
@@ -93,7 +95,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(1184, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(1184, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -119,11 +121,11 @@
             this.lcMain.Controls.Add(this.dteFecha);
             this.lcMain.Controls.Add(this.grdRutas);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(890, 368, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(1184, 587);
+            this.lcMain.Size = new System.Drawing.Size(1184, 582);
             this.lcMain.TabIndex = 2;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -167,14 +169,17 @@
             // 
             // grdRutas
             // 
+            this.grdRutas.AllowDrop = true;
             this.grdRutas.Location = new System.Drawing.Point(12, 60);
             this.grdRutas.MainView = this.grvRutas;
             this.grdRutas.MenuManager = this.ribbonControl1;
             this.grdRutas.Name = "grdRutas";
-            this.grdRutas.Size = new System.Drawing.Size(1160, 467);
+            this.grdRutas.Size = new System.Drawing.Size(1160, 462);
             this.grdRutas.TabIndex = 4;
             this.grdRutas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvRutas});
+            this.grdRutas.DragDrop += new System.Windows.Forms.DragEventHandler(this.grdRutas_DragDrop);
+            this.grdRutas.DragOver += new System.Windows.Forms.DragEventHandler(this.grdRutas_DragOver);
             // 
             // grvRutas
             // 
@@ -190,17 +195,16 @@
             this.colChoferSalida,
             this.colPagarChoferSalida,
             this.colComentarios,
+            this.colEsApoyo,
             this.colEsExtra});
             this.grvRutas.GridControl = this.grdRutas;
             this.grvRutas.Name = "grvRutas";
-            this.grvRutas.OptionsBehavior.Editable = false;
-            this.grvRutas.OptionsBehavior.ReadOnly = true;
             this.grvRutas.OptionsDetail.ShowDetailTabs = false;
-            this.grvRutas.OptionsDetail.SmartDetailExpand = false;
             this.grvRutas.OptionsFind.AlwaysVisible = true;
-            this.grvRutas.OptionsView.AllowHtmlDrawGroups = false;
             this.grvRutas.OptionsView.ShowDetailButtons = false;
             this.grvRutas.OptionsView.ShowGroupPanel = false;
+            this.grvRutas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.grvRutas_MouseDown);
+            this.grvRutas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.grvRutas_MouseMove);
             // 
             // colRuta
             // 
@@ -209,9 +213,11 @@
             this.colRuta.Name = "colRuta";
             this.colRuta.OptionsColumn.AllowEdit = false;
             this.colRuta.OptionsColumn.AllowFocus = false;
+            this.colRuta.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colRuta.OptionsFilter.AllowFilter = false;
             this.colRuta.Visible = true;
             this.colRuta.VisibleIndex = 0;
-            this.colRuta.Width = 65;
+            this.colRuta.Width = 61;
             // 
             // colTipoRuta
             // 
@@ -220,9 +226,11 @@
             this.colTipoRuta.Name = "colTipoRuta";
             this.colTipoRuta.OptionsColumn.AllowEdit = false;
             this.colTipoRuta.OptionsColumn.AllowFocus = false;
+            this.colTipoRuta.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colTipoRuta.OptionsFilter.AllowFilter = false;
             this.colTipoRuta.Visible = true;
             this.colTipoRuta.VisibleIndex = 1;
-            this.colTipoRuta.Width = 67;
+            this.colTipoRuta.Width = 63;
             // 
             // colTipoUnidad
             // 
@@ -231,9 +239,11 @@
             this.colTipoUnidad.Name = "colTipoUnidad";
             this.colTipoUnidad.OptionsColumn.AllowEdit = false;
             this.colTipoUnidad.OptionsColumn.AllowFocus = false;
+            this.colTipoUnidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colTipoUnidad.OptionsFilter.AllowFilter = false;
             this.colTipoUnidad.Visible = true;
             this.colTipoUnidad.VisibleIndex = 2;
-            this.colTipoUnidad.Width = 77;
+            this.colTipoUnidad.Width = 72;
             // 
             // colTurno
             // 
@@ -242,9 +252,11 @@
             this.colTurno.Name = "colTurno";
             this.colTurno.OptionsColumn.AllowEdit = false;
             this.colTurno.OptionsColumn.AllowFocus = false;
+            this.colTurno.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colTurno.OptionsFilter.AllowFilter = false;
             this.colTurno.Visible = true;
             this.colTurno.VisibleIndex = 3;
-            this.colTurno.Width = 70;
+            this.colTurno.Width = 66;
             // 
             // colHoraEntrda
             // 
@@ -255,9 +267,11 @@
             this.colHoraEntrda.Name = "colHoraEntrda";
             this.colHoraEntrda.OptionsColumn.AllowEdit = false;
             this.colHoraEntrda.OptionsColumn.AllowFocus = false;
+            this.colHoraEntrda.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colHoraEntrda.OptionsFilter.AllowFilter = false;
             this.colHoraEntrda.Visible = true;
             this.colHoraEntrda.VisibleIndex = 4;
-            this.colHoraEntrda.Width = 82;
+            this.colHoraEntrda.Width = 77;
             // 
             // colHoraSalida
             // 
@@ -268,8 +282,11 @@
             this.colHoraSalida.Name = "colHoraSalida";
             this.colHoraSalida.OptionsColumn.AllowEdit = false;
             this.colHoraSalida.OptionsColumn.AllowFocus = false;
+            this.colHoraSalida.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colHoraSalida.OptionsFilter.AllowFilter = false;
             this.colHoraSalida.Visible = true;
             this.colHoraSalida.VisibleIndex = 5;
+            this.colHoraSalida.Width = 70;
             // 
             // colChoferEntrada
             // 
@@ -278,9 +295,11 @@
             this.colChoferEntrada.Name = "colChoferEntrada";
             this.colChoferEntrada.OptionsColumn.AllowEdit = false;
             this.colChoferEntrada.OptionsColumn.AllowFocus = false;
+            this.colChoferEntrada.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colChoferEntrada.OptionsFilter.AllowFilter = false;
             this.colChoferEntrada.Visible = true;
             this.colChoferEntrada.VisibleIndex = 6;
-            this.colChoferEntrada.Width = 152;
+            this.colChoferEntrada.Width = 143;
             // 
             // colPagarChoferEntrada
             // 
@@ -289,9 +308,11 @@
             this.colPagarChoferEntrada.Name = "colPagarChoferEntrada";
             this.colPagarChoferEntrada.OptionsColumn.AllowEdit = false;
             this.colPagarChoferEntrada.OptionsColumn.AllowFocus = false;
+            this.colPagarChoferEntrada.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colPagarChoferEntrada.OptionsFilter.AllowFilter = false;
             this.colPagarChoferEntrada.Visible = true;
             this.colPagarChoferEntrada.VisibleIndex = 7;
-            this.colPagarChoferEntrada.Width = 70;
+            this.colPagarChoferEntrada.Width = 66;
             // 
             // colChoferSalida
             // 
@@ -300,9 +321,11 @@
             this.colChoferSalida.Name = "colChoferSalida";
             this.colChoferSalida.OptionsColumn.AllowEdit = false;
             this.colChoferSalida.OptionsColumn.AllowFocus = false;
+            this.colChoferSalida.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colChoferSalida.OptionsFilter.AllowFilter = false;
             this.colChoferSalida.Visible = true;
             this.colChoferSalida.VisibleIndex = 8;
-            this.colChoferSalida.Width = 172;
+            this.colChoferSalida.Width = 162;
             // 
             // colPagarChoferSalida
             // 
@@ -311,9 +334,11 @@
             this.colPagarChoferSalida.Name = "colPagarChoferSalida";
             this.colPagarChoferSalida.OptionsColumn.AllowEdit = false;
             this.colPagarChoferSalida.OptionsColumn.AllowFocus = false;
+            this.colPagarChoferSalida.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colPagarChoferSalida.OptionsFilter.AllowFilter = false;
             this.colPagarChoferSalida.Visible = true;
             this.colPagarChoferSalida.VisibleIndex = 9;
-            this.colPagarChoferSalida.Width = 70;
+            this.colPagarChoferSalida.Width = 66;
             // 
             // colComentarios
             // 
@@ -322,9 +347,11 @@
             this.colComentarios.Name = "colComentarios";
             this.colComentarios.OptionsColumn.AllowEdit = false;
             this.colComentarios.OptionsColumn.AllowFocus = false;
+            this.colComentarios.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colComentarios.OptionsFilter.AllowFilter = false;
             this.colComentarios.Visible = true;
             this.colComentarios.VisibleIndex = 10;
-            this.colComentarios.Width = 187;
+            this.colComentarios.Width = 189;
             // 
             // colEsExtra
             // 
@@ -333,9 +360,11 @@
             this.colEsExtra.Name = "colEsExtra";
             this.colEsExtra.OptionsColumn.AllowEdit = false;
             this.colEsExtra.OptionsColumn.AllowFocus = false;
+            this.colEsExtra.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colEsExtra.OptionsFilter.AllowFilter = false;
             this.colEsExtra.Visible = true;
-            this.colEsExtra.VisibleIndex = 11;
-            this.colEsExtra.Width = 40;
+            this.colEsExtra.VisibleIndex = 12;
+            this.colEsExtra.Width = 48;
             // 
             // layoutControlGroup1
             // 
@@ -347,7 +376,7 @@
             this.lciFecha,
             this.lciEmpresa});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1184, 587);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1184, 582);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -355,14 +384,14 @@
             this.layoutControlItem1.Control = this.grdRutas;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1164, 471);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1164, 466);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 519);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 514);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(1164, 48);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -430,6 +459,18 @@
             // 
             this.ofdDocumento.FileName = "xtraOpenFileDialog1";
             // 
+            // colEsApoyo
+            // 
+            this.colEsApoyo.Caption = "Es apoyo";
+            this.colEsApoyo.FieldName = "EsApoyo";
+            this.colEsApoyo.Name = "colEsApoyo";
+            this.colEsApoyo.OptionsColumn.AllowEdit = false;
+            this.colEsApoyo.OptionsColumn.AllowFocus = false;
+            this.colEsApoyo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colEsApoyo.Visible = true;
+            this.colEsApoyo.VisibleIndex = 11;
+            this.colEsApoyo.Width = 52;
+            // 
             // xfrmGenerarRutasExtras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,6 +479,7 @@
             this.Controls.Add(this.flpAcciones);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmGenerarRutasExtras.IconOptions.Icon")));
             this.Name = "xfrmGenerarRutasExtras";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Crear rutas extras";
@@ -491,5 +533,6 @@
         private DevExpress.XtraLayout.LayoutControlItem lciEmpresa;
         private DevExpress.XtraGrid.Columns.GridColumn colEsExtra;
         private DevExpress.XtraEditors.XtraOpenFileDialog ofdDocumento;
+        private DevExpress.XtraGrid.Columns.GridColumn colEsApoyo;
     }
 }

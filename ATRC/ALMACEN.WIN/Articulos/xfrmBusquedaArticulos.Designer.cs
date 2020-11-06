@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBusquedaArticulos));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.rgTipo = new DevExpress.XtraEditors.RadioGroup();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.chkHistorico = new DevExpress.XtraEditors.CheckEdit();
             this.btnLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.lueCatalogo = new DevExpress.XtraEditors.LookUpEdit();
             this.grdArticulos = new DevExpress.XtraGrid.GridControl();
@@ -57,12 +59,14 @@
             this.lciBusqueda = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciCatalogos = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chkHistorico = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciTipo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).BeginInit();
@@ -78,13 +82,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.rgTipo);
             this.lcMain.Controls.Add(this.chkHistorico);
             this.lcMain.Controls.Add(this.btnLimpiar);
             this.lcMain.Controls.Add(this.lueCatalogo);
@@ -93,36 +98,57 @@
             this.lcMain.Controls.Add(this.rgBusqueda);
             this.lcMain.Controls.Add(this.txtFiltro);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(852, 198, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(800, 423);
+            this.lcMain.Size = new System.Drawing.Size(800, 418);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // rgTipo
+            // 
+            this.rgTipo.Location = new System.Drawing.Point(136, 152);
+            this.rgTipo.MenuManager = this.ribbonControl1;
+            this.rgTipo.Name = "rgTipo";
+            this.rgTipo.Properties.Columns = 4;
+            this.rgTipo.Size = new System.Drawing.Size(640, 26);
+            this.rgTipo.StyleController = this.lcMain;
+            this.rgTipo.TabIndex = 11;
             // 
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.OptionsPageCategories.ShowCaptions = false;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.ShowCategoryInCaption = false;
             this.ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(800, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(800, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            // 
+            // chkHistorico
+            // 
+            this.chkHistorico.Location = new System.Drawing.Point(24, 182);
+            this.chkHistorico.MenuManager = this.ribbonControl1;
+            this.chkHistorico.Name = "chkHistorico";
+            this.chkHistorico.Properties.Caption = "Mostrar histórico";
+            this.chkHistorico.Size = new System.Drawing.Size(253, 20);
+            this.chkHistorico.StyleController = this.lcMain;
+            this.chkHistorico.TabIndex = 10;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ImageOptions.Image")));
-            this.btnLimpiar.Location = new System.Drawing.Point(659, 149);
+            this.btnLimpiar.Location = new System.Drawing.Point(659, 182);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(117, 22);
             this.btnLimpiar.StyleController = this.lcMain;
@@ -133,7 +159,7 @@
             // lueCatalogo
             // 
             this.lueCatalogo.EnterMoveNextControl = true;
-            this.lueCatalogo.Location = new System.Drawing.Point(136, 66);
+            this.lueCatalogo.Location = new System.Drawing.Point(136, 69);
             this.lueCatalogo.MenuManager = this.ribbonControl1;
             this.lueCatalogo.Name = "lueCatalogo";
             this.lueCatalogo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -147,13 +173,13 @@
             // 
             // grdArticulos
             // 
-            this.grdArticulos.Location = new System.Drawing.Point(12, 187);
+            this.grdArticulos.Location = new System.Drawing.Point(12, 220);
             this.grdArticulos.MainView = this.grvArticulos;
             this.grdArticulos.Name = "grdArticulos";
             this.grdArticulos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ribEditar,
             this.ribtnAsignar});
-            this.grdArticulos.Size = new System.Drawing.Size(776, 224);
+            this.grdArticulos.Size = new System.Drawing.Size(776, 186);
             this.grdArticulos.TabIndex = 7;
             this.grdArticulos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvArticulos});
@@ -295,7 +321,7 @@
             // btnBuscar
             // 
             this.btnBuscar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.ImageOptions.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(538, 149);
+            this.btnBuscar.Location = new System.Drawing.Point(538, 182);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(117, 22);
             this.btnBuscar.StyleController = this.lcMain;
@@ -306,24 +332,26 @@
             // rgBusqueda
             // 
             this.rgBusqueda.EnterMoveNextControl = true;
-            this.rgBusqueda.Location = new System.Drawing.Point(136, 90);
+            this.rgBusqueda.Location = new System.Drawing.Point(136, 93);
             this.rgBusqueda.Name = "rgBusqueda";
+            this.rgBusqueda.Properties.ColumnIndent = 6;
             this.rgBusqueda.Properties.Columns = 3;
             this.rgBusqueda.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Código"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Descripción"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Número de parte"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Marca"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Proveedor")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Proveedor"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Tipo")});
             this.rgBusqueda.Size = new System.Drawing.Size(640, 55);
             this.rgBusqueda.StyleController = this.lcMain;
-            this.rgBusqueda.TabIndex = 5;
+            this.rgBusqueda.TabIndex = 6;
             this.rgBusqueda.SelectedIndexChanged += new System.EventHandler(this.rgBusqueda_SelectedIndexChanged);
             // 
             // txtFiltro
             // 
             this.txtFiltro.EnterMoveNextControl = true;
-            this.txtFiltro.Location = new System.Drawing.Point(136, 42);
+            this.txtFiltro.Location = new System.Drawing.Point(136, 45);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFiltro.Size = new System.Drawing.Size(640, 20);
@@ -340,7 +368,7 @@
             this.lcgBusqueda,
             this.layoutControlItem4});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 423);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 418);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lcgBusqueda
@@ -352,16 +380,17 @@
             this.lciBusqueda,
             this.lciCatalogos,
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.lciTipo});
             this.lcgBusqueda.Location = new System.Drawing.Point(0, 0);
             this.lcgBusqueda.Name = "lcgBusqueda";
-            this.lcgBusqueda.Size = new System.Drawing.Size(780, 175);
+            this.lcgBusqueda.Size = new System.Drawing.Size(780, 208);
             this.lcgBusqueda.Text = "Detalle de búsqueda";
             // 
             // lcibtnBuscar
             // 
             this.lcibtnBuscar.Control = this.btnBuscar;
-            this.lcibtnBuscar.Location = new System.Drawing.Point(514, 107);
+            this.lcibtnBuscar.Location = new System.Drawing.Point(514, 137);
             this.lcibtnBuscar.Name = "lcibtnBuscar";
             this.lcibtnBuscar.Size = new System.Drawing.Size(121, 26);
             this.lcibtnBuscar.TextSize = new System.Drawing.Size(0, 0);
@@ -370,7 +399,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(257, 107);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(257, 137);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(257, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -409,39 +438,42 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnLimpiar;
-            this.layoutControlItem1.Location = new System.Drawing.Point(635, 107);
+            this.layoutControlItem1.Location = new System.Drawing.Point(635, 137);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(121, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.grdArticulos;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 175);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(780, 228);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // chkHistorico
-            // 
-            this.chkHistorico.Location = new System.Drawing.Point(24, 149);
-            this.chkHistorico.MenuManager = this.ribbonControl1;
-            this.chkHistorico.Name = "chkHistorico";
-            this.chkHistorico.Properties.Caption = "Mostrar histórico";
-            this.chkHistorico.Size = new System.Drawing.Size(253, 19);
-            this.chkHistorico.StyleController = this.lcMain;
-            this.chkHistorico.TabIndex = 10;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.chkHistorico;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 107);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 137);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(257, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // lciTipo
+            // 
+            this.lciTipo.Control = this.rgTipo;
+            this.lciTipo.Location = new System.Drawing.Point(0, 107);
+            this.lciTipo.MaxSize = new System.Drawing.Size(0, 30);
+            this.lciTipo.MinSize = new System.Drawing.Size(166, 30);
+            this.lciTipo.Name = "lciTipo";
+            this.lciTipo.Size = new System.Drawing.Size(756, 30);
+            this.lciTipo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciTipo.Text = "Seleccione un tipo:";
+            this.lciTipo.TextSize = new System.Drawing.Size(109, 13);
+            this.lciTipo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.grdArticulos;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 208);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(780, 190);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // xfrmBusquedaArticulos
             // 
@@ -450,14 +482,16 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmBusquedaArticulos.IconOptions.Icon")));
             this.Name = "xfrmBusquedaArticulos";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Búsqueda de articulos";
             this.Load += new System.EventHandler(this.xfrmBusquedaArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rgTipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCatalogo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvArticulos)).EndInit();
@@ -473,9 +507,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCatalogos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkHistorico.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciTipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,5 +548,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colParte;
         private DevExpress.XtraEditors.CheckEdit chkHistorico;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.RadioGroup rgTipo;
+        private DevExpress.XtraLayout.LayoutControlItem lciTipo;
     }
 }

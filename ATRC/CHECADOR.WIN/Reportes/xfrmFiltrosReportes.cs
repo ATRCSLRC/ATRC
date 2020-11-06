@@ -104,6 +104,10 @@ namespace CHECADOR.WIN
                     ReportPrintTool repRutasDelUsuario = new ReportPrintTool(new REPORTES.Rutas.RutasPorUsuario(dteDel.DateTime.Date, dteAl.DateTime.Date, Convert.ToInt32(btnNumUsuario.Text)));
                     repRutasDelUsuario.ShowPreview();
                     break;
+                case "Historial rutas generadas":
+                    ReportPrintTool repHistorialRutasGeneradas = new ReportPrintTool(new REPORTES.Rutas.HistorialRutasGeneradas(dteDel.DateTime.Date, dteAl.DateTime.Date.AddDays(1)));
+                    repHistorialRutasGeneradas.ShowPreview();
+                    break;
             }
             
         }

@@ -108,14 +108,15 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(841, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(841, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // lcMain
@@ -124,17 +125,17 @@
             this.lcMain.Controls.Add(this.picFoto);
             this.lcMain.Controls.Add(this.vGridControl1);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(852, 245, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(841, 668);
+            this.lcMain.Size = new System.Drawing.Size(841, 663);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // lueUnidad
             // 
-            this.lueUnidad.Location = new System.Drawing.Point(127, 42);
+            this.lueUnidad.Location = new System.Drawing.Point(127, 45);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -143,6 +144,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.DisplayMember = "Nombre";
             this.lueUnidad.Properties.NullText = "[SELECCIONE]";
+            this.lueUnidad.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueUnidad.Size = new System.Drawing.Size(690, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 6;
@@ -152,7 +154,7 @@
             // 
             this.picFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picFoto.EditValue = global::UNIDADES.WIN.Properties.Resources.car;
-            this.picFoto.Location = new System.Drawing.Point(450, 78);
+            this.picFoto.Location = new System.Drawing.Point(450, 81);
             this.picFoto.MenuManager = this.ribbonControl1;
             this.picFoto.Name = "picFoto";
             this.picFoto.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -161,7 +163,7 @@
             this.picFoto.Properties.NullText = " ";
             this.picFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picFoto.Size = new System.Drawing.Size(379, 578);
+            this.picFoto.Size = new System.Drawing.Size(379, 570);
             this.picFoto.StyleController = this.lcMain;
             this.picFoto.TabIndex = 5;
             // 
@@ -227,9 +229,9 @@
             this.vGridControl1.Appearance.RowHeaderPanel.Options.UseForeColor = true;
             this.vGridControl1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.vGridControl1.Appearance.VertLine.Options.UseBackColor = true;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
-            this.vGridControl1.Location = new System.Drawing.Point(12, 78);
+            this.vGridControl1.Location = new System.Drawing.Point(12, 81);
             this.vGridControl1.Name = "vGridControl1";
             this.vGridControl1.OptionsBehavior.Editable = false;
             this.vGridControl1.RecordWidth = 105;
@@ -240,7 +242,7 @@
             this.catExterior,
             this.catLlantera,
             this.colFiltros});
-            this.vGridControl1.Size = new System.Drawing.Size(434, 578);
+            this.vGridControl1.Size = new System.Drawing.Size(434, 570);
             this.vGridControl1.TabIndex = 4;
             // 
             // catGeneral
@@ -261,8 +263,8 @@
             // 
             // colNombre
             // 
-            this.colNombre.Appearance.Options.UseTextOptions = true;
-            this.colNombre.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colNombre.AppearanceCell.Options.UseTextOptions = true;
+            this.colNombre.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colNombre.Name = "colNombre";
             this.colNombre.OptionsRow.AllowFocus = false;
             this.colNombre.Properties.AllowEdit = false;
@@ -271,8 +273,8 @@
             // 
             // colMarca
             // 
-            this.colMarca.Appearance.Options.UseTextOptions = true;
-            this.colMarca.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMarca.AppearanceCell.Options.UseTextOptions = true;
+            this.colMarca.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMarca.Name = "colMarca";
             this.colMarca.OptionsRow.AllowFocus = false;
             this.colMarca.Properties.AllowEdit = false;
@@ -281,8 +283,8 @@
             // 
             // colModelo
             // 
-            this.colModelo.Appearance.Options.UseTextOptions = true;
-            this.colModelo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colModelo.AppearanceCell.Options.UseTextOptions = true;
+            this.colModelo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colModelo.Name = "colModelo";
             this.colModelo.OptionsRow.AllowFocus = false;
             this.colModelo.Properties.AllowEdit = false;
@@ -292,8 +294,8 @@
             // 
             // colPasajeros
             // 
-            this.colPasajeros.Appearance.Options.UseTextOptions = true;
-            this.colPasajeros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPasajeros.AppearanceCell.Options.UseTextOptions = true;
+            this.colPasajeros.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPasajeros.Name = "colPasajeros";
             this.colPasajeros.OptionsRow.AllowFocus = false;
             this.colPasajeros.Properties.Caption = "Pasajeros";
@@ -301,8 +303,8 @@
             // 
             // colVIN
             // 
-            this.colVIN.Appearance.Options.UseTextOptions = true;
-            this.colVIN.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colVIN.AppearanceCell.Options.UseTextOptions = true;
+            this.colVIN.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colVIN.Name = "colVIN";
             this.colVIN.OptionsRow.AllowFocus = false;
             this.colVIN.Properties.AllowEdit = false;
@@ -311,8 +313,8 @@
             // 
             // colPlacas
             // 
-            this.colPlacas.Appearance.Options.UseTextOptions = true;
-            this.colPlacas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPlacas.AppearanceCell.Options.UseTextOptions = true;
+            this.colPlacas.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPlacas.Name = "colPlacas";
             this.colPlacas.OptionsRow.AllowFocus = false;
             this.colPlacas.Properties.AllowEdit = false;
@@ -321,8 +323,8 @@
             // 
             // colColor
             // 
-            this.colColor.Appearance.Options.UseTextOptions = true;
-            this.colColor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colColor.AppearanceCell.Options.UseTextOptions = true;
+            this.colColor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colColor.Name = "colColor";
             this.colColor.OptionsRow.AllowFocus = false;
             this.colColor.Properties.AllowEdit = false;
@@ -362,8 +364,8 @@
             // 
             // colMotor
             // 
-            this.colMotor.Appearance.Options.UseTextOptions = true;
-            this.colMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMotor.AppearanceCell.Options.UseTextOptions = true;
+            this.colMotor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMotor.Name = "colMotor";
             this.colMotor.OptionsRow.AllowFocus = false;
             this.colMotor.Properties.AllowEdit = false;
@@ -372,8 +374,8 @@
             // 
             // colCilindros
             // 
-            this.colCilindros.Appearance.Options.UseTextOptions = true;
-            this.colCilindros.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCilindros.AppearanceCell.Options.UseTextOptions = true;
+            this.colCilindros.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCilindros.Name = "colCilindros";
             this.colCilindros.OptionsRow.AllowFocus = false;
             this.colCilindros.Properties.AllowEdit = false;
@@ -382,8 +384,8 @@
             // 
             // colMillas
             // 
-            this.colMillas.Appearance.Options.UseTextOptions = true;
-            this.colMillas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colMillas.AppearanceCell.Options.UseTextOptions = true;
+            this.colMillas.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colMillas.Name = "colMillas";
             this.colMillas.OptionsRow.AllowFocus = false;
             this.colMillas.Properties.AllowEdit = false;
@@ -392,8 +394,8 @@
             // 
             // colTransmision
             // 
-            this.colTransmision.Appearance.Options.UseTextOptions = true;
-            this.colTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colTransmision.AppearanceCell.Options.UseTextOptions = true;
+            this.colTransmision.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colTransmision.Name = "colTransmision";
             this.colTransmision.OptionsRow.AllowFocus = false;
             this.colTransmision.Properties.AllowEdit = false;
@@ -402,8 +404,8 @@
             // 
             // colCombustible
             // 
-            this.colCombustible.Appearance.Options.UseTextOptions = true;
-            this.colCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCombustible.AppearanceCell.Options.UseTextOptions = true;
+            this.colCombustible.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCombustible.Name = "colCombustible";
             this.colCombustible.OptionsRow.AllowFocus = false;
             this.colCombustible.Properties.AllowEdit = false;
@@ -412,8 +414,8 @@
             // 
             // colFrenos
             // 
-            this.colFrenos.Appearance.Options.UseTextOptions = true;
-            this.colFrenos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFrenos.AppearanceCell.Options.UseTextOptions = true;
+            this.colFrenos.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFrenos.Name = "colFrenos";
             this.colFrenos.OptionsRow.AllowFocus = false;
             this.colFrenos.Properties.AllowEdit = false;
@@ -422,8 +424,8 @@
             // 
             // colSuspencion
             // 
-            this.colSuspencion.Appearance.Options.UseTextOptions = true;
-            this.colSuspencion.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colSuspencion.AppearanceCell.Options.UseTextOptions = true;
+            this.colSuspencion.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSuspencion.Name = "colSuspencion";
             this.colSuspencion.OptionsRow.AllowFocus = false;
             this.colSuspencion.Properties.AllowEdit = false;
@@ -432,8 +434,8 @@
             // 
             // colPuerta
             // 
-            this.colPuerta.Appearance.Options.UseTextOptions = true;
-            this.colPuerta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colPuerta.AppearanceCell.Options.UseTextOptions = true;
+            this.colPuerta.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colPuerta.Name = "colPuerta";
             this.colPuerta.OptionsRow.AllowFocus = false;
             this.colPuerta.Properties.AllowEdit = false;
@@ -442,8 +444,8 @@
             // 
             // colAireAcondicionado
             // 
-            this.colAireAcondicionado.Appearance.Options.UseTextOptions = true;
-            this.colAireAcondicionado.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAireAcondicionado.AppearanceCell.Options.UseTextOptions = true;
+            this.colAireAcondicionado.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAireAcondicionado.Name = "colAireAcondicionado";
             this.colAireAcondicionado.OptionsRow.AllowFocus = false;
             this.colAireAcondicionado.Properties.AllowEdit = false;
@@ -469,8 +471,8 @@
             // 
             // colUsuario
             // 
-            this.colUsuario.Appearance.Options.UseTextOptions = true;
-            this.colUsuario.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colUsuario.AppearanceCell.Options.UseTextOptions = true;
+            this.colUsuario.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.OptionsRow.AllowFocus = false;
             this.colUsuario.Properties.Caption = "Usuario";
@@ -478,8 +480,8 @@
             // 
             // colBaterias
             // 
-            this.colBaterias.Appearance.Options.UseTextOptions = true;
-            this.colBaterias.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colBaterias.AppearanceCell.Options.UseTextOptions = true;
+            this.colBaterias.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colBaterias.Name = "colBaterias";
             this.colBaterias.OptionsRow.AllowFocus = false;
             this.colBaterias.Properties.Caption = "Baterias";
@@ -487,8 +489,8 @@
             // 
             // colAsientos
             // 
-            this.colAsientos.Appearance.Options.UseTextOptions = true;
-            this.colAsientos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAsientos.AppearanceCell.Options.UseTextOptions = true;
+            this.colAsientos.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAsientos.Name = "colAsientos";
             this.colAsientos.OptionsRow.AllowFocus = false;
             this.colAsientos.Properties.Caption = "Asientos";
@@ -496,8 +498,8 @@
             // 
             // colAbanicos
             // 
-            this.colAbanicos.Appearance.Options.UseTextOptions = true;
-            this.colAbanicos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAbanicos.AppearanceCell.Options.UseTextOptions = true;
+            this.colAbanicos.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAbanicos.Name = "colAbanicos";
             this.colAbanicos.OptionsRow.AllowFocus = false;
             this.colAbanicos.Properties.Caption = "Abanicos";
@@ -505,8 +507,8 @@
             // 
             // colVentanas
             // 
-            this.colVentanas.Appearance.Options.UseTextOptions = true;
-            this.colVentanas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colVentanas.AppearanceCell.Options.UseTextOptions = true;
+            this.colVentanas.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colVentanas.Name = "colVentanas";
             this.colVentanas.OptionsRow.AllowFocus = false;
             this.colVentanas.Properties.Caption = "Ventanas laterales";
@@ -514,8 +516,8 @@
             // 
             // colEstereo
             // 
-            this.colEstereo.Appearance.Options.UseTextOptions = true;
-            this.colEstereo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colEstereo.AppearanceCell.Options.UseTextOptions = true;
+            this.colEstereo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colEstereo.Name = "colEstereo";
             this.colEstereo.OptionsRow.AllowFocus = false;
             this.colEstereo.Properties.Caption = "Tiene estéreo";
@@ -523,8 +525,8 @@
             // 
             // colBocinas
             // 
-            this.colBocinas.Appearance.Options.UseTextOptions = true;
-            this.colBocinas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colBocinas.AppearanceCell.Options.UseTextOptions = true;
+            this.colBocinas.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colBocinas.Name = "colBocinas";
             this.colBocinas.OptionsRow.AllowFocus = false;
             this.colBocinas.Properties.Caption = "Tiene bocinas";
@@ -532,8 +534,8 @@
             // 
             // colCamaras
             // 
-            this.colCamaras.Appearance.Options.UseTextOptions = true;
-            this.colCamaras.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colCamaras.AppearanceCell.Options.UseTextOptions = true;
+            this.colCamaras.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCamaras.Name = "colCamaras";
             this.colCamaras.OptionsRow.AllowFocus = false;
             this.colCamaras.Properties.Caption = "Tiene cámaras";
@@ -541,8 +543,8 @@
             // 
             // colExtinguidor
             // 
-            this.colExtinguidor.Appearance.Options.UseTextOptions = true;
-            this.colExtinguidor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colExtinguidor.AppearanceCell.Options.UseTextOptions = true;
+            this.colExtinguidor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colExtinguidor.Name = "colExtinguidor";
             this.colExtinguidor.OptionsRow.AllowFocus = false;
             this.colExtinguidor.Properties.Caption = "Extinguidor";
@@ -550,8 +552,8 @@
             // 
             // colTrancas
             // 
-            this.colTrancas.Appearance.Options.UseTextOptions = true;
-            this.colTrancas.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colTrancas.AppearanceCell.Options.UseTextOptions = true;
+            this.colTrancas.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colTrancas.Name = "colTrancas";
             this.colTrancas.OptionsRow.AllowFocus = false;
             this.colTrancas.Properties.Caption = "Tiene trancas";
@@ -559,8 +561,8 @@
             // 
             // colRadio
             // 
-            this.colRadio.Appearance.Options.UseTextOptions = true;
-            this.colRadio.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colRadio.AppearanceCell.Options.UseTextOptions = true;
+            this.colRadio.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colRadio.Name = "colRadio";
             this.colRadio.OptionsRow.AllowFocus = false;
             this.colRadio.Properties.Caption = "Tiene radio";
@@ -581,8 +583,8 @@
             // 
             // colIzquierdaFrontal
             // 
-            this.colIzquierdaFrontal.Appearance.Options.UseTextOptions = true;
-            this.colIzquierdaFrontal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colIzquierdaFrontal.AppearanceCell.Options.UseTextOptions = true;
+            this.colIzquierdaFrontal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colIzquierdaFrontal.Name = "colIzquierdaFrontal";
             this.colIzquierdaFrontal.OptionsRow.AllowFocus = false;
             this.colIzquierdaFrontal.Properties.Caption = "Llanta frontal chofer";
@@ -650,8 +652,8 @@
             // 
             // colAceiteMotor
             // 
-            this.colAceiteMotor.Appearance.Options.UseTextOptions = true;
-            this.colAceiteMotor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAceiteMotor.AppearanceCell.Options.UseTextOptions = true;
+            this.colAceiteMotor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAceiteMotor.Name = "colAceiteMotor";
             this.colAceiteMotor.OptionsRow.AllowFocus = false;
             this.colAceiteMotor.Properties.Caption = "Filtro de aceite para motor";
@@ -659,8 +661,8 @@
             // 
             // colAceiteTransmision
             // 
-            this.colAceiteTransmision.Appearance.Options.UseTextOptions = true;
-            this.colAceiteTransmision.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colAceiteTransmision.AppearanceCell.Options.UseTextOptions = true;
+            this.colAceiteTransmision.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAceiteTransmision.Name = "colAceiteTransmision";
             this.colAceiteTransmision.OptionsRow.AllowFocus = false;
             this.colAceiteTransmision.Properties.Caption = "Filtro de aceite para transmisión";
@@ -668,8 +670,8 @@
             // 
             // colFiltroCombustible
             // 
-            this.colFiltroCombustible.Appearance.Options.UseTextOptions = true;
-            this.colFiltroCombustible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroCombustible.AppearanceCell.Options.UseTextOptions = true;
+            this.colFiltroCombustible.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroCombustible.Name = "colFiltroCombustible";
             this.colFiltroCombustible.OptionsRow.AllowFocus = false;
             this.colFiltroCombustible.Properties.Caption = "Filtro de combustible";
@@ -677,8 +679,8 @@
             // 
             // colFiltroAire
             // 
-            this.colFiltroAire.Appearance.Options.UseTextOptions = true;
-            this.colFiltroAire.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroAire.AppearanceCell.Options.UseTextOptions = true;
+            this.colFiltroAire.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroAire.Name = "colFiltroAire";
             this.colFiltroAire.OptionsRow.AllowFocus = false;
             this.colFiltroAire.Properties.Caption = "Filtro de aire";
@@ -686,8 +688,8 @@
             // 
             // colFiltroAgua
             // 
-            this.colFiltroAgua.Appearance.Options.UseTextOptions = true;
-            this.colFiltroAgua.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colFiltroAgua.AppearanceCell.Options.UseTextOptions = true;
+            this.colFiltroAgua.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colFiltroAgua.Name = "colFiltroAgua";
             this.colFiltroAgua.OptionsRow.AllowFocus = false;
             this.colFiltroAgua.Properties.Caption = "Filtro de agua";
@@ -702,17 +704,17 @@
             this.lciImagen,
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(841, 668);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(841, 663);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciVGRD
             // 
             this.lciVGRD.Control = this.vGridControl1;
-            this.lciVGRD.Location = new System.Drawing.Point(0, 66);
+            this.lciVGRD.Location = new System.Drawing.Point(0, 69);
             this.lciVGRD.MaxSize = new System.Drawing.Size(438, 0);
             this.lciVGRD.MinSize = new System.Drawing.Size(438, 24);
             this.lciVGRD.Name = "lciVGRD";
-            this.lciVGRD.Size = new System.Drawing.Size(438, 582);
+            this.lciVGRD.Size = new System.Drawing.Size(438, 574);
             this.lciVGRD.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciVGRD.TextSize = new System.Drawing.Size(0, 0);
             this.lciVGRD.TextVisible = false;
@@ -720,9 +722,9 @@
             // lciImagen
             // 
             this.lciImagen.Control = this.picFoto;
-            this.lciImagen.Location = new System.Drawing.Point(438, 66);
+            this.lciImagen.Location = new System.Drawing.Point(438, 69);
             this.lciImagen.Name = "lciImagen";
-            this.lciImagen.Size = new System.Drawing.Size(383, 582);
+            this.lciImagen.Size = new System.Drawing.Size(383, 574);
             this.lciImagen.TextSize = new System.Drawing.Size(0, 0);
             this.lciImagen.TextVisible = false;
             // 
@@ -732,7 +734,7 @@
             this.lciUnidad});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(821, 66);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(821, 69);
             this.layoutControlGroup2.Text = "Búsqueda por unidad";
             // 
             // lciUnidad
@@ -753,7 +755,6 @@
             this.fypEdicion.Location = new System.Drawing.Point(450, 644);
             this.fypEdicion.Name = "fypEdicion";
             this.fypEdicion.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.fypEdicion.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
             this.fypEdicion.OptionsBeakPanel.Opacity = 0.5D;
             this.fypEdicion.OptionsButtonPanel.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.White;
             this.fypEdicion.OptionsButtonPanel.AppearanceButton.Hovered.Options.UseForeColor = true;
@@ -791,6 +792,7 @@
             this.Controls.Add(this.fypEdicion);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmBusquedaUnidades.IconOptions.Icon")));
             this.Name = "xfrmBusquedaUnidades";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Detalles de unidad";

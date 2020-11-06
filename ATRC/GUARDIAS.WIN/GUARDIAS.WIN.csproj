@@ -120,6 +120,12 @@
     <Compile Include="Renta\xfrmCalendarioREnta.Designer.cs">
       <DependentUpon>xfrmCalendarioREnta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Renta\xfrmCambioHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renta\xfrmCambioHorario.Designer.cs">
+      <DependentUpon>xfrmCambioHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Renta\xfrmClienteRenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
     </Compile>
     <Compile Include="Renta\xfrmDocumento.Designer.cs">
       <DependentUpon>xfrmDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Renta\xfrmHorarioContrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renta\xfrmHorarioContrato.Designer.cs">
+      <DependentUpon>xfrmHorarioContrato.cs</DependentUpon>
     </Compile>
     <Compile Include="Renta\xfrmReporteHistorialRenta.cs">
       <SubType>Form</SubType>
@@ -186,34 +198,34 @@
     <Compile Include="Renta\xfrmContrato.Designer.cs">
       <DependentUpon>xfrmContrato.cs</DependentUpon>
     </Compile>
-    <Compile Include="xfrmNuevoReporte.cs">
+    <Compile Include="Reportes\xfrmNuevoReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfrmNuevoReporte.Designer.cs">
+    <Compile Include="Reportes\xfrmNuevoReporte.Designer.cs">
       <DependentUpon>xfrmNuevoReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="xfrmRecibos.cs">
+    <Compile Include="Recibos\xfrmRecibos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfrmRecibos.Designer.cs">
+    <Compile Include="Recibos\xfrmRecibos.Designer.cs">
       <DependentUpon>xfrmRecibos.cs</DependentUpon>
     </Compile>
-    <Compile Include="xfrmRecibosGRD.cs">
+    <Compile Include="Recibos\xfrmRecibosGRD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfrmRecibosGRD.Designer.cs">
+    <Compile Include="Recibos\xfrmRecibosGRD.Designer.cs">
       <DependentUpon>xfrmRecibosGRD.cs</DependentUpon>
     </Compile>
-    <Compile Include="xfrmReportesGRD.cs">
+    <Compile Include="Reportes\xfrmReportesGRD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfrmReportesGRD.Designer.cs">
+    <Compile Include="Reportes\xfrmReportesGRD.Designer.cs">
       <DependentUpon>xfrmReportesGRD.cs</DependentUpon>
     </Compile>
-    <Compile Include="xfrmReportesPorUsuario.cs">
+    <Compile Include="Reportes\xfrmReportesPorUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfrmReportesPorUsuario.Designer.cs">
+    <Compile Include="Reportes\xfrmReportesPorUsuario.Designer.cs">
       <DependentUpon>xfrmReportesPorUsuario.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -232,6 +244,9 @@
     <EmbeddedResource Include="Renta\xfrmCalendarioREnta.resx">
       <DependentUpon>xfrmCalendarioREnta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Renta\xfrmCambioHorario.resx">
+      <DependentUpon>xfrmCambioHorario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Renta\xfrmClienteRenta.resx">
       <DependentUpon>xfrmClienteRenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Renta\xfrmDocumento.resx">
       <DependentUpon>xfrmDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renta\xfrmHorarioContrato.resx">
+      <DependentUpon>xfrmHorarioContrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Renta\xfrmReporteHistorialRenta.resx">
       <DependentUpon>xfrmReporteHistorialRenta.cs</DependentUpon>
@@ -265,19 +283,19 @@
     <EmbeddedResource Include="Renta\xfrmContrato.resx">
       <DependentUpon>xfrmContrato.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xfrmNuevoReporte.resx">
+    <EmbeddedResource Include="Reportes\xfrmNuevoReporte.resx">
       <DependentUpon>xfrmNuevoReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xfrmRecibos.resx">
+    <EmbeddedResource Include="Recibos\xfrmRecibos.resx">
       <DependentUpon>xfrmRecibos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xfrmRecibosGRD.resx">
+    <EmbeddedResource Include="Recibos\xfrmRecibosGRD.resx">
       <DependentUpon>xfrmRecibosGRD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xfrmReportesGRD.resx">
+    <EmbeddedResource Include="Reportes\xfrmReportesGRD.resx">
       <DependentUpon>xfrmReportesGRD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xfrmReportesPorUsuario.resx">
+    <EmbeddedResource Include="Reportes\xfrmReportesPorUsuario.resx">
       <DependentUpon>xfrmReportesPorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -328,6 +346,8 @@
   <ItemGroup>
     <Content Include="COPYING.LESSER.txt" />
     <Content Include="COPYING.txt" />
+    <None Include="Resources\descuento.png" />
+    <None Include="Resources\icons8-archivo-48.png" />
     <None Include="Resources\icons8-recepción-32.png" />
     <None Include="Resources\icons8-acuerdo-32.png" />
     <None Include="Resources\icons8-enviar-a-la-impresora-16.png" />

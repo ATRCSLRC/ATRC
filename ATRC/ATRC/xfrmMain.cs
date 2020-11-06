@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace ATRC
 {
     public partial class xfrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        static Regex MailRegex = new Regex(@"^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$",
+        RegexOptions.Compiled);
         public xfrmMain()
         {
             InitializeComponent();
@@ -174,8 +177,10 @@ namespace ATRC
                 bbiImportarRutas.Visibility = VisibilidadPermiso("ImportacionRutas");
                 bbiServiciosRealizados.Visibility = VisibilidadPermiso("ServiciosRealizados");
                 bbiReportesServicios.Visibility = VisibilidadPermiso("ConsultaReportesServicios");
-
+                bbiHistorialRutasGeneradas.Visibility = VisibilidadPermiso("HistorialRutasGeneradas");
                 rpgReportesRutas.Visible = VisibilidadPermiso("ReportesRutas") == BarItemVisibility.Always ? true : false;
+                rpgConfiguracionRutas.Visible = VisibilidadPermiso("ConfiguracionRutas") == BarItemVisibility.Always ? true : false;
+
             }
             #endregion
 
@@ -196,7 +201,9 @@ namespace ATRC
                 bbiModificacionDiesel.Visibility = VisibilidadPermiso("ModificacionDiesel");
                 bbiGasolina.Visibility = VisibilidadPermiso("Gasolina");
                 bbiMedidorTanques.Visibility = VisibilidadPermiso("MedidoresTanqueCombustible");
-                bbiRecargaDiesel.Visibility = VisibilidadPermiso("RecargasCombustible"); bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
+                bbiNuevaRecarga.Visibility = VisibilidadPermiso("NuevaRecargaCombustible");
+                bbiRecargaDiesel.Visibility = VisibilidadPermiso("RecargasCombustible");
+                bbiMapa.Visibility = VisibilidadPermiso("MapaRutas");
                 bbiDetalleCandados.Visibility = VisibilidadPermiso("DetallesCandados");
                 bbiModificarGasolina.Visibility = VisibilidadPermiso("ModificacionGasolina");
                 bbiCalculosCarga.Visibility = VisibilidadPermiso("CalculoCargosDiesel");
@@ -756,7 +763,7 @@ namespace ATRC
 
         private void bbiRecargaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            COMBUSTIBLE.WIN.xfrmRecargaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmRecargaDiesel();
+            COMBUSTIBLE.WIN.xfrmRecargasGRD xfrm = new COMBUSTIBLE.WIN.xfrmRecargasGRD();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
@@ -1203,6 +1210,73 @@ namespace ATRC
         private void bbiHistorialHerramientaPrestada_ItemClick(object sender, ItemClickEventArgs e)
         {
             ALMACEN.WIN.xfrmBusquedaHerramientaPrestada xfrm = new ALMACEN.WIN.xfrmBusquedaHerramientaPrestada();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiHistorialRutasGeneradas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmFiltrosReportes xfrmHistorial = new CHECADOR.WIN.xfrmFiltrosReportes();
+            xfrmHistorial.Titulo = e.Item.Caption;
+            xfrmHistorial.Size = new Size(635, 240);
+            xfrmHistorial.Todos = true;
+            xfrmHistorial.MdiParent = this;
+            xfrmHistorial.Show();
+        }
+
+
+        private void bbiNuevaRecarga_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmRecargaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmRecargaDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPedidosRecibidos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.PedidoRutas.xfrmPedidosRecibidos xfrm = new RUTAS.WIN.PedidoRutas.xfrmPedidosRecibidos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPedidosAprobados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.PedidoRutas.xfrmPedidosAprobados xfrm = new RUTAS.WIN.PedidoRutas.xfrmPedidosAprobados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPedidosCancelados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.PedidoRutas.xfrmPedidosCancelados xfrm = new RUTAS.WIN.PedidoRutas.xfrmPedidosCancelados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPedidos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.PedidoRutas.xfrmPedidos xfrm = new RUTAS.WIN.PedidoRutas.xfrmPedidos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPlantillaCorreo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.PedidoRutas.xfrmPlantillasDeCorreo xfrm = new RUTAS.WIN.PedidoRutas.xfrmPlantillasDeCorreo();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiConfiguracionRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmConfiguracionesRutas xfrm = new RUTAS.WIN.xfrmConfiguracionesRutas();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

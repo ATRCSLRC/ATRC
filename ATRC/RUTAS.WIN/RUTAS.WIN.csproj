@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,8 +54,12 @@
   <ItemGroup>
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dialogs.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Map.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -54,6 +73,7 @@
     <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.dll</HintPath>
@@ -80,6 +100,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\xfrmConfiguracionesRutas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmConfiguracionesRutas.Designer.cs">
+      <DependentUpon>xfrmConfiguracionesRutas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\xfrmPrecioServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,11 +148,59 @@
     <Compile Include="Facturacion\xfrmServiciosRealizados.Designer.cs">
       <DependentUpon>xfrmServiciosRealizados.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedidoRutas\xfrmHistorialPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmHistorialPedido.Designer.cs">
+      <DependentUpon>xfrmHistorialPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidos.Designer.cs">
+      <DependentUpon>xfrmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosAprobados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosAprobados.Designer.cs">
+      <DependentUpon>xfrmPedidosAprobados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosCancelados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosCancelados.Designer.cs">
+      <DependentUpon>xfrmPedidosCancelados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosRecibidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPedidosRecibidos.Designer.cs">
+      <DependentUpon>xfrmPedidosRecibidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPlantillasDeCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmPlantillasDeCorreo.Designer.cs">
+      <DependentUpon>xfrmPlantillasDeCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmRevisionPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmRevisionPedido.Designer.cs">
+      <DependentUpon>xfrmRevisionPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmCodigoSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmCodigoSeguridad.Designer.cs">
+      <DependentUpon>xfrmCodigoSeguridad.cs</DependentUpon>
     </Compile>
     <Compile Include="xfrmGenerarRutasExtras.cs">
       <SubType>Form</SubType>
@@ -145,6 +219,12 @@
     </Compile>
     <Compile Include="xfrmImportacionRutas.Designer.cs">
       <DependentUpon>xfrmImportacionRutas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xfrmMotivoModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmMotivoModificacion.Designer.cs">
+      <DependentUpon>xfrmMotivoModificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="xfrmPlantillaRutasFijas.cs">
       <SubType>Form</SubType>
@@ -189,6 +269,9 @@
     <Compile Include="Mapa\xfrmRutasPorEmpresa.Designer.cs">
       <DependentUpon>xfrmRutasPorEmpresa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Catalogos\xfrmConfiguracionesRutas.resx">
+      <DependentUpon>xfrmConfiguracionesRutas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\xfrmPrecioServicio.resx">
       <DependentUpon>xfrmPrecioServicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,9 +293,33 @@
     <EmbeddedResource Include="Facturacion\xfrmServiciosRealizados.resx">
       <DependentUpon>xfrmServiciosRealizados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmHistorialPedido.resx">
+      <DependentUpon>xfrmHistorialPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmPedidos.resx">
+      <DependentUpon>xfrmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmPedidosAprobados.resx">
+      <DependentUpon>xfrmPedidosAprobados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmPedidosCancelados.resx">
+      <DependentUpon>xfrmPedidosCancelados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmPedidosRecibidos.resx">
+      <DependentUpon>xfrmPedidosRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmPlantillasDeCorreo.resx">
+      <DependentUpon>xfrmPlantillasDeCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmRevisionPedido.resx">
+      <DependentUpon>xfrmRevisionPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmCodigoSeguridad.resx">
+      <DependentUpon>xfrmCodigoSeguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmGenerarRutasExtras.resx">
       <DependentUpon>xfrmGenerarRutasExtras.cs</DependentUpon>
@@ -222,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmImportacionRutas.resx">
       <DependentUpon>xfrmImportacionRutas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmMotivoModificacion.resx">
+      <DependentUpon>xfrmMotivoModificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmPlantillaRutasFijas.resx">
       <DependentUpon>xfrmPlantillaRutasFijas.cs</DependentUpon>
@@ -319,6 +429,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-archivo-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -93,7 +93,8 @@ namespace GUARDIAS.WIN
                 txtCliente.Focus();
                 this.Size = new Size(840, 570);
             }
-            Contrato.Session.Delete(Contrato.Documentos);
+            if (IDContrato <= 0)
+                Contrato.Session.Delete(Contrato.Documentos);
             picVistaPrevia.Image = null;
         }
 
@@ -276,7 +277,7 @@ namespace GUARDIAS.WIN
                         if(Cliente != null)
                         {
                             lblCliente.Text = Cliente.Nombre;
-                            Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
+                            //Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
                             //grdDocumentos.DataSource = Cliente.Documentos;
                             Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
                             Contrato.Documentos.AddRange(Cliente.Documentos);
@@ -292,7 +293,7 @@ namespace GUARDIAS.WIN
                     if (Cliente != null)
                     {
                         lblCliente.Text = Cliente.Nombre;
-                        Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
+                        //Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
                         
                         Cliente.Documentos.Criteria = new BinaryOperator("FechaVigencia", DateTime.Now.Date, BinaryOperatorType.Greater);
                         Contrato.Documentos.AddRange(Cliente.Documentos);
@@ -454,6 +455,7 @@ namespace GUARDIAS.WIN
                 txtCliente.Text = Contrato.Cliente.Oid.ToString();
                 lblCliente.Text = Contrato.Cliente.Nombre;
                 Cliente = Contrato.Cliente;
+                rgCliente.ReadOnly = txtCliente.ReadOnly = true;
             }else
             {
                 txtResponsable.Text = Contrato.Responsable;
@@ -463,6 +465,13 @@ namespace GUARDIAS.WIN
                 txtCiudad.Text = Contrato.Ciudad;
                 txtEstado.Text = Contrato.Estado;
                 txtTel.Text = Contrato.Tel;
+                txtResponsable.ReadOnly = true;
+                txtDomicilio.ReadOnly = true;
+                txtColonia.ReadOnly = true;
+                txtCP.ReadOnly = true;
+                txtCiudad.ReadOnly = true;
+                txtEstado.ReadOnly = true;
+                txtTel.ReadOnly = true;
             }
 
             rgAccion.SelectedIndex = Contrato.EsApartado ? 1 : 0;

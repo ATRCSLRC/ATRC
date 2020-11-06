@@ -77,6 +77,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsRutaExtra", ref mEsRutaExtra, value); }
         }
 
+        private bool mEsApoyo;
+        public bool EsApoyo
+        {
+            get { return mEsApoyo; }
+            set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
+        }
+
         private bool mRutaCompleta;
         public bool RutaCompleta
         {

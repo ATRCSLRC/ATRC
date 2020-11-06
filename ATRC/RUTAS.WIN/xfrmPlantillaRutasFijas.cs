@@ -1,7 +1,11 @@
 ﻿using ATRCBASE.BL;
 using ATRCBASE.WIN;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using RUTAS.BL;
 using System;
 using System.Collections.Generic;
@@ -41,6 +45,8 @@ namespace RUTAS.WIN
         {
             txtNombre.Text = Plantilla.Nombre;
             lueMaquiladora.EditValue = Plantilla.Empresa == null ? -1 : Plantilla.Empresa.Oid;
+            Plantilla.PlantillasRutasFijas.Sorting.Add(new SortProperty("OrdenRutas", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            chkEsExterno.Checked = Plantilla.EsExterno;
             grdRutasExtras.DataSource = Plantilla.PlantillasRutasFijas;
         }
 
@@ -52,6 +58,7 @@ namespace RUTAS.WIN
                 {
                     Plantilla.Nombre = txtNombre.Text;
                     Plantilla.Empresa = Unidad.GetObjectByKey<Empresas>(lueMaquiladora.EditValue);
+                    Plantilla.EsExterno = chkEsExterno.Checked;
                     Plantilla.Save();
                     Unidad.CommitChanges();
                     XtraMessageBox.Show("Se han guardado los cambios correctamente.");
@@ -74,6 +81,7 @@ namespace RUTAS.WIN
                     
                     xfrmRutasFijas xfrmAgregar = new xfrmRutasFijas();
                     xfrmAgregar.EsPlantilla = true;
+                    xfrmAgregar.Orden = Plantilla.PlantillasRutasFijas.Count + 1;
                     xfrmAgregar.PlantillaRuta = Plantilla;
                     xfrmAgregar.ShowDialog();
                     if(grdRutasExtras.DataSource == null)
@@ -101,12 +109,24 @@ namespace RUTAS.WIN
                             PlantillaRutaExtra.Delete();
                         }
                     }
+
+                    //((XPView)grdRutasExtras.DataSource).Reload();
+                    int x = 1;
+                    foreach (PlantillaRutaFija ruta in (XPCollection<PlantillaRutaFija>)grdRutasExtras.DataSource)
+                    {
+                        //RutasGeneradas ruta = (RutasGeneradas)view.GetObject();
+                        ruta.OrdenRutas = x;
+                        //ruta.Save();
+                        x++;
+                    }
+                    Plantilla.PlantillasRutasFijas.Sorting.Add(new SortProperty("OrdenRutas", DevExpress.Xpo.DB.SortingDirection.Ascending));
                     break;
             }
         }
 
         private bool ValidarCampos()
         {
+
             if(string.IsNullOrEmpty(txtNombre.Text))
             {
                 XtraMessageBox.Show("Debe agregar un nombre a la plantilla.");
@@ -133,6 +153,126 @@ namespace RUTAS.WIN
                 //DataRow row = lue.Properties.View.GetDataRow(theIndex);
                 e.DisplayText = row["Clave"] + " -" + row["Nombre"];
             }
+        }
+
+        private void grdRutasExtras_DragDrop(object sender, DragEventArgs e)
+        {
+            GridControl grid = sender as GridControl;
+            GridView view = grid.MainView as GridView;
+            GridHitInfo downHitInfo = e.Data.GetData(typeof(GridHitInfo)) as GridHitInfo;
+            GridHitInfo hitInfo = view.CalcHitInfo(grid.PointToClient(new Point(e.X, e.Y)));
+            int sourceRow = downHitInfo.RowHandle;
+            int targetRow = hitInfo.RowHandle;
+            MoveRow(sourceRow, targetRow);
+        }
+
+        private void grdRutasExtras_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+
+            GridHitInfo downHitInfo = e.Data.GetData(typeof(GridHitInfo)) as GridHitInfo;
+            if (downHitInfo != null)
+            {
+                GridControl grid = sender as GridControl;
+                GridView view = grid.MainView as GridView;
+                GridHitInfo hitInfo = view.CalcHitInfo(grid.PointToClient(new Point(e.X, e.Y)));
+                if (hitInfo.InRow && hitInfo.RowHandle != downHitInfo.RowHandle)
+                    e.Effect = DragDropEffects.Move;
+            }
+        }
+        GridHitInfo downHitInfo = null;
+        private void grvRutasExtras_MouseDown(object sender, MouseEventArgs e)
+        {
+            GridView view = sender as GridView;
+            downHitInfo = null;
+
+            GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
+            if (Control.ModifierKeys != Keys.None) return;
+            if (e.Button == MouseButtons.Left && hitInfo.InRow)
+                downHitInfo = hitInfo;
+        }
+
+        private void grvRutasExtras_MouseMove(object sender, MouseEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (e.Button == MouseButtons.Left && downHitInfo != null)
+            {
+                Size dragSize = SystemInformation.DragSize;
+                Rectangle dragRect = new Rectangle(new Point(downHitInfo.HitPoint.X - dragSize.Width / 2,
+                    downHitInfo.HitPoint.Y - dragSize.Height / 2), dragSize);
+
+                if (!dragRect.Contains(new Point(e.X, e.Y)))
+                {
+                    view.GridControl.DoDragDrop(downHitInfo, DragDropEffects.All);
+                    downHitInfo = null;
+                }
+            }
+        }
+
+        private void MoveRow(int sourceRow, int targetRow)
+        {
+            //if (sourceRow == targetRow || sourceRow == targetRow + 1) return;
+
+            GridView view = grvRutasExtras;
+            PlantillaRutaFija row1 = (PlantillaRutaFija)view.GetRow(targetRow);
+            //RutasGeneradas row2 = ((ViewRecord)view.GetRow(targetRow + 1)).GetObject() as RutasGeneradas;
+            PlantillaRutaFija dragRow = (PlantillaRutaFija)view.GetRow(sourceRow);
+            int val1 = row1.OrdenRutas;
+            //if (row2 == null)
+            //    dragRow.OrdenRutas = val1 + 1;
+            //else
+            //{
+            //int val2 = row2.OrdenRutas;
+            //dragRow.OrdenRutas = (val1 + val2) / 2;
+            int val2 = dragRow.OrdenRutas;
+            dragRow.OrdenRutas = val1;
+            if (val2 < val1)
+            {
+                val1--;
+                row1.OrdenRutas = val1;
+                val1--;
+                //row2.OrdenRutas = val1;
+                //val1--;
+                row1.Save();
+                while (val1 >= val2)
+                {
+                    PlantillaRutaFija row = (PlantillaRutaFija)view.GetRow(val1);
+                    if (row == dragRow)
+                        row = (PlantillaRutaFija)view.GetRow(val1 + 1);
+                    row.OrdenRutas = val1;
+                    val1--;
+                    row.Save();
+                }
+            }
+            else
+            {
+
+                val1++;
+                row1.OrdenRutas = val1;
+                val1++;
+                //row2.OrdenRutas = val1;
+                //val1++;
+                row1.Save();
+                //row2.OrdenRutas = val2++;
+
+                while (val1 <= val2)
+                {
+                    PlantillaRutaFija row = (PlantillaRutaFija)view.GetRow(val1 - 2);
+                    if (row == dragRow)
+                        row = (PlantillaRutaFija)view.GetRow(val1);
+                    row.OrdenRutas = val1;
+                    val1++;
+                    row.Save();
+                }
+            }
+            //}
+
+            dragRow.Save();
+            Plantilla.PlantillasRutasFijas.Sorting.Add(new SortProperty("OrdenRutas", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            // dragRow.Session.CommitTransaction();
+            // ((XPCollection<PlantillaRutaFija>)grdRutasExtras.DataSource).Reload();
+            grvRutasExtras.ClearSelection();
+            grvRutasExtras.FocusedRowHandle = dragRow.OrdenRutas - 1;
         }
     }
 }

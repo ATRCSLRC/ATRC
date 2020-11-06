@@ -20,5 +20,13 @@ namespace ATRCBASE.WIN
         private void xfrmBase_Load(object sender, EventArgs e)
         {
         }
+
+        private void xfrmBase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Alt || Control.ModifierKeys == Keys.F4)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
