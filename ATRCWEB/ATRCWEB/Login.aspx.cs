@@ -20,8 +20,8 @@ namespace ATRCWEB
 
         protected void CallbackLogin_Callback(object source, DevExpress.Web.CallbackEventArgs e)
         {
-        UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-        GroupOperator go = new GroupOperator( GroupOperatorType.And);
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator( GroupOperatorType.And);
             go.Operands.Add(new BinaryOperator("NumEmpleado", spnNumUsuario.Text));
             go.Operands.Add(new BinaryOperator("AccesoSistema", true));
             go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", txtContraseña.Text));
@@ -38,6 +38,7 @@ namespace ATRCWEB
                         ASPxWebControl.RedirectOnCallback("~" + FormsAuthentication.GetRedirectUrl(Usuario.Nombre, false));
                 else
                     ASPxWebControl.RedirectOnCallback("~/Default.aspx");
+                
             }
             else
                 e.Result = "Los datos proporcionados son incorrectos.";

@@ -1057,6 +1057,55 @@ namespace ATRCWEB.WS
         }
         #endregion
 
+        #region RFID
+        [WebMethod(EnableSession = true)]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int AccesoComedor(string IDCard)
+        {
+            Session["OidAdministrador"] = 1;
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("IDCard", Convert.ToInt32(IDCard)));
+            go.Operands.Add(new BinaryOperator("AccesoComedor", true));
+            Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
+            if (Usuario != null)
+            {
+                RegistroAccesos Registro = new RegistroAccesos(Unidad);
+                Registro.IDCard = Convert.ToInt32(IDCard);
+                Registro.TipoAcceso = TipoAcceso.Comedor;
+                Registro.Usuario = Usuario;
+                Registro.Save();
+                Unidad.CommitChanges();
+                return Convert.ToInt32(IDCard);
+            }
+            else
+                return 0;
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int AccesoDormitorio(string IDCard)
+        {
+            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator go = new GroupOperator();
+            go.Operands.Add(new BinaryOperator("IDCard", Convert.ToInt32(IDCard)));
+            go.Operands.Add(new BinaryOperator("AccesoDormitorio", true));
+            Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
+            if (Usuario != null)
+            {
+                RegistroAccesos Registro = new RegistroAccesos(Unidad);
+                Registro.IDCard = Convert.ToInt32(IDCard);
+                Registro.TipoAcceso = TipoAcceso.Dormitorio;
+                Registro.Usuario = Usuario;
+                Registro.Save();
+                Unidad.CommitChanges();
+                return 1;
+            }
+            else
+                return 0;
+        }
+        #endregion
+
         #region Clases de Diesel
         public class Tanque
         {
@@ -1159,5 +1208,6 @@ namespace ATRCWEB.WS
             public string Imagen { set; get; }
         }
         #endregion
+
     }
 }
