@@ -262,6 +262,9 @@ namespace SolucionesATRC.Pedidos
                     Ruta.Turno = PlantillaRuta.Turno;
                     Ruta.HoraEntrada = PlantillaRuta.HoraEntrada;
                     Ruta.HoraSalida = PlantillaRuta.HoraSalida;
+                    Ruta.RutaCompleta = PlantillaRuta.RutaCompleta;
+                    Ruta.Comentarios = PlantillaRuta.Comentarios;
+                    Ruta.ComentariosFacturacion = PlantillaRuta.ComentariosFacturacion;
                     Ruta.Save();
                     Pedido.Rutas.Add(Ruta);
                 }

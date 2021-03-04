@@ -20,20 +20,39 @@ namespace SolucionesATRC
             {
                 if (Request.QueryString.Count > 0)
                 {
-
-                    string ID = ATRCBASE.BL.Utilerias.DesencriptarString(Request.Params[0]);
-                    UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-                    PedidoRutas Pedido = Unidad.GetObjectByKey<PedidoRutas>(Convert.ToInt32(ID));
-                    REPORTES.Rutas.RutasDePedido Rutas = new REPORTES.Rutas.RutasDePedido(Pedido);
-
-                    using (MemoryStream ms = new MemoryStream())
+                    if (Request.QueryString.Count > 1)
                     {
-                        Rutas.ExportToPdf(ms, new PdfExportOptions() { ShowPrintDialogOnOpen = false });
-                        Response.ContentType = "application/pdf";
-                        Response.AddHeader("content-disposition", "attachment;filename=" + Pedido.Nombre.Trim() + ".pdf");
-                        Response.Buffer = true;
-                        ms.WriteTo(Response.OutputStream);
-                        Response.End();
+                        string ID = ATRCBASE.BL.Utilerias.DesencriptarString(Request.Params[0]);
+                        UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                        REPORTES.Rutas.AclaracionesPedido Rutas = new REPORTES.Rutas.AclaracionesPedido(Convert.ToInt32(ID));
+
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            Rutas.ExportToPdf(ms, new PdfExportOptions() { ShowPrintDialogOnOpen = false });
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=Aclaracion" + ID + ".pdf");
+                            Response.Buffer = true;
+                            ms.WriteTo(Response.OutputStream);
+                            Response.End();
+                        }
+                    }
+                    else
+                    {
+
+                        string ID = ATRCBASE.BL.Utilerias.DesencriptarString(Request.Params[0]);
+                        UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                        PedidoRutas Pedido = Unidad.GetObjectByKey<PedidoRutas>(Convert.ToInt32(ID));
+                        REPORTES.Rutas.RutasDePedido Rutas = new REPORTES.Rutas.RutasDePedido(Pedido);
+
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            Rutas.ExportToPdf(ms, new PdfExportOptions() { ShowPrintDialogOnOpen = false });
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=" + Pedido.Nombre.Trim() + ".pdf");
+                            Response.Buffer = true;
+                            ms.WriteTo(Response.OutputStream);
+                            Response.End();
+                        }
                     }
                 }
                 else

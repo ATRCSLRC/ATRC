@@ -7,28 +7,19 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SolucionesATRC.Pedidos {
+namespace SolucionesATRC.Aclaraciones {
     
     
-    public partial class MisRechazados {
+    public partial class AclaracionesRechazadas {
         
         /// <summary>
-        /// Control grdPedidos.
+        /// Control grdAclaraciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPedidos;
-        
-        /// <summary>
-        /// Control fab.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapFloatingActionButton fab;
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdAclaraciones;
         
         /// <summary>
         /// Control PopupHistorial.
@@ -49,15 +40,6 @@ namespace SolucionesATRC.Pedidos {
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdHistorial;
         
         /// <summary>
-        /// Control PopupEnviar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupEnviar;
-        
-        /// <summary>
         /// Control CallbackDescargar.
         /// </summary>
         /// <remarks>
@@ -65,14 +47,5 @@ namespace SolucionesATRC.Pedidos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallback CallbackDescargar;
-        
-        /// <summary>
-        /// Control CallbackEnviar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback CallbackEnviar;
     }
 }

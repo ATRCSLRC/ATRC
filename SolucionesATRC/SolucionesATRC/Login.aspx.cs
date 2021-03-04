@@ -22,9 +22,10 @@ namespace SolucionesATRC
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator go = new GroupOperator(GroupOperatorType.And);
-            go.Operands.Add(new BinaryOperator("NumEmpleado", usuario.Value));
-            go.Operands.Add(new BinaryOperator("AccesoSistema", true));
-            go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", pass.Value));
+            go.Operands.Add(new BinaryOperator("Correo", email.Value));
+            go.Operands.Add(new BinaryOperator("Activo", true));
+            go.Operands.Add(new BinaryOperator("EsExterno", true));
+            //go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", pass.Value));
             Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
             if (Usuario != null)
             {

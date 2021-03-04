@@ -50,12 +50,15 @@
     <Reference Include="ATRCBASE.BL">
       <HintPath>..\..\Librerias\ATRCBASE.BL.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Web.ASPxThemes.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Web.Resources.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Elmah">
       <HintPath>..\..\Librerias\Elmah.dll</HintPath>
     </Reference>
@@ -81,16 +84,22 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.ASPxScheduler.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.Bootstrap.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Bootstrap.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="UNIDADES.BL">
       <HintPath>..\..\Librerias\UNIDADES.BL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aclaraciones\Aclaraciones.aspx" />
+    <Content Include="Aclaraciones\AclaracionesAprobadas.aspx" />
+    <Content Include="Aclaraciones\AclaracionesRechazadas.aspx" />
+    <Content Include="Aclaraciones\AclaracionesRecibidas.aspx" />
+    <Content Include="Aclaraciones\MisAclaraciones.aspx" />
     <Content Include="ActivarUsuario.aspx" />
     <Content Include="ChartData.json" />
     <Content Include="Content\common.css" />
@@ -148,7 +157,6 @@
     <Content Include="EventScheduling.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
-    <Content Include="Pedidos\Aclaraciones.aspx" />
     <Content Include="Pedidos\EdicionPedidoRuta.aspx" />
     <Content Include="Pedidos\MisAprobados.aspx" />
     <Content Include="Pedidos\MisPedidos.aspx" />
@@ -267,6 +275,41 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aclaraciones\Aclaraciones.aspx.cs">
+      <DependentUpon>Aclaraciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\Aclaraciones.aspx.designer.cs">
+      <DependentUpon>Aclaraciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesAprobadas.aspx.cs">
+      <DependentUpon>AclaracionesAprobadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesAprobadas.aspx.designer.cs">
+      <DependentUpon>AclaracionesAprobadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesRechazadas.aspx.cs">
+      <DependentUpon>AclaracionesRechazadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesRechazadas.aspx.designer.cs">
+      <DependentUpon>AclaracionesRechazadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesRecibidas.aspx.cs">
+      <DependentUpon>AclaracionesRecibidas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\AclaracionesRecibidas.aspx.designer.cs">
+      <DependentUpon>AclaracionesRecibidas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\MisAclaraciones.aspx.cs">
+      <DependentUpon>MisAclaraciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\MisAclaraciones.aspx.designer.cs">
+      <DependentUpon>MisAclaraciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ActivarUsuario.aspx.cs">
       <DependentUpon>ActivarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -314,13 +357,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos\Aclaraciones.aspx.cs">
-      <DependentUpon>Aclaraciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pedidos\Aclaraciones.aspx.designer.cs">
-      <DependentUpon>Aclaraciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pedidos\EdicionPedidoRuta.aspx.cs">
       <DependentUpon>EdicionPedidoRuta.aspx</DependentUpon>

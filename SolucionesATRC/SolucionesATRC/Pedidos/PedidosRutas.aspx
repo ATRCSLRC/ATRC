@@ -29,12 +29,6 @@
                                     <ClientSideEvents Click="function(s,e){ grdHistorial.PerformCallback(s.cpVisibleIndex); PopupHistorial.Show();}" />
                                 </dx:BootstrapButton>
                                 
-                                <%--<button type="button" class="btn btn-link" >
-                                    <span class="demo-icon demo-icon-settings"></span>
-                                </button>
-                                <button type="button" class="btn btn-link">
-                                    <span class="demo-icon demo-icon-export"></span>
-                                </button>--%>
                             </DataItemTemplate>
                         </dx:BootstrapGridViewDataColumn>
                        <%-- <dx:BootstrapGridViewTextColumn Caption="Nombre" FieldName="Nombre" VisibleIndex="3">
@@ -131,12 +125,12 @@
                 <ClientSideEvents Click="function(s, e) { CallbackEnviar.PerformCallback(grdPedidos.GetFocusedRowIndex());  }" />
             </dx:BootstrapButton>
             <dx:BootstrapButton runat="server" Text="Cancelar" AutoPostBack="false" UseSubmitBehavior="false">
-                <ClientSideEvents Click="function(s, e) {fab.SetActionContext('NewRowContext'); grdPedidos.SetFocusedRowIndex(-1); PopupEliminar.Hide();}" />
+                <ClientSideEvents Click="function(s, e) {fab.SetActionContext('NewRowContext'); grdPedidos.SetFocusedRowIndex(-1); PopupEnviar.Hide();}" />
             </dx:BootstrapButton>
         </FooterTemplate>
         <ContentCollection>
             <dx:ContentControl>
-                <p class="col-12 demo-content demo-popup-title" id="lblEnviar"></p>
+                <p class="col-12 demo-content demo-popup-title" id="lblEnviar">¿Desea enviar el pedido a revisio&oacute;n?</p>
             </dx:ContentControl>
         </ContentCollection>
     </dx:BootstrapPopupControl>
@@ -188,7 +182,7 @@
     </dx:ASPxCallback>
 
     <dx:ASPxCallback ID="CallbackEnviar" ClientInstanceName="CallbackEnviar" OnCallback="CallbackEnviar_Callback" runat="server">
-        <ClientSideEvents CallbackComplete="function(s,e){ PopupConfirmar.Show(); grdPedidos.SetFocusedRowIndex(-1); PopupEliminar.Hide(); grdPedidos.Refresh();} " />
+        <ClientSideEvents CallbackComplete="function(s,e){ PopupConfirmar.Show(); grdPedidos.SetFocusedRowIndex(-1); PopupEnviar.Hide(); grdPedidos.Refresh();} " />
     </dx:ASPxCallback>
 
     <script>

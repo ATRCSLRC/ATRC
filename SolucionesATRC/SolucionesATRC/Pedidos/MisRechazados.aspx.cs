@@ -3,6 +3,8 @@ using DevExpress.Data.Filtering;
 using DevExpress.Web;
 using DevExpress.Web.Bootstrap;
 using DevExpress.Xpo;
+using REPORTES.Rutas;
+using RUTAS.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -114,6 +116,20 @@ namespace SolucionesATRC.Pedidos
             BootstrapButton btn = (BootstrapButton)sender;
             GridViewDataItemTemplateContainer templateContainer = (GridViewDataItemTemplateContainer)btn.NamingContainer;
             btn.JSProperties.Add("cpVisibleIndex", templateContainer.VisibleIndex);
+        }
+
+        protected void CallbackEnviar_Callback(object source, CallbackEventArgs e)
+        {
+            ViewRecord viewPedido = grdPedidos.GetRow(Convert.ToInt32(e.Parameter)) as ViewRecord;
+            if (Session["Unidad"] != null)
+            {
+                UnidadDeTrabajo Unidad = (UnidadDeTrabajo)Session["Unidad"];
+                PedidoRutas Pedido = viewPedido.GetObject() as PedidoRutas;
+                Pedido.Estado = Enums.EstadoPedidoRutas.Creado;
+                Pedido.Save();
+                Unidad.CommitChanges();
+                RUTAS.BL.Utilerias.EnviarCorreoMaquiladora(Pedido);
+            }
         }
     }
 }

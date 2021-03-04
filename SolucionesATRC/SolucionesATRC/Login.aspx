@@ -26,10 +26,10 @@
 					</span>
 					
 					
-					<div class="wrap-input100 validate-input"  data-validate = "Usuario requerido">
-						<input class="input100" type="text" name="usuario" id="usuario" runat="server">
+					<div class="wrap-input100 validate-input"  data-validate = "Correo requerido">
+						<input class="input100" type="text" name="email" id="email" runat="server">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Usuario</span>
+						<span class="label-input100">Correo</span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate="Contraseña requerida">
@@ -78,7 +78,9 @@
 							<i class="fa fa-twitter" aria-hidden="true"></i>
 						</a>
 					</div>-->
-                    <dx:ASPxCallback ID="CallbackLogin" ClientInstanceName="CallbackLogin" OnCallback="CallbackLogin_Callback" runat="server"></dx:ASPxCallback>
+                    <dx:ASPxCallback ID="CallbackLogin" ClientInstanceName="CallbackLogin" OnCallback="CallbackLogin_Callback" runat="server">
+                        <ClientSideEvents BeginCallback="function(s,e){ alert('inicio');}" CallbackComplete="function(s,e){ alert(e.result);}" CallbackError="function(s,e){ alert('error');}" EndCallback="function(s,e){ alert('end');}" />
+                    </dx:ASPxCallback>
 				</form>
 
 				<div class="login100-more" style="background-image: url('Content/Login/img/bg-01.jpg');">

@@ -7,19 +7,19 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SolucionesATRC.Pedidos {
+namespace SolucionesATRC.Aclaraciones {
     
     
-    public partial class MisRechazados {
+    public partial class AclaracionesRecibidas {
         
         /// <summary>
-        /// Control grdPedidos.
+        /// Control grdAclaraciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdPedidos;
+        protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdAclaraciones;
         
         /// <summary>
         /// Control fab.
@@ -29,6 +29,33 @@ namespace SolucionesATRC.Pedidos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.Bootstrap.BootstrapFloatingActionButton fab;
+        
+        /// <summary>
+        /// Control PopupRechazar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupRechazar;
+        
+        /// <summary>
+        /// Control PopupMotivoRechazo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupMotivoRechazo;
+        
+        /// <summary>
+        /// Control memoMotivoRechazo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapMemo memoMotivoRechazo;
         
         /// <summary>
         /// Control PopupHistorial.
@@ -49,13 +76,40 @@ namespace SolucionesATRC.Pedidos {
         protected global::DevExpress.Web.Bootstrap.BootstrapGridView grdHistorial;
         
         /// <summary>
-        /// Control PopupEnviar.
+        /// Control PopupRevisar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupEnviar;
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupRevisar;
+        
+        /// <summary>
+        /// Control PopupConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.Bootstrap.BootstrapPopupControl PopupConfirmar;
+        
+        /// <summary>
+        /// Control lblConfirmacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblConfirmacion;
+        
+        /// <summary>
+        /// Control CallbackRechazar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallback CallbackRechazar;
         
         /// <summary>
         /// Control CallbackDescargar.
@@ -67,12 +121,12 @@ namespace SolucionesATRC.Pedidos {
         protected global::DevExpress.Web.ASPxCallback CallbackDescargar;
         
         /// <summary>
-        /// Control CallbackEnviar.
+        /// Control CallbackRevisar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback CallbackEnviar;
+        protected global::DevExpress.Web.ASPxCallback CallbackRevisar;
     }
 }

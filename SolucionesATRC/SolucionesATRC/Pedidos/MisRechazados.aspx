@@ -23,7 +23,7 @@
                                 <dx:BootstrapButton ID="btnDescargar" ClientInstanceName="btnDescargar" runat="server" OnInit="btnDescargar_Init" AutoPostBack="false" Text="" SettingsBootstrap-RenderOption="Link" ToolTip="Descargar rutas" CssClasses-Icon="fa fa-download fa-lg">
                                     <ClientSideEvents Click="function(s,e){ CallbackDescargar.PerformCallback(s.cpVisibleIndex);}" />
                                 </dx:BootstrapButton>
-                                <dx:BootstrapButton ID="btnHistorial" ClientInstanceName="btnHistorial" runat="server" AutoPostBack="false" Text="" SettingsBootstrap-RenderOption="Link" ToolTip="Historial de cambios" CssClasses-Icon="fa fa-cog  fa-lg">
+                                <dx:BootstrapButton ID="btnHistorial" ClientInstanceName="btnHistorial" runat="server" OnInit="btnDescargar_Init" AutoPostBack="false" Text="" SettingsBootstrap-RenderOption="Link" ToolTip="Historial de cambios" CssClasses-Icon="fa fa-cog  fa-lg">
                                     <ClientSideEvents Click="function(s,e){ grdHistorial.PerformCallback(s.cpVisibleIndex); PopupHistorial.Show();}" />
                                 </dx:BootstrapButton>
                             </DataItemTemplate>
@@ -39,6 +39,13 @@
                 </dx:BootstrapGridView>
             </div>
         </div>
+
+        <dx:BootstrapFloatingActionButton ID="fab" ClientInstanceName="fab" runat="server" ContainerCssSelector="#MainPedido" InitialActionContext="ChangeRowContext" VerticalPosition="Bottom">
+        <Items>
+            <dx:BootstrapFABAction ActionName="ChangeRow" ContextName="ChangeRowContext" Text="Cambiar estado" IconCssClass="fa fa-history"></dx:BootstrapFABAction>
+        </Items>
+        <ClientSideEvents ActionItemClick="OnActionItemClick" />
+    </dx:BootstrapFloatingActionButton>
 
         <%-- Popup --%>
         <dx:BootstrapPopupControl ID="PopupHistorial" ClientInstanceName="PopupHistorial" runat="server" Modal="true" ShowHeader="true" HeaderText=""
@@ -63,9 +70,38 @@
             </ContentCollection>
         </dx:BootstrapPopupControl>
 
+        <dx:BootstrapPopupControl ID="PopupEnviar" ClientInstanceName="PopupEnviar" runat="server" Modal="true" ShowHeader="false"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ShowFooter="true" CloseAction="None" ShowCloseButton="false">
+        <SettingsAdaptivity Mode="Always" VerticalAlign="WindowCenter" FixedHeader="true" FixedFooter="true" />
+        <FooterTemplate>
+            <dx:BootstrapButton runat="server" Text="Guardar"  AutoPostBack="false" UseSubmitBehavior="false">
+                <ClientSideEvents Click="function(s, e) { $.LoadingOverlay('show'); CallbackEnviar.PerformCallback(grdPedidos.GetFocusedRowIndex());  }" />
+            </dx:BootstrapButton>
+            <dx:BootstrapButton runat="server" Text="Cancelar" AutoPostBack="false" UseSubmitBehavior="false">
+                <ClientSideEvents Click="function(s, e) {fab.SetActionContext('NewRowContext'); grdPedidos.SetFocusedRowIndex(-1); PopupEnviar.Hide();}" />
+            </dx:BootstrapButton>
+        </FooterTemplate>
+        <ContentCollection>
+            <dx:ContentControl>
+                <p class="col-12 demo-content demo-popup-title" id="lblEnviar">¿Desea cambiar estado a creado?</p>
+            </dx:ContentControl>
+        </ContentCollection>
+    </dx:BootstrapPopupControl>
+
         <%-- CallBack --%>
         <dx:ASPxCallback ID="CallbackDescargar" ClientInstanceName="CallbackDescargar" OnCallback="CallbackDescargar_Callback" runat="server">
             <ClientSideEvents CallbackComplete="function(s,e){ if(e.result != ''){window.open('../Descargar.aspx?ID=' + e.result, '_blank');}}" />
         </dx:ASPxCallback>
+
+        <dx:ASPxCallback ID="CallbackEnviar" ClientInstanceName="CallbackEnviar" OnCallback="CallbackEnviar_Callback" runat="server">
+        <ClientSideEvents CallbackComplete="function(s,e){  grdPedidos.SetFocusedRowIndex(-1); PopupEnviar.Hide(); grdPedidos.Refresh(); $.LoadingOverlay('hide', true);} " />
+    </dx:ASPxCallback>
+
     </div>
+    <script>
+    function OnActionItemClick(s, e) {
+           
+                PopupEnviar.Show();
+        }
+        </script>
 </asp:Content>

@@ -15,7 +15,14 @@
                 <dx:BootstrapTreeViewNode Text="Pedidos rechazados" NavigateUrl="~/Pedidos/MisRechazados.aspx"></dx:BootstrapTreeViewNode>
             </Nodes>
         </dx:BootstrapTreeViewNode>
-        <dx:BootstrapTreeViewNode Text="Aclaraciones" NavigateUrl="~/Default.aspx"></dx:BootstrapTreeViewNode>
+        <dx:BootstrapTreeViewNode Text="Aclaraciones" NavigateUrl="~/Aclaraciones/Aclaraciones.aspx">
+            <Nodes>
+                 <dx:BootstrapTreeViewNode Text="Mis aclaraciones" NavigateUrl="~/Aclaraciones/MisAclaraciones.aspx"></dx:BootstrapTreeViewNode>
+                <dx:BootstrapTreeViewNode Text="Aclaraciones recibidas" NavigateUrl="~/Aclaraciones/AclaracionesRecibidas.aspx"></dx:BootstrapTreeViewNode>
+                <dx:BootstrapTreeViewNode Text="Aclaraciones aprobadas" NavigateUrl="~/Aclaraciones/AclaracionesAprobadas.aspx"></dx:BootstrapTreeViewNode>
+                <dx:BootstrapTreeViewNode Text="Aclaraciones rechazadas" NavigateUrl="~/Aclaraciones/AclaracionesRechazadas.aspx"></dx:BootstrapTreeViewNode>
+            </Nodes>
+        </dx:BootstrapTreeViewNode>
         <dx:BootstrapTreeViewNode Text="Documentación" NavigateUrl="https://docs.devexpress.com/AspNetBootstrap/118796/getting-started" Target="_blank"></dx:BootstrapTreeViewNode>
     </Nodes>
 </dx:BootstrapTreeView>
