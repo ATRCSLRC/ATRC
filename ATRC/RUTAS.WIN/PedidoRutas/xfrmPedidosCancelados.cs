@@ -21,9 +21,10 @@ namespace RUTAS.WIN.PedidoRutas
             InitializeComponent();
         }
 
+        UnidadDeTrabajo Unidad;
         private void xfrmPedidosCancelados_Load(object sender, EventArgs e)
         {
-            UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator Go = new GroupOperator(GroupOperatorType.Or);
             //Go.Operands.Add(new BinaryOperator("Estado", Enums.EstadoPedidoRutas.Cancelado));
             Go.Operands.Add(new BinaryOperator("Estado", Enums.EstadoPedidoRutas.Rechazado));
@@ -37,6 +38,7 @@ namespace RUTAS.WIN.PedidoRutas
             Pedidos.AddProperty("Usuario", "UsuarioAlta", true);
             Pedidos.AddProperty("Rutas", "Rutas.Count()", false);
             Pedidos.Criteria = Go;
+            Pedidos.Sorting.Add(new SortProperty("Fecha", DevExpress.Xpo.DB.SortingDirection.Descending));
             grdPedidosCancelados.DataSource = Pedidos;
         }
 
@@ -62,6 +64,13 @@ namespace RUTAS.WIN.PedidoRutas
             }
         }
 
-        
+        private void grvPedidosCancelados_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "Usuario" & e.ListSourceRowIndex >= 0)
+            {
+                Usuario Usuario = Unidad.GetObjectByKey<Usuario>(grvPedidosCancelados.GetListSourceRowCellValue(e.ListSourceRowIndex, "Usuario"));
+                e.DisplayText = Usuario != null ? Usuario.Nombre : string.Empty;
+            }
+        }
     }
 }

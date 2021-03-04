@@ -29,8 +29,12 @@ namespace ATRCBASE.WIN
 
         private void xfrmAnunciosUsuario_Load(object sender, EventArgs e)
         {
-            cmbLugarPublicacion.Properties.Items.AddRange(Enum.GetValues(typeof(Enums.LugarPublicar)));
-            if(!EsNuevo)
+            //cmbLugarPublicacion.Properties.Items.AddRange(Enum.GetValues(typeof(Enums.LugarPublicar)));
+            cmbLugarPublicacion.Properties.Items.Add(Enums.LugarPublicar.Comedor);
+            cmbLugarPublicacion.Properties.Items.Add(Enums.LugarPublicar.Caseta);
+            cmbLugarPublicacion.Properties.Items.Add(Enums.LugarPublicar.Recepcion);
+            cmbLugarPublicacion.Properties.Items.Add(Enums.LugarPublicar.Todas);
+            if (!EsNuevo)
             {
                 txtNombre.Text = Anuncio.Nombre;
                 rgTipoAnuncio.EditValue = Anuncio.TipoAnuncio;

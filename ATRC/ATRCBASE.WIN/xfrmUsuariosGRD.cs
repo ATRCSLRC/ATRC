@@ -212,7 +212,7 @@ namespace ATRCBASE.WIN
 
         private void grvUsuarios_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            ViewRecord ViewUsuario = grvUsuarios.GetFocusedRow() as ViewRecord;
+            ViewRecord ViewUsuario = (ViewRecord)grvUsuarios.GetRow(e.RowHandle);
             if (ViewUsuario != null)
             {
                 Imagen Imagen = Unidad.GetObjectByKey<Imagen>(Convert.ToInt32(ViewUsuario["Imagen"]));

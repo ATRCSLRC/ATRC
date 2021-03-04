@@ -41,14 +41,15 @@
             this.grdPedidos = new DevExpress.XtraGrid.GridControl();
             this.grvPedidos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaPedido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidadRutas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRutas = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ribeRutas = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribeHistorial = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.ribeRutas = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgBusqueda = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -57,7 +58,6 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciEmpresas = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -68,8 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPedidos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).BeginInit();
@@ -149,7 +149,7 @@
             // 
             // lueEmpresa
             // 
-            this.lueEmpresa.Location = new System.Drawing.Point(72, 69);
+            this.lueEmpresa.Location = new System.Drawing.Point(81, 69);
             this.lueEmpresa.MenuManager = this.ribbonControl1;
             this.lueEmpresa.Name = "lueEmpresa";
             this.lueEmpresa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -159,7 +159,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueEmpresa.Properties.DisplayMember = "Nombre";
             this.lueEmpresa.Properties.ValueMember = "Oid";
-            this.lueEmpresa.Size = new System.Drawing.Size(845, 20);
+            this.lueEmpresa.Size = new System.Drawing.Size(836, 20);
             this.lueEmpresa.StyleController = this.lcMain;
             this.lueEmpresa.TabIndex = 7;
             this.lueEmpresa.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.lueEmpresa_CustomDisplayText);
@@ -167,7 +167,7 @@
             // dteA
             // 
             this.dteA.EditValue = null;
-            this.dteA.Location = new System.Drawing.Point(520, 45);
+            this.dteA.Location = new System.Drawing.Point(529, 45);
             this.dteA.MenuManager = this.ribbonControl1;
             this.dteA.Name = "dteA";
             this.dteA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -179,14 +179,14 @@
             this.dteA.Properties.EditFormat.FormatString = "D";
             this.dteA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteA.Properties.Mask.EditMask = "D";
-            this.dteA.Size = new System.Drawing.Size(397, 20);
+            this.dteA.Size = new System.Drawing.Size(388, 20);
             this.dteA.StyleController = this.lcMain;
             this.dteA.TabIndex = 6;
             // 
             // dteDe
             // 
             this.dteDe.EditValue = null;
-            this.dteDe.Location = new System.Drawing.Point(72, 45);
+            this.dteDe.Location = new System.Drawing.Point(81, 45);
             this.dteDe.MenuManager = this.ribbonControl1;
             this.dteDe.Name = "dteDe";
             this.dteDe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -198,7 +198,7 @@
             this.dteDe.Properties.EditFormat.FormatString = "D";
             this.dteDe.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDe.Properties.Mask.EditMask = "D";
-            this.dteDe.Size = new System.Drawing.Size(396, 20);
+            this.dteDe.Size = new System.Drawing.Size(387, 20);
             this.dteDe.StyleController = this.lcMain;
             this.dteDe.TabIndex = 5;
             // 
@@ -232,6 +232,7 @@
             this.grvPedidos.Name = "grvPedidos";
             this.grvPedidos.OptionsView.ShowGroupPanel = false;
             this.grvPedidos.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.grvPedidos_CustomRowCellEdit);
+            this.grvPedidos.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.grvPedidos_CustomColumnDisplayText);
             // 
             // colEstado
             // 
@@ -240,6 +241,14 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 0;
+            // 
+            // colEmpresa
+            // 
+            this.colEmpresa.Caption = "Empresa";
+            this.colEmpresa.FieldName = "Empresa";
+            this.colEmpresa.Name = "colEmpresa";
+            this.colEmpresa.Visible = true;
+            this.colEmpresa.VisibleIndex = 1;
             // 
             // colNombre
             // 
@@ -268,7 +277,7 @@
             // colCreado
             // 
             this.colCreado.Caption = "Creado";
-            this.colCreado.FieldName = "UsuarioCreacion";
+            this.colCreado.FieldName = "Usuario";
             this.colCreado.Name = "colCreado";
             this.colCreado.Visible = true;
             this.colCreado.VisibleIndex = 5;
@@ -279,15 +288,6 @@
             this.colRutas.Name = "colRutas";
             this.colRutas.Visible = true;
             this.colRutas.VisibleIndex = 6;
-            // 
-            // ribeRutas
-            // 
-            this.ribeRutas.AutoHeight = false;
-            this.ribeRutas.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.ribeRutas.Name = "ribeRutas";
-            this.ribeRutas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.ribeRutas.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribeRutas_ButtonClick);
             // 
             // colHistorial
             // 
@@ -305,6 +305,15 @@
             this.ribeHistorial.Name = "ribeHistorial";
             this.ribeHistorial.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ribeHistorial.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribeHistorial_ButtonClick);
+            // 
+            // ribeRutas
+            // 
+            this.ribeRutas.AutoHeight = false;
+            this.ribeRutas.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.ribeRutas.Name = "ribeRutas";
+            this.ribeRutas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.ribeRutas.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribeRutas_ButtonClick);
             // 
             // Root
             // 
@@ -383,14 +392,6 @@
             this.lciEmpresas.Text = "Empresa:";
             this.lciEmpresas.TextSize = new System.Drawing.Size(45, 13);
             // 
-            // colEmpresa
-            // 
-            this.colEmpresa.Caption = "Empresa";
-            this.colEmpresa.FieldName = "Empresa";
-            this.colEmpresa.Name = "colEmpresa";
-            this.colEmpresa.Visible = true;
-            this.colEmpresa.VisibleIndex = 1;
-            // 
             // xfrmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,8 +414,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPedidos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgBusqueda)).EndInit();

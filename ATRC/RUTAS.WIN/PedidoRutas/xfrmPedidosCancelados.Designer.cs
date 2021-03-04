@@ -115,6 +115,7 @@
             this.grvPedidosCancelados.Name = "grvPedidosCancelados";
             this.grvPedidosCancelados.OptionsFind.AlwaysVisible = true;
             this.grvPedidosCancelados.OptionsView.ShowGroupPanel = false;
+            this.grvPedidosCancelados.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.grvPedidosCancelados_CustomColumnDisplayText);
             // 
             // colEstado
             // 
@@ -166,7 +167,7 @@
             // colCreado
             // 
             this.colCreado.Caption = "Creado";
-            this.colCreado.FieldName = "UsuarioCreacion";
+            this.colCreado.FieldName = "Usuario";
             this.colCreado.Name = "colCreado";
             this.colCreado.Visible = true;
             this.colCreado.VisibleIndex = 5;

@@ -40,6 +40,7 @@ namespace RUTAS.WIN.PedidoRutas
             Pedidos.AddProperty("Usuario", "UsuarioAlta", true);
             Pedidos.AddProperty("Rutas", "Rutas.Count()", false);
             Pedidos.Criteria = Go;
+            Pedidos.Sorting.Add(new SortProperty("Fecha", DevExpress.Xpo.DB.SortingDirection.Descending));
             grdPedidosRecibidos.DataSource = Pedidos;
 
         }
@@ -142,6 +143,9 @@ namespace RUTAS.WIN.PedidoRutas
                 foreach (RutasDePedido RutaPedido in Pedido.Rutas)
                 {
                     RutasGeneradas Ruta = new RutasGeneradas(Unidad);
+                    RutaPedido.CrearHistorial = false;
+                    RutaPedido.RutaGenerada = Ruta;
+                    RutaPedido.Save();
                     Ruta.TipoRuta = RutaPedido.TipoRuta;
                     Ruta.Ruta = RutaPedido.Ruta;
                     Ruta.Servicio = RutaPedido.Servicio;
@@ -154,6 +158,10 @@ namespace RUTAS.WIN.PedidoRutas
                     Ruta.HoraSalida = RutaPedido.HoraSalida;
                     Ruta.RutaCompleta = RutaPedido.RutaCompleta;
                     Ruta.Comentarios = RutaPedido.Comentarios;
+                    Ruta.ChoferEntrada = RutaPedido.ChoferEntrada;
+                    Ruta.ChoferSalida = RutaPedido.ChoferSalida;
+                    Ruta.PagarChoferEntrada = RutaPedido.PagarChoferEntrada;
+                    Ruta.PagarChoferSalida = RutaPedido.PagarChoferSalida;
                     Ruta.OrdenRutas = Orden;
 
                     #region Historial
@@ -174,6 +182,7 @@ namespace RUTAS.WIN.PedidoRutas
                     HistorialRutaGenerada.Save();
                     Ruta.Historial.Add(HistorialRutaGenerada);
                     #endregion
+                    
                     Ruta.Save();
                     Orden++;
                     //Rutas.Add(Ruta);
@@ -209,6 +218,15 @@ namespace RUTAS.WIN.PedidoRutas
                     BL.Utilerias.EnviarCorreo(Pedido);
                 }
 
+            }
+        }
+
+        private void grvPedidosRecibidos_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "Usuario" & e.ListSourceRowIndex >= 0)
+            {
+                Usuario Usuario = Unidad.GetObjectByKey<Usuario>(grvPedidosRecibidos.GetListSourceRowCellValue(e.ListSourceRowIndex, "Usuario"));
+                e.DisplayText = Usuario != null ? Usuario.Nombre : string.Empty;
             }
         }
     }

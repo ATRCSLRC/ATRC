@@ -201,7 +201,8 @@ namespace ATRCBASE.BL
             Comedor = 0,
             Caseta = 1,
             Recepcion = 2, 
-            Todas = 3
+            Todas = 3,
+            Rutas = 4
         }
 
         public enum EstadoPedidoRutas
@@ -224,6 +225,25 @@ namespace ATRCBASE.BL
             Cancelado = 4,
             Rechazado = 5,
             Pendiente = 6
+        }
+
+        public enum EstadoAclaraciones
+        {
+            Creado_Rutas = 0,
+            Creado_Maquiladora = 1,
+            Revision_Rutas = 2,
+            Revision_Maquiladora = 3,
+            Aprobada_Rutas = 4,
+            Aprobada_Maquiladora = 5,
+            Rechazada_Rutas = 6,
+            Rechazada_Maquiladora = 7,
+            Cambios_Realizados = 8
+        }
+
+        public enum TipoAcceso
+        {
+            Comedor = 0,
+            Dormitorio = 1
         }
     }
 }

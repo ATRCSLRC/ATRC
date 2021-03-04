@@ -63,6 +63,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsRutaExtra", ref mEsRutaExtra, value); }
         }
 
+        private bool mPorActualizar;
+        public bool PorActualizar
+        {
+            get { return mPorActualizar; }
+            set { SetPropertyValue<bool>("PorActualizar", ref mPorActualizar, value); }
+        }
+
         private bool mRutaCompleta;
         public bool RutaCompleta
         {
@@ -110,6 +117,12 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsApoyo", ref mEsApoyo, value); }
         }
 
+        private RutasGeneradas mRutaGenerada;
+        public RutasGeneradas RutaGenerada
+        {
+            get { return mRutaGenerada; }
+            set { SetPropertyValue<RutasGeneradas>("RutaGenerada", ref mRutaGenerada, value); }
+        }
 
         private Usuario mChoferEntrada;
         public Usuario ChoferEntrada
@@ -152,28 +165,56 @@ namespace RUTAS.BL
             get { return mNombreDocumento; }
             set { SetPropertyValue<string>("NombreDocumento", ref mNombreDocumento, value); }
         }
+
+        private string mComentariosFacturacion;
+        [Size(SizeAttribute.Unlimited)]
+        public string ComentariosFacturacion
+        {
+            get { return mComentariosFacturacion; }
+            set { SetPropertyValue<string>("ComentariosFacturacion", ref mComentariosFacturacion, value); }
+        }
+
+        private bool mCrearHistorial = true;
+        [NonPersistent]
+        public bool CrearHistorial
+        {
+            get { return mCrearHistorial; }
+            set { SetPropertyValue<bool>("CrearHistorial", ref mCrearHistorial, value); }
+        }
+
         protected override void OnSaving()
         {
-            HistorialRutasDePedido Historial = new HistorialRutasDePedido(this.Session);
-            Historial.Comentarios = this.Comentarios;
-            Historial.EsRutaExtra = this.EsRutaExtra;
-            Historial.FechaRuta = this.FechaRuta;
-            Historial.HoraEntrada = this.HoraEntrada;
-            Historial.HorarioModificacion = DateTime.Now;
-            Historial.HoraSalida = this.HoraSalida;
-            Historial.Ruta = this.Ruta;
-            Historial.RutaCompleta = this.RutaCompleta;
-            Historial.RutasDePedido = this;
-            Historial.Servicio = this.Servicio;
-            Historial.TipoRuta = this.TipoRuta;
-            Historial.Turno = this.Turno;
-            Historial.EsApoyo = this.EsApoyo;
-            Historial.Documento = this.Documento;
-            Historial.NombreDocumento = this.NombreDocumento;
-            Historial.Usuario = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo);
-            Historial.Save();
-            this.Historial.Add(Historial);
-            base.OnSaving();
+            if (this.CrearHistorial)
+            {
+                if (this.PedidoRutas.Estado == EstadoPedidoRutas.Aprobado)
+                    this.PorActualizar = true;
+                HistorialRutasDePedido Historial = new HistorialRutasDePedido(this.Session);
+
+                if (this.PedidoRutas.AclaracionActual != null)
+                    Historial.Aclaracion = PedidoRutas.AclaracionActual;
+                Historial.ComentariosFacturacion = this.ComentariosFacturacion;
+                Historial.Comentarios = this.Comentarios;
+                Historial.EsRutaExtra = this.EsRutaExtra;
+                Historial.FechaRuta = this.FechaRuta;
+                Historial.HoraEntrada = this.HoraEntrada;
+                Historial.HorarioModificacion = DateTime.Now;
+                Historial.HoraSalida = this.HoraSalida;
+                Historial.Ruta = this.Ruta;
+                Historial.RutaCompleta = this.RutaCompleta;
+                Historial.RutasDePedido = this;
+                Historial.Servicio = this.Servicio;
+                Historial.TipoRuta = this.TipoRuta;
+                Historial.Turno = this.Turno;
+                Historial.EsApoyo = this.EsApoyo;
+                Historial.Documento = this.Documento;
+                Historial.EstadoPedido = this.PedidoRutas.Estado;
+                Historial.NombreDocumento = this.NombreDocumento;
+                Historial.Usuario = ATRCBASE.BL.Utilerias.ObtenerUsuarioActual(this.Session as UnidadDeTrabajo);
+                Historial.Save();
+                this.Historial.Add(Historial);
+                base.OnSaving();
+            }
         }
-    }
+
+        }
 }

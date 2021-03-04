@@ -170,6 +170,7 @@
             this.grvPedidosRecibidos.OptionsView.ShowGroupPanel = false;
             this.grvPedidosRecibidos.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvPedidosRecibidos_RowClick);
             this.grvPedidosRecibidos.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.grvPedidosRecibidos_CustomRowCellEdit);
+            this.grvPedidosRecibidos.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.grvPedidosRecibidos_CustomColumnDisplayText);
             // 
             // colEstado
             // 
@@ -229,7 +230,7 @@
             // colCreado
             // 
             this.colCreado.Caption = "Creado";
-            this.colCreado.FieldName = "UsuarioCreacion";
+            this.colCreado.FieldName = "Usuario";
             this.colCreado.Name = "colCreado";
             this.colCreado.OptionsColumn.AllowEdit = false;
             this.colCreado.OptionsColumn.AllowFocus = false;

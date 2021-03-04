@@ -63,6 +63,13 @@ namespace RUTAS.BL
             set { SetPropertyValue<bool>("EsRutaExtra", ref mEsRutaExtra, value); }
         }
 
+        private EstadoPedidoRutas mEstadoPedido;
+        public EstadoPedidoRutas EstadoPedido
+        {
+            get { return mEstadoPedido; }
+            set { SetPropertyValue<EstadoPedidoRutas>("EstadoPedido", ref mEstadoPedido, value); }
+        }
+
         private bool mRutaCompleta;
         public bool RutaCompleta
         {
@@ -127,6 +134,21 @@ namespace RUTAS.BL
         {
             get { return mNombreDocumento; }
             set { SetPropertyValue<string>("NombreDocumento", ref mNombreDocumento, value); }
+        }
+
+        private string mComentariosFacturacion;
+        [Size(SizeAttribute.Unlimited)]
+        public string ComentariosFacturacion
+        {
+            get { return mComentariosFacturacion; }
+            set { SetPropertyValue<string>("ComentariosFacturacion", ref mComentariosFacturacion, value); }
+        }
+
+        private BL.AclaracionesPedido mAclaracion;
+        public BL.AclaracionesPedido Aclaracion
+        {
+            get { return mAclaracion; }
+            set { SetPropertyValue<BL.AclaracionesPedido>("Aclaracion", ref mAclaracion, value); }
         }
     }
 }

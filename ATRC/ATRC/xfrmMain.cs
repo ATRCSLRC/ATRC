@@ -47,6 +47,8 @@ namespace ATRC
             {
                 bbiUsuarios.Visibility = VisibilidadPermiso("Usuarios");
                 bbiAnunciosUsuarios.Visibility = VisibilidadPermiso("AnunciosUsuario");
+                bbiAccesos.Visibility = VisibilidadPermiso("AccesosUsuario");
+                bbiHistorialAccesos.Visibility = VisibilidadPermiso("HistorialAccesosUsuario");
                 rbnpgReportesUsuarios.Visible = VisibilidadPermiso("ReportesUsuarios") == BarItemVisibility.Always ? true : false;
                 rbnpgUsuario.Visible = bbiUsuarios.Visibility == BarItemVisibility.Always ? true : false;
             }
@@ -178,6 +180,7 @@ namespace ATRC
                 bbiServiciosRealizados.Visibility = VisibilidadPermiso("ServiciosRealizados");
                 bbiReportesServicios.Visibility = VisibilidadPermiso("ConsultaReportesServicios");
                 bbiHistorialRutasGeneradas.Visibility = VisibilidadPermiso("HistorialRutasGeneradas");
+                bbiPublicarRutas.Visibility = VisibilidadPermiso("PublicarRutas");
                 rpgReportesRutas.Visible = VisibilidadPermiso("ReportesRutas") == BarItemVisibility.Always ? true : false;
                 rpgConfiguracionRutas.Visible = VisibilidadPermiso("ConfiguracionRutas") == BarItemVisibility.Always ? true : false;
 
@@ -299,6 +302,29 @@ namespace ATRC
             }
         }
 
+        private void bbiAnunciosUsuarios_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmAnunciosUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmAnunciosUsuariosGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAccesos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmAccesos xfrm = new ATRCBASE.WIN.xfrmAccesos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiHistorialAccesos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmHistorialAccesos xfrm = new ATRCBASE.WIN.xfrmHistorialAccesos();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
         #endregion
 
         #region Administracion
@@ -328,30 +354,30 @@ namespace ATRC
 
         private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            //DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
-            //Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            //foreach (ViewRecord Usuario in Usuarios)
-            //{
-            //    if (Usuario["Imagen.Archivo"] != null)
-            //    {
-            //        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
-            //        if (image != null)
-            //        {
-            //            string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
-            //            if (!File.Exists(f))
-            //            {
-            //                using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
-            //                {
-            //                    Image returnImage = Image.FromStream(stream);
+            ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
+            Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            foreach (ViewRecord Usuario in Usuarios)
+            {
+                if (Usuario["Imagen.Archivo"] != null)
+                {
+                    byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+                    if (image != null)
+                    {
+                        string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+                        if (!File.Exists(f))
+                        {
+                            using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
+                            {
+                                Image returnImage = Image.FromStream(stream);
 
-            //                    File.WriteAllBytes(f, image);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            Utilerias.ActualizarEsquema();
+                                File.WriteAllBytes(f, image);
+                            }
+                        }
+                    }
+                }
+            }
+           // Utilerias.ActualizarEsquema();
             //Application.Exit();
         }
         #endregion
@@ -513,6 +539,14 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
+
+        private void bbiHistorialHerramientaPrestada_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmBusquedaHerramientaPrestada xfrm = new ALMACEN.WIN.xfrmBusquedaHerramientaPrestada();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
         #endregion
 
         #region Unidades
@@ -579,7 +613,56 @@ namespace ATRC
             xfrm.Show();
         }
 
+        private void bbiExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmExtintoresGRD xfrm = new UNIDADES.WIN.xfrmExtintoresGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmInventarioExtintores xfrm = new UNIDADES.WIN.xfrmInventarioExtintores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiHistorialInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.xfrmHistorialExtintores xfrm = new UNIDADES.WIN.xfrmHistorialExtintores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiBaterias_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.Baterias.xfrmInventarioBaterias xfrm = new UNIDADES.WIN.Baterias.xfrmInventarioBaterias();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiHistorialBaterias_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.Baterias.xfrmHistorialInventarioBaterias xfrm = new UNIDADES.WIN.Baterias.xfrmHistorialInventarioBaterias();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiUnidadesFueraServicio_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.Unidades.xfrmUnidadesFueraServicio xfrm = new UNIDADES.WIN.Unidades.xfrmUnidadesFueraServicio();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
         #endregion
+
+        #region Llantera
 
         private void bbiCambioLlanta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -615,7 +698,9 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
+        #endregion
 
+        #region Taller
         private void bbiBitacoraActividades_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TALLER.WIN.xfrmSeleccionEmpleados xfrm = new TALLER.WIN.xfrmSeleccionEmpleados();
@@ -632,6 +717,25 @@ namespace ATRC
             xfrm.Show();
         }
 
+        private void rgbiTaller_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            switch (e.Item.Description)
+            {
+                case "Actividades de taller por empleado":
+                    TALLER.WIN.xfrmFiltrosTaller xfrmEmpleado = new TALLER.WIN.xfrmFiltrosTaller();
+                    xfrmEmpleado.EsDiario = false;
+                    xfrmEmpleado.Show();
+                    break;
+                case "Actividades de taller por día":
+                    TALLER.WIN.xfrmFiltrosTaller xfrmDiario = new TALLER.WIN.xfrmFiltrosTaller();
+                    xfrmDiario.EsDiario = true;
+                    xfrmDiario.Show();
+                    break;
+            }
+        }
+        #endregion
+
+        #region Rutas
         private void bbiMapa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             RUTAS.WIN.xfrmRutasGRD xfrm = new RUTAS.WIN.xfrmRutasGRD();
@@ -682,12 +786,7 @@ namespace ATRC
             xfrm.Show();
         }
 
-        private void bvbiContraseña_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
-        {
-            ATRCBASE.WIN.xfrmCambioContraseña xfrm = new ATRCBASE.WIN.xfrmCambioContraseña();
-            xfrm.ShowInTaskbar = false;
-            xfrm.ShowDialog();
-        }
+        
 
         private void bbiPlantillasRutasExternas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -705,6 +804,89 @@ namespace ATRC
             xfrm.Show();
         }
 
+        private void bbiTurnos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmTurnosGRD xfrmd = new RUTAS.WIN.xfrmTurnosGRD();
+            xfrmd.ShowInTaskbar = false;
+            xfrmd.MdiParent = this;
+            xfrmd.Show();
+        }
+
+        private void bbiServiciosRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmServiciosGRD xfrm = new RUTAS.WIN.xfrmServiciosGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPrecioServicio_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmPreciosPorEmpresa xfrm = new RUTAS.WIN.xfrmPreciosPorEmpresa();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiImportarRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmImportacionRutas xfrm = new RUTAS.WIN.xfrmImportacionRutas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiServiciosRealizados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmServiciosRealizados xfrm = new RUTAS.WIN.xfrmServiciosRealizados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiReportesServicios_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmReportesServiciosRealizados xfrm = new RUTAS.WIN.xfrmReportesServiciosRealizados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void rgbiReportesRutas_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            //switch (e.Item.Description)
+            //{
+            //    case "Rutas fijas":
+            //        break;
+            //    case "Rutas extras":
+            //        break;
+            //    case "Rutas fijas por usuario":
+            //        break;
+            //    case "Rutas extras por usuario":
+            //        break;
+            //    case "Total horas trabajadas semanales":
+            CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
+            xfrmHoras.Titulo = e.Item.Description;
+            xfrmHoras.Size = new Size(635, 240);
+            xfrmHoras.Todos = false;
+            xfrmHoras.MdiParent = this;
+            xfrmHoras.Show();
+            //        break;
+            //}    
+        }
+
+        private void bbiHistorialRutasGeneradas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CHECADOR.WIN.xfrmFiltrosReportes xfrmHistorial = new CHECADOR.WIN.xfrmFiltrosReportes();
+            xfrmHistorial.Titulo = e.Item.Caption;
+            xfrmHistorial.Size = new Size(635, 240);
+            xfrmHistorial.Todos = true;
+            xfrmHistorial.MdiParent = this;
+            xfrmHistorial.Show();
+        }
+        #endregion
+
+        #region Guardias
         private void bbiReporteNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             GUARDIAS.WIN.xfrmNuevoReporte xfrm = new GUARDIAS.WIN.xfrmNuevoReporte();
@@ -720,183 +902,10 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
-
+        
         private void bbiListaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             COMBUSTIBLE.WIN.xfrmPedidoDiesel xfrm = new COMBUSTIBLE.WIN.xfrmPedidoDiesel();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.xfrmExtintoresGRD xfrm = new UNIDADES.WIN.xfrmExtintoresGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.xfrmInventarioExtintores xfrm = new UNIDADES.WIN.xfrmInventarioExtintores();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiTanques_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD xfrm = new COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmCapturaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmCapturaDiesel();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiRecargaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmRecargasGRD xfrm = new COMBUSTIBLE.WIN.xfrmRecargasGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiMedidorTanque_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmMedidores xfrm = new COMBUSTIBLE.WIN.xfrmMedidores();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiReporte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-        }
-
-        private void bbiGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmCapturaGasolina xfrm = new COMBUSTIBLE.WIN.xfrmCapturaGasolina();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void rgbiCombustibles_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmFiltrosCombustible xfrm = new COMBUSTIBLE.WIN.xfrmFiltrosCombustible();
-            switch (e.Item.Description)
-            {
-                case "Consumo de combustible":
-                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.Consumo;
-                    break;
-                case "Recargas de combustible":
-                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.PedidoDiesel;
-                    break;
-                case "Unidades con combustible":
-                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.UnidadDiesel;
-                    break;
-                case "Detalles de medidores":
-                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.DetallesMedidores;
-                    break;
-            }
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show(); 
-        }
-
-        private void bbiHistorialInventarioExtintores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.xfrmHistorialExtintores xfrm = new UNIDADES.WIN.xfrmHistorialExtintores();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiPedidoGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmUnidadesGasolina xfrm = new COMBUSTIBLE.WIN.xfrmUnidadesGasolina();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiDetalleCandados_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmProblemasCandados xfrm = new COMBUSTIBLE.WIN.xfrmProblemasCandados();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiModificacionDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmModificarDiesel xfrm = new COMBUSTIBLE.WIN.xfrmModificarDiesel();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiActualizarPermisos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            ATRCBASE.BL.Utilerias.Permisos();
-        }
-
-        private BarItemVisibility VisibilidadPermiso(string permiso)
-        {
-            if (ATRCBASE.BL.Utilerias.TienePermisos(permiso))
-            {
-                return BarItemVisibility.Always;
-            }
-            else
-            {
-                return BarItemVisibility.Never;
-            }
-        }
-
-        private void rgbiTaller_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
-        {
-            switch (e.Item.Description)
-            {
-                case "Actividades de taller por empleado":
-                    TALLER.WIN.xfrmFiltrosTaller xfrmEmpleado = new TALLER.WIN.xfrmFiltrosTaller();
-                    xfrmEmpleado.EsDiario = false;
-                    xfrmEmpleado.Show();
-                    break;
-                case "Actividades de taller por día":
-                    TALLER.WIN.xfrmFiltrosTaller xfrmDiario = new TALLER.WIN.xfrmFiltrosTaller();
-                    xfrmDiario.EsDiario = true;
-                    xfrmDiario.Show();
-                    break;
-            }
-        }
-
-        private void bbiBaterias_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.Baterias.xfrmInventarioBaterias  xfrm = new UNIDADES.WIN.Baterias.xfrmInventarioBaterias();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiHistorialBaterias_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.Baterias.xfrmHistorialInventarioBaterias xfrm = new UNIDADES.WIN.Baterias.xfrmHistorialInventarioBaterias();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiUnidadesFueraServicio_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            UNIDADES.WIN.Unidades.xfrmUnidadesFueraServicio xfrm = new UNIDADES.WIN.Unidades.xfrmUnidadesFueraServicio();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();
@@ -993,6 +1002,116 @@ namespace ATRC
             xfrm.Show();
         }
 
+        private void bbiUnidadesDisponibles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles xfrm = new GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiUnidadesRenta_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GUARDIAS.WIN.xfrmUnidadesRenta xfrm = new GUARDIAS.WIN.xfrmUnidadesRenta();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+        #endregion
+
+        #region Combustible
+
+        private void bbiTanques_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD xfrm = new COMBUSTIBLE.WIN.xfrmTanquesCombustibleGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCapturaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmCapturaDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiRecargaDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmRecargasGRD xfrm = new COMBUSTIBLE.WIN.xfrmRecargasGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiMedidorTanque_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmMedidores xfrm = new COMBUSTIBLE.WIN.xfrmMedidores();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiReporte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        }
+
+        private void bbiGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCapturaGasolina xfrm = new COMBUSTIBLE.WIN.xfrmCapturaGasolina();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void rgbiCombustibles_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmFiltrosCombustible xfrm = new COMBUSTIBLE.WIN.xfrmFiltrosCombustible();
+            switch (e.Item.Description)
+            {
+                case "Consumo de combustible":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.Consumo;
+                    break;
+                case "Recargas de combustible":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.PedidoDiesel;
+                    break;
+                case "Unidades con combustible":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.UnidadDiesel;
+                    break;
+                case "Detalles de medidores":
+                    xfrm.ReporteCombustible = ATRCBASE.BL.Enums.ReporteCombustible.DetallesMedidores;
+                    break;
+            }
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show(); 
+        }
+        
+        private void bbiPedidoGasolina_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmUnidadesGasolina xfrm = new COMBUSTIBLE.WIN.xfrmUnidadesGasolina();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiDetalleCandados_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmProblemasCandados xfrm = new COMBUSTIBLE.WIN.xfrmProblemasCandados();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiModificacionDiesel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmModificarDiesel xfrm = new COMBUSTIBLE.WIN.xfrmModificarDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
         private void bbiModificarGasolina_ItemClick(object sender, ItemClickEventArgs e)
         {
             COMBUSTIBLE.WIN.xfrmModificarGasolina xfrm = new COMBUSTIBLE.WIN.xfrmModificarGasolina();
@@ -1000,6 +1119,79 @@ namespace ATRC
             xfrm.MdiParent = this;
             xfrm.Show();
         }
+
+        private void bbiCalculosCarga_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
+            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Diesel;
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiCalculosCargaGasolina_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
+            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Gasolina;
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiNuevaRecarga_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmRecargaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmRecargaDiesel();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+        #endregion
+
+        #region Configuraciones
+        private void bbiUsuariosExternos_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmUsuariosPortalGRD xfrm = new ATRCBASE.WIN.xfrmUsuariosPortalGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiConfiguracion_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmConfiguraciones xfrm = new ATRCBASE.WIN.xfrmConfiguraciones();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiActualizarPermisos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ATRCBASE.BL.Utilerias.Permisos();
+        }
+        #endregion
+
+        private void bvbiContraseña_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmCambioContraseña xfrm = new ATRCBASE.WIN.xfrmCambioContraseña();
+            xfrm.ShowInTaskbar = false;
+            xfrm.ShowDialog();
+        }
+
+        
+
+        private BarItemVisibility VisibilidadPermiso(string permiso)
+        {
+            if (ATRCBASE.BL.Utilerias.TienePermisos(permiso))
+            {
+                return BarItemVisibility.Always;
+            }
+            else
+            {
+                return BarItemVisibility.Never;
+            }
+        }
+
+        
 
         private void repositoryItemComboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -1070,39 +1262,6 @@ namespace ATRC
             Unidad.CommitChanges();
         }
 
-        private void bbiCalculosCarga_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
-            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Diesel;
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiCalculosCargaGasolina_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmCalculosCarga xfrm = new COMBUSTIBLE.WIN.xfrmCalculosCarga();
-            xfrm.Tipo = ATRCBASE.BL.Enums.Combustible.Gasolina;
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiUnidadesDisponibles_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles xfrm = new GUARDIAS.WIN.Renta.xfrmUnidadesDisponibles();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiUnidadesRenta_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            GUARDIAS.WIN.xfrmUnidadesRenta xfrm = new GUARDIAS.WIN.xfrmUnidadesRenta();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
 
         private void xfrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1110,128 +1269,6 @@ namespace ATRC
             {
                 e.Cancel = true;
             }
-        }
-
-        private void rgbiReportesRutas_GalleryItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
-        {
-            //switch (e.Item.Description)
-            //{
-            //    case "Rutas fijas":
-            //        break;
-            //    case "Rutas extras":
-            //        break;
-            //    case "Rutas fijas por usuario":
-            //        break;
-            //    case "Rutas extras por usuario":
-            //        break;
-            //    case "Total horas trabajadas semanales":
-                    CHECADOR.WIN.xfrmFiltrosReportes xfrmHoras = new CHECADOR.WIN.xfrmFiltrosReportes();
-                    xfrmHoras.Titulo = e.Item.Description;
-                    xfrmHoras.Size = new Size(635, 240);
-                    xfrmHoras.Todos = false;
-                    xfrmHoras.MdiParent = this;
-                    xfrmHoras.Show();
-            //        break;
-            //}    
-        }
-
-        private void bbiAnunciosUsuarios_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ATRCBASE.WIN.xfrmAnunciosUsuariosGRD xfrm = new ATRCBASE.WIN.xfrmAnunciosUsuariosGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiTurnos_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmTurnosGRD xfrmd = new RUTAS.WIN.xfrmTurnosGRD();
-            xfrmd.ShowInTaskbar = false;
-            xfrmd.MdiParent = this;
-            xfrmd.Show();
-        }
-
-        private void bbiServiciosRutas_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmServiciosGRD xfrm = new RUTAS.WIN.xfrmServiciosGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiPrecioServicio_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmPreciosPorEmpresa xfrm = new RUTAS.WIN.xfrmPreciosPorEmpresa();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiImportarRutas_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmImportacionRutas xfrm = new RUTAS.WIN.xfrmImportacionRutas();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiServiciosRealizados_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmServiciosRealizados xfrm = new RUTAS.WIN.xfrmServiciosRealizados();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiReportesServicios_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            RUTAS.WIN.xfrmReportesServiciosRealizados xfrm = new RUTAS.WIN.xfrmReportesServiciosRealizados();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiUsuariosExternos_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ATRCBASE.WIN.xfrmUsuariosPortalGRD xfrm = new ATRCBASE.WIN.xfrmUsuariosPortalGRD();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiConfiguracion_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ATRCBASE.WIN.xfrmConfiguraciones xfrm = new ATRCBASE.WIN.xfrmConfiguraciones();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiHistorialHerramientaPrestada_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ALMACEN.WIN.xfrmBusquedaHerramientaPrestada xfrm = new ALMACEN.WIN.xfrmBusquedaHerramientaPrestada();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
-        }
-
-        private void bbiHistorialRutasGeneradas_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CHECADOR.WIN.xfrmFiltrosReportes xfrmHistorial = new CHECADOR.WIN.xfrmFiltrosReportes();
-            xfrmHistorial.Titulo = e.Item.Caption;
-            xfrmHistorial.Size = new Size(635, 240);
-            xfrmHistorial.Todos = true;
-            xfrmHistorial.MdiParent = this;
-            xfrmHistorial.Show();
-        }
-
-
-        private void bbiNuevaRecarga_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            COMBUSTIBLE.WIN.xfrmRecargaDiesel xfrm = new COMBUSTIBLE.WIN.xfrmRecargaDiesel();
-            xfrm.ShowInTaskbar = false;
-            xfrm.MdiParent = this;
-            xfrm.Show();
         }
 
         private void bbiPedidosRecibidos_ItemClick(object sender, ItemClickEventArgs e)
@@ -1277,6 +1314,54 @@ namespace ATRC
         private void bbiConfiguracionRutas_ItemClick(object sender, ItemClickEventArgs e)
         {
             RUTAS.WIN.xfrmConfiguracionesRutas xfrm = new RUTAS.WIN.xfrmConfiguracionesRutas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAclaraciones_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmAclaraciones xfrm = new RUTAS.WIN.xfrmAclaraciones();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAclaracionesAprobadas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmAclaracionesAprobadas xfrm = new RUTAS.WIN.xfrmAclaracionesAprobadas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAclarcacionesCreadas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmAclaracionesCreadas xfrm = new RUTAS.WIN.xfrmAclaracionesCreadas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAclaracionesRechazadas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmAclaracionesRechazadas xfrm = new RUTAS.WIN.xfrmAclaracionesRechazadas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAclaracionesRecibidas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.xfrmAclaracionesRecibidas xfrm = new RUTAS.WIN.xfrmAclaracionesRecibidas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiPublicarRutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.Anuncios.xfrmPublicacionRutas xfrm = new RUTAS.WIN.Anuncios.xfrmPublicacionRutas();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

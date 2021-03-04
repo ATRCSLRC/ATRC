@@ -7,7 +7,7 @@ using static ATRCBASE.BL.Enums;
 
 namespace ATRCBASE.BL
 {
-    [Persistent("gen_AnuncioUsuario")]
+    [Persistent("gen_AnuncioUsuario"), DeferredDeletion(false)]
     public class AnuncioUsuario : ATRCBase
     {
         public AnuncioUsuario(Session session) : base(session) { }
@@ -54,6 +54,14 @@ namespace ATRCBASE.BL
         {
             get { return GetDelayedPropertyValue<Byte[]>("Anuncio"); }
             set { SetDelayedPropertyValue<Byte[]>("Anuncio", value); }
+        }
+
+        private PublicacionAnuncios mPublicacion;
+        [Association("Publicacion-Anuncio")]
+        public PublicacionAnuncios Publicacion
+        {
+            get { return mPublicacion; }
+            set { SetPropertyValue(nameof(PublicacionAnuncios), ref mPublicacion, value); }
         }
     }
 }

@@ -190,6 +190,34 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<bool>("EsExterno", ref mEsExterno, value); }
         }
 
+        private bool mAccesoComedor;
+        public bool AccesoComedor
+        {
+            get { return mAccesoComedor; }
+            set { SetPropertyValue<bool>("AccesoComedor", ref mAccesoComedor, value); }
+        }
+
+        private bool mAccesoDormitorio;
+        public bool AccesoDormitorio
+        {
+            get { return mAccesoDormitorio; }
+            set { SetPropertyValue<bool>("AccesoDormitorio", ref mAccesoDormitorio, value); }
+        }
+
+        private Nullable<DateTime> mHoraDeDormitorio;
+        public Nullable<DateTime> HoraDeDormitorio
+        {
+            get { return mHoraDeDormitorio; }
+            set { SetPropertyValue<Nullable<DateTime>>("HoraDeDormitorio", ref mHoraDeDormitorio, value); }
+        }
+
+        private Nullable<DateTime> mHoraADormitorio;
+        public Nullable<DateTime> HoraADormitorio
+        {
+            get { return mHoraADormitorio; }
+            set { SetPropertyValue<Nullable<DateTime>>("HoraADormitorio", ref mHoraADormitorio, value); }
+        }
+
         [Association("Usuarios-Permisos", UseAssociationNameAsIntermediateTableName = true)]
         public XPCollection<Permiso> Permisos { get { return GetCollection<Permiso>("Permisos"); } }
 

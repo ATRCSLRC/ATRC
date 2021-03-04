@@ -478,7 +478,7 @@ namespace RUTAS.WIN
                     break;
             }
 
-        }
+        } 
 
         private void lueServicio_Properties_PopupFilter(object sender, DevExpress.XtraEditors.Controls.PopupFilterEventArgs e)
         {

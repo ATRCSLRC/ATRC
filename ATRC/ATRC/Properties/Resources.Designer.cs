@@ -543,6 +543,26 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_sensor_de_puerta_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sensor-de-puerta-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_sensor_de_puerta_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sensor-de-puerta-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_servicios_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-servicios-32", resourceCulture);
@@ -556,6 +576,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_servicios_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-servicios-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_televisión_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-televisión-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

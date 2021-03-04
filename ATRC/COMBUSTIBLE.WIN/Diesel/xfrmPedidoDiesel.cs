@@ -143,5 +143,20 @@ namespace COMBUSTIBLE.WIN
                 bbiGuardar.PerformClick();
             }
         }
+
+        private void lueUnidad_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.PageDown)
+            {
+                //lueUnidad.ShowPopup();
+                SendKeys.Send("{DOWN}");
+            }
+
+            if (e.KeyCode == Keys.PageUp)
+            {
+               // lueUnidad.ShowPopup();
+                SendKeys.Send("{UP}");
+            }
+        }
     }
 }

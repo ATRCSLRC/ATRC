@@ -37,8 +37,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +59,8 @@
     <Compile Include="RutasMaquiladora\MotivosModificacionRutas.cs" />
     <Compile Include="RutasMaquiladora\PedidoRutas.cs" />
     <Compile Include="RutasMaquiladora\RutasDePedido.cs" />
+    <Compile Include="Rutas\AclaracionesPedido.cs" />
+    <Compile Include="Rutas\HistorialAclaracionesPedido.cs" />
     <Compile Include="Rutas\HistorialRutaGenerada.cs" />
     <Compile Include="Rutas\PlantillaRutaFija.cs" />
     <Compile Include="Rutas\PlantillaRutas.cs" />

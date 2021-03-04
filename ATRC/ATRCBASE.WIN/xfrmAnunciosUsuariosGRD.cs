@@ -1,4 +1,5 @@
 ﻿using ATRCBASE.BL;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using System;
@@ -9,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static ATRCBASE.BL.Enums;
 
 namespace ATRCBASE.WIN
 {
@@ -26,7 +28,7 @@ namespace ATRCBASE.WIN
             bbiModificar.Visibility = Utilerias.VisibilidadPermiso("ModificarAnuncio");
             bbiEliminar.Visibility = Utilerias.VisibilidadPermiso("EliminarAnuncio");
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Publicar;LugarPublicar", null);
+            XPView Usuarios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Publicar;LugarPublicar", new BinaryOperator("LugarPublicar", LugarPublicar.Rutas, BinaryOperatorType.NotEqual));
             //Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdAnuncios.DataSource = Usuarios;
         }

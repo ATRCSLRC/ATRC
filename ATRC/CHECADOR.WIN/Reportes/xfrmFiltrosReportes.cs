@@ -67,8 +67,35 @@ namespace CHECADOR.WIN
                     }
                     break;
                 case "Total horas trabajadas semanales":
-                    ReportPrintTool repTotalHoras = new ReportPrintTool(new REPORTES.Usuarios.Usuarios(dteDel.DateTime, dteAl.DateTime, Todos));
-                    repTotalHoras.ShowPreview();
+                    XtraInputBoxArgs args = new XtraInputBoxArgs();
+                    args.Caption = "Ordenamiento de horas trabajadas";
+                    args.Prompt = "orden:";
+
+                    RadioGroup editor = new RadioGroup();
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("AscendenteUsuario", "Número de usuario"));
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("AscendenteHoras", "Horas trabajadas"));
+                    args.DefaultResponse = "AscendenteHoras";
+                    editor.Properties.Columns = 2;
+                    //SpinEdit editor = new SpinEdit();
+                    //editor.Properties.MinValue = 1;
+                    //editor.Properties.MaxValue = Salida.Cantidad;
+                    args.Editor = editor;
+                    //args.DefaultResponse = Salida.Cantidad;
+                    var result = XtraInputBox.Show(args);
+                    if (result != null)
+                    {
+                        if(result.ToString() == "AscendenteUsuario")
+                        {
+                            ReportPrintTool repTotalHoras = new ReportPrintTool(new REPORTES.Usuarios.Usuarios(dteDel.DateTime, dteAl.DateTime, Todos, true));
+                            repTotalHoras.ShowPreview();
+                        }
+                        else
+                        {
+                            ReportPrintTool repTotalHoras = new ReportPrintTool(new REPORTES.Usuarios.Usuarios(dteDel.DateTime, dteAl.DateTime, Todos, false));
+                            repTotalHoras.ShowPreview();
+                        }
+                    }
+                    
                     break;
                 case "Rutas fijas":
                     ReportPrintTool repRutasFijas = new ReportPrintTool(new REPORTES.Rutas.ReporteRutasFijas(dteDel.DateTime.Date));

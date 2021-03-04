@@ -390,10 +390,12 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Activar/Desactivar Usuario", "ActivarDasactivarUsuario", nivel2);
             nivel3 = CrearPermisos(Unidad, "Imprimir gafete", "ImprimirGafete", nivel2);
             nivel2 = CrearPermisos(Unidad, "Reportes", "ReportesUsuarios", nivel1);
-            nivel2 = CrearPermisos(Unidad, "Anuncios", "AnunciosUsuario", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Anuncios", "AnunciosUsuario", nivel1); 
             nivel3 = CrearPermisos(Unidad, "Nuevo Anuncio", "NuevoAnuncio", nivel2);
             nivel3 = CrearPermisos(Unidad, "Modificar Anuncio", "ModificarAnuncio", nivel2);
             nivel3 = CrearPermisos(Unidad, "Eliminar Anuncio", "EliminarAnuncio", nivel2);
+            nivel2 = CrearPermisos(Unidad, "Accesos", "AccesosUsuario", nivel1); 
+            nivel2 = CrearPermisos(Unidad, "Historial accesos", "HistorialAccesosUsuario", nivel1);
             #endregion
 
             #region Checador
@@ -517,6 +519,7 @@ namespace ATRCBASE.BL
             nivel3 = CrearPermisos(Unidad, "Modificar Servicio", "ModificarServicioPrecio", nivel2);
 
             nivel2 = CrearPermisos(Unidad, "Historial de Rutas Generadas", "HistorialRutasGeneradas", nivel1);
+            nivel2 = CrearPermisos(Unidad, "Publicar rutas", "PublicarRutas", nivel1);
 
             nivel2 = CrearPermisos(Unidad, "Importación de rutas", "ImportacionRutas", nivel1);
             nivel2 = CrearPermisos(Unidad, "Servicios realizados", "ServiciosRealizados", nivel1);

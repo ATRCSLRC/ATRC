@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using DevExpress.Xpo;
+using RUTAS.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,14 @@ namespace RUTAS.BL
             set { SetPropertyValue<string>("Detalle", ref mDetalle, value); }
         }
 
+        private BL.AclaracionesPedido mAclaracionActual;
+        [NonPersistent]
+        public BL.AclaracionesPedido AclaracionActual
+        {
+            get { return mAclaracionActual; }
+            set { SetPropertyValue<BL.AclaracionesPedido>("AclaracionActual", ref mAclaracionActual, value); }
+        }
+
         [Association("Rutas-PedidoRutas")]
         public XPCollection<RutasDePedido> Rutas
         {
@@ -68,6 +77,16 @@ namespace RUTAS.BL
             get
             {
                 return GetCollection<HistorialPedidoRutas>(nameof(Historial));
+            }
+        }
+
+        [Association("PedidoRutas-Aclaraciones")]
+        public XPCollection<BL.AclaracionesPedido> Aclaraciones
+        {
+
+            get
+            {
+                return GetCollection<BL.AclaracionesPedido>(nameof(Aclaraciones));
             }
         }
 

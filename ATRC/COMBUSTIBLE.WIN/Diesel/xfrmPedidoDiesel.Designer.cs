@@ -210,7 +210,7 @@
             this.lueUnidad.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lueUnidad.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down)});
             this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.DisplayMember = "Nombre";
@@ -221,6 +221,7 @@
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 7;
             this.lueUnidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lueUnidad_KeyDown);
+            this.lueUnidad.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.lueUnidad_PreviewKeyDown);
             // 
             // txtEmpleado
             // 

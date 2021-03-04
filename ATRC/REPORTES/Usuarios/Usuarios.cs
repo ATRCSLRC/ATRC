@@ -17,7 +17,7 @@ namespace REPORTES.Usuarios
         public UnidadDeTrabajo Unidad;
         DateTime DeInicio;
         DateTime AlFinal;
-        public Usuarios(DateTime De, DateTime Al, bool Todos)
+        public Usuarios(DateTime De, DateTime Al, bool Todos, bool OrdenEmpleado)
         {
             InitializeComponent();
 
@@ -34,7 +34,7 @@ namespace REPORTES.Usuarios
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
 
             DataTable Tabla = CreateDataTableFromXPView(Usuarios);
-            Tabla.DefaultView.Sort = "HorasTrabajadas desc";
+            Tabla.DefaultView.Sort = OrdenEmpleado ? "NumEmpleado asc" : "HorasTrabajadas desc";
 
             this.DataSource = Tabla;
         }

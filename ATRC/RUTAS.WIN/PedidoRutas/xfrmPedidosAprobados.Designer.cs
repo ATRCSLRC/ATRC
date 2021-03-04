@@ -30,30 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmPedidosAprobados));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bbiAclaracion = new DevExpress.XtraBars.BarButtonItem();
+            this.rpAcciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdPedidosAprobados = new DevExpress.XtraGrid.GridControl();
             this.grvPedidosAprobados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaPedido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidadRutas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRutas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribeRutas = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colHistorial = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribeHistorial = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ribeRutas = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.ribeHistorial = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPedidosAprobados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPedidosAprobados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -61,27 +64,49 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.ribbonControl1.SearchEditItem});
+            this.ribbonControl1.SearchEditItem,
+            this.bbiAclaracion});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.MaxItemId = 2;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rpAcciones});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.ShowMoreCommandsButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowQatLocationSelector = false;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(800, 32);
+            this.ribbonControl1.Size = new System.Drawing.Size(800, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
+            // 
+            // bbiAclaracion
+            // 
+            this.bbiAclaracion.Caption = "Generar aclaración";
+            this.bbiAclaracion.Id = 1;
+            this.bbiAclaracion.Name = "bbiAclaracion";
+            this.bbiAclaracion.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiAclaracion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclaracion_ItemClick);
+            // 
+            // rpAcciones
+            // 
+            this.rpAcciones.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rpAcciones.Name = "rpAcciones";
+            this.rpAcciones.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiAclaracion);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdPedidosAprobados);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 32);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.Root;
-            this.lcMain.Size = new System.Drawing.Size(800, 418);
+            this.lcMain.Size = new System.Drawing.Size(800, 318);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -94,7 +119,7 @@
             this.grdPedidosAprobados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ribeRutas,
             this.ribeHistorial});
-            this.grdPedidosAprobados.Size = new System.Drawing.Size(776, 394);
+            this.grdPedidosAprobados.Size = new System.Drawing.Size(776, 294);
             this.grdPedidosAprobados.TabIndex = 4;
             this.grdPedidosAprobados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPedidosAprobados});
@@ -115,6 +140,7 @@
             this.grvPedidosAprobados.Name = "grvPedidosAprobados";
             this.grvPedidosAprobados.OptionsFind.AlwaysVisible = true;
             this.grvPedidosAprobados.OptionsView.ShowGroupPanel = false;
+            this.grvPedidosAprobados.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.grvPedidosAprobados_CustomColumnDisplayText);
             // 
             // colEstado
             // 
@@ -123,6 +149,14 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 0;
+            // 
+            // colEmpresa
+            // 
+            this.colEmpresa.Caption = "Empresa";
+            this.colEmpresa.FieldName = "Empresa";
+            this.colEmpresa.Name = "colEmpresa";
+            this.colEmpresa.Visible = true;
+            this.colEmpresa.VisibleIndex = 1;
             // 
             // colNombre
             // 
@@ -151,7 +185,7 @@
             // colCreado
             // 
             this.colCreado.Caption = "Creado";
-            this.colCreado.FieldName = "UsuarioCreacion";
+            this.colCreado.FieldName = "Usuario";
             this.colCreado.Name = "colCreado";
             this.colCreado.Visible = true;
             this.colCreado.VisibleIndex = 5;
@@ -164,41 +198,6 @@
             this.colRutas.Visible = true;
             this.colRutas.VisibleIndex = 6;
             // 
-            // colHistorial
-            // 
-            this.colHistorial.Caption = "Historial Pedido";
-            this.colHistorial.ColumnEdit = this.ribeHistorial;
-            this.colHistorial.Name = "colHistorial";
-            this.colHistorial.Visible = true;
-            this.colHistorial.VisibleIndex = 7;
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 418);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdPedidosAprobados;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 398);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // colEmpresa
-            // 
-            this.colEmpresa.Caption = "Empresa";
-            this.colEmpresa.FieldName = "Empresa";
-            this.colEmpresa.Name = "colEmpresa";
-            this.colEmpresa.Visible = true;
-            this.colEmpresa.VisibleIndex = 1;
-            // 
             // ribeRutas
             // 
             this.ribeRutas.AutoHeight = false;
@@ -208,6 +207,14 @@
             this.ribeRutas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ribeRutas.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribeRutas_ButtonClick);
             // 
+            // colHistorial
+            // 
+            this.colHistorial.Caption = "Historial Pedido";
+            this.colHistorial.ColumnEdit = this.ribeHistorial;
+            this.colHistorial.Name = "colHistorial";
+            this.colHistorial.Visible = true;
+            this.colHistorial.VisibleIndex = 7;
+            // 
             // ribeHistorial
             // 
             this.ribeHistorial.AutoHeight = false;
@@ -216,6 +223,25 @@
             this.ribeHistorial.Name = "ribeHistorial";
             this.ribeHistorial.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ribeHistorial.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribeHistorial_ButtonClick);
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(800, 318);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdPedidosAprobados;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(780, 298);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // xfrmPedidosAprobados
             // 
@@ -234,10 +260,10 @@
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPedidosAprobados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPedidosAprobados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeRutas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribeHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +287,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmpresa;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribeRutas;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit ribeHistorial;
+        private DevExpress.XtraBars.BarButtonItem bbiAclaracion;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpAcciones;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

@@ -55,9 +55,11 @@ namespace RUTAS.WIN.PedidoRutas
             Pedidos.AddProperty("Estado", "Estado", true);
             Pedidos.AddProperty("FechaPedido", "Fecha", true);
             Pedidos.AddProperty("Fecha", "FechaAlta", true);
+            Pedidos.AddProperty("Empresa", "Empresa.Nombre", true);
             Pedidos.AddProperty("Usuario", "UsuarioAlta", true);
             Pedidos.AddProperty("Rutas", "Rutas.Count()", false);
             Pedidos.Criteria = Go;
+            Pedidos.Sorting.Add(new SortProperty("Fecha", DevExpress.Xpo.DB.SortingDirection.Descending));
             grdPedidos.DataSource = Pedidos;
         }
 
@@ -95,6 +97,15 @@ namespace RUTAS.WIN.PedidoRutas
 
                 }
 
+            }
+        }
+
+        private void grvPedidos_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "Usuario" & e.ListSourceRowIndex >= 0)
+            {
+                Usuario Usuario = Unidad.GetObjectByKey<Usuario>(grvPedidos.GetListSourceRowCellValue(e.ListSourceRowIndex, "Usuario"));
+                e.DisplayText = Usuario != null ? Usuario.Nombre : string.Empty;
             }
         }
     }

@@ -52,29 +52,30 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Dialogs.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Images.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Map.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraDialogs.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraMap.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Map.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraMap.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net20\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -100,6 +101,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aclaraciones\xfrmAclaraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaraciones.Designer.cs">
+      <DependentUpon>xfrmAclaraciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesAprobadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesAprobadas.Designer.cs">
+      <DependentUpon>xfrmAclaracionesAprobadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesCreadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesCreadas.Designer.cs">
+      <DependentUpon>xfrmAclaracionesCreadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesRechazadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesRechazadas.Designer.cs">
+      <DependentUpon>xfrmAclaracionesRechazadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesRecibidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\xfrmAclaracionesRecibidas.Designer.cs">
+      <DependentUpon>xfrmAclaracionesRecibidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Anuncios\xfrmPublicacionRutas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anuncios\xfrmPublicacionRutas.Designer.cs">
+      <DependentUpon>xfrmPublicacionRutas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\xfrmConfiguracionesRutas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,11 +185,29 @@
     <Compile Include="Facturacion\xfrmServiciosRealizados.Designer.cs">
       <DependentUpon>xfrmServiciosRealizados.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedidoRutas\SeguimientoDeAclaraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\SeguimientoDeAclaraciones.Designer.cs">
+      <DependentUpon>SeguimientoDeAclaraciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmHistorialAclaraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmHistorialAclaraciones.Designer.cs">
+      <DependentUpon>xfrmHistorialAclaraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="PedidoRutas\xfrmHistorialPedido.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PedidoRutas\xfrmHistorialPedido.Designer.cs">
       <DependentUpon>xfrmHistorialPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmNuevaAclaracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmNuevaAclaracion.Designer.cs">
+      <DependentUpon>xfrmNuevaAclaracion.cs</DependentUpon>
     </Compile>
     <Compile Include="PedidoRutas\xfrmPedidos.cs">
       <SubType>Form</SubType>
@@ -189,6 +244,12 @@
     </Compile>
     <Compile Include="PedidoRutas\xfrmRevisionPedido.Designer.cs">
       <DependentUpon>xfrmRevisionPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmRutaDePedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoRutas\xfrmRutaDePedido.Designer.cs">
+      <DependentUpon>xfrmRutaDePedido.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
@@ -269,6 +330,24 @@
     <Compile Include="Mapa\xfrmRutasPorEmpresa.Designer.cs">
       <DependentUpon>xfrmRutasPorEmpresa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aclaraciones\xfrmAclaraciones.resx">
+      <DependentUpon>xfrmAclaraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aclaraciones\xfrmAclaracionesAprobadas.resx">
+      <DependentUpon>xfrmAclaracionesAprobadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aclaraciones\xfrmAclaracionesCreadas.resx">
+      <DependentUpon>xfrmAclaracionesCreadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aclaraciones\xfrmAclaracionesRechazadas.resx">
+      <DependentUpon>xfrmAclaracionesRechazadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aclaraciones\xfrmAclaracionesRecibidas.resx">
+      <DependentUpon>xfrmAclaracionesRecibidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anuncios\xfrmPublicacionRutas.resx">
+      <DependentUpon>xfrmPublicacionRutas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\xfrmConfiguracionesRutas.resx">
       <DependentUpon>xfrmConfiguracionesRutas.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,8 +372,17 @@
     <EmbeddedResource Include="Facturacion\xfrmServiciosRealizados.resx">
       <DependentUpon>xfrmServiciosRealizados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\SeguimientoDeAclaraciones.resx">
+      <DependentUpon>SeguimientoDeAclaraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmHistorialAclaraciones.resx">
+      <DependentUpon>xfrmHistorialAclaraciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PedidoRutas\xfrmHistorialPedido.resx">
       <DependentUpon>xfrmHistorialPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoRutas\xfrmNuevaAclaracion.resx">
+      <DependentUpon>xfrmNuevaAclaracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PedidoRutas\xfrmPedidos.resx">
       <DependentUpon>xfrmPedidos.cs</DependentUpon>
@@ -314,7 +402,9 @@
     <EmbeddedResource Include="PedidoRutas\xfrmRevisionPedido.resx">
       <DependentUpon>xfrmRevisionPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="PedidoRutas\xfrmRutaDePedido.resx">
+      <DependentUpon>xfrmRutaDePedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +531,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-la-televisión-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

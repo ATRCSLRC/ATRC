@@ -31,6 +31,7 @@ namespace RUTAS.WIN.PedidoRutas
             HistorialPedidos.AddProperty("HorarioModificacion", "HorarioModificacion", true);
             HistorialPedidos.AddProperty("Usuario", "Usuario.Nombre", true);
             HistorialPedidos.Criteria = new BinaryOperator("PedidoRutas", OID);
+            HistorialPedidos.Sorting.Add(new SortProperty("Fecha", DevExpress.Xpo.DB.SortingDirection.Descending));
             grdHistorial.DataSource = HistorialPedidos;
         }
     }

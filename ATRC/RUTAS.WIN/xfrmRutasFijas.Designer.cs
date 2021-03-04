@@ -256,7 +256,7 @@
             // lueServicio
             // 
             this.lueServicio.EnterMoveNextControl = true;
-            this.lueServicio.Location = new System.Drawing.Point(290, 69);
+            this.lueServicio.Location = new System.Drawing.Point(299, 69);
             this.lueServicio.MenuManager = this.ribbonControl1;
             this.lueServicio.Name = "lueServicio";
             this.lueServicio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -268,7 +268,7 @@
             this.lueServicio.Properties.NullText = "[Seleccione]";
             this.lueServicio.Properties.ValueMember = "Oid";
             this.lueServicio.Properties.PopupFilter += new DevExpress.XtraEditors.Controls.PopupFilterEventHandler(this.lueServicio_Properties_PopupFilter);
-            this.lueServicio.Size = new System.Drawing.Size(253, 20);
+            this.lueServicio.Size = new System.Drawing.Size(244, 20);
             this.lueServicio.StyleController = this.lcMain;
             this.lueServicio.TabIndex = 18;
             this.lueServicio.EditValueChanged += new System.EventHandler(this.lueServicio_EditValueChanged);
@@ -277,7 +277,7 @@
             // lueTurno
             // 
             this.lueTurno.EnterMoveNextControl = true;
-            this.lueTurno.Location = new System.Drawing.Point(410, 93);
+            this.lueTurno.Location = new System.Drawing.Point(419, 93);
             this.lueTurno.MenuManager = this.ribbonControl1;
             this.lueTurno.Name = "lueTurno";
             this.lueTurno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -287,7 +287,7 @@
             this.lueTurno.Properties.DisplayMember = "Descripcion";
             this.lueTurno.Properties.NullText = "[Seleccione]";
             this.lueTurno.Properties.ValueMember = "Oid";
-            this.lueTurno.Size = new System.Drawing.Size(133, 20);
+            this.lueTurno.Size = new System.Drawing.Size(124, 20);
             this.lueTurno.StyleController = this.lcMain;
             this.lueTurno.TabIndex = 17;
             // 
@@ -329,7 +329,7 @@
             // lueChoferSalida
             // 
             this.lueChoferSalida.EnterMoveNextControl = true;
-            this.lueChoferSalida.Location = new System.Drawing.Point(148, 279);
+            this.lueChoferSalida.Location = new System.Drawing.Point(157, 279);
             this.lueChoferSalida.MenuManager = this.ribbonControl1;
             this.lueChoferSalida.Name = "lueChoferSalida";
             this.lueChoferSalida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -340,7 +340,7 @@
             this.lueChoferSalida.Properties.NullText = "[Seleccioné]";
             this.lueChoferSalida.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueChoferSalida.Properties.ValueMember = "Oid";
-            this.lueChoferSalida.Size = new System.Drawing.Size(305, 20);
+            this.lueChoferSalida.Size = new System.Drawing.Size(296, 20);
             this.lueChoferSalida.StyleController = this.lcMain;
             this.lueChoferSalida.TabIndex = 10;
             this.lueChoferSalida.EditValueChanged += new System.EventHandler(this.lueChoferSalida_EditValueChanged);
@@ -349,7 +349,7 @@
             // lueChofer
             // 
             this.lueChofer.EnterMoveNextControl = true;
-            this.lueChofer.Location = new System.Drawing.Point(148, 255);
+            this.lueChofer.Location = new System.Drawing.Point(157, 255);
             this.lueChofer.MenuManager = this.ribbonControl1;
             this.lueChofer.Name = "lueChofer";
             this.lueChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -360,7 +360,7 @@
             this.lueChofer.Properties.NullText = "[Seleccioné]";
             this.lueChofer.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueChofer.Properties.ValueMember = "Oid";
-            this.lueChofer.Size = new System.Drawing.Size(305, 20);
+            this.lueChofer.Size = new System.Drawing.Size(296, 20);
             this.lueChofer.StyleController = this.lcMain;
             this.lueChofer.TabIndex = 9;
             this.lueChofer.EditValueChanged += new System.EventHandler(this.lueChofer_EditValueChanged);
@@ -397,7 +397,7 @@
             this.timeDe.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.timeDe.Properties.EditFormat.FormatString = "hh:mm tt";
             this.timeDe.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.timeDe.Properties.Mask.EditMask = "hh:mm tt";
+            this.timeDe.Properties.MaskSettings.Set("mask", "hh:mm tt");
             this.timeDe.Size = new System.Drawing.Size(235, 20);
             this.timeDe.StyleController = this.lcMain;
             this.timeDe.TabIndex = 7;

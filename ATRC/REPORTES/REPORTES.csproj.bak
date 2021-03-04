@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CD8B68C-D440-4089-AE63-48514F37C60F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>REPORTES</RootNamespace>
+    <AssemblyName>REPORTES</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Almacen\HerramientaPrestada.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Almacen\HerramientaPrestada.Designer.cs">
+      <DependentUpon>HerramientaPrestada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\TicketEntregaArticulo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Almacen\TicketEntregaArticulo.Designer.cs">
+      <DependentUpon>TicketEntregaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Combustible\ConsumoDieselUnidad.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Combustible\ConsumoDieselUnidad.Designer.cs">
+      <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Combustible\DetallesMedidoresCombustible.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Combustible\DetallesMedidoresCombustible.Designer.cs">
+      <DependentUpon>DetallesMedidoresCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Combustible\RecargaDiesel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Combustible\RecargaDiesel.Designer.cs">
+      <DependentUpon>RecargaDiesel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Combustible\UnidadesConDiesel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Combustible\UnidadesConDiesel.Designer.cs">
+      <DependentUpon>UnidadesConDiesel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ClausulasRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ClausulasRenta.Designer.cs">
+      <DependentUpon>ClausulasRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ContratoRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ContratoRenta.Designer.cs">
+      <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\HistorialRecibos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\HistorialRecibos.Designer.cs">
+      <DependentUpon>HistorialRecibos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\HistorialRenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\HistorialRenta.Designer.cs">
+      <DependentUpon>HistorialRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ListadoContratos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ListadoContratos.Designer.cs">
+      <DependentUpon>ListadoContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\Pagare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\Pagare.Designer.cs">
+      <DependentUpon>Pagare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\RecibosPago.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\RecibosPago.Designer.cs">
+      <DependentUpon>RecibosPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guardias\ReporteIndiciplina.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guardias\ReporteIndiciplina.Designer.cs">
+      <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rutas\AclaracionesPedido.cs" />
+    <Compile Include="Rutas\AclaracionesPedido.Designer.cs">
+      <DependentUpon>AclaracionesPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\HistorialRutasGeneradas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\HistorialRutasGeneradas.Designer.cs">
+      <DependentUpon>HistorialRutasGeneradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasExtras.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasExtras.Designer.cs">
+      <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasPublicar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasPublicar.Designer.cs">
+      <DependentUpon>ReporteRutasPublicar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasFijas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ReporteRutasFijas.Designer.cs">
+      <DependentUpon>ReporteRutasFijas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasDePedido.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasDePedido.Designer.cs">
+      <DependentUpon>RutasDePedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasExtrasUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasExtrasUsuario.Designer.cs">
+      <DependentUpon>RutasExtrasUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasFijasUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasFijasUsuario.Designer.cs">
+      <DependentUpon>RutasFijasUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\RutasPorUsuario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\RutasPorUsuario.Designer.cs">
+      <DependentUpon>RutasPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\ServiciosRealizadosEmpresa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rutas\ServiciosRealizadosEmpresa.Designer.cs">
+      <DependentUpon>ServiciosRealizadosEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesEmpleadosTaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesEmpleadosTaller.Designer.cs">
+      <DependentUpon>BitacoraActividadesEmpleadosTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesTallerDiario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Taller\BitacoraActividadesTallerDiario.Designer.cs">
+      <DependentUpon>BitacoraActividadesTallerDiario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taller\BitacoraEmpleadosTaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Taller\BitacoraEmpleadosTaller.Designer.cs">
+      <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\DellatesRadio.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\DellatesRadio.Designer.cs">
+      <DependentUpon>DellatesRadio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\DatosCambioAceite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\DatosCambioAceite.Designer.cs">
+      <DependentUpon>DatosCambioAceite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\DetalleDeUnidad.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\DetalleDeUnidad.Designer.cs">
+      <DependentUpon>DetalleDeUnidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\Extintores.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\Extintores.Designer.cs">
+      <DependentUpon>Extintores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\GastosDeCombustible.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\GastosDeCombustible.Designer.cs">
+      <DependentUpon>GastosDeCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\GastosPorUnidad.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\GastosPorUnidad.Designer.cs">
+      <DependentUpon>GastosPorUnidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\ProximosCambiosAceite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\ProximosCambiosAceite.Designer.cs">
+      <DependentUpon>ProximosCambiosAceite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\Radios.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\Radios.Designer.cs">
+      <DependentUpon>Radios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unidades\Servicios.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unidades\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\Usuarios.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Usuarios\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Almacen\HerramientaPrestada.resx">
+      <DependentUpon>HerramientaPrestada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\TicketEntregaArticulo.resx">
+      <DependentUpon>TicketEntregaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Combustible\ConsumoDieselUnidad.resx">
+      <DependentUpon>ConsumoDieselUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Combustible\DetallesMedidoresCombustible.resx">
+      <DependentUpon>DetallesMedidoresCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Combustible\RecargaDiesel.resx">
+      <DependentUpon>RecargaDiesel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Combustible\UnidadesConDiesel.resx">
+      <DependentUpon>UnidadesConDiesel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ClausulasRenta.resx">
+      <DependentUpon>ClausulasRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ContratoRenta.resx">
+      <DependentUpon>ContratoRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\HistorialRecibos.resx">
+      <DependentUpon>HistorialRecibos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\HistorialRenta.resx">
+      <DependentUpon>HistorialRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ListadoContratos.resx">
+      <DependentUpon>ListadoContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\Pagare.resx">
+      <DependentUpon>Pagare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\RecibosPago.resx">
+      <DependentUpon>RecibosPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guardias\ReporteIndiciplina.resx">
+      <DependentUpon>ReporteIndiciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Rutas\AclaracionesPedido.resx">
+      <DependentUpon>AclaracionesPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\HistorialRutasGeneradas.resx">
+      <DependentUpon>HistorialRutasGeneradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ReporteRutasExtras.resx">
+      <DependentUpon>ReporteRutasExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ReporteRutasPublicar.resx">
+      <DependentUpon>ReporteRutasPublicar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ReporteRutasFijas.resx">
+      <DependentUpon>ReporteRutasFijas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasDePedido.resx">
+      <DependentUpon>RutasDePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasExtrasUsuario.resx">
+      <DependentUpon>RutasExtrasUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasFijasUsuario.resx">
+      <DependentUpon>RutasFijasUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\RutasPorUsuario.resx">
+      <DependentUpon>RutasPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutas\ServiciosRealizadosEmpresa.resx">
+      <DependentUpon>ServiciosRealizadosEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taller\BitacoraActividadesEmpleadosTaller.resx">
+      <DependentUpon>BitacoraActividadesEmpleadosTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taller\BitacoraActividadesTallerDiario.resx">
+      <DependentUpon>BitacoraActividadesTallerDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taller\BitacoraEmpleadosTaller.resx">
+      <DependentUpon>BitacoraEmpleadosTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\DellatesRadio.resx">
+      <DependentUpon>DellatesRadio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\DatosCambioAceite.resx">
+      <DependentUpon>DatosCambioAceite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\DetalleDeUnidad.resx">
+      <DependentUpon>DetalleDeUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\Extintores.resx">
+      <DependentUpon>Extintores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\GastosDeCombustible.resx">
+      <DependentUpon>GastosDeCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\GastosPorUnidad.resx">
+      <DependentUpon>GastosPorUnidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\ProximosCambiosAceite.resx">
+      <DependentUpon>ProximosCambiosAceite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\Radios.resx">
+      <DependentUpon>Radios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unidades\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALMACEN.BL\ALMACEN.BL.csproj">
+      <Project>{4dcf1397-42cb-43a5-9a91-bd8089f6cc94}</Project>
+      <Name>ALMACEN.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
+      <Project>{a162fe83-383d-4225-a70e-ea9d27e0fb06}</Project>
+      <Name>ATRCBASE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CHECADOR.BL\CHECADOR.BL.csproj">
+      <Project>{7c282930-b616-4c4d-a28b-73abeb1c9d8f}</Project>
+      <Name>CHECADOR.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COMBUSTIBLE.BL\COMBUSTIBLE.BL.csproj">
+      <Project>{5809cf78-5a3d-4b08-a98f-3af110a38506}</Project>
+      <Name>COMBUSTIBLE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUARDIAS.BL\GUARDIAS.BL.csproj">
+      <Project>{ef8d6426-c120-463f-b57c-27acf8e4a663}</Project>
+      <Name>GUARDIAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RUTAS.BL\RUTAS.BL.csproj">
+      <Project>{7CD908DA-9D9D-4C01-90D2-67B7F78119DD}</Project>
+      <Name>RUTAS.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TALLER.BL\TALLER.BL.csproj">
+      <Project>{3e049336-d487-4b03-86a2-56d4ded5c441}</Project>
+      <Name>TALLER.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{e46d9066-2710-40bc-be1c-e17eafc6a044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

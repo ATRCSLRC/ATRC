@@ -185,6 +185,15 @@
             this.bbiPedidos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPlantillaCorreo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiConfiguracionRutas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAclaraciones = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAclaracionesAprobadas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAclarcacionesCreadas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAclaracionesRechazadas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAclaracionesRecibidas = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAccesos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHistorialAccesos = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPublicarRutas = new DevExpress.XtraBars.BarButtonItem();
             this.rbnpUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnpgUsuario = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpgReportesUsuarios = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -212,9 +221,10 @@
             this.rpgRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgChecadorRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgRutasExtras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgPedidoRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgAclaracionesPedidos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgReportesRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgConfiguracionRutas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpAdministracion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgChecador = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnpCombustible = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -365,9 +375,18 @@
             this.bbiPedidosCancelados,
             this.bbiPedidos,
             this.bbiPlantillaCorreo,
-            this.bbiConfiguracionRutas});
+            this.bbiConfiguracionRutas,
+            this.bbiAclaraciones,
+            this.barButtonItem2,
+            this.bbiAclaracionesAprobadas,
+            this.bbiAclarcacionesCreadas,
+            this.bbiAclaracionesRechazadas,
+            this.bbiAclaracionesRecibidas,
+            this.bbiAccesos,
+            this.bbiHistorialAccesos,
+            this.bbiPublicarRutas});
             this.rbnMain.Location = new System.Drawing.Point(0, 0);
-            this.rbnMain.MaxItemId = 120;
+            this.rbnMain.MaxItemId = 129;
             this.rbnMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.OnlyWhenMaximized;
             this.rbnMain.Name = "rbnMain";
             this.rbnMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1496,6 +1515,7 @@
             this.bbiUsuariosExternos.Caption = "Usuarios externos";
             this.bbiUsuariosExternos.Id = 104;
             this.bbiUsuariosExternos.Name = "bbiUsuariosExternos";
+            this.bbiUsuariosExternos.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiUsuariosExternos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUsuariosExternos_ItemClick);
             // 
             // bbiConfiguracion
@@ -1569,6 +1589,7 @@
             this.bbiPedidos.Caption = "Pedidos";
             this.bbiPedidos.Id = 117;
             this.bbiPedidos.Name = "bbiPedidos";
+            this.bbiPedidos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiPedidos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPedidos_ItemClick);
             // 
             // bbiPlantillaCorreo
@@ -1585,6 +1606,75 @@
             this.bbiConfiguracionRutas.Name = "bbiConfiguracionRutas";
             this.bbiConfiguracionRutas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiConfiguracionRutas_ItemClick);
             // 
+            // bbiAclaraciones
+            // 
+            this.bbiAclaraciones.Caption = "Aclaraciones";
+            this.bbiAclaraciones.Id = 120;
+            this.bbiAclaraciones.Name = "bbiAclaraciones";
+            this.bbiAclaraciones.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiAclaraciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclaraciones_ItemClick);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 121;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // bbiAclaracionesAprobadas
+            // 
+            this.bbiAclaracionesAprobadas.Caption = "Aclaraciones aprobadas";
+            this.bbiAclaracionesAprobadas.Id = 122;
+            this.bbiAclaracionesAprobadas.Name = "bbiAclaracionesAprobadas";
+            this.bbiAclaracionesAprobadas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclaracionesAprobadas_ItemClick);
+            // 
+            // bbiAclarcacionesCreadas
+            // 
+            this.bbiAclarcacionesCreadas.Caption = "Aclaraciones creadas";
+            this.bbiAclarcacionesCreadas.Id = 123;
+            this.bbiAclarcacionesCreadas.Name = "bbiAclarcacionesCreadas";
+            this.bbiAclarcacionesCreadas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclarcacionesCreadas_ItemClick);
+            // 
+            // bbiAclaracionesRechazadas
+            // 
+            this.bbiAclaracionesRechazadas.Caption = "Aclaraciones rechazadas";
+            this.bbiAclaracionesRechazadas.Id = 124;
+            this.bbiAclaracionesRechazadas.Name = "bbiAclaracionesRechazadas";
+            this.bbiAclaracionesRechazadas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclaracionesRechazadas_ItemClick);
+            // 
+            // bbiAclaracionesRecibidas
+            // 
+            this.bbiAclaracionesRecibidas.Caption = "Aclaraciones recibidas";
+            this.bbiAclaracionesRecibidas.Id = 125;
+            this.bbiAclaracionesRecibidas.Name = "bbiAclaracionesRecibidas";
+            this.bbiAclaracionesRecibidas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAclaracionesRecibidas_ItemClick);
+            // 
+            // bbiAccesos
+            // 
+            this.bbiAccesos.Caption = "Accesos";
+            this.bbiAccesos.Id = 126;
+            this.bbiAccesos.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_sensor_de_puerta_32;
+            this.bbiAccesos.Name = "bbiAccesos";
+            this.bbiAccesos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiAccesos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAccesos_ItemClick);
+            // 
+            // bbiHistorialAccesos
+            // 
+            this.bbiHistorialAccesos.Caption = "Historial de accesos";
+            this.bbiHistorialAccesos.Id = 127;
+            this.bbiHistorialAccesos.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_sensor_de_puerta_32__1_;
+            this.bbiHistorialAccesos.Name = "bbiHistorialAccesos";
+            this.bbiHistorialAccesos.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiHistorialAccesos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHistorialAccesos_ItemClick);
+            // 
+            // bbiPublicarRutas
+            // 
+            this.bbiPublicarRutas.Caption = "Publicación rutas";
+            this.bbiPublicarRutas.Id = 128;
+            this.bbiPublicarRutas.ImageOptions.Image = global::ATRC.Properties.Resources.icons8_televisión_32;
+            this.bbiPublicarRutas.Name = "bbiPublicarRutas";
+            this.bbiPublicarRutas.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiPublicarRutas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPublicarRutas_ItemClick);
+            // 
             // rbnpUsuarios
             // 
             this.rbnpUsuarios.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1599,6 +1689,8 @@
             this.rbnpgUsuario.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rbnpgUsuario.ItemLinks.Add(this.bbiUsuarios);
             this.rbnpgUsuario.ItemLinks.Add(this.bbiAnunciosUsuarios);
+            this.rbnpgUsuario.ItemLinks.Add(this.bbiAccesos);
+            this.rbnpgUsuario.ItemLinks.Add(this.bbiHistorialAccesos);
             this.rbnpgUsuario.Name = "rbnpgUsuario";
             this.rbnpgUsuario.Text = "Usuario";
             // 
@@ -1807,9 +1899,10 @@
             this.rpgRutas,
             this.rpgChecadorRutas,
             this.rpgRutasExtras,
+            this.rpgPedidoRutas,
+            this.rpgAclaracionesPedidos,
             this.rpgReportesRutas,
-            this.rpgConfiguracionRutas,
-            this.ribbonPageGroup2});
+            this.rpgConfiguracionRutas});
             this.rbnpRutas.Name = "rbnpRutas";
             this.rbnpRutas.Text = "Rutas";
             this.rbnpRutas.Visible = false;
@@ -1841,12 +1934,34 @@
             this.rpgRutasExtras.ItemLinks.Add(this.bbiImportarRutas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRealizados);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiReportesServicios);
+            this.rpgRutasExtras.ItemLinks.Add(this.bbiPublicarRutas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiTurnos);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiServiciosRutas);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiPrecioServicio);
             this.rpgRutasExtras.ItemLinks.Add(this.bbiHistorialRutasGeneradas);
             this.rpgRutasExtras.Name = "rpgRutasExtras";
             this.rpgRutasExtras.Text = "Rutas ";
+            // 
+            // rpgPedidoRutas
+            // 
+            this.rpgPedidoRutas.ItemLinks.Add(this.bbiPedidos);
+            this.rpgPedidoRutas.ItemLinks.Add(this.bbiPedidosRecibidos);
+            this.rpgPedidoRutas.ItemLinks.Add(this.bbiPedidosAprobados);
+            this.rpgPedidoRutas.ItemLinks.Add(this.bbiPedidosCancelados);
+            this.rpgPedidoRutas.Name = "rpgPedidoRutas";
+            this.rpgPedidoRutas.Text = "Pedidos";
+            this.rpgPedidoRutas.Visible = false;
+            // 
+            // rpgAclaracionesPedidos
+            // 
+            this.rpgAclaracionesPedidos.ItemLinks.Add(this.bbiAclaraciones);
+            this.rpgAclaracionesPedidos.ItemLinks.Add(this.bbiAclaracionesRecibidas);
+            this.rpgAclaracionesPedidos.ItemLinks.Add(this.bbiAclaracionesAprobadas);
+            this.rpgAclaracionesPedidos.ItemLinks.Add(this.bbiAclarcacionesCreadas);
+            this.rpgAclaracionesPedidos.ItemLinks.Add(this.bbiAclaracionesRechazadas);
+            this.rpgAclaracionesPedidos.Name = "rpgAclaracionesPedidos";
+            this.rpgAclaracionesPedidos.Text = "Aclaraciones";
+            this.rpgAclaracionesPedidos.Visible = false;
             // 
             // rpgReportesRutas
             // 
@@ -1862,15 +1977,6 @@
             this.rpgConfiguracionRutas.ItemLinks.Add(this.bbiConfiguracionRutas);
             this.rpgConfiguracionRutas.Name = "rpgConfiguracionRutas";
             this.rpgConfiguracionRutas.Text = "Configuración";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosRecibidos);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosAprobados);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidosCancelados);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPedidos);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // rbnpAdministracion
             // 
@@ -2044,6 +2150,7 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.bbiPlantillaCorreo);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Visible = false;
             // 
             // tknRecibir
             // 
@@ -2272,9 +2379,19 @@
         private DevExpress.XtraBars.BarButtonItem bbiPedidosAprobados;
         private DevExpress.XtraBars.BarButtonItem bbiPedidosCancelados;
         private DevExpress.XtraBars.BarButtonItem bbiPedidos;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPedidoRutas;
         private DevExpress.XtraBars.BarButtonItem bbiPlantillaCorreo;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem bbiConfiguracionRutas;
+        private DevExpress.XtraBars.BarButtonItem bbiAclaraciones;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgAclaracionesPedidos;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem bbiAclaracionesAprobadas;
+        private DevExpress.XtraBars.BarButtonItem bbiAclarcacionesCreadas;
+        private DevExpress.XtraBars.BarButtonItem bbiAclaracionesRechazadas;
+        private DevExpress.XtraBars.BarButtonItem bbiAclaracionesRecibidas;
+        private DevExpress.XtraBars.BarButtonItem bbiAccesos;
+        private DevExpress.XtraBars.BarButtonItem bbiHistorialAccesos;
+        private DevExpress.XtraBars.BarButtonItem bbiPublicarRutas;
     }
 }
