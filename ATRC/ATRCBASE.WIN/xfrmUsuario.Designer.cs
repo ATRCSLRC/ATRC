@@ -101,11 +101,22 @@
             this.lciTel = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDomicilio = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcibtnMapa = new DevExpress.XtraLayout.LayoutControlItem();
+            this.TabRenuncias = new DevExpress.XtraTab.XtraTabPage();
+            this.lcRenuncias = new DevExpress.XtraLayout.LayoutControl();
+            this.grdRenuncias = new DevExpress.XtraGrid.GridControl();
+            this.grvRenuncias = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colFechaBaja = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colComentarios = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.ofdFoto = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.txtCURP = new DevExpress.XtraEditors.TextEdit();
+            this.lciCURP = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbbnUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -172,11 +183,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDomicilio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcibtnMapa)).BeginInit();
+            this.TabRenuncias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcRenuncias)).BeginInit();
+            this.lcRenuncias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRenuncias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvRenuncias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCURP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCURP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // rbbnUsuario
@@ -184,9 +205,9 @@
             this.rbbnUsuario.ExpandCollapseItem.Id = 0;
             this.rbbnUsuario.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbbnUsuario.ExpandCollapseItem,
+            this.rbbnUsuario.SearchEditItem,
             this.bbiGuardar,
-            this.bbiCancelar,
-            this.rbbnUsuario.SearchEditItem});
+            this.bbiCancelar});
             this.rbbnUsuario.Location = new System.Drawing.Point(0, 0);
             this.rbbnUsuario.MaxItemId = 3;
             this.rbbnUsuario.Name = "rbbnUsuario";
@@ -197,7 +218,7 @@
             this.rbbnUsuario.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbbnUsuario.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbbnUsuario.ShowToolbarCustomizeItem = false;
-            this.rbbnUsuario.Size = new System.Drawing.Size(660, 132);
+            this.rbbnUsuario.Size = new System.Drawing.Size(620, 132);
             this.rbbnUsuario.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -237,11 +258,12 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(12, 12);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.TabSeguridad;
-            this.xtraTabControl1.Size = new System.Drawing.Size(636, 345);
+            this.xtraTabControl1.Size = new System.Drawing.Size(596, 389);
             this.xtraTabControl1.TabIndex = 8;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabDatosGenerales,
             this.TabDatosAdicionales,
+            this.TabRenuncias,
             this.TabSeguridad});
             // 
             // TabSeguridad
@@ -310,22 +332,22 @@
             // 
             // txtConfContraseña
             // 
-            this.txtConfContraseña.Location = new System.Drawing.Point(135, 69);
+            this.txtConfContraseña.Location = new System.Drawing.Point(144, 69);
             this.txtConfContraseña.MenuManager = this.rbbnUsuario;
             this.txtConfContraseña.Name = "txtConfContraseña";
             this.txtConfContraseña.Properties.PasswordChar = '*';
-            this.txtConfContraseña.Size = new System.Drawing.Size(475, 20);
+            this.txtConfContraseña.Size = new System.Drawing.Size(466, 20);
             this.txtConfContraseña.StyleController = this.lcMainSeguridad;
             this.txtConfContraseña.TabIndex = 5;
             this.txtConfContraseña.TextChanged += new System.EventHandler(this.txtConfContraseña_TextChanged);
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(135, 45);
+            this.txtContraseña.Location = new System.Drawing.Point(144, 45);
             this.txtContraseña.MenuManager = this.rbbnUsuario;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Properties.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(475, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(466, 20);
             this.txtContraseña.StyleController = this.lcMainSeguridad;
             this.txtContraseña.TabIndex = 4;
             // 
@@ -413,11 +435,12 @@
             // 
             this.tabDatosGenerales.Controls.Add(this.lcMainTabGeneral);
             this.tabDatosGenerales.Name = "tabDatosGenerales";
-            this.tabDatosGenerales.Size = new System.Drawing.Size(634, 320);
+            this.tabDatosGenerales.Size = new System.Drawing.Size(594, 364);
             this.tabDatosGenerales.Text = "Datos generales";
             // 
             // lcMainTabGeneral
             // 
+            this.lcMainTabGeneral.Controls.Add(this.txtCURP);
             this.lcMainTabGeneral.Controls.Add(this.chkAccesoSistema);
             this.lcMainTabGeneral.Controls.Add(this.lueDepartamento);
             this.lcMainTabGeneral.Controls.Add(this.luePuesto);
@@ -436,42 +459,42 @@
             this.lcMainTabGeneral.Name = "lcMainTabGeneral";
             this.lcMainTabGeneral.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(773, 206, 650, 400);
             this.lcMainTabGeneral.Root = this.layoutControlGroup2;
-            this.lcMainTabGeneral.Size = new System.Drawing.Size(634, 320);
+            this.lcMainTabGeneral.Size = new System.Drawing.Size(594, 364);
             this.lcMainTabGeneral.TabIndex = 0;
             this.lcMainTabGeneral.Text = "layoutControl1";
             // 
             // chkAccesoSistema
             // 
-            this.chkAccesoSistema.Location = new System.Drawing.Point(364, 12);
+            this.chkAccesoSistema.Location = new System.Drawing.Point(337, 12);
             this.chkAccesoSistema.MenuManager = this.rbbnUsuario;
             this.chkAccesoSistema.Name = "chkAccesoSistema";
             this.chkAccesoSistema.Properties.Caption = "Tiene acceso al sistema";
-            this.chkAccesoSistema.Size = new System.Drawing.Size(135, 20);
+            this.chkAccesoSistema.Size = new System.Drawing.Size(137, 20);
             this.chkAccesoSistema.StyleController = this.lcMainTabGeneral;
             this.chkAccesoSistema.TabIndex = 17;
             this.chkAccesoSistema.CheckedChanged += new System.EventHandler(this.chkAccesoSistema_CheckedChanged);
             // 
             // lueDepartamento
             // 
-            this.lueDepartamento.Location = new System.Drawing.Point(12, 252);
+            this.lueDepartamento.Location = new System.Drawing.Point(12, 292);
             this.lueDepartamento.MenuManager = this.rbbnUsuario;
             this.lueDepartamento.Name = "lueDepartamento";
             this.lueDepartamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueDepartamento.Properties.NullText = "[Seleccione]";
-            this.lueDepartamento.Size = new System.Drawing.Size(376, 20);
+            this.lueDepartamento.Size = new System.Drawing.Size(362, 20);
             this.lueDepartamento.StyleController = this.lcMainTabGeneral;
             this.lueDepartamento.TabIndex = 16;
             // 
             // luePuesto
             // 
-            this.luePuesto.Location = new System.Drawing.Point(12, 212);
+            this.luePuesto.Location = new System.Drawing.Point(12, 252);
             this.luePuesto.MenuManager = this.rbbnUsuario;
             this.luePuesto.Name = "luePuesto";
             this.luePuesto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luePuesto.Properties.NullText = "[Seleccione]";
-            this.luePuesto.Size = new System.Drawing.Size(376, 20);
+            this.luePuesto.Size = new System.Drawing.Size(362, 20);
             this.luePuesto.StyleController = this.lcMainTabGeneral;
             this.luePuesto.TabIndex = 15;
             // 
@@ -480,9 +503,9 @@
             this.bbiSeleccionar.BackgroundImage = global::ATRCBASE.WIN.Properties.Resources.SeleccionarImagen;
             this.bbiSeleccionar.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.SeleccionarImagen;
             this.bbiSeleccionar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiSeleccionar.Location = new System.Drawing.Point(471, 260);
+            this.bbiSeleccionar.Location = new System.Drawing.Point(458, 283);
             this.bbiSeleccionar.Name = "bbiSeleccionar";
-            this.bbiSeleccionar.Size = new System.Drawing.Size(55, 52);
+            this.bbiSeleccionar.Size = new System.Drawing.Size(54, 52);
             this.bbiSeleccionar.StyleController = this.lcMainTabGeneral;
             this.bbiSeleccionar.TabIndex = 14;
             this.bbiSeleccionar.ToolTip = "Seleccionar foto";
@@ -492,7 +515,7 @@
             // 
             this.bbiCancelarImagen.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.EliminarImagen;
             this.bbiCancelarImagen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiCancelarImagen.Location = new System.Drawing.Point(530, 260);
+            this.bbiCancelarImagen.Location = new System.Drawing.Point(516, 283);
             this.bbiCancelarImagen.Name = "bbiCancelarImagen";
             this.bbiCancelarImagen.Size = new System.Drawing.Size(55, 52);
             this.bbiCancelarImagen.StyleController = this.lcMainTabGeneral;
@@ -504,9 +527,9 @@
             // 
             this.bbiCamara.ImageOptions.Image = global::ATRCBASE.WIN.Properties.Resources.WebCam;
             this.bbiCamara.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.bbiCamara.Location = new System.Drawing.Point(413, 260);
+            this.bbiCamara.Location = new System.Drawing.Point(399, 283);
             this.bbiCamara.Name = "bbiCamara";
-            this.bbiCamara.Size = new System.Drawing.Size(54, 52);
+            this.bbiCamara.Size = new System.Drawing.Size(55, 52);
             this.bbiCamara.StyleController = this.lcMainTabGeneral;
             this.bbiCamara.TabIndex = 12;
             this.bbiCamara.ToolTip = "Tomar foto";
@@ -514,36 +537,36 @@
             // 
             // chkEsAdministrativo
             // 
-            this.chkEsAdministrativo.Location = new System.Drawing.Point(503, 12);
+            this.chkEsAdministrativo.Location = new System.Drawing.Point(478, 12);
             this.chkEsAdministrativo.MenuManager = this.rbbnUsuario;
             this.chkEsAdministrativo.Name = "chkEsAdministrativo";
             this.chkEsAdministrativo.Properties.Caption = "Es administrador";
-            this.chkEsAdministrativo.Size = new System.Drawing.Size(102, 20);
+            this.chkEsAdministrativo.Size = new System.Drawing.Size(104, 20);
             this.chkEsAdministrativo.StyleController = this.lcMainTabGeneral;
             this.chkEsAdministrativo.TabIndex = 9;
             this.chkEsAdministrativo.CheckedChanged += new System.EventHandler(this.chkEsAdministrativo_CheckedChanged);
             // 
             // txtNumCredencial
             // 
-            this.txtNumCredencial.Location = new System.Drawing.Point(12, 292);
+            this.txtNumCredencial.Location = new System.Drawing.Point(12, 332);
             this.txtNumCredencial.MenuManager = this.rbbnUsuario;
             this.txtNumCredencial.Name = "txtNumCredencial";
             this.txtNumCredencial.Properties.Mask.EditMask = "\\d+";
             this.txtNumCredencial.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtNumCredencial.Properties.Mask.ShowPlaceHolders = false;
-            this.txtNumCredencial.Size = new System.Drawing.Size(376, 20);
+            this.txtNumCredencial.Size = new System.Drawing.Size(362, 20);
             this.txtNumCredencial.StyleController = this.lcMainTabGeneral;
             this.txtNumCredencial.TabIndex = 11;
             // 
             // txtIMSS
             // 
-            this.txtIMSS.Location = new System.Drawing.Point(12, 172);
+            this.txtIMSS.Location = new System.Drawing.Point(12, 212);
             this.txtIMSS.MenuManager = this.rbbnUsuario;
             this.txtIMSS.Name = "txtIMSS";
             this.txtIMSS.Properties.Mask.EditMask = "\\d+";
             this.txtIMSS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtIMSS.Properties.Mask.ShowPlaceHolders = false;
-            this.txtIMSS.Size = new System.Drawing.Size(376, 20);
+            this.txtIMSS.Size = new System.Drawing.Size(362, 20);
             this.txtIMSS.StyleController = this.lcMainTabGeneral;
             this.txtIMSS.TabIndex = 8;
             // 
@@ -554,7 +577,7 @@
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Properties.Mask.EditMask = "\\p{Lu}{4}-\\d{6}-[0-9A-Z]{3}";
             this.txtRFC.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtRFC.Size = new System.Drawing.Size(376, 20);
+            this.txtRFC.Size = new System.Drawing.Size(362, 20);
             this.txtRFC.StyleController = this.lcMainTabGeneral;
             this.txtRFC.TabIndex = 7;
             // 
@@ -563,7 +586,7 @@
             this.txtNombre.Location = new System.Drawing.Point(12, 92);
             this.txtNombre.MenuManager = this.rbbnUsuario;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(376, 20);
+            this.txtNombre.Size = new System.Drawing.Size(362, 20);
             this.txtNombre.StyleController = this.lcMainTabGeneral;
             this.txtNombre.TabIndex = 6;
             // 
@@ -571,14 +594,14 @@
             // 
             this.peFoto.Cursor = System.Windows.Forms.Cursors.Default;
             this.peFoto.EditValue = global::ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
-            this.peFoto.Location = new System.Drawing.Point(392, 52);
+            this.peFoto.Location = new System.Drawing.Point(378, 52);
             this.peFoto.MenuManager = this.rbbnUsuario;
             this.peFoto.Name = "peFoto";
             this.peFoto.Properties.PictureInterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
             this.peFoto.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.Image;
             this.peFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.peFoto.Size = new System.Drawing.Size(213, 204);
+            this.peFoto.Size = new System.Drawing.Size(204, 227);
             this.peFoto.StyleController = this.lcMainTabGeneral;
             this.peFoto.TabIndex = 5;
             // 
@@ -587,7 +610,7 @@
             this.txtNumeroEmpleado.Location = new System.Drawing.Point(12, 52);
             this.txtNumeroEmpleado.MenuManager = this.rbbnUsuario;
             this.txtNumeroEmpleado.Name = "txtNumeroEmpleado";
-            this.txtNumeroEmpleado.Size = new System.Drawing.Size(376, 20);
+            this.txtNumeroEmpleado.Size = new System.Drawing.Size(362, 20);
             this.txtNumeroEmpleado.StyleController = this.lcMainTabGeneral;
             this.txtNumeroEmpleado.TabIndex = 4;
             // 
@@ -611,17 +634,19 @@
             this.lciDepartamento,
             this.emptySpaceItem1,
             this.emptySpaceItem3,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.lciCURP,
+            this.emptySpaceItem4});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(617, 324);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(594, 364);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // lciFoto
             // 
             this.lciFoto.Control = this.peFoto;
-            this.lciFoto.Location = new System.Drawing.Point(380, 24);
+            this.lciFoto.Location = new System.Drawing.Point(366, 24);
             this.lciFoto.Name = "lciFoto";
-            this.lciFoto.Size = new System.Drawing.Size(217, 224);
+            this.lciFoto.Size = new System.Drawing.Size(208, 247);
             this.lciFoto.Text = "Foto:";
             this.lciFoto.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciFoto.TextSize = new System.Drawing.Size(107, 13);
@@ -629,16 +654,16 @@
             // lciCamara
             // 
             this.lciCamara.Control = this.bbiCamara;
-            this.lciCamara.Location = new System.Drawing.Point(401, 248);
+            this.lciCamara.Location = new System.Drawing.Point(387, 271);
             this.lciCamara.Name = "lciCamara";
-            this.lciCamara.Size = new System.Drawing.Size(58, 56);
+            this.lciCamara.Size = new System.Drawing.Size(59, 56);
             this.lciCamara.TextSize = new System.Drawing.Size(0, 0);
             this.lciCamara.TextVisible = false;
             // 
             // lciRemoverImagen
             // 
             this.lciRemoverImagen.Control = this.bbiCancelarImagen;
-            this.lciRemoverImagen.Location = new System.Drawing.Point(518, 248);
+            this.lciRemoverImagen.Location = new System.Drawing.Point(504, 271);
             this.lciRemoverImagen.Name = "lciRemoverImagen";
             this.lciRemoverImagen.Size = new System.Drawing.Size(59, 56);
             this.lciRemoverImagen.TextSize = new System.Drawing.Size(0, 0);
@@ -647,9 +672,9 @@
             // lciSeleecionarImagen
             // 
             this.lciSeleecionarImagen.Control = this.bbiSeleccionar;
-            this.lciSeleecionarImagen.Location = new System.Drawing.Point(459, 248);
+            this.lciSeleecionarImagen.Location = new System.Drawing.Point(446, 271);
             this.lciSeleecionarImagen.Name = "lciSeleecionarImagen";
-            this.lciSeleecionarImagen.Size = new System.Drawing.Size(59, 56);
+            this.lciSeleecionarImagen.Size = new System.Drawing.Size(58, 56);
             this.lciSeleecionarImagen.TextSize = new System.Drawing.Size(0, 0);
             this.lciSeleecionarImagen.TextVisible = false;
             // 
@@ -658,7 +683,7 @@
             this.lciNumEmpleado.Control = this.txtNumeroEmpleado;
             this.lciNumEmpleado.Location = new System.Drawing.Point(0, 24);
             this.lciNumEmpleado.Name = "lciNumEmpleado";
-            this.lciNumEmpleado.Size = new System.Drawing.Size(380, 40);
+            this.lciNumEmpleado.Size = new System.Drawing.Size(366, 40);
             this.lciNumEmpleado.Text = "Número de empleado:";
             this.lciNumEmpleado.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNumEmpleado.TextSize = new System.Drawing.Size(107, 13);
@@ -668,7 +693,7 @@
             this.lciNombre.Control = this.txtNombre;
             this.lciNombre.Location = new System.Drawing.Point(0, 64);
             this.lciNombre.Name = "lciNombre";
-            this.lciNombre.Size = new System.Drawing.Size(380, 40);
+            this.lciNombre.Size = new System.Drawing.Size(366, 40);
             this.lciNombre.Text = "Nombre completo:";
             this.lciNombre.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNombre.TextSize = new System.Drawing.Size(107, 13);
@@ -678,7 +703,7 @@
             this.lciRFC.Control = this.txtRFC;
             this.lciRFC.Location = new System.Drawing.Point(0, 104);
             this.lciRFC.Name = "lciRFC";
-            this.lciRFC.Size = new System.Drawing.Size(380, 40);
+            this.lciRFC.Size = new System.Drawing.Size(366, 40);
             this.lciRFC.Text = "RFC:";
             this.lciRFC.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciRFC.TextSize = new System.Drawing.Size(107, 13);
@@ -686,9 +711,9 @@
             // lciIMSS
             // 
             this.lciIMSS.Control = this.txtIMSS;
-            this.lciIMSS.Location = new System.Drawing.Point(0, 144);
+            this.lciIMSS.Location = new System.Drawing.Point(0, 184);
             this.lciIMSS.Name = "lciIMSS";
-            this.lciIMSS.Size = new System.Drawing.Size(380, 40);
+            this.lciIMSS.Size = new System.Drawing.Size(366, 40);
             this.lciIMSS.Text = "IMSS:";
             this.lciIMSS.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciIMSS.TextSize = new System.Drawing.Size(107, 13);
@@ -696,9 +721,9 @@
             // lciNumCredencial
             // 
             this.lciNumCredencial.Control = this.txtNumCredencial;
-            this.lciNumCredencial.Location = new System.Drawing.Point(0, 264);
+            this.lciNumCredencial.Location = new System.Drawing.Point(0, 304);
             this.lciNumCredencial.Name = "lciNumCredencial";
-            this.lciNumCredencial.Size = new System.Drawing.Size(380, 40);
+            this.lciNumCredencial.Size = new System.Drawing.Size(366, 40);
             this.lciNumCredencial.Text = "Número de credencial:";
             this.lciNumCredencial.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciNumCredencial.TextSize = new System.Drawing.Size(107, 13);
@@ -706,9 +731,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.chkEsAdministrativo;
-            this.layoutControlItem2.Location = new System.Drawing.Point(491, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(466, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(106, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(108, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -717,15 +742,15 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(352, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(325, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPuesto
             // 
             this.lciPuesto.Control = this.luePuesto;
-            this.lciPuesto.Location = new System.Drawing.Point(0, 184);
+            this.lciPuesto.Location = new System.Drawing.Point(0, 224);
             this.lciPuesto.Name = "lciPuesto";
-            this.lciPuesto.Size = new System.Drawing.Size(380, 40);
+            this.lciPuesto.Size = new System.Drawing.Size(366, 40);
             this.lciPuesto.Text = "Puesto:";
             this.lciPuesto.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciPuesto.TextSize = new System.Drawing.Size(107, 13);
@@ -733,9 +758,9 @@
             // lciDepartamento
             // 
             this.lciDepartamento.Control = this.lueDepartamento;
-            this.lciDepartamento.Location = new System.Drawing.Point(0, 224);
+            this.lciDepartamento.Location = new System.Drawing.Point(0, 264);
             this.lciDepartamento.Name = "lciDepartamento";
-            this.lciDepartamento.Size = new System.Drawing.Size(380, 40);
+            this.lciDepartamento.Size = new System.Drawing.Size(366, 40);
             this.lciDepartamento.Text = "Departamento:";
             this.lciDepartamento.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciDepartamento.TextSize = new System.Drawing.Size(107, 13);
@@ -743,7 +768,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(380, 248);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(366, 271);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(21, 56);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -751,17 +776,17 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(577, 248);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(563, 271);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(20, 56);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(11, 56);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.chkAccesoSistema;
-            this.layoutControlItem3.Location = new System.Drawing.Point(352, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(325, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(139, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(141, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -769,7 +794,7 @@
             // 
             this.TabDatosAdicionales.Controls.Add(this.lcMainAdicionales);
             this.TabDatosAdicionales.Name = "TabDatosAdicionales";
-            this.TabDatosAdicionales.Size = new System.Drawing.Size(634, 330);
+            this.TabDatosAdicionales.Size = new System.Drawing.Size(634, 320);
             this.TabDatosAdicionales.Text = "Datos adicionales";
             // 
             // lcMainAdicionales
@@ -786,7 +811,7 @@
             this.lcMainAdicionales.Name = "lcMainAdicionales";
             this.lcMainAdicionales.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(695, 207, 650, 400);
             this.lcMainAdicionales.Root = this.layoutControlGroup4;
-            this.lcMainAdicionales.Size = new System.Drawing.Size(634, 330);
+            this.lcMainAdicionales.Size = new System.Drawing.Size(634, 320);
             this.lcMainAdicionales.TabIndex = 0;
             this.lcMainAdicionales.Text = "layoutControl1";
             // 
@@ -886,7 +911,7 @@
             this.lciDomicilio,
             this.lcibtnMapa});
             this.layoutControlGroup4.Name = "Root";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(634, 330);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(634, 320);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // lciIngreso
@@ -904,7 +929,7 @@
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(0, 240);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(614, 70);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(614, 60);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPatron
@@ -966,6 +991,86 @@
             this.lcibtnMapa.TextSize = new System.Drawing.Size(0, 0);
             this.lcibtnMapa.TextVisible = false;
             // 
+            // TabRenuncias
+            // 
+            this.TabRenuncias.Controls.Add(this.lcRenuncias);
+            this.TabRenuncias.Name = "TabRenuncias";
+            this.TabRenuncias.PageVisible = false;
+            this.TabRenuncias.Size = new System.Drawing.Size(634, 320);
+            this.TabRenuncias.Text = "Renuncias";
+            // 
+            // lcRenuncias
+            // 
+            this.lcRenuncias.Controls.Add(this.grdRenuncias);
+            this.lcRenuncias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcRenuncias.Location = new System.Drawing.Point(0, 0);
+            this.lcRenuncias.Name = "lcRenuncias";
+            this.lcRenuncias.Root = this.Root;
+            this.lcRenuncias.Size = new System.Drawing.Size(634, 320);
+            this.lcRenuncias.TabIndex = 0;
+            this.lcRenuncias.Text = "layoutControl1";
+            // 
+            // grdRenuncias
+            // 
+            this.grdRenuncias.Location = new System.Drawing.Point(12, 12);
+            this.grdRenuncias.MainView = this.grvRenuncias;
+            this.grdRenuncias.MenuManager = this.rbbnUsuario;
+            this.grdRenuncias.Name = "grdRenuncias";
+            this.grdRenuncias.Size = new System.Drawing.Size(610, 296);
+            this.grdRenuncias.TabIndex = 4;
+            this.grdRenuncias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvRenuncias});
+            // 
+            // grvRenuncias
+            // 
+            this.grvRenuncias.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colFechaBaja,
+            this.colComentarios});
+            this.grvRenuncias.GridControl = this.grdRenuncias;
+            this.grvRenuncias.Name = "grvRenuncias";
+            this.grvRenuncias.OptionsView.AllowHtmlDrawGroups = false;
+            this.grvRenuncias.OptionsView.ShowDetailButtons = false;
+            this.grvRenuncias.OptionsView.ShowGroupPanel = false;
+            // 
+            // colFechaBaja
+            // 
+            this.colFechaBaja.Caption = "Fecha baja";
+            this.colFechaBaja.DisplayFormat.FormatString = "d";
+            this.colFechaBaja.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colFechaBaja.FieldName = "FechaAlta";
+            this.colFechaBaja.Name = "colFechaBaja";
+            this.colFechaBaja.Visible = true;
+            this.colFechaBaja.VisibleIndex = 0;
+            this.colFechaBaja.Width = 123;
+            // 
+            // colComentarios
+            // 
+            this.colComentarios.Caption = "Comentarios";
+            this.colComentarios.FieldName = "Comentarios";
+            this.colComentarios.Name = "colComentarios";
+            this.colComentarios.Visible = true;
+            this.colComentarios.VisibleIndex = 1;
+            this.colComentarios.Width = 462;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(634, 320);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.grdRenuncias;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(614, 300);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -973,7 +1078,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciTab});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(660, 369);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(620, 413);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTab
@@ -981,7 +1086,7 @@
             this.lciTab.Control = this.xtraTabControl1;
             this.lciTab.Location = new System.Drawing.Point(0, 0);
             this.lciTab.Name = "lciTab";
-            this.lciTab.Size = new System.Drawing.Size(640, 349);
+            this.lciTab.Size = new System.Drawing.Size(600, 393);
             this.lciTab.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciTab.TextSize = new System.Drawing.Size(0, 0);
             this.lciTab.TextVisible = false;
@@ -994,7 +1099,7 @@
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(624, 148, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(660, 369);
+            this.lcMain.Size = new System.Drawing.Size(620, 413);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -1002,11 +1107,38 @@
             // 
             this.ofdFoto.FileName = null;
             // 
+            // txtCURP
+            // 
+            this.txtCURP.Location = new System.Drawing.Point(12, 172);
+            this.txtCURP.MenuManager = this.rbbnUsuario;
+            this.txtCURP.Name = "txtCURP";
+            this.txtCURP.Size = new System.Drawing.Size(362, 20);
+            this.txtCURP.StyleController = this.lcMainTabGeneral;
+            this.txtCURP.TabIndex = 18;
+            // 
+            // lciCURP
+            // 
+            this.lciCURP.Control = this.txtCURP;
+            this.lciCURP.Location = new System.Drawing.Point(0, 144);
+            this.lciCURP.Name = "lciCURP";
+            this.lciCURP.Size = new System.Drawing.Size(366, 40);
+            this.lciCURP.Text = "CURP:";
+            this.lciCURP.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lciCURP.TextSize = new System.Drawing.Size(107, 13);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(366, 327);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(208, 17);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // xfrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 501);
+            this.ClientSize = new System.Drawing.Size(620, 545);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbbnUsuario);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUsuario.IconOptions.Icon")));
@@ -1080,11 +1212,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDomicilio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcibtnMapa)).EndInit();
+            this.TabRenuncias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcRenuncias)).EndInit();
+            this.lcRenuncias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdRenuncias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvRenuncias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCURP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCURP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1168,5 +1310,16 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNombre;
         private DevExpress.XtraEditors.CheckEdit chkAccesoSistema;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraTab.XtraTabPage TabRenuncias;
+        private DevExpress.XtraLayout.LayoutControl lcRenuncias;
+        private DevExpress.XtraGrid.GridControl grdRenuncias;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvRenuncias;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaBaja;
+        private DevExpress.XtraGrid.Columns.GridColumn colComentarios;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.TextEdit txtCURP;
+        private DevExpress.XtraLayout.LayoutControlItem lciCURP;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }

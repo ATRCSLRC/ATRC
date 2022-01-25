@@ -35,15 +35,15 @@
             this.bbiSalir = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdUnidades = new DevExpress.XtraGrid.GridControl();
             this.grvUnidades = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.colUnidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -60,7 +60,8 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiActivar,
             this.bbiDetalleUnidad,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -69,7 +70,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(502, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(502, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiActivar
@@ -114,21 +115,29 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.AllowMinimize = false;
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiActivar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiDetalleUnidad);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.AllowTextClipping = false;
+            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiSalir);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdUnidades);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(502, 383);
+            this.lcMain.Size = new System.Drawing.Size(502, 373);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -138,7 +147,7 @@
             this.grdUnidades.MainView = this.grvUnidades;
             this.grdUnidades.MenuManager = this.ribbonControl1;
             this.grdUnidades.Name = "grdUnidades";
-            this.grdUnidades.Size = new System.Drawing.Size(478, 359);
+            this.grdUnidades.Size = new System.Drawing.Size(478, 349);
             this.grdUnidades.TabIndex = 4;
             this.grdUnidades.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUnidades});
@@ -153,26 +162,8 @@
             this.grvUnidades.Name = "grvUnidades";
             this.grvUnidades.OptionsBehavior.Editable = false;
             this.grvUnidades.OptionsBehavior.ReadOnly = true;
+            this.grvUnidades.OptionsView.ShowAutoFilterRow = true;
             this.grvUnidades.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(502, 383);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdUnidades;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(482, 363);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // colUnidad
             // 
@@ -201,13 +192,24 @@
             this.colFecha.Visible = true;
             this.colFecha.VisibleIndex = 2;
             // 
-            // ribbonPageGroup2
+            // layoutControlGroup1
             // 
-            this.ribbonPageGroup2.AllowMinimize = false;
-            this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiSalir);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(502, 373);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdUnidades;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(482, 353);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // xfrmUnidadesFueraServicio
             // 
@@ -216,6 +218,7 @@
             this.ClientSize = new System.Drawing.Size(502, 505);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUnidadesFueraServicio.IconOptions.Icon")));
             this.Name = "xfrmUnidadesFueraServicio";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Unidades fuera de servicio";

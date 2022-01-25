@@ -45,6 +45,7 @@
             this.colParte = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colExistencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAlmacen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFactura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -108,11 +109,11 @@
             // 
             // rgTipo
             // 
-            this.rgTipo.Location = new System.Drawing.Point(136, 152);
+            this.rgTipo.Location = new System.Drawing.Point(145, 152);
             this.rgTipo.MenuManager = this.ribbonControl1;
             this.rgTipo.Name = "rgTipo";
             this.rgTipo.Properties.Columns = 4;
-            this.rgTipo.Size = new System.Drawing.Size(640, 26);
+            this.rgTipo.Size = new System.Drawing.Size(631, 26);
             this.rgTipo.StyleController = this.lcMain;
             this.rgTipo.TabIndex = 11;
             // 
@@ -159,14 +160,14 @@
             // lueCatalogo
             // 
             this.lueCatalogo.EnterMoveNextControl = true;
-            this.lueCatalogo.Location = new System.Drawing.Point(136, 69);
+            this.lueCatalogo.Location = new System.Drawing.Point(145, 69);
             this.lueCatalogo.MenuManager = this.ribbonControl1;
             this.lueCatalogo.Name = "lueCatalogo";
             this.lueCatalogo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueCatalogo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueCatalogo.Properties.NullText = "";
-            this.lueCatalogo.Size = new System.Drawing.Size(640, 20);
+            this.lueCatalogo.Size = new System.Drawing.Size(631, 20);
             this.lueCatalogo.StyleController = this.lcMain;
             this.lueCatalogo.TabIndex = 8;
             this.lueCatalogo.EditValueChanged += new System.EventHandler(this.lueCatalogo_EditValueChanged);
@@ -193,6 +194,7 @@
             this.colParte,
             this.colNombre,
             this.colExistencia,
+            this.colAlmacen,
             this.colProveedor,
             this.colFactura,
             this.colFecha});
@@ -208,7 +210,7 @@
             this.colAsignar.Name = "colAsignar";
             this.colAsignar.Visible = true;
             this.colAsignar.VisibleIndex = 0;
-            this.colAsignar.Width = 40;
+            this.colAsignar.Width = 34;
             // 
             // ribtnAsignar
             // 
@@ -245,7 +247,7 @@
             this.colCodigo.OptionsColumn.ReadOnly = true;
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 1;
-            this.colCodigo.Width = 112;
+            this.colCodigo.Width = 96;
             // 
             // colParte
             // 
@@ -257,6 +259,7 @@
             this.colParte.OptionsColumn.ReadOnly = true;
             this.colParte.Visible = true;
             this.colParte.VisibleIndex = 2;
+            this.colParte.Width = 64;
             // 
             // colNombre
             // 
@@ -268,7 +271,7 @@
             this.colNombre.OptionsColumn.ReadOnly = true;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 3;
-            this.colNombre.Width = 112;
+            this.colNombre.Width = 127;
             // 
             // colExistencia
             // 
@@ -280,7 +283,16 @@
             this.colExistencia.OptionsColumn.ReadOnly = true;
             this.colExistencia.Visible = true;
             this.colExistencia.VisibleIndex = 4;
-            this.colExistencia.Width = 112;
+            this.colExistencia.Width = 56;
+            // 
+            // colAlmacen
+            // 
+            this.colAlmacen.Caption = "Almacen";
+            this.colAlmacen.FieldName = "Almacen";
+            this.colAlmacen.Name = "colAlmacen";
+            this.colAlmacen.Visible = true;
+            this.colAlmacen.VisibleIndex = 5;
+            this.colAlmacen.Width = 53;
             // 
             // colProveedor
             // 
@@ -291,8 +303,8 @@
             this.colProveedor.OptionsColumn.AllowFocus = false;
             this.colProveedor.OptionsColumn.ReadOnly = true;
             this.colProveedor.Visible = true;
-            this.colProveedor.VisibleIndex = 5;
-            this.colProveedor.Width = 112;
+            this.colProveedor.VisibleIndex = 6;
+            this.colProveedor.Width = 166;
             // 
             // colFactura
             // 
@@ -303,8 +315,8 @@
             this.colFactura.OptionsColumn.AllowFocus = false;
             this.colFactura.OptionsColumn.ReadOnly = true;
             this.colFactura.Visible = true;
-            this.colFactura.VisibleIndex = 6;
-            this.colFactura.Width = 112;
+            this.colFactura.VisibleIndex = 7;
+            this.colFactura.Width = 69;
             // 
             // colFecha
             // 
@@ -315,8 +327,8 @@
             this.colFecha.OptionsColumn.AllowFocus = false;
             this.colFecha.OptionsColumn.ReadOnly = true;
             this.colFecha.Visible = true;
-            this.colFecha.VisibleIndex = 7;
-            this.colFecha.Width = 121;
+            this.colFecha.VisibleIndex = 8;
+            this.colFecha.Width = 86;
             // 
             // btnBuscar
             // 
@@ -332,7 +344,7 @@
             // rgBusqueda
             // 
             this.rgBusqueda.EnterMoveNextControl = true;
-            this.rgBusqueda.Location = new System.Drawing.Point(136, 93);
+            this.rgBusqueda.Location = new System.Drawing.Point(145, 93);
             this.rgBusqueda.Name = "rgBusqueda";
             this.rgBusqueda.Properties.ColumnIndent = 6;
             this.rgBusqueda.Properties.Columns = 3;
@@ -343,7 +355,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Marca"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Proveedor"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Tipo")});
-            this.rgBusqueda.Size = new System.Drawing.Size(640, 55);
+            this.rgBusqueda.Size = new System.Drawing.Size(631, 55);
             this.rgBusqueda.StyleController = this.lcMain;
             this.rgBusqueda.TabIndex = 6;
             this.rgBusqueda.SelectedIndexChanged += new System.EventHandler(this.rgBusqueda_SelectedIndexChanged);
@@ -351,10 +363,10 @@
             // txtFiltro
             // 
             this.txtFiltro.EnterMoveNextControl = true;
-            this.txtFiltro.Location = new System.Drawing.Point(136, 45);
+            this.txtFiltro.Location = new System.Drawing.Point(145, 45);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltro.Size = new System.Drawing.Size(640, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(631, 20);
             this.txtFiltro.StyleController = this.lcMain;
             this.txtFiltro.TabIndex = 4;
             this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
@@ -550,5 +562,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.RadioGroup rgTipo;
         private DevExpress.XtraLayout.LayoutControlItem lciTipo;
+        private DevExpress.XtraGrid.Columns.GridColumn colAlmacen;
     }
 }

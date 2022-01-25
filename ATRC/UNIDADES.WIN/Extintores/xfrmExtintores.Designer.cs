@@ -90,7 +90,8 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -99,7 +100,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(450, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(450, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -132,10 +133,10 @@
             // rpgAcciones
             // 
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // lcMain
             // 
@@ -150,20 +151,20 @@
             this.lcMain.Controls.Add(this.lueUnidad);
             this.lcMain.Controls.Add(this.rgUbicacion);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(502, 34, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(450, 315);
+            this.lcMain.Size = new System.Drawing.Size(450, 305);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // memoComentarios
             // 
-            this.memoComentarios.Location = new System.Drawing.Point(123, 246);
+            this.memoComentarios.Location = new System.Drawing.Point(132, 246);
             this.memoComentarios.MenuManager = this.ribbonControl1;
             this.memoComentarios.Name = "memoComentarios";
-            this.memoComentarios.Size = new System.Drawing.Size(315, 57);
+            this.memoComentarios.Size = new System.Drawing.Size(306, 47);
             this.memoComentarios.StyleController = this.lcMain;
             this.memoComentarios.TabIndex = 19;
             // 
@@ -171,7 +172,7 @@
             // 
             this.dteVencimiento.EditValue = null;
             this.dteVencimiento.EnterMoveNextControl = true;
-            this.dteVencimiento.Location = new System.Drawing.Point(123, 60);
+            this.dteVencimiento.Location = new System.Drawing.Point(132, 60);
             this.dteVencimiento.MenuManager = this.ribbonControl1;
             this.dteVencimiento.Name = "dteVencimiento";
             this.dteVencimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -183,7 +184,7 @@
             this.dteVencimiento.Properties.EditFormat.FormatString = "D";
             this.dteVencimiento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteVencimiento.Properties.Mask.EditMask = "D";
-            this.dteVencimiento.Size = new System.Drawing.Size(315, 20);
+            this.dteVencimiento.Size = new System.Drawing.Size(306, 20);
             this.dteVencimiento.StyleController = this.lcMain;
             this.dteVencimiento.TabIndex = 18;
             // 
@@ -191,34 +192,34 @@
             // 
             this.rgTipo.EditValue = "PQS";
             this.rgTipo.EnterMoveNextControl = true;
-            this.rgTipo.Location = new System.Drawing.Point(123, 162);
+            this.rgTipo.Location = new System.Drawing.Point(132, 162);
             this.rgTipo.MenuManager = this.ribbonControl1;
             this.rgTipo.Name = "rgTipo";
             this.rgTipo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("PQS", "PQS")});
-            this.rgTipo.Size = new System.Drawing.Size(315, 26);
+            this.rgTipo.Size = new System.Drawing.Size(306, 26);
             this.rgTipo.StyleController = this.lcMain;
             this.rgTipo.TabIndex = 17;
             // 
             // rgEstado
             // 
             this.rgEstado.EnterMoveNextControl = true;
-            this.rgEstado.Location = new System.Drawing.Point(123, 216);
+            this.rgEstado.Location = new System.Drawing.Point(132, 216);
             this.rgEstado.MenuManager = this.ribbonControl1;
             this.rgEstado.Name = "rgEstado";
-            this.rgEstado.Size = new System.Drawing.Size(315, 26);
+            this.rgEstado.Size = new System.Drawing.Size(306, 26);
             this.rgEstado.StyleController = this.lcMain;
             this.rgEstado.TabIndex = 16;
             // 
             // txtPeso
             // 
             this.txtPeso.EnterMoveNextControl = true;
-            this.txtPeso.Location = new System.Drawing.Point(123, 192);
+            this.txtPeso.Location = new System.Drawing.Point(132, 192);
             this.txtPeso.MenuManager = this.ribbonControl1;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Properties.Mask.EditMask = "n";
             this.txtPeso.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPeso.Size = new System.Drawing.Size(315, 20);
+            this.txtPeso.Size = new System.Drawing.Size(306, 20);
             this.txtPeso.StyleController = this.lcMain;
             this.txtPeso.TabIndex = 15;
             // 
@@ -226,7 +227,7 @@
             // 
             this.dteFechaRecarga.EditValue = null;
             this.dteFechaRecarga.EnterMoveNextControl = true;
-            this.dteFechaRecarga.Location = new System.Drawing.Point(123, 36);
+            this.dteFechaRecarga.Location = new System.Drawing.Point(132, 36);
             this.dteFechaRecarga.MenuManager = this.ribbonControl1;
             this.dteFechaRecarga.Name = "dteFechaRecarga";
             this.dteFechaRecarga.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -238,36 +239,36 @@
             this.dteFechaRecarga.Properties.EditFormat.FormatString = "D";
             this.dteFechaRecarga.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFechaRecarga.Properties.Mask.EditMask = "D";
-            this.dteFechaRecarga.Size = new System.Drawing.Size(315, 20);
+            this.dteFechaRecarga.Size = new System.Drawing.Size(306, 20);
             this.dteFechaRecarga.StyleController = this.lcMain;
             this.dteFechaRecarga.TabIndex = 13;
             // 
             // txtOficina
             // 
             this.txtOficina.EnterMoveNextControl = true;
-            this.txtOficina.Location = new System.Drawing.Point(123, 138);
+            this.txtOficina.Location = new System.Drawing.Point(132, 138);
             this.txtOficina.MenuManager = this.ribbonControl1;
             this.txtOficina.Name = "txtOficina";
-            this.txtOficina.Size = new System.Drawing.Size(315, 20);
+            this.txtOficina.Size = new System.Drawing.Size(306, 20);
             this.txtOficina.StyleController = this.lcMain;
             this.txtOficina.TabIndex = 12;
             // 
             // txtExtintor
             // 
             this.txtExtintor.EnterMoveNextControl = true;
-            this.txtExtintor.Location = new System.Drawing.Point(123, 12);
+            this.txtExtintor.Location = new System.Drawing.Point(132, 12);
             this.txtExtintor.MenuManager = this.ribbonControl1;
             this.txtExtintor.Name = "txtExtintor";
             this.txtExtintor.Properties.Mask.EditMask = "d";
             this.txtExtintor.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtExtintor.Size = new System.Drawing.Size(315, 20);
+            this.txtExtintor.Size = new System.Drawing.Size(306, 20);
             this.txtExtintor.StyleController = this.lcMain;
             this.txtExtintor.TabIndex = 11;
             // 
             // lueUnidad
             // 
             this.lueUnidad.EnterMoveNextControl = true;
-            this.lueUnidad.Location = new System.Drawing.Point(123, 114);
+            this.lueUnidad.Location = new System.Drawing.Point(132, 114);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -276,19 +277,20 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.DisplayMember = "Nombre";
             this.lueUnidad.Properties.NullText = "[Seleccioné]";
+            this.lueUnidad.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.lueUnidad.Properties.ValueMember = "Oid";
-            this.lueUnidad.Size = new System.Drawing.Size(315, 20);
+            this.lueUnidad.Size = new System.Drawing.Size(306, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 8;
             // 
             // rgUbicacion
             // 
             this.rgUbicacion.EnterMoveNextControl = true;
-            this.rgUbicacion.Location = new System.Drawing.Point(123, 84);
+            this.rgUbicacion.Location = new System.Drawing.Point(132, 84);
             this.rgUbicacion.MenuManager = this.ribbonControl1;
             this.rgUbicacion.Name = "rgUbicacion";
             this.rgUbicacion.Properties.Columns = 3;
-            this.rgUbicacion.Size = new System.Drawing.Size(315, 26);
+            this.rgUbicacion.Size = new System.Drawing.Size(306, 26);
             this.rgUbicacion.StyleController = this.lcMain;
             this.rgUbicacion.TabIndex = 7;
             this.rgUbicacion.SelectedIndexChanged += new System.EventHandler(this.rgDestino_SelectedIndexChanged);
@@ -309,7 +311,7 @@
             this.lciFechaVencimiento,
             this.lciComentarios});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(450, 315);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(450, 305);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTipoUbicacion
@@ -407,7 +409,7 @@
             this.lciComentarios.Control = this.memoComentarios;
             this.lciComentarios.Location = new System.Drawing.Point(0, 234);
             this.lciComentarios.Name = "lciComentarios";
-            this.lciComentarios.Size = new System.Drawing.Size(430, 61);
+            this.lciComentarios.Size = new System.Drawing.Size(430, 51);
             this.lciComentarios.Text = "Comentarios:";
             this.lciComentarios.TextSize = new System.Drawing.Size(108, 13);
             this.lciComentarios.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -419,7 +421,7 @@
             this.ClientSize = new System.Drawing.Size(450, 437);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmExtintores.IconOptions.Icon")));
             this.Name = "xfrmExtintores";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Extintor";

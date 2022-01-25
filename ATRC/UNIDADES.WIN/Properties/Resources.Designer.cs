@@ -123,6 +123,26 @@ namespace UNIDADES.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_unidad_org_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-unidad-org-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_unidad_org_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-unidad-org-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Taller {
             get {
                 object obj = ResourceManager.GetObject("Taller", resourceCulture);

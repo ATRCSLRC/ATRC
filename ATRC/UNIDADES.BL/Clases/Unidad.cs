@@ -343,12 +343,13 @@ namespace UNIDADES.BL
             get { return mDueño; }
             set { SetPropertyValue<string>("Dueño", ref mDueño, value); }
         }
-        //private decimal mPrecioRenta;
-        //public decimal PrecioRenta
-        //{
-        //    get { return mPrecioRenta; }
-        //    set { SetPropertyValue<decimal>("PrecioRenta", ref mPrecioRenta, value); }
-        //}
+
+        private bool mEsSeccion;
+        public bool EsSeccion
+        {
+            get { return mEsSeccion; }
+            set { SetPropertyValue<bool>("EsSeccion", ref mEsSeccion, value); }
+        }
 
         [NonPersistent]
         public object LlantaFrontalIzquierda

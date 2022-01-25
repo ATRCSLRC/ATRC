@@ -37,25 +37,29 @@
             this.colUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colComedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDormitorio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repchkDormitorio = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colHoraDe = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repTimeDe = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+            this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             this.colHoraA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repTimeA = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.repchkComedor = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.repchkDormitorio = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repTimeDe = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repositoryItemTimeSpanEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAccesos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvAccesos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTimeDe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repchkDormitorio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repTimeA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repchkComedor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repchkDormitorio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTimeDe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -97,7 +101,9 @@
             this.repchkComedor,
             this.repchkDormitorio,
             this.repTimeDe,
-            this.repTimeA});
+            this.repTimeA,
+            this.repositoryItemTimeSpanEdit1,
+            this.repositoryItemTimeSpanEdit2});
             this.grdAccesos.Size = new System.Drawing.Size(714, 463);
             this.grdAccesos.TabIndex = 4;
             this.grdAccesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -120,10 +126,13 @@
             this.grvAccesos.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.grvAccesos.OptionsView.ShowGroupPanel = false;
             this.grvAccesos.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvAccesos_CellValueChanged);
+            this.grvAccesos.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.grvAccesos_CustomUnboundColumnData);
             // 
             // colNumEmpleado
             // 
             this.colNumEmpleado.Caption = "Num. Empleado";
+            this.colNumEmpleado.DisplayFormat.FormatString = "T";
+            this.colNumEmpleado.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNumEmpleado.FieldName = "NumEmpleado";
             this.colNumEmpleado.Name = "colNumEmpleado";
             this.colNumEmpleado.OptionsColumn.AllowEdit = false;
@@ -162,28 +171,53 @@
             this.colDormitorio.VisibleIndex = 3;
             this.colDormitorio.Width = 104;
             // 
+            // repchkDormitorio
+            // 
+            this.repchkDormitorio.AutoHeight = false;
+            this.repchkDormitorio.Name = "repchkDormitorio";
+            this.repchkDormitorio.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.repchkDormitorio.CheckedChanged += new System.EventHandler(this.repchk_CheckedChanged);
+            this.repchkDormitorio.CheckStateChanged += new System.EventHandler(this.repchkDormitorio_CheckStateChanged);
+            // 
             // colHoraDe
             // 
             this.colHoraDe.Caption = "De";
-            this.colHoraDe.ColumnEdit = this.repTimeDe;
-            this.colHoraDe.FieldName = "HoraDeDormitorio";
+            this.colHoraDe.ColumnEdit = this.repositoryItemTimeSpanEdit1;
+            this.colHoraDe.DisplayFormat.FormatString = "t";
+            this.colHoraDe.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colHoraDe.FieldName = "HoraDormitorioDe";
+            this.colHoraDe.GroupFormat.FormatString = "t";
+            this.colHoraDe.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colHoraDe.Name = "colHoraDe";
             this.colHoraDe.Visible = true;
             this.colHoraDe.VisibleIndex = 4;
             this.colHoraDe.Width = 105;
             // 
-            // repTimeDe
+            // repositoryItemTimeSpanEdit1
             // 
-            this.repTimeDe.AutoHeight = false;
-            this.repTimeDe.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemTimeSpanEdit1.AllowMouseWheel = false;
+            this.repositoryItemTimeSpanEdit1.AutoHeight = false;
+            this.repositoryItemTimeSpanEdit1.BeepOnError = false;
+            this.repositoryItemTimeSpanEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repTimeDe.Name = "repTimeDe";
+            this.repositoryItemTimeSpanEdit1.DisplayFormat.FormatString = "t";
+            this.repositoryItemTimeSpanEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repositoryItemTimeSpanEdit1.EditFormat.FormatString = "t";
+            this.repositoryItemTimeSpanEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repositoryItemTimeSpanEdit1.MaskSettings.Set("mask", "t");
+            this.repositoryItemTimeSpanEdit1.MaxValue = System.TimeSpan.Parse("1.00:00:00");
+            this.repositoryItemTimeSpanEdit1.MinValue = System.TimeSpan.Parse("00:00:00");
+            this.repositoryItemTimeSpanEdit1.Name = "repositoryItemTimeSpanEdit1";
             // 
             // colHoraA
             // 
             this.colHoraA.Caption = "A";
-            this.colHoraA.ColumnEdit = this.repTimeA;
-            this.colHoraA.FieldName = "HoraADormitorio";
+            this.colHoraA.ColumnEdit = this.repositoryItemTimeSpanEdit2;
+            this.colHoraA.DisplayFormat.FormatString = "T";
+            this.colHoraA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colHoraA.FieldName = "HoraDormitorioA";
+            this.colHoraA.GroupFormat.FormatString = "T";
+            this.colHoraA.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colHoraA.Name = "colHoraA";
             this.colHoraA.Visible = true;
             this.colHoraA.VisibleIndex = 5;
@@ -192,8 +226,10 @@
             // repTimeA
             // 
             this.repTimeA.AutoHeight = false;
+            this.repTimeA.BeepOnError = false;
             this.repTimeA.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repTimeA.MaskSettings.Set("mask", "T");
             this.repTimeA.Name = "repTimeA";
             // 
             // repchkComedor
@@ -202,13 +238,18 @@
             this.repchkComedor.Name = "repchkComedor";
             this.repchkComedor.CheckedChanged += new System.EventHandler(this.repchkComedor_CheckedChanged);
             // 
-            // repchkDormitorio
+            // repTimeDe
             // 
-            this.repchkDormitorio.AutoHeight = false;
-            this.repchkDormitorio.Name = "repchkDormitorio";
-            this.repchkDormitorio.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            this.repchkDormitorio.CheckedChanged += new System.EventHandler(this.repchk_CheckedChanged);
-            this.repchkDormitorio.CheckStateChanged += new System.EventHandler(this.repchkDormitorio_CheckStateChanged);
+            this.repTimeDe.AutoHeight = false;
+            this.repTimeDe.BeepOnError = false;
+            this.repTimeDe.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repTimeDe.DisplayFormat.FormatString = "T";
+            this.repTimeDe.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repTimeDe.EditFormat.FormatString = "T";
+            this.repTimeDe.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repTimeDe.MaskSettings.Set("mask", "T");
+            this.repTimeDe.Name = "repTimeDe";
             // 
             // Root
             // 
@@ -229,6 +270,17 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // repositoryItemTimeSpanEdit2
+            // 
+            this.repositoryItemTimeSpanEdit2.AllowMouseWheel = false;
+            this.repositoryItemTimeSpanEdit2.AutoHeight = false;
+            this.repositoryItemTimeSpanEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeSpanEdit2.MaskSettings.Set("mask", "t");
+            this.repositoryItemTimeSpanEdit2.MaxValue = System.TimeSpan.Parse("1.00:00:00");
+            this.repositoryItemTimeSpanEdit2.MinValue = System.TimeSpan.Parse("00:00:00");
+            this.repositoryItemTimeSpanEdit2.Name = "repositoryItemTimeSpanEdit2";
+            // 
             // xfrmAccesos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,12 +298,14 @@
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdAccesos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvAccesos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repTimeDe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repchkDormitorio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repTimeA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repchkComedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repchkDormitorio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repTimeDe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +329,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repTimeDe;
         private DevExpress.XtraGrid.Columns.GridColumn colHoraA;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repTimeA;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit2;
     }
 }

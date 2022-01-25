@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RutasExtrasUsuario));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -38,12 +39,6 @@
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
-            this.lblFecha = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblNombreReporte = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -51,11 +46,17 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
+            this.lblFecha = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblNombreReporte = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTitulo = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.Horas = new DevExpress.XtraReports.UI.CalculatedField();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -156,65 +157,6 @@
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // lblFecha
-            // 
-            this.lblFecha.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 72.20834F);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblFecha.SizeF = new System.Drawing.SizeF(599.0416F, 23F);
-            this.lblFecha.StylePriority.UseFont = false;
-            this.lblFecha.StylePriority.UseTextAlignment = false;
-            this.lblFecha.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // lblNombreReporte
-            // 
-            this.lblNombreReporte.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 43.83334F);
-            this.lblNombreReporte.Name = "lblNombreReporte";
-            this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(599.0416F, 28.37501F);
-            this.lblNombreReporte.StylePriority.UseFont = false;
-            this.lblNombreReporte.StylePriority.UseTextAlignment = false;
-            this.lblNombreReporte.Text = "Rutas extras";
-            this.lblNombreReporte.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Font = new System.Drawing.Font("Tahoma", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 12.5F);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTitulo.SizeF = new System.Drawing.SizeF(599.0417F, 31.33334F);
-            this.lblTitulo.StylePriority.UseFont = false;
-            this.lblTitulo.StylePriority.UseTextAlignment = false;
-            this.lblTitulo.Text = "Auto transportes del rio colorado S.A. de C.V.";
-            this.lblTitulo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // lblColor
-            // 
-            this.lblColor.BackColor = System.Drawing.Color.Red;
-            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 96.16667F);
-            this.lblColor.Name = "lblColor";
-            this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblColor.SizeF = new System.Drawing.SizeF(599.0416F, 5.291672F);
-            this.lblColor.StylePriority.UseBackColor = false;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(26.66667F, 10.00001F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(107.2917F, 91.45834F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
-            // BottomMargin
-            // 
-            this.BottomMargin.HeightF = 33F;
-            this.BottomMargin.Name = "BottomMargin";
-            this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
             // xrTable1
             // 
             this.xrTable1.BackColor = System.Drawing.Color.Transparent;
@@ -314,6 +256,65 @@
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell5.Weight = 1.0682284082152567D;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(133.9584F, 72.20834F);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblFecha.SizeF = new System.Drawing.SizeF(614.0415F, 23F);
+            this.lblFecha.StylePriority.UseFont = false;
+            this.lblFecha.StylePriority.UseTextAlignment = false;
+            this.lblFecha.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // lblNombreReporte
+            // 
+            this.lblNombreReporte.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(133.9584F, 43.83334F);
+            this.lblNombreReporte.Name = "lblNombreReporte";
+            this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(614.0415F, 28.37501F);
+            this.lblNombreReporte.StylePriority.UseFont = false;
+            this.lblNombreReporte.StylePriority.UseTextAlignment = false;
+            this.lblNombreReporte.Text = "Rutas extras";
+            this.lblNombreReporte.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Font = new System.Drawing.Font("Tahoma", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(133.9584F, 12.5F);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTitulo.SizeF = new System.Drawing.SizeF(614.0416F, 31.33334F);
+            this.lblTitulo.StylePriority.UseFont = false;
+            this.lblTitulo.StylePriority.UseTextAlignment = false;
+            this.lblTitulo.Text = "Auto transportes del rio colorado S.A. de C.V.";
+            this.lblTitulo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // lblColor
+            // 
+            this.lblColor.BackColor = System.Drawing.Color.Red;
+            this.lblColor.LocationFloat = new DevExpress.Utils.PointFloat(148.9583F, 96.16667F);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblColor.SizeF = new System.Drawing.SizeF(599.0416F, 5.291672F);
+            this.lblColor.StylePriority.UseBackColor = false;
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(26.66667F, 10.00001F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(107.2917F, 91.45834F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            // 
+            // BottomMargin
+            // 
+            this.BottomMargin.HeightF = 33F;
+            this.BottomMargin.Name = "BottomMargin";
+            this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
             // objectDataSource1
             // 
             this.objectDataSource1.DataSource = typeof(ATRCBASE.BL.Usuario);
@@ -331,6 +332,18 @@
             this.GroupFooter1.HeightF = 26.04167F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
+            // xrLabel2
+            // 
+            this.xrLabel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(582.9581F, 0F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(57.29169F, 23F);
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.StylePriority.UseTextAlignment = false;
+            this.xrLabel2.Text = "Total:";
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
             // xrLabel1
             // 
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
@@ -338,24 +351,12 @@
             this.xrLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(640.2498F, 0F);
             this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(107.7502F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel1.TextFormatString = "{0:$0.00}";
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(582.9581F, 0F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(57.29169F, 23F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "Total:";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // RutasExtrasUsuario
             // 
@@ -370,7 +371,7 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.Margins = new System.Drawing.Printing.Margins(51, 51, 147, 33);
-            this.Version = "17.2";
+            this.Version = "20.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();

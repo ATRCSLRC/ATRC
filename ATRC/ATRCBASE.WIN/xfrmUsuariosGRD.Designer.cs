@@ -58,6 +58,8 @@
             this.esiDetalleUsuario = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ftpDetalleUsuario = new DevExpress.Utils.FlyoutPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.lblCURPDetalle = new DevExpress.XtraEditors.LabelControl();
+            this.lblCURP = new DevExpress.XtraEditors.LabelControl();
             this.lblPuestoDetalle = new DevExpress.XtraEditors.LabelControl();
             this.lblPuesto = new DevExpress.XtraEditors.LabelControl();
             this.lblIMSSDetalle = new DevExpress.XtraEditors.LabelControl();
@@ -71,16 +73,18 @@
             this.peFotoUsuario = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciFotoDetalle = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciUsuario = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciRFC = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDetalleUsu = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciPuesto = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciPuestoDetalle = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciRFCDetalle = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciIMSS = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciIMSSDetalle = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDetalleFehca = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciPuesto = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciPuestoDetalle = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciRFC = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciUsuario = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -96,16 +100,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.peFotoUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFotoDetalle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRFC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleUsu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciPuesto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciPuestoDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciRFCDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIMSS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIMSSDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleFehca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciPuesto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciPuestoDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRFC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPageGroup1
@@ -137,6 +143,7 @@
             this.rbnUsuarios.ExpandCollapseItem.Id = 0;
             this.rbnUsuarios.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbnUsuarios.ExpandCollapseItem,
+            this.rbnUsuarios.SearchEditItem,
             this.bbiNuevos,
             this.bbiModificarUsuario,
             this.bbiEliminarUsuario,
@@ -153,7 +160,7 @@
             this.rbnUsuarios.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.rbnUsuarios.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.rbnUsuarios.ShowToolbarCustomizeItem = false;
-            this.rbnUsuarios.Size = new System.Drawing.Size(578, 122);
+            this.rbnUsuarios.Size = new System.Drawing.Size(578, 132);
             this.rbnUsuarios.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiNuevos
@@ -250,38 +257,38 @@
             // rpgAcciones
             // 
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiAsignar);
             this.rpgAcciones.ItemLinks.Add(this.bbiNuevos);
             this.rpgAcciones.ItemLinks.Add(this.bbiModificarUsuario);
             this.rpgAcciones.ItemLinks.Add(this.bbiEliminarUsuario);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // rpgGafete
             // 
             this.rpgGafete.AllowTextClipping = false;
+            this.rpgGafete.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgGafete.ItemLinks.Add(this.bbiReportes);
             this.rpgGafete.ItemLinks.Add(this.bbiDesactivarEmpleado);
             this.rpgGafete.ItemLinks.Add(this.bbiGafete);
             this.rpgGafete.Name = "rpgGafete";
-            this.rpgGafete.ShowCaptionButton = false;
             // 
             // rpgSalir
             // 
             this.rpgSalir.AllowTextClipping = false;
+            this.rpgSalir.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgSalir.ItemLinks.Add(this.bbiSalirUsuario);
             this.rpgSalir.Name = "rpgSalir";
-            this.rpgSalir.ShowCaptionButton = false;
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdUsuarios);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(630, 289, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(578, 445);
+            this.lcMain.Size = new System.Drawing.Size(578, 435);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -291,7 +298,7 @@
             this.grdUsuarios.MainView = this.grvUsuarios;
             this.grdUsuarios.MenuManager = this.rbnUsuarios;
             this.grdUsuarios.Name = "grdUsuarios";
-            this.grdUsuarios.Size = new System.Drawing.Size(554, 312);
+            this.grdUsuarios.Size = new System.Drawing.Size(554, 302);
             this.grdUsuarios.TabIndex = 4;
             this.grdUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUsuarios});
@@ -352,7 +359,7 @@
             this.layoutControlItem1,
             this.esiDetalleUsuario});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(578, 445);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(578, 435);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -360,14 +367,14 @@
             this.layoutControlItem1.Control = this.grdUsuarios;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(558, 316);
+            this.layoutControlItem1.Size = new System.Drawing.Size(558, 306);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // esiDetalleUsuario
             // 
             this.esiDetalleUsuario.AllowHotTrack = false;
-            this.esiDetalleUsuario.Location = new System.Drawing.Point(0, 316);
+            this.esiDetalleUsuario.Location = new System.Drawing.Point(0, 306);
             this.esiDetalleUsuario.MaxSize = new System.Drawing.Size(0, 109);
             this.esiDetalleUsuario.MinSize = new System.Drawing.Size(10, 109);
             this.esiDetalleUsuario.Name = "esiDetalleUsuario";
@@ -402,6 +409,8 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.lblCURPDetalle);
+            this.layoutControl1.Controls.Add(this.lblCURP);
             this.layoutControl1.Controls.Add(this.lblPuestoDetalle);
             this.layoutControl1.Controls.Add(this.lblPuesto);
             this.layoutControl1.Controls.Add(this.lblIMSSDetalle);
@@ -416,11 +425,36 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 20);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(906, 175, 650, 400);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(668, 215, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup3;
             this.layoutControl1.Size = new System.Drawing.Size(543, 96);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // lblCURPDetalle
+            // 
+            this.lblCURPDetalle.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCURPDetalle.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblCURPDetalle.Appearance.Options.UseFont = true;
+            this.lblCURPDetalle.Appearance.Options.UseForeColor = true;
+            this.lblCURPDetalle.Location = new System.Drawing.Point(170, 29);
+            this.lblCURPDetalle.Name = "lblCURPDetalle";
+            this.lblCURPDetalle.Size = new System.Drawing.Size(159, 13);
+            this.lblCURPDetalle.StyleController = this.layoutControl1;
+            this.lblCURPDetalle.TabIndex = 16;
+            // 
+            // lblCURP
+            // 
+            this.lblCURP.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCURP.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblCURP.Appearance.Options.UseFont = true;
+            this.lblCURP.Appearance.Options.UseForeColor = true;
+            this.lblCURP.Location = new System.Drawing.Point(133, 29);
+            this.lblCURP.Name = "lblCURP";
+            this.lblCURP.Size = new System.Drawing.Size(33, 13);
+            this.lblCURP.StyleController = this.layoutControl1;
+            this.lblCURP.TabIndex = 15;
+            this.lblCURP.Text = "CURP:";
             // 
             // lblPuestoDetalle
             // 
@@ -428,9 +462,9 @@
             this.lblPuestoDetalle.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblPuestoDetalle.Appearance.Options.UseFont = true;
             this.lblPuestoDetalle.Appearance.Options.UseForeColor = true;
-            this.lblPuestoDetalle.Location = new System.Drawing.Point(180, 63);
+            this.lblPuestoDetalle.Location = new System.Drawing.Point(366, 46);
             this.lblPuestoDetalle.Name = "lblPuestoDetalle";
-            this.lblPuestoDetalle.Size = new System.Drawing.Size(160, 21);
+            this.lblPuestoDetalle.Size = new System.Drawing.Size(165, 13);
             this.lblPuestoDetalle.StyleController = this.layoutControl1;
             this.lblPuestoDetalle.TabIndex = 14;
             // 
@@ -440,9 +474,9 @@
             this.lblPuesto.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblPuesto.Appearance.Options.UseFont = true;
             this.lblPuesto.Appearance.Options.UseForeColor = true;
-            this.lblPuesto.Location = new System.Drawing.Point(113, 63);
+            this.lblPuesto.Location = new System.Drawing.Point(320, 46);
             this.lblPuesto.Name = "lblPuesto";
-            this.lblPuesto.Size = new System.Drawing.Size(63, 21);
+            this.lblPuesto.Size = new System.Drawing.Size(42, 13);
             this.lblPuesto.StyleController = this.layoutControl1;
             this.lblPuesto.TabIndex = 13;
             this.lblPuesto.Text = "Puesto:";
@@ -453,9 +487,9 @@
             this.lblIMSSDetalle.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblIMSSDetalle.Appearance.Options.UseFont = true;
             this.lblIMSSDetalle.Appearance.Options.UseForeColor = true;
-            this.lblIMSSDetalle.Location = new System.Drawing.Point(387, 37);
+            this.lblIMSSDetalle.Location = new System.Drawing.Point(169, 46);
             this.lblIMSSDetalle.Name = "lblIMSSDetalle";
-            this.lblIMSSDetalle.Size = new System.Drawing.Size(144, 22);
+            this.lblIMSSDetalle.Size = new System.Drawing.Size(147, 13);
             this.lblIMSSDetalle.StyleController = this.layoutControl1;
             this.lblIMSSDetalle.TabIndex = 12;
             // 
@@ -465,9 +499,9 @@
             this.lblIMSS.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblIMSS.Appearance.Options.UseFont = true;
             this.lblIMSS.Appearance.Options.UseForeColor = true;
-            this.lblIMSS.Location = new System.Drawing.Point(320, 37);
+            this.lblIMSS.Location = new System.Drawing.Point(133, 46);
             this.lblIMSS.Name = "lblIMSS";
-            this.lblIMSS.Size = new System.Drawing.Size(63, 22);
+            this.lblIMSS.Size = new System.Drawing.Size(32, 13);
             this.lblIMSS.StyleController = this.layoutControl1;
             this.lblIMSS.TabIndex = 11;
             this.lblIMSS.Text = "IMSS:";
@@ -478,9 +512,9 @@
             this.lblRFCDetalle.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblRFCDetalle.Appearance.Options.UseFont = true;
             this.lblRFCDetalle.Appearance.Options.UseForeColor = true;
-            this.lblRFCDetalle.Location = new System.Drawing.Point(180, 37);
+            this.lblRFCDetalle.Location = new System.Drawing.Point(361, 29);
             this.lblRFCDetalle.Name = "lblRFCDetalle";
-            this.lblRFCDetalle.Size = new System.Drawing.Size(136, 22);
+            this.lblRFCDetalle.Size = new System.Drawing.Size(170, 13);
             this.lblRFCDetalle.StyleController = this.layoutControl1;
             this.lblRFCDetalle.TabIndex = 10;
             // 
@@ -490,9 +524,9 @@
             this.lblRFC.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblRFC.Appearance.Options.UseFont = true;
             this.lblRFC.Appearance.Options.UseForeColor = true;
-            this.lblRFC.Location = new System.Drawing.Point(113, 37);
+            this.lblRFC.Location = new System.Drawing.Point(333, 29);
             this.lblRFC.Name = "lblRFC";
-            this.lblRFC.Size = new System.Drawing.Size(63, 22);
+            this.lblRFC.Size = new System.Drawing.Size(24, 13);
             this.lblRFC.StyleController = this.layoutControl1;
             this.lblRFC.TabIndex = 9;
             this.lblRFC.Text = "RFC:";
@@ -503,9 +537,9 @@
             this.lblDetalleUsuario.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblDetalleUsuario.Appearance.Options.UseFont = true;
             this.lblDetalleUsuario.Appearance.Options.UseForeColor = true;
-            this.lblDetalleUsuario.Location = new System.Drawing.Point(180, 12);
+            this.lblDetalleUsuario.Location = new System.Drawing.Point(183, 12);
             this.lblDetalleUsuario.Name = "lblDetalleUsuario";
-            this.lblDetalleUsuario.Size = new System.Drawing.Size(351, 21);
+            this.lblDetalleUsuario.Size = new System.Drawing.Size(348, 13);
             this.lblDetalleUsuario.StyleController = this.layoutControl1;
             this.lblDetalleUsuario.TabIndex = 8;
             // 
@@ -515,9 +549,9 @@
             this.lblDetalleFecha.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblDetalleFecha.Appearance.Options.UseFont = true;
             this.lblDetalleFecha.Appearance.Options.UseForeColor = true;
-            this.lblDetalleFecha.Location = new System.Drawing.Point(427, 63);
+            this.lblDetalleFecha.Location = new System.Drawing.Point(218, 63);
             this.lblDetalleFecha.Name = "lblDetalleFecha";
-            this.lblDetalleFecha.Size = new System.Drawing.Size(104, 21);
+            this.lblDetalleFecha.Size = new System.Drawing.Size(313, 21);
             this.lblDetalleFecha.StyleController = this.layoutControl1;
             this.lblDetalleFecha.TabIndex = 7;
             // 
@@ -527,9 +561,9 @@
             this.lblUsuario.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblUsuario.Appearance.Options.UseFont = true;
             this.lblUsuario.Appearance.Options.UseForeColor = true;
-            this.lblUsuario.Location = new System.Drawing.Point(113, 12);
+            this.lblUsuario.Location = new System.Drawing.Point(133, 12);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(63, 21);
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
             this.lblUsuario.StyleController = this.layoutControl1;
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario:";
@@ -540,9 +574,9 @@
             this.lblFecha.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblFecha.Appearance.Options.UseFont = true;
             this.lblFecha.Appearance.Options.UseForeColor = true;
-            this.lblFecha.Location = new System.Drawing.Point(344, 63);
+            this.lblFecha.Location = new System.Drawing.Point(133, 63);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(79, 21);
+            this.lblFecha.Size = new System.Drawing.Size(81, 21);
             this.lblFecha.StyleController = this.layoutControl1;
             this.lblFecha.TabIndex = 5;
             this.lblFecha.Text = "Fecha ingreso:";
@@ -559,7 +593,7 @@
             this.peFotoUsuario.Properties.OptionsMask.MaskType = DevExpress.XtraEditors.Controls.PictureEditMaskType.Circle;
             this.peFotoUsuario.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peFotoUsuario.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.peFotoUsuario.Size = new System.Drawing.Size(97, 72);
+            this.peFotoUsuario.Size = new System.Drawing.Size(117, 72);
             this.peFotoUsuario.StyleController = this.layoutControl1;
             this.peFotoUsuario.TabIndex = 4;
             // 
@@ -570,15 +604,17 @@
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciFotoDetalle,
             this.lciUsuario,
-            this.lciRFC,
             this.lciDetalleUsu,
-            this.lciPuesto,
-            this.lciPuestoDetalle,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.lciRFC,
             this.lciRFCDetalle,
             this.lciIMSS,
             this.lciIMSSDetalle,
             this.lciFecha,
-            this.lciDetalleFehca});
+            this.lciDetalleFehca,
+            this.lciPuesto,
+            this.lciPuestoDetalle});
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(543, 96);
             this.layoutControlGroup3.TextVisible = false;
@@ -587,73 +623,36 @@
             // 
             this.lciFotoDetalle.Control = this.peFotoUsuario;
             this.lciFotoDetalle.Location = new System.Drawing.Point(0, 0);
+            this.lciFotoDetalle.MaxSize = new System.Drawing.Size(121, 76);
+            this.lciFotoDetalle.MinSize = new System.Drawing.Size(121, 76);
             this.lciFotoDetalle.Name = "lciFotoDetalle";
-            this.lciFotoDetalle.Size = new System.Drawing.Size(101, 76);
+            this.lciFotoDetalle.Size = new System.Drawing.Size(121, 76);
+            this.lciFotoDetalle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciFotoDetalle.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.lciFotoDetalle.TextSize = new System.Drawing.Size(0, 0);
+            this.lciFotoDetalle.TextToControlDistance = 0;
             this.lciFotoDetalle.TextVisible = false;
-            // 
-            // lciUsuario
-            // 
-            this.lciUsuario.Control = this.lblUsuario;
-            this.lciUsuario.Location = new System.Drawing.Point(101, 0);
-            this.lciUsuario.MinSize = new System.Drawing.Size(67, 17);
-            this.lciUsuario.Name = "lciUsuario";
-            this.lciUsuario.Size = new System.Drawing.Size(67, 25);
-            this.lciUsuario.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciUsuario.TextSize = new System.Drawing.Size(0, 0);
-            this.lciUsuario.TextVisible = false;
-            // 
-            // lciRFC
-            // 
-            this.lciRFC.Control = this.lblRFC;
-            this.lciRFC.Location = new System.Drawing.Point(101, 25);
-            this.lciRFC.MinSize = new System.Drawing.Size(67, 17);
-            this.lciRFC.Name = "lciRFC";
-            this.lciRFC.Size = new System.Drawing.Size(67, 26);
-            this.lciRFC.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciRFC.TextSize = new System.Drawing.Size(0, 0);
-            this.lciRFC.TextVisible = false;
             // 
             // lciDetalleUsu
             // 
             this.lciDetalleUsu.Control = this.lblDetalleUsuario;
-            this.lciDetalleUsu.Location = new System.Drawing.Point(168, 0);
-            this.lciDetalleUsu.MinSize = new System.Drawing.Size(67, 17);
+            this.lciDetalleUsu.Location = new System.Drawing.Point(171, 0);
+            this.lciDetalleUsu.MaxSize = new System.Drawing.Size(352, 17);
+            this.lciDetalleUsu.MinSize = new System.Drawing.Size(352, 17);
             this.lciDetalleUsu.Name = "lciDetalleUsu";
-            this.lciDetalleUsu.Size = new System.Drawing.Size(355, 25);
+            this.lciDetalleUsu.Size = new System.Drawing.Size(352, 17);
             this.lciDetalleUsu.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciDetalleUsu.TextSize = new System.Drawing.Size(0, 0);
             this.lciDetalleUsu.TextVisible = false;
             // 
-            // lciPuesto
-            // 
-            this.lciPuesto.Control = this.lblPuesto;
-            this.lciPuesto.Location = new System.Drawing.Point(101, 51);
-            this.lciPuesto.MinSize = new System.Drawing.Size(67, 17);
-            this.lciPuesto.Name = "lciPuesto";
-            this.lciPuesto.Size = new System.Drawing.Size(67, 25);
-            this.lciPuesto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciPuesto.TextSize = new System.Drawing.Size(0, 0);
-            this.lciPuesto.TextVisible = false;
-            // 
-            // lciPuestoDetalle
-            // 
-            this.lciPuestoDetalle.Control = this.lblPuestoDetalle;
-            this.lciPuestoDetalle.Location = new System.Drawing.Point(168, 51);
-            this.lciPuestoDetalle.MinSize = new System.Drawing.Size(73, 17);
-            this.lciPuestoDetalle.Name = "lciPuestoDetalle";
-            this.lciPuestoDetalle.Size = new System.Drawing.Size(164, 25);
-            this.lciPuestoDetalle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciPuestoDetalle.TextSize = new System.Drawing.Size(0, 0);
-            this.lciPuestoDetalle.TextVisible = false;
-            // 
             // lciRFCDetalle
             // 
             this.lciRFCDetalle.Control = this.lblRFCDetalle;
-            this.lciRFCDetalle.Location = new System.Drawing.Point(168, 25);
-            this.lciRFCDetalle.MinSize = new System.Drawing.Size(67, 17);
+            this.lciRFCDetalle.Location = new System.Drawing.Point(349, 17);
+            this.lciRFCDetalle.MaxSize = new System.Drawing.Size(174, 17);
+            this.lciRFCDetalle.MinSize = new System.Drawing.Size(174, 17);
             this.lciRFCDetalle.Name = "lciRFCDetalle";
-            this.lciRFCDetalle.Size = new System.Drawing.Size(140, 26);
+            this.lciRFCDetalle.Size = new System.Drawing.Size(174, 17);
             this.lciRFCDetalle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciRFCDetalle.TextSize = new System.Drawing.Size(0, 0);
             this.lciRFCDetalle.TextVisible = false;
@@ -661,10 +660,11 @@
             // lciIMSS
             // 
             this.lciIMSS.Control = this.lblIMSS;
-            this.lciIMSS.Location = new System.Drawing.Point(308, 25);
-            this.lciIMSS.MinSize = new System.Drawing.Size(67, 17);
+            this.lciIMSS.Location = new System.Drawing.Point(121, 34);
+            this.lciIMSS.MaxSize = new System.Drawing.Size(36, 17);
+            this.lciIMSS.MinSize = new System.Drawing.Size(36, 17);
             this.lciIMSS.Name = "lciIMSS";
-            this.lciIMSS.Size = new System.Drawing.Size(67, 26);
+            this.lciIMSS.Size = new System.Drawing.Size(36, 17);
             this.lciIMSS.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciIMSS.TextSize = new System.Drawing.Size(0, 0);
             this.lciIMSS.TextVisible = false;
@@ -672,10 +672,11 @@
             // lciIMSSDetalle
             // 
             this.lciIMSSDetalle.Control = this.lblIMSSDetalle;
-            this.lciIMSSDetalle.Location = new System.Drawing.Point(375, 25);
-            this.lciIMSSDetalle.MinSize = new System.Drawing.Size(67, 17);
+            this.lciIMSSDetalle.Location = new System.Drawing.Point(157, 34);
+            this.lciIMSSDetalle.MaxSize = new System.Drawing.Size(151, 17);
+            this.lciIMSSDetalle.MinSize = new System.Drawing.Size(151, 17);
             this.lciIMSSDetalle.Name = "lciIMSSDetalle";
-            this.lciIMSSDetalle.Size = new System.Drawing.Size(148, 26);
+            this.lciIMSSDetalle.Size = new System.Drawing.Size(151, 17);
             this.lciIMSSDetalle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciIMSSDetalle.TextSize = new System.Drawing.Size(0, 0);
             this.lciIMSSDetalle.TextVisible = false;
@@ -683,10 +684,11 @@
             // lciFecha
             // 
             this.lciFecha.Control = this.lblFecha;
-            this.lciFecha.Location = new System.Drawing.Point(332, 51);
-            this.lciFecha.MinSize = new System.Drawing.Size(67, 17);
+            this.lciFecha.Location = new System.Drawing.Point(121, 51);
+            this.lciFecha.MaxSize = new System.Drawing.Size(85, 25);
+            this.lciFecha.MinSize = new System.Drawing.Size(85, 25);
             this.lciFecha.Name = "lciFecha";
-            this.lciFecha.Size = new System.Drawing.Size(83, 25);
+            this.lciFecha.Size = new System.Drawing.Size(85, 25);
             this.lciFecha.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFecha.TextSize = new System.Drawing.Size(0, 0);
             this.lciFecha.TextVisible = false;
@@ -694,13 +696,88 @@
             // lciDetalleFehca
             // 
             this.lciDetalleFehca.Control = this.lblDetalleFecha;
-            this.lciDetalleFehca.Location = new System.Drawing.Point(415, 51);
-            this.lciDetalleFehca.MinSize = new System.Drawing.Size(67, 17);
+            this.lciDetalleFehca.Location = new System.Drawing.Point(206, 51);
+            this.lciDetalleFehca.MaxSize = new System.Drawing.Size(317, 25);
+            this.lciDetalleFehca.MinSize = new System.Drawing.Size(317, 25);
             this.lciDetalleFehca.Name = "lciDetalleFehca";
-            this.lciDetalleFehca.Size = new System.Drawing.Size(108, 25);
+            this.lciDetalleFehca.Size = new System.Drawing.Size(317, 25);
             this.lciDetalleFehca.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciDetalleFehca.TextSize = new System.Drawing.Size(0, 0);
             this.lciDetalleFehca.TextVisible = false;
+            // 
+            // lciPuesto
+            // 
+            this.lciPuesto.Control = this.lblPuesto;
+            this.lciPuesto.Location = new System.Drawing.Point(308, 34);
+            this.lciPuesto.MaxSize = new System.Drawing.Size(46, 17);
+            this.lciPuesto.MinSize = new System.Drawing.Size(46, 17);
+            this.lciPuesto.Name = "lciPuesto";
+            this.lciPuesto.Size = new System.Drawing.Size(46, 17);
+            this.lciPuesto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciPuesto.TextSize = new System.Drawing.Size(0, 0);
+            this.lciPuesto.TextVisible = false;
+            // 
+            // lciPuestoDetalle
+            // 
+            this.lciPuestoDetalle.Control = this.lblPuestoDetalle;
+            this.lciPuestoDetalle.Location = new System.Drawing.Point(354, 34);
+            this.lciPuestoDetalle.MaxSize = new System.Drawing.Size(169, 17);
+            this.lciPuestoDetalle.MinSize = new System.Drawing.Size(169, 17);
+            this.lciPuestoDetalle.Name = "lciPuestoDetalle";
+            this.lciPuestoDetalle.Size = new System.Drawing.Size(169, 17);
+            this.lciPuestoDetalle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciPuestoDetalle.TextSize = new System.Drawing.Size(0, 0);
+            this.lciPuestoDetalle.TextVisible = false;
+            // 
+            // lciRFC
+            // 
+            this.lciRFC.Control = this.lblRFC;
+            this.lciRFC.Location = new System.Drawing.Point(321, 17);
+            this.lciRFC.MaxSize = new System.Drawing.Size(28, 17);
+            this.lciRFC.MinSize = new System.Drawing.Size(28, 17);
+            this.lciRFC.Name = "lciRFC";
+            this.lciRFC.Size = new System.Drawing.Size(28, 17);
+            this.lciRFC.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciRFC.TextSize = new System.Drawing.Size(0, 0);
+            this.lciRFC.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.lblCURP;
+            this.layoutControlItem2.CustomizationFormText = "lciCURP";
+            this.layoutControlItem2.Location = new System.Drawing.Point(121, 17);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(37, 17);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(37, 17);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(37, 17);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.lblCURPDetalle;
+            this.layoutControlItem3.CustomizationFormText = "lciCURPDetalle";
+            this.layoutControlItem3.Location = new System.Drawing.Point(158, 17);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(163, 17);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(163, 17);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(163, 17);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // lciUsuario
+            // 
+            this.lciUsuario.Control = this.lblUsuario;
+            this.lciUsuario.Location = new System.Drawing.Point(121, 0);
+            this.lciUsuario.MaxSize = new System.Drawing.Size(50, 17);
+            this.lciUsuario.MinSize = new System.Drawing.Size(50, 17);
+            this.lciUsuario.Name = "lciUsuario";
+            this.lciUsuario.Size = new System.Drawing.Size(50, 17);
+            this.lciUsuario.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciUsuario.TextSize = new System.Drawing.Size(0, 0);
+            this.lciUsuario.TextVisible = false;
             // 
             // xfrmUsuariosGRD
             // 
@@ -710,7 +787,7 @@
             this.Controls.Add(this.ftpDetalleUsuario);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.rbnUsuarios);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUsuariosGRD.IconOptions.Icon")));
             this.Name = "xfrmUsuariosGRD";
             this.Ribbon = this.rbnUsuarios;
             this.Text = "Usuarios";
@@ -730,16 +807,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.peFotoUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFotoDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciRFC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleUsu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciPuesto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciPuestoDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciRFCDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIMSS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIMSSDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDetalleFehca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciPuesto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciPuestoDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciRFC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,5 +877,9 @@
         private DevExpress.XtraLayout.LayoutControlItem lciIMSS;
         private DevExpress.XtraLayout.LayoutControlItem lciIMSSDetalle;
         private DevExpress.XtraLayout.EmptySpaceItem esiDetalleUsuario;
+        private DevExpress.XtraEditors.LabelControl lblCURPDetalle;
+        private DevExpress.XtraEditors.LabelControl lblCURP;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

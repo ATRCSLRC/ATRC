@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmBitacoraSalidas));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdSalida = new DevExpress.XtraGrid.GridControl();
             this.grvSalidas = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -100,24 +100,24 @@
             this.lcMain.Controls.Add(this.dteAl);
             this.lcMain.Controls.Add(this.dteDel);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(953, 179, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(963, 492);
+            this.lcMain.Size = new System.Drawing.Size(963, 487);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // grdSalida
             // 
-            this.grdSalida.Location = new System.Drawing.Point(12, 157);
+            this.grdSalida.Location = new System.Drawing.Point(12, 160);
             this.grdSalida.MainView = this.grvSalidas;
             this.grdSalida.MenuManager = this.ribbonControl1;
             this.grdSalida.Name = "grdSalida";
             this.grdSalida.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ribtnDevolver,
             this.ribtnImprimir});
-            this.grdSalida.Size = new System.Drawing.Size(939, 323);
+            this.grdSalida.Size = new System.Drawing.Size(939, 315);
             this.grdSalida.TabIndex = 10;
             this.grdSalida.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvSalidas});
@@ -253,9 +253,9 @@
             // ribtnImprimir
             // 
             this.ribtnImprimir.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.ribtnImprimir.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.ribtnImprimir.Name = "ribtnImprimir";
             this.ribtnImprimir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.ribtnImprimir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ribtnImprimir_ButtonClick);
@@ -264,7 +264,8 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -273,12 +274,12 @@
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(963, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(963, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(786, 119);
+            this.btnCancelar.Location = new System.Drawing.Point(786, 122);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(153, 22);
             this.btnCancelar.StyleController = this.lcMain;
@@ -288,7 +289,7 @@
             // 
             // btnBusqueda
             // 
-            this.btnBusqueda.Location = new System.Drawing.Point(612, 119);
+            this.btnBusqueda.Location = new System.Drawing.Point(612, 122);
             this.btnBusqueda.Name = "btnBusqueda";
             this.btnBusqueda.Size = new System.Drawing.Size(170, 22);
             this.btnBusqueda.StyleController = this.lcMain;
@@ -298,22 +299,22 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(129, 95);
+            this.txtCodigo.Location = new System.Drawing.Point(138, 98);
             this.txtCodigo.MenuManager = this.ribbonControl1;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(810, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(801, 20);
             this.txtCodigo.StyleController = this.lcMain;
             this.txtCodigo.TabIndex = 7;
             // 
             // rgOpcion
             // 
-            this.rgOpcion.Location = new System.Drawing.Point(129, 66);
+            this.rgOpcion.Location = new System.Drawing.Point(138, 69);
             this.rgOpcion.MenuManager = this.ribbonControl1;
             this.rgOpcion.Name = "rgOpcion";
             this.rgOpcion.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Todo"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Artículo específico")});
-            this.rgOpcion.Size = new System.Drawing.Size(810, 25);
+            this.rgOpcion.Size = new System.Drawing.Size(801, 25);
             this.rgOpcion.StyleController = this.lcMain;
             this.rgOpcion.TabIndex = 6;
             this.rgOpcion.SelectedIndexChanged += new System.EventHandler(this.rgOpcion_SelectedIndexChanged);
@@ -321,40 +322,36 @@
             // dteAl
             // 
             this.dteAl.EditValue = null;
-            this.dteAl.Location = new System.Drawing.Point(589, 42);
+            this.dteAl.Location = new System.Drawing.Point(598, 45);
             this.dteAl.MenuManager = this.ribbonControl1;
             this.dteAl.Name = "dteAl";
             this.dteAl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteAl.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteAl.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteAl.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteAl.Properties.DisplayFormat.FormatString = "D";
             this.dteAl.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteAl.Properties.Mask.EditMask = "D";
-            this.dteAl.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dteAl.Size = new System.Drawing.Size(350, 20);
+            this.dteAl.Properties.MaskSettings.Set("mask", "D");
+            this.dteAl.Size = new System.Drawing.Size(341, 20);
             this.dteAl.StyleController = this.lcMain;
             this.dteAl.TabIndex = 5;
             // 
             // dteDel
             // 
             this.dteDel.EditValue = null;
-            this.dteDel.Location = new System.Drawing.Point(129, 42);
+            this.dteDel.Location = new System.Drawing.Point(138, 45);
             this.dteDel.MenuManager = this.ribbonControl1;
             this.dteDel.Name = "dteDel";
             this.dteDel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteDel.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDel.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dteDel.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.dteDel.Properties.DisplayFormat.FormatString = "D";
             this.dteDel.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteDel.Properties.Mask.EditMask = "D";
-            this.dteDel.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dteDel.Size = new System.Drawing.Size(351, 20);
+            this.dteDel.Properties.MaskSettings.Set("mask", "D");
+            this.dteDel.Size = new System.Drawing.Size(342, 20);
             this.dteDel.StyleController = this.lcMain;
             this.dteDel.TabIndex = 4;
             // 
@@ -366,7 +363,7 @@
             this.lcgBusqueda,
             this.layoutControlItem7});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(963, 492);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(963, 487);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lcgBusqueda
@@ -381,7 +378,7 @@
             this.lciDel});
             this.lcgBusqueda.Location = new System.Drawing.Point(0, 0);
             this.lcgBusqueda.Name = "lcgBusqueda";
-            this.lcgBusqueda.Size = new System.Drawing.Size(943, 145);
+            this.lcgBusqueda.Size = new System.Drawing.Size(943, 148);
             this.lcgBusqueda.Text = "Detalle de búsqueda";
             // 
             // layoutControlItem6
@@ -453,9 +450,9 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.grdSalida;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 145);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 148);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(943, 327);
+            this.layoutControlItem7.Size = new System.Drawing.Size(943, 319);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -466,7 +463,7 @@
             this.ClientSize = new System.Drawing.Size(963, 519);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmBitacoraSalidas.IconOptions.Icon")));
             this.Name = "xfrmBitacoraSalidas";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Bitácora de salidas";

@@ -129,6 +129,12 @@
     <Compile Include="Recargas\xfrmDetalleRecarga.Designer.cs">
       <DependentUpon>xfrmDetalleRecarga.cs</DependentUpon>
     </Compile>
+    <Compile Include="xfrmConfiguracionDiesel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfrmConfiguracionDiesel.Designer.cs">
+      <DependentUpon>xfrmConfiguracionDiesel.cs</DependentUpon>
+    </Compile>
     <Compile Include="xfrmFiltrosCombustible.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recargas\xfrmDetalleRecarga.resx">
       <DependentUpon>xfrmDetalleRecarga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xfrmConfiguracionDiesel.resx">
+      <DependentUpon>xfrmConfiguracionDiesel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xfrmFiltrosCombustible.resx">
       <DependentUpon>xfrmFiltrosCombustible.cs</DependentUpon>

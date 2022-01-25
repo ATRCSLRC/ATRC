@@ -87,6 +87,10 @@ namespace RUTAS.WIN
                                     }
                                 }
                                 break;
+                            case "Ruta nueva":
+                            case "Plantillas de rutas":
+                            case "Historial ruta":
+                                break;
                             default:
                                 if (XtraMessageBox.Show("Para realizar cualquier acción requiere permiso del administrador ¿Desea continuar?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                                 {

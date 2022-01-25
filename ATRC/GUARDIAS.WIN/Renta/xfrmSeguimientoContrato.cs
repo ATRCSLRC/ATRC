@@ -70,18 +70,36 @@ namespace GUARDIAS.WIN.Renta
 
                             if ((HoraDias - Contrato.DiasRenta) >= 1)
                             {
-                                DiasExtra = (Dias - Contrato.DiasRenta);
-                                ExtraDia = Contrato.Costo * DiasExtra;
+                                DiasExtra = (HoraDias - Contrato.DiasRenta);
+                                if ((int)DiasExtra < DiasExtra)
+                                {
+                                    ExtraDia = Contrato.Costo * (int)DiasExtra;
+                                    // DiasExtra = DiasExtra - (int)DiasExtra;
+                                    // Horas = DiasExtra * 24;
+                                    //// DiasExtra = 0;
+                                }
+                                else
+                                {
+                                    ExtraDia = Contrato.Costo * DiasExtra;
+                                    Horas = 0;
+                                }
                             }
-                            else if (Contrato.DiasRenta.ToString().Contains(".5"))
+                            else if (Contrato.DiasRenta.ToString().Contains(".5") & (HoraDias - Contrato.DiasRenta) < 1)
                             {
-                                Horas -= 12;
+                                //decimal DiaCalcular = (Dias - Contrato.DiasRenta) * 24;
+                                //decimal ConvertDias = DiaCalcular + Horas;
+                                Horas += (Dias - Contrato.DiasRenta) * 24;
+
+                                //if (Horas == 0)
+                                //    Horas = 12;
+                                //else
+                                //    Horas -= 12;
                             }
 
                             if (Horas >= 19 & Horas <= 24)
                             {
                                 DiasExtra += 1;
-                                ExtraDia += DiasExtra * Contrato.Costo;
+                                ExtraDia += 1 * Contrato.Costo;
                                 Horas -= 24;
                             }
 
@@ -106,7 +124,7 @@ namespace GUARDIAS.WIN.Renta
                             if (MediosDiasTarde > 0)
                                 EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? " medio día " : " y medio";
                             if (HorasTardes > 0)
-                                EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? HorasTardes + " hora(s) " : " con " + HorasTardes + " hora(s) ";
+                                EntregaTarde += string.IsNullOrEmpty(EntregaTarde) ? Convert.ToInt32(HorasTardes) + " hora(s) " : " con " + Convert.ToInt32(HorasTardes) + " hora(s) ";
 
                             if (!string.IsNullOrEmpty(EntregaTarde))
                                 memoComentario.Text = "La unidad se entrego " + EntregaTarde + " tarde.";

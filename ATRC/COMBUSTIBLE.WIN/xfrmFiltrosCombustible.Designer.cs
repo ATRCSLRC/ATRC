@@ -68,7 +68,8 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiImprimir,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -77,7 +78,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(615, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(615, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiImprimir
@@ -110,12 +111,12 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.AllowMinimize = false;
             this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiImprimir);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiCancelar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             // 
             // lcMain
             // 
@@ -124,26 +125,26 @@
             this.lcMain.Controls.Add(this.dteA);
             this.lcMain.Controls.Add(this.dteDe);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(615, 148);
+            this.lcMain.Size = new System.Drawing.Size(615, 158);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // rgTipoCombustible
             // 
-            this.rgTipoCombustible.Location = new System.Drawing.Point(125, 42);
+            this.rgTipoCombustible.Location = new System.Drawing.Point(134, 45);
             this.rgTipoCombustible.MenuManager = this.ribbonControl1;
             this.rgTipoCombustible.Name = "rgTipoCombustible";
-            this.rgTipoCombustible.Size = new System.Drawing.Size(466, 34);
+            this.rgTipoCombustible.Size = new System.Drawing.Size(457, 34);
             this.rgTipoCombustible.StyleController = this.lcMain;
             this.rgTipoCombustible.TabIndex = 7;
             this.rgTipoCombustible.SelectedIndexChanged += new System.EventHandler(this.rgTipoCombustible_SelectedIndexChanged);
             // 
             // lueUnidad
             // 
-            this.lueUnidad.Location = new System.Drawing.Point(125, 104);
+            this.lueUnidad.Location = new System.Drawing.Point(134, 107);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -153,14 +154,14 @@
             this.lueUnidad.Properties.DisplayMember = "Nombre";
             this.lueUnidad.Properties.NullText = "[Seleccioné]";
             this.lueUnidad.Properties.ValueMember = "Oid";
-            this.lueUnidad.Size = new System.Drawing.Size(466, 20);
+            this.lueUnidad.Size = new System.Drawing.Size(457, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 6;
             // 
             // dteA
             // 
             this.dteA.EditValue = null;
-            this.dteA.Location = new System.Drawing.Point(411, 80);
+            this.dteA.Location = new System.Drawing.Point(419, 83);
             this.dteA.MenuManager = this.ribbonControl1;
             this.dteA.Name = "dteA";
             this.dteA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -172,14 +173,14 @@
             this.dteA.Properties.EditFormat.FormatString = "D";
             this.dteA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteA.Properties.Mask.EditMask = "D";
-            this.dteA.Size = new System.Drawing.Size(180, 20);
+            this.dteA.Size = new System.Drawing.Size(172, 20);
             this.dteA.StyleController = this.lcMain;
             this.dteA.TabIndex = 5;
             // 
             // dteDe
             // 
             this.dteDe.EditValue = null;
-            this.dteDe.Location = new System.Drawing.Point(125, 80);
+            this.dteDe.Location = new System.Drawing.Point(134, 83);
             this.dteDe.MenuManager = this.ribbonControl1;
             this.dteDe.Name = "dteDe";
             this.dteDe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -191,7 +192,7 @@
             this.dteDe.Properties.EditFormat.FormatString = "D";
             this.dteDe.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDe.Properties.Mask.EditMask = "D";
-            this.dteDe.Size = new System.Drawing.Size(181, 20);
+            this.dteDe.Size = new System.Drawing.Size(171, 20);
             this.dteDe.StyleController = this.lcMain;
             this.dteDe.TabIndex = 4;
             // 
@@ -202,7 +203,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(615, 148);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(615, 158);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -214,7 +215,7 @@
             this.lciTipoCombustible});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(595, 128);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(595, 138);
             this.layoutControlGroup2.Text = "Criterios de búsqueda";
             // 
             // lciDe
@@ -222,7 +223,7 @@
             this.lciDe.Control = this.dteDe;
             this.lciDe.Location = new System.Drawing.Point(0, 38);
             this.lciDe.Name = "lciDe";
-            this.lciDe.Size = new System.Drawing.Size(286, 24);
+            this.lciDe.Size = new System.Drawing.Size(285, 24);
             this.lciDe.Text = "De:";
             this.lciDe.TextSize = new System.Drawing.Size(98, 13);
             // 
@@ -231,16 +232,16 @@
             this.lciUnidad.Control = this.lueUnidad;
             this.lciUnidad.Location = new System.Drawing.Point(0, 62);
             this.lciUnidad.Name = "lciUnidad";
-            this.lciUnidad.Size = new System.Drawing.Size(571, 24);
+            this.lciUnidad.Size = new System.Drawing.Size(571, 31);
             this.lciUnidad.Text = "Unidad:";
             this.lciUnidad.TextSize = new System.Drawing.Size(98, 13);
             // 
             // lciA
             // 
             this.lciA.Control = this.dteA;
-            this.lciA.Location = new System.Drawing.Point(286, 38);
+            this.lciA.Location = new System.Drawing.Point(285, 38);
             this.lciA.Name = "lciA";
-            this.lciA.Size = new System.Drawing.Size(285, 24);
+            this.lciA.Size = new System.Drawing.Size(286, 24);
             this.lciA.Text = "A:";
             this.lciA.TextSize = new System.Drawing.Size(98, 13);
             // 
@@ -260,9 +261,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 270);
+            this.ClientSize = new System.Drawing.Size(615, 290);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmFiltrosCombustible.IconOptions.Icon")));
             this.Name = "xfrmFiltrosCombustible";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Filtros de combustible";

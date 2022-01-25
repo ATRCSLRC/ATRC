@@ -122,20 +122,27 @@ namespace UNIDADES.WIN
                     FileStream Archivo = new System.IO.FileStream(OpenFile.FileName, FileMode.Open, FileAccess.Read);
                     MemoryStream streampdf = new MemoryStream();
                     Archivo.CopyTo(streampdf);
+                    
+                    if (Archivo.Length < 1000000)
+                    {
+                        picFoto.EditValue = streampdf.ToArray();
+                        if (UnidadCamion.Imagen != null)
+                        {
+                            UnidadCamion.Imagen.Archivo = Convert.ToBase64String(streampdf.ToArray());
+                            UnidadCamion.Imagen.Nombre = OpenFile.FileName;
+                        }
+                        else
+                        {
+                            Imagen img = new Imagen(Unidad);
+                            img.Archivo = Convert.ToBase64String(streampdf.ToArray());
+                            img.Descripcion = OpenFile.FileName;
+                            UnidadCamion.Imagen = img;
+                        }
+                    }else
+                    {
+                        XtraMessageBox.Show("Archivo muy grande. Se debe de adjuntar imagen menor de 1MB.");
+                    }
                     Archivo.Dispose();
-                    picFoto.EditValue = streampdf.ToArray();
-                    if (UnidadCamion.Imagen != null)
-                    {
-                        UnidadCamion.Imagen.Archivo = Convert.ToBase64String(streampdf.ToArray());
-                        UnidadCamion.Imagen.Nombre = OpenFile.FileName;
-                    }
-                    else
-                    {
-                        Imagen img = new Imagen(Unidad);
-                        img.Archivo = Convert.ToBase64String(streampdf.ToArray());
-                        img.Descripcion = OpenFile.FileName;
-                        UnidadCamion.Imagen = img;
-                    }
                 }
                 catch (Exception ex)
                 {

@@ -25,10 +25,19 @@ namespace UNIDADES.WIN
         private void xfrmCambiosAceite_Load(object sender, EventArgs e)
         {
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
             go.Operands.Add(new NullOperator("EstadoUnidad"));
+
+            GroupOperator goSeccion = new GroupOperator(GroupOperatorType.Or);
+            goSeccion.Operands.Add(new BinaryOperator("EsSeccion", false));
+            goSeccion.Operands.Add(new NullOperator("EsSeccion"));
+
+            goMain.Operands.Add(go);
+            goMain.Operands.Add(goSeccion);
+
             XPView Unidades = new XPView(Unidad, typeof(Unidad));
             Unidades.AddProperty("Oid", "Oid", true);
             Unidades.AddProperty("Nombre", "Nombre", true);
@@ -36,7 +45,7 @@ namespace UNIDADES.WIN
             Unidades.AddProperty("UltimoCambioAceite", "UltimoCambioAceite", true);
             Unidades.AddProperty("TipoUnidad", "TipoUnidad", true);
             Unidades.AddProperty("ProximoCambioAceite", "iif([TipoUnidad] == 1 or [TipoUnidad] == 3, AddMonths([UltimoCambioAceite],3), AddMonths([UltimoCambioAceite],6)) ", false, true, SortDirection.Ascending);
-            Unidades.Criteria = go;
+            Unidades.Criteria = goMain;
             grdUnidades.DataSource = Unidades;
         }
 

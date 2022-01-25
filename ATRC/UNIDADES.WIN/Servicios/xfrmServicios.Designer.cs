@@ -69,7 +69,8 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -78,7 +79,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(426, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(426, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -111,10 +112,10 @@
             // rpgAcciones
             // 
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // lcMain
             // 
@@ -124,44 +125,47 @@
             this.lcMain.Controls.Add(this.lueUnidad);
             this.lcMain.Controls.Add(this.dteFecha);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(426, 280);
+            this.lcMain.Size = new System.Drawing.Size(426, 270);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // txtMillas
             // 
-            this.txtMillas.Location = new System.Drawing.Point(93, 111);
+            this.txtMillas.EnterMoveNextControl = true;
+            this.txtMillas.Location = new System.Drawing.Point(102, 109);
             this.txtMillas.MenuManager = this.ribbonControl1;
             this.txtMillas.Name = "txtMillas";
-            this.txtMillas.Size = new System.Drawing.Size(321, 20);
+            this.txtMillas.Size = new System.Drawing.Size(312, 20);
             this.txtMillas.StyleController = this.lcMain;
             this.txtMillas.TabIndex = 8;
             // 
             // memoDetalles
             // 
-            this.memoDetalles.Location = new System.Drawing.Point(12, 151);
+            this.memoDetalles.Location = new System.Drawing.Point(12, 149);
             this.memoDetalles.MenuManager = this.ribbonControl1;
             this.memoDetalles.Name = "memoDetalles";
-            this.memoDetalles.Size = new System.Drawing.Size(402, 117);
+            this.memoDetalles.Size = new System.Drawing.Size(402, 109);
             this.memoDetalles.StyleController = this.lcMain;
             this.memoDetalles.TabIndex = 7;
             // 
             // rgTipoServicio
             // 
-            this.rgTipoServicio.Location = new System.Drawing.Point(93, 60);
+            this.rgTipoServicio.EnterMoveNextControl = true;
+            this.rgTipoServicio.Location = new System.Drawing.Point(102, 60);
             this.rgTipoServicio.MenuManager = this.ribbonControl1;
             this.rgTipoServicio.Name = "rgTipoServicio";
-            this.rgTipoServicio.Size = new System.Drawing.Size(321, 47);
+            this.rgTipoServicio.Size = new System.Drawing.Size(312, 45);
             this.rgTipoServicio.StyleController = this.lcMain;
             this.rgTipoServicio.TabIndex = 6;
             this.rgTipoServicio.SelectedIndexChanged += new System.EventHandler(this.rgTipoServicio_SelectedIndexChanged);
             // 
             // lueUnidad
             // 
-            this.lueUnidad.Location = new System.Drawing.Point(93, 36);
+            this.lueUnidad.EnterMoveNextControl = true;
+            this.lueUnidad.Location = new System.Drawing.Point(102, 36);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -169,14 +173,16 @@
             this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.NullText = "[SELECCIONE]";
-            this.lueUnidad.Size = new System.Drawing.Size(321, 20);
+            this.lueUnidad.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.lueUnidad.Size = new System.Drawing.Size(312, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 5;
             // 
             // dteFecha
             // 
             this.dteFecha.EditValue = null;
-            this.dteFecha.Location = new System.Drawing.Point(93, 12);
+            this.dteFecha.EnterMoveNextControl = true;
+            this.dteFecha.Location = new System.Drawing.Point(102, 12);
             this.dteFecha.MenuManager = this.ribbonControl1;
             this.dteFecha.Name = "dteFecha";
             this.dteFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -186,7 +192,7 @@
             this.dteFecha.Properties.DisplayFormat.FormatString = "D";
             this.dteFecha.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteFecha.Properties.Mask.EditMask = "D";
-            this.dteFecha.Size = new System.Drawing.Size(321, 20);
+            this.dteFecha.Size = new System.Drawing.Size(312, 20);
             this.dteFecha.StyleController = this.lcMain;
             this.dteFecha.TabIndex = 4;
             // 
@@ -201,7 +207,7 @@
             this.lciDetalles,
             this.lciMillas});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(426, 280);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(426, 270);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciFecha
@@ -227,16 +233,16 @@
             this.lciServicio.Control = this.rgTipoServicio;
             this.lciServicio.Location = new System.Drawing.Point(0, 48);
             this.lciServicio.Name = "lciServicio";
-            this.lciServicio.Size = new System.Drawing.Size(406, 51);
+            this.lciServicio.Size = new System.Drawing.Size(406, 49);
             this.lciServicio.Text = "Tipo de servicio:";
             this.lciServicio.TextSize = new System.Drawing.Size(78, 13);
             // 
             // lciDetalles
             // 
             this.lciDetalles.Control = this.memoDetalles;
-            this.lciDetalles.Location = new System.Drawing.Point(0, 123);
+            this.lciDetalles.Location = new System.Drawing.Point(0, 121);
             this.lciDetalles.Name = "lciDetalles";
-            this.lciDetalles.Size = new System.Drawing.Size(406, 137);
+            this.lciDetalles.Size = new System.Drawing.Size(406, 129);
             this.lciDetalles.Text = "Detalles";
             this.lciDetalles.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciDetalles.TextSize = new System.Drawing.Size(78, 13);
@@ -244,7 +250,7 @@
             // lciMillas
             // 
             this.lciMillas.Control = this.txtMillas;
-            this.lciMillas.Location = new System.Drawing.Point(0, 99);
+            this.lciMillas.Location = new System.Drawing.Point(0, 97);
             this.lciMillas.Name = "lciMillas";
             this.lciMillas.Size = new System.Drawing.Size(406, 24);
             this.lciMillas.Text = "Millas:";
@@ -258,6 +264,7 @@
             this.ClientSize = new System.Drawing.Size(426, 402);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmServicios.IconOptions.Icon")));
             this.Name = "xfrmServicios";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Servicios";

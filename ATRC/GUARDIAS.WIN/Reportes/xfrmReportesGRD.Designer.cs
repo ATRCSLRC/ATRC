@@ -92,7 +92,8 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiModificar,
             this.bbiImprimir,
-            this.bbiSalir});
+            this.bbiSalir,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -101,7 +102,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(794, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(794, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiModificar
@@ -145,17 +146,17 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.AllowMinimize = false;
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiModificar);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiImprimir);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiSalir);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
             // 
             // lciMain
             // 
@@ -168,17 +169,17 @@
             this.lciMain.Controls.Add(this.rgTipoBusqueda);
             this.lciMain.Controls.Add(this.grdReportes);
             this.lciMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lciMain.Location = new System.Drawing.Point(0, 122);
+            this.lciMain.Location = new System.Drawing.Point(0, 132);
             this.lciMain.Name = "lciMain";
             this.lciMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(846, 236, 650, 400);
             this.lciMain.Root = this.layoutControlGroup2;
-            this.lciMain.Size = new System.Drawing.Size(794, 393);
+            this.lciMain.Size = new System.Drawing.Size(794, 383);
             this.lciMain.TabIndex = 2;
             this.lciMain.Text = "layoutControl2";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(666, 145);
+            this.btnCancelar.Location = new System.Drawing.Point(666, 148);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 22);
             this.btnCancelar.StyleController = this.lciMain;
@@ -190,7 +191,7 @@
             // 
             this.dteAl.EditValue = null;
             this.dteAl.EnterMoveNextControl = true;
-            this.dteAl.Location = new System.Drawing.Point(491, 97);
+            this.dteAl.Location = new System.Drawing.Point(500, 100);
             this.dteAl.MenuManager = this.ribbonControl1;
             this.dteAl.Name = "dteAl";
             this.dteAl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -202,7 +203,7 @@
             this.dteAl.Properties.EditFormat.FormatString = "D";
             this.dteAl.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteAl.Properties.Mask.EditMask = "D";
-            this.dteAl.Size = new System.Drawing.Size(279, 20);
+            this.dteAl.Size = new System.Drawing.Size(270, 20);
             this.dteAl.StyleController = this.lciMain;
             this.dteAl.TabIndex = 10;
             // 
@@ -210,7 +211,7 @@
             // 
             this.dteDel.EditValue = null;
             this.dteDel.EnterMoveNextControl = true;
-            this.dteDel.Location = new System.Drawing.Point(116, 97);
+            this.dteDel.Location = new System.Drawing.Point(125, 100);
             this.dteDel.MenuManager = this.ribbonControl1;
             this.dteDel.Name = "dteDel";
             this.dteDel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -222,13 +223,13 @@
             this.dteDel.Properties.EditFormat.FormatString = "D";
             this.dteDel.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDel.Properties.Mask.EditMask = "D";
-            this.dteDel.Size = new System.Drawing.Size(279, 20);
+            this.dteDel.Size = new System.Drawing.Size(270, 20);
             this.dteDel.StyleController = this.lciMain;
             this.dteDel.TabIndex = 9;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(559, 145);
+            this.btnBuscar.Location = new System.Drawing.Point(559, 148);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(103, 22);
             this.btnBuscar.StyleController = this.lciMain;
@@ -239,7 +240,7 @@
             // lueEmpleado
             // 
             this.lueEmpleado.EnterMoveNextControl = true;
-            this.lueEmpleado.Location = new System.Drawing.Point(116, 121);
+            this.lueEmpleado.Location = new System.Drawing.Point(125, 124);
             this.lueEmpleado.MenuManager = this.ribbonControl1;
             this.lueEmpleado.Name = "lueEmpleado";
             this.lueEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -249,42 +250,43 @@
             this.lueEmpleado.Properties.DisplayMember = "Nombre";
             this.lueEmpleado.Properties.NullText = "[Seleccioné]";
             this.lueEmpleado.Properties.ValueMember = "Oid";
-            this.lueEmpleado.Size = new System.Drawing.Size(654, 20);
+            this.lueEmpleado.Size = new System.Drawing.Size(645, 20);
             this.lueEmpleado.StyleController = this.lciMain;
             this.lueEmpleado.TabIndex = 7;
             // 
             // txtFolio
             // 
             this.txtFolio.EnterMoveNextControl = true;
-            this.txtFolio.Location = new System.Drawing.Point(116, 73);
+            this.txtFolio.Location = new System.Drawing.Point(125, 76);
             this.txtFolio.MenuManager = this.ribbonControl1;
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.Properties.Mask.EditMask = "\\p{Lu}+\\d+";
             this.txtFolio.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtFolio.Size = new System.Drawing.Size(654, 20);
+            this.txtFolio.Size = new System.Drawing.Size(645, 20);
             this.txtFolio.StyleController = this.lciMain;
             this.txtFolio.TabIndex = 6;
             // 
             // rgTipoBusqueda
             // 
-            this.rgTipoBusqueda.Location = new System.Drawing.Point(116, 42);
+            this.rgTipoBusqueda.Location = new System.Drawing.Point(125, 45);
             this.rgTipoBusqueda.MenuManager = this.ribbonControl1;
             this.rgTipoBusqueda.Name = "rgTipoBusqueda";
             this.rgTipoBusqueda.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Empleado", true, "Empleado"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Folio", true, "Folio")});
-            this.rgTipoBusqueda.Size = new System.Drawing.Size(654, 27);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Folio", true, "Folio"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Fecha", true, "Fecha")});
+            this.rgTipoBusqueda.Size = new System.Drawing.Size(645, 27);
             this.rgTipoBusqueda.StyleController = this.lciMain;
             this.rgTipoBusqueda.TabIndex = 5;
             this.rgTipoBusqueda.SelectedIndexChanged += new System.EventHandler(this.rgTipoBusqueda_SelectedIndexChanged);
             // 
             // grdReportes
             // 
-            this.grdReportes.Location = new System.Drawing.Point(12, 183);
+            this.grdReportes.Location = new System.Drawing.Point(12, 186);
             this.grdReportes.MainView = this.grvReportes;
             this.grdReportes.MenuManager = this.ribbonControl1;
             this.grdReportes.Name = "grdReportes";
-            this.grdReportes.Size = new System.Drawing.Size(770, 198);
+            this.grdReportes.Size = new System.Drawing.Size(770, 185);
             this.grdReportes.TabIndex = 4;
             this.grdReportes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvReportes});
@@ -337,15 +339,15 @@
             this.layoutControlItem1,
             this.layoutControlGroup1});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(794, 393);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(794, 383);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.grdReportes;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 171);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 174);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(774, 202);
+            this.layoutControlItem1.Size = new System.Drawing.Size(774, 189);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -362,7 +364,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(774, 171);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(774, 174);
             this.layoutControlGroup1.Text = "Detalle de búsqueda";
             // 
             // lciEmpleado
@@ -449,6 +451,7 @@
             this.ClientSize = new System.Drawing.Size(794, 515);
             this.Controls.Add(this.lciMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmReportesGRD.IconOptions.Icon")));
             this.Name = "xfrmReportesGRD";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Reportes de indiciplina";

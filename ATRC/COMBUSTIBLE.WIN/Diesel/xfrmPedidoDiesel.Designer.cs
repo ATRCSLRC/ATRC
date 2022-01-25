@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmPedidoDiesel));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -53,6 +54,7 @@
             this.lciEmpleado = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciFecha = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -220,7 +222,9 @@
             this.lueUnidad.Size = new System.Drawing.Size(287, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 7;
+            this.lueUnidad.Spin += new DevExpress.XtraEditors.Controls.SpinEventHandler(this.lueUnidad_Spin);
             this.lueUnidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lueUnidad_KeyDown);
+            this.lueUnidad.Move += new System.EventHandler(this.lueUnidad_Move);
             this.lueUnidad.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.lueUnidad_PreviewKeyDown);
             // 
             // txtEmpleado
@@ -394,6 +398,11 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(291, 17);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // timer
+            // 
+            this.timer.Interval = 500000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // xfrmPedidoDiesel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,5 +465,6 @@
         private DevExpress.XtraLayout.SimpleLabelItem lblEmpleado;
         private DevExpress.XtraLayout.LayoutControlItem lciEmpleado;
         private DevExpress.XtraLayout.LayoutControlItem lciFecha;
+        private System.Windows.Forms.Timer timer;
     }
 }

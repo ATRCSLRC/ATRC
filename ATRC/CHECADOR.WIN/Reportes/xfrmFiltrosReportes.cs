@@ -69,7 +69,7 @@ namespace CHECADOR.WIN
                 case "Total horas trabajadas semanales":
                     XtraInputBoxArgs args = new XtraInputBoxArgs();
                     args.Caption = "Ordenamiento de horas trabajadas";
-                    args.Prompt = "orden:";
+                    args.Prompt = "Orden:";
 
                     RadioGroup editor = new RadioGroup();
                     editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("AscendenteUsuario", "Número de usuario"));

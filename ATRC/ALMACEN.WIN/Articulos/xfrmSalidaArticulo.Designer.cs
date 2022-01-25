@@ -150,12 +150,12 @@
             // 
             this.txtNombreUsuario.Enabled = false;
             this.txtNombreUsuario.EnterMoveNextControl = true;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(306, 243);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(315, 243);
             this.txtNombreUsuario.MenuManager = this.rcMain;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreUsuario.Properties.ReadOnly = true;
-            this.txtNombreUsuario.Size = new System.Drawing.Size(335, 20);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(326, 20);
             this.txtNombreUsuario.StyleController = this.lcMain;
             this.txtNombreUsuario.TabIndex = 20;
             // 
@@ -225,14 +225,14 @@
             // rgRecibo
             // 
             this.rgRecibo.EnterMoveNextControl = true;
-            this.rgRecibo.Location = new System.Drawing.Point(121, 205);
+            this.rgRecibo.Location = new System.Drawing.Point(130, 205);
             this.rgRecibo.MenuManager = this.rcMain;
             this.rgRecibo.Name = "rgRecibo";
             this.rgRecibo.Properties.Columns = 2;
             this.rgRecibo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Empleado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Otro")});
-            this.rgRecibo.Size = new System.Drawing.Size(520, 34);
+            this.rgRecibo.Size = new System.Drawing.Size(511, 34);
             this.rgRecibo.StyleController = this.lcMain;
             this.rgRecibo.TabIndex = 14;
             this.rgRecibo.SelectedIndexChanged += new System.EventHandler(this.rgRecibo_SelectedIndexChanged);
@@ -250,7 +250,7 @@
             // 
             // lueFactura
             // 
-            this.lueFactura.Location = new System.Drawing.Point(121, 71);
+            this.lueFactura.Location = new System.Drawing.Point(130, 71);
             this.lueFactura.MenuManager = this.rcMain;
             this.lueFactura.Name = "lueFactura";
             this.lueFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -259,11 +259,12 @@
             this.lueFactura.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cantidad", "Cantidad", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Articulo.Nombre", "Nombre", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Almacen", "Almacen"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumParte", "Parte", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumFactura", "Factura", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Center, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Fecha", "Fecha", 20, DevExpress.Utils.FormatType.DateTime, "d", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueFactura.Properties.NullText = "[Seleccione]";
-            this.lueFactura.Size = new System.Drawing.Size(520, 20);
+            this.lueFactura.Size = new System.Drawing.Size(511, 20);
             this.lueFactura.StyleController = this.lcMain;
             this.lueFactura.TabIndex = 12;
             this.lueFactura.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lueArticulo_KeyUp);
@@ -271,13 +272,13 @@
             // rgDestino
             // 
             this.rgDestino.EnterMoveNextControl = true;
-            this.rgDestino.Location = new System.Drawing.Point(121, 119);
+            this.rgDestino.Location = new System.Drawing.Point(130, 119);
             this.rgDestino.MenuManager = this.rcMain;
             this.rgDestino.Name = "rgDestino";
             this.rgDestino.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Unidad"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Otro")});
-            this.rgDestino.Size = new System.Drawing.Size(520, 34);
+            this.rgDestino.Size = new System.Drawing.Size(511, 34);
             this.rgDestino.StyleController = this.lcMain;
             this.rgDestino.TabIndex = 11;
             this.rgDestino.SelectedIndexChanged += new System.EventHandler(this.rgDestino_SelectedIndexChanged);
@@ -324,12 +325,12 @@
             0,
             0});
             this.spnCantidad.EnterMoveNextControl = true;
-            this.spnCantidad.Location = new System.Drawing.Point(121, 95);
+            this.spnCantidad.Location = new System.Drawing.Point(130, 95);
             this.spnCantidad.MenuManager = this.rcMain;
             this.spnCantidad.Name = "spnCantidad";
             this.spnCantidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spnCantidad.Size = new System.Drawing.Size(263, 20);
+            this.spnCantidad.Size = new System.Drawing.Size(254, 20);
             this.spnCantidad.StyleController = this.lcMain;
             this.spnCantidad.TabIndex = 6;
             this.spnCantidad.EditValueChanged += new System.EventHandler(this.spnCantidad_EditValueChanged);
@@ -347,14 +348,14 @@
             // 
             // btnCodigo
             // 
-            this.btnCodigo.Location = new System.Drawing.Point(109, 12);
+            this.btnCodigo.Location = new System.Drawing.Point(118, 12);
             this.btnCodigo.MenuManager = this.rcMain;
             this.btnCodigo.Name = "btnCodigo";
             this.btnCodigo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnCodigo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.btnCodigo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCodigo_Properties_ButtonClick);
-            this.btnCodigo.Size = new System.Drawing.Size(455, 20);
+            this.btnCodigo.Size = new System.Drawing.Size(446, 20);
             this.btnCodigo.StyleController = this.lcMain;
             this.btnCodigo.TabIndex = 4;
             this.btnCodigo.ToolTip = "Para buscar artículos presioné F6";

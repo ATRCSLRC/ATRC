@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RutasFijasUsuario));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -60,7 +61,7 @@
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -314,10 +315,10 @@
             // lblFecha
             // 
             this.lblFecha.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(129.1666F, 72.20834F);
+            this.lblFecha.LocationFloat = new DevExpress.Utils.PointFloat(107.2918F, 72.20834F);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblFecha.SizeF = new System.Drawing.SizeF(661.8334F, 23F);
+            this.lblFecha.SizeF = new System.Drawing.SizeF(683.7082F, 23F);
             this.lblFecha.StylePriority.UseFont = false;
             this.lblFecha.StylePriority.UseTextAlignment = false;
             this.lblFecha.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -325,10 +326,10 @@
             // lblNombreReporte
             // 
             this.lblNombreReporte.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(117.2917F, 43.83334F);
+            this.lblNombreReporte.LocationFloat = new DevExpress.Utils.PointFloat(107.2918F, 43.83334F);
             this.lblNombreReporte.Name = "lblNombreReporte";
             this.lblNombreReporte.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(673.7083F, 28.37501F);
+            this.lblNombreReporte.SizeF = new System.Drawing.SizeF(683.7082F, 28.37501F);
             this.lblNombreReporte.StylePriority.UseFont = false;
             this.lblNombreReporte.StylePriority.UseTextAlignment = false;
             this.lblNombreReporte.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -336,10 +337,10 @@
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Tahoma", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(129.1666F, 12.5F);
+            this.lblTitulo.LocationFloat = new DevExpress.Utils.PointFloat(107.2918F, 12.5F);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTitulo.SizeF = new System.Drawing.SizeF(661.8334F, 31.33334F);
+            this.lblTitulo.SizeF = new System.Drawing.SizeF(683.7082F, 31.33334F);
             this.lblTitulo.StylePriority.UseFont = false;
             this.lblTitulo.StylePriority.UseTextAlignment = false;
             this.lblTitulo.Text = "Auto transportes del rio colorado S.A. de C.V.";
@@ -356,7 +357,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0.0001271566F, 9.99999F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(107.2917F, 91.45834F);
@@ -440,7 +441,7 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.Margins = new System.Drawing.Printing.Margins(29, 30, 150, 36);
-            this.Version = "17.2";
+            this.Version = "20.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();

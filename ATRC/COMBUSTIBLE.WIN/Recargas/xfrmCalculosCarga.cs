@@ -2,6 +2,7 @@
 using ATRCBASE.WIN;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,7 @@ namespace COMBUSTIBLE.WIN
 
         public class MedidorTanques
         {
+            public Int32 ID { set; get; }
             public string Nombre { set; get; }
             public DateTime Fecha { set; get; }
             public string Inicial { set; get; }
@@ -141,6 +143,7 @@ namespace COMBUSTIBLE.WIN
                 Int32 TotalTanque = (from ViewRecord sP in Diesel select Convert.ToInt32(sP["Litros"])).Sum();
 
                 MedidorTanques Medidor = new MedidorTanques();
+                Medidor.ID = Convert.ToInt32(viewMedidor["Oid"]);
                 Medidor.Fecha = Convert.ToDateTime(viewMedidor["Fecha"]);
                 Medidor.Nombre = viewMedidor["Nombre"].ToString();
                 Medidor.Inicial = viewMedidor["Inicial"].ToString();
@@ -154,6 +157,30 @@ namespace COMBUSTIBLE.WIN
                     break;
             }
             grdCalculos.DataSource = ListaMedidor;
+        }
+
+        private void bbiReabrir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MedidorTanques Medidor = grvCalculos.GetFocusedRow() as MedidorTanques;
+            if(Medidor != null)
+            {
+                if (Convert.ToInt64(Medidor.Final) > 0)
+                {
+                    if (XtraMessageBox.Show("¿Desea reabrir el medidor seleccionado?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    {
+                        COMBUSTIBLE.BL.MedidorDiesel MedidorDiesel = Unidad.GetObjectByKey<COMBUSTIBLE.BL.MedidorDiesel>(Medidor.ID);
+                        MedidorDiesel.Final = 0;
+                        MedidorDiesel.LitrosEnTanque = 0;
+                        MedidorDiesel.LitrosCapturados = 0;
+                        MedidorDiesel.Save();
+                        MedidorDiesel.Session.CommitTransaction();
+                        Inicio();
+                    }
+                }else
+                {
+                    XtraMessageBox.Show("No se puede reabrir porque aun no se ha cerrado.");
+                }
+            }
         }
     }
 }

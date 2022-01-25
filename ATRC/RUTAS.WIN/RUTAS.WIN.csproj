@@ -179,6 +179,18 @@
     <Compile Include="Catalogos\xfrmTurnosGRD.Designer.cs">
       <DependentUpon>xfrmTurnosGRD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\xfrmPlantillasServicioGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\xfrmPlantillasServicioGRD.Designer.cs">
+      <DependentUpon>xfrmPlantillasServicioGRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\xfrmPlantillasServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\xfrmPlantillasServicios.Designer.cs">
+      <DependentUpon>xfrmPlantillasServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\xfrmServiciosRealizados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +381,12 @@
     <EmbeddedResource Include="Catalogos\xfrmTurnosGRD.resx">
       <DependentUpon>xfrmTurnosGRD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\xfrmPlantillasServicioGRD.resx">
+      <DependentUpon>xfrmPlantillasServicioGRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\xfrmPlantillasServicios.resx">
+      <DependentUpon>xfrmPlantillasServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\xfrmServiciosRealizados.resx">
       <DependentUpon>xfrmServiciosRealizados.cs</DependentUpon>
     </EmbeddedResource>
@@ -534,6 +552,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-la-televisión-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-herramientas-del-administrador-32 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-herramientas-del-administrador-32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-herramientas-del-administrador-32 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remote-desktop-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

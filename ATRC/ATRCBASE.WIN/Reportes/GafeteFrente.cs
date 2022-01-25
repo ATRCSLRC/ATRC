@@ -16,7 +16,7 @@ namespace ATRCBASE.WIN.Reportes
             if (Usuario.Nombre != "admin")
             {
                 string[] Usuarios = Usuario.Nombre.Split(' ');
-                lblApellido.Text = Usuarios[0] + " " + Usuarios[1];
+                lblApellido.Text = Usuarios[0] + " " + Usuarios[1];// + Usuarios[2] + " " + Usuarios[3];
                 string Nombre = "";
                 int num = 1;
                 foreach (string nombre in Usuarios)

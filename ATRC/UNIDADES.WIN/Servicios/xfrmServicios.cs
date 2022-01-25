@@ -36,11 +36,20 @@ namespace UNIDADES.WIN
 
         private void IniciarControles()
         {
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
             go.Operands.Add(new NullOperator("EstadoUnidad"));
-            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
+
+            GroupOperator goSeccion = new GroupOperator(GroupOperatorType.Or);
+            goSeccion.Operands.Add(new BinaryOperator("EsSeccion", false));
+            goSeccion.Operands.Add(new NullOperator("EsSeccion"));
+
+            goMain.Operands.Add(go);
+            goMain.Operands.Add(goSeccion);
+
+            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", goMain);
             lueUnidad.Properties.DataSource = xpc;
             lueUnidad.Properties.DisplayMember = "Nombre";
             lueUnidad.Properties.BestFit();

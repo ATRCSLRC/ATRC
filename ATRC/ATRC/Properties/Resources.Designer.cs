@@ -333,6 +333,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_herramientas_del_administrador_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-herramientas-del-administrador-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_hombre_menú_de_usuario_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-hombre-menú-de-usuario-32", resourceCulture);
@@ -396,6 +406,16 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_medidor_de_co2_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-medidor-de-co2-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_movimiento_de_stock_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-movimiento-de-stock-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,6 +563,16 @@ namespace ATRC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_selfie_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-selfie-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_sensor_de_puerta_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-sensor-de-puerta-32", resourceCulture);
@@ -616,6 +646,26 @@ namespace ATRC.Properties {
         internal static System.Drawing.Bitmap icons8_transporte_terrestre_32__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-transporte-terrestre-32 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_últimas_48_horas_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-últimas-48-horas-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_unidad_org_32__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-unidad-org-32 (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

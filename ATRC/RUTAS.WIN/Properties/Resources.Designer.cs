@@ -123,6 +123,36 @@ namespace RUTAS.WIN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_herramientas_del_administrador_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-herramientas-del-administrador-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_herramientas_del_administrador_32__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-herramientas-del-administrador-32 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_herramientas_del_administrador_32__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-herramientas-del-administrador-32 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_la_televisión_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-la-televisión-32", resourceCulture);
@@ -136,6 +166,16 @@ namespace RUTAS.WIN.Properties {
         internal static System.Drawing.Bitmap icons8_prioridad_media_34 {
             get {
                 object obj = ResourceManager.GetObject("icons8-prioridad-media-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_remote_desktop_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remote-desktop-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

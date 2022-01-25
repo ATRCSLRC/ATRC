@@ -63,7 +63,7 @@ namespace GUARDIAS.WIN
                 txtFolio.Text = string.Empty;
                 lueEmpleado.Focus();
             }  
-            else
+            else if (((RadioGroup)sender).SelectedIndex == 1)
             {
                 lciFolio.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 lciDE.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -72,6 +72,16 @@ namespace GUARDIAS.WIN
                 dteAl.DateTime = dteDel.DateTime = DateTime.Now;
                 lueEmpleado.EditValue = null;
                 txtFolio.Focus();
+            }
+            else
+            {
+                lciFolio.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                lciDE.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                lciAl.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                lciEmpleado.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                dteAl.DateTime = dteDel.DateTime = DateTime.Now;
+                lueEmpleado.EditValue = null;
+                txtFolio.Text = string.Empty;
             }
             grdReportes.DataSource = null;
                 
@@ -103,7 +113,7 @@ namespace GUARDIAS.WIN
                 go.Operands.Add(new BinaryOperator("Folio", Num[1]));
                 go.Operands.Add(new BinaryOperator("Departamento", Depa[0]));
             }
-            else
+            else if (rgTipoBusqueda.SelectedIndex == 0)
             {
                 if (lueEmpleado.EditValue == null)
                 {
@@ -114,6 +124,10 @@ namespace GUARDIAS.WIN
                 go.Operands.Add(new BinaryOperator("FechaAlta", dteDel.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
                 go.Operands.Add(new BinaryOperator("FechaAlta", dteAl.DateTime.Date.AddDays(1), BinaryOperatorType.LessOrEqual));
                 go.Operands.Add(new BinaryOperator("Empleado.Oid", lueEmpleado.EditValue));
+            }else
+            {
+                go.Operands.Add(new BinaryOperator("FechaAlta", dteDel.DateTime.Date, BinaryOperatorType.GreaterOrEqual));
+                go.Operands.Add(new BinaryOperator("FechaAlta", dteAl.DateTime.Date.AddDays(1), BinaryOperatorType.LessOrEqual));
             }
 
             XPView Reportes = new XPView(Unidad, typeof(Reportes));

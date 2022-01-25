@@ -41,8 +41,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Articulos\xfrmAgregarFactura.resx">
+      <DependentUpon>xfrmAgregarFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Articulos\xfrmArticulo.resx">
       <DependentUpon>xfrmArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmArticuloSalida.resx">
+      <DependentUpon>xfrmArticuloSalida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Articulos\xfrmBusquedaArticulos.resx">
       <DependentUpon>xfrmBusquedaArticulos.cs</DependentUpon>
@@ -59,8 +65,14 @@
     <EmbeddedResource Include="Articulos\xfrmPrestamoArticulos.resx">
       <DependentUpon>xfrmPrestamoArticulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmCambioAlmacen.resx">
+      <DependentUpon>xfrmCambioAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Articulos\xfrmSalidaArticulo.resx">
       <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmSalidaFactura.resx">
+      <DependentUpon>xfrmSalidaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\xfrmCodigoArticulos.resx">
       <DependentUpon>xfrmCodigoArticulos.cs</DependentUpon>
@@ -86,6 +98,7 @@
     <EmbeddedResource Include="Inventario\xfrmInventarioGRD.resx">
       <DependentUpon>xfrmInventarioGRD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,11 +108,23 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Articulos\xfrmAgregarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmAgregarFactura.Designer.cs">
+      <DependentUpon>xfrmAgregarFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Articulos\xfrmArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Articulos\xfrmArticulo.Designer.cs">
       <DependentUpon>xfrmArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmArticuloSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmArticuloSalida.Designer.cs">
+      <DependentUpon>xfrmArticuloSalida.cs</DependentUpon>
     </Compile>
     <Compile Include="Articulos\xfrmBusquedaArticulos.cs">
       <SubType>Form</SubType>
@@ -131,11 +156,23 @@
     <Compile Include="Articulos\xfrmPrestamoArticulos.Designer.cs">
       <DependentUpon>xfrmPrestamoArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Articulos\xfrmCambioAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmCambioAlmacen.Designer.cs">
+      <DependentUpon>xfrmCambioAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Articulos\xfrmSalidaArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Articulos\xfrmSalidaArticulo.Designer.cs">
       <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaFactura.Designer.cs">
+      <DependentUpon>xfrmSalidaFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\xfrmCodigoArticulos.cs">
       <SubType>Form</SubType>

@@ -146,7 +146,19 @@ namespace UNIDADES.WIN
         {
             rgUbicacion.Properties.Items.AddEnum(typeof(Enums.UbicacionExtintor));
             rgEstado.Properties.Items.AddEnum(typeof(Enums.EstadoExtintor));
-            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", null);
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
+            GroupOperator go = new GroupOperator(GroupOperatorType.Or);
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            go.Operands.Add(new NullOperator("EstadoUnidad"));
+
+            GroupOperator goSeccion = new GroupOperator(GroupOperatorType.Or);
+            goSeccion.Operands.Add(new BinaryOperator("EsSeccion", false));
+            goSeccion.Operands.Add(new NullOperator("EsSeccion"));
+
+            goMain.Operands.Add(go);
+            goMain.Operands.Add(goSeccion);
+            XPView xpc = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", goMain);
             lueUnidad.Properties.DataSource = xpc;
             dteFechaRecarga.DateTime = dteVencimiento.DateTime = DateTime.Now;
 

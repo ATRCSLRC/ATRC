@@ -353,5 +353,46 @@ namespace RUTAS.WIN
 
             dragRow.Save();
         }
+
+        private void grdRutas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lueEmpresas_EditValueChanged(object sender, EventArgs e)
+        {
+            if(lueEmpresas.EditValue != null)
+            {
+                UnidadDeTrabajo UnidadPlantilla = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                PlantillaServiciosRealizados Plantilla = UnidadPlantilla.FindObject<PlantillaServiciosRealizados>(new BinaryOperator("Empresa.Oid", lueEmpresas.EditValue));
+                if(Plantilla != null)
+                {
+                    chkAgruparRutas.Checked = Plantilla.AgruparPorRutas;
+                    chkAgruparApoyos.Checked = Plantilla.AgruparApoyos;
+                    chkSepararServiciosValle.Checked = Plantilla.SepararServiciosValle;
+                    chkPorNombre.Checked = Plantilla.SepararPorNombre;
+                    chkNombreRuta.Checked = Plantilla.MostrarNombreRuta;
+                    chkPorTurno.Checked = Plantilla.MostrarPorTurno;
+                    chkTextoEntrada.Checked = Plantilla.MostrarTextoEntrada;
+                    chkTextoSalida.Checked = Plantilla.MostrarTextoSalida;
+                    txtEntrada.Text = Plantilla.TextoEntrada;
+                    txtSalida.Text = Plantilla.TextoSalida;
+                }
+                else
+                {
+                    chkAgruparRutas.Checked = false;
+                    chkAgruparApoyos.Checked = false;
+                    chkSepararServiciosValle.Checked = false;
+                    chkPorNombre.Checked = false;
+                    chkNombreRuta.Checked = false;
+                    chkPorTurno.Checked = false;
+                    chkTextoEntrada.Checked = false;
+                    chkTextoSalida.Checked = false;
+                    txtEntrada.Text = string.Empty;
+                    txtSalida.Text = string.Empty;
+                }
+            }
+            
+        }
     }
 }

@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Catalogos\Servicio.cs" />
     <Compile Include="Catalogos\Turno.cs" />
+    <Compile Include="Facturacion\PlantillaServiciosRealizados.cs" />
     <Compile Include="Mapa\Coordenadas.cs" />
     <Compile Include="RutasMaquiladora\HistorialPedidoRutas.cs" />
     <Compile Include="RutasMaquiladora\HistorialRutasDePedido.cs" />

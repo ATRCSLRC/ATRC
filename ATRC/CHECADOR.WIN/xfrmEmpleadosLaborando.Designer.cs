@@ -37,7 +37,9 @@
             this.grvEmpleados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNumEmpleado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHora = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -49,6 +51,7 @@
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -59,10 +62,10 @@
             // 
             this.lcMain.Controls.Add(this.grdEmpleados);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 27);
+            this.lcMain.Location = new System.Drawing.Point(0, 32);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(587, 423);
+            this.lcMain.Size = new System.Drawing.Size(624, 418);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -72,8 +75,9 @@
             this.grdEmpleados.MainView = this.grvEmpleados;
             this.grdEmpleados.Name = "grdEmpleados";
             this.grdEmpleados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTimeEdit1});
-            this.grdEmpleados.Size = new System.Drawing.Size(563, 399);
+            this.repositoryItemTimeEdit1,
+            this.repositoryItemTimeSpanEdit1});
+            this.grdEmpleados.Size = new System.Drawing.Size(600, 394);
             this.grdEmpleados.TabIndex = 4;
             this.grdEmpleados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvEmpleados});
@@ -83,6 +87,7 @@
             this.grvEmpleados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colNumEmpleado,
             this.colNombre,
+            this.colFecha,
             this.colHora,
             this.colEstado});
             this.grvEmpleados.GridControl = this.grdEmpleados;
@@ -90,6 +95,7 @@
             this.grvEmpleados.OptionsBehavior.Editable = false;
             this.grvEmpleados.OptionsBehavior.ReadOnly = true;
             this.grvEmpleados.OptionsFind.AlwaysVisible = true;
+            this.grvEmpleados.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
             this.grvEmpleados.OptionsView.ShowGroupPanel = false;
             this.grvEmpleados.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.grvEmpleados_CustomUnboundColumnData);
             // 
@@ -102,7 +108,7 @@
             this.colNumEmpleado.OptionsColumn.AllowFocus = false;
             this.colNumEmpleado.Visible = true;
             this.colNumEmpleado.VisibleIndex = 0;
-            this.colNumEmpleado.Width = 110;
+            this.colNumEmpleado.Width = 66;
             // 
             // colNombre
             // 
@@ -113,19 +119,40 @@
             this.colNombre.OptionsColumn.AllowFocus = false;
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
-            this.colNombre.Width = 240;
+            this.colNombre.Width = 196;
+            // 
+            // colFecha
+            // 
+            this.colFecha.Caption = "Fecha";
+            this.colFecha.DisplayFormat.FormatString = "d";
+            this.colFecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colFecha.FieldName = "Fecha";
+            this.colFecha.Name = "colFecha";
+            this.colFecha.OptionsColumn.AllowEdit = false;
+            this.colFecha.OptionsColumn.AllowFocus = false;
+            this.colFecha.Visible = true;
+            this.colFecha.VisibleIndex = 2;
+            this.colFecha.Width = 119;
             // 
             // colHora
             // 
             this.colHora.Caption = "Ultima checada";
+            this.colHora.ColumnEdit = this.repositoryItemTimeSpanEdit1;
             this.colHora.FieldName = "HoraT";
             this.colHora.Name = "colHora";
             this.colHora.OptionsColumn.AllowEdit = false;
             this.colHora.OptionsColumn.AllowFocus = false;
             this.colHora.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
             this.colHora.Visible = true;
-            this.colHora.VisibleIndex = 2;
-            this.colHora.Width = 100;
+            this.colHora.VisibleIndex = 3;
+            this.colHora.Width = 108;
+            // 
+            // repositoryItemTimeSpanEdit1
+            // 
+            this.repositoryItemTimeSpanEdit1.AutoHeight = false;
+            this.repositoryItemTimeSpanEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeSpanEdit1.Name = "repositoryItemTimeSpanEdit1";
             // 
             // colEstado
             // 
@@ -135,8 +162,8 @@
             this.colEstado.OptionsColumn.AllowEdit = false;
             this.colEstado.OptionsColumn.AllowFocus = false;
             this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 3;
-            this.colEstado.Width = 109;
+            this.colEstado.VisibleIndex = 4;
+            this.colEstado.Width = 126;
             // 
             // repositoryItemTimeEdit1
             // 
@@ -155,7 +182,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(587, 423);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(624, 418);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -163,7 +190,7 @@
             this.layoutControlItem1.Control = this.grdEmpleados;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(567, 403);
+            this.layoutControlItem1.Size = new System.Drawing.Size(604, 398);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -185,7 +212,8 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -193,7 +221,7 @@
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(587, 27);
+            this.ribbonControl1.Size = new System.Drawing.Size(624, 32);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // timer
@@ -204,9 +232,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 450);
+            this.ClientSize = new System.Drawing.Size(624, 450);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmEmpleadosLaborando.IconOptions.Icon")));
             this.Name = "xfrmEmpleadosLaborando";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Registros  de entrada/salida";
@@ -215,6 +244,7 @@
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdEmpleados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -239,5 +269,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private System.Windows.Forms.Timer timer;
         private DevExpress.XtraGrid.Columns.GridColumn colHora;
+        private DevExpress.XtraGrid.Columns.GridColumn colFecha;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
     }
 }

@@ -40,7 +40,11 @@ namespace ALMACEN.WIN.Articulos
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             if (e.KeyChar == 13)
             {
-                Usuario Usuarios = (Usuario)Unidad.FindObject(typeof(Usuario), new BinaryOperator("NumEmpleado", btnUsuario.Text));
+                GroupOperator goUsuario = new GroupOperator(GroupOperatorType.Or);
+                goUsuario.Operands.Add(new BinaryOperator("NumEmpleado", btnUsuario.Text));
+                goUsuario.Operands.Add(new BinaryOperator("IDCard", btnUsuario.Text));
+
+                Usuario Usuarios = (Usuario)Unidad.FindObject(typeof(Usuario), goUsuario);
                 if (Usuarios != null)
                 {
                     Usuario = Usuarios;

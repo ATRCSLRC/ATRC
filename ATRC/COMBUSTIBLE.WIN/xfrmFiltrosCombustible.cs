@@ -164,8 +164,19 @@ namespace COMBUSTIBLE.WIN
 
         private void rgTipoCombustible_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
+            GroupOperator goSeccion = new GroupOperator(GroupOperatorType.Or);
+            goSeccion.Operands.Add(new BinaryOperator("EsSeccion", false));
+            goSeccion.Operands.Add(new NullOperator("EsSeccion"));
             GroupOperator goCombustible = new GroupOperator(GroupOperatorType.Or);
-            if(rgTipoCombustible.SelectedIndex == 1)
+            GroupOperator goBuenEstado = new GroupOperator(GroupOperatorType.Or);
+            goBuenEstado.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
+            goBuenEstado.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
+            goBuenEstado.Operands.Add(new NullOperator("EstadoUnidad"));
+            goMain.Operands.Add(goSeccion);
+            goMain.Operands.Add(goCombustible);
+            goMain.Operands.Add(goBuenEstado);
+            if (rgTipoCombustible.SelectedIndex == 1)
             {
                 goCombustible.Operands.Add(new BinaryOperator("Combustible", Combustible.Gasolina));
                 goCombustible.Operands.Add(go);
@@ -175,7 +186,7 @@ namespace COMBUSTIBLE.WIN
                       new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                      });
                 Unidades.Sorting.Add(new SortProperty("Nombre", SortingDirection.Ascending));
-                Unidades.Criteria = goCombustible;
+                Unidades.Criteria = goMain;
                 lueUnidad.Properties.DataSource = Unidades;
             }
             else
@@ -188,7 +199,7 @@ namespace COMBUSTIBLE.WIN
                       new ViewProperty("Nombre", SortDirection.None, "[Nombre]", false, true)
                      });
                 Unidades.Sorting.Add(new SortProperty("Nombre", SortingDirection.Ascending));
-                Unidades.Criteria = goCombustible;
+                Unidades.Criteria = goMain;
                 lueUnidad.Properties.DataSource = Unidades;
             }
         }

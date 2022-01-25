@@ -43,6 +43,7 @@ namespace ALMACEN.WIN
             new ViewProperty("Cantidad", SortDirection.None, "[Cantidad]", false, true),
             new ViewProperty("Proveedor.Nombre", SortDirection.None, "[Proveedor.Nombre]", false, true),
             new ViewProperty("NumFactura", SortDirection.None, "[NumFactura]", false, true),
+            new ViewProperty("Almacen", SortDirection.None, "[Almacen]", false, true),
             new ViewProperty("Fecha", SortDirection.None, "[Fecha]", false, true),
             //new ViewProperty("Cantidad", SortDirection.None, "[Facturas].Sum([Cantidad])", false, true)
             });

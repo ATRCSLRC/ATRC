@@ -58,25 +58,33 @@ namespace ATRC
         #region Metodos
         private void Ingresar()
         {
-            
+
             Cursor.Current = Cursors.WaitCursor;
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("NumEmpleado", txtUsuario.Text));
             go.Operands.Add(new BinaryOperator("Activo", true));
             go.Operands.Add(new BinaryOperator("AccesoSistema", true));
             go.Operands.Add(new BinaryOperator("ConstraseñaDesencriptada", txtContraseña.Text));
-            Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
-            if (Usuario != null)
+            try
             {
-                ATRCBASE.BL.Utilerias.UsuarioActual = Usuario;
-                if(Usuario.NumEmpleado == 726)
-                    DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
-                this.DialogResult = DialogResult.OK;
-                
-                this.Dispose();
+
+
+                Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
+
+                if (Usuario != null)
+                {
+                    ATRCBASE.BL.Utilerias.UsuarioActual = Usuario;
+                    if (Usuario.NumEmpleado == 726)
+                        DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
+                    this.DialogResult = DialogResult.OK;
+
+                    this.Dispose();
+                }
+                else
+                    XtraMessageBox.Show("Los datos proporcionados son incorrectos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
-                XtraMessageBox.Show("Los datos proporcionados son incorrectos.","Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception e)
+            { }
         }
         #endregion
 

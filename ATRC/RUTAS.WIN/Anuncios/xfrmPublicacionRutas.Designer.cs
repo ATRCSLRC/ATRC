@@ -32,6 +32,7 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiNuevaPublicacion = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEliminarPublicacion = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPublicaionExtra = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
@@ -40,6 +41,7 @@
             this.colDia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colEsExtra = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
@@ -56,9 +58,10 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.bbiNuevaPublicacion,
-            this.bbiEliminarPublicacion});
+            this.bbiEliminarPublicacion,
+            this.bbiPublicaionExtra});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -71,7 +74,7 @@
             // 
             // bbiNuevaPublicacion
             // 
-            this.bbiNuevaPublicacion.Caption = "Nueva publicación";
+            this.bbiNuevaPublicacion.Caption = "Nueva publicación rutas fijas";
             this.bbiNuevaPublicacion.Id = 1;
             this.bbiNuevaPublicacion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiNuevaPublicacion.ImageOptions.Image")));
             this.bbiNuevaPublicacion.Name = "bbiNuevaPublicacion";
@@ -87,6 +90,15 @@
             this.bbiEliminarPublicacion.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bbiEliminarPublicacion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEliminarPublicacion_ItemClick);
             // 
+            // bbiPublicaionExtra
+            // 
+            this.bbiPublicaionExtra.Caption = "Nueva publicación  rutas extras";
+            this.bbiPublicaionExtra.Id = 4;
+            this.bbiPublicaionExtra.ImageOptions.Image = global::RUTAS.WIN.Properties.Resources.icons8_remote_desktop_32;
+            this.bbiPublicaionExtra.Name = "bbiPublicaionExtra";
+            this.bbiPublicaionExtra.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiPublicaionExtra.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPublicaionExtra_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -97,6 +109,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiNuevaPublicacion);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiPublicaionExtra);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiEliminarPublicacion);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
@@ -125,7 +138,8 @@
             // grvAnuncios
             // 
             this.grvAnuncios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDia});
+            this.colDia,
+            this.colEsExtra});
             this.grvAnuncios.GridControl = this.grdAnuncios;
             this.grvAnuncios.Name = "grvAnuncios";
             this.grvAnuncios.OptionsView.ShowGroupPanel = false;
@@ -139,6 +153,7 @@
             this.colDia.OptionsColumn.AllowFocus = false;
             this.colDia.Visible = true;
             this.colDia.VisibleIndex = 0;
+            this.colDia.Width = 247;
             // 
             // Root
             // 
@@ -158,6 +173,17 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(327, 366);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // colEsExtra
+            // 
+            this.colEsExtra.Caption = "Es extra";
+            this.colEsExtra.FieldName = "EsExtra";
+            this.colEsExtra.Name = "colEsExtra";
+            this.colEsExtra.OptionsColumn.AllowEdit = false;
+            this.colEsExtra.OptionsColumn.AllowFocus = false;
+            this.colEsExtra.Visible = true;
+            this.colEsExtra.VisibleIndex = 1;
+            this.colEsExtra.Width = 51;
             // 
             // xfrmPublicacionRutas
             // 
@@ -196,5 +222,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn colDia;
+        private DevExpress.XtraBars.BarButtonItem bbiPublicaionExtra;
+        private DevExpress.XtraGrid.Columns.GridColumn colEsExtra;
     }
 }

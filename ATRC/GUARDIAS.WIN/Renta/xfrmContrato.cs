@@ -253,14 +253,6 @@ namespace GUARDIAS.WIN
             this.Close();
         }
 
-        private void lueUnidad_EditValueChanged(object sender, EventArgs e)
-        {
-            //if(lueUnidad.EditValue != null)
-            //{
-            //    spnCosto.EditValue = lueUnidad.GetColumnValue("PrecioRenta");
-            //}
-        }
-
         private void txtCliente_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -322,61 +314,13 @@ namespace GUARDIAS.WIN
                     picVistaPrevia.EditValue = stream.ToArray();
                 }
                 else
+
+
                     picVistaPrevia.Image = null;
 
             }
         }
-
-        private void spnDiasRenta_Leave(object sender, EventArgs e)
-        {
-            //if (lueUnidad.EditValue != null)
-            //{
-            //    spnCosto.EditValue = Convert.ToDecimal(lueUnidad.GetColumnValue("PrecioRenta")) * Convert.ToDecimal(spnDiasRenta.EditValue);
-            //}
-            //lblTotal.Text = ((Convert.ToDecimal(spnCosto.EditValue) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
-
-            
-        }
-
-        private void dteSalida_Leave(object sender, EventArgs e)
-        {
-            if(Convert.ToDecimal(spnDiasRenta.EditValue)  > 0 )
-            {
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = timeRegreso.Time = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
-        }
-
-        private void timeSalida_Leave(object sender, EventArgs e)
-        {
-            decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
-            int TotalHoras = timeSalida.Time.Hour + 12;
-            if (d < 0)
-            {
-                int restante = TotalHoras - 24;
-                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                dteRegreso.DateTime = dteRegreso.DateTime.AddDays(Convert.ToInt32(dias));
-            }
-            else if (d == 0)
-            {
-                DateTime dt = timeSalida.Time;
-                timeRegreso.Time = dt.AddHours(24);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
-            else
-            {
-                int restante = TotalHoras - 24;
-                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
-        }
-
+        
         private void chkFactura_CheckedChanged(object sender, EventArgs e)
         {
             if(chkFactura.Checked)
@@ -399,12 +343,12 @@ namespace GUARDIAS.WIN
 
         private void spnDescuento_EditValueChanged(object sender, EventArgs e)
         {
-            lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+            //lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
         }
 
         private void spnCosto_EditValueChanged(object sender, EventArgs e)
         {
-            lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+            //lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
         }
 
         private void spnIVA_EditValueChanged(object sender, EventArgs e)
@@ -742,11 +686,6 @@ namespace GUARDIAS.WIN
 
         #endregion
 
-        private void spnDiasRenta_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
         private void spnDiasRenta_EditValueChanged(object sender, EventArgs e)
         {
             if (Convert.ToDecimal(spnDiasRenta.EditValue) > 0)
@@ -760,24 +699,19 @@ namespace GUARDIAS.WIN
             int TotalHoras = timeSalida.Time.Hour + 12;
             if (d < 0)
             {
-                int restante = TotalHoras - 24;
-                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime regreso = dteSalida.DateTime;
-                dteRegreso.DateTime = regreso.AddDays(Convert.ToInt32(dias));
+                decimal dias = 0;
+                if (timeSalida.Time.Hour > 12)
+                    dias += 1;
+                timeRegreso.Time = timeSalida.Time;
+                timeRegreso.Time = timeRegreso.Time.AddHours(12);
+                dias += Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
             }
             else if (d == 0)
             {
                 DateTime dt = timeSalida.Time;
                 timeRegreso.Time = dt.AddHours(24);
-                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
-                DateTime Salida = dteSalida.DateTime.Date;
-                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
-            }
-            else
-            {
-                int restante = TotalHoras - 24;
-                timeRegreso.Time = timeRegreso.Time.AddHours(restante);
                 decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
                 DateTime Salida = dteSalida.DateTime.Date;
                 dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
@@ -800,6 +734,157 @@ namespace GUARDIAS.WIN
                     lblFolio.Text = " ";
                 }
             }
+        }
+
+        private void dteSalida_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToDecimal(spnDiasRenta.EditValue) > 0)
+            {
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = timeRegreso.Time = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+
+            decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
+            int TotalHoras = timeSalida.Time.Hour + 12;
+            if (d < 0)
+            {
+                decimal dias = 0;
+                if (timeSalida.Time.Hour > 12)
+                    dias += 1;
+                timeRegreso.Time = timeSalida.Time;
+                timeRegreso.Time = timeRegreso.Time.AddHours(12);
+                dias += Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+            else if (d == 0)
+            {
+                DateTime dt = timeSalida.Time;
+                timeRegreso.Time = dt.AddHours(24);
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+        }
+
+        private void dteSalida_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            if (Convert.ToDecimal(spnDiasRenta.EditValue) > 0)
+            {
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = timeRegreso.Time = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+
+            decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
+            int TotalHoras = timeSalida.Time.Hour + 12;
+            if (d < 0)
+            {
+                decimal dias = 0;
+                if (timeSalida.Time.Hour > 12)
+                    dias += 1;
+                timeRegreso.Time = timeSalida.Time;
+                timeRegreso.Time = timeRegreso.Time.AddHours(12);
+                dias += Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+            else if (d == 0)
+            {
+                DateTime dt = timeSalida.Time;
+                timeRegreso.Time = dt.AddHours(24);
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+        }
+
+        private void timeSalida_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void timeSalida_KeyDown(object sender, KeyEventArgs e)
+        {
+            //decimal d = Convert.ToInt32(spnDiasRenta.EditValue) - Convert.ToDecimal(spnDiasRenta.EditValue);
+            //int TotalHoras = timeSalida.Time.Hour + 12;
+            //if (d < 0)
+            //{
+            //    //int restante = TotalHoras - 24;
+            //    //timeRegreso.Time = timeRegreso.Time.AddHours(restante);
+            //    decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+            //    DateTime regreso = dteSalida.DateTime;
+            //    DateTime NewRegreso = new DateTime(regreso.Year, regreso.Month, regreso.Day, TotalHoras, 0, 0).AddDays(Convert.ToInt32(dias));
+            //    timeRegreso.Time = NewRegreso;
+            //    dteRegreso.DateTime = regreso;
+            //}
+            //else if (d == 0)
+            //{
+            //    DateTime dt = timeSalida.Time;
+            //    timeRegreso.Time = dt.AddHours(24);
+            //    decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+            //    DateTime Salida = dteSalida.DateTime.Date;
+            //    dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            //}
+            //else
+            //{
+            //    int restante = TotalHoras - 24;
+            //    timeRegreso.Time = timeRegreso.Time.AddHours(restante);
+            //    decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+            //    DateTime Salida = dteSalida.DateTime.Date;
+            //    dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            //}
+        }
+
+        private void timeSalida_EditValueChanged(object sender, EventArgs e)
+        {
+            decimal d = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue)) - Convert.ToDecimal(spnDiasRenta.EditValue);
+            int TotalHoras = timeSalida.Time.Hour > 12 ? timeSalida.Time.Hour - 12 : timeSalida.Time.Hour  + 12;
+            if (d < 0)
+            {
+                decimal dias = 0;
+                if (timeSalida.Time.Hour > 12)
+                    dias += 1;
+                timeRegreso.Time = timeSalida.Time;
+                timeRegreso.Time = timeRegreso.Time.AddHours(12);
+                dias += Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+            else if (d == 0)
+            {
+                DateTime dt = timeSalida.Time;
+                timeRegreso.Time = dt.AddHours(24);
+                decimal dias = Math.Floor(Convert.ToDecimal(spnDiasRenta.EditValue));
+                DateTime Salida = dteSalida.DateTime.Date;
+                dteRegreso.DateTime = Salida.Date.AddDays(Convert.ToInt32(dias));
+            }
+        }
+
+        private void spnCosto_KeyUp(object sender, KeyEventArgs e)
+        {
+            //lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+            if (chkFactura.Checked)
+            {
+                lciIVA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                spnIVA.EditValue = /*IDContrato > 0 ? Convert.ToDouble(Contrato.Iva) : */(Convert.ToDouble((((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue))) - Convert.ToDecimal(spnDescuento.EditValue))) * 0.08);
+            }
+            //else
+            //{
+            //    lciIVA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            //    spnIVA.EditValue = 0;
+            //}
+            lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+
+        }
+
+        private void spnDescuento_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
+            
+           // lblTotal.Text = (((Convert.ToDecimal(spnCosto.EditValue) * Convert.ToDecimal(spnDiasRenta.EditValue)) + Convert.ToDecimal(spnIVA.EditValue)) - (Convert.ToDecimal(spnAnticipo.EditValue) + Convert.ToDecimal(spnDescuento.EditValue))).ToString("C");
         }
     }
 }

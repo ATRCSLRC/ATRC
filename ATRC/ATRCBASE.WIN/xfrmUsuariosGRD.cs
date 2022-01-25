@@ -1,5 +1,6 @@
 ﻿using ATRCBASE.BL;
 using DevExpress.Xpo;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Controls;
 using DevExpress.XtraPrinting.Drawing;
@@ -34,6 +35,7 @@ namespace ATRCBASE.WIN
             bbiReportes.Visibility = Utilerias.VisibilidadPermiso("HistorialReportesUsuario");
             bbiDesactivarEmpleado.Visibility = Utilerias.VisibilidadPermiso("ActivarDasactivarUsuario");
             bbiGafete.Visibility = Utilerias.VisibilidadPermiso("ImprimirGafete");
+
             if (Unidad == null)
             {
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
@@ -47,7 +49,14 @@ namespace ATRCBASE.WIN
                 bbiGafete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 rpgGafete.Visible = false;
             }
-            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo;Imagen;RFC;IMSS;Puesto.Descripcion;FechaIngreso", null);
+
+            rpgAcciones.Visible = bbiNuevos.Visibility == BarItemVisibility.Always || bbiModificarUsuario.Visibility == BarItemVisibility.Always ||
+                bbiAsignar.Visibility == BarItemVisibility.Always ? true : false;
+
+            rpgGafete.Visible = bbiReportes.Visibility == BarItemVisibility.Always || bbiDesactivarEmpleado.Visibility == BarItemVisibility.Always ||
+                bbiGafete.Visibility == BarItemVisibility.Always ? true : false;
+
+            XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;Activo;Imagen;RFC;IMSS;CURP;Puesto.Descripcion;FechaIngreso", null);
             Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             grdUsuarios.DataSource = Usuarios;
             BeginInvoke(new MethodInvoker(delegate {
@@ -155,7 +164,37 @@ namespace ATRCBASE.WIN
                 if (XtraMessageBox.Show("¿Está seguro de querer " + (!Usuario.Activo ? "activar" : "desactivar") + " el usuario '" + Usuario.Nombre + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     Usuario.Activo = !Usuario.Activo;
-                    Unidad.CommitChanges();
+                    if(!Usuario.Activo)
+                    {
+                        XtraInputBoxArgs args = new XtraInputBoxArgs();
+                        args.Caption = "Baja del trabajador";
+                        args.Prompt = "Motivo de la baja del trabajador:";
+                        MemoEdit editor = new MemoEdit();
+                        args.Editor = editor;
+                        var result = XtraInputBox.Show(args);
+                        if (result != null)
+                        {
+                            HistorialBajas Baja = new HistorialBajas(Usuario.Session);
+                            Baja.Comentarios = result != null ? result.ToString() : "";
+                            Baja.Save();
+                            Usuario.Bajas.Add(Baja);
+                            //Salida.Factura.Cantidad += Convert.ToDecimal(result);
+                            //if (Convert.ToDecimal(result) == Salida.Cantidad)
+                            //    Salida.Estado = Enums.EstadoSalida.Devuelto;
+                            //else
+                            //    Salida.Cantidad -= Convert.ToInt32(result);
+
+                            //Salida.Save();
+                            //Unidad.CommitChanges();
+                            //(grdSalida.DataSource as XPView).Reload();
+                            Unidad.CommitChanges();
+                        }
+                    }
+                    else
+                    {
+                        Unidad.CommitChanges();
+                    }
+                    
                     ((XPView)grdUsuarios.DataSource).Reload();
                 }
             }
@@ -192,11 +231,12 @@ namespace ATRCBASE.WIN
                 }
                 else
                     peFotoUsuario.Image = ATRCBASE.WIN.Properties.Resources.usuario_desconocido;
-
+                
                 lblDetalleFecha.Text = ViewUsuario["FechaIngreso"] == null ? "" : ((DateTime)ViewUsuario["FechaIngreso"]).ToShortDateString();
                 lblDetalleUsuario.Text = ViewUsuario["NumEmpleado"].ToString() + " - " + ViewUsuario["Nombre"].ToString();
                 lblIMSSDetalle.Text = ViewUsuario["IMSS"] == null ? "" : ViewUsuario["IMSS"].ToString();
                 lblRFCDetalle.Text = ViewUsuario["RFC"] == null ? "" : ViewUsuario["RFC"].ToString();
+                lblCURPDetalle.Text = ViewUsuario["CURP"] == null ? "" : ViewUsuario["CURP"].ToString();
                 lblPuestoDetalle.Text = ViewUsuario["Puesto.Descripcion"] == null ? "" : ViewUsuario["Puesto.Descripcion"].ToString();
                 ftpDetalleUsuario.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
                 esiDetalleUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -235,6 +275,7 @@ namespace ATRCBASE.WIN
                 lblDetalleUsuario.Text = ViewUsuario["NumEmpleado"].ToString() + " - " + ViewUsuario["Nombre"].ToString();
                 lblIMSSDetalle.Text = ViewUsuario["IMSS"] == null ? "" : ViewUsuario["IMSS"].ToString();
                 lblRFCDetalle.Text = ViewUsuario["RFC"] == null ? "" : ViewUsuario["RFC"].ToString();
+                lblCURPDetalle.Text = ViewUsuario["CURP"] == null ? "" : ViewUsuario["CURP"].ToString();
                 lblPuestoDetalle.Text = ViewUsuario["Puesto.Descripcion"] == null ? "" : ViewUsuario["Puesto.Descripcion"].ToString();
                 ftpDetalleUsuario.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
                 esiDetalleUsuario.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;

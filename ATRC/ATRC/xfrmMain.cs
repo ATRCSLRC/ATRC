@@ -49,6 +49,7 @@ namespace ATRC
                 bbiAnunciosUsuarios.Visibility = VisibilidadPermiso("AnunciosUsuario");
                 bbiAccesos.Visibility = VisibilidadPermiso("AccesosUsuario");
                 bbiHistorialAccesos.Visibility = VisibilidadPermiso("HistorialAccesosUsuario");
+                bbiSolicitudHorasExtra.Visibility = VisibilidadPermiso("SolicitudHorasExtras");
                 rbnpgReportesUsuarios.Visible = VisibilidadPermiso("ReportesUsuarios") == BarItemVisibility.Always ? true : false;
                 rbnpgUsuario.Visible = bbiUsuarios.Visibility == BarItemVisibility.Always ? true : false;
             }
@@ -75,8 +76,11 @@ namespace ATRC
                 bbiPuestos.Visibility = VisibilidadPermiso("Puesto");
                 bbiEmpresa.Visibility = VisibilidadPermiso("Empresa");
                 bbiTanques.Visibility = VisibilidadPermiso("Tanques");
+                bbiSeccionesEmpresa.Visibility = VisibilidadPermiso("SeccionesEmpresa");
+                bbiGafetesTemporales.Visibility = VisibilidadPermiso("GafeteTemporal");
                 bbiActualizarEsquemas.Visibility = VisibilidadPermiso("ActualizarEsquemas");
                 bbiActualizarPermisos.Visibility = VisibilidadPermiso("ActualizarPermisos");
+                bbiFotosEmpleados.Visibility = VisibilidadPermiso("FotosEmpleados");
                 rpgMantenimiento.Visible = bbiActualizarEsquemas.Visibility == BarItemVisibility.Always & 
                     bbiActualizarPermisos.Visibility == BarItemVisibility.Always ? true : false;
             }
@@ -97,9 +101,14 @@ namespace ATRC
                 bbiMarcas.Visibility = VisibilidadPermiso("Marcas");
                 bbiProveedor.Visibility = VisibilidadPermiso("Proveedor");
                 bbiCodigos.Visibility = VisibilidadPermiso("CodigosArticulos");
+                bbiCambioAlmacen.Visibility = VisibilidadPermiso("CambioAlmacen");
+                bbiSalidaMasiva.Visibility = VisibilidadPermiso("SalidaMasiva");
+                bbiAgregarFactura.Visibility = VisibilidadPermiso("AgregarFactura");
                 rpgConfiguracion.Visible = VisibilidadPermiso("ImpresoraTicketAlmacen") == BarItemVisibility.Always ? true : false;
                 rpgInventario.Visible = bbiInventarios.Visibility == BarItemVisibility.Always || bbiBitacoraSalida.Visibility == BarItemVisibility.Always;
-                rpgCatalogo.Visible = bbiMarcas.Visibility == BarItemVisibility.Always || bbiProveedor.Visibility == BarItemVisibility.Always || bbiCodigos.Visibility == BarItemVisibility.Always;
+                rpgCatalogo.Visible = bbiMarcas.Visibility == BarItemVisibility.Always || bbiProveedor.Visibility == BarItemVisibility.Always
+                    || bbiCodigos.Visibility == BarItemVisibility.Always || bbiCambioAlmacen.Visibility == BarItemVisibility.Always || bbiSalidaMasiva.Visibility == BarItemVisibility.Always
+                    || bbiAgregarFactura.Visibility == BarItemVisibility.Always;
 
                 if (rpgConfiguracion.Visible)
                 {
@@ -181,6 +190,7 @@ namespace ATRC
                 bbiReportesServicios.Visibility = VisibilidadPermiso("ConsultaReportesServicios");
                 bbiHistorialRutasGeneradas.Visibility = VisibilidadPermiso("HistorialRutasGeneradas");
                 bbiPublicarRutas.Visibility = VisibilidadPermiso("PublicarRutas");
+                bbiPlantillasServiciosRealizados.Visibility = VisibilidadPermiso("PlantillasServiciosRealizados");
                 rpgReportesRutas.Visible = VisibilidadPermiso("ReportesRutas") == BarItemVisibility.Always ? true : false;
                 rpgConfiguracionRutas.Visible = VisibilidadPermiso("ConfiguracionRutas") == BarItemVisibility.Always ? true : false;
 
@@ -354,30 +364,30 @@ namespace ATRC
 
         private void bbiActualizarEsquemas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
-            Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
-            foreach (ViewRecord Usuario in Usuarios)
-            {
-                if (Usuario["Imagen.Archivo"] != null)
-                {
-                    byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
-                    if (image != null)
-                    {
-                        string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
-                        if (!File.Exists(f))
-                        {
-                            using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
-                            {
-                                Image returnImage = Image.FromStream(stream);
+            //ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            //DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
+            //Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            //foreach (ViewRecord Usuario in Usuarios)
+            //{
+            //    if (Usuario["Imagen.Archivo"] != null)
+            //    {
+            //        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+            //        if (image != null)
+            //        {
+            //            string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+            //            if (!File.Exists(f))
+            //            {
+            //                using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
+            //                {
+            //                    Image returnImage = Image.FromStream(stream);
 
-                                File.WriteAllBytes(f, image);
-                            }
-                        }
-                    }
-                }
-            }
-           // Utilerias.ActualizarEsquema();
+            //                    File.WriteAllBytes(f, image);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            Utilerias.ActualizarEsquema();
             //Application.Exit();
         }
         #endregion
@@ -600,6 +610,28 @@ namespace ATRC
                 case "Radios":
                     ReportPrintTool repRadios = new ReportPrintTool(new REPORTES.Unidades.Radios());
                     repRadios.ShowPreview();
+                    break;
+                case "Unidades":
+
+                    XtraInputBoxArgs args = new XtraInputBoxArgs();
+                    args.Caption = "Estados de unidades";
+                    args.Prompt = "Filtro:";
+
+                    RadioGroup editor = new RadioGroup();
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("BuenEstado", "Buen estado"));
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("Vendido", "Vendidos"));
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("FueraServicio", "Fuera de servicio"));
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("Taller", "Taller"));
+                    editor.Properties.Items.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem("Todas", "Todas"));
+                    args.DefaultResponse = "BuenEstado";
+                    editor.Properties.Columns = 3;
+                    args.Editor = editor;
+                    var result = XtraInputBox.Show(args);
+                    if (result != null)
+                    {
+                        ReportPrintTool repUnidades = new ReportPrintTool(new REPORTES.Unidades.Unidades(result.ToString()));
+                        repUnidades.ShowPreview();
+                    }
                     break;
 
             }
@@ -1362,6 +1394,163 @@ namespace ATRC
         private void bbiPublicarRutas_ItemClick(object sender, ItemClickEventArgs e)
         {
             RUTAS.WIN.Anuncios.xfrmPublicacionRutas xfrm = new RUTAS.WIN.Anuncios.xfrmPublicacionRutas();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiGafetesTemporales_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            REPORTES.GafeteFrente gafeteFrente = new REPORTES.GafeteFrente();
+            gafeteFrente.CreateDocument();
+            //repGafeteFrente.ShowPreviewDialog();
+            REPORTES.GafeteAtras gafeteAtras = new REPORTES.GafeteAtras();
+            gafeteAtras.CreateDocument();
+            gafeteFrente.Pages.AddRange(gafeteAtras.Pages);
+
+            DevExpress.XtraPrinting.Drawing.Watermark wm = new DevExpress.XtraPrinting.Drawing.Watermark();
+            wm.Image = gafeteAtras.Watermark.Image;
+            wm.ImageViewMode = DevExpress.XtraPrinting.Drawing.ImageViewMode.Stretch;
+            //productReport.Pages[0].AssignWatermark(wm);
+            gafeteFrente.Pages[1].AssignWatermark(wm);
+
+
+            ReportPrintTool repGafete = new ReportPrintTool(gafeteFrente);
+            repGafete.ShowPreview();
+        }
+
+        private void bbiSeccionesEmpresa_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UNIDADES.WIN.Configuracion.xfrmSeccionesEmpresa xfrm = new UNIDADES.WIN.Configuracion.xfrmSeccionesEmpresa();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiFotosEmpleados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (xtraFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                DevExpress.Xpo.XPView Usuarios = new DevExpress.Xpo.XPView(Unidad, typeof(ATRCBASE.BL.Usuario), "Oid;NumEmpleado;Imagen.Archivo", null);
+                Usuarios.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+                foreach (ViewRecord Usuario in Usuarios)
+                {
+                    if (Usuario["Imagen.Archivo"] != null)
+                    {
+                        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+                        if (image != null)
+                        {
+                           // string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+                           string f = xtraFolderBrowserDialog.SelectedPath + "\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+                            if (!File.Exists(f))
+                            {
+                                //using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
+                                //{
+                                //    Image returnImage = Image.FromStream(stream);
+
+                                    File.WriteAllBytes(f, image);
+                                //}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void bbiFotosUnidades_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (xtraFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                ATRCBASE.BL.UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                XPCollection<UNIDADES.BL.Unidad> unidades = new XPCollection<UNIDADES.BL.Unidad>(Unidad);
+                //unidades.TopReturnedObjects = 500;
+                foreach(UNIDADES.BL.Unidad unidadCAmion in unidades)
+                {
+                    if(unidadCAmion.Imagen != null)
+                    {
+                        if (!string.IsNullOrEmpty(unidadCAmion.Imagen.Archivo))
+                        {
+                            byte[] image = Convert.FromBase64String(unidadCAmion.Imagen.Archivo);
+
+                            string f = xtraFolderBrowserDialog.SelectedPath + "\\" + unidadCAmion.Nombre + ".JPEG";
+                            if (!File.Exists(f))
+                            {
+                                File.WriteAllBytes(f, image);
+                            }
+                        }
+                    }
+                }
+                
+                //DevExpress.Xpo.XPView Unidades = new DevExpress.Xpo.XPView(Unidad, typeof(UNIDADES.BL.Unidad), "Oid;Nombre;Imagen.Archivo", new NotOperator(new NullOperator("Imagen")));
+                ////Unidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+                //foreach (ViewRecord Usuario in Unidades)
+                //{
+                //    if (Usuario["Imagen.Archivo"] != null)
+                //    {
+                //        byte[] image = Convert.FromBase64String(Usuario["Imagen.Archivo"].ToString());
+                //        if (image != null)
+                //        {
+                //            // string f = "C:\\Users\\ATRC SISTEMAS\\Desktop\\img\\" + Usuario["NumEmpleado"].ToString() + ".JPEG";
+                //            string f = xtraFolderBrowserDialog.SelectedPath + "\\" + Usuario["Nombre"].ToString() + ".JPEG";
+                //            if (!File.Exists(f))
+                //            {
+                //                //using (System.IO.MemoryStream stream = new System.IO.MemoryStream(image))
+                //                //{
+                //                //    Image returnImage = Image.FromStream(stream);
+
+                //                File.WriteAllBytes(f, image);
+                //                //}
+                //            }
+                //        }
+                //    }
+                //}
+            }
+        }
+
+        private void bbiPlantillasServiciosRealizados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RUTAS.WIN.Facturacion.xfrmPlantillasServicioGRD xfrm = new RUTAS.WIN.Facturacion.xfrmPlantillasServicioGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiSolicitudHorasExtra_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ATRCBASE.WIN.xfrmSolicitudHorasExtrasGRD xfrm = new ATRCBASE.WIN.xfrmSolicitudHorasExtrasGRD();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiCambioAlmacen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmCambioAlmacen xfrm = new ALMACEN.WIN.xfrmCambioAlmacen();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiAgregarFactura_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmAgregarFactura xfrm = new ALMACEN.WIN.xfrmAgregarFactura();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiSalidaMasiva_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ALMACEN.WIN.xfrmSalidaFactura xfrm = new ALMACEN.WIN.xfrmSalidaFactura();
+            xfrm.ShowInTaskbar = false;
+            xfrm.MdiParent = this;
+            xfrm.Show();
+        }
+
+        private void bbiConfiguracionDiesel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            COMBUSTIBLE.WIN.xfrmConfiguracionDiesel xfrm = new COMBUSTIBLE.WIN.xfrmConfiguracionDiesel();
             xfrm.ShowInTaskbar = false;
             xfrm.MdiParent = this;
             xfrm.Show();

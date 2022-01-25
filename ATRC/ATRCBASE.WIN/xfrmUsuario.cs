@@ -193,6 +193,7 @@ namespace ATRCBASE.WIN
             txtNumeroEmpleado.DataBindings.Add("EditValue", Usuario, "NumEmpleado", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTel.DataBindings.Add("EditValue", Usuario, "TelAvisarA", true, DataSourceUpdateMode.OnPropertyChanged);
             txtNombre.DataBindings.Add("EditValue", Usuario, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCURP.DataBindings.Add("EditValue", Usuario, "CURP", true, DataSourceUpdateMode.OnPropertyChanged);
             txtRFC.DataBindings.Add("EditValue", Usuario, "RFC", true, DataSourceUpdateMode.OnPropertyChanged);
             txtIMSS.DataBindings.Add("EditValue", Usuario, "IMSS", true, DataSourceUpdateMode.OnPropertyChanged);
             luePuesto.DataBindings.Add("EditValue", Usuario, "Puesto!", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -212,6 +213,12 @@ namespace ATRCBASE.WIN
             //XPCollection<Permiso> Permisos = new XPCollection<Permiso>(Unidad);
             XPView Permisos = new XPView(Unidad, typeof(Permiso), "Oid;Nombre;PermisoPadre", null);
             trModulos.DataSource = Permisos;
+
+            if(Usuario.Bajas.Count > 0)
+            {
+                TabRenuncias.PageVisible = true;
+                grdRenuncias.DataSource = Usuario.Bajas;
+            }
 
             //
         }

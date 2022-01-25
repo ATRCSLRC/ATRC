@@ -19,6 +19,13 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<string>("FechaPublicacion", ref mFechaPublicacion, value); }
         }
 
+        private bool mEsExtra;
+        public bool EsExtra
+        {
+            get { return mEsExtra; }
+            set { SetPropertyValue<bool>("EsExtra", ref mEsExtra, value); }
+        }
+
         [Association("Publicacion-Anuncio"), Aggregated]
         public XPCollection<AnuncioUsuario> Anuncios
         {

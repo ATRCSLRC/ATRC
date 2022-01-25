@@ -25,6 +25,7 @@ namespace ATRCBASE.WIN
         private void xfrmAccesos_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            //XPView Usuarios = new XPView(Unidad, typeof(Usuario), "Oid;NumEmpleado;Nombre;AccesoDormitorio;AccesoComedor", null);
             XPCollection Usuarios = new XPCollection(Unidad, typeof(Usuario), new BinaryOperator("Activo", true));
             Usuarios.Sorting.Add(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending));
             grdAccesos.DataSource = Usuarios;
@@ -67,6 +68,39 @@ namespace ATRCBASE.WIN
             //{
             //    colHoraDe.Visible = false;
             //    colHoraA.Visible = false;
+            //}
+        }
+
+        private void grvAccesos_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            //if (e.Column.FieldName == colHoraDe.Name)
+            //{
+            //    Usuario Usuario = e.Row as Usuario;
+            //    if (e.IsGetData)
+            //    {
+            //        //Usuario Usuario= e.Row as DataRowView;
+            //        e.Value = Usuario.HoraDormitorioDe;
+            //    }
+            //    if (e.IsSetData)
+            //    {
+            //        Usuario.HoraDormitorioDe = ((DateTime)e.Value).TimeOfDay;
+            //       // DataRowView row = e.Row as DataRowView;
+            //       //row["WORK_TIME"] = Convert.ToDateTime(e.Value).Ticks;
+            //    }
+            //}
+
+            //if (e.Column.Name == colHoraA.Name)
+            //{
+            //    if (e.IsGetData)
+            //    {
+            //        DataRowView row = e.Row as DataRowView;
+            //        e.Value = new DateTime(((TimeSpan)row["WORK_TIME"]).Ticks);
+            //    }
+            //    if (e.IsSetData)
+            //    {
+            //        DataRowView row = e.Row as DataRowView;
+            //        row["WORK_TIME"] = Convert.ToDateTime(e.Value).Ticks;
+            //    }
             //}
         }
     }

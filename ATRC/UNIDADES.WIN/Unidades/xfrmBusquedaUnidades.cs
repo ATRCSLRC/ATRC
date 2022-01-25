@@ -31,11 +31,20 @@ namespace UNIDADES.WIN
             ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[2]).Visible = Utilerias.VisibilidadPermiso("EstadoUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
             ((DevExpress.Utils.PeekFormButton)fypEdicion.OptionsButtonPanel.Buttons[3]).Visible = Utilerias.VisibilidadPermiso("EliminarUnidad") == DevExpress.XtraBars.BarItemVisibility.Always ? true : false;
             unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+            GroupOperator goMain = new GroupOperator(GroupOperatorType.And);
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
             go.Operands.Add(new NullOperator("EstadoUnidad"));
-            XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", go);
+
+            GroupOperator goSeccion = new GroupOperator(GroupOperatorType.Or);
+            goSeccion.Operands.Add(new BinaryOperator("EsSeccion", false));
+            goSeccion.Operands.Add(new NullOperator("EsSeccion"));
+
+            goMain.Operands.Add(go);
+            goMain.Operands.Add(goSeccion);
+            XPView Unidades = new XPView(unidad, typeof(Unidad), "Oid;Nombre", goMain);
+            Unidades.Sorting.Add(new SortingCollection(new SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             lueUnidad.Properties.DataSource = Unidades;
         }
 
@@ -113,6 +122,7 @@ namespace UNIDADES.WIN
                         UnidadCamion.Session.CommitTransaction();
                         (lueUnidad.Properties.DataSource as XPView).Reload();
                         vGridControl1.DataSource = null;
+                        picFoto.EditValue = null;
                         picFoto.BackgroundImage = UNIDADES.WIN.Properties.Resources.car;
                         fypEdicion.HidePopup();
                     }

@@ -120,11 +120,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bbiNuevaPublicacion.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACfSURBVFhHYxgFo2AUDDoQkle1mpYYag1uAFT0P7t92v+yyUupikFmgsyGWoMbgBTN3Hnh/+57
-        v6mKQWaOOmDUAaMOGHXAqAOIdgAtMdQa3CAkvzqUGOyVmPMfGWNTgw1DraEcuEal/EfGUGHqAweHBhaX
-        qORm16jUVagY1QFY5JtAeqHGkA/cI1O1MQ0nDjtHJ2pBjRkFo2AUDFbAwAAANneO8/9c+gUAAAAASUVO
-        RK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAJ9JREFUWEdj
+        GAWjYBQMOhCSV7WalhhqDW4AVPQ/u33a/7LJS6mKQWaCzIZagxuAFM3ceeH/7nu/qYpBZo46YNQBow4Y
+        dcCoA4h2AC0x1BrcICS/OpQY7JWY8x8ZY1ODDUOtoRy4RqX8R8ZQYeoDB4cGFpeo5GbXqNRVqBjVAVjk
+        m0B6ocaQD9wjU7UxDScOO0cnakGNGQWjYBQMVsDAAAA2d47z/1z6BQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="xfrmPublicacionRutas.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

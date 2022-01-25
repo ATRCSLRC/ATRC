@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmUnidad));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
@@ -35,6 +36,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgAcciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.chkEsRenta = new DevExpress.XtraEditors.CheckEdit();
             this.tcUnidad = new DevExpress.XtraTab.XtraTabControl();
             this.TabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.lcGeneral = new DevExpress.XtraLayout.LayoutControl();
@@ -137,13 +139,13 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciTab = new DevExpress.XtraLayout.LayoutControlItem();
-            this.OpenFile = new DevExpress.XtraEditors.XtraOpenFileDialog();
-            this.chkEsRenta = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.OpenFile = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEsRenta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcUnidad)).BeginInit();
             this.tcUnidad.SuspendLayout();
             this.TabGeneral.SuspendLayout();
@@ -251,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEsRenta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             this.SuspendLayout();
@@ -262,7 +263,8 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -272,7 +274,7 @@
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(592, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(592, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -303,30 +305,42 @@
             // rpgAcciones
             // 
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.chkEsRenta);
             this.lcMain.Controls.Add(this.tcUnidad);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(644, 243, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(592, 399);
+            this.lcMain.Size = new System.Drawing.Size(592, 389);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // chkEsRenta
+            // 
+            this.chkEsRenta.Location = new System.Drawing.Point(509, 12);
+            this.chkEsRenta.MenuManager = this.ribbonControl1;
+            this.chkEsRenta.Name = "chkEsRenta";
+            this.chkEsRenta.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEsRenta.Properties.Appearance.Options.UseFont = true;
+            this.chkEsRenta.Properties.Caption = "Se renta";
+            this.chkEsRenta.Size = new System.Drawing.Size(71, 20);
+            this.chkEsRenta.StyleController = this.lcMain;
+            this.chkEsRenta.TabIndex = 5;
+            // 
             // tcUnidad
             // 
-            this.tcUnidad.Location = new System.Drawing.Point(12, 35);
+            this.tcUnidad.Location = new System.Drawing.Point(12, 36);
             this.tcUnidad.Name = "tcUnidad";
             this.tcUnidad.SelectedTabPage = this.TabGeneral;
-            this.tcUnidad.Size = new System.Drawing.Size(568, 352);
+            this.tcUnidad.Size = new System.Drawing.Size(568, 341);
             this.tcUnidad.TabIndex = 6;
             this.tcUnidad.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabGeneral,
@@ -339,7 +353,7 @@
             // 
             this.TabGeneral.Controls.Add(this.lcGeneral);
             this.TabGeneral.Name = "TabGeneral";
-            this.TabGeneral.Size = new System.Drawing.Size(562, 324);
+            this.TabGeneral.Size = new System.Drawing.Size(566, 316);
             this.TabGeneral.Text = "General";
             // 
             // lcGeneral
@@ -358,24 +372,24 @@
             this.lcGeneral.Name = "lcGeneral";
             this.lcGeneral.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(627, 187, 650, 400);
             this.lcGeneral.Root = this.layoutControlGroup2;
-            this.lcGeneral.Size = new System.Drawing.Size(562, 324);
+            this.lcGeneral.Size = new System.Drawing.Size(566, 316);
             this.lcGeneral.TabIndex = 0;
             this.lcGeneral.Text = "layoutControl1";
             // 
             // rgTipoUnidad
             // 
-            this.rgTipoUnidad.Location = new System.Drawing.Point(131, 36);
+            this.rgTipoUnidad.Location = new System.Drawing.Point(140, 36);
             this.rgTipoUnidad.MenuManager = this.ribbonControl1;
             this.rgTipoUnidad.Name = "rgTipoUnidad";
             this.rgTipoUnidad.Properties.Columns = 3;
-            this.rgTipoUnidad.Size = new System.Drawing.Size(419, 14);
+            this.rgTipoUnidad.Size = new System.Drawing.Size(414, 16);
             this.rgTipoUnidad.StyleController = this.lcGeneral;
             this.rgTipoUnidad.TabIndex = 12;
             // 
             // dteUltimoCambioAceite
             // 
             this.dteUltimoCambioAceite.EditValue = null;
-            this.dteUltimoCambioAceite.Location = new System.Drawing.Point(131, 198);
+            this.dteUltimoCambioAceite.Location = new System.Drawing.Point(140, 200);
             this.dteUltimoCambioAceite.MenuManager = this.ribbonControl1;
             this.dteUltimoCambioAceite.Name = "dteUltimoCambioAceite";
             this.dteUltimoCambioAceite.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -387,7 +401,7 @@
             this.dteUltimoCambioAceite.Properties.EditFormat.FormatString = "D";
             this.dteUltimoCambioAceite.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteUltimoCambioAceite.Properties.Mask.EditMask = "D";
-            this.dteUltimoCambioAceite.Size = new System.Drawing.Size(419, 20);
+            this.dteUltimoCambioAceite.Size = new System.Drawing.Size(414, 20);
             this.dteUltimoCambioAceite.StyleController = this.lcGeneral;
             this.dteUltimoCambioAceite.TabIndex = 11;
             // 
@@ -398,7 +412,7 @@
             0,
             0,
             0});
-            this.spnPasajeros.Location = new System.Drawing.Point(131, 126);
+            this.spnPasajeros.Location = new System.Drawing.Point(140, 128);
             this.spnPasajeros.MenuManager = this.ribbonControl1;
             this.spnPasajeros.Name = "spnPasajeros";
             this.spnPasajeros.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -408,68 +422,68 @@
             0,
             0,
             0});
-            this.spnPasajeros.Size = new System.Drawing.Size(419, 20);
+            this.spnPasajeros.Size = new System.Drawing.Size(414, 20);
             this.spnPasajeros.StyleController = this.lcGeneral;
             this.spnPasajeros.TabIndex = 10;
             // 
             // txtVIN
             // 
-            this.txtVIN.Location = new System.Drawing.Point(131, 102);
+            this.txtVIN.Location = new System.Drawing.Point(140, 104);
             this.txtVIN.MenuManager = this.ribbonControl1;
             this.txtVIN.Name = "txtVIN";
             this.txtVIN.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVIN.Size = new System.Drawing.Size(419, 20);
+            this.txtVIN.Size = new System.Drawing.Size(414, 20);
             this.txtVIN.StyleController = this.lcGeneral;
             this.txtVIN.TabIndex = 9;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(131, 78);
+            this.txtModelo.Location = new System.Drawing.Point(140, 80);
             this.txtModelo.MenuManager = this.ribbonControl1;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Size = new System.Drawing.Size(419, 20);
+            this.txtModelo.Size = new System.Drawing.Size(414, 20);
             this.txtModelo.StyleController = this.lcGeneral;
             this.txtModelo.TabIndex = 8;
             // 
             // txtPlacas
             // 
-            this.txtPlacas.Location = new System.Drawing.Point(131, 150);
+            this.txtPlacas.Location = new System.Drawing.Point(140, 152);
             this.txtPlacas.MenuManager = this.ribbonControl1;
             this.txtPlacas.Name = "txtPlacas";
             this.txtPlacas.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPlacas.Size = new System.Drawing.Size(419, 20);
+            this.txtPlacas.Size = new System.Drawing.Size(414, 20);
             this.txtPlacas.StyleController = this.lcGeneral;
             this.txtPlacas.TabIndex = 7;
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(131, 174);
+            this.txtColor.Location = new System.Drawing.Point(140, 176);
             this.txtColor.MenuManager = this.ribbonControl1;
             this.txtColor.Name = "txtColor";
             this.txtColor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtColor.Size = new System.Drawing.Size(419, 20);
+            this.txtColor.Size = new System.Drawing.Size(414, 20);
             this.txtColor.StyleController = this.lcGeneral;
             this.txtColor.TabIndex = 6;
             this.txtColor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtColor_KeyUp);
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(131, 54);
+            this.txtMarca.Location = new System.Drawing.Point(140, 56);
             this.txtMarca.MenuManager = this.ribbonControl1;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarca.Size = new System.Drawing.Size(419, 20);
+            this.txtMarca.Size = new System.Drawing.Size(414, 20);
             this.txtMarca.StyleController = this.lcGeneral;
             this.txtMarca.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(131, 12);
+            this.txtNombre.Location = new System.Drawing.Point(140, 12);
             this.txtNombre.MenuManager = this.ribbonControl1;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Size = new System.Drawing.Size(419, 20);
+            this.txtNombre.Size = new System.Drawing.Size(414, 20);
             this.txtNombre.StyleController = this.lcGeneral;
             this.txtNombre.TabIndex = 4;
             // 
@@ -489,7 +503,7 @@
             this.lciUltimoCambioAceite,
             this.lciTipoUnidad});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(562, 324);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(566, 316);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // lciNombre
@@ -497,78 +511,78 @@
             this.lciNombre.Control = this.txtNombre;
             this.lciNombre.Location = new System.Drawing.Point(0, 0);
             this.lciNombre.Name = "lciNombre";
-            this.lciNombre.Size = new System.Drawing.Size(542, 24);
+            this.lciNombre.Size = new System.Drawing.Size(546, 24);
             this.lciNombre.Text = "Nombre:";
             this.lciNombre.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciMarca
             // 
             this.lciMarca.Control = this.txtMarca;
-            this.lciMarca.Location = new System.Drawing.Point(0, 42);
+            this.lciMarca.Location = new System.Drawing.Point(0, 44);
             this.lciMarca.Name = "lciMarca";
-            this.lciMarca.Size = new System.Drawing.Size(542, 24);
+            this.lciMarca.Size = new System.Drawing.Size(546, 24);
             this.lciMarca.Text = "Marca:";
             this.lciMarca.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciColor
             // 
             this.lciColor.Control = this.txtColor;
-            this.lciColor.Location = new System.Drawing.Point(0, 162);
+            this.lciColor.Location = new System.Drawing.Point(0, 164);
             this.lciColor.Name = "lciColor";
-            this.lciColor.Size = new System.Drawing.Size(542, 24);
+            this.lciColor.Size = new System.Drawing.Size(546, 24);
             this.lciColor.Text = "Color:";
             this.lciColor.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciModelo
             // 
             this.lciModelo.Control = this.txtModelo;
-            this.lciModelo.Location = new System.Drawing.Point(0, 66);
+            this.lciModelo.Location = new System.Drawing.Point(0, 68);
             this.lciModelo.Name = "lciModelo";
-            this.lciModelo.Size = new System.Drawing.Size(542, 24);
+            this.lciModelo.Size = new System.Drawing.Size(546, 24);
             this.lciModelo.Text = "Modelo:";
             this.lciModelo.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciPlacas
             // 
             this.lciPlacas.Control = this.txtPlacas;
-            this.lciPlacas.Location = new System.Drawing.Point(0, 138);
+            this.lciPlacas.Location = new System.Drawing.Point(0, 140);
             this.lciPlacas.Name = "lciPlacas";
-            this.lciPlacas.Size = new System.Drawing.Size(542, 24);
+            this.lciPlacas.Size = new System.Drawing.Size(546, 24);
             this.lciPlacas.Text = "Placas:";
             this.lciPlacas.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciVIN
             // 
             this.lciVIN.Control = this.txtVIN;
-            this.lciVIN.Location = new System.Drawing.Point(0, 90);
+            this.lciVIN.Location = new System.Drawing.Point(0, 92);
             this.lciVIN.Name = "lciVIN";
-            this.lciVIN.Size = new System.Drawing.Size(542, 24);
+            this.lciVIN.Size = new System.Drawing.Size(546, 24);
             this.lciVIN.Text = "VIN:";
             this.lciVIN.TextSize = new System.Drawing.Size(116, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 209);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 212);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(542, 57);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(546, 84);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciPasajeros
             // 
             this.lciPasajeros.Control = this.spnPasajeros;
-            this.lciPasajeros.Location = new System.Drawing.Point(0, 114);
+            this.lciPasajeros.Location = new System.Drawing.Point(0, 116);
             this.lciPasajeros.Name = "lciPasajeros";
-            this.lciPasajeros.Size = new System.Drawing.Size(542, 24);
+            this.lciPasajeros.Size = new System.Drawing.Size(546, 24);
             this.lciPasajeros.Text = "Pasajeros:";
             this.lciPasajeros.TextSize = new System.Drawing.Size(116, 13);
             // 
             // lciUltimoCambioAceite
             // 
             this.lciUltimoCambioAceite.Control = this.dteUltimoCambioAceite;
-            this.lciUltimoCambioAceite.Location = new System.Drawing.Point(0, 186);
+            this.lciUltimoCambioAceite.Location = new System.Drawing.Point(0, 188);
             this.lciUltimoCambioAceite.Name = "lciUltimoCambioAceite";
-            this.lciUltimoCambioAceite.Size = new System.Drawing.Size(542, 24);
+            this.lciUltimoCambioAceite.Size = new System.Drawing.Size(546, 24);
             this.lciUltimoCambioAceite.Text = "Ultimo cambio de aceite:";
             this.lciUltimoCambioAceite.TextSize = new System.Drawing.Size(116, 13);
             // 
@@ -577,7 +591,7 @@
             this.lciTipoUnidad.Control = this.rgTipoUnidad;
             this.lciTipoUnidad.Location = new System.Drawing.Point(0, 24);
             this.lciTipoUnidad.Name = "lciTipoUnidad";
-            this.lciTipoUnidad.Size = new System.Drawing.Size(542, 18);
+            this.lciTipoUnidad.Size = new System.Drawing.Size(546, 20);
             this.lciTipoUnidad.Text = "Tipo de unidad:";
             this.lciTipoUnidad.TextSize = new System.Drawing.Size(116, 13);
             // 
@@ -585,7 +599,7 @@
             // 
             this.TabInterior.Controls.Add(this.lcInterior);
             this.TabInterior.Name = "TabInterior";
-            this.TabInterior.Size = new System.Drawing.Size(562, 286);
+            this.TabInterior.Size = new System.Drawing.Size(566, 326);
             this.TabInterior.Text = "Interior";
             // 
             // lcInterior
@@ -603,91 +617,91 @@
             this.lcInterior.Location = new System.Drawing.Point(0, 0);
             this.lcInterior.Name = "lcInterior";
             this.lcInterior.Root = this.layoutControlGroup3;
-            this.lcInterior.Size = new System.Drawing.Size(562, 286);
+            this.lcInterior.Size = new System.Drawing.Size(566, 326);
             this.lcInterior.TabIndex = 0;
             this.lcInterior.Text = "layoutControl1";
             // 
             // txtMotor
             // 
-            this.txtMotor.Location = new System.Drawing.Point(109, 12);
+            this.txtMotor.Location = new System.Drawing.Point(118, 12);
             this.txtMotor.MenuManager = this.ribbonControl1;
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMotor.Size = new System.Drawing.Size(441, 20);
+            this.txtMotor.Size = new System.Drawing.Size(436, 20);
             this.txtMotor.StyleController = this.lcInterior;
             this.txtMotor.TabIndex = 12;
             // 
             // rgPuertas
             // 
-            this.rgPuertas.Location = new System.Drawing.Point(109, 203);
+            this.rgPuertas.Location = new System.Drawing.Point(118, 203);
             this.rgPuertas.MenuManager = this.ribbonControl1;
             this.rgPuertas.Name = "rgPuertas";
             this.rgPuertas.Properties.Columns = 4;
-            this.rgPuertas.Size = new System.Drawing.Size(441, 24);
+            this.rgPuertas.Size = new System.Drawing.Size(436, 24);
             this.rgPuertas.StyleController = this.lcInterior;
             this.rgPuertas.TabIndex = 11;
             // 
             // rgSuspencion
             // 
-            this.rgSuspencion.Location = new System.Drawing.Point(109, 173);
+            this.rgSuspencion.Location = new System.Drawing.Point(118, 173);
             this.rgSuspencion.MenuManager = this.ribbonControl1;
             this.rgSuspencion.Name = "rgSuspencion";
             this.rgSuspencion.Properties.Columns = 4;
-            this.rgSuspencion.Size = new System.Drawing.Size(441, 26);
+            this.rgSuspencion.Size = new System.Drawing.Size(436, 26);
             this.rgSuspencion.StyleController = this.lcInterior;
             this.rgSuspencion.TabIndex = 10;
             // 
             // rgAireAcondicionado
             // 
-            this.rgAireAcondicionado.Location = new System.Drawing.Point(109, 231);
+            this.rgAireAcondicionado.Location = new System.Drawing.Point(118, 231);
             this.rgAireAcondicionado.MenuManager = this.ribbonControl1;
             this.rgAireAcondicionado.Name = "rgAireAcondicionado";
             this.rgAireAcondicionado.Properties.Columns = 2;
             this.rgAireAcondicionado.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgAireAcondicionado.Size = new System.Drawing.Size(441, 25);
+            this.rgAireAcondicionado.Size = new System.Drawing.Size(432, 50);
             this.rgAireAcondicionado.StyleController = this.lcInterior;
             this.rgAireAcondicionado.TabIndex = 9;
             this.rgAireAcondicionado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rgAireAcondicionado_KeyUp);
             // 
             // rgFrenos
             // 
-            this.rgFrenos.Location = new System.Drawing.Point(109, 144);
+            this.rgFrenos.Location = new System.Drawing.Point(118, 144);
             this.rgFrenos.MenuManager = this.ribbonControl1;
             this.rgFrenos.Name = "rgFrenos";
             this.rgFrenos.Properties.Columns = 4;
-            this.rgFrenos.Size = new System.Drawing.Size(441, 25);
+            this.rgFrenos.Size = new System.Drawing.Size(436, 25);
             this.rgFrenos.StyleController = this.lcInterior;
             this.rgFrenos.TabIndex = 8;
             // 
             // rgCombustible
             // 
-            this.rgCombustible.Location = new System.Drawing.Point(109, 114);
+            this.rgCombustible.Location = new System.Drawing.Point(118, 114);
             this.rgCombustible.MenuManager = this.ribbonControl1;
             this.rgCombustible.Name = "rgCombustible";
             this.rgCombustible.Properties.Columns = 5;
-            this.rgCombustible.Size = new System.Drawing.Size(441, 26);
+            this.rgCombustible.Size = new System.Drawing.Size(436, 26);
             this.rgCombustible.StyleController = this.lcInterior;
             this.rgCombustible.TabIndex = 7;
             // 
             // rgTransmision
             // 
-            this.rgTransmision.Location = new System.Drawing.Point(109, 84);
+            this.rgTransmision.Location = new System.Drawing.Point(118, 84);
             this.rgTransmision.MenuManager = this.ribbonControl1;
             this.rgTransmision.Name = "rgTransmision";
             this.rgTransmision.Properties.Columns = 4;
-            this.rgTransmision.Size = new System.Drawing.Size(441, 26);
+            this.rgTransmision.Size = new System.Drawing.Size(436, 26);
             this.rgTransmision.StyleController = this.lcInterior;
             this.rgTransmision.TabIndex = 6;
             // 
             // txtMillas
             // 
-            this.txtMillas.Location = new System.Drawing.Point(109, 60);
+            this.txtMillas.Location = new System.Drawing.Point(118, 60);
             this.txtMillas.MenuManager = this.ribbonControl1;
             this.txtMillas.Name = "txtMillas";
             this.txtMillas.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMillas.Size = new System.Drawing.Size(441, 20);
+            this.txtMillas.Size = new System.Drawing.Size(436, 20);
             this.txtMillas.StyleController = this.lcInterior;
             this.txtMillas.TabIndex = 5;
             // 
@@ -698,7 +712,7 @@
             0,
             0,
             0});
-            this.spnCilindros.Location = new System.Drawing.Point(109, 36);
+            this.spnCilindros.Location = new System.Drawing.Point(118, 36);
             this.spnCilindros.MenuManager = this.ribbonControl1;
             this.spnCilindros.Name = "spnCilindros";
             this.spnCilindros.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -708,7 +722,7 @@
             0,
             0,
             0});
-            this.spnCilindros.Size = new System.Drawing.Size(441, 20);
+            this.spnCilindros.Size = new System.Drawing.Size(436, 20);
             this.spnCilindros.StyleController = this.lcInterior;
             this.spnCilindros.TabIndex = 4;
             // 
@@ -728,7 +742,7 @@
             this.lciMotor,
             this.lciAireAcondicionado});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(562, 286);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(566, 326);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // lciCilindros
@@ -736,16 +750,16 @@
             this.lciCilindros.Control = this.spnCilindros;
             this.lciCilindros.Location = new System.Drawing.Point(0, 24);
             this.lciCilindros.Name = "lciCilindros";
-            this.lciCilindros.Size = new System.Drawing.Size(542, 24);
+            this.lciCilindros.Size = new System.Drawing.Size(546, 24);
             this.lciCilindros.Text = "Cilindros:";
             this.lciCilindros.TextSize = new System.Drawing.Size(94, 13);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 248);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 273);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(542, 18);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(546, 33);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciMillas
@@ -753,7 +767,7 @@
             this.lciMillas.Control = this.txtMillas;
             this.lciMillas.Location = new System.Drawing.Point(0, 48);
             this.lciMillas.Name = "lciMillas";
-            this.lciMillas.Size = new System.Drawing.Size(542, 24);
+            this.lciMillas.Size = new System.Drawing.Size(546, 24);
             this.lciMillas.Text = "Millas:";
             this.lciMillas.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -764,7 +778,7 @@
             this.lciTransmision.MaxSize = new System.Drawing.Size(0, 30);
             this.lciTransmision.MinSize = new System.Drawing.Size(151, 30);
             this.lciTransmision.Name = "lciTransmision";
-            this.lciTransmision.Size = new System.Drawing.Size(542, 30);
+            this.lciTransmision.Size = new System.Drawing.Size(546, 30);
             this.lciTransmision.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTransmision.Text = "Transmisión:";
             this.lciTransmision.TextSize = new System.Drawing.Size(94, 13);
@@ -776,7 +790,7 @@
             this.lciCombustible.MaxSize = new System.Drawing.Size(0, 30);
             this.lciCombustible.MinSize = new System.Drawing.Size(151, 30);
             this.lciCombustible.Name = "lciCombustible";
-            this.lciCombustible.Size = new System.Drawing.Size(542, 30);
+            this.lciCombustible.Size = new System.Drawing.Size(546, 30);
             this.lciCombustible.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCombustible.Text = "Combustible:";
             this.lciCombustible.TextSize = new System.Drawing.Size(94, 13);
@@ -788,7 +802,7 @@
             this.lciFrenos.MaxSize = new System.Drawing.Size(0, 29);
             this.lciFrenos.MinSize = new System.Drawing.Size(151, 29);
             this.lciFrenos.Name = "lciFrenos";
-            this.lciFrenos.Size = new System.Drawing.Size(542, 29);
+            this.lciFrenos.Size = new System.Drawing.Size(546, 29);
             this.lciFrenos.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFrenos.Text = "Frenos:";
             this.lciFrenos.TextSize = new System.Drawing.Size(94, 13);
@@ -800,7 +814,7 @@
             this.lciSuspencion.MaxSize = new System.Drawing.Size(0, 30);
             this.lciSuspencion.MinSize = new System.Drawing.Size(151, 30);
             this.lciSuspencion.Name = "lciSuspencion";
-            this.lciSuspencion.Size = new System.Drawing.Size(542, 30);
+            this.lciSuspencion.Size = new System.Drawing.Size(546, 30);
             this.lciSuspencion.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciSuspencion.Text = "Suspención:";
             this.lciSuspencion.TextSize = new System.Drawing.Size(94, 13);
@@ -812,7 +826,7 @@
             this.lciPuerta.MaxSize = new System.Drawing.Size(0, 28);
             this.lciPuerta.MinSize = new System.Drawing.Size(151, 28);
             this.lciPuerta.Name = "lciPuerta";
-            this.lciPuerta.Size = new System.Drawing.Size(542, 28);
+            this.lciPuerta.Size = new System.Drawing.Size(546, 28);
             this.lciPuerta.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciPuerta.Text = "Puerta:";
             this.lciPuerta.TextSize = new System.Drawing.Size(94, 13);
@@ -822,7 +836,7 @@
             this.lciMotor.Control = this.txtMotor;
             this.lciMotor.Location = new System.Drawing.Point(0, 0);
             this.lciMotor.Name = "lciMotor";
-            this.lciMotor.Size = new System.Drawing.Size(542, 24);
+            this.lciMotor.Size = new System.Drawing.Size(546, 24);
             this.lciMotor.Text = "Motor:";
             this.lciMotor.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -833,7 +847,7 @@
             this.lciAireAcondicionado.MaxSize = new System.Drawing.Size(542, 0);
             this.lciAireAcondicionado.MinSize = new System.Drawing.Size(542, 29);
             this.lciAireAcondicionado.Name = "lciAireAcondicionado";
-            this.lciAireAcondicionado.Size = new System.Drawing.Size(542, 29);
+            this.lciAireAcondicionado.Size = new System.Drawing.Size(546, 54);
             this.lciAireAcondicionado.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciAireAcondicionado.Text = "Aire acondicionado:";
             this.lciAireAcondicionado.TextSize = new System.Drawing.Size(94, 13);
@@ -842,7 +856,7 @@
             // 
             this.TabExterior.Controls.Add(this.lcExterior);
             this.TabExterior.Name = "TabExterior";
-            this.TabExterior.Size = new System.Drawing.Size(562, 324);
+            this.TabExterior.Size = new System.Drawing.Size(566, 326);
             this.TabExterior.Text = "Exterior";
             // 
             // lcExterior
@@ -864,13 +878,13 @@
             this.lcExterior.Name = "lcExterior";
             this.lcExterior.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(627, 187, 650, 400);
             this.lcExterior.Root = this.layoutControlGroup4;
-            this.lcExterior.Size = new System.Drawing.Size(562, 324);
+            this.lcExterior.Size = new System.Drawing.Size(566, 326);
             this.lcExterior.TabIndex = 0;
             this.lcExterior.Text = "layoutControl1";
             // 
             // lueExtintor
             // 
-            this.lueExtintor.Location = new System.Drawing.Point(109, 132);
+            this.lueExtintor.Location = new System.Drawing.Point(118, 132);
             this.lueExtintor.MenuManager = this.ribbonControl1;
             this.lueExtintor.Name = "lueExtintor";
             this.lueExtintor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -880,33 +894,33 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ubicacion", "Ubicacion")});
             this.lueExtintor.Properties.DisplayMember = "Nombre";
             this.lueExtintor.Properties.ValueMember = "Oid";
-            this.lueExtintor.Size = new System.Drawing.Size(441, 20);
+            this.lueExtintor.Size = new System.Drawing.Size(436, 20);
             this.lueExtintor.StyleController = this.lcExterior;
             this.lueExtintor.TabIndex = 16;
             // 
             // tknBaterias
             // 
-            this.tknBaterias.Location = new System.Drawing.Point(109, 36);
+            this.tknBaterias.Location = new System.Drawing.Point(118, 36);
             this.tknBaterias.MenuManager = this.ribbonControl1;
             this.tknBaterias.Name = "tknBaterias";
             this.tknBaterias.Properties.EditMode = DevExpress.XtraEditors.TokenEditMode.Manual;
             this.tknBaterias.Properties.Separators.AddRange(new string[] {
             ",",
             ";"});
-            this.tknBaterias.Size = new System.Drawing.Size(441, 20);
+            this.tknBaterias.Size = new System.Drawing.Size(436, 20);
             this.tknBaterias.StyleController = this.lcExterior;
             this.tknBaterias.TabIndex = 15;
             this.tknBaterias.ValidateToken += new DevExpress.XtraEditors.TokenEditValidateTokenEventHandler(this.tknBaterias_ValidateToken);
             // 
             // rgRadio
             // 
-            this.rgRadio.Location = new System.Drawing.Point(109, 272);
+            this.rgRadio.Location = new System.Drawing.Point(118, 272);
             this.rgRadio.MenuManager = this.ribbonControl1;
             this.rgRadio.Name = "rgRadio";
             this.rgRadio.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgRadio.Size = new System.Drawing.Size(441, 25);
+            this.rgRadio.Size = new System.Drawing.Size(436, 25);
             this.rgRadio.StyleController = this.lcExterior;
             this.rgRadio.TabIndex = 14;
             this.rgRadio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rgRadio_KeyUp);
@@ -918,7 +932,7 @@
             0,
             0,
             0});
-            this.spnVentanas.Location = new System.Drawing.Point(109, 108);
+            this.spnVentanas.Location = new System.Drawing.Point(118, 108);
             this.spnVentanas.MenuManager = this.ribbonControl1;
             this.spnVentanas.Name = "spnVentanas";
             this.spnVentanas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -928,7 +942,7 @@
             0,
             0,
             0});
-            this.spnVentanas.Size = new System.Drawing.Size(441, 20);
+            this.spnVentanas.Size = new System.Drawing.Size(436, 20);
             this.spnVentanas.StyleController = this.lcExterior;
             this.spnVentanas.TabIndex = 13;
             // 
@@ -939,7 +953,7 @@
             0,
             0,
             0});
-            this.spnAbanicos.Location = new System.Drawing.Point(109, 84);
+            this.spnAbanicos.Location = new System.Drawing.Point(118, 84);
             this.spnAbanicos.MenuManager = this.ribbonControl1;
             this.spnAbanicos.Name = "spnAbanicos";
             this.spnAbanicos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -949,7 +963,7 @@
             0,
             0,
             0});
-            this.spnAbanicos.Size = new System.Drawing.Size(441, 20);
+            this.spnAbanicos.Size = new System.Drawing.Size(436, 20);
             this.spnAbanicos.StyleController = this.lcExterior;
             this.spnAbanicos.TabIndex = 12;
             // 
@@ -960,7 +974,7 @@
             0,
             0,
             0});
-            this.spnAsientos.Location = new System.Drawing.Point(109, 60);
+            this.spnAsientos.Location = new System.Drawing.Point(118, 60);
             this.spnAsientos.MenuManager = this.ribbonControl1;
             this.spnAsientos.Name = "spnAsientos";
             this.spnAsientos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -970,80 +984,80 @@
             0,
             0,
             0});
-            this.spnAsientos.Size = new System.Drawing.Size(441, 20);
+            this.spnAsientos.Size = new System.Drawing.Size(436, 20);
             this.spnAsientos.StyleController = this.lcExterior;
             this.spnAsientos.TabIndex = 11;
             // 
             // rgTrancas
             // 
-            this.rgTrancas.Location = new System.Drawing.Point(109, 243);
+            this.rgTrancas.Location = new System.Drawing.Point(118, 243);
             this.rgTrancas.MenuManager = this.ribbonControl1;
             this.rgTrancas.Name = "rgTrancas";
             this.rgTrancas.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgTrancas.Size = new System.Drawing.Size(441, 25);
+            this.rgTrancas.Size = new System.Drawing.Size(436, 25);
             this.rgTrancas.StyleController = this.lcExterior;
             this.rgTrancas.TabIndex = 10;
             // 
             // rgCamaras
             // 
-            this.rgCamaras.Location = new System.Drawing.Point(109, 214);
+            this.rgCamaras.Location = new System.Drawing.Point(118, 214);
             this.rgCamaras.MenuManager = this.ribbonControl1;
             this.rgCamaras.Name = "rgCamaras";
             this.rgCamaras.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgCamaras.Size = new System.Drawing.Size(441, 25);
+            this.rgCamaras.Size = new System.Drawing.Size(436, 25);
             this.rgCamaras.StyleController = this.lcExterior;
             this.rgCamaras.TabIndex = 8;
             // 
             // rgBocinas
             // 
-            this.rgBocinas.Location = new System.Drawing.Point(109, 185);
+            this.rgBocinas.Location = new System.Drawing.Point(118, 185);
             this.rgBocinas.MenuManager = this.ribbonControl1;
             this.rgBocinas.Name = "rgBocinas";
             this.rgBocinas.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.rgBocinas.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgBocinas.Size = new System.Drawing.Size(441, 25);
+            this.rgBocinas.Size = new System.Drawing.Size(436, 25);
             this.rgBocinas.StyleController = this.lcExterior;
             this.rgBocinas.TabIndex = 7;
             // 
             // rgEstereo
             // 
-            this.rgEstereo.Location = new System.Drawing.Point(109, 156);
+            this.rgEstereo.Location = new System.Drawing.Point(118, 156);
             this.rgEstereo.MenuManager = this.ribbonControl1;
             this.rgEstereo.Name = "rgEstereo";
             this.rgEstereo.Properties.Columns = 2;
             this.rgEstereo.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Si"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "No")});
-            this.rgEstereo.Size = new System.Drawing.Size(441, 25);
+            this.rgEstereo.Size = new System.Drawing.Size(436, 25);
             this.rgEstereo.StyleController = this.lcExterior;
             this.rgEstereo.TabIndex = 6;
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(282, 12);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(284, 12);
             this.txtNombreUsuario.MenuManager = this.ribbonControl1;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombreUsuario.Properties.ReadOnly = true;
-            this.txtNombreUsuario.Size = new System.Drawing.Size(268, 20);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(270, 20);
             this.txtNombreUsuario.StyleController = this.lcExterior;
             this.txtNombreUsuario.TabIndex = 5;
             // 
             // btnNumeroUsuario
             // 
-            this.btnNumeroUsuario.Location = new System.Drawing.Point(109, 12);
+            this.btnNumeroUsuario.Location = new System.Drawing.Point(118, 12);
             this.btnNumeroUsuario.MenuManager = this.ribbonControl1;
             this.btnNumeroUsuario.Name = "btnNumeroUsuario";
             this.btnNumeroUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnNumeroUsuario.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnNumeroUsuario_Properties_ButtonClick);
-            this.btnNumeroUsuario.Size = new System.Drawing.Size(169, 20);
+            this.btnNumeroUsuario.Size = new System.Drawing.Size(162, 20);
             this.btnNumeroUsuario.StyleController = this.lcExterior;
             this.btnNumeroUsuario.TabIndex = 4;
             this.btnNumeroUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnNumeroUsuario_KeyDown);
@@ -1068,7 +1082,7 @@
             this.lciBaterias,
             this.lciExtintor});
             this.layoutControlGroup4.Name = "Root";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(562, 324);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(566, 326);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // lciNumUsuario
@@ -1076,16 +1090,16 @@
             this.lciNumUsuario.Control = this.btnNumeroUsuario;
             this.lciNumUsuario.Location = new System.Drawing.Point(0, 0);
             this.lciNumUsuario.Name = "lciNumUsuario";
-            this.lciNumUsuario.Size = new System.Drawing.Size(270, 24);
+            this.lciNumUsuario.Size = new System.Drawing.Size(272, 24);
             this.lciNumUsuario.Text = "Número de usuario:";
             this.lciNumUsuario.TextSize = new System.Drawing.Size(94, 13);
             // 
             // lciNombreUsuario
             // 
             this.lciNombreUsuario.Control = this.txtNombreUsuario;
-            this.lciNombreUsuario.Location = new System.Drawing.Point(270, 0);
+            this.lciNombreUsuario.Location = new System.Drawing.Point(272, 0);
             this.lciNombreUsuario.Name = "lciNombreUsuario";
-            this.lciNombreUsuario.Size = new System.Drawing.Size(272, 24);
+            this.lciNombreUsuario.Size = new System.Drawing.Size(274, 24);
             this.lciNombreUsuario.TextSize = new System.Drawing.Size(0, 0);
             this.lciNombreUsuario.TextVisible = false;
             // 
@@ -1096,7 +1110,7 @@
             this.lciEstereo.MaxSize = new System.Drawing.Size(0, 29);
             this.lciEstereo.MinSize = new System.Drawing.Size(151, 29);
             this.lciEstereo.Name = "lciEstereo";
-            this.lciEstereo.Size = new System.Drawing.Size(542, 29);
+            this.lciEstereo.Size = new System.Drawing.Size(546, 29);
             this.lciEstereo.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciEstereo.Text = "Estéreo:";
             this.lciEstereo.TextSize = new System.Drawing.Size(94, 13);
@@ -1108,7 +1122,7 @@
             this.lciBocinas.MaxSize = new System.Drawing.Size(0, 29);
             this.lciBocinas.MinSize = new System.Drawing.Size(151, 29);
             this.lciBocinas.Name = "lciBocinas";
-            this.lciBocinas.Size = new System.Drawing.Size(542, 29);
+            this.lciBocinas.Size = new System.Drawing.Size(546, 29);
             this.lciBocinas.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciBocinas.Text = "Bocinas:";
             this.lciBocinas.TextSize = new System.Drawing.Size(94, 13);
@@ -1120,7 +1134,7 @@
             this.lciCamaras.MaxSize = new System.Drawing.Size(0, 29);
             this.lciCamaras.MinSize = new System.Drawing.Size(151, 29);
             this.lciCamaras.Name = "lciCamaras";
-            this.lciCamaras.Size = new System.Drawing.Size(542, 29);
+            this.lciCamaras.Size = new System.Drawing.Size(546, 29);
             this.lciCamaras.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciCamaras.Text = "Cámaras:";
             this.lciCamaras.TextSize = new System.Drawing.Size(94, 13);
@@ -1132,7 +1146,7 @@
             this.lciTrancas.MaxSize = new System.Drawing.Size(0, 29);
             this.lciTrancas.MinSize = new System.Drawing.Size(151, 29);
             this.lciTrancas.Name = "lciTrancas";
-            this.lciTrancas.Size = new System.Drawing.Size(542, 29);
+            this.lciTrancas.Size = new System.Drawing.Size(546, 29);
             this.lciTrancas.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTrancas.Text = "Trancas:";
             this.lciTrancas.TextSize = new System.Drawing.Size(94, 13);
@@ -1142,7 +1156,7 @@
             this.lciAsientos.Control = this.spnAsientos;
             this.lciAsientos.Location = new System.Drawing.Point(0, 48);
             this.lciAsientos.Name = "lciAsientos";
-            this.lciAsientos.Size = new System.Drawing.Size(542, 24);
+            this.lciAsientos.Size = new System.Drawing.Size(546, 24);
             this.lciAsientos.Text = "Asientos:";
             this.lciAsientos.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1151,7 +1165,7 @@
             this.lciAbanicos.Control = this.spnAbanicos;
             this.lciAbanicos.Location = new System.Drawing.Point(0, 72);
             this.lciAbanicos.Name = "lciAbanicos";
-            this.lciAbanicos.Size = new System.Drawing.Size(542, 24);
+            this.lciAbanicos.Size = new System.Drawing.Size(546, 24);
             this.lciAbanicos.Text = "Abanicos:";
             this.lciAbanicos.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1160,7 +1174,7 @@
             this.lciVentanas.Control = this.spnVentanas;
             this.lciVentanas.Location = new System.Drawing.Point(0, 96);
             this.lciVentanas.Name = "lciVentanas";
-            this.lciVentanas.Size = new System.Drawing.Size(542, 24);
+            this.lciVentanas.Size = new System.Drawing.Size(546, 24);
             this.lciVentanas.Text = "Ventanas laterales:";
             this.lciVentanas.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1171,7 +1185,7 @@
             this.lciRadio.MaxSize = new System.Drawing.Size(0, 29);
             this.lciRadio.MinSize = new System.Drawing.Size(151, 29);
             this.lciRadio.Name = "lciRadio";
-            this.lciRadio.Size = new System.Drawing.Size(542, 29);
+            this.lciRadio.Size = new System.Drawing.Size(546, 29);
             this.lciRadio.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciRadio.Text = "Radio:";
             this.lciRadio.TextSize = new System.Drawing.Size(94, 13);
@@ -1181,7 +1195,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 289);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(542, 15);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(546, 17);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciBaterias
@@ -1189,7 +1203,7 @@
             this.lciBaterias.Control = this.tknBaterias;
             this.lciBaterias.Location = new System.Drawing.Point(0, 24);
             this.lciBaterias.Name = "lciBaterias";
-            this.lciBaterias.Size = new System.Drawing.Size(542, 24);
+            this.lciBaterias.Size = new System.Drawing.Size(546, 24);
             this.lciBaterias.Text = "Baterias:";
             this.lciBaterias.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1198,7 +1212,7 @@
             this.lciExtintor.Control = this.lueExtintor;
             this.lciExtintor.Location = new System.Drawing.Point(0, 120);
             this.lciExtintor.Name = "lciExtintor";
-            this.lciExtintor.Size = new System.Drawing.Size(542, 24);
+            this.lciExtintor.Size = new System.Drawing.Size(546, 24);
             this.lciExtintor.Text = "Extintor:";
             this.lciExtintor.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -1206,7 +1220,7 @@
             // 
             this.TabFiltros.Controls.Add(this.lcFiltros);
             this.TabFiltros.Name = "TabFiltros";
-            this.TabFiltros.Size = new System.Drawing.Size(562, 324);
+            this.TabFiltros.Size = new System.Drawing.Size(566, 326);
             this.TabFiltros.Text = "Filtros";
             // 
             // lcFiltros
@@ -1220,58 +1234,58 @@
             this.lcFiltros.Location = new System.Drawing.Point(0, 0);
             this.lcFiltros.Name = "lcFiltros";
             this.lcFiltros.Root = this.layoutControlGroup5;
-            this.lcFiltros.Size = new System.Drawing.Size(562, 324);
+            this.lcFiltros.Size = new System.Drawing.Size(566, 326);
             this.lcFiltros.TabIndex = 0;
             this.lcFiltros.Text = "layoutControl1";
             // 
             // txtFiltroAgua
             // 
-            this.txtFiltroAgua.Location = new System.Drawing.Point(162, 108);
+            this.txtFiltroAgua.Location = new System.Drawing.Point(171, 108);
             this.txtFiltroAgua.MenuManager = this.ribbonControl1;
             this.txtFiltroAgua.Name = "txtFiltroAgua";
             this.txtFiltroAgua.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroAgua.Size = new System.Drawing.Size(388, 20);
+            this.txtFiltroAgua.Size = new System.Drawing.Size(383, 20);
             this.txtFiltroAgua.StyleController = this.lcFiltros;
             this.txtFiltroAgua.TabIndex = 8;
             this.txtFiltroAgua.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltroAgua_KeyUp);
             // 
             // txtFiltroAire
             // 
-            this.txtFiltroAire.Location = new System.Drawing.Point(162, 84);
+            this.txtFiltroAire.Location = new System.Drawing.Point(171, 84);
             this.txtFiltroAire.MenuManager = this.ribbonControl1;
             this.txtFiltroAire.Name = "txtFiltroAire";
             this.txtFiltroAire.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroAire.Size = new System.Drawing.Size(388, 20);
+            this.txtFiltroAire.Size = new System.Drawing.Size(383, 20);
             this.txtFiltroAire.StyleController = this.lcFiltros;
             this.txtFiltroAire.TabIndex = 7;
             // 
             // txtCombustible
             // 
-            this.txtCombustible.Location = new System.Drawing.Point(162, 60);
+            this.txtCombustible.Location = new System.Drawing.Point(171, 60);
             this.txtCombustible.MenuManager = this.ribbonControl1;
             this.txtCombustible.Name = "txtCombustible";
             this.txtCombustible.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCombustible.Size = new System.Drawing.Size(388, 20);
+            this.txtCombustible.Size = new System.Drawing.Size(383, 20);
             this.txtCombustible.StyleController = this.lcFiltros;
             this.txtCombustible.TabIndex = 6;
             // 
             // txtFiltroAceiteTransmision
             // 
-            this.txtFiltroAceiteTransmision.Location = new System.Drawing.Point(162, 36);
+            this.txtFiltroAceiteTransmision.Location = new System.Drawing.Point(171, 36);
             this.txtFiltroAceiteTransmision.MenuManager = this.ribbonControl1;
             this.txtFiltroAceiteTransmision.Name = "txtFiltroAceiteTransmision";
             this.txtFiltroAceiteTransmision.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroAceiteTransmision.Size = new System.Drawing.Size(388, 20);
+            this.txtFiltroAceiteTransmision.Size = new System.Drawing.Size(383, 20);
             this.txtFiltroAceiteTransmision.StyleController = this.lcFiltros;
             this.txtFiltroAceiteTransmision.TabIndex = 5;
             // 
             // txtFiltroAceiteMotor
             // 
-            this.txtFiltroAceiteMotor.Location = new System.Drawing.Point(162, 12);
+            this.txtFiltroAceiteMotor.Location = new System.Drawing.Point(171, 12);
             this.txtFiltroAceiteMotor.MenuManager = this.ribbonControl1;
             this.txtFiltroAceiteMotor.Name = "txtFiltroAceiteMotor";
             this.txtFiltroAceiteMotor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFiltroAceiteMotor.Size = new System.Drawing.Size(388, 20);
+            this.txtFiltroAceiteMotor.Size = new System.Drawing.Size(383, 20);
             this.txtFiltroAceiteMotor.StyleController = this.lcFiltros;
             this.txtFiltroAceiteMotor.TabIndex = 4;
             // 
@@ -1287,7 +1301,7 @@
             this.lciFiltroAire,
             this.lciFiltroAgua});
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(562, 324);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(566, 326);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // lciFiltroMotor
@@ -1295,7 +1309,7 @@
             this.lciFiltroMotor.Control = this.txtFiltroAceiteMotor;
             this.lciFiltroMotor.Location = new System.Drawing.Point(0, 0);
             this.lciFiltroMotor.Name = "lciFiltroMotor";
-            this.lciFiltroMotor.Size = new System.Drawing.Size(542, 24);
+            this.lciFiltroMotor.Size = new System.Drawing.Size(546, 24);
             this.lciFiltroMotor.Text = "Filtro de aceite de motor:";
             this.lciFiltroMotor.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -1304,7 +1318,7 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(0, 120);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(542, 184);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(546, 186);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciFiltroTransmision
@@ -1312,7 +1326,7 @@
             this.lciFiltroTransmision.Control = this.txtFiltroAceiteTransmision;
             this.lciFiltroTransmision.Location = new System.Drawing.Point(0, 24);
             this.lciFiltroTransmision.Name = "lciFiltroTransmision";
-            this.lciFiltroTransmision.Size = new System.Drawing.Size(542, 24);
+            this.lciFiltroTransmision.Size = new System.Drawing.Size(546, 24);
             this.lciFiltroTransmision.Text = "Filtro de aceite de transmisión:";
             this.lciFiltroTransmision.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -1321,7 +1335,7 @@
             this.lciFiltroCombustible.Control = this.txtCombustible;
             this.lciFiltroCombustible.Location = new System.Drawing.Point(0, 48);
             this.lciFiltroCombustible.Name = "lciFiltroCombustible";
-            this.lciFiltroCombustible.Size = new System.Drawing.Size(542, 24);
+            this.lciFiltroCombustible.Size = new System.Drawing.Size(546, 24);
             this.lciFiltroCombustible.Text = "Filtro de combustible:";
             this.lciFiltroCombustible.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -1330,7 +1344,7 @@
             this.lciFiltroAire.Control = this.txtFiltroAire;
             this.lciFiltroAire.Location = new System.Drawing.Point(0, 72);
             this.lciFiltroAire.Name = "lciFiltroAire";
-            this.lciFiltroAire.Size = new System.Drawing.Size(542, 24);
+            this.lciFiltroAire.Size = new System.Drawing.Size(546, 24);
             this.lciFiltroAire.Text = "Filtro de aire:";
             this.lciFiltroAire.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -1339,7 +1353,7 @@
             this.lciFiltroAgua.Control = this.txtFiltroAgua;
             this.lciFiltroAgua.Location = new System.Drawing.Point(0, 96);
             this.lciFiltroAgua.Name = "lciFiltroAgua";
-            this.lciFiltroAgua.Size = new System.Drawing.Size(542, 24);
+            this.lciFiltroAgua.Size = new System.Drawing.Size(546, 24);
             this.lciFiltroAgua.Text = "Filtro de agua:";
             this.lciFiltroAgua.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -1347,7 +1361,7 @@
             // 
             this.TabFoto.Controls.Add(this.lcFoto);
             this.TabFoto.Name = "TabFoto";
-            this.TabFoto.Size = new System.Drawing.Size(562, 324);
+            this.TabFoto.Size = new System.Drawing.Size(566, 316);
             this.TabFoto.Text = "Imagen";
             // 
             // lcFoto
@@ -1360,7 +1374,7 @@
             this.lcFoto.Name = "lcFoto";
             this.lcFoto.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(627, 187, 650, 400);
             this.lcFoto.Root = this.layoutControlGroup6;
-            this.lcFoto.Size = new System.Drawing.Size(562, 324);
+            this.lcFoto.Size = new System.Drawing.Size(566, 316);
             this.lcFoto.TabIndex = 0;
             this.lcFoto.Text = "layoutControl1";
             // 
@@ -1368,9 +1382,9 @@
             // 
             this.btnEliminarImagen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarImagen.ImageOptions.Image")));
             this.btnEliminarImagen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnEliminarImagen.Location = new System.Drawing.Point(279, 258);
+            this.btnEliminarImagen.Location = new System.Drawing.Point(281, 252);
             this.btnEliminarImagen.Name = "btnEliminarImagen";
-            this.btnEliminarImagen.Size = new System.Drawing.Size(79, 54);
+            this.btnEliminarImagen.Size = new System.Drawing.Size(79, 52);
             this.btnEliminarImagen.StyleController = this.lcFoto;
             this.btnEliminarImagen.TabIndex = 6;
             this.btnEliminarImagen.Text = "simpleButton2";
@@ -1380,9 +1394,9 @@
             // 
             this.btnSeleccionarImagen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarImagen.ImageOptions.Image")));
             this.btnSeleccionarImagen.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSeleccionarImagen.Location = new System.Drawing.Point(200, 258);
+            this.btnSeleccionarImagen.Location = new System.Drawing.Point(201, 252);
             this.btnSeleccionarImagen.Name = "btnSeleccionarImagen";
-            this.btnSeleccionarImagen.Size = new System.Drawing.Size(75, 54);
+            this.btnSeleccionarImagen.Size = new System.Drawing.Size(76, 52);
             this.btnSeleccionarImagen.StyleController = this.lcFoto;
             this.btnSeleccionarImagen.TabIndex = 5;
             this.btnSeleccionarImagen.Text = "simpleButton1";
@@ -1391,12 +1405,12 @@
             // picFoto
             // 
             this.picFoto.EditValue = global::UNIDADES.WIN.Properties.Resources.car;
-            this.picFoto.Location = new System.Drawing.Point(122, 12);
+            this.picFoto.Location = new System.Drawing.Point(123, 12);
             this.picFoto.MenuManager = this.ribbonControl1;
             this.picFoto.Name = "picFoto";
             this.picFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picFoto.Size = new System.Drawing.Size(320, 242);
+            this.picFoto.Size = new System.Drawing.Size(322, 236);
             this.picFoto.StyleController = this.lcFoto;
             this.picFoto.TabIndex = 4;
             // 
@@ -1413,42 +1427,42 @@
             this.emptySpaceItem4,
             this.emptySpaceItem6});
             this.layoutControlGroup6.Name = "Root";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(562, 324);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(566, 316);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // lciFoto
             // 
             this.lciFoto.Control = this.picFoto;
-            this.lciFoto.Location = new System.Drawing.Point(110, 0);
+            this.lciFoto.Location = new System.Drawing.Point(111, 0);
             this.lciFoto.Name = "lciFoto";
-            this.lciFoto.Size = new System.Drawing.Size(324, 246);
+            this.lciFoto.Size = new System.Drawing.Size(326, 240);
             this.lciFoto.TextSize = new System.Drawing.Size(0, 0);
             this.lciFoto.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnSeleccionarImagen;
-            this.layoutControlItem2.Location = new System.Drawing.Point(188, 246);
+            this.layoutControlItem2.Location = new System.Drawing.Point(189, 240);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(79, 58);
+            this.layoutControlItem2.Size = new System.Drawing.Size(80, 56);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnEliminarImagen;
-            this.layoutControlItem3.Location = new System.Drawing.Point(267, 246);
+            this.layoutControlItem3.Location = new System.Drawing.Point(269, 240);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(83, 58);
+            this.layoutControlItem3.Size = new System.Drawing.Size(83, 56);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(434, 0);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(437, 0);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(108, 304);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(109, 296);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem8
@@ -1456,23 +1470,23 @@
             this.emptySpaceItem8.AllowHotTrack = false;
             this.emptySpaceItem8.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(110, 304);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(111, 296);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(350, 246);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(352, 240);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(84, 58);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(85, 56);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(110, 246);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(111, 240);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(78, 58);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(78, 56);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -1484,41 +1498,25 @@
             this.layoutControlItem1,
             this.emptySpaceItem9});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(592, 399);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(592, 389);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciTab
             // 
             this.lciTab.Control = this.tcUnidad;
-            this.lciTab.Location = new System.Drawing.Point(0, 23);
+            this.lciTab.Location = new System.Drawing.Point(0, 24);
             this.lciTab.Name = "lciTab";
-            this.lciTab.Size = new System.Drawing.Size(572, 356);
+            this.lciTab.Size = new System.Drawing.Size(572, 345);
             this.lciTab.Text = "lciTa";
             this.lciTab.TextSize = new System.Drawing.Size(0, 0);
             this.lciTab.TextVisible = false;
             // 
-            // OpenFile
-            // 
-            this.OpenFile.FileName = null;
-            // 
-            // chkEsRenta
-            // 
-            this.chkEsRenta.Location = new System.Drawing.Point(510, 12);
-            this.chkEsRenta.MenuManager = this.ribbonControl1;
-            this.chkEsRenta.Name = "chkEsRenta";
-            this.chkEsRenta.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsRenta.Properties.Appearance.Options.UseFont = true;
-            this.chkEsRenta.Properties.Caption = "Se renta";
-            this.chkEsRenta.Size = new System.Drawing.Size(70, 19);
-            this.chkEsRenta.StyleController = this.lcMain;
-            this.chkEsRenta.TabIndex = 5;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.chkEsRenta;
-            this.layoutControlItem1.Location = new System.Drawing.Point(498, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(497, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(74, 23);
+            this.layoutControlItem1.Size = new System.Drawing.Size(75, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -1527,8 +1525,12 @@
             this.emptySpaceItem9.AllowHotTrack = false;
             this.emptySpaceItem9.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(498, 23);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(497, 24);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // OpenFile
+            // 
+            this.OpenFile.FileName = null;
             // 
             // xfrmUnidad
             // 
@@ -1537,7 +1539,7 @@
             this.ClientSize = new System.Drawing.Size(592, 521);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmUnidad.IconOptions.Icon")));
             this.Name = "xfrmUnidad";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Unidad";
@@ -1545,6 +1547,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkEsRenta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcUnidad)).EndInit();
             this.tcUnidad.ResumeLayout(false);
             this.TabGeneral.ResumeLayout(false);
@@ -1652,7 +1655,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEsRenta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             this.ResumeLayout(false);

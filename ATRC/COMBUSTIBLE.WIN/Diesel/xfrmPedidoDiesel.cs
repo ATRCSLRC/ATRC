@@ -36,6 +36,8 @@ namespace COMBUSTIBLE.WIN
         private void IniciarControles()
         {
             dteFecha.DateTime = EsAnterior ? Fecha : DateTime.Now;
+            if (!EsAnterior)
+                timer.Start();
             UnidadControles = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator goFinal = new GroupOperator();
             GroupOperator go = new GroupOperator(GroupOperatorType.Or);
@@ -52,12 +54,13 @@ namespace COMBUSTIBLE.WIN
             Unidades.Sorting.Add(new DevExpress.Xpo.SortingCollection(new DevExpress.Xpo.SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
             Unidades.Criteria = goFinal;
             lueUnidad.Properties.DataSource = Unidades;
-            XPView UnidadesAgregadas = new XPView(UnidadControles, typeof(Diesel), "Oid;Unidad.Nombre",new BinaryOperator("Fecha", DateTime.Now.Date ));
+            XPView UnidadesAgregadas = new XPView(UnidadControles, typeof(Diesel), "Oid;Unidad.Nombre", EsAnterior ? new BinaryOperator("Fecha", Fecha) : new BinaryOperator("Fecha", DateTime.Now.Date ));
             UnidadesAgregadas.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
             grdUnidades.DataSource = UnidadesAgregadas;
 
             txtEmpleado.Focus();
             lueUnidad.ItemIndex = 0;
+
         }
         private void LimipiarControles()
         {
@@ -65,6 +68,7 @@ namespace COMBUSTIBLE.WIN
             lueUnidad.ItemIndex = 0;
             txtEmpleado.EditValue = null;
             lblEmpleado.Text = " ";
+            dteFecha.DateTime = EsAnterior ? Fecha : DateTime.Now;
         }
 
         private void txtEmpleado_KeyDown(object sender, KeyEventArgs e)
@@ -88,14 +92,17 @@ namespace COMBUSTIBLE.WIN
 
         private void bbiGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (XtraMessageBox.Show("¿Está seguro de guardar el pedido a la unidad '" + lueUnidad.Text + "'?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            if (XtraMessageBox.Show("¿Está seguro de guardar el pedido a la unidad '" + lueUnidad.Text + "'?", Application.ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.OK)
             {
                 UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 Unidad UnidadDiesel = Unidad.GetObjectByKey<Unidad>(lueUnidad.EditValue);
 
                 GroupOperator go = new GroupOperator();
                 go.Operands.Add(new BinaryOperator("Unidad", UnidadDiesel));
-                go.Operands.Add(new BinaryOperator("Fecha", dteFecha.DateTime.Date));
+                if(EsAnterior)
+                    go.Operands.Add(new BinaryOperator("Fecha", dteFecha.DateTime.Date));
+                else
+                    go.Operands.Add(new BinaryOperator("Fecha", DateTime.Now.Date));
                 XPView UnidadesConDiesel = new XPView(Unidad, typeof(Diesel), "Oid", go);
                 if (UnidadesConDiesel.Count > 0)
                 {
@@ -113,16 +120,21 @@ namespace COMBUSTIBLE.WIN
                     }
                     else
                     {
-                        Diesel Diesel = new Diesel(Unidad);
-                        Diesel.Empleado = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
-                        Diesel.Unidad = UnidadDiesel;
-                        Diesel.Fecha = dteFecha.DateTime.Date;
-                        Diesel.Save();
-                        Unidad.CommitChanges();
-                        XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
-                        (grdUnidades.DataSource as XPView).Reload();
-                        grvUnidades.FocusedRowHandle = 0;
-                        LimipiarControles();
+                        if (ValidarHorario())
+                        {
+                            Diesel Diesel = new Diesel(Unidad);
+                            Diesel.Empleado = Unidad.FindObject<Usuario>(new BinaryOperator("NumEmpleado", Convert.ToInt32(txtEmpleado.Text)));
+                            Diesel.Unidad = UnidadDiesel;
+                            if (EsAnterior)
+                                Diesel.Fecha = dteFecha.DateTime.Date;
+                            else
+                                Diesel.Fecha = DateTime.Now.Date;
+                            Diesel.Save();
+                            Unidad.CommitChanges();
+                            XtraMessageBox.Show("La unidad se ha se registrado correctamente.");
+                            UnidadesAnotadas();
+                            LimipiarControles();
+                        }
                     }
                 }
                 if (Captura)
@@ -138,10 +150,11 @@ namespace COMBUSTIBLE.WIN
 
         private void lueUnidad_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter & lueUnidad != null)
-            {
-                bbiGuardar.PerformClick();
-            }
+            if (!lueUnidad.IsPopupOpen)
+                if (e.KeyCode == Keys.Enter & lueUnidad != null)
+                {
+                    bbiGuardar.PerformClick();
+                }
         }
 
         private void lueUnidad_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -156,6 +169,95 @@ namespace COMBUSTIBLE.WIN
             {
                // lueUnidad.ShowPopup();
                 SendKeys.Send("{UP}");
+            }
+        }
+
+        private void lueUnidad_Spin(object sender, DevExpress.XtraEditors.Controls.SpinEventArgs e)
+        {
+
+        }
+
+        private void lueUnidad_Move(object sender, EventArgs e)
+        {
+
+        }
+        private void UnidadesAnotadas()
+        {
+            XPView UnidadesAgregadas = new XPView(UnidadControles, typeof(Diesel), "Oid;Unidad.Nombre", EsAnterior ? new BinaryOperator("Fecha", Fecha) : new BinaryOperator("Fecha", DateTime.Now.Date));
+            UnidadesAgregadas.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Descending));
+            grdUnidades.DataSource = UnidadesAgregadas;
+            grvUnidades.FocusedRowHandle = 0;
+        }
+
+        private bool ValidarHorario()
+        {
+            if (Captura)
+                return true;
+
+            TimeSpan HoraDe = new TimeSpan();
+            TimeSpan HoraA = new TimeSpan(); 
+            UnidadDeTrabajo UnidadValidar = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+
+            ATRCBASE.BL.Configuraciones ConfiguracionDiasDiesel = UnidadValidar.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "DiasDiesel"));
+            if (ConfiguracionDiasDiesel != null)
+            {
+                string[] Dias = ConfiguracionDiasDiesel.Accion.Split(',');
+                bool EsDia = false;
+                foreach (string Dia in Dias)
+                {
+                    if (DateTime.Now.DayOfWeek == (DayOfWeek)Enum.GetValues(typeof(DayOfWeek)).GetValue(Convert.ToInt32(Dia)))
+                        EsDia = true;
+                }
+                if (!EsDia)
+                {
+                    XtraMessageBox.Show("No es día de recargar diesel.");
+                    UnidadesAnotadas();
+                    LimipiarControles();
+                    return false;
+                }
+            }
+
+            ATRCBASE.BL.Configuraciones ConfiguracionHoraDeDiesel = UnidadValidar.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "HoraDeDiesel"));
+            if (ConfiguracionHoraDeDiesel != null)
+            {
+                HoraDe = TimeSpan.Parse(ConfiguracionHoraDeDiesel.Accion);
+            }
+
+            ATRCBASE.BL.Configuraciones ConfiguracionHoraADiesel = UnidadValidar.FindObject<ATRCBASE.BL.Configuraciones>(new BinaryOperator("Propiedad", "HoraADiesel"));
+            if (ConfiguracionHoraADiesel != null)
+            {
+                HoraA = TimeSpan.Parse(ConfiguracionHoraADiesel.Accion);
+            }
+
+            if(ConfiguracionHoraDeDiesel != null & ConfiguracionHoraADiesel != null)
+            {
+               if(DateTime.Now.TimeOfDay < HoraDe)
+                {
+                    XtraMessageBox.Show("No es el horario correcto para recargar diesel.");
+                    UnidadesAnotadas();
+                    LimipiarControles();
+                    return false;
+                }
+
+                if (DateTime.Now.TimeOfDay > HoraA)
+                {
+                    XtraMessageBox.Show("No es el horario correcto para recargar diesel.");
+                    UnidadesAnotadas();
+                    LimipiarControles();
+                    return false;
+                }
+            }
+
+            
+                return true;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now.Date != dteFecha.DateTime.Date)
+            {
+                dteFecha.DateTime = DateTime.Now.Date;
+                UnidadesAnotadas();
             }
         }
     }

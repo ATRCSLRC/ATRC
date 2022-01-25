@@ -39,7 +39,6 @@ namespace COMBUSTIBLE.WIN
 
         private void bbiBuscar_Click(object sender, EventArgs e)
         {
-            
             GroupOperator go = new GroupOperator();
             BinaryOperator boUnidad = new BinaryOperator("Unidad", lueUnidad.EditValue);
             BinaryOperator boFecha = new BinaryOperator("Fecha", dteFecha.DateTime.Date);

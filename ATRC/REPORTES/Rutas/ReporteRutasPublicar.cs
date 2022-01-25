@@ -9,14 +9,16 @@ namespace REPORTES.Rutas
     public partial class ReporteRutasPublicar : DevExpress.XtraReports.UI.XtraReport
     {
 
-        public ReporteRutasPublicar(DateTime Fecha)
+        public ReporteRutasPublicar(DateTime Fecha, bool EsExtra)
         {
             InitializeComponent();
 
             UnidadDeTrabajo Unidad = ATRCBASE.BL.UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator go = new GroupOperator();
             go.Operands.Add(new BinaryOperator("FechaRuta", Fecha));
-            go.Operands.Add(new BinaryOperator("EsRutaExtra", false));
+            go.Operands.Add(new BinaryOperator("EsRutaExtra", EsExtra));
+            if (EsExtra)
+                lblEmpleado.Text = "Listado de rutas extras";
 
             XPView Rutas = new XPView(Unidad, typeof(RutasGeneradas), "Oid;Empresa.Nombre;OrdenRutas;Empresa.Oid;Ruta;TipoRuta;Servicio.TipoUnidad;ChoferEntrada.Nombre;ChoferSalida.Nombre;HoraEntrada;HoraSalida;Turno.Oid;Turno.Descripcion;Comentarios", go);
             if (Fecha >= new DateTime(2020, 07, 16))

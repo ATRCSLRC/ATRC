@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfrmCalculosCarga));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiAvanzado = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReabrir = new DevExpress.XtraBars.BarButtonItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.dteA = new DevExpress.XtraEditors.DateEdit();
             this.dteDe = new DevExpress.XtraEditors.DateEdit();
             this.grdCalculos = new DevExpress.XtraGrid.GridControl();
@@ -48,7 +50,6 @@
             this.lcgBusqueda = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciDe = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciA = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -75,11 +76,13 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
-            this.bbiAvanzado});
+            this.bbiAvanzado,
+            this.bbiReabrir});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.bbiAvanzado);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.bbiReabrir);
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
@@ -95,6 +98,14 @@
             this.bbiAvanzado.Name = "bbiAvanzado";
             this.bbiAvanzado.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAvanzado_ItemClick);
             // 
+            // bbiReabrir
+            // 
+            this.bbiReabrir.Caption = "Reabrir medidor";
+            this.bbiReabrir.Id = 2;
+            this.bbiReabrir.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReabrir.ImageOptions.SvgImage")));
+            this.bbiReabrir.Name = "bbiReabrir";
+            this.bbiReabrir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReabrir_ItemClick);
+            // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.btnBuscar);
@@ -109,10 +120,20 @@
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(278, 69);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(263, 22);
+            this.btnBuscar.StyleController = this.lcMain;
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // dteA
             // 
             this.dteA.EditValue = null;
-            this.dteA.Location = new System.Drawing.Point(298, 45);
+            this.dteA.Location = new System.Drawing.Point(307, 45);
             this.dteA.MenuManager = this.ribbonControl1;
             this.dteA.Name = "dteA";
             this.dteA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -124,14 +145,14 @@
             this.dteA.Properties.EditFormat.FormatString = "D";
             this.dteA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteA.Properties.Mask.EditMask = "D";
-            this.dteA.Size = new System.Drawing.Size(243, 20);
+            this.dteA.Size = new System.Drawing.Size(234, 20);
             this.dteA.StyleController = this.lcMain;
             this.dteA.TabIndex = 6;
             // 
             // dteDe
             // 
             this.dteDe.EditValue = null;
-            this.dteDe.Location = new System.Drawing.Point(44, 45);
+            this.dteDe.Location = new System.Drawing.Point(53, 45);
             this.dteDe.MenuManager = this.ribbonControl1;
             this.dteDe.Name = "dteDe";
             this.dteDe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -143,7 +164,7 @@
             this.dteDe.Properties.EditFormat.FormatString = "D";
             this.dteDe.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDe.Properties.Mask.EditMask = "D";
-            this.dteDe.Size = new System.Drawing.Size(230, 20);
+            this.dteDe.Size = new System.Drawing.Size(221, 20);
             this.dteDe.StyleController = this.lcMain;
             this.dteDe.TabIndex = 5;
             // 
@@ -295,16 +316,6 @@
             this.lciA.Text = "A:";
             this.lciA.TextSize = new System.Drawing.Size(17, 13);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(278, 69);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(263, 22);
-            this.btnBuscar.StyleController = this.lcMain;
-            this.btnBuscar.TabIndex = 7;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnBuscar;
@@ -379,5 +390,6 @@
         private DevExpress.XtraEditors.SimpleButton btnBuscar;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiReabrir;
     }
 }

@@ -156,6 +156,7 @@ namespace RUTAS.WIN.PedidoRutas
             }
         }
 
+        [NonPersistent]
         public class Rutas
         {
             public int Oid { get; set; }

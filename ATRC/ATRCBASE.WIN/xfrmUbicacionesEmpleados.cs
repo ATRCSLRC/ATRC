@@ -1,4 +1,5 @@
 ﻿using ATRCBASE.BL;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.XtraMap;
 using DevExpress.XtraPrinting;
@@ -32,6 +33,7 @@ namespace ATRCBASE.WIN
                   new ViewProperty("NomCompleto", SortDirection.None, "Concat(ToStr([NumEmpleado]), ' - ', [Nombre])", false, true),
                   new ViewProperty("Longitud", SortDirection.None, "[Longitud]", false, true),
                   new ViewProperty("Latitud", SortDirection.None, "[Latitud]", false, true) });
+            Usuarios.Criteria = new BinaryOperator("Activo", true);
             lookUpEdit1.Properties.DataSource = Usuarios;
             MapItemStorage storage = new MapItemStorage();
             storage.Items.AddRange(ObtenerUbicacines());
@@ -80,8 +82,8 @@ namespace ATRCBASE.WIN
             GeoPoint gp = new GeoPoint();
             gp.Latitude = Convert.ToDouble(viewEmpleado["Latitud"]);
             gp.Longitude = Convert.ToDouble(viewEmpleado["Longitud"]);
-            MapControlUbicacion.SetCenterPoint(gp , true);
             MapControlUbicacion.Zoom(17);
+            MapControlUbicacion.SetCenterPoint(gp , true);
         }
     }
 }

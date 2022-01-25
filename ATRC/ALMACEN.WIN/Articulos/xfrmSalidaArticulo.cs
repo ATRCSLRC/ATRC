@@ -36,8 +36,9 @@ namespace ALMACEN.WIN
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.BuenEstado));
             go.Operands.Add(new BinaryOperator("EstadoUnidad", Enums.EstadoUnidad.Taller));
             go.Operands.Add(new NullOperator("EstadoUnidad"));
-            XPView Usuarios = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
-            lueUnidad.Properties.DataSource = Usuarios;
+            XPView Unidades = new XPView(Unidad, typeof(Unidad), "Oid;Nombre", go);
+            Unidades.Sorting.Add(new SortingCollection(new SortProperty("Nombre", DevExpress.Xpo.DB.SortingDirection.Ascending)));
+            lueUnidad.Properties.DataSource = Unidades;
             lueUnidad.Properties.DisplayMember = "Nombre";
             lueUnidad.Properties.BestFit();
             ActivarCampos(false);
@@ -380,7 +381,7 @@ namespace ALMACEN.WIN
                 GroupOperator go = new GroupOperator();
                 go.Operands.Add(new BinaryOperator("Cantidad", 0, BinaryOperatorType.Greater));
                 go.Operands.Add(new BinaryOperator("Articulo.Codigo", btnCodigo.Text));
-                XPView xpc = new XPView(Unidad, typeof(Factura), "Oid;Articulo.Nombre;Cantidad;NumParte;NumFactura;Fecha;Articulo.Codigo", go);
+                XPView xpc = new XPView(Unidad, typeof(Factura), "Oid;Articulo.Nombre;Cantidad;Almacen;NumParte;NumFactura;Fecha;Articulo.Codigo", go);
                 if (xpc.Count > 0)
                 {
                     lueFactura.Properties.DataSource = xpc;

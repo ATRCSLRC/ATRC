@@ -31,7 +31,7 @@ namespace RUTAS.WIN.Anuncios
         private void xfrmPublicacionRutas_Load(object sender, EventArgs e)
         {
             Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
-            XPView Publicaciones = new XPView(Unidad, typeof(PublicacionAnuncios), "Oid;FechaPublicacion", null);
+            XPView Publicaciones = new XPView(Unidad, typeof(PublicacionAnuncios), "Oid;FechaPublicacion;EsExtra", null);
             Publicaciones.Sorting.Add(new SortProperty("FechaPublicacion", DevExpress.Xpo.DB.SortingDirection.Ascending));
             grdAnuncios.DataSource = Publicaciones;
         }
@@ -55,9 +55,50 @@ namespace RUTAS.WIN.Anuncios
                 Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 PublicacionAnuncios Publicacion = new PublicacionAnuncios(Unidad);
                 Publicacion.FechaPublicacion = ((DateTime)result).ToLongDateString();
+                Publicacion.EsExtra = false;
                 // List<byte[]> previewImages = new List<byte[]>();
-                ReporteRutasPublicar report = new ReporteRutasPublicar(((DateTime)result).Date);
+                ReporteRutasPublicar report = new ReporteRutasPublicar(((DateTime)result).Date, false);
                 report.CreateDocument();
+                report.ShowPreview();
+
+                XtraReport tempReport;
+                for (int i = 0; i < report.Pages.Count; i++)
+                {
+                    tempReport = new XtraReport();
+                    tempReport.Pages.Add(report.Pages[i]);
+
+                    GetReportPreviewImage(tempReport, Publicacion);
+                }
+                Publicacion.Save();
+                Unidad.CommitChanges();
+                ((XPView)grdAnuncios.DataSource).Reload();
+            }
+        }
+
+        private void bbiPublicaionExtra_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraInputBoxArgs args = new XtraInputBoxArgs();
+            args.Caption = "Seleccionar fecha de publicación";
+            args.Prompt = "Fecha:";
+            DateEdit editor = new DateEdit();
+            editor.Properties.DisplayFormat.FormatString = "D";
+            editor.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            editor.Properties.EditFormat.FormatString = "D";
+            editor.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            editor.Properties.EditMask = "D";
+            args.Editor = editor;
+            args.DefaultResponse = DateTime.Now;
+            var result = XtraInputBox.Show(args);
+            if (result != null)
+            {
+                Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
+                PublicacionAnuncios Publicacion = new PublicacionAnuncios(Unidad);
+                Publicacion.FechaPublicacion = ((DateTime)result).ToLongDateString();
+                Publicacion.EsExtra = true;
+                // List<byte[]> previewImages = new List<byte[]>();
+                ReporteRutasPublicar report = new ReporteRutasPublicar(((DateTime)result).Date, true);
+                report.CreateDocument();
+                report.ShowPreview();
 
                 XtraReport tempReport;
                 for (int i = 0; i < report.Pages.Count; i++)

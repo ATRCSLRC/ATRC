@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{987C750F-FEB2-4B67-A78C-E10528A9D097}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ALMACEN.WIN</RootNamespace>
+    <AssemblyName>ALMACEN.WIN</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Articulos\xfrmArticulo.resx">
+      <DependentUpon>xfrmArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmBusquedaArticulos.resx">
+      <DependentUpon>xfrmBusquedaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmBusquedaHerramientaPrestada.resx">
+      <DependentUpon>xfrmBusquedaHerramientaPrestada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmModificarArticulo.resx">
+      <DependentUpon>xfrmModificarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmPrestamoArticulo.resx">
+      <DependentUpon>xfrmPrestamoArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmPrestamoArticulos.resx">
+      <DependentUpon>xfrmPrestamoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulos\xfrmSalidaArticulo.resx">
+      <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmCodigoArticulos.resx">
+      <DependentUpon>xfrmCodigoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmMarcas.resx">
+      <DependentUpon>xfrmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmMarcasGRD.resx">
+      <DependentUpon>xfrmMarcasGRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmProveedor.resx">
+      <DependentUpon>xfrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\xfrmProveedorGRD.resx">
+      <DependentUpon>xfrmProveedorGRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\xfrmBitacoraSalidas.resx">
+      <DependentUpon>xfrmBitacoraSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\xfrmInventario.resx">
+      <DependentUpon>xfrmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\xfrmInventarioGRD.resx">
+      <DependentUpon>xfrmInventarioGRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Articulos\xfrmArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmArticulo.Designer.cs">
+      <DependentUpon>xfrmArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmBusquedaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmBusquedaArticulos.Designer.cs">
+      <DependentUpon>xfrmBusquedaArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmBusquedaHerramientaPrestada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmBusquedaHerramientaPrestada.Designer.cs">
+      <DependentUpon>xfrmBusquedaHerramientaPrestada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmModificarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmModificarArticulo.Designer.cs">
+      <DependentUpon>xfrmModificarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmPrestamoArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmPrestamoArticulo.Designer.cs">
+      <DependentUpon>xfrmPrestamoArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmPrestamoArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmPrestamoArticulos.Designer.cs">
+      <DependentUpon>xfrmPrestamoArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulos\xfrmSalidaArticulo.Designer.cs">
+      <DependentUpon>xfrmSalidaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmCodigoArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmCodigoArticulos.Designer.cs">
+      <DependentUpon>xfrmCodigoArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmMarcas.designer.cs">
+      <DependentUpon>xfrmMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmMarcasGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmMarcasGRD.designer.cs">
+      <DependentUpon>xfrmMarcasGRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmProveedor.designer.cs">
+      <DependentUpon>xfrmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\xfrmProveedorGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\xfrmProveedorGRD.designer.cs">
+      <DependentUpon>xfrmProveedorGRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\xfrmBitacoraSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\xfrmBitacoraSalidas.Designer.cs">
+      <DependentUpon>xfrmBitacoraSalidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\xfrmInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\xfrmInventario.Designer.cs">
+      <DependentUpon>xfrmInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\xfrmInventarioGRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\xfrmInventarioGRD.Designer.cs">
+      <DependentUpon>xfrmInventarioGRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Inventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALMACEN.BL\ALMACEN.BL.csproj">
+      <Project>{4dcf1397-42cb-43a5-9a91-bd8089f6cc94}</Project>
+      <Name>ALMACEN.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.BL\ATRCBASE.BL.csproj">
+      <Project>{A162FE83-383D-4225-A70E-EA9D27E0FB06}</Project>
+      <Name>ATRCBASE.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATRCBASE.WIN\ATRCBASE.WIN.csproj">
+      <Project>{CA92B7D6-6738-4A42-A76E-BA583C929BA1}</Project>
+      <Name>ATRCBASE.WIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\REPORTES\REPORTES.csproj">
+      <Project>{8cd8b68c-d440-4089-ae63-48514f37c60f}</Project>
+      <Name>REPORTES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UNIDADES.BL\UNIDADES.BL.csproj">
+      <Project>{E46D9066-2710-40BC-BE1C-E17EAFC6A044}</Project>
+      <Name>UNIDADES.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -34,7 +34,7 @@ namespace REPORTES.Guardias
             this.DataSource = Reporte;
 
             DateTime Fecha = Convert.ToDateTime(Reporte[0]["FechaAlta"]);
-            txtDetalle.Html = "<FONT FACE='tahoma'>En la empresa <b>Auto transportes del río colorado, S.A. de C.V. / Servicios Administrativos Greenwood SAG S DE RL DE CV</b>, siendo <b>" + Fecha.ToLongDateString() + " a las " + Fecha.ToString("HH:mm") +" hrs</b>.</FONT>";
+            txtDetalle.Html = "<FONT FACE='tahoma'>En la empresa <b>Auto transportes del río colorado, S.A. de C.V. </b>siendo <b>" + Fecha.ToLongDateString() + " a las " + Fecha.ToString("HH:mm") +" hrs</b>.</FONT>";
            
         }
 

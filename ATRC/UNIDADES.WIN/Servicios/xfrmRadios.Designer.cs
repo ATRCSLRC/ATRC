@@ -78,7 +78,8 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bbiGuardar,
-            this.bbiCancelar});
+            this.bbiCancelar,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -87,7 +88,7 @@
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(450, 122);
+            this.ribbonControl1.Size = new System.Drawing.Size(450, 132);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiGuardar
@@ -120,10 +121,10 @@
             // rpgAcciones
             // 
             this.rpgAcciones.AllowTextClipping = false;
+            this.rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.rpgAcciones.ItemLinks.Add(this.bbiGuardar);
             this.rpgAcciones.ItemLinks.Add(this.bbiCancelar);
             this.rpgAcciones.Name = "rpgAcciones";
-            this.rpgAcciones.ShowCaptionButton = false;
             // 
             // lcMain
             // 
@@ -135,39 +136,42 @@
             this.lcMain.Controls.Add(this.txtModelo);
             this.lcMain.Controls.Add(this.txtMarca);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 122);
+            this.lcMain.Location = new System.Drawing.Point(0, 132);
             this.lcMain.Name = "lcMain";
             this.lcMain.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(502, 34, 650, 400);
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(450, 200);
+            this.lcMain.Size = new System.Drawing.Size(450, 190);
             this.lcMain.TabIndex = 1;
             this.lcMain.Text = "layoutControl1";
             // 
             // txtRadio
             // 
-            this.txtRadio.Location = new System.Drawing.Point(92, 12);
+            this.txtRadio.EnterMoveNextControl = true;
+            this.txtRadio.Location = new System.Drawing.Point(101, 12);
             this.txtRadio.MenuManager = this.ribbonControl1;
             this.txtRadio.Name = "txtRadio";
-            this.txtRadio.Size = new System.Drawing.Size(346, 20);
+            this.txtRadio.Size = new System.Drawing.Size(320, 20);
             this.txtRadio.StyleController = this.lcMain;
             this.txtRadio.TabIndex = 11;
             // 
             // lueUsuario
             // 
-            this.lueUsuario.Location = new System.Drawing.Point(92, 158);
+            this.lueUsuario.Location = new System.Drawing.Point(101, 158);
             this.lueUsuario.MenuManager = this.ribbonControl1;
             this.lueUsuario.Name = "lueUsuario";
             this.lueUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueUsuario.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueUsuario.Properties.NullText = "[SELECCIONE]";
-            this.lueUsuario.Size = new System.Drawing.Size(346, 20);
+            this.lueUsuario.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.lueUsuario.Size = new System.Drawing.Size(320, 20);
             this.lueUsuario.StyleController = this.lcMain;
             this.lueUsuario.TabIndex = 10;
             // 
             // lueUnidad
             // 
-            this.lueUnidad.Location = new System.Drawing.Point(92, 134);
+            this.lueUnidad.EnterMoveNextControl = true;
+            this.lueUnidad.Location = new System.Drawing.Point(101, 134);
             this.lueUnidad.MenuManager = this.ribbonControl1;
             this.lueUnidad.Name = "lueUnidad";
             this.lueUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -176,48 +180,53 @@
             this.lueUnidad.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")});
             this.lueUnidad.Properties.NullText = "[SELECCIONE]";
-            this.lueUnidad.Size = new System.Drawing.Size(346, 20);
+            this.lueUnidad.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.lueUnidad.Size = new System.Drawing.Size(320, 20);
             this.lueUnidad.StyleController = this.lcMain;
             this.lueUnidad.TabIndex = 8;
             // 
             // rgDestino
             // 
-            this.rgDestino.Location = new System.Drawing.Point(92, 108);
+            this.rgDestino.EnterMoveNextControl = true;
+            this.rgDestino.Location = new System.Drawing.Point(101, 108);
             this.rgDestino.MenuManager = this.ribbonControl1;
             this.rgDestino.Name = "rgDestino";
             this.rgDestino.Properties.Columns = 2;
-            this.rgDestino.Size = new System.Drawing.Size(346, 22);
+            this.rgDestino.Size = new System.Drawing.Size(320, 22);
             this.rgDestino.StyleController = this.lcMain;
             this.rgDestino.TabIndex = 7;
             this.rgDestino.SelectedIndexChanged += new System.EventHandler(this.rgDestino_SelectedIndexChanged);
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(92, 84);
+            this.txtSerie.EnterMoveNextControl = true;
+            this.txtSerie.Location = new System.Drawing.Point(101, 84);
             this.txtSerie.MenuManager = this.ribbonControl1;
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSerie.Size = new System.Drawing.Size(346, 20);
+            this.txtSerie.Size = new System.Drawing.Size(320, 20);
             this.txtSerie.StyleController = this.lcMain;
             this.txtSerie.TabIndex = 6;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(92, 60);
+            this.txtModelo.EnterMoveNextControl = true;
+            this.txtModelo.Location = new System.Drawing.Point(101, 60);
             this.txtModelo.MenuManager = this.ribbonControl1;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Size = new System.Drawing.Size(346, 20);
+            this.txtModelo.Size = new System.Drawing.Size(320, 20);
             this.txtModelo.StyleController = this.lcMain;
             this.txtModelo.TabIndex = 5;
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(92, 36);
+            this.txtMarca.EnterMoveNextControl = true;
+            this.txtMarca.Location = new System.Drawing.Point(101, 36);
             this.txtMarca.MenuManager = this.ribbonControl1;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarca.Size = new System.Drawing.Size(346, 20);
+            this.txtMarca.Size = new System.Drawing.Size(320, 20);
             this.txtMarca.StyleController = this.lcMain;
             this.txtMarca.TabIndex = 4;
             // 
@@ -235,7 +244,7 @@
             this.lciUsuario,
             this.lciNumRadio});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(450, 200);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(433, 200);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // lciMarca
@@ -243,7 +252,7 @@
             this.lciMarca.Control = this.txtMarca;
             this.lciMarca.Location = new System.Drawing.Point(0, 24);
             this.lciMarca.Name = "lciMarca";
-            this.lciMarca.Size = new System.Drawing.Size(430, 24);
+            this.lciMarca.Size = new System.Drawing.Size(413, 24);
             this.lciMarca.Text = "Marca:";
             this.lciMarca.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -252,7 +261,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 170);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(413, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciModelo
@@ -260,7 +269,7 @@
             this.lciModelo.Control = this.txtModelo;
             this.lciModelo.Location = new System.Drawing.Point(0, 48);
             this.lciModelo.Name = "lciModelo";
-            this.lciModelo.Size = new System.Drawing.Size(430, 24);
+            this.lciModelo.Size = new System.Drawing.Size(413, 24);
             this.lciModelo.Text = "Modelo:";
             this.lciModelo.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -269,7 +278,7 @@
             this.lciSerie.Control = this.txtSerie;
             this.lciSerie.Location = new System.Drawing.Point(0, 72);
             this.lciSerie.Name = "lciSerie";
-            this.lciSerie.Size = new System.Drawing.Size(430, 24);
+            this.lciSerie.Size = new System.Drawing.Size(413, 24);
             this.lciSerie.Text = "Serie:";
             this.lciSerie.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -280,7 +289,7 @@
             this.lciTipoDestino.MaxSize = new System.Drawing.Size(0, 26);
             this.lciTipoDestino.MinSize = new System.Drawing.Size(134, 26);
             this.lciTipoDestino.Name = "lciTipoDestino";
-            this.lciTipoDestino.Size = new System.Drawing.Size(430, 26);
+            this.lciTipoDestino.Size = new System.Drawing.Size(413, 26);
             this.lciTipoDestino.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTipoDestino.Text = "Tipo de destino:";
             this.lciTipoDestino.TextSize = new System.Drawing.Size(77, 13);
@@ -290,7 +299,7 @@
             this.lciUnidad.Control = this.lueUnidad;
             this.lciUnidad.Location = new System.Drawing.Point(0, 122);
             this.lciUnidad.Name = "lciUnidad";
-            this.lciUnidad.Size = new System.Drawing.Size(430, 24);
+            this.lciUnidad.Size = new System.Drawing.Size(413, 24);
             this.lciUnidad.Text = "Unidad:";
             this.lciUnidad.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -299,7 +308,7 @@
             this.lciUsuario.Control = this.lueUsuario;
             this.lciUsuario.Location = new System.Drawing.Point(0, 146);
             this.lciUsuario.Name = "lciUsuario";
-            this.lciUsuario.Size = new System.Drawing.Size(430, 24);
+            this.lciUsuario.Size = new System.Drawing.Size(413, 24);
             this.lciUsuario.Text = "Usuario:";
             this.lciUsuario.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -308,7 +317,7 @@
             this.lciNumRadio.Control = this.txtRadio;
             this.lciNumRadio.Location = new System.Drawing.Point(0, 0);
             this.lciNumRadio.Name = "lciNumRadio";
-            this.lciNumRadio.Size = new System.Drawing.Size(430, 24);
+            this.lciNumRadio.Size = new System.Drawing.Size(413, 24);
             this.lciNumRadio.Text = "Radio:";
             this.lciNumRadio.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -319,7 +328,7 @@
             this.ClientSize = new System.Drawing.Size(450, 322);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("xfrmRadios.IconOptions.Icon")));
             this.Name = "xfrmRadios";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Radios";

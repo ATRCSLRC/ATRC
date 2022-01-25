@@ -187,7 +187,8 @@ namespace CHECADOR.WIN.Reportes
         private void lblSubtotalDomingo_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             if (!string.IsNullOrEmpty(xrTableCell22.Text))
-                xrTableCell22.Text = (Convert.ToDouble(xrTableCell22.Text) + Convert.ToDouble(lblSubtotalDomingo.Summary.GetResult().ToString())).ToString();
+                if(xrTableCell22.Text != "0")
+                    xrTableCell22.Text = (Convert.ToDouble(xrTableCell22.Text) +  Convert.ToDouble(lblSubtotalDomingo.Summary.GetResult() == null ? "0" : lblSubtotalDomingo.Summary.GetResult().ToString())).ToString();
         }
     }
 }

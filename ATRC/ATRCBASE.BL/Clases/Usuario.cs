@@ -72,6 +72,14 @@ namespace ATRCBASE.BL
             }
         }
 
+        private string mCURP;
+        [Size(50)]
+        public string CURP
+        {
+            get { return mCURP; }
+            set { SetPropertyValue<string>("CURP", ref mCURP, value); }
+        }
+
         private string mRFC;
         [Size(50)]
         public string RFC
@@ -204,22 +212,31 @@ namespace ATRCBASE.BL
             set { SetPropertyValue<bool>("AccesoDormitorio", ref mAccesoDormitorio, value); }
         }
 
-        private Nullable<DateTime> mHoraDeDormitorio;
-        public Nullable<DateTime> HoraDeDormitorio
+        private Nullable<TimeSpan> mHoraDormitorioDe;
+        public Nullable<TimeSpan> HoraDormitorioDe
         {
-            get { return mHoraDeDormitorio; }
-            set { SetPropertyValue<Nullable<DateTime>>("HoraDeDormitorio", ref mHoraDeDormitorio, value); }
+            get { return mHoraDormitorioDe; }
+            set { SetPropertyValue<Nullable<TimeSpan>>("HoraDormitorioDe", ref mHoraDormitorioDe, value); }
         }
 
-        private Nullable<DateTime> mHoraADormitorio;
-        public Nullable<DateTime> HoraADormitorio
+        private Nullable<TimeSpan> mHoraDormitorioA;
+        public Nullable<TimeSpan> HoraDormitorioA
         {
-            get { return mHoraADormitorio; }
-            set { SetPropertyValue<Nullable<DateTime>>("HoraADormitorio", ref mHoraADormitorio, value); }
+            get { return mHoraDormitorioA; }
+            set { SetPropertyValue<Nullable<TimeSpan>>("HoraDormitorioA", ref mHoraDormitorioA, value); }
         }
 
         [Association("Usuarios-Permisos", UseAssociationNameAsIntermediateTableName = true)]
         public XPCollection<Permiso> Permisos { get { return GetCollection<Permiso>("Permisos"); } }
+
+        [Association("Usuario-Bajas")]
+        public XPCollection<HistorialBajas> Bajas
+        {
+            get
+            {
+                return GetCollection<HistorialBajas>(nameof(Bajas));
+            }
+        }
 
         [NonPersistent]
         public string ConstraseñaDesencriptada
