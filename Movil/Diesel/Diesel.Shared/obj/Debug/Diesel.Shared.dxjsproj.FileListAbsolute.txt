@@ -1,2 +1,0 @@
-D:\CodigoParaVersiones\Movil\Diesel\Diesel.Shared\obj\Debug\Diesel.Shared.dxjsproj.CoreCompileInputs.cache
-D:\CodigoParaVersiones\Movil\Diesel\Diesel.Shared\obj\Debug\Diesel.Shared.dxjsprojAssemblyReference.cache

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\CodigoParaVersiones\Publicacion</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Checador.dll">
+      <publishTime>12/28/2021 16:28:44</publishTime>
+    </File>
+    <File Include="bin/Checador.pdb">
+      <publishTime>12/28/2021 16:28:44</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:20</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Data.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.DataAccess.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Office.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:04</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Pdf.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Printing.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:44:10</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.RichEdit.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Sparkline.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Spreadsheet.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:48</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxRichEdit.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxScheduler.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxSpellChecker.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxSpreadsheet.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:43:24</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.Resources.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:10</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:40:59</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Xpo.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraCharts.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraScheduler.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Charts.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/DevExpress.CodeParser.v20.2.dll">
+      <publishTime>03/10/2021 13:58:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.Desktop.v20.2.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v17.2.dll">
+      <publishTime>04/26/2018 13:41:20</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v20.2.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.DataAccess.v20.2.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.DataVisualization.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Images.v17.2.dll">
+      <publishTime>04/26/2018 13:41:55</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Images.v20.2.dll">
+      <publishTime>03/10/2021 13:58:33</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Office.v17.2.Core.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Office.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:04</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Pdf.v17.2.Core.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Pdf.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Pdf.v20.2.Drawing.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Printing.v17.2.Core.dll">
+      <publishTime>04/26/2018 13:42:22</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Printing.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/DevExpress.RichEdit.v17.2.Core.dll">
+      <publishTime>04/26/2018 13:44:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.RichEdit.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Sparkline.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.SpellChecker.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Spreadsheet.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxRichEdit.v20.2.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxScheduler.v20.2.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxSpellChecker.v20.2.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxSpreadsheet.v20.2.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxThemes.v17.2.dll">
+      <publishTime>04/26/2018 13:41:01</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxThemes.v20.2.dll">
+      <publishTime>03/10/2021 13:58:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Bootstrap.v17.2.dll">
+      <publishTime>04/26/2018 13:41:02</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Bootstrap.v20.2.dll">
+      <publishTime>03/10/2021 13:58:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Resources.v17.2.dll">
+      <publishTime>04/26/2018 13:43:24</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.Resources.v20.2.dll">
+      <publishTime>03/10/2021 13:59:10</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v17.2.dll">
+      <publishTime>04/26/2018 13:41:00</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v20.2.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Xpo.v20.2.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraCharts.v20.2.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraScheduler.v20.2.Core.Desktop.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraScheduler.v20.2.Core.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>05/15/2018 11:49:54</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:55</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Data.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.DataAccess.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Office.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:04</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Pdf.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:22</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Printing.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:44:11</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.RichEdit.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Sparkline.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Spreadsheet.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:48</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxRichEdit.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxScheduler.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxSpellChecker.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxSpreadsheet.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:43:24</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.Resources.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:10</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:00</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Xpo.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraCharts.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraScheduler.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:55</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Data.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.DataAccess.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Office.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:04</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Pdf.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:22</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Printing.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:44:11</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.RichEdit.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Sparkline.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Spreadsheet.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:48</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxRichEdit.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxScheduler.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxSpellChecker.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxSpreadsheet.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:43:24</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.Resources.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:10</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:00</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Xpo.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraCharts.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraScheduler.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Data.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:55</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Data.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.DataAccess.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:11</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Office.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Office.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:04</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Pdf.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Pdf.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Printing.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:42:22</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Printing.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:05</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.RichEdit.v17.2.Core.resources.dll">
+      <publishTime>04/26/2018 13:44:11</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.RichEdit.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Sparkline.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Spreadsheet.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:48</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxRichEdit.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxScheduler.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxSpellChecker.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxSpreadsheet.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:07</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.Resources.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:43:24</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.Resources.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:10</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.v17.2.resources.dll">
+      <publishTime>04/26/2018 13:41:00</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:58:06</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Xpo.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraCharts.v20.2.resources.dll">
+      <publishTime>03/10/2021 13:59:35</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraScheduler.v20.2.Core.resources.dll">
+      <publishTime>03/10/2021 13:59:39</publishTime>
+    </File>
+    <File Include="ChecadorEmpleados.aspx">
+      <publishTime>10/31/2018 16:46:30</publishTime>
+    </File>
+    <File Include="Consultas.asmx">
+      <publishTime>10/31/2018 09:48:22</publishTime>
+    </File>
+    <File Include="Css/tema.css">
+      <publishTime>12/28/2021 15:51:57</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/26/2018 09:33:38</publishTime>
+    </File>
+    <File Include="Img/logo.jpg">
+      <publishTime>10/26/2018 09:46:05</publishTime>
+    </File>
+    <File Include="Scripts/Funciones.js">
+      <publishTime>01/21/2019 10:37:11</publishTime>
+    </File>
+    <File Include="Scripts/HoraFecha.js">
+      <publishTime>01/18/2019 16:02:38</publishTime>
+    </File>
+    <File Include="Site.master">
+      <publishTime>11/01/2018 13:30:07</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/09/2020 15:35:49</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

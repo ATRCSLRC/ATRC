@@ -1,0 +1,5 @@
+<div data-options="dxView : { name: 'home', title: 'Home' } "  style="height:100%" >
+    <div class="home-view dx-content-background" style="height:100%" data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div id="Galeria" data-bind="dxGallery: {dataSource: dSource, slideshowDelay: 20000, loop: true, showNavButtons: false, showIndicator: true, onInitialized: onInicial, stretchImages: false }" style="text-align:center;  height: 100%" ></div>
+    </div>
+</div>
