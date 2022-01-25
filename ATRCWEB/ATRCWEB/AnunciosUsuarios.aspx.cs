@@ -19,13 +19,17 @@ namespace ATRCWEB
                 ASPxImageSlider1.ImageContentBytesField = "Anuncio";
                 UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
                 XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio;Publicacion;Publicacion.FechaPublicacion", new NotOperator(new NullOperator("Publicacion")));
-                Anuncios.Sorting.Add(new SortProperty("Publicacion.FechaPublicacion", DevExpress.Xpo.DB.SortingDirection.Ascending));
-                Anuncios.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Ascending));
+                SortingCollection order = new SortingCollection();
+                order.Add(new SortProperty("Publicacion.FechaPublicacion", DevExpress.Xpo.DB.SortingDirection.Ascending));
+                order.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Ascending));
+                Anuncios.Sorting = order;
                 Session["Anuncios"] = Anuncios.Count;
                 //Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));
                 ASPxImageSlider1.DataSource = Anuncios;
                 ASPxImageSlider1.DataBind();
+                
             }
+            ASPxImageSlider1.Focus();
         }
 
         protected void pnlActualizar_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
@@ -45,8 +49,10 @@ namespace ATRCWEB
 
             
             XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio;Publicacion;Publicacion.FechaPublicacion", new NotOperator(new NullOperator("Publicacion")));
-            Anuncios.Sorting.Add(new SortProperty("Publicacion.FechaPublicacion", DevExpress.Xpo.DB.SortingDirection.Ascending));
-            Anuncios.Sorting.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            SortingCollection order = new SortingCollection();
+            order.Add(new SortProperty("Publicacion.FechaPublicacion", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            order.Add(new SortProperty("Oid", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            Anuncios.Sorting = order;
 
             //XPView Anuncios = new XPView(Unidad, typeof(AnuncioUsuario), "Oid;Nombre;TipoAnuncio;Anuncio", null);
             ////Usuarios.Sorting.Add(new SortingCollection(new SortProperty("NumEmpleado", DevExpress.Xpo.DB.SortingDirection.Ascending)));

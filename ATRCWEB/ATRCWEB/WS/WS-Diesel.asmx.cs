@@ -1083,13 +1083,17 @@ namespace ATRCWEB.WS
         }
 
         [WebMethod(EnableSession = true)]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int AccesoDormitorio(string IDCard)
         {
+            Session["OidAdministrador"] = 1;
             UnidadDeTrabajo Unidad = UtileriasXPO.ObtenerNuevaUnidadDeTrabajo();
             GroupOperator go = new GroupOperator();
+            TimeSpan Hora = DateTime.Now.TimeOfDay;
             go.Operands.Add(new BinaryOperator("IDCard", Convert.ToInt32(IDCard)));
             go.Operands.Add(new BinaryOperator("AccesoDormitorio", true));
+            go.Operands.Add(new BinaryOperator("HoraDormitorioDe", Hora, BinaryOperatorType.LessOrEqual));
+            go.Operands.Add(new BinaryOperator("HoraDormitorioA", Hora, BinaryOperatorType.GreaterOrEqual));
             Usuario Usuario = (Usuario)Unidad.FindObject(typeof(Usuario), go);
             if (Usuario != null)
             {

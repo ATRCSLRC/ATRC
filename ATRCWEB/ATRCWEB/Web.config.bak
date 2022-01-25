@@ -1,0 +1,181 @@
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+	<configSections>
+		<sectionGroup name="devExpress">
+			<section name="compression" type="DevExpress.Web.CompressionConfigurationSection, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+			<section name="settings" type="DevExpress.Web.SettingsConfigurationSection, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+			<section name="errors" type="DevExpress.Web.ErrorsConfigurationSection, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+			<section name="resources" type="DevExpress.Web.ResourcesConfigurationSection, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+			<section name="bootstrap" type="DevExpress.Web.Bootstrap.BootstrapConfigurationSection, DevExpress.Web.Bootstrap.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+			<section name="themes" type="DevExpress.Web.ThemesConfigurationSection, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false" />
+		</sectionGroup>
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+	</configSections>
+  <elmah>
+    <security allowRemoteAccess="true" />
+    <errorLog type="Elmah.XmlFileErrorLog, Elmah" logPath="~/ErrorPages" />
+  </elmah>
+	<connectionStrings></connectionStrings>
+	<system.web>
+		<sessionState timeout="25"></sessionState>
+    <machineKey validationKey="56D58D9291FA94A17451A4A547DB86BA9D94FCD9140AD2A165D8B13F40BD5C7410146CFCEE0429A6375ECF3462318C9C2BEDC0845CEA3DC21069DB48E768A7CB" decryptionKey="BA0B559233C456B25C7D462855911AF397ED0F9AB99447D497F4B2224637EF35" validation="SHA1" decryption="AES" />
+    <!--<pages enableViewStateMac="false" validateRequest="false" />-->
+		<compilation debug="true" targetFramework="4.6.1">
+			<assemblies>
+				<add assembly="DevExpress.Web.Bootstrap.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+				<add assembly="DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+				<add assembly="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+				<add assembly="DevExpress.Web.ASPxThemes.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+				<add assembly="DevExpress.XtraReports.v19.2.Web, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.XtraReports.v19.2.Web.WebForms, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.XtraReports.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.DataAccess.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.XtraCharts.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.Charts.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+				<add assembly="DevExpress.PivotGrid.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+				<add assembly="DevExpress.XtraGauges.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" />
+			<add assembly="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" /></assemblies>
+		</compilation>
+		<authentication mode="Forms">
+			<forms loginUrl="Login.aspx" defaultUrl="~/Default.aspx" />
+		</authentication>
+		<authorization>
+			<allow users="*" />
+		</authorization>
+		<profile>
+			<providers>
+				<clear />
+				<add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="ApplicationServices" applicationName="/" />
+			</providers>
+		</profile>
+		<roleManager enabled="false">
+			<providers>
+				<clear />
+				<add name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" connectionStringName="ApplicationServices" applicationName="/" />
+				<add name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider" applicationName="/" />
+			</providers>
+		</roleManager>
+		<httpHandlers>
+      <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+			<add type="DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="ASPxUploadProgressHandlerPage.ashx" validate="false" />
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DX.ashx" validate="false" />
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DXXRDV.axd" validate="false" />
+		</httpHandlers>
+		<httpModules>
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" name="ASPxHttpHandlerModule" />
+		</httpModules>
+		<globalization culture="" uiCulture="" />
+		<httpRuntime maxRequestLength="4096" requestValidationMode="4.0" executionTimeout="110" targetFramework="4.6.1" />
+		<pages enableViewStateMac="true" validateRequest="false">
+			<controls>
+				<add tagPrefix="dx" namespace="DevExpress.Web" assembly="DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+				<add tagPrefix="dx" namespace="DevExpress.Web.Bootstrap" assembly="DevExpress.Web.Bootstrap.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+			</controls>
+		</pages>
+	</system.web>
+	<location path="Login.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+	<location path="ChecadorEmpleados.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+  <location path="WS">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+  <location path="Sorteo.aspx">
+    <system.web>
+      <authorization>
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+	<location path="Content">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+	<location path="js">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+	<location path="img">
+		<system.web>
+			<authorization>
+				<allow users="*" />
+			</authorization>
+		</system.web>
+	</location>
+  <system.web.extensions>
+    <scripting>
+      <webServices>
+        <jsonSerialization maxJsonLength="50000000"></jsonSerialization>
+      </webServices>
+    </scripting>
+  </system.web.extensions>
+	<system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" />
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" name="ASPxHttpHandlerModule" />
+		</modules>
+		<handlers>
+      <add name="Elmah" verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+			<add type="DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="ASPxUploadProgressHandlerPage.ashx" name="ASPxUploadProgressHandler" preCondition="integratedMode" />
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DX.ashx" name="ASPxHttpHandlerModule" preCondition="integratedMode" />
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DXXRDV.axd" name="ASPxWebDocumentViewerHandlerModule" preCondition="integratedMode" />
+		</handlers>
+		<validation validateIntegratedModeConfiguration="false" />
+		<security>
+			<requestFiltering>
+				<requestLimits maxAllowedContentLength="30000000" />
+			</requestFiltering>
+		</security>
+  <httpProtocol>
+      <customHeaders>
+        <add name="Access-Control-Allow-Origin" value="*" />
+        <add name="Access-Control-Allow-Headers" value="Content-Type" />
+      </customHeaders>
+    </httpProtocol>
+	</system.webServer>
+	<devExpress>
+		<resources>
+			<add type="ThirdParty" />
+			<add type="DevExtreme" />
+		</resources>
+		<compression enableHtmlCompression="false" enableCallbackCompression="true" enableResourceCompression="true" enableResourceMerging="true" />
+		<settings accessibilityCompliant="true" doctypeMode="Html5" rightToLeft="false" checkReferencesToExternalScripts="true" protectControlState="true" ieCompatibilityVersion="edge" bootstrapMode="" />
+		<errors callbackErrorRedirectUrl="" />
+		<bootstrap mode="Bootstrap3" iconSet="Embedded" />
+		<themes enableThemesAssembly="true" styleSheetTheme="" theme="" customThemeAssemblies="" baseColor="" font="" />
+	</devExpress>
+	<appSettings>
+		<add key="vs:EnableBrowserLink" value="false" />
+	</appSettings>
+</configuration>
